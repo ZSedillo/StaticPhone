@@ -5,19 +5,29 @@ using System;
 using System.Collections;
 
 [RequireComponent(typeof(LayoutElement))]
-public class SwipeToCloseCard : MonoBehaviour, IInitializePotentialDragHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class SwipeToCloseCard : MonoBehaviour, 
+    IInitializePotentialDragHandler, 
+    IPointerDownHandler, 
+    IPointerUpHandler, 
+    IBeginDragHandler, 
+    IDragHandler, 
+    IEndDragHandler
 {
-    [Tooltip("How fast you must flick UP to kill the app (Velocity).")]
+    [Header("Swipe Settings")]
     public float flickVelocityThreshold = 10f; 
-    [Tooltip("How far you must drag UP to kill the app (Distance backup).")]
     public float swipeDistanceThreshold = 150f;
+    public float clickMaxMovement = 15f;
 
     private Action killAppAction;
+    private Action clickAction;
+
     private RectTransform rect;
     private ScrollRect parentScrollRect;
     private LayoutElement layoutElement;
 
     private bool isSwipingUp = false;
+    private bool isDraggingHorizontally = false;
+    private Vector2 pointerDownPosition;
     private float startY;
     private float lastDragDeltaY;
 
@@ -28,40 +38,64 @@ public class SwipeToCloseCard : MonoBehaviour, IInitializePotentialDragHandler, 
         layoutElement = GetComponent<LayoutElement>();
     }
 
-    public void Setup(Action onKill)
+    public void Setup(Action onKill, Action onClick)
     {
         killAppAction = onKill;
+        clickAction = onClick;
     }
 
     public void OnInitializePotentialDrag(PointerEventData eventData)
     {
-        if (parentScrollRect != null) parentScrollRect.OnInitializePotentialDrag(eventData);
+        if (parentScrollRect != null)
+        {
+            ExecuteEvents.Execute(parentScrollRect.gameObject, eventData, ExecuteEvents.initializePotentialDrag);
+        }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        pointerDownPosition = eventData.position;
+        isSwipingUp = false;
+        isDraggingHorizontally = false;
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        // If neither vertical nor horizontal drag took place and distance was small, it's a tap
+        if (!isSwipingUp && !isDraggingHorizontally)
+        {
+            if (Vector2.Distance(pointerDownPosition, eventData.position) < clickMaxMovement)
+            {
+                clickAction?.Invoke();
+            }
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // If dragging mostly UP
-        if (eventData.delta.y > 0 && eventData.delta.y > Mathf.Abs(eventData.delta.x))
+        // Check if movement is primarily UPWARDS
+        if (eventData.delta.y > 0 && Mathf.Abs(eventData.delta.y) > Mathf.Abs(eventData.delta.x))
         {
             isSwipingUp = true;
-            
-            // --- THE PERMANENT FIX ---
-            // 1. Save the exact anchored position (e.g. X: 90) before touching the layout
+            isDraggingHorizontally = false;
+
             Vector2 lockedPosition = rect.anchoredPosition;
-            
-            // 2. Detach from layout
             layoutElement.ignoreLayout = true; 
-            
-            // 3. Instantly force it back to X: 90 so it never snaps to 0!
             rect.anchoredPosition = lockedPosition;
-            
+
             startY = rect.anchoredPosition.y;
             lastDragDeltaY = 0f;
         }
         else
         {
+            // Horizontal scroll across the ScrollRect
             isSwipingUp = false;
-            if (parentScrollRect != null) parentScrollRect.OnBeginDrag(eventData);
+            isDraggingHorizontally = true;
+
+            if (parentScrollRect != null)
+            {
+                ExecuteEvents.Execute(parentScrollRect.gameObject, eventData, ExecuteEvents.beginDragHandler);
+            }
         }
     }
 
@@ -70,16 +104,18 @@ public class SwipeToCloseCard : MonoBehaviour, IInitializePotentialDragHandler, 
         if (isSwipingUp)
         {
             float newY = rect.anchoredPosition.y + eventData.delta.y;
-            if (newY > startY) 
+            if (newY > startY)
             {
-                // Keep X strictly locked to whatever position it started at (e.g., 90)
                 rect.anchoredPosition = new Vector2(rect.anchoredPosition.x, newY);
                 lastDragDeltaY = eventData.delta.y;
             }
         }
-        else
+        else if (isDraggingHorizontally)
         {
-            if (parentScrollRect != null) parentScrollRect.OnDrag(eventData);
+            if (parentScrollRect != null)
+            {
+                ExecuteEvents.Execute(parentScrollRect.gameObject, eventData, ExecuteEvents.dragHandler);
+            }
         }
     }
 
@@ -89,7 +125,7 @@ public class SwipeToCloseCard : MonoBehaviour, IInitializePotentialDragHandler, 
         {
             if (lastDragDeltaY > flickVelocityThreshold || (rect.anchoredPosition.y - startY) > swipeDistanceThreshold)
             {
-                if (killAppAction != null) killAppAction.Invoke();
+                killAppAction?.Invoke();
                 Destroy(gameObject);
             }
             else
@@ -97,9 +133,12 @@ public class SwipeToCloseCard : MonoBehaviour, IInitializePotentialDragHandler, 
                 StartCoroutine(SnapBack());
             }
         }
-        else
+        else if (isDraggingHorizontally)
         {
-            if (parentScrollRect != null) parentScrollRect.OnEndDrag(eventData);
+            if (parentScrollRect != null)
+            {
+                ExecuteEvents.Execute(parentScrollRect.gameObject, eventData, ExecuteEvents.endDragHandler);
+            }
         }
     }
 
@@ -112,6 +151,6 @@ public class SwipeToCloseCard : MonoBehaviour, IInitializePotentialDragHandler, 
             yield return null;
         }
         rect.anchoredPosition = targetPosition;
-        layoutElement.ignoreLayout = false; 
+        layoutElement.ignoreLayout = false;
     }
 }

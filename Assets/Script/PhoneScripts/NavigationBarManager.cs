@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 
@@ -27,8 +28,8 @@ public class NavigationBarManager : MonoBehaviour
     {
         if (currentApp != null)
         {
-            appHistory.Push(currentApp); // Remember the current app before we open the next one
-            currentApp.gameObject.SetActive(false); // Hide the old app instantly
+            appHistory.Push(currentApp);
+            currentApp.gameObject.SetActive(false);
         }
         
         currentApp = appToOpen;
@@ -56,13 +57,15 @@ public class NavigationBarManager : MonoBehaviour
         
         // 3. Reset the OS UI
         if (recentsViewUI != null) recentsViewUI.SetActive(false);
-        if (notificationPanel != null) notificationPanel.CloseNotification();
+        if (notificationPanel != null && notificationPanel.gameObject.activeInHierarchy) 
+        {
+            notificationPanel.CloseNotification();
+        }
         if (homeScreenSwiper != null) homeScreenSwiper.GoToHomePage();
     }
 
     public void OnBackButtonClicked()
     {
-        // If the Samsung Recents view is open, the back button just closes it
         if (recentsViewUI != null && recentsViewUI.activeSelf)
         {
             recentsViewUI.SetActive(false);
@@ -70,13 +73,11 @@ public class NavigationBarManager : MonoBehaviour
             return;
         }
 
-        // If we have an app open, close it
         if (currentApp != null)
         {
             currentApp.CloseApp();
             currentApp = null;
             
-            // If we navigated here from another app, go back to that app
             if (appHistory.Count > 0)
             {
                 currentApp = appHistory.Pop();
@@ -94,7 +95,7 @@ public class NavigationBarManager : MonoBehaviour
         if (isOpening)
         {
             StopAllCoroutines();
-            StartCoroutine(OpenRecentsRoutine()); // Start the sequence!
+            StartCoroutine(OpenRecentsRoutine());
         }
         else if (currentApp != null)
         {
@@ -104,88 +105,95 @@ public class NavigationBarManager : MonoBehaviour
         }
     }
 
-private IEnumerator OpenRecentsRoutine()
+    private IEnumerator OpenRecentsRoutine()
     {
-        // 1. Tell the app to take a picture
+        // 1. Capture snapshot if an app is currently open
         if (currentApp != null)
         {
             currentApp.SuspendAppInstantly();
-            
-            // FIX: Force the Manager to wait 2 frames! 
-            // This guarantees the app has fully saved the photo before we build the cards.
             yield return new WaitForEndOfFrame();
             yield return null; 
         }
 
-        // 2. Start the smooth opening animation
+        // 2. Animate Recents Panel
         StartCoroutine(AnimateRecentsUI(true));
 
         // 3. Clear old cards
-        foreach (Transform child in recentsContentContainer) Destroy(child.gameObject);
-
-        // 4. Build the new cards
-        foreach (AppWindow app in openAppsList.ToArray()) // Added .ToArray() for safety
+        foreach (Transform child in recentsContentContainer) 
         {
-            AppWindow appToKill = app; // Creates a strict reference so the button doesn't get confused
-            
+            Destroy(child.gameObject);
+        }
+
+        // 4. Build cards for each active app
+        foreach (AppWindow app in openAppsList.ToArray())
+        {
+            if (app == null) continue;
+
+            AppWindow appToKill = app;
             GameObject card = Instantiate(recentCardPrefab, recentsContentContainer);
             
-            // --- SET THE SCREENSHOT ---
-            if (appToKill.liveSnapshot != null)
+            // --- SET SNAPSHOT / BACKGROUND COLOR ---
+            Image cardImage = card.GetComponent<Image>();
+            if (cardImage != null)
             {
-                card.GetComponent<UnityEngine.UI.Image>().color = Color.white;
-                card.GetComponent<UnityEngine.UI.Image>().sprite = appToKill.liveSnapshot;
-            }
-            else
-            {
-                card.GetComponent<UnityEngine.UI.Image>().color = appToKill.appBackgroundColor;
+                if (appToKill.liveSnapshot != null)
+                {
+                    cardImage.color = Color.white;
+                    cardImage.sprite = appToKill.liveSnapshot;
+                }
+                else
+                {
+                    cardImage.color = appToKill.appBackgroundColor;
+                }
             }
             
-            // --- SET THE UNIQUE APP ICON ---
+            // --- SET APP ICON ---
             Transform iconTransform = card.transform.Find("AppIcon");
             if (iconTransform != null)
             {
-                iconTransform.gameObject.SetActive(true); 
-                iconTransform.GetComponent<UnityEngine.UI.Image>().sprite = appToKill.appIcon; 
+                Image iconImage = iconTransform.GetComponent<Image>();
+                if (iconImage != null && appToKill.appIcon != null)
+                {
+                    iconTransform.gameObject.SetActive(true);
+                    iconImage.sprite = appToKill.appIcon;
+                }
+                else
+                {
+                    iconTransform.gameObject.SetActive(false);
+                }
             }
             
-            // --- APPLY SWIPE TO KILL ---
+            // --- ATTACH ACTIONS TO SWIPE SCRIPT ---
             SwipeToCloseCard swipeScript = card.GetComponent<SwipeToCloseCard>();
             if (swipeScript != null)
             {
-                swipeScript.Setup(() => 
-                {
-                    openAppsList.Remove(appToKill); // Erase from memory list
-                    appToKill.gameObject.SetActive(false); // Shut off the app window
-                    
-                    // If we just killed the app we were currently looking at, clear it!
-                    if (currentApp == appToKill) currentApp = null; 
-                });
+                swipeScript.Setup(
+                    () => { // Kill app
+                        openAppsList.Remove(appToKill);
+                        appToKill.gameObject.SetActive(false);
+                        if (currentApp == appToKill) currentApp = null;
+                    },
+                    () => { // Tap to reopen app
+                        StopAllCoroutines();
+                        StartCoroutine(AnimateRecentsUI(false));
+                        LaunchApplication(appToKill);
+                    }
+                );
             }
-            
-            // --- MAKE CLICKABLE ---
-            card.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() => 
-            {
-                StopAllCoroutines();
-                StartCoroutine(AnimateRecentsUI(false));
-                LaunchApplication(appToKill);
-            });
         }
     }
 
-    // --- SMOOTH ANIMATION COROUTINE ---
     private IEnumerator AnimateRecentsUI(bool open)
     {
-        float speed = 15f; // Matches your AppWindow speed
+        float speed = 15f;
         Vector3 targetScale = open ? Vector3.one : Vector3.zero;
         
         if (open)
         {
             recentsViewUI.SetActive(true);
-            recentsViewUI.transform.localScale = Vector3.zero; // Start tiny
+            recentsViewUI.transform.localScale = Vector3.zero;
         }
 
-        // Animate the scale
         while (Vector3.Distance(recentsViewUI.transform.localScale, targetScale) > 0.01f)
         {
             recentsViewUI.transform.localScale = Vector3.Lerp(recentsViewUI.transform.localScale, targetScale, Time.deltaTime * speed);
@@ -194,7 +202,6 @@ private IEnumerator OpenRecentsRoutine()
         
         recentsViewUI.transform.localScale = targetScale;
         
-        // Hide completely if we are closing it
         if (!open)
         {
             recentsViewUI.SetActive(false);
