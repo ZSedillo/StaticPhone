@@ -28,7 +28,7 @@ public class SwipeToCloseCard : MonoBehaviour,
     private bool isSwipingUp = false;
     private bool isDraggingHorizontally = false;
     private Vector2 pointerDownPosition;
-    private float startY;
+    private float startLocalY;
     private float lastDragDeltaY;
 
     void Awake()
@@ -61,7 +61,6 @@ public class SwipeToCloseCard : MonoBehaviour,
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        // If neither vertical nor horizontal drag took place and distance was small, it's a tap
         if (!isSwipingUp && !isDraggingHorizontally)
         {
             if (Vector2.Distance(pointerDownPosition, eventData.position) < clickMaxMovement)
@@ -73,22 +72,16 @@ public class SwipeToCloseCard : MonoBehaviour,
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // Check if movement is primarily UPWARDS
+        // Detect vertical swipe intent
         if (eventData.delta.y > 0 && Mathf.Abs(eventData.delta.y) > Mathf.Abs(eventData.delta.x))
         {
             isSwipingUp = true;
             isDraggingHorizontally = false;
-
-            Vector2 lockedPosition = rect.anchoredPosition;
-            layoutElement.ignoreLayout = true; 
-            rect.anchoredPosition = lockedPosition;
-
-            startY = rect.anchoredPosition.y;
+            startLocalY = rect.localPosition.y;
             lastDragDeltaY = 0f;
         }
         else
         {
-            // Horizontal scroll across the ScrollRect
             isSwipingUp = false;
             isDraggingHorizontally = true;
 
@@ -103,10 +96,11 @@ public class SwipeToCloseCard : MonoBehaviour,
     {
         if (isSwipingUp)
         {
-            float newY = rect.anchoredPosition.y + eventData.delta.y;
-            if (newY > startY)
+            // Move card via localPosition so HorizontalLayoutGroup spacing stays intact while dragging
+            float newY = rect.localPosition.y + eventData.delta.y;
+            if (newY >= startLocalY)
             {
-                rect.anchoredPosition = new Vector2(rect.anchoredPosition.x, newY);
+                rect.localPosition = new Vector3(rect.localPosition.x, newY, rect.localPosition.z);
                 lastDragDeltaY = eventData.delta.y;
             }
         }
@@ -123,10 +117,11 @@ public class SwipeToCloseCard : MonoBehaviour,
     {
         if (isSwipingUp)
         {
-            if (lastDragDeltaY > flickVelocityThreshold || (rect.anchoredPosition.y - startY) > swipeDistanceThreshold)
+            float totalDisplacement = rect.localPosition.y - startLocalY;
+
+            if (lastDragDeltaY > flickVelocityThreshold || totalDisplacement > swipeDistanceThreshold)
             {
-                killAppAction?.Invoke();
-                Destroy(gameObject);
+                StartCoroutine(DismissAndKill());
             }
             else
             {
@@ -142,15 +137,28 @@ public class SwipeToCloseCard : MonoBehaviour,
         }
     }
 
-    private IEnumerator SnapBack()
+    private IEnumerator DismissAndKill()
     {
-        Vector2 targetPosition = new Vector2(rect.anchoredPosition.x, startY);
-        while (Vector2.Distance(rect.anchoredPosition, targetPosition) > 0.5f)
+        // Animate offscreen upwards before destroying
+        Vector3 targetPos = new Vector3(rect.localPosition.x, rect.localPosition.y + 600f, rect.localPosition.z);
+        while (Vector3.Distance(rect.localPosition, targetPos) > 10f)
         {
-            rect.anchoredPosition = Vector2.Lerp(rect.anchoredPosition, targetPosition, Time.deltaTime * 15f);
+            rect.localPosition = Vector3.Lerp(rect.localPosition, targetPos, Time.deltaTime * 20f);
             yield return null;
         }
-        rect.anchoredPosition = targetPosition;
-        layoutElement.ignoreLayout = false;
+
+        killAppAction?.Invoke();
+        Destroy(gameObject);
+    }
+
+    private IEnumerator SnapBack()
+    {
+        Vector3 targetPos = new Vector3(rect.localPosition.x, startLocalY, rect.localPosition.z);
+        while (Vector3.Distance(rect.localPosition, targetPos) > 1f)
+        {
+            rect.localPosition = Vector3.Lerp(rect.localPosition, targetPos, Time.deltaTime * 15f);
+            yield return null;
+        }
+        rect.localPosition = targetPos;
     }
 }

@@ -55,15 +55,20 @@ public class NavigationBarManager : MonoBehaviour
         // 2. Wipe the back button history
         appHistory.Clear();
         
-        // 3. Reset the OS UI
-        if (recentsViewUI != null) recentsViewUI.SetActive(false);
+        // 3. Smoothly animate Recents closed instead of abrupt disable
+        if (recentsViewUI != null && recentsViewUI.activeSelf)
+        {
+            StopAllCoroutines();
+            StartCoroutine(AnimateRecentsUI(false));
+        }
+
+        // 4. Reset other OS panels
         if (notificationPanel != null && notificationPanel.gameObject.activeInHierarchy) 
         {
             notificationPanel.CloseNotification();
         }
         if (homeScreenSwiper != null) homeScreenSwiper.GoToHomePage();
     }
-
     public void OnBackButtonClicked()
     {
         if (recentsViewUI != null && recentsViewUI.activeSelf)
@@ -97,11 +102,17 @@ public class NavigationBarManager : MonoBehaviour
             StopAllCoroutines();
             StartCoroutine(OpenRecentsRoutine());
         }
-        else if (currentApp != null)
+        else
         {
+            // Close recents regardless of whether an app is active
             StopAllCoroutines();
             StartCoroutine(AnimateRecentsUI(false));
-            currentApp.OpenApp(); 
+            
+            // Reopen the current app if one was suspended
+            if (currentApp != null)
+            {
+                currentApp.OpenApp(); 
+            }
         }
     }
 
@@ -169,8 +180,14 @@ public class NavigationBarManager : MonoBehaviour
             {
                 swipeScript.Setup(
                     () => { // Kill app
+                        // 1. Remove from active background list
                         openAppsList.Remove(appToKill);
+
+                        // 2. Wipe snapshot memory & deactivate window
+                        appToKill.liveSnapshot = null;
                         appToKill.gameObject.SetActive(false);
+
+                        // 3. Clear current app pointer if it was this app
                         if (currentApp == appToKill) currentApp = null;
                     },
                     () => { // Tap to reopen app
@@ -180,7 +197,9 @@ public class NavigationBarManager : MonoBehaviour
                     }
                 );
             }
+
         }
+        StartCoroutine(CenterRecentsView());
     }
 
     private IEnumerator AnimateRecentsUI(bool open)
@@ -205,6 +224,23 @@ public class NavigationBarManager : MonoBehaviour
         if (!open)
         {
             recentsViewUI.SetActive(false);
+        }
+    }
+    private IEnumerator CenterRecentsView()
+    {
+        yield return new WaitForEndOfFrame();
+
+        ScrollRect scrollRect = recentsViewUI.GetComponentInChildren<ScrollRect>();
+        if (scrollRect != null)
+        {
+            scrollRect.horizontalNormalizedPosition = 0f;
+
+            // Trigger scale calculation once cards are positioned
+            RecentsCardScroller scroller = recentsContentContainer.GetComponent<RecentsCardScroller>();
+            if (scroller != null)
+            {
+                scroller.RefreshCardScales();
+            }
         }
     }
 }

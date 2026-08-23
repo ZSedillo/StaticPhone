@@ -30,8 +30,16 @@ public class AppWindow : MonoBehaviour
     // Called when the Home button is pressed
     public void CloseApp()
     {
-        StopAllCoroutines();
-        StartCoroutine(CaptureScreenshotAndClose(true));
+        if (gameObject.activeInHierarchy)
+        {
+            StopAllCoroutines();
+            StartCoroutine(CaptureScreenshotAndClose(true));
+        }
+        else
+        {
+            // App was already suspended/hidden by Recents, ensure scale is reset
+            transform.localScale = Vector3.zero;
+        }
     }
     
     // Called when Recents is pressed so it hides instantly instead of shrinking
