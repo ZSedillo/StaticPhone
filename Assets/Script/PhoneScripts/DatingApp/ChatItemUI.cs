@@ -18,7 +18,7 @@ public class ChatItemUI : MonoBehaviour
 
         if (txtLastMessage != null)
         {
-            int maxCharLength = 22; // Strict limit: exactly 22 characters + "..."
+            int maxCharLength = 22; // Limit: 22 characters + "..."
             if (!string.IsNullOrEmpty(lastMessage) && lastMessage.Length > maxCharLength)
             {
                 txtLastMessage.text = lastMessage.Substring(0, maxCharLength) + "...";
@@ -35,10 +35,17 @@ public class ChatItemUI : MonoBehaviour
         if (avatarImage != null && avatarSprite != null)
             avatarImage.sprite = avatarSprite;
 
-        if (btnOpenChat != null && onClick != null)
+        // Auto-detect Button component if not manually assigned in inspector
+        if (btnOpenChat == null)
+            btnOpenChat = GetComponent<Button>();
+
+        if (btnOpenChat != null)
         {
             btnOpenChat.onClick.RemoveAllListeners();
-            btnOpenChat.onClick.AddListener(() => onClick.Invoke());
+            if (onClick != null)
+            {
+                btnOpenChat.onClick.AddListener(() => onClick.Invoke());
+            }
         }
     }
 }

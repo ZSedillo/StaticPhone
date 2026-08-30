@@ -18,4 +18,5 @@ public class GeneratedProfile
     public int age;
     public string bio;
     public string personalityType;
+    public int avatarIndex;
 }

@@ -6,87 +6,89 @@ public class ChatsViewController : MonoBehaviour
     [Header("UI References")]
     public Transform chatsContentParent;
     public GameObject chatItemPrefab;
-    public TextAsset profileJsonFile; // Drag your JSON file here
 
-    [Header("Developer Testing")]
-    [Range(1, 30)] public int devSpawnCount = 10;
-    public bool spawnOnStart = true;
+    [Header("Avatar Sprites Pool")]
+    public List<Sprite> profilePhotos = new List<Sprite>();
 
-    private ProfileDataWrapper loadedData;
+    [Header("Direct Chat Room Reference")]
+    public DirectChatRoomController directChatRoom;
 
-    void Start()
+    private void OnEnable()
     {
-        LoadDataFromJson();
-
-        if (spawnOnStart)
+        if (GameManager.Instance != null)
         {
-            GenerateChats(devSpawnCount);
+            GameManager.Instance.OnChatsUpdated += RefreshChatsUI;
+            RefreshChatsUI();
         }
     }
 
-    private void LoadDataFromJson()
+    private void OnDisable()
     {
-        if (profileJsonFile != null)
+        if (GameManager.Instance != null)
         {
-            try
-            {
-                loadedData = JsonUtility.FromJson<ProfileDataWrapper>(profileJsonFile.text);
-            }
-            catch (System.Exception e)
-            {
-                Debug.LogWarning("Failed to parse JSON for chats: " + e.Message);
-            }
+            GameManager.Instance.OnChatsUpdated -= RefreshChatsUI;
         }
     }
 
-    [ContextMenu("Regenerate Chats")]
-    public void RegenerateChats()
+    private void Start()
     {
-        GenerateChats(devSpawnCount);
+        RefreshChatsUI();
     }
 
-    public void GenerateChats(int count)
+    public void RefreshChatsUI()
     {
         if (chatsContentParent == null || chatItemPrefab == null) return;
 
-        // Clear existing spawned panels
+        // Clear previous cards
         for (int i = chatsContentParent.childCount - 1; i >= 0; i--)
         {
             Destroy(chatsContentParent.GetChild(i).gameObject);
         }
 
-        List<string> names = (loadedData != null && loadedData.names != null && loadedData.names.Count > 0)
-            ? loadedData.names
-            : new List<string> { "Elena", "Chloe", "Mina", "Rhea", "Yuna", "Sora", "Hana", "Maya", "Kira", "Aria" };
+        if (GameManager.Instance == null) return;
 
-        List<string> sampleMessages = (loadedData != null && loadedData.bios != null && loadedData.bios.Count > 0)
-            ? loadedData.bios
-            : new List<string> {
-                "Always tired, fueled entirely by iced coffee.",
-                "Looking for someone who replies fast.",
-                "My social battery lasts approximately 23 minutes.",
-                "Let's skip small talk and tell me your existential dread."
-            };
-
-        for (int i = 0; i < count; i++)
+        // Populate dynamic matches from GameManager
+        for (int i = 0; i < GameManager.Instance.activeChats.Count; i++)
         {
+            ContactChatData chatData = GameManager.Instance.activeChats[i];
             GameObject newChat = Instantiate(chatItemPrefab, chatsContentParent);
             ChatItemUI ui = newChat.GetComponent<ChatItemUI>();
 
             if (ui != null)
             {
-                string contactName = names[i % names.Count] + (i >= names.Count ? $" {i / names.Count + 1}" : "");
-                string message = sampleMessages[i % sampleMessages.Count];
-                string time = $"{Random.Range(1, 12)}:{Random.Range(10, 59):D2} PM";
+                string lastMsg = chatData.conversationHistory.Count > 0
+                    ? chatData.conversationHistory[chatData.conversationHistory.Count - 1].messageText
+                    : chatData.contactBio;
+
+                Sprite avatar = (chatData.avatarIndex >= 0 && chatData.avatarIndex < profilePhotos.Count)
+                    ? profilePhotos[chatData.avatarIndex]
+                    : null;
 
                 int index = i;
-                ui.Setup(contactName, message, time, null, () => OnChatSelected(contactName, index));
+                ui.Setup(
+                    chatData.contactName, 
+                    lastMsg, 
+                    chatData.lastMessageTime, 
+                    avatar, 
+                    () => OnChatSelected(chatData.contactName, index)
+                );
             }
         }
     }
 
     private void OnChatSelected(string contactName, int index)
     {
-        Debug.Log($"Opened chat with: {contactName} (ID: {index})");
+        if (GameManager.Instance == null || directChatRoom == null) return;
+
+        ContactChatData selectedChat = GameManager.Instance.activeChats.Find(c => c.contactName == contactName);
+        if (selectedChat != null)
+        {
+            Sprite avatar = (selectedChat.avatarIndex >= 0 && selectedChat.avatarIndex < profilePhotos.Count)
+                ? profilePhotos[selectedChat.avatarIndex]
+                : null;
+
+            // Opens the direct 1-on-1 Messenger-style room
+            directChatRoom.OpenChatRoom(selectedChat, avatar);
+        }
     }
 }

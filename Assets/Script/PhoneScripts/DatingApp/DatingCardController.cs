@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class DatingCardController : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class DatingCardController : MonoBehaviour
     public AnimationCurve flyCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
     private ProfilePoolData poolData;
+    private GeneratedProfile currentActiveProfile;
 
     void Start()
     {
@@ -33,8 +35,8 @@ public class DatingCardController : MonoBehaviour
 
         if (activeCardRect != null)
         {
-            GeneratedProfile firstProfile = GenerateRandomProfile();
-            PopulateCardUI(activeCardRect.gameObject, firstProfile);
+            currentActiveProfile = GenerateRandomProfile();
+            PopulateCardUI(activeCardRect.gameObject, currentActiveProfile);
         }
     }
 
@@ -53,24 +55,60 @@ public class DatingCardController : MonoBehaviour
 
     public GeneratedProfile GenerateRandomProfile()
     {
-        if (poolData == null) return null;
+        if (poolData == null || poolData.names == null || poolData.names.Count == 0) return null;
 
+        // 1. Get list of names that have NOT been liked yet
+        List<string> availableNames = new List<string>(poolData.names);
+
+        if (GameManager.Instance != null && GameManager.Instance.activeChats != null)
+        {
+            // Exclude anyone already matched/liked in GameManager
+            availableNames = poolData.names
+                .Where(name => !GameManager.Instance.activeChats.Any(chat => chat.contactName == name))
+                .ToList();
+        }
+
+        // 2. If all characters have been liked, show empty / fallback
+        if (availableNames.Count == 0)
+        {
+            Debug.Log("No more new profiles available. You matched with everyone!");
+            return null;
+        }
+
+        // 3. Randomly generate from available names
         GeneratedProfile profile = new GeneratedProfile();
-        profile.profileName = poolData.names[Random.Range(0, poolData.names.Count)];
+        profile.profileName = availableNames[Random.Range(0, availableNames.Count)];
         profile.age = Random.Range(poolData.minAge, poolData.maxAge + 1);
         profile.personalityType = poolData.personalityTypes[Random.Range(0, poolData.personalityTypes.Count)];
         profile.bio = poolData.bios[Random.Range(0, poolData.bios.Count)];
+        profile.avatarIndex = profilePhotos.Count > 0 ? Random.Range(0, profilePhotos.Count) : 0;
 
         return profile;
     }
 
     public void OnPassClicked()
     {
+        // Simply skip to the next profile. (The passed name stays in the pool)
         ProcessSwipe(false);
     }
 
     public void OnLikeClicked()
     {
+        if (currentActiveProfile == null) return;
+
+        // 1. Add matched profile to GameManager (this permanently marks them as liked)
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.AddMatch(
+                currentActiveProfile.profileName,
+                currentActiveProfile.bio,
+                currentActiveProfile.personalityType,
+                currentActiveProfile.avatarIndex,
+                currentActiveProfile.bio
+            );
+        }
+
+        // 2. Animate and cycle card
         ProcessSwipe(true);
     }
 
@@ -78,20 +116,31 @@ public class DatingCardController : MonoBehaviour
     {
         if (activeCardRect == null) return;
 
-        // 1. Duplicate the current card to do the fly-away animation
+        // Duplicate the current card for fly-away animation
         GameObject flyingClone = Instantiate(activeCardRect.gameObject, activeCardRect.parent);
         RectTransform cloneRect = flyingClone.GetComponent<RectTransform>();
         cloneRect.anchoredPosition = activeCardRect.anchoredPosition;
         cloneRect.localRotation = activeCardRect.localRotation;
         cloneRect.localScale = activeCardRect.localScale;
-        cloneRect.SetAsLastSibling(); // Renders on top while flying away
+        cloneRect.SetAsLastSibling();
 
-        // 2. Animate and destroy the clone
         StartCoroutine(AnimateFlyAndDestroy(cloneRect, isLike));
 
-        // 3. Immediately refresh the stationary active card with a new RNG profile
-        GeneratedProfile newProfile = GenerateRandomProfile();
-        PopulateCardUI(activeCardRect.gameObject, newProfile);
+        // Generate next available profile
+        currentActiveProfile = GenerateRandomProfile();
+
+        if (currentActiveProfile != null)
+        {
+            activeCardRect.gameObject.SetActive(true);
+            PopulateCardUI(activeCardRect.gameObject, currentActiveProfile);
+        }
+        else
+        {
+            // Hide card and disable buttons if no profiles are left
+            activeCardRect.gameObject.SetActive(false);
+            if (btnLike != null) btnLike.interactable = false;
+            if (btnPass != null) btnPass.interactable = false;
+        }
     }
 
     private void PopulateCardUI(GameObject cardObj, GeneratedProfile profile)
@@ -103,9 +152,9 @@ public class DatingCardController : MonoBehaviour
         TextMeshProUGUI bio = cardObj.transform.Find("Contents/BioDetailsText")?.GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI personality = cardObj.transform.Find("Contents/PersonalityTypeText")?.GetComponent<TextMeshProUGUI>();
 
-        if (photo != null && profilePhotos.Count > 0)
+        if (photo != null && profilePhotos.Count > 0 && profile.avatarIndex < profilePhotos.Count)
         {
-            photo.sprite = profilePhotos[Random.Range(0, profilePhotos.Count)];
+            photo.sprite = profilePhotos[profile.avatarIndex];
         }
 
         if (nameAge != null) nameAge.text = $"{profile.profileName}, {profile.age}";

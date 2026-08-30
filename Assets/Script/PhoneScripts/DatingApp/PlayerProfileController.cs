@@ -49,13 +49,26 @@ public class PlayerProfileController : MonoBehaviour
     [Header("Data Source")]
     public TextAsset profileJsonFile;
 
-    public static string CurrentName = "Matchi";
-    public static int CurrentAge = 21;
-    public static string CurrentPersonality = "Introvert";
-    public static string CurrentBio = "Just another insomniac staring at a static screen.";
     public static Sprite CurrentAvatarSprite;
 
     private List<string> allPersonalities = new List<string>();
+
+    private void OnEnable()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnUserDataUpdated += RefreshViewDisplay;
+            RefreshViewDisplay();
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnUserDataUpdated -= RefreshViewDisplay;
+        }
+    }
 
     void Start()
     {
@@ -105,6 +118,8 @@ public class PlayerProfileController : MonoBehaviour
         if (presetAvatars.Count == 0) return;
         isUsingWebcamPhoto = false;
         currentAvatarIndex = (currentAvatarIndex + 1) % presetAvatars.Count;
+        if (GameManager.Instance != null)
+            GameManager.Instance.currentUser.avatarIndex = currentAvatarIndex;
         UpdateAvatarDisplay();
     }
 
@@ -114,6 +129,8 @@ public class PlayerProfileController : MonoBehaviour
         isUsingWebcamPhoto = false;
         currentAvatarIndex--;
         if (currentAvatarIndex < 0) currentAvatarIndex = presetAvatars.Count - 1;
+        if (GameManager.Instance != null)
+            GameManager.Instance.currentUser.avatarIndex = currentAvatarIndex;
         UpdateAvatarDisplay();
     }
 
@@ -166,16 +183,18 @@ public class PlayerProfileController : MonoBehaviour
 
         if (isEditing)
         {
-            if (inputName != null) inputName.text = CurrentName;
-            if (inputAge != null) inputAge.text = CurrentAge.ToString();
-            if (inputBio != null) inputBio.text = CurrentBio;
+            UserProfileData user = GameManager.Instance != null ? GameManager.Instance.currentUser : new UserProfileData();
+
+            if (inputName != null) inputName.text = user.playerName;
+            if (inputAge != null) inputAge.text = user.playerAge.ToString();
+            if (inputBio != null) inputBio.text = user.playerBio;
 
             if (dropdownPersonality != null)
             {
                 dropdownPersonality.ClearOptions();
                 dropdownPersonality.AddOptions(allPersonalities);
 
-                int idx = allPersonalities.IndexOf(CurrentPersonality);
+                int idx = allPersonalities.IndexOf(user.playerPersonality);
                 dropdownPersonality.value = idx >= 0 ? idx : 0;
                 dropdownPersonality.RefreshShownValue();
             }
@@ -188,24 +207,41 @@ public class PlayerProfileController : MonoBehaviour
 
     public void SaveProfileChanges()
     {
-        if (inputName != null && !string.IsNullOrEmpty(inputName.text)) CurrentName = inputName.text;
-        if (inputAge != null && int.TryParse(inputAge.text, out int parsedAge)) CurrentAge = parsedAge;
-        if (inputBio != null) CurrentBio = inputBio.text;
-
-        if (dropdownPersonality != null && dropdownPersonality.value < allPersonalities.Count)
+        if (GameManager.Instance != null)
         {
-            CurrentPersonality = allPersonalities[dropdownPersonality.value];
+            UserProfileData user = GameManager.Instance.currentUser;
+
+            if (inputName != null && !string.IsNullOrEmpty(inputName.text)) 
+                user.playerName = inputName.text.Trim();
+
+            if (inputAge != null && int.TryParse(inputAge.text.Trim(), out int parsedAge)) 
+                user.playerAge = parsedAge;
+
+            if (inputBio != null) 
+                user.playerBio = inputBio.text;
+
+            if (dropdownPersonality != null && dropdownPersonality.value < allPersonalities.Count)
+            {
+                user.playerPersonality = allPersonalities[dropdownPersonality.value];
+            }
         }
 
         RefreshViewDisplay();
         SetEditMode(false);
     }
 
-    private void RefreshViewDisplay()
+    public void RefreshViewDisplay()
     {
-        if (displayNameAge != null) displayNameAge.text = $"{CurrentName}, {CurrentAge}";
-        if (displayPersonality != null) displayPersonality.text = CurrentPersonality;
-        if (displayBio != null) displayBio.text = CurrentBio;
+        UserProfileData user = GameManager.Instance != null ? GameManager.Instance.currentUser : new UserProfileData();
+
+        if (displayNameAge != null) 
+            displayNameAge.text = $"{user.playerName}, {user.playerAge}";
+
+        if (displayPersonality != null) 
+            displayPersonality.text = user.playerPersonality;
+
+        if (displayBio != null) 
+            displayBio.text = user.playerBio;
 
         StartCoroutine(RecalculateContentHeightNextFrame());
     }
@@ -223,8 +259,8 @@ public class PlayerProfileController : MonoBehaviour
         float infoSectionTopOffset = 315f;
         float totalCalculatedHeight = infoSectionTopOffset + bioLocalBottomY + extraBottomPadding;
 
-        float finalHeight = Mathf.Max(totalCalculatedHeight, 750f);
-        profileContentRect.sizeDelta = new Vector2(profileContentRect.sizeDelta.x, finalHeight);
+        // float finalHeight = Mathf.Max(totalCalculatedHeight, 750f);
+        // profileContentRect.sizeDelta = new Vector2(profileContentRect.sizeDelta.x, finalHeight);
     }
 
     void OnDestroy()
