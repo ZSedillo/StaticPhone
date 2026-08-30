@@ -1,58 +1,147 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class DatingAppNavigation : MonoBehaviour
 {
-    [Header("Panels")]
-    public GameObject exploreViewPanel;
-    public GameObject likesViewPanel;
-    public GameObject chatsViewPanel;
-    public GameObject profileViewPanel;
+    [System.Serializable]
+    public class NavTab
+    {
+        public string tabName;
+        public GameObject panel;
+        public Button navButton;
+    }
 
-    [Header("Navigation Buttons")]
-    public Button navBtnProfile;
-    public Button navBtnExplore;
-    public Button navBtnLikes;
-    public Button navBtnChats;
+    [Header("Navigation Tabs (0: Profile, 1: Explore, 2: Likes, 3: Chats)")]
+    public List<NavTab> tabs = new List<NavTab>();
 
-    [Header("Colors")]
+    [Header("Icon Tint Colors")]
     public Color activeTabColor = Color.white;
     public Color inactiveTabColor = new Color(1f, 1f, 1f, 0.4f);
 
+    [Header("Transition Settings")]
+    public float fadeDuration = 0.15f;
+
+    private int currentTabIndex = -1;
+    private Coroutine activeTransitionCoroutine;
+
     void Start()
     {
-        if (navBtnProfile != null) navBtnProfile.onClick.AddListener(() => SwitchTab(0));
-        if (navBtnExplore != null) navBtnExplore.onClick.AddListener(() => SwitchTab(1));
-        if (navBtnLikes != null) navBtnLikes.onClick.AddListener(() => SwitchTab(2));
-        if (navBtnChats != null) navBtnChats.onClick.AddListener(() => SwitchTab(3));
+        // Wire up button click events
+        for (int i = 0; i < tabs.Count; i++)
+        {
+            int index = i;
+            if (tabs[i].navButton != null)
+            {
+                tabs[i].navButton.onClick.AddListener(() => SwitchTab(index));
+            }
+        }
 
-        // Default directly to Explore/Discover screen
-        SwitchTab(1);
+        // Default to Explore tab (Index 1) on launch
+        SwitchTab(1, instant: true);
     }
 
-    public void SwitchTab(int tabIndex)
+    public void SwitchTab(int targetIndex)
     {
-        // 0 = Profile, 1 = Explore, 2 = Likes, 3 = Chats
-        if (profileViewPanel != null) profileViewPanel.SetActive(tabIndex == 0);
-        if (exploreViewPanel != null) exploreViewPanel.SetActive(tabIndex == 1);
-        if (likesViewPanel != null) likesViewPanel.SetActive(tabIndex == 2);
-        if (chatsViewPanel != null) chatsViewPanel.SetActive(tabIndex == 3);
+        SwitchTab(targetIndex, false);
+    }
 
-        UpdateNavVisuals(tabIndex);
+    public void SwitchTab(int targetIndex, bool instant)
+    {
+        if (targetIndex == currentTabIndex || targetIndex < 0 || targetIndex >= tabs.Count) return;
+
+        if (activeTransitionCoroutine != null)
+        {
+            StopCoroutine(activeTransitionCoroutine);
+        }
+
+        if (instant)
+        {
+            ApplyInstantSwitch(targetIndex);
+        }
+        else
+        {
+            activeTransitionCoroutine = StartCoroutine(TransitionToTab(targetIndex));
+        }
+
+        currentTabIndex = targetIndex;
+        UpdateNavVisuals(currentTabIndex);
+    }
+
+    private void ApplyInstantSwitch(int targetIndex)
+    {
+        for (int i = 0; i < tabs.Count; i++)
+        {
+            if (tabs[i].panel != null)
+            {
+                bool isTarget = (i == targetIndex);
+                tabs[i].panel.SetActive(isTarget);
+
+                CanvasGroup cg = GetOrAddCanvasGroup(tabs[i].panel);
+                cg.alpha = isTarget ? 1f : 0f;
+            }
+        }
+    }
+
+    private IEnumerator TransitionToTab(int targetIndex)
+    {
+        GameObject currentPanel = (currentTabIndex >= 0 && currentTabIndex < tabs.Count) ? tabs[currentTabIndex].panel : null;
+        GameObject targetPanel = tabs[targetIndex].panel;
+
+        CanvasGroup currentCg = currentPanel != null ? GetOrAddCanvasGroup(currentPanel) : null;
+        CanvasGroup targetCg = targetPanel != null ? GetOrAddCanvasGroup(targetPanel) : null;
+
+        if (targetPanel != null)
+        {
+            targetPanel.SetActive(true);
+            if (targetCg != null) targetCg.alpha = 0f;
+        }
+
+        // Smooth Crossfade
+        float elapsed = 0f;
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / fadeDuration);
+
+            if (currentCg != null) currentCg.alpha = 1f - t;
+            if (targetCg != null) targetCg.alpha = t;
+
+            yield return null;
+        }
+
+        if (currentPanel != null)
+        {
+            currentPanel.SetActive(false);
+            if (currentCg != null) currentCg.alpha = 0f;
+        }
+
+        if (targetCg != null) targetCg.alpha = 1f;
+    }
+
+    private CanvasGroup GetOrAddCanvasGroup(GameObject obj)
+    {
+        CanvasGroup cg = obj.GetComponent<CanvasGroup>();
+        if (cg == null)
+        {
+            cg = obj.AddComponent<CanvasGroup>();
+        }
+        return cg;
     }
 
     private void UpdateNavVisuals(int activeIndex)
     {
-        SetTint(navBtnProfile, activeIndex == 0);
-        SetTint(navBtnExplore, activeIndex == 1);
-        SetTint(navBtnLikes, activeIndex == 2);
-        SetTint(navBtnChats, activeIndex == 3);
-    }
-
-    private void SetTint(Button btn, bool isActive)
-    {
-        if (btn == null) return;
-        Image img = btn.GetComponent<Image>();
-        if (img != null) img.color = isActive ? activeTabColor : inactiveTabColor;
+        for (int i = 0; i < tabs.Count; i++)
+        {
+            if (tabs[i].navButton != null)
+            {
+                Image iconImage = tabs[i].navButton.GetComponent<Image>();
+                if (iconImage != null)
+                {
+                    iconImage.color = (i == activeIndex) ? activeTabColor : inactiveTabColor;
+                }
+            }
+        }
     }
 }
