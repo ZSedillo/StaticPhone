@@ -119,11 +119,27 @@ public class DirectChatRoomController : MonoBehaviour
 
     private IEnumerator ScrollToBottom()
     {
+        // Wait two frames so ContentSizeFitter and LayoutGroup calculate heights
         yield return new WaitForEndOfFrame();
         Canvas.ForceUpdateCanvases();
-        if (messageScrollRect != null)
+
+        if (messageScrollRect != null && messageFeedContent != null)
         {
-            messageScrollRect.verticalNormalizedPosition = 0f; // Snaps directly to the latest message at the bottom
+            RectTransform contentRT = messageFeedContent.GetComponent<RectTransform>();
+            RectTransform viewportRT = messageScrollRect.viewport != null 
+                ? messageScrollRect.viewport 
+                : messageScrollRect.GetComponent<RectTransform>();
+
+            // Only snap to the bottom (0f) if messages actually exceed the viewport height!
+            // If content is shorter than the screen, keep it at the top (1f).
+            if (contentRT.rect.height > viewportRT.rect.height)
+            {
+                messageScrollRect.verticalNormalizedPosition = 0f;
+            }
+            else
+            {
+                messageScrollRect.verticalNormalizedPosition = 1f;
+            }
         }
     }
 
