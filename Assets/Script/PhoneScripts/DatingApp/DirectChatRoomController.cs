@@ -1,156 +1,210 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System.Collections;
 
 public class DirectChatRoomController : MonoBehaviour
 {
     [Header("Header References")]
-    public Button btnBack;
-    public Image partnerAvatar;
-    public TextMeshProUGUI txtPartnerName;
+    [SerializeField] private Button btnBack;
+    [SerializeField] private Image partnerAvatar;
+    [SerializeField] private TextMeshProUGUI txtPartnerName;
 
     [Header("Feed Scroll Area")]
-    public ScrollRect messageScrollRect;
-    public Transform messageFeedContent;
-    public GameObject directMessagePrefab;
+    [SerializeField] private ScrollRect messageScrollRect;
+    [SerializeField] private Transform messageFeedContent;
+    [SerializeField] private GameObject directMessagePrefab;
 
-    [Header("Input Bar")]
-    public TMP_InputField inputField;
-    public Button btnSend;
+    [Header("Choice Container")]
+    [SerializeField] private Transform choiceContainer;
+    [SerializeField] private GameObject choiceButtonPrefab;
 
     [Header("Screen Navigation")]
-    public GameObject chatsListPanel;
-    public GameObject bottomNav; // Optional: hide the bottom tab bar when inside a direct chat room
+    [SerializeField] private GameObject chatsListPanel;
+    [SerializeField] private GameObject bottomNav;
 
-    private ContactChatData currentChat;
+    [Header("Chat Flow")]
+    [SerializeField] private float partnerReplyDelay = 1.0f;
+    private DialogueStep currentDialogueStep;
 
-    private void Start()
+    private void Awake()
     {
         if (btnBack != null)
+        {
+            btnBack.onClick.RemoveAllListeners();
             btnBack.onClick.AddListener(CloseChatRoom);
-
-        if (btnSend != null)
-            btnSend.onClick.AddListener(SendPlayerMessage);
+        }
     }
 
-    /// <summary>
-    /// Opens the full chat view for the selected partner
-    /// </summary>
-    public void OpenChatRoom(ContactChatData chat, Sprite avatarSprite = null)
+    // EXACT OVERLOAD CALLED BY ChatsViewController (selectedChat, avatar)
+    public void OpenChatRoom(ContactChatData contactData, Sprite avatarSprite, DialogueStep startingStep = null)
     {
-        currentChat = chat;
+        string partnerName = contactData != null ? contactData.contactName : "Match";
+        OpenChatRoomInternal(partnerName, avatarSprite, startingStep);
+    }
+
+    // Overload for manual name + sprite
+    public void OpenChatRoom(string partnerName, Sprite avatarSprite, DialogueStep startingStep = null)
+    {
+        OpenChatRoomInternal(partnerName, avatarSprite, startingStep);
+    }
+
+    private void OpenChatRoomInternal(string partnerName, Sprite avatarSprite, DialogueStep startingStep)
+    {
         gameObject.SetActive(true);
 
-        if (chatsListPanel != null)
-            chatsListPanel.SetActive(false);
+        if (txtPartnerName != null) txtPartnerName.text = partnerName;
+        if (partnerAvatar != null && avatarSprite != null) partnerAvatar.sprite = avatarSprite;
+        if (chatsListPanel != null) chatsListPanel.SetActive(false);
+        if (bottomNav != null) bottomNav.SetActive(false);
 
-        if (bottomNav != null)
-            bottomNav.SetActive(false);
+        ClearChat();
 
-        if (txtPartnerName != null)
-            txtPartnerName.text = chat.contactName;
-
-        if (partnerAvatar != null && avatarSprite != null)
-            partnerAvatar.sprite = avatarSprite;
-
-        PopulateMessageFeed();
-    }
-
-    private void PopulateMessageFeed()
-    {
-        // Clear previous conversation lines
-        for (int i = messageFeedContent.childCount - 1; i >= 0; i--)
+        // If no custom dialogue step was passed from contact data, create a test conversation
+        if (startingStep == null)
         {
-            Destroy(messageFeedContent.GetChild(i).gameObject);
+            startingStep = CreateTestDialogue(partnerName);
         }
 
-        if (currentChat == null) return;
+        currentDialogueStep = startingStep;
 
-        // Populate existing conversation
-        foreach (ChatMessageData msg in currentChat.conversationHistory)
+        if (currentDialogueStep != null && !string.IsNullOrEmpty(currentDialogueStep.partnerMessage))
         {
-            SpawnMessageItem(msg.messageText, msg.isSenderPlayer);
+            ReceivePartnerMessage(currentDialogueStep.partnerMessage);
         }
-
-        StartCoroutine(ScrollToBottom());
     }
 
-    public void SendPlayerMessage()
+// Temporary test dialogue to immediately see choices working
+    private DialogueStep CreateTestDialogue(string partnerName)
     {
-        if (inputField == null || string.IsNullOrWhiteSpace(inputField.text) || currentChat == null) return;
+        DialogueStep step1 = new DialogueStep();
+        step1.partnerMessage = $"Hey! Thanks for matching with me.";
 
-        string messageText = inputField.text.Trim();
-        string timeNow = System.DateTime.Now.ToString("h:mm tt");
+        DialogueStep branchA = new DialogueStep();
+        branchA.partnerMessage = "Haha, I'm doing great! Just working on some projects.";
 
-        // 1. Add to conversation history
-        ChatMessageData newMsg = new ChatMessageData
+        DialogueStep branchB = new DialogueStep();
+        branchB.partnerMessage = "Smooth line! Tell me about yourself.";
+
+        step1.choices = new List<PlayerChoice>()
         {
-            isSenderPlayer = true,
-            messageText = messageText,
-            timestamp = timeNow
+            new PlayerChoice() { choiceText = "Hey there! How's your day going?", nextStep = branchA },
+            new PlayerChoice() { choiceText = "I couldn't resist saying hi to you.", nextStep = branchB },
+            new PlayerChoice() { choiceText = "Hi! What kind of music do you like?", nextStep = null }
         };
 
-        currentChat.conversationHistory.Add(newMsg);
-        currentChat.lastMessageTime = timeNow;
+        return step1;
+    }
 
-        // 2. Spawn in UI
-        SpawnMessageItem(messageText, true);
-        inputField.text = "";
+    public void CloseChatRoom()
+    {
+        ClearChat();
+        gameObject.SetActive(false);
+        if (chatsListPanel != null) chatsListPanel.SetActive(true);
+        if (bottomNav != null) bottomNav.SetActive(true);
+    }
 
-        // 3. Update GameManager so the overview list reflects the newest message
-        if (GameManager.Instance != null)
+    public void ReceivePartnerMessage(string message)
+    {
+        SpawnMessage(message, isPlayer: false);
+        StartCoroutine(DisplayChoicesCoroutine());
+    }
+
+    private IEnumerator DisplayChoicesCoroutine()
+    {
+        ClearChoices();
+        yield return new WaitForSeconds(0.3f);
+
+        if (currentDialogueStep == null || currentDialogueStep.choices == null || choiceContainer == null) yield break;
+
+        foreach (PlayerChoice choice in currentDialogueStep.choices)
         {
-            GameManager.Instance.AddOrUpdateChat(currentChat);
+            if (choiceButtonPrefab == null) break;
+
+            GameObject btnObj = Instantiate(choiceButtonPrefab, choiceContainer);
+            TextMeshProUGUI btnText = btnObj.GetComponentInChildren<TextMeshProUGUI>();
+            if (btnText != null) btnText.text = choice.choiceText;
+
+            Button btn = btnObj.GetComponent<Button>();
+            PlayerChoice capturedChoice = choice;
+            btn.onClick.AddListener(() => OnPlayerSelectedChoice(capturedChoice));
         }
 
         StartCoroutine(ScrollToBottom());
     }
 
-    private void SpawnMessageItem(string message, bool isPlayer)
+    private void OnPlayerSelectedChoice(PlayerChoice choice)
     {
-        GameObject lineObj = Instantiate(directMessagePrefab, messageFeedContent);
-        DirectMessageUI lineUI = lineObj.GetComponent<DirectMessageUI>();
-        if (lineUI != null)
+        ClearChoices();
+        SpawnMessage(choice.choiceText, isPlayer: true);
+
+        currentDialogueStep = choice.nextStep;
+
+        if (currentDialogueStep != null && !string.IsNullOrEmpty(currentDialogueStep.partnerMessage))
         {
-            lineUI.Setup(message, isPlayer);
+            StartCoroutine(DelayedPartnerReply(currentDialogueStep.partnerMessage));
         }
+    }
+
+    private IEnumerator DelayedPartnerReply(string message)
+    {
+        yield return new WaitForSeconds(partnerReplyDelay);
+        ReceivePartnerMessage(message);
+    }
+
+    private void SpawnMessage(string text, bool isPlayer)
+    {
+        if (directMessagePrefab == null || messageFeedContent == null) return;
+
+        GameObject newMsg = Instantiate(directMessagePrefab, messageFeedContent);
+        DirectMessageUI msgUI = newMsg.GetComponent<DirectMessageUI>();
+
+        if (msgUI != null)
+        {
+            msgUI.Setup(text, isPlayer);
+        }
+
+        StartCoroutine(ScrollToBottom());
+    }
+
+    private void ClearChoices()
+    {
+        if (choiceContainer == null) return;
+        foreach (Transform child in choiceContainer)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+
+    private void ClearChat()
+    {
+        if (messageFeedContent != null)
+        {
+            foreach (Transform child in messageFeedContent)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+        ClearChoices();
     }
 
     private IEnumerator ScrollToBottom()
     {
-        // Wait two frames so ContentSizeFitter and LayoutGroup calculate heights
         yield return new WaitForEndOfFrame();
         Canvas.ForceUpdateCanvases();
 
         if (messageScrollRect != null && messageFeedContent != null)
         {
             RectTransform contentRT = messageFeedContent.GetComponent<RectTransform>();
-            RectTransform viewportRT = messageScrollRect.viewport != null 
-                ? messageScrollRect.viewport 
+            RectTransform viewportRT = messageScrollRect.viewport != null
+                ? messageScrollRect.viewport
                 : messageScrollRect.GetComponent<RectTransform>();
 
-            // Only snap to the bottom (0f) if messages actually exceed the viewport height!
-            // If content is shorter than the screen, keep it at the top (1f).
             if (contentRT.rect.height > viewportRT.rect.height)
-            {
                 messageScrollRect.verticalNormalizedPosition = 0f;
-            }
             else
-            {
                 messageScrollRect.verticalNormalizedPosition = 1f;
-            }
         }
-    }
-
-    public void CloseChatRoom()
-    {
-        gameObject.SetActive(false);
-
-        if (chatsListPanel != null)
-            chatsListPanel.SetActive(true);
-
-        if (bottomNav != null)
-            bottomNav.SetActive(true);
     }
 }
