@@ -56,9 +56,18 @@ public class ChatsViewController : MonoBehaviour
 
             if (ui != null)
             {
-                string lastMsg = chatData.conversationHistory.Count > 0
-                    ? chatData.conversationHistory[chatData.conversationHistory.Count - 1].messageText
-                    : chatData.contactBio;
+                // Prioritize live conversation history, then saved database history, else display "New match! Say hi."
+                string lastMsg = "New match! Say hi.";
+                
+                SavedContactData savedContact = ChatSaveSystem.GetContact(chatData.contactName);
+                if (chatData.conversationHistory != null && chatData.conversationHistory.Count > 0)
+                {
+                    lastMsg = chatData.conversationHistory[chatData.conversationHistory.Count - 1].messageText;
+                }
+                else if (savedContact != null && savedContact.chatHistory.Count > 0)
+                {
+                    lastMsg = savedContact.chatHistory[savedContact.chatHistory.Count - 1].messageText;
+                }
 
                 Sprite avatar = (chatData.avatarIndex >= 0 && chatData.avatarIndex < profilePhotos.Count)
                     ? profilePhotos[chatData.avatarIndex]
@@ -87,7 +96,6 @@ public class ChatsViewController : MonoBehaviour
                 ? profilePhotos[selectedChat.avatarIndex]
                 : null;
 
-            // Opens the direct 1-on-1 Messenger-style room
             directChatRoom.OpenChatRoom(selectedChat, avatar);
         }
     }

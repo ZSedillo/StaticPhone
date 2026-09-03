@@ -1,0 +1,76 @@
+{
+  "girlName": "Evelyn",
+  "age": 21,
+  "personality": "Sarcastic Alt",
+  "bio": "Looking for a reason to stay off this app. Fueled entirely by iced coffee and bad decisions.",
+  "avatarIndex": 0,
+  "nodes": [
+    {
+      "id": "start",
+      "partnerMessage": "",
+      "choices": [
+        { "choiceText": "Hey Evelyn! Loved your music taste in your bio.", "nextId": "music_open" },
+        { "choiceText": "You look like you're about to fight someone in your photos.", "nextId": "feisty_open" },
+        { "choiceText": "Hey there, hope you're having a good day!", "nextId": "generic_open" }
+      ]
+    },
+    {
+      "id": "music_open",
+      "partnerMessage": "Wait, someone actually read my bio instead of just swiping? I'm shocked.",
+      "choices": [
+        { "choiceText": "Of course I did. What bands have you been looping lately?", "nextId": "bands_branch" },
+        { "choiceText": "I make video games and play acoustic guitar, so good music catches my eye.", "nextId": "shared_interest" }
+      ]
+    },
+    {
+      "id": "feisty_open",
+      "partnerMessage": "Excuse me? You don't know me, {PlayerName}. Don't start testing my patience on message one.",
+      "choices": [
+        { "choiceText": "Sorry, bad joke. Truce?", "nextId": "neutral_response" },
+        { "choiceText": "Just saying you've got strong energy haha.", "nextId": "neutral_response" }
+      ]
+    },
+    {
+      "id": "generic_open",
+      "partnerMessage": "Ugh, generic greeting alert. You guys really use the same script on everyone, huh?",
+      "choices": [
+        { "choiceText": "Ouch, tough crowd. Let me restart with something real.", "nextId": "neutral_response" },
+        { "choiceText": "Just trying to be polite, geez.", "nextId": "fight_end" }
+      ]
+    },
+    {
+      "id": "bands_branch",
+      "partnerMessage": "Mostly dark indie and Midwest emo when I'm stressed. Which is basically 24/7.",
+      "choices": [
+        { "choiceText": "Solid taste. Sounds like you need an iced coffee to destress.", "nextId": "unlock_yaps" }
+      ]
+    },
+    {
+      "id": "neutral_response",
+      "partnerMessage": "Fine, whatever. Truce. Just sick of dry small talk. What do you actually do with your life, {PlayerName}?",
+      "choices": [
+        { "choiceText": "I make video games and play guitar.", "nextId": "shared_interest" },
+        { "choiceText": "Work, sleep, and try not to get yelled at by matches.", "nextId": "shared_interest" }
+      ]
+    },
+    {
+      "id": "shared_interest",
+      "partnerMessage": "Okay, that's actually pretty cool. Maybe you're not totally hopeless after all.",
+      "choices": [
+        { "choiceText": "Told you. Let me get you an iced coffee sometime.", "nextId": "unlock_yaps" },
+        { "choiceText": "High praise coming from you haha.", "nextId": "unlock_yaps" }
+      ]
+    },
+    {
+      "id": "fight_end",
+      "partnerMessage": "Polite is boring. Have fun staying single, {PlayerName}.",
+      "choices": []
+    },
+    {
+      "id": "unlock_yaps",
+      "partnerMessage": "Look {PlayerName}, I hate this dating app. Add my handle on OnlyYaps before I delete this account. Don't make me regret it.",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    }
+  ]
+}

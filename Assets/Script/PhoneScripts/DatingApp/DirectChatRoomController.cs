@@ -24,9 +24,16 @@ public class DirectChatRoomController : MonoBehaviour
     [SerializeField] private GameObject chatsListPanel;
     [SerializeField] private GameObject bottomNav;
 
-    [Header("Chat Flow")]
-    [SerializeField] private float partnerReplyDelay = 1.0f;
-    private DialogueStep currentDialogueStep;
+    [Header("Chat Settings")]
+    [SerializeField] private float partnerReplyDelay = 2.5f; // 2 to 5 seconds realistic wait
+    [SerializeField] private float scrollDuration = 0.25f;
+
+    private string activeGirlName;
+    private DialogueNodeData currentNode;
+    private SavedContactData activeContact;
+    private Coroutine scrollCoroutine;
+    private Coroutine partnerReplyCoroutine;
+    private GameObject currentTypingIndicatorObj;
 
     private void Awake()
     {
@@ -37,123 +44,224 @@ public class DirectChatRoomController : MonoBehaviour
         }
     }
 
-    // EXACT OVERLOAD CALLED BY ChatsViewController (selectedChat, avatar)
-    public void OpenChatRoom(ContactChatData contactData, Sprite avatarSprite, DialogueStep startingStep = null)
+    public void OpenChatRoom(ContactChatData contactData, Sprite avatarSprite)
     {
-        string partnerName = contactData != null ? contactData.contactName : "Match";
-        OpenChatRoomInternal(partnerName, avatarSprite, startingStep);
+        string pName = contactData != null ? contactData.contactName : "Match";
+        OpenChatRoom(pName, avatarSprite);
     }
 
-    // Overload for manual name + sprite
-    public void OpenChatRoom(string partnerName, Sprite avatarSprite, DialogueStep startingStep = null)
-    {
-        OpenChatRoomInternal(partnerName, avatarSprite, startingStep);
-    }
-
-    private void OpenChatRoomInternal(string partnerName, Sprite avatarSprite, DialogueStep startingStep)
+    public void OpenChatRoom(string partnerName, Sprite avatarSprite)
     {
         gameObject.SetActive(true);
+        activeGirlName = partnerName.Trim();
+        activeContact = ChatSaveSystem.AddOrGetContact(activeGirlName, "", 0);
 
-        if (txtPartnerName != null) txtPartnerName.text = partnerName;
+        if (txtPartnerName != null) txtPartnerName.text = activeGirlName;
         if (partnerAvatar != null && avatarSprite != null) partnerAvatar.sprite = avatarSprite;
         if (chatsListPanel != null) chatsListPanel.SetActive(false);
         if (bottomNav != null) bottomNav.SetActive(false);
 
-        ClearChat();
+        ClearChatUI();
 
-        // If no custom dialogue step was passed from contact data, create a test conversation
-        if (startingStep == null)
+        // 1. Rebuild previously saved conversation
+        foreach (var msg in activeContact.chatHistory)
         {
-            startingStep = CreateTestDialogue(partnerName);
+            InstantiateBubble(msg.messageText, msg.isPlayer, autoScroll: false);
         }
 
-        currentDialogueStep = startingStep;
+        // 2. Fetch current active node from JSON
+        currentNode = DialogueLoader.GetNode(activeGirlName, activeContact.currentNodeId);
 
-        if (currentDialogueStep != null && !string.IsNullOrEmpty(currentDialogueStep.partnerMessage))
+        if (activeContact.chatHistory.Count == 0)
         {
-            ReceivePartnerMessage(currentDialogueStep.partnerMessage);
+            if (currentNode != null && !string.IsNullOrEmpty(currentNode.partnerMessage))
+            {
+                partnerReplyCoroutine = StartCoroutine(DelayedPartnerReply(currentNode.partnerMessage));
+            }
+            else
+            {
+                StartCoroutine(DisplayChoicesCoroutine());
+            }
         }
-    }
-
-// Temporary test dialogue to immediately see choices working
-    private DialogueStep CreateTestDialogue(string partnerName)
-    {
-        DialogueStep step1 = new DialogueStep();
-        step1.partnerMessage = $"Hey! Thanks for matching with me.";
-
-        DialogueStep branchA = new DialogueStep();
-        branchA.partnerMessage = "Haha, I'm doing great! Just working on some projects.";
-
-        DialogueStep branchB = new DialogueStep();
-        branchB.partnerMessage = "Smooth line! Tell me about yourself.";
-
-        step1.choices = new List<PlayerChoice>()
+        else
         {
-            new PlayerChoice() { choiceText = "Hey there! How's your day going?", nextStep = branchA },
-            new PlayerChoice() { choiceText = "I couldn't resist saying hi to you.", nextStep = branchB },
-            new PlayerChoice() { choiceText = "Hi! What kind of music do you like?", nextStep = null }
-        };
+            StartCoroutine(DisplayChoicesCoroutine());
+        }
 
-        return step1;
+        TriggerSmoothScroll();
     }
 
     public void CloseChatRoom()
     {
-        ClearChat();
+        if (scrollCoroutine != null)
+        {
+            StopCoroutine(scrollCoroutine);
+            scrollCoroutine = null;
+        }
+
+        RemoveTypingIndicator();
+
+        if (partnerReplyCoroutine != null)
+        {
+            StopCoroutine(partnerReplyCoroutine);
+            partnerReplyCoroutine = null;
+
+            if (currentNode != null && !string.IsNullOrEmpty(currentNode.partnerMessage))
+            {
+                string formatted = FormatDialogueText(currentNode.partnerMessage);
+                activeContact.chatHistory.Add(new SavedChatMessage { messageText = formatted, isPlayer = false });
+                activeContact.lastMessageTime = System.DateTime.Now.ToString("h:mm tt");
+                ChatSaveSystem.Save();
+
+                if (GameManager.Instance != null)
+                    GameManager.Instance.UpdateLastMessage(activeGirlName, formatted);
+            }
+        }
+
+        ClearChatUI();
         gameObject.SetActive(false);
         if (chatsListPanel != null) chatsListPanel.SetActive(true);
         if (bottomNav != null) bottomNav.SetActive(true);
     }
 
-    public void ReceivePartnerMessage(string message)
+    private void ReceivePartnerMessage(string message)
     {
-        SpawnMessage(message, isPlayer: false);
+        RemoveTypingIndicator();
+
+        string formattedMessage = FormatDialogueText(message);
+
+        activeContact.chatHistory.Add(new SavedChatMessage { messageText = formattedMessage, isPlayer = false });
+        activeContact.lastMessageTime = System.DateTime.Now.ToString("h:mm tt");
+        ChatSaveSystem.Save();
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.UpdateLastMessage(activeGirlName, formattedMessage);
+        }
+
+        InstantiateBubble(formattedMessage, isPlayer: false, autoScroll: true);
         StartCoroutine(DisplayChoicesCoroutine());
     }
 
     private IEnumerator DisplayChoicesCoroutine()
     {
         ClearChoices();
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
 
-        if (currentDialogueStep == null || currentDialogueStep.choices == null || choiceContainer == null) yield break;
+        if (currentNode == null || currentNode.choices == null || currentNode.choices.Count == 0)
+            yield break;
 
-        foreach (PlayerChoice choice in currentDialogueStep.choices)
+        foreach (DialogueChoiceData choice in currentNode.choices)
         {
-            if (choiceButtonPrefab == null) break;
+            if (choiceButtonPrefab == null || choiceContainer == null) break;
 
             GameObject btnObj = Instantiate(choiceButtonPrefab, choiceContainer);
             TextMeshProUGUI btnText = btnObj.GetComponentInChildren<TextMeshProUGUI>();
-            if (btnText != null) btnText.text = choice.choiceText;
+
+            string formattedChoiceText = FormatDialogueText(choice.choiceText);
+            if (btnText != null) btnText.text = formattedChoiceText;
 
             Button btn = btnObj.GetComponent<Button>();
-            PlayerChoice capturedChoice = choice;
-            btn.onClick.AddListener(() => OnPlayerSelectedChoice(capturedChoice));
+            string nextTargetId = choice.nextId;
+            btn.onClick.AddListener(() => OnPlayerSelectedChoice(formattedChoiceText, nextTargetId));
         }
 
-        StartCoroutine(ScrollToBottom());
+        TriggerSmoothScroll();
     }
 
-    private void OnPlayerSelectedChoice(PlayerChoice choice)
+    private void OnPlayerSelectedChoice(string playerText, string nextNodeId)
     {
         ClearChoices();
-        SpawnMessage(choice.choiceText, isPlayer: true);
 
-        currentDialogueStep = choice.nextStep;
+        activeContact.chatHistory.Add(new SavedChatMessage { messageText = playerText, isPlayer = true });
+        activeContact.currentNodeId = nextNodeId;
+        activeContact.lastMessageTime = System.DateTime.Now.ToString("h:mm tt");
+        ChatSaveSystem.Save();
 
-        if (currentDialogueStep != null && !string.IsNullOrEmpty(currentDialogueStep.partnerMessage))
+        if (GameManager.Instance != null)
         {
-            StartCoroutine(DelayedPartnerReply(currentDialogueStep.partnerMessage));
+            GameManager.Instance.UpdateLastMessage(activeGirlName, playerText);
+        }
+
+        InstantiateBubble(playerText, isPlayer: true, autoScroll: true);
+
+        currentNode = DialogueLoader.GetNode(activeGirlName, nextNodeId);
+
+        if (currentNode != null)
+        {
+            if (!string.IsNullOrEmpty(currentNode.triggerEvent) && currentNode.triggerEvent == "UNLOCK_ONLYYAPS")
+            {
+                activeContact.isUnlockedInOnlyYaps = true;
+                ChatSaveSystem.Save();
+                Debug.Log($"[OnlyYaps] Unlocked {activeGirlName} for OnlyYaps!");
+            }
+
+            if (!string.IsNullOrEmpty(currentNode.partnerMessage))
+            {
+                partnerReplyCoroutine = StartCoroutine(DelayedPartnerReply(currentNode.partnerMessage));
+            }
         }
     }
 
     private IEnumerator DelayedPartnerReply(string message)
     {
-        yield return new WaitForSeconds(partnerReplyDelay);
+        // 1. Show Typing in ChatsViewPanel preview
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.UpdateLastMessage(activeGirlName, "typing...");
+        }
+
+        // 2. Spawn "..." bubble inside chat
+        ShowTypingIndicator();
+
+        // 3. Wait 2.5s while animating dots
+        float timer = 0f;
+        int dotCount = 1;
+        while (timer < partnerReplyDelay)
+        {
+            timer += 0.4f;
+            dotCount = (dotCount % 3) + 1;
+            UpdateTypingText(new string('.', dotCount));
+            yield return new WaitForSeconds(0.4f);
+        }
+
+        partnerReplyCoroutine = null;
         ReceivePartnerMessage(message);
     }
 
-    private void SpawnMessage(string text, bool isPlayer)
+    private void ShowTypingIndicator()
+    {
+        RemoveTypingIndicator();
+        if (directMessagePrefab == null || messageFeedContent == null) return;
+
+        currentTypingIndicatorObj = Instantiate(directMessagePrefab, messageFeedContent);
+        DirectMessageUI msgUI = currentTypingIndicatorObj.GetComponent<DirectMessageUI>();
+        if (msgUI != null)
+        {
+            msgUI.Setup("...", false);
+        }
+        TriggerSmoothScroll();
+    }
+
+    private void UpdateTypingText(string dots)
+    {
+        if (currentTypingIndicatorObj != null)
+        {
+            TextMeshProUGUI tmp = currentTypingIndicatorObj.GetComponentInChildren<TextMeshProUGUI>();
+            if (tmp != null) tmp.text = dots;
+        }
+    }
+
+    private void RemoveTypingIndicator()
+    {
+        if (currentTypingIndicatorObj != null)
+        {
+            Destroy(currentTypingIndicatorObj);
+            currentTypingIndicatorObj = null;
+        }
+    }
+
+    private void InstantiateBubble(string text, bool isPlayer, bool autoScroll = true)
     {
         if (directMessagePrefab == null || messageFeedContent == null) return;
 
@@ -165,7 +273,10 @@ public class DirectChatRoomController : MonoBehaviour
             msgUI.Setup(text, isPlayer);
         }
 
-        StartCoroutine(ScrollToBottom());
+        if (autoScroll)
+        {
+            TriggerSmoothScroll();
+        }
     }
 
     private void ClearChoices()
@@ -177,8 +288,9 @@ public class DirectChatRoomController : MonoBehaviour
         }
     }
 
-    private void ClearChat()
+    private void ClearChatUI()
     {
+        RemoveTypingIndicator();
         if (messageFeedContent != null)
         {
             foreach (Transform child in messageFeedContent)
@@ -189,22 +301,58 @@ public class DirectChatRoomController : MonoBehaviour
         ClearChoices();
     }
 
-    private IEnumerator ScrollToBottom()
+    private void TriggerSmoothScroll()
     {
-        yield return new WaitForEndOfFrame();
+        if (scrollCoroutine != null)
+            StopCoroutine(scrollCoroutine);
+
+        if (gameObject.activeInHierarchy)
+            scrollCoroutine = StartCoroutine(SmoothScrollToBottomCoroutine(scrollDuration));
+    }
+
+    private IEnumerator SmoothScrollToBottomCoroutine(float duration)
+    {
+        yield return null;
         Canvas.ForceUpdateCanvases();
 
-        if (messageScrollRect != null && messageFeedContent != null)
-        {
-            RectTransform contentRT = messageFeedContent.GetComponent<RectTransform>();
-            RectTransform viewportRT = messageScrollRect.viewport != null
-                ? messageScrollRect.viewport
-                : messageScrollRect.GetComponent<RectTransform>();
+        if (messageFeedContent != null)
+            LayoutRebuilder.ForceRebuildLayoutImmediate(messageFeedContent.GetComponent<RectTransform>());
 
-            if (contentRT.rect.height > viewportRT.rect.height)
-                messageScrollRect.verticalNormalizedPosition = 0f;
-            else
-                messageScrollRect.verticalNormalizedPosition = 1f;
+        yield return new WaitForEndOfFrame();
+
+        if (messageScrollRect == null) yield break;
+
+        float startPos = messageScrollRect.verticalNormalizedPosition;
+        float targetPos = 0f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            t = 1f - Mathf.Pow(1f - t, 3f);
+
+            messageScrollRect.verticalNormalizedPosition = Mathf.Lerp(startPos, targetPos, t);
+            yield return null;
         }
+
+        messageScrollRect.verticalNormalizedPosition = targetPos;
+        scrollCoroutine = null;
+    }
+
+    private string FormatDialogueText(string rawText)
+    {
+        if (string.IsNullOrEmpty(rawText)) return string.Empty;
+
+        string playerName = "Player";
+        if (GameManager.Instance != null && GameManager.Instance.currentUser != null)
+        {
+            if (!string.IsNullOrEmpty(GameManager.Instance.currentUser.playerName))
+            {
+                playerName = GameManager.Instance.currentUser.playerName;
+            }
+        }
+
+        return rawText.Replace("{PlayerName}", playerName);
     }
 }

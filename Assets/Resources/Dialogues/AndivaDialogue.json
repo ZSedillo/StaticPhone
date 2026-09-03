@@ -1,0 +1,37 @@
+{
+  "girlName": "Andiva",
+  "age": 23,
+  "personality": "Theatrical Stylist",
+  "bio": "Darling, fashion is an art form, not an accident. Don't be boring.",
+  "avatarIndex": 7,
+  "nodes": [
+    {
+      "id": "start",
+      "partnerMessage": "Darling {PlayerName}, thank goodness you matched. The fashion taste on this app is an absolute crime scene.",
+      "choices": [
+        { "choiceText": "Are you offering fashion police protection?", "nextId": "fashion_critique" },
+        { "choiceText": "Hey! My hoodie and sweatpants are peak comfort.", "nextId": "horror_reaction" }
+      ]
+    },
+    {
+      "id": "fashion_critique",
+      "partnerMessage": "Honey, I am the judge, jury, and stylist. But this chat is way too cramped for my commentary.",
+      "choices": [
+        { "choiceText": "Where should we take this then?", "nextId": "move_to_yaps" }
+      ]
+    },
+    {
+      "id": "horror_reaction",
+      "partnerMessage": "Sweatpants?! In public?! I need smelling salts immediately. We cannot discuss this here.",
+      "choices": [
+        { "choiceText": "Fine, give me your handle on OnlyYaps.", "nextId": "move_to_yaps" }
+      ]
+    },
+    {
+      "id": "move_to_yaps",
+      "partnerMessage": "Add me on OnlyYaps right now. The tea is boiling and I refuse to spill it here. 💅",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "girlName": "Seraphine",
+  "age": 24,
+  "personality": "Zen Intellectual",
+  "bio": "Seeking stillness in a loud world. Gallery wanderer, tea enthusiast, classical listener.",
+  "avatarIndex": 3,
+  "nodes": [
+    {
+      "id": "start",
+      "partnerMessage": "",
+      "choices": [
+        { "choiceText": "Good evening Seraphine. Your profile has such a peaceful vibe.", "nextId": "peaceful_open" },
+        { "choiceText": "Hey! What kind of art or hobbies are you drawn to?", "nextId": "art_open" }
+      ]
+    },
+    {
+      "id": "peaceful_open",
+      "partnerMessage": "Good evening, {PlayerName}. That is very kind of you to notice. I find apps like this can feel so noisy.",
+      "choices": [
+        { "choiceText": "I agree. It's refreshing to meet someone who values quiet depth.", "nextId": "deep_branch" },
+        { "choiceText": "How do you usually unwind after a long day?", "nextId": "unwind_branch" }
+      ]
+    },
+    {
+      "id": "art_open",
+      "partnerMessage": "Hello {PlayerName}. I spent my afternoon walking through an exhibit of 19th-century landscapes. The stillness was lovely.",
+      "choices": [
+        { "choiceText": "You have an eye for depth. I'd love to hear more about it.", "nextId": "deep_branch" }
+      ]
+    },
+    {
+      "id": "unwind_branch",
+      "partnerMessage": "Jasmine tea, classical piano, and some quiet reading. It restores my spirit.",
+      "choices": [
+        { "choiceText": "That sounds serene. Small talk usually drains me too.", "nextId": "deep_branch" }
+      ]
+    },
+    {
+      "id": "deep_branch",
+      "partnerMessage": "It is rare to find sincerity on platforms like this. It is refreshing to hear you speak honestly, {PlayerName}.",
+      "choices": [
+        { "choiceText": "I try to keep things real. Small talk exhausts me.", "nextId": "unlock_yaps" }
+      ]
+    },
+    {
+      "id": "unlock_yaps",
+      "partnerMessage": "I feel the same way, {PlayerName}. Dating apps feel rather fleeting. Perhaps we could continue over on OnlyYaps? Here is my private page.",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    }
+  ]
+}

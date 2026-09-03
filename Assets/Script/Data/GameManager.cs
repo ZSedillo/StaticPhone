@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     [Header("Chats & Matches Data")]
     public List<ContactChatData> activeChats = new List<ContactChatData>();
 
-    // Events (Header attribute removed)
     public event Action OnUserDataUpdated;
     public event Action OnChatsUpdated;
 
@@ -25,6 +24,43 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+
+        // Load persistent data from disk on game launch
+        LoadAllDataFromSave();
+    }
+
+    public void LoadAllDataFromSave()
+    {
+        ChatSaveSystem.Load();
+        activeChats.Clear();
+
+        // Reconstruct activeChats from the saved database
+        foreach (var savedContact in ChatSaveSystem.DB.savedContacts)
+        {
+            ContactChatData chat = new ContactChatData
+            {
+                contactId = System.Guid.NewGuid().ToString(),
+                contactName = savedContact.contactName,
+                contactBio = savedContact.contactBio,
+                avatarIndex = savedContact.avatarIndex,
+                lastMessageTime = savedContact.lastMessageTime,
+                conversationHistory = new List<ChatMessageData>()
+            };
+
+            foreach (var msg in savedContact.chatHistory)
+            {
+                chat.conversationHistory.Add(new ChatMessageData
+                {
+                    messageText = msg.messageText,
+                    isSenderPlayer = msg.isPlayer,
+                    timestamp = savedContact.lastMessageTime
+                });
+            }
+
+            activeChats.Add(chat);
+        }
+
+        OnChatsUpdated?.Invoke();
     }
 
     public void SetPlayerBasicInfo(string newName, int newAge)
@@ -34,54 +70,88 @@ public class GameManager : MonoBehaviour
         OnUserDataUpdated?.Invoke();
     }
 
-    public void AddOrUpdateChat(ContactChatData chat)
-    {
-        int existingIndex = activeChats.FindIndex(c => c.contactName == chat.contactName);
-        if (existingIndex >= 0)
-        {
-            activeChats[existingIndex] = chat;
-        }
-        else
-        {
-            activeChats.Add(chat);
-        }
-        OnChatsUpdated?.Invoke();
-    }
-
-    public ContactChatData GetChatByContactName(string contactName)
-    {
-        return activeChats.Find(c => c.contactName == contactName);
-    }
-
-
     public void AddMatch(string name, string bio, string personality, int avatarIdx, string initialMessage = null)
     {
-        // Avoid duplicate matches
-        if (activeChats.Exists(c => c.contactName == name)) return;
+        if (activeChats.Exists(c => c.contactName.Equals(name, StringComparison.OrdinalIgnoreCase))) 
+            return;
 
+        string timeNow = DateTime.Now.ToString("h:mm tt");
+
+        // 1. Persist contact to Disk Database
+        SavedContactData saved = ChatSaveSystem.AddOrGetContact(name, bio, avatarIdx);
+        saved.lastMessageTime = timeNow;
+
+        // GUARD: Only add an initial chat if it is NOT identical to the bio
+        if (!string.IsNullOrEmpty(initialMessage) && initialMessage.Trim() != bio.Trim())
+        {
+            if (saved.chatHistory.Count == 0)
+            {
+                saved.chatHistory.Add(new SavedChatMessage { messageText = initialMessage, isPlayer = false });
+            }
+        }
+        ChatSaveSystem.Save();
+
+        // 2. Add to active in-memory list
         ContactChatData newMatch = new ContactChatData
         {
-            contactId = System.Guid.NewGuid().ToString(),
+            contactId = Guid.NewGuid().ToString(),
             contactName = name,
             contactBio = bio,
             contactPersonality = personality,
             avatarIndex = avatarIdx,
-            lastMessageTime = System.DateTime.Now.ToString("h:mm tt")
+            lastMessageTime = timeNow,
+            conversationHistory = new List<ChatMessageData>()
         };
 
-        // Add an opening greeting message from the matched character
-        string firstMsg = string.IsNullOrEmpty(initialMessage) 
-            ? "Hey there! Nice to match with you." 
-            : initialMessage;
-
-        newMatch.conversationHistory.Add(new ChatMessageData
+        if (saved.chatHistory.Count > 0)
         {
-            isSenderPlayer = false,
-            messageText = firstMsg,
-            timestamp = newMatch.lastMessageTime
-        });
+            newMatch.conversationHistory.Add(new ChatMessageData
+            {
+                isSenderPlayer = false,
+                messageText = saved.chatHistory[0].messageText,
+                timestamp = timeNow
+            });
+        }
 
-        activeChats.Insert(0, newMatch); // Newest match on top
+        activeChats.Insert(0, newMatch);
+        OnChatsUpdated?.Invoke();
+    }
+
+    public void UpdateLastMessage(string contactName, string lastMessage)
+    {
+        ContactChatData match = activeChats.Find(c => c.contactName.Equals(contactName, StringComparison.OrdinalIgnoreCase));
+        if (match != null)
+        {
+            match.lastMessageTime = DateTime.Now.ToString("h:mm tt");
+            
+            // If empty, add the entry; otherwise update the latest message
+            if (match.conversationHistory == null)
+            {
+                match.conversationHistory = new List<ChatMessageData>();
+            }
+
+            if (match.conversationHistory.Count == 0)
+            {
+                match.conversationHistory.Add(new ChatMessageData
+                {
+                    messageText = lastMessage,
+                    isSenderPlayer = false,
+                    timestamp = match.lastMessageTime
+                });
+            }
+            else
+            {
+                match.conversationHistory[match.conversationHistory.Count - 1].messageText = lastMessage;
+            }
+
+            OnChatsUpdated?.Invoke();
+        }
+    }
+
+    public void ResetAllProgress()
+    {
+        activeChats.Clear();
+        ChatSaveSystem.DeleteAllProgress();
         OnChatsUpdated?.Invoke();
     }
 }

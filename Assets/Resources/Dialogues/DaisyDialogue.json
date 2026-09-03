@@ -1,0 +1,52 @@
+{
+  "girlName": "Daisy",
+  "age": 22,
+  "personality": "Golden Retriever Energy",
+  "bio": "Always laughing, sunny day explorer, and easily bribed with boba or bad puns ✨",
+  "avatarIndex": 5,
+  "nodes": [
+    {
+      "id": "start",
+      "partnerMessage": "Well aren't you cute, {PlayerName}! Tell me you're not boring ✨",
+      "choices": [
+        { "choiceText": "Definitely not boring. Try me.", "nextId": "confident_reply" },
+        { "choiceText": "I like to think I have my moments.", "nextId": "modest_reply" },
+        { "choiceText": "Depends, how do you define boring?", "nextId": "tease_reply" }
+      ]
+    },
+    {
+      "id": "confident_reply",
+      "partnerMessage": "Ooh, bold and confident! What's your best opening joke or party trick then, {PlayerName}?",
+      "choices": [
+        { "choiceText": "I can make you laugh in under three messages.", "nextId": "laugh_challenge" }
+      ]
+    },
+    {
+      "id": "modest_reply",
+      "partnerMessage": "Only moments? No way, {PlayerName}! I need 24/7 good energy and excitement!",
+      "choices": [
+        { "choiceText": "Give me a chance to warm up, I don't disappoint.", "nextId": "confident_reply" }
+      ]
+    },
+    {
+      "id": "tease_reply",
+      "partnerMessage": "Boring = talking about the weather, replying every 8 hours, and having no passions!",
+      "choices": [
+        { "choiceText": "Guilty of none of those. I'm passionate about my craft.", "nextId": "laugh_challenge" }
+      ]
+    },
+    {
+      "id": "laugh_challenge",
+      "partnerMessage": "Challenge accepted, {PlayerName}. You have two messages left, don't miss!",
+      "choices": [
+        { "choiceText": "I was going to tell a chemistry joke, but I knew I wouldn't get a reaction.", "nextId": "unlock_yaps" }
+      ]
+    },
+    {
+      "id": "unlock_yaps",
+      "partnerMessage": "HAHA okay you actually got me 😂 I never check dating app messages though {PlayerName}, add me on OnlyYaps so we can keep talking! 💛",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    }
+  ]
+}

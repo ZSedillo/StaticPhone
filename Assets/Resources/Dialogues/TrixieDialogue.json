@@ -1,0 +1,53 @@
+{
+  "girlName": "Trixie",
+  "age": 21,
+  "personality": "Chaotic Menace",
+  "bio": "My social battery lasts 23 minutes. Blaming all life choices on mercury retrograde 🚗💨",
+  "avatarIndex": 4,
+  "nodes": [
+    {
+      "id": "start",
+      "partnerMessage": "",
+      "choices": [
+        { "choiceText": "Your bio screams chaotic energy and I'm here for it.", "nextId": "chaos_open" },
+        { "choiceText": "Hey Trixie! What's the most reckless thing you did this week?", "nextId": "reckless_open" },
+        { "choiceText": "Quick, tell me your coffee order right now.", "nextId": "coffee_open" }
+      ]
+    },
+    {
+      "id": "chaos_open",
+      "partnerMessage": "omg {PlayerName} if i start acting weird it's totally not my fault, mercury is literally in retrograde right now!!",
+      "choices": [
+        { "choiceText": "Classic excuse, but I'll let it slide.", "nextId": "excuse_reply" },
+        { "choiceText": "Should {PlayerName} be concerned about this chaos?", "nextId": "excuse_reply" }
+      ]
+    },
+    {
+      "id": "reckless_open",
+      "partnerMessage": "i bought a karaoke microphone at 3 AM yesterday and sang 2000s pop punk until my landlord banged on the wall 😭",
+      "choices": [
+        { "choiceText": "Next time you need a backup singer, call me.", "nextId": "unlock_yaps" }
+      ]
+    },
+    {
+      "id": "coffee_open",
+      "partnerMessage": "iced oat latte with caramel drizzle and 4 extra espresso shots because my sleep schedule is in shambles!!",
+      "choices": [
+        { "choiceText": "4 shots?! You're living on pure adrenaline.", "nextId": "excuse_reply" }
+      ]
+    },
+    {
+      "id": "excuse_reply",
+      "partnerMessage": "SEE someone gets it! It's planetary alignment and caffeine, science literally confirms this!!",
+      "choices": [
+        { "choiceText": "Next time you go on a late-night run, count me in.", "nextId": "unlock_yaps" }
+      ]
+    },
+    {
+      "id": "unlock_yaps",
+      "partnerMessage": "STOP {PlayerName} you are actually fun!! Okay my phone is about to die at 2% find me on OnlyYaps immediately before my screen goes black ahhh 🚗💨",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    }
+  ]
+}

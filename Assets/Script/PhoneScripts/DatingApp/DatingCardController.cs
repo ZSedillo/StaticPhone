@@ -23,72 +23,60 @@ public class DatingCardController : MonoBehaviour
     public float rotationAmount = 20f;
     public AnimationCurve flyCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
-    private ProfilePoolData poolData;
-    private GeneratedProfile currentActiveProfile;
+    private CharacterDialogueTree currentActiveProfile;
 
     void Start()
     {
         if (btnPass != null) btnPass.onClick.AddListener(OnPassClicked);
         if (btnLike != null) btnLike.onClick.AddListener(OnLikeClicked);
 
-        LoadJSONPools();
+        // Ensure character dialogue trees are loaded into memory
+        DialogueLoader.InitializeAllCharacters();
 
         if (activeCardRect != null)
         {
-            currentActiveProfile = GenerateRandomProfile();
-            PopulateCardUI(activeCardRect.gameObject, currentActiveProfile);
+            currentActiveProfile = GetNextAvailableProfile();
+            if (currentActiveProfile != null)
+            {
+                activeCardRect.gameObject.SetActive(true);
+                PopulateCardUI(activeCardRect.gameObject, currentActiveProfile);
+            }
+            else
+            {
+                activeCardRect.gameObject.SetActive(false);
+            }
         }
     }
 
-    private void LoadJSONPools()
+    public CharacterDialogueTree GetNextAvailableProfile()
     {
-        TextAsset jsonTextAsset = Resources.Load<TextAsset>("ProfilePools");
-        if (jsonTextAsset != null)
-        {
-            poolData = JsonUtility.FromJson<ProfilePoolData>(jsonTextAsset.text);
-        }
-        else
-        {
-            Debug.LogError("ProfilePools.json not found in Assets/Resources!");
-        }
-    }
+        // 1. Fetch all self-contained characters directly from the Dialogues folder
+        List<CharacterDialogueTree> allCharacters = DialogueLoader.GetAllCharacters();
+        if (allCharacters == null || allCharacters.Count == 0) return null;
 
-    public GeneratedProfile GenerateRandomProfile()
-    {
-        if (poolData == null || poolData.names == null || poolData.names.Count == 0) return null;
-
-        // 1. Get list of names that have NOT been liked yet
-        List<string> availableNames = new List<string>(poolData.names);
+        // 2. Filter out characters the player has already matched with
+        List<CharacterDialogueTree> availableProfiles = allCharacters;
 
         if (GameManager.Instance != null && GameManager.Instance.activeChats != null)
         {
-            // Exclude anyone already matched/liked in GameManager
-            availableNames = poolData.names
-                .Where(name => !GameManager.Instance.activeChats.Any(chat => chat.contactName == name))
+            availableProfiles = allCharacters
+                .Where(c => !GameManager.Instance.activeChats.Any(chat => chat.contactName.Equals(c.girlName, System.StringComparison.OrdinalIgnoreCase)))
                 .ToList();
         }
 
-        // 2. If all characters have been liked, show empty / fallback
-        if (availableNames.Count == 0)
+        // 3. Check if all characters have been matched
+        if (availableProfiles.Count == 0)
         {
             Debug.Log("No more new profiles available. You matched with everyone!");
             return null;
         }
 
-        // 3. Randomly generate from available names
-        GeneratedProfile profile = new GeneratedProfile();
-        profile.profileName = availableNames[Random.Range(0, availableNames.Count)];
-        profile.age = Random.Range(poolData.minAge, poolData.maxAge + 1);
-        profile.personalityType = poolData.personalityTypes[Random.Range(0, poolData.personalityTypes.Count)];
-        profile.bio = poolData.bios[Random.Range(0, poolData.bios.Count)];
-        profile.avatarIndex = profilePhotos.Count > 0 ? Random.Range(0, profilePhotos.Count) : 0;
-
-        return profile;
+        // 4. Return a random unliked character
+        return availableProfiles[Random.Range(0, availableProfiles.Count)];
     }
 
     public void OnPassClicked()
     {
-        // Simply skip to the next profile. (The passed name stays in the pool)
         ProcessSwipe(false);
     }
 
@@ -96,19 +84,17 @@ public class DatingCardController : MonoBehaviour
     {
         if (currentActiveProfile == null) return;
 
-        // 1. Add matched profile to GameManager (this permanently marks them as liked)
+        // Add match directly with the specific traits authored in her JSON
         if (GameManager.Instance != null)
         {
             GameManager.Instance.AddMatch(
-                currentActiveProfile.profileName,
+                currentActiveProfile.girlName,
                 currentActiveProfile.bio,
-                currentActiveProfile.personalityType,
-                currentActiveProfile.avatarIndex,
-                currentActiveProfile.bio
+                currentActiveProfile.personality,
+                currentActiveProfile.avatarIndex
             );
         }
 
-        // 2. Animate and cycle card
         ProcessSwipe(true);
     }
 
@@ -126,8 +112,8 @@ public class DatingCardController : MonoBehaviour
 
         StartCoroutine(AnimateFlyAndDestroy(cloneRect, isLike));
 
-        // Generate next available profile
-        currentActiveProfile = GenerateRandomProfile();
+        // Pull the next unswiped character
+        currentActiveProfile = GetNextAvailableProfile();
 
         if (currentActiveProfile != null)
         {
@@ -136,14 +122,13 @@ public class DatingCardController : MonoBehaviour
         }
         else
         {
-            // Hide card and disable buttons if no profiles are left
             activeCardRect.gameObject.SetActive(false);
             if (btnLike != null) btnLike.interactable = false;
             if (btnPass != null) btnPass.interactable = false;
         }
     }
 
-    private void PopulateCardUI(GameObject cardObj, GeneratedProfile profile)
+    private void PopulateCardUI(GameObject cardObj, CharacterDialogueTree profile)
     {
         if (profile == null) return;
 
@@ -152,14 +137,14 @@ public class DatingCardController : MonoBehaviour
         TextMeshProUGUI bio = cardObj.transform.Find("Contents/BioDetailsText")?.GetComponent<TextMeshProUGUI>();
         TextMeshProUGUI personality = cardObj.transform.Find("Contents/PersonalityTypeText")?.GetComponent<TextMeshProUGUI>();
 
-        if (photo != null && profilePhotos.Count > 0 && profile.avatarIndex < profilePhotos.Count)
+        if (photo != null && profilePhotos.Count > 0 && profile.avatarIndex >= 0 && profile.avatarIndex < profilePhotos.Count)
         {
             photo.sprite = profilePhotos[profile.avatarIndex];
         }
 
-        if (nameAge != null) nameAge.text = $"{profile.profileName}, {profile.age}";
+        if (nameAge != null) nameAge.text = $"{profile.girlName}, {profile.age}";
         if (bio != null) bio.text = profile.bio;
-        if (personality != null) personality.text = profile.personalityType;
+        if (personality != null) personality.text = profile.personality;
     }
 
     private IEnumerator AnimateFlyAndDestroy(RectTransform cardToFly, bool isLike)
