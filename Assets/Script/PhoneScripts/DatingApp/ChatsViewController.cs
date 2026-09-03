@@ -89,7 +89,9 @@ public class ChatsViewController : MonoBehaviour
     {
         if (GameManager.Instance == null || directChatRoom == null) return;
 
-        ContactChatData selectedChat = GameManager.Instance.activeChats.Find(c => c.contactName == contactName);
+        ContactChatData selectedChat = GameManager.Instance.activeChats.Find(c => 
+            c.contactName.Equals(contactName, System.StringComparison.OrdinalIgnoreCase));
+
         if (selectedChat != null)
         {
             Sprite avatar = (selectedChat.avatarIndex >= 0 && selectedChat.avatarIndex < profilePhotos.Count)

@@ -1,0 +1,39 @@
+{
+  "profiles": [
+    {
+      "profileName": "Chloe",
+      "age": 22,
+      "personality": "Ghoster",
+      "bio": "Probably won't text back, don't take it personally.",
+      "avatarIndex": 0
+    },
+    {
+      "profileName": "Rachel",
+      "age": 24,
+      "personality": "Busy Bee",
+      "bio": "Looking for someone with 800+ credit score and 6ft tall.",
+      "avatarIndex": 1
+    },
+    {
+      "profileName": "Maya",
+      "age": 20,
+      "personality": "Clout Chaser",
+      "bio": "Follow my Insta @maya_fake. Don't check this app.",
+      "avatarIndex": 2
+    },
+    {
+      "profileName": "Brianna",
+      "age": 23,
+      "personality": "Serial Swiper",
+      "bio": "Here for free food and validation. Swipe left if you take life seriously.",
+      "avatarIndex": 3
+    },
+    {
+      "profileName": "Vanessa",
+      "age": 25,
+      "personality": "Cryptic Bio",
+      "bio": "Ask me anything except what I do for a living.",
+      "avatarIndex": 4
+    }
+  ]
+}

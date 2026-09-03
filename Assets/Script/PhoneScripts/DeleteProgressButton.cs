@@ -25,6 +25,9 @@ public class DeleteProgressButton : MonoBehaviour
             ChatSaveSystem.DeleteAllProgress();
         }
 
+        // Always reset the static seen-card memory
+        DatingCardController.ResetSeenProfiles();
+
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.buildIndex);
     }

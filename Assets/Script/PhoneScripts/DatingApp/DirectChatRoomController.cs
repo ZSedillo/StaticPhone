@@ -25,8 +25,13 @@ public class DirectChatRoomController : MonoBehaviour
     [SerializeField] private GameObject bottomNav;
 
     [Header("Chat Settings")]
-    [SerializeField] private float partnerReplyDelay = 2.5f; // 2 to 5 seconds realistic wait
+    [SerializeField] private float partnerReplyDelay = 2.5f;
     [SerializeField] private float scrollDuration = 0.25f;
+
+[Header("App Body Panels to Hide On Chat Open")]
+    [SerializeField] private GameObject profileViewPanel;
+    [SerializeField] private GameObject exploreViewPanel;
+    [SerializeField] private GameObject likesViewPanel;
 
     private string activeGirlName;
     private DialogueNodeData currentNode;
@@ -56,20 +61,28 @@ public class DirectChatRoomController : MonoBehaviour
         activeGirlName = partnerName.Trim();
         activeContact = ChatSaveSystem.AddOrGetContact(activeGirlName, "", 0);
 
+        if (NotificationManager.Instance != null)
+        {
+            NotificationManager.Instance.SetCurrentOpenChat(activeGirlName);
+        }
+
         if (txtPartnerName != null) txtPartnerName.text = activeGirlName;
         if (partnerAvatar != null && avatarSprite != null) partnerAvatar.sprite = avatarSprite;
+
+        // Turn OFF other views so they don't stack behind chat
         if (chatsListPanel != null) chatsListPanel.SetActive(false);
         if (bottomNav != null) bottomNav.SetActive(false);
+        if (profileViewPanel != null) profileViewPanel.SetActive(false);
+        if (exploreViewPanel != null) exploreViewPanel.SetActive(false);
+        if (likesViewPanel != null) likesViewPanel.SetActive(false);
 
         ClearChatUI();
 
-        // 1. Rebuild previously saved conversation
         foreach (var msg in activeContact.chatHistory)
         {
             InstantiateBubble(msg.messageText, msg.isPlayer, autoScroll: false);
         }
 
-        // 2. Fetch current active node from JSON
         currentNode = DialogueLoader.GetNode(activeGirlName, activeContact.currentNodeId);
 
         if (activeContact.chatHistory.Count == 0)
@@ -93,6 +106,12 @@ public class DirectChatRoomController : MonoBehaviour
 
     public void CloseChatRoom()
     {
+        // Clear active conversation view so notifications can fire again
+        if (NotificationManager.Instance != null)
+        {
+            NotificationManager.Instance.ClearCurrentOpenChat();
+        }
+
         if (scrollCoroutine != null)
         {
             StopCoroutine(scrollCoroutine);
@@ -115,6 +134,12 @@ public class DirectChatRoomController : MonoBehaviour
 
                 if (GameManager.Instance != null)
                     GameManager.Instance.UpdateLastMessage(activeGirlName, formatted);
+
+                // Notify if message finalized after backing out
+                if (NotificationManager.Instance != null)
+                {
+                    NotificationManager.Instance.TriggerNotification(activeGirlName, formatted, activeContact.avatarIndex);
+                }
             }
         }
 
@@ -137,6 +162,12 @@ public class DirectChatRoomController : MonoBehaviour
         if (GameManager.Instance != null)
         {
             GameManager.Instance.UpdateLastMessage(activeGirlName, formattedMessage);
+        }
+
+        // Trigger notification banner/shade (auto-ignored if player is currently in this room)
+        if (NotificationManager.Instance != null)
+        {
+            NotificationManager.Instance.TriggerNotification(activeGirlName, formattedMessage, activeContact.avatarIndex);
         }
 
         InstantiateBubble(formattedMessage, isPlayer: false, autoScroll: true);
@@ -193,28 +224,71 @@ public class DirectChatRoomController : MonoBehaviour
             {
                 activeContact.isUnlockedInOnlyYaps = true;
                 ChatSaveSystem.Save();
-                Debug.Log($"[OnlyYaps] Unlocked {activeGirlName} for OnlyYaps!");
             }
 
             if (!string.IsNullOrEmpty(currentNode.partnerMessage))
             {
-                partnerReplyCoroutine = StartCoroutine(DelayedPartnerReply(currentNode.partnerMessage));
+                string replyText = currentNode.partnerMessage;
+                string currentGirl = activeGirlName;
+                int avatarIdx = activeContact.avatarIndex;
+
+                // Run reply on persistent GameManager so minimizing the app does not freeze it!
+                if (GameManager.Instance != null)
+                {
+                    GameManager.Instance.StartCoroutine(GlobalPartnerReplyRoutine(currentGirl, replyText, avatarIdx));
+                }
+                else
+                {
+                    partnerReplyCoroutine = StartCoroutine(DelayedPartnerReply(replyText));
+                }
             }
         }
     }
 
+
+    private IEnumerator GlobalPartnerReplyRoutine(string girlName, string message, int avatarIdx)
+    {
+        ShowTypingIndicator();
+
+        yield return new WaitForSeconds(partnerReplyDelay);
+
+        RemoveTypingIndicator();
+
+        string formatted = FormatDialogueText(message);
+        SavedContactData contact = ChatSaveSystem.AddOrGetContact(girlName, "", 0);
+        contact.chatHistory.Add(new SavedChatMessage { messageText = formatted, isPlayer = false });
+        contact.lastMessageTime = System.DateTime.Now.ToString("h:mm tt");
+        ChatSaveSystem.Save();
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.UpdateLastMessage(girlName, formatted);
+        }
+
+        // If user is currently looking at her chat, spawn the bubble live
+        if (gameObject.activeInHierarchy && activeGirlName.Equals(girlName, System.StringComparison.OrdinalIgnoreCase))
+        {
+            InstantiateBubble(formatted, isPlayer: false, autoScroll: true);
+            StartCoroutine(DisplayChoicesCoroutine());
+        }
+
+        // Always trigger notification (auto-suppressed if player is actively looking at this screen)
+        if (NotificationManager.Instance != null)
+        {
+            NotificationManager.Instance.TriggerNotification(girlName, formatted, avatarIdx);
+        }
+    }
+
+
     private IEnumerator DelayedPartnerReply(string message)
     {
-        // 1. Show Typing in ChatsViewPanel preview
         if (GameManager.Instance != null)
         {
             GameManager.Instance.UpdateLastMessage(activeGirlName, "typing...");
         }
 
-        // 2. Spawn "..." bubble inside chat
         ShowTypingIndicator();
 
-        // 3. Wait 2.5s while animating dots
         float timer = 0f;
         int dotCount = 1;
         while (timer < partnerReplyDelay)

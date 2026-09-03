@@ -124,7 +124,6 @@ public class GameManager : MonoBehaviour
         {
             match.lastMessageTime = DateTime.Now.ToString("h:mm tt");
             
-            // If empty, add the entry; otherwise update the latest message
             if (match.conversationHistory == null)
             {
                 match.conversationHistory = new List<ChatMessageData>();
@@ -143,6 +142,10 @@ public class GameManager : MonoBehaviour
             {
                 match.conversationHistory[match.conversationHistory.Count - 1].messageText = lastMessage;
             }
+
+            // Move the active conversation to index 0 so it displays at the top of the chat list
+            activeChats.Remove(match);
+            activeChats.Insert(0, match);
 
             OnChatsUpdated?.Invoke();
         }
