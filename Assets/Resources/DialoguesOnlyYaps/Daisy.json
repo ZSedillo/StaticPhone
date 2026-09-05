@@ -1,0 +1,32 @@
+{
+  "girlName": "Daisy",
+  "startingNodeId": "oy_daisy_start",
+  "nodes": [
+    {
+      "id": "oy_daisy_start",
+      "partnerMessage": "You're in. This channel is unranked, but I still play to win. You got a headset on?",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Always geared up. What's the plan?", "nextId": "oy_plan", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Just call me and let's coordinate.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_plan",
+      "partnerMessage": "We're running a duo tournament tonight. Check out my match telemetry:",
+      "linkUrl": "onlyyaps.gg/match_stats/daisy_kd",
+      "triggerEvent": "UNLOCK_TOURNAMENT_STATS",
+      "choices": [
+        { "choiceText": "Those numbers are unreal. Call me now, let's win.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_call_ready",
+      "partnerMessage": "Green call icon is armed at the top. Ring me before the match queue pops!",
+      "linkUrl": "",
+      "triggerEvent": "START_CALL_RINGTONE",
+      "choices": []
+    }
+  ]
+}

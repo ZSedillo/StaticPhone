@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 public class ChatsViewController : MonoBehaviour
 {
+    [Header("App Type")]
+    [SerializeField] private bool isOnlyYapsView = false;
+
     [Header("UI References")]
     public Transform chatsContentParent;
     public GameObject chatItemPrefab;
@@ -35,7 +38,7 @@ public class ChatsViewController : MonoBehaviour
         RefreshChatsUI();
     }
 
-    public void RefreshChatsUI()
+public void RefreshChatsUI()
     {
         if (chatsContentParent == null || chatItemPrefab == null) return;
 
@@ -51,15 +54,25 @@ public class ChatsViewController : MonoBehaviour
         for (int i = 0; i < GameManager.Instance.activeChats.Count; i++)
         {
             ContactChatData chatData = GameManager.Instance.activeChats[i];
+            SavedContactData savedContact = ChatSaveSystem.GetContact(chatData.contactName);
+
+            // --- ONLYYAPS FILTER CHECK ---
+            if (isOnlyYapsView)
+            {
+                // If this is OnlyYaps, skip any girl who has NOT unlocked it
+                if (savedContact == null || !savedContact.isUnlockedInOnlyYaps)
+                {
+                    continue;
+                }
+            }
+
             GameObject newChat = Instantiate(chatItemPrefab, chatsContentParent);
             ChatItemUI ui = newChat.GetComponent<ChatItemUI>();
 
             if (ui != null)
             {
-                // Prioritize live conversation history, then saved database history, else display "New match! Say hi."
                 string lastMsg = "New match! Say hi.";
                 
-                SavedContactData savedContact = ChatSaveSystem.GetContact(chatData.contactName);
                 if (chatData.conversationHistory != null && chatData.conversationHistory.Count > 0)
                 {
                     lastMsg = chatData.conversationHistory[chatData.conversationHistory.Count - 1].messageText;

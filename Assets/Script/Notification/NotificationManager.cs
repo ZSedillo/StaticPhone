@@ -14,11 +14,18 @@ public class NotificationManager : MonoBehaviour
     [Header("Pop-up Heads-Up Banner")]
     [SerializeField] private NotificationBannerPopup topBanner;
 
-    [Header("App & Chat Navigation")]
+    [Header("App & Chat Navigation - Dating App")]
     [Tooltip("The Dating App icon Button located on your HomeScreen")]
     [SerializeField] private Button btnDatingAppIcon;
     [SerializeField] private GameObject datingAppWindow;
     [SerializeField] private DirectChatRoomController directChatRoom;
+
+    [Header("App Navigation - OnlyYaps")]
+    [Tooltip("The OnlyYaps App icon Button located on your HomeScreen")]
+    [SerializeField] private Button btnOnlyYapsAppIcon;
+    [SerializeField] private GameObject onlyYapsAppWindow;
+
+    [Header("Visual Assets")]
     [SerializeField] private List<Sprite> avatarSprites = new List<Sprite>();
 
     [Header("Text Settings")]
@@ -81,13 +88,11 @@ public class NotificationManager : MonoBehaviour
         // 1. Pull-down tray logic
         if (trayContentParent != null && notificationItemPrefab != null)
         {
-            // Check if a card for this sender already exists in the tray
             ActiveNotificationData existingNotif = activeNotifications.Find(n =>
                 n.senderName.Equals(senderName, StringComparison.OrdinalIgnoreCase));
 
             if (existingNotif != null && existingNotif.spawnedItem != null)
             {
-                // Update existing card, bump it to the very top, and glow
                 existingNotif.message = shortPreview;
                 existingNotif.timestamp = time;
 
@@ -108,12 +113,10 @@ public class NotificationManager : MonoBehaviour
             }
             else
             {
-                // Spawn a new card
                 GameObject itemObj = Instantiate(notificationItemPrefab, trayContentParent);
                 itemObj.transform.localScale = Vector3.one;
                 itemObj.transform.localPosition = Vector3.zero;
 
-                // Move new notification to the top of the tray
                 itemObj.transform.SetAsFirstSibling();
 
                 NotificationItemUI itemUI = itemObj.GetComponent<NotificationItemUI>();
@@ -159,12 +162,11 @@ public class NotificationManager : MonoBehaviour
         }
     }
 
-    private void OpenChatFromNotification(string girlName, int avatarIndex)
+    private void OpenChatFromNotification(string senderName, int avatarIndex)
     {
-        // 1. Reset the pull-down shade (NotificationContainer) back up
+        // 1. Reset pull-down shade back up if open
         if (trayContentParent != null)
         {
-            // Find the root NotificationContainer (parent of Content)
             Transform containerTransform = trayContentParent.GetComponentInParent<NotificationSwipe>()?.transform 
                                            ?? trayContentParent.parent;
 
@@ -174,20 +176,43 @@ public class NotificationManager : MonoBehaviour
                 if (containerRect != null)
                 {
                     Vector2 pos = containerRect.anchoredPosition;
-                    pos.y = 880f; // The closed Pos Y of the shade
+                    pos.y = 880f;
                     containerRect.anchoredPosition = pos;
                 }
 
-                // If you have a NotificationSwipe script, reset its open state flag
                 NotificationSwipe swipeScript = containerTransform.GetComponent<NotificationSwipe>();
                 if (swipeScript != null)
                 {
-                    swipeScript.isOpen = false; // or swipeScript.CloseTray() if you have a method for it
+                    swipeScript.isOpen = false;
                 }
             }
         }
 
-        // 2. Open app via homescreen button
+        // 2. Hide top banner if visible
+        if (topBanner != null)
+        {
+            topBanner.HideBanner();
+        }
+
+        // 3. ONLYYAPS ROUTE: If the notification is from OnlyYaps, launch OnlyYaps
+        if (senderName.Equals("OnlyYaps", StringComparison.OrdinalIgnoreCase))
+        {
+            if (datingAppWindow != null) datingAppWindow.SetActive(false);
+
+            if (btnOnlyYapsAppIcon != null)
+            {
+                btnOnlyYapsAppIcon.onClick.Invoke();
+            }
+            else if (onlyYapsAppWindow != null)
+            {
+                onlyYapsAppWindow.SetActive(true);
+            }
+
+            RemoveNotificationsFrom(senderName);
+            return;
+        }
+
+        // 4. DATING APP ROUTE: Launch Dating App and navigate to partner's direct chat
         if (btnDatingAppIcon != null)
         {
             btnDatingAppIcon.onClick.Invoke();
@@ -197,21 +222,14 @@ public class NotificationManager : MonoBehaviour
             datingAppWindow.SetActive(true);
         }
 
-        // 3. Open Direct Chat Room
         if (directChatRoom != null)
         {
             Sprite avatar = (avatarIndex >= 0 && avatarIndex < avatarSprites.Count) ? avatarSprites[avatarIndex] : null;
-            directChatRoom.OpenChatRoom(girlName, avatar);
+            directChatRoom.OpenChatRoom(senderName, avatar);
             directChatRoom.transform.SetAsLastSibling();
         }
 
-        // 4. Hide popup banner if it's currently showing
-        if (topBanner != null)
-        {
-            topBanner.HideBanner();
-        }
-
-        RemoveNotificationsFrom(girlName);
+        RemoveNotificationsFrom(senderName);
     }
 
     private void DismissNotification(ActiveNotificationData notif)

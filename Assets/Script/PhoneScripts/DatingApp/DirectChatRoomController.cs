@@ -6,6 +6,10 @@ using TMPro;
 
 public class DirectChatRoomController : MonoBehaviour
 {
+    [Header("App Type")]
+    [Tooltip("Check this ONLY on the DirectChatPanel inside OnlyYapsAppWindow")]
+    [SerializeField] private bool isOnlyYaps = false;
+
     [Header("Header References")]
     [SerializeField] private Button btnBack;
     [SerializeField] private Image partnerAvatar;
@@ -29,7 +33,7 @@ public class DirectChatRoomController : MonoBehaviour
     [SerializeField] private float maxReplyDelay = 10f;
     [SerializeField] private float scrollDuration = 0.25f;
 
-[Header("App Body Panels to Hide On Chat Open")]
+    [Header("App Body Panels to Hide On Chat Open (Dating App Only)")]
     [SerializeField] private GameObject profileViewPanel;
     [SerializeField] private GameObject exploreViewPanel;
     [SerializeField] private GameObject likesViewPanel;
@@ -60,11 +64,15 @@ public class DirectChatRoomController : MonoBehaviour
     {
         gameObject.SetActive(true);
         activeGirlName = partnerName.Trim();
-        activeContact = ChatSaveSystem.AddOrGetContact(activeGirlName, "", 0);
+
+        // Separate save key so OnlyYaps and Dating App do not share conversation history
+        string saveKey = isOnlyYaps ? ("OY_" + activeGirlName) : activeGirlName;
+        activeContact = ChatSaveSystem.AddOrGetContact(saveKey, "", 0);
 
         if (NotificationManager.Instance != null)
         {
-            NotificationManager.Instance.SetCurrentOpenChat(activeGirlName);
+            // Mute active chat notifications while looking at this room
+            NotificationManager.Instance.SetCurrentOpenChat(isOnlyYaps ? "OnlyYaps" : activeGirlName);
         }
 
         if (txtPartnerName != null) txtPartnerName.text = activeGirlName;
@@ -79,16 +87,33 @@ public class DirectChatRoomController : MonoBehaviour
 
         ClearChatUI();
 
+        // 1. Load history for this specific app
         foreach (var msg in activeContact.chatHistory)
         {
             InstantiateBubble(msg.messageText, msg.isPlayer, autoScroll: false);
         }
 
-        currentNode = DialogueLoader.GetNode(activeGirlName, activeContact.currentNodeId);
+        // 2. Resolve dialogue path based on folder and starting node
+        string dialoguePath = isOnlyYaps
+            ? ("DialoguesOnlyYaps/" + activeGirlName)
+            : ("Dialogues/" + activeGirlName + "Dialogue");
+
+        string startNodeId = string.IsNullOrEmpty(activeContact.currentNodeId)
+            ? (isOnlyYaps ? ("oy_" + activeGirlName.ToLower() + "_start") : "start")
+            : activeContact.currentNodeId;
+
+        currentNode = DialogueLoader.GetNode(dialoguePath, startNodeId);
+
+        // Safety verification log
+        if (currentNode == null)
+        {
+            Debug.LogError($"[DirectChatRoom] Failed to load any node from Resources/{dialoguePath}");
+            return;
+        }
 
         if (activeContact.chatHistory.Count == 0)
         {
-            if (currentNode != null && !string.IsNullOrEmpty(currentNode.partnerMessage))
+            if (!string.IsNullOrEmpty(currentNode.partnerMessage))
             {
                 partnerReplyCoroutine = StartCoroutine(DelayedPartnerReply(currentNode.partnerMessage));
             }
@@ -107,7 +132,6 @@ public class DirectChatRoomController : MonoBehaviour
 
     public void CloseChatRoom()
     {
-        // Clear active conversation view so notifications can fire again
         if (NotificationManager.Instance != null)
         {
             NotificationManager.Instance.ClearCurrentOpenChat();
@@ -136,10 +160,10 @@ public class DirectChatRoomController : MonoBehaviour
                 if (GameManager.Instance != null)
                     GameManager.Instance.UpdateLastMessage(activeGirlName, formatted);
 
-                // Notify if message finalized after backing out
                 if (NotificationManager.Instance != null)
                 {
-                    NotificationManager.Instance.TriggerNotification(activeGirlName, formatted, activeContact.avatarIndex);
+                    string notifSource = isOnlyYaps ? "OnlyYaps" : activeGirlName;
+                    NotificationManager.Instance.TriggerNotification(notifSource, formatted, activeContact.avatarIndex);
                 }
             }
         }
@@ -165,13 +189,16 @@ public class DirectChatRoomController : MonoBehaviour
             GameManager.Instance.UpdateLastMessage(activeGirlName, formattedMessage);
         }
 
-        // Trigger notification banner/shade (auto-ignored if player is currently in this room)
+        string currentLink = currentNode != null ? currentNode.linkUrl : "";
+        string currentEvent = currentNode != null ? currentNode.triggerEvent : "";
+
         if (NotificationManager.Instance != null)
         {
-            NotificationManager.Instance.TriggerNotification(activeGirlName, formattedMessage, activeContact.avatarIndex);
+            string notifSource = isOnlyYaps ? "OnlyYaps" : activeGirlName;
+            NotificationManager.Instance.TriggerNotification(notifSource, formattedMessage, activeContact.avatarIndex);
         }
 
-        InstantiateBubble(formattedMessage, isPlayer: false, autoScroll: true);
+        InstantiateBubble(formattedMessage, isPlayer: false, linkUrl: currentLink, eventTrigger: currentEvent, autoScroll: true);
         StartCoroutine(DisplayChoicesCoroutine());
     }
 
@@ -195,13 +222,15 @@ public class DirectChatRoomController : MonoBehaviour
 
             Button btn = btnObj.GetComponent<Button>();
             string nextTargetId = choice.nextId;
-            btn.onClick.AddListener(() => OnPlayerSelectedChoice(formattedChoiceText, nextTargetId));
+            string choiceLink = choice.linkUrl;
+            string choiceEvent = choice.triggerEvent;
+            btn.onClick.AddListener(() => OnPlayerSelectedChoice(formattedChoiceText, nextTargetId, choiceLink, choiceEvent));
         }
 
         TriggerSmoothScroll();
     }
 
-    private void OnPlayerSelectedChoice(string playerText, string nextNodeId)
+    private void OnPlayerSelectedChoice(string playerText, string nextNodeId, string linkUrl = "", string eventTrigger = "")
     {
         ClearChoices();
 
@@ -215,15 +244,20 @@ public class DirectChatRoomController : MonoBehaviour
             GameManager.Instance.UpdateLastMessage(activeGirlName, playerText);
         }
 
-        InstantiateBubble(playerText, isPlayer: true, autoScroll: true);
+        InstantiateBubble(playerText, isPlayer: true, linkUrl: linkUrl, eventTrigger: eventTrigger, autoScroll: true);
 
-        currentNode = DialogueLoader.GetNode(activeGirlName, nextNodeId);
+        string dialoguePath = isOnlyYaps
+            ? ("DialoguesOnlyYaps/" + activeGirlName)
+            : ("Dialogues/" + activeGirlName + "Dialogue");
+
+        currentNode = DialogueLoader.GetNode(dialoguePath, nextNodeId);
 
         if (currentNode != null)
         {
             if (!string.IsNullOrEmpty(currentNode.triggerEvent) && currentNode.triggerEvent == "UNLOCK_ONLYYAPS")
             {
-                activeContact.isUnlockedInOnlyYaps = true;
+                SavedContactData rootContact = ChatSaveSystem.AddOrGetContact(activeGirlName, "", 0);
+                rootContact.isUnlockedInOnlyYaps = true;
                 ChatSaveSystem.Save();
             }
 
@@ -233,7 +267,6 @@ public class DirectChatRoomController : MonoBehaviour
                 string currentGirl = activeGirlName;
                 int avatarIdx = activeContact.avatarIndex;
 
-                // Run reply on persistent GameManager so minimizing the app does not freeze it!
                 if (GameManager.Instance != null)
                 {
                     GameManager.Instance.StartCoroutine(GlobalPartnerReplyRoutine(currentGirl, replyText, avatarIdx));
@@ -246,7 +279,6 @@ public class DirectChatRoomController : MonoBehaviour
         }
     }
 
-
     private IEnumerator GlobalPartnerReplyRoutine(string girlName, string message, int avatarIdx)
     {
         ShowTypingIndicator();
@@ -257,7 +289,8 @@ public class DirectChatRoomController : MonoBehaviour
         RemoveTypingIndicator();
 
         string formatted = FormatDialogueText(message);
-        SavedContactData contact = ChatSaveSystem.AddOrGetContact(girlName, "", 0);
+        string saveKey = isOnlyYaps ? ("OY_" + girlName) : girlName;
+        SavedContactData contact = ChatSaveSystem.AddOrGetContact(saveKey, "", 0);
         contact.chatHistory.Add(new SavedChatMessage { messageText = formatted, isPlayer = false });
         contact.lastMessageTime = System.DateTime.Now.ToString("h:mm tt");
         ChatSaveSystem.Save();
@@ -267,17 +300,18 @@ public class DirectChatRoomController : MonoBehaviour
             GameManager.Instance.UpdateLastMessage(girlName, formatted);
         }
 
-        // If user is currently looking at her chat, spawn the bubble live
         if (gameObject.activeInHierarchy && activeGirlName.Equals(girlName, System.StringComparison.OrdinalIgnoreCase))
         {
-            InstantiateBubble(formatted, isPlayer: false, autoScroll: true);
+            string currentLink = currentNode != null ? currentNode.linkUrl : "";
+            string currentEvent = currentNode != null ? currentNode.triggerEvent : "";
+            InstantiateBubble(formatted, isPlayer: false, linkUrl: currentLink, eventTrigger: currentEvent, autoScroll: true);
             StartCoroutine(DisplayChoicesCoroutine());
         }
 
-        // Always trigger notification (auto-suppressed if player is actively looking at this screen)
         if (NotificationManager.Instance != null)
         {
-            NotificationManager.Instance.TriggerNotification(girlName, formatted, avatarIdx);
+            string notifSource = isOnlyYaps ? "OnlyYaps" : girlName;
+            NotificationManager.Instance.TriggerNotification(notifSource, formatted, avatarIdx);
         }
     }
 
@@ -290,22 +324,24 @@ public class DirectChatRoomController : MonoBehaviour
 
         ShowTypingIndicator();
 
-        // Pick random duration between min and max
-        float totalWaitTime = Random.Range(minReplyDelay, maxReplyDelay);
+        float min = Mathf.Max(1f, minReplyDelay);
+        float max = Mathf.Max(min, maxReplyDelay);
+        float totalWaitTime = Random.Range(min, max);
         float timer = 0f;
         int dotCount = 1;
 
         while (timer < totalWaitTime)
         {
+            yield return new WaitForSeconds(0.4f);
             timer += 0.4f;
             dotCount = (dotCount % 3) + 1;
             UpdateTypingText(new string('.', dotCount));
-            yield return new WaitForSeconds(0.4f);
         }
 
         partnerReplyCoroutine = null;
         ReceivePartnerMessage(message);
     }
+
     private void ShowTypingIndicator()
     {
         RemoveTypingIndicator();
@@ -338,21 +374,49 @@ public class DirectChatRoomController : MonoBehaviour
         }
     }
 
-    private void InstantiateBubble(string text, bool isPlayer, bool autoScroll = true)
+    private void InstantiateBubble(string text, bool isPlayer, string linkUrl = "", string eventTrigger = "", bool autoScroll = true)
     {
         if (directMessagePrefab == null || messageFeedContent == null) return;
 
         GameObject newMsg = Instantiate(directMessagePrefab, messageFeedContent);
         DirectMessageUI msgUI = newMsg.GetComponent<DirectMessageUI>();
 
-        if (msgUI != null)
+        string finalText = text;
+
+        if (!string.IsNullOrEmpty(linkUrl))
         {
-            msgUI.Setup(text, isPlayer);
+            finalText += $"\n<link=\"{linkUrl}\"><u><color=#38E54D>{linkUrl}</color></u></link>";
         }
 
-        if (autoScroll)
+        if (msgUI != null)
         {
-            TriggerSmoothScroll();
+            msgUI.Setup(finalText, isPlayer);
+
+            TMP_Text tmpText = newMsg.GetComponentInChildren<TMP_Text>();
+            if (tmpText != null && !string.IsNullOrEmpty(linkUrl))
+            {
+                var linkHandler = tmpText.gameObject.AddComponent<ChatLinkClickReceiver>();
+                linkHandler.Initialize(linkUrl, () => UnlockOnlyYapsContact(activeGirlName));
+            }
+        }
+
+        if (!string.IsNullOrEmpty(eventTrigger))
+        {
+            DialogueEventManager.TriggerEvent(eventTrigger, activeGirlName);
+        }
+
+        if (autoScroll) TriggerSmoothScroll();
+    }
+
+    public void UnlockOnlyYapsContact(string girlName)
+    {
+        SavedContactData contact = ChatSaveSystem.AddOrGetContact(girlName, "", 0);
+        contact.isUnlockedInOnlyYaps = true;
+        ChatSaveSystem.Save();
+
+        if (NotificationManager.Instance != null)
+        {
+            NotificationManager.Instance.TriggerNotification("OnlyYaps", $"{girlName} shared her private link! Added to OnlyYaps.", contact.avatarIndex);
         }
     }
 

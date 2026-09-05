@@ -1,64 +1,42 @@
 {
   "girlName": "Junia",
   "age": 23,
-  "personality": "High-Maintenance Influencer",
-  "bio": "VIP standards only. Heavy is the head that wears the crown, babe 💅",
-  "avatarIndex": 2,
+  "personality": "Sarcastic Barista",
+  "bio": "Espresso dark as midnight. If you drink decaf, we have nothing to talk about.",
+  "avatarIndex": 6,
   "nodes": [
     {
       "id": "start",
-      "partnerMessage": "",
+      "partnerMessage": "Shift is over. {PlayerName}, tell me your daily caffeine routine so I can judge whether you have refined taste.",
+      "linkUrl": "",
+      "triggerEvent": "",
       "choices": [
-        { "choiceText": "Hey Junia! Had to slide in before your inbox crashes.", "nextId": "inbox_open" },
-        { "choiceText": "Is that aesthetic 100% natural or curated by an agency?", "nextId": "agency_open" },
-        { "choiceText": "Hey {PlayerName} here, how's your week going?", "nextId": "generic_open" }
+        { "choiceText": "Double shot espresso straight.", "nextId": "espresso_approval", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Smooth iced matcha latte.", "nextId": "matcha_critique", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
-      "id": "inbox_open",
-      "partnerMessage": "Haha smart move! I literally have 500 guys waiting in queue right now. You just skipped the line.",
+      "id": "espresso_approval",
+      "partnerMessage": "A purist. Rare find in a sea of caramel syrup orders. But typing on this app gives me carpal tunnel.",
+      "linkUrl": "",
+      "triggerEvent": "",
       "choices": [
-        { "choiceText": "VIP pass acquired. What does it take to keep the spot?", "nextId": "vip_test" },
-        { "choiceText": "500 guys? That sounds exhausting to manage.", "nextId": "tease_reply" }
+        { "choiceText": "Where do we chat without the filler?", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
-      "id": "agency_open",
-      "partnerMessage": "All me, babe! 5 AM gym, 3 side hustles, and immaculate styling. Don't hate the player.",
+      "id": "matcha_critique",
+      "partnerMessage": "Matcha? Earthy antioxidant energy... I respect that more than sugary frappuccinos. But I have tea to spill.",
+      "linkUrl": "",
+      "triggerEvent": "",
       "choices": [
-        { "choiceText": "Impressive hustle. When do you actually rest?", "nextId": "vip_test" }
+        { "choiceText": "Spill the tea then.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
-      "id": "generic_open",
-      "partnerMessage": "A bit standard, {PlayerName}, but since you're cute I'll give you a second chance to impress me.",
-      "choices": [
-        { "choiceText": "Alright, challenge accepted. What's your VIP standard?", "nextId": "vip_test" }
-      ]
-    },
-    {
-      "id": "tease_reply",
-      "partnerMessage": "Stress? Please, it's called being in demand. Heavy is the head that wears the crown, babe.",
-      "choices": [
-        { "choiceText": "Built different, huh? Alright, convince me.", "nextId": "vip_test" }
-      ]
-    },
-    {
-      "id": "vip_test",
-      "partnerMessage": "Rule #1: Can't be boring. Rule #2: Take me somewhere with immaculate lighting for photos.",
-      "choices": [
-        { "choiceText": "{PlayerName} knows a rooftop spot that fits that exact aesthetic.", "nextId": "unlock_yaps" },
-        { "choiceText": "Sounds high maintenance. I'm out.", "nextId": "cringe_end" }
-      ]
-    },
-    {
-      "id": "cringe_end",
-      "partnerMessage": "Your loss, {PlayerName}! Next in line please 👋",
-      "choices": []
-    },
-    {
-      "id": "unlock_yaps",
-      "partnerMessage": "Okay {PlayerName}, you officially passed the VIP screening. I'm rarely in this app though—add my OnlyYaps so you don't lose me in the queue 💅",
+      "id": "move_to_yaps",
+      "partnerMessage": "Tap my private roastery link. Jump on OnlyYaps where we can voice chat while I grind fresh beans.",
+      "linkUrl": "onlyyaps.roast/junia_counter",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     }

@@ -9,6 +9,8 @@ public class DialogueChoiceData
 {
     public string choiceText;
     public string nextId; 
+    public string linkUrl;      // <-- ADD THIS (if a player choice contains a link)
+    public string triggerEvent; // <-- ADD THIS (if a choice triggers an event)
 }
 
 [Serializable]
@@ -17,6 +19,7 @@ public class DialogueNodeData
     public string id;
     public string partnerMessage;
     public string triggerEvent;
+    public string linkUrl;      // <-- ADD THIS (if the character sends a link)
     public List<DialogueChoiceData> choices = new List<DialogueChoiceData>();
 }
 

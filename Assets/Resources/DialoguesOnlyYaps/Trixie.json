@@ -1,0 +1,32 @@
+{
+  "girlName": "Trixie",
+  "startingNodeId": "oy_trixie_start",
+  "nodes": [
+    {
+      "id": "oy_trixie_start",
+      "partnerMessage": "WELCOMMEEE TO THE GREEN ROOM!! The subwoofers are literally shaking the walls right now!!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Can you hear anything over that beat?!", "nextId": "oy_shout", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Call me so I can hear the live drop!", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_shout",
+      "partnerMessage": "BARELY!! But I got the private festival stream up! Tap to see the crowd:",
+      "linkUrl": "onlyyaps.fm/live_stage_cams",
+      "triggerEvent": "TRIGGER_STAGE_STREAM",
+      "choices": [
+        { "choiceText": "The crowd is massive. Call me from the stage booth!", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_call_ready",
+      "partnerMessage": "Tap that glowing call button! Let me hear your reaction to this track!! 🎧",
+      "linkUrl": "",
+      "triggerEvent": "START_CALL_RINGTONE",
+      "choices": []
+    }
+  ]
+}

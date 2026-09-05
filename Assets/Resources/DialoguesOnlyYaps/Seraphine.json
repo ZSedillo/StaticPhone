@@ -1,0 +1,32 @@
+{
+  "girlName": "Seraphine",
+  "startingNodeId": "oy_seraphine_start",
+  "nodes": [
+    {
+      "id": "oy_seraphine_start",
+      "partnerMessage": "Welcome to my soundproof study. There are no notifications or algorithm noise here.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Must be calming after a long concert.", "nextId": "oy_quiet", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Play me a few measures over call?", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_quiet",
+      "partnerMessage": "It is where I truly compose. Here is my current handwritten score draft:",
+      "linkUrl": "onlyyaps.studio/score_suite_no5",
+      "triggerEvent": "UNLOCK_SHEET_MUSIC",
+      "choices": [
+        { "choiceText": "The notation is immaculate. Let's call so I can hear it live.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_call_ready",
+      "partnerMessage": "I have tuned my strings. Press the green call button at your leisure.",
+      "linkUrl": "",
+      "triggerEvent": "START_CALL_RINGTONE",
+      "choices": []
+    }
+  ]
+}

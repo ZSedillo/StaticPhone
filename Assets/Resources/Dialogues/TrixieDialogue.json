@@ -1,51 +1,42 @@
 {
   "girlName": "Trixie",
-  "age": 21,
-  "personality": "Chaotic Menace",
-  "bio": "My social battery lasts 23 minutes. Blaming all life choices on mercury retrograde 🚗💨",
-  "avatarIndex": 4,
+  "age": 22,
+  "personality": "Hyperactive DJ",
+  "bio": "Bass drops > heart drops. Looking for someone who can keep up with 150 BPM.",
+  "avatarIndex": 1,
   "nodes": [
     {
       "id": "start",
-      "partnerMessage": "",
+      "partnerMessage": "YO {PlayerName}!! The festival afterparty just ended and my ears are still ringing!! What track are you looping today?!",
+      "linkUrl": "",
+      "triggerEvent": "",
       "choices": [
-        { "choiceText": "Your bio screams chaotic energy and I'm here for it.", "nextId": "chaos_open" },
-        { "choiceText": "Hey Trixie! What's the most reckless thing you did this week?", "nextId": "reckless_open" },
-        { "choiceText": "Quick, tell me your coffee order right now.", "nextId": "coffee_open" }
+        { "choiceText": "Heavy bass and synthwave.", "nextId": "rave_agree", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Acoustic fingerstyle guitar.", "nextId": "rave_surprise", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
-      "id": "chaos_open",
-      "partnerMessage": "omg {PlayerName} if i start acting weird it's totally not my fault, mercury is literally in retrograde right now!!",
+      "id": "rave_agree",
+      "partnerMessage": "YESSS!! You pass the vibe check completely!! But wait, dating app audio compression is garbage.",
+      "linkUrl": "",
+      "triggerEvent": "",
       "choices": [
-        { "choiceText": "Classic excuse, but I'll let it slide.", "nextId": "excuse_reply" },
-        { "choiceText": "Should {PlayerName} be concerned about this chaos?", "nextId": "excuse_reply" }
+        { "choiceText": "Got an uncompressed mix link?", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
-      "id": "reckless_open",
-      "partnerMessage": "i bought a karaoke microphone at 3 AM yesterday and sang 2000s pop punk until my landlord banged on the wall 😭",
+      "id": "rave_surprise",
+      "partnerMessage": "Wait, acoustic guitar? That's actually super wholesome... but can you handle an adrenaline rush?",
+      "linkUrl": "",
+      "triggerEvent": "",
       "choices": [
-        { "choiceText": "Next time you need a backup singer, call me.", "nextId": "unlock_yaps" }
+        { "choiceText": "Test me on a real call.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
-      "id": "coffee_open",
-      "partnerMessage": "iced oat latte with caramel drizzle and 4 extra espresso shots because my sleep schedule is in shambles!!",
-      "choices": [
-        { "choiceText": "4 shots?! You're living on pure adrenaline.", "nextId": "excuse_reply" }
-      ]
-    },
-    {
-      "id": "excuse_reply",
-      "partnerMessage": "SEE someone gets it! It's planetary alignment and caffeine, science literally confirms this!!",
-      "choices": [
-        { "choiceText": "Next time you go on a late-night run, count me in.", "nextId": "unlock_yaps" }
-      ]
-    },
-    {
-      "id": "unlock_yaps",
-      "partnerMessage": "STOP {PlayerName} you are actually fun!! Okay my phone is about to die at 2% find me on OnlyYaps immediately before my screen goes black ahhh 🚗💨",
+      "id": "move_to_yaps",
+      "partnerMessage": "Tap my private feed link right now!! I'm streaming my live rehearsal mix on OnlyYaps!!",
+      "linkUrl": "onlyyaps.fm/trixie_drop",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     }

@@ -1,0 +1,32 @@
+{
+  "girlName": "Junia",
+  "startingNodeId": "oy_junia_start",
+  "nodes": [
+    {
+      "id": "oy_junia_start",
+      "partnerMessage": "Closed the café register and locked the doors. Only VIPs get this direct feed.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Glad I made the cut. What are you roasting?", "nextId": "oy_beans", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "No texting. Voice call me right now.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_beans",
+      "partnerMessage": "Single-origin Ethiopian Yirgacheffe. Blueberry and jasmine notes. See the roast profile chart:",
+      "linkUrl": "onlyyaps.roast/batch_402_curves",
+      "triggerEvent": "UNLOCK_COFFEE_PROFILE",
+      "choices": [
+        { "choiceText": "That roast curve looks precise. Call me while you grind it.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_call_ready",
+      "partnerMessage": "Grinder is running. Tap the green call button at the top and let's talk.",
+      "linkUrl": "",
+      "triggerEvent": "START_CALL_RINGTONE",
+      "choices": []
+    }
+  ]
+}

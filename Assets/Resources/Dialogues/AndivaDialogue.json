@@ -8,28 +8,35 @@
     {
       "id": "start",
       "partnerMessage": "Darling {PlayerName}, thank goodness you matched. The fashion taste on this app is an absolute crime scene.",
+      "linkUrl": "",
+      "triggerEvent": "",
       "choices": [
-        { "choiceText": "Are you offering fashion police protection?", "nextId": "fashion_critique" },
-        { "choiceText": "Hey! My hoodie and sweatpants are peak comfort.", "nextId": "horror_reaction" }
+        { "choiceText": "Are you offering fashion police protection?", "nextId": "fashion_critique", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Hey! My hoodie and sweatpants are peak comfort.", "nextId": "horror_reaction", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
       "id": "fashion_critique",
       "partnerMessage": "Honey, I am the judge, jury, and stylist. But this chat is way too cramped for my commentary.",
+      "linkUrl": "",
+      "triggerEvent": "",
       "choices": [
-        { "choiceText": "Where should we take this then?", "nextId": "move_to_yaps" }
+        { "choiceText": "Where should we take this then?", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
       "id": "horror_reaction",
       "partnerMessage": "Sweatpants?! In public?! I need smelling salts immediately. We cannot discuss this here.",
+      "linkUrl": "",
+      "triggerEvent": "",
       "choices": [
-        { "choiceText": "Fine, give me your handle on OnlyYaps.", "nextId": "move_to_yaps" }
+        { "choiceText": "Fine, give me your handle on OnlyYaps.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
       "id": "move_to_yaps",
-      "partnerMessage": "Add me on OnlyYaps right now. The tea is boiling and I refuse to spill it here. 💅",
+      "partnerMessage": "Tap my invite link below right now. The tea is boiling and I refuse to spill it here. 💅",
+      "linkUrl": "onlyyaps.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     }

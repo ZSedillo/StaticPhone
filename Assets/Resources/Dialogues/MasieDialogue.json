@@ -1,53 +1,42 @@
 {
   "girlName": "Masie",
-  "age": 20,
-  "personality": "Cozy Introvert",
-  "bio": "Watercolor artist, lo-fi listener, and professional bread baker (most loaves turn into bricks).",
-  "avatarIndex": 1,
+  "age": 22,
+  "personality": "Greenhouse Botanist",
+  "bio": "Green tea, Monstera cuttings, and quiet gardens. Talk plants to me.",
+  "avatarIndex": 5,
   "nodes": [
     {
       "id": "start",
-      "partnerMessage": "oh um... hi {PlayerName}! i honestly didn't think you'd swipe back on me 🌸",
+      "partnerMessage": "Hello {PlayerName} 🌱! Just finished repotting my rare carnivorous plants. Do you keep any greenery in your space?",
+      "linkUrl": "",
+      "triggerEvent": "",
       "choices": [
-        { "choiceText": "Of course I did! You look really sweet, Masie.", "nextId": "sweet_response" },
-        { "choiceText": "What are you up to today?", "nextId": "routine_response" },
-        { "choiceText": "Why wouldn't I? Don't sell yourself short.", "nextId": "sweet_response" }
+        { "choiceText": "I have succulents on my desk.", "nextId": "succulent_chat", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I usually forget to water plastic plants.", "nextId": "black_thumb", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
-      "id": "sweet_response",
-      "partnerMessage": "aah thank you >.< that genuinely made my whole evening brighter, {PlayerName}!",
+      "id": "succulent_chat",
+      "partnerMessage": "Good light and draining soil! You have natural instincts. My botanical collection is too vast for this UI.",
+      "linkUrl": "",
+      "triggerEvent": "",
       "choices": [
-        { "choiceText": "Glad I could make you smile. What kind of hobbies are you into?", "nextId": "hobby_branch" },
-        { "choiceText": "Do you get nervous on here often?", "nextId": "nervous_branch" }
+        { "choiceText": "Show me the full greenhouse.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
-      "id": "routine_response",
-      "partnerMessage": "just making some warm chamomile tea and sketching with lo-fi in the background... what about you?",
+      "id": "black_thumb",
+      "partnerMessage": "Oh no! We need to rehabilitate your botanical karma immediately. I brew relaxing herbal infusions.",
+      "linkUrl": "",
+      "triggerEvent": "",
       "choices": [
-        { "choiceText": "Sounds cozy. I'm just playing games and chilling.", "nextId": "hobby_branch" },
-        { "choiceText": "What are you sketching? Can I see?", "nextId": "nervous_branch" }
+        { "choiceText": "Share your secret blend.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
-      "id": "hobby_branch",
-      "partnerMessage": "mostly watercolor painting, reading fantasy books, and baking bread that never rises properly haha",
-      "choices": [
-        { "choiceText": "I'd gladly eat your flat bread any day.", "nextId": "unlock_yaps" },
-        { "choiceText": "Sounds like you need an official taste tester.", "nextId": "unlock_yaps" }
-      ]
-    },
-    {
-      "id": "nervous_branch",
-      "partnerMessage": "yeah... dating apps make me super anxious, but talking to you feels really safe {PlayerName} 🙈",
-      "choices": [
-        { "choiceText": "No pressure at all. We can chat wherever you're most comfortable.", "nextId": "unlock_yaps" }
-      ]
-    },
-    {
-      "id": "unlock_yaps",
-      "partnerMessage": "um... would you mind moving to OnlyYaps, {PlayerName}? i post my little sketches and daily thoughts there... here's my handle! 👉👈",
+      "id": "move_to_yaps",
+      "partnerMessage": "Tap this link into my greenhouse lounge. OnlyYaps has my greenhouse room where we can talk calmly.",
+      "linkUrl": "onlyyaps.garden/masie_green",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     }

@@ -1,0 +1,32 @@
+{
+  "girlName": "Evelyn",
+  "startingNodeId": "oy_evelyn_start",
+  "nodes": [
+    {
+      "id": "oy_evelyn_start",
+      "partnerMessage": "Door is locked, EMF sensor is powered on. You won't leak any of this archive, right?",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Classified with me. What did you uncover?", "nextId": "oy_records", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Call me and brief me on the case directly.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_records",
+      "partnerMessage": "The audio spectrogram from the abandoned observatory. Look at that distinct 18Hz spike:",
+      "linkUrl": "onlyyaps.vault/spectrogram_094",
+      "triggerEvent": "TRIGGER_GLITCH_EFFECT",
+      "choices": [
+        { "choiceText": "That looks like an unnatural waveform. Call me now.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_call_ready",
+      "partnerMessage": "Line is secure. Hit the call button on your screen before interference begins.",
+      "linkUrl": "",
+      "triggerEvent": "START_CALL_RINGTONE",
+      "choices": []
+    }
+  ]
+}

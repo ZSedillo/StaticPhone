@@ -1,0 +1,32 @@
+{
+  "girlName": "Zephyrine",
+  "startingNodeId": "oy_zephyrine_start",
+  "nodes": [
+    {
+      "id": "oy_zephyrine_start",
+      "partnerMessage": "You stepped into my sanctuary, {PlayerName}. The candle flame flickered twice when you connected.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Is that a good omen or bad?", "nextId": "oy_omen", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Read my cards over voice call.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_omen",
+      "partnerMessage": "It signifies sudden revelation. Take a look at your customized spread:",
+      "linkUrl": "onlyyaps.astral/tarot_spread_player",
+      "triggerEvent": "REVEAL_TAROT_CARD",
+      "choices": [
+        { "choiceText": "The High Priestess card... call me to explain it.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_call_ready",
+      "partnerMessage": "The green icon awaits your intent. Let the ether carry our voices.",
+      "linkUrl": "",
+      "triggerEvent": "START_CALL_RINGTONE",
+      "choices": []
+    }
+  ]
+}

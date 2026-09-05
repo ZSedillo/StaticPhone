@@ -1,0 +1,32 @@
+{
+  "girlName": "Andiva",
+  "startingNodeId": "oy_andiva_start",
+  "nodes": [
+    {
+      "id": "oy_andiva_start",
+      "partnerMessage": "Welcome to my VIP lounge, {PlayerName}. Much better than that public app. Now, about that fashion disaster...",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'm ready for the makeover critique.", "nextId": "oy_critique", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Can we just talk on call instead of texting?", "nextId": "oy_call_pitch", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_critique",
+      "partnerMessage": "Rule number one: ditch the graphic tees unless they're vintage runway. Here, study this look:",
+      "linkUrl": "onlyyaps.gallery/andiva/lookbook_01",
+      "triggerEvent": "UNLOCK_LOOKBOOK",
+      "choices": [
+        { "choiceText": "That actually looks sharp. Voice call me to explain rule two?", "nextId": "oy_call_pitch", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_call_pitch",
+      "partnerMessage": "Hit the green voice call icon at the top right, darling. Let's see if your voice matches your confidence. 📞",
+      "linkUrl": "",
+      "triggerEvent": "ENABLE_VOICE_CALL",
+      "choices": []
+    }
+  ]
+}

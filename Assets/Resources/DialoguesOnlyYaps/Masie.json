@@ -1,0 +1,32 @@
+{
+  "girlName": "Masie",
+  "startingNodeId": "oy_masie_start",
+  "nodes": [
+    {
+      "id": "oy_masie_start",
+      "partnerMessage": "Ah, you made it inside the botanical conservatory! The humidity is perfect today 🌿",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "It feels relaxing just seeing this chat theme.", "nextId": "oy_relax", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Can we voice chat while you tend the plants?", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_relax",
+      "partnerMessage": "Greenery heals the spirit. Here's a look at my rare blooming variegated monstera:",
+      "linkUrl": "onlyyaps.garden/monstera_bloom",
+      "triggerEvent": "UNLOCK_HERBAL_RECIPE",
+      "choices": [
+        { "choiceText": "Those white leaves look rare! Call me, tell me how you cultivated it.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_call_ready",
+      "partnerMessage": "My kettle just chimed for fresh tea. Tap the call icon whenever you're ready to chat.",
+      "linkUrl": "",
+      "triggerEvent": "START_CALL_RINGTONE",
+      "choices": []
+    }
+  ]
+}

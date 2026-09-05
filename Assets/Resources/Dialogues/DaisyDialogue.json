@@ -1,50 +1,42 @@
 {
   "girlName": "Daisy",
-  "age": 22,
-  "personality": "Golden Retriever Energy",
-  "bio": "Always laughing, sunny day explorer, and easily bribed with boba or bad puns ✨",
-  "avatarIndex": 5,
+  "age": 20,
+  "personality": "Competitive Gamer",
+  "bio": "1v1 me or don't match. If your APM is under 200, don't bother.",
+  "avatarIndex": 0,
   "nodes": [
     {
       "id": "start",
-      "partnerMessage": "Well aren't you cute, {PlayerName}! Tell me you're not boring ✨",
+      "partnerMessage": "Alright {PlayerName}, tell me your main game or I'm unmatching in 30 seconds. Timer starts now.",
+      "linkUrl": "",
+      "triggerEvent": "",
       "choices": [
-        { "choiceText": "Definitely not boring. Try me.", "nextId": "confident_reply" },
-        { "choiceText": "I like to think I have my moments.", "nextId": "modest_reply" },
-        { "choiceText": "Depends, how do you define boring?", "nextId": "tease_reply" }
+        { "choiceText": "Tactical shooters. Headshots only.", "nextId": "shooter_reply", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Cozy sandbox games. I build dirt huts.", "nextId": "casual_reply", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
-      "id": "confident_reply",
-      "partnerMessage": "Ooh, bold and confident! What's your best opening joke or party trick then, {PlayerName}?",
+      "id": "shooter_reply",
+      "partnerMessage": "Respectable. But this built-in chat lag is killing my ping. I need zero latency.",
+      "linkUrl": "",
+      "triggerEvent": "",
       "choices": [
-        { "choiceText": "I can make you laugh in under three messages.", "nextId": "laugh_challenge" }
+        { "choiceText": "Where do you run voice comms?", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
-      "id": "modest_reply",
-      "partnerMessage": "Only moments? No way, {PlayerName}! I need 24/7 good energy and excitement!",
+      "id": "casual_reply",
+      "partnerMessage": "A dirt hut?! Unacceptable. I need to coach your macro skills right now before I get second-hand tilt.",
+      "linkUrl": "",
+      "triggerEvent": "",
       "choices": [
-        { "choiceText": "Give me a chance to warm up, I don't disappoint.", "nextId": "confident_reply" }
+        { "choiceText": "Coach me where then?", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
-      "id": "tease_reply",
-      "partnerMessage": "Boring = talking about the weather, replying every 8 hours, and having no passions!",
-      "choices": [
-        { "choiceText": "Guilty of none of those. I'm passionate about my craft.", "nextId": "laugh_challenge" }
-      ]
-    },
-    {
-      "id": "laugh_challenge",
-      "partnerMessage": "Challenge accepted, {PlayerName}. You have two messages left, don't miss!",
-      "choices": [
-        { "choiceText": "I was going to tell a chemistry joke, but I knew I wouldn't get a reaction.", "nextId": "unlock_yaps" }
-      ]
-    },
-    {
-      "id": "unlock_yaps",
-      "partnerMessage": "HAHA okay you actually got me 😂 I never check dating app messages though {PlayerName}, add me on OnlyYaps so we can keep talking! 💛",
+      "id": "move_to_yaps",
+      "partnerMessage": "Click this server invite link. Join OnlyYaps voice channel so we can duo without this app lagging.",
+      "linkUrl": "onlyyaps.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     }

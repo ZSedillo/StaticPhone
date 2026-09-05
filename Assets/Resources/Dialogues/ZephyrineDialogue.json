@@ -1,50 +1,42 @@
 {
   "girlName": "Zephyrine",
-  "age": 22,
-  "personality": "Online Meme Cynic",
-  "bio": "I'm only on this app so my FBI agent has something funny to read. Tell me your worst pickup line.",
-  "avatarIndex": 6,
+  "age": 24,
+  "personality": "Esoteric Astrologer",
+  "bio": "Mercury retrograde is not an excuse. Pulling cards on everyone I meet.",
+  "avatarIndex": 2,
   "nodes": [
     {
       "id": "start",
-      "partnerMessage": "",
+      "partnerMessage": "The celestial alignment pulled us together, {PlayerName}. What time were you born? Don't leave out minutes.",
+      "linkUrl": "",
+      "triggerEvent": "",
       "choices": [
-        { "choiceText": "Hey Zephyrine, tell me your absolute worst joke.", "nextId": "joke_open" },
-        { "choiceText": "Swiped right because you looked like you make bad decisions funny.", "nextId": "banter_open" }
+        { "choiceText": "Midnight sharp. What does that say?", "nextId": "tarot_pull", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I don't believe in horoscopes.", "nextId": "skeptic_challenge", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
-      "id": "joke_open",
-      "partnerMessage": "My dating history. Ba-dum tss. Anyway, what's your best excuse for being single on this app, {PlayerName}?",
+      "id": "tarot_pull",
+      "partnerMessage": "A midnight cusp... fascinating. The Empress appeared reversed. We cannot speak in standard text.",
+      "linkUrl": "",
+      "triggerEvent": "",
       "choices": [
-        { "choiceText": "I was waiting for someone funny enough to keep up with me.", "nextId": "flatter_humor" },
-        { "choiceText": "Procrastinating and playing video games mostly.", "nextId": "gamer_humor" }
+        { "choiceText": "Where do you divine then?", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
-      "id": "banter_open",
-      "partnerMessage": "I'm only on this app so my FBI agent has something funny to read. He told me you're a solid 7/10 by the way.",
+      "id": "skeptic_challenge",
+      "partnerMessage": "A skeptic. How predictable for your placement. Let me prove your chart right now over a sacred channel.",
+      "linkUrl": "",
+      "triggerEvent": "",
       "choices": [
-        { "choiceText": "Tell your FBI agent {PlayerName} said thanks for the generous rating.", "nextId": "flatter_humor" }
+        { "choiceText": "Show me the link.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
-      "id": "gamer_humor",
-      "partnerMessage": "A gamer who admits to procrastinating? Groundbreaking. What's your poison?",
-      "choices": [
-        { "choiceText": "Survival games and tactical shooters.", "nextId": "unlock_yaps" }
-      ]
-    },
-    {
-      "id": "flatter_humor",
-      "partnerMessage": "Smooth answer. You almost sounded like you have actual rizz, {PlayerName}.",
-      "choices": [
-        { "choiceText": "Almost? I thought that was top tier delivery.", "nextId": "unlock_yaps" }
-      ]
-    },
-    {
-      "id": "unlock_yaps",
-      "partnerMessage": "Smooth answer. My FBI agent approves of you, {PlayerName}. This dating chat is terrible for sending memes though, come yap with me on OnlyYaps 🍔",
+      "id": "move_to_yaps",
+      "partnerMessage": "Touch this encrypted portal link. Join my circle on OnlyYaps where the aura remains unpolluted.",
+      "linkUrl": "onlyyaps.astral/zephyrine_temple",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     }
