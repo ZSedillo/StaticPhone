@@ -25,7 +25,8 @@ public class DirectChatRoomController : MonoBehaviour
     [SerializeField] private GameObject bottomNav;
 
     [Header("Chat Settings")]
-    [SerializeField] private float partnerReplyDelay = 2.5f;
+    [SerializeField] private float minReplyDelay = 3f;
+    [SerializeField] private float maxReplyDelay = 10f;
     [SerializeField] private float scrollDuration = 0.25f;
 
 [Header("App Body Panels to Hide On Chat Open")]
@@ -250,7 +251,8 @@ public class DirectChatRoomController : MonoBehaviour
     {
         ShowTypingIndicator();
 
-        yield return new WaitForSeconds(partnerReplyDelay);
+        float randomDelay = Random.Range(minReplyDelay, maxReplyDelay);
+        yield return new WaitForSeconds(randomDelay);
 
         RemoveTypingIndicator();
 
@@ -279,7 +281,6 @@ public class DirectChatRoomController : MonoBehaviour
         }
     }
 
-
     private IEnumerator DelayedPartnerReply(string message)
     {
         if (GameManager.Instance != null)
@@ -289,9 +290,12 @@ public class DirectChatRoomController : MonoBehaviour
 
         ShowTypingIndicator();
 
+        // Pick random duration between min and max
+        float totalWaitTime = Random.Range(minReplyDelay, maxReplyDelay);
         float timer = 0f;
         int dotCount = 1;
-        while (timer < partnerReplyDelay)
+
+        while (timer < totalWaitTime)
         {
             timer += 0.4f;
             dotCount = (dotCount % 3) + 1;
@@ -302,7 +306,6 @@ public class DirectChatRoomController : MonoBehaviour
         partnerReplyCoroutine = null;
         ReceivePartnerMessage(message);
     }
-
     private void ShowTypingIndicator()
     {
         RemoveTypingIndicator();

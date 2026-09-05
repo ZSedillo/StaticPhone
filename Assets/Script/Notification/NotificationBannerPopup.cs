@@ -14,14 +14,15 @@ public class NotificationBannerPopup : MonoBehaviour, IBeginDragHandler, IDragHa
     [SerializeField] private Button btnBanner;
 
     [Header("Animation Settings")]
-    [SerializeField] private float hiddenPosY = 200f; // Above the screen
+    [SerializeField] private float hiddenPosY = 200f;  // Above the screen/bezel
     [SerializeField] private float visiblePosY = -60f; // Dropped into view
-    [SerializeField] private float animSpeed = 8f;
-    [SerializeField] private float autoDismissSeconds = 4f;
+    [SerializeField] private float animSpeed = 12f;
+    [SerializeField] private float autoDismissSeconds = 3.5f;
 
     private RectTransform rectTransform;
     private Action onClickAction;
     private Coroutine dismissCoroutine;
+    private Coroutine transitionCoroutine;
     private bool isDragging = false;
     private float targetY;
 
@@ -32,7 +33,6 @@ public class NotificationBannerPopup : MonoBehaviour, IBeginDragHandler, IDragHa
         SetY(hiddenPosY);
 
         if (btnBanner == null) btnBanner = GetComponent<Button>();
-
         if (btnBanner != null)
         {
             btnBanner.onClick.RemoveAllListeners();
@@ -40,30 +40,69 @@ public class NotificationBannerPopup : MonoBehaviour, IBeginDragHandler, IDragHa
         }
     }
 
-    private void OnBannerClicked()
-    {
-        onClickAction?.Invoke();
-        HideBanner();
-    }
-
-    public void Show(string title, string message, Sprite icon, Action onClick)
+public void Show(string title, string message, Sprite icon, Action onClick)
     {
         if (rectTransform == null) rectTransform = GetComponent<RectTransform>();
 
+        onClickAction = onClick;
+        gameObject.SetActive(true);
+
+        if (dismissCoroutine != null)
+        {
+            StopCoroutine(dismissCoroutine);
+            dismissCoroutine = null;
+        }
+
+        // If the banner is already displayed, animate it up quickly before dropping the new one
+        if (transitionCoroutine != null) StopCoroutine(transitionCoroutine);
+
+        if (Mathf.Abs(rectTransform.anchoredPosition.y - visiblePosY) < 30f)
+        {
+            transitionCoroutine = StartCoroutine(CycleNewNotification(title, message, icon));
+        }
+        else
+        {
+            ApplyContent(title, message, icon);
+            targetY = visiblePosY;
+            dismissCoroutine = StartCoroutine(AutoDismissTimer());
+        }
+    }
+    private IEnumerator CycleNewNotification(string title, string message, Sprite icon)
+    {
+        // 1. Slide back up out of sight
+        targetY = hiddenPosY;
+        while (Mathf.Abs(rectTransform.anchoredPosition.y - hiddenPosY) > 10f)
+        {
+            yield return null;
+        }
+
+        // 2. Change the text and avatar while hidden off-screen
+        ApplyContent(title, message, icon);
+        yield return new WaitForSeconds(0.05f);
+
+        // 3. Drop down cleanly as a fresh notification
+        targetY = visiblePosY;
+        transitionCoroutine = null;
+        dismissCoroutine = StartCoroutine(AutoDismissTimer());
+    }
+
+    private void ApplyContent(string title, string message, Sprite icon)
+    {
         if (txtSender != null) txtSender.text = title;
         if (txtPreview != null) txtPreview.text = message;
-        if (avatarOrIcon != null && icon != null) avatarOrIcon.sprite = icon;
 
-        onClickAction = onClick;
-        
-        // Make sure it's active and in front of other panels
-        gameObject.SetActive(true);
-        transform.SetAsLastSibling();
-
-        targetY = visiblePosY;
-
-        if (dismissCoroutine != null) StopCoroutine(dismissCoroutine);
-        dismissCoroutine = StartCoroutine(AutoDismissTimer());
+        if (avatarOrIcon != null)
+        {
+            if (icon != null)
+            {
+                avatarOrIcon.sprite = icon;
+                avatarOrIcon.color = Color.white;
+            }
+            else
+            {
+                avatarOrIcon.color = new Color(1f, 1f, 1f, 0f);
+            }
+        }
     }
 
     public void HideBanner()
@@ -78,7 +117,7 @@ public class NotificationBannerPopup : MonoBehaviour, IBeginDragHandler, IDragHa
 
     private void Update()
     {
-        if (!isDragging)
+        if (!isDragging && rectTransform != null)
         {
             float currentY = rectTransform.anchoredPosition.y;
             if (Mathf.Abs(currentY - targetY) > 0.5f)
@@ -102,32 +141,33 @@ public class NotificationBannerPopup : MonoBehaviour, IBeginDragHandler, IDragHa
         HideBanner();
     }
 
-    // --- Drag Up to Dismiss ---
+    // --- Drag to dismiss ---
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         isDragging = true;
         if (dismissCoroutine != null) StopCoroutine(dismissCoroutine);
+        if (transitionCoroutine != null) StopCoroutine(transitionCoroutine);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         float newY = rectTransform.anchoredPosition.y + eventData.delta.y;
-        if (newY < visiblePosY) newY = visiblePosY; // Don't drag lower than visible
+        if (newY < visiblePosY) newY = visiblePosY;
         SetY(newY);
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         isDragging = false;
-        // If dragged upward past threshold, dismiss it
-        if (rectTransform.anchoredPosition.y > visiblePosY + 30f)
+        if (rectTransform.anchoredPosition.y > visiblePosY + 35f)
         {
             HideBanner();
         }
         else
         {
             targetY = visiblePosY;
+            dismissCoroutine = StartCoroutine(AutoDismissTimer());
         }
     }
 
@@ -136,5 +176,11 @@ public class NotificationBannerPopup : MonoBehaviour, IBeginDragHandler, IDragHa
         Vector2 pos = rectTransform.anchoredPosition;
         pos.y = y;
         rectTransform.anchoredPosition = pos;
+    }
+
+    private void OnBannerClicked()
+    {
+        onClickAction?.Invoke();
+        HideBanner();
     }
 }

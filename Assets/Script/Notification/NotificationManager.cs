@@ -78,36 +78,68 @@ public class NotificationManager : MonoBehaviour
         string time = DateTime.Now.ToString("h:mm tt");
         Sprite avatar = (avatarIndex >= 0 && avatarIndex < avatarSprites.Count) ? avatarSprites[avatarIndex] : null;
 
-        // 1. Spawn into pull-down tray
+        // 1. Pull-down tray logic
         if (trayContentParent != null && notificationItemPrefab != null)
         {
-            GameObject itemObj = Instantiate(notificationItemPrefab, trayContentParent);
-            itemObj.transform.localScale = Vector3.one;
-            itemObj.transform.localPosition = Vector3.zero;
+            // Check if a card for this sender already exists in the tray
+            ActiveNotificationData existingNotif = activeNotifications.Find(n =>
+                n.senderName.Equals(senderName, StringComparison.OrdinalIgnoreCase));
 
-            NotificationItemUI itemUI = itemObj.GetComponent<NotificationItemUI>();
-
-            ActiveNotificationData notifData = new ActiveNotificationData
+            if (existingNotif != null && existingNotif.spawnedItem != null)
             {
-                senderName = senderName,
-                message = shortPreview,
-                timestamp = time,
-                avatarIdx = avatarIndex,
-                spawnedItem = itemObj
-            };
+                // Update existing card, bump it to the very top, and glow
+                existingNotif.message = shortPreview;
+                existingNotif.timestamp = time;
 
-            activeNotifications.Add(notifData);
+                existingNotif.spawnedItem.transform.SetAsFirstSibling();
 
-            if (itemUI != null)
+                NotificationItemUI existingUI = existingNotif.spawnedItem.GetComponent<NotificationItemUI>();
+                if (existingUI != null)
+                {
+                    existingUI.Setup(
+                        senderName,
+                        shortPreview,
+                        time,
+                        avatar,
+                        onClick: () => OpenChatFromNotification(senderName, avatarIndex),
+                        onDismiss: () => DismissNotification(existingNotif)
+                    );
+                }
+            }
+            else
             {
-                itemUI.Setup(
-                    senderName,
-                    shortPreview,
-                    time,
-                    avatar,
-                    onClick: () => OpenChatFromNotification(senderName, avatarIndex),
-                    onDismiss: () => DismissNotification(notifData)
-                );
+                // Spawn a new card
+                GameObject itemObj = Instantiate(notificationItemPrefab, trayContentParent);
+                itemObj.transform.localScale = Vector3.one;
+                itemObj.transform.localPosition = Vector3.zero;
+
+                // Move new notification to the top of the tray
+                itemObj.transform.SetAsFirstSibling();
+
+                NotificationItemUI itemUI = itemObj.GetComponent<NotificationItemUI>();
+
+                ActiveNotificationData notifData = new ActiveNotificationData
+                {
+                    senderName = senderName,
+                    message = shortPreview,
+                    timestamp = time,
+                    avatarIdx = avatarIndex,
+                    spawnedItem = itemObj
+                };
+
+                activeNotifications.Add(notifData);
+
+                if (itemUI != null)
+                {
+                    itemUI.Setup(
+                        senderName,
+                        shortPreview,
+                        time,
+                        avatar,
+                        onClick: () => OpenChatFromNotification(senderName, avatarIndex),
+                        onDismiss: () => DismissNotification(notifData)
+                    );
+                }
             }
         }
         else
@@ -129,38 +161,54 @@ public class NotificationManager : MonoBehaviour
 
     private void OpenChatFromNotification(string girlName, int avatarIndex)
     {
-        // 1. Dismiss pull-down shade tray if it is currently open
+        // 1. Reset the pull-down shade (NotificationContainer) back up
         if (trayContentParent != null)
         {
-            trayContentParent.gameObject.SetActive(false);
+            // Find the root NotificationContainer (parent of Content)
+            Transform containerTransform = trayContentParent.GetComponentInParent<NotificationSwipe>()?.transform 
+                                           ?? trayContentParent.parent;
+
+            if (containerTransform != null)
+            {
+                RectTransform containerRect = containerTransform.GetComponent<RectTransform>();
+                if (containerRect != null)
+                {
+                    Vector2 pos = containerRect.anchoredPosition;
+                    pos.y = 880f; // The closed Pos Y of the shade
+                    containerRect.anchoredPosition = pos;
+                }
+
+                // If you have a NotificationSwipe script, reset its open state flag
+                NotificationSwipe swipeScript = containerTransform.GetComponent<NotificationSwipe>();
+                if (swipeScript != null)
+                {
+                    swipeScript.isOpen = false; // or swipeScript.CloseTray() if you have a method for it
+                }
+            }
         }
 
-        // 2. Launch the Dating App through its standard homescreen button
+        // 2. Open app via homescreen button
         if (btnDatingAppIcon != null)
         {
             btnDatingAppIcon.onClick.Invoke();
         }
         else if (datingAppWindow != null)
         {
-            // Fallback: Enable and reset transform in case button isn't linked
             datingAppWindow.SetActive(true);
-            RectTransform rect = datingAppWindow.GetComponent<RectTransform>();
-            if (rect != null)
-            {
-                rect.localScale = Vector3.one;
-                rect.offsetMin = Vector2.zero;
-                rect.offsetMax = Vector2.zero;
-                rect.anchoredPosition = Vector2.zero;
-            }
-            datingAppWindow.transform.SetAsLastSibling();
         }
 
-        // 3. Open Direct Chat Room directly to this match
+        // 3. Open Direct Chat Room
         if (directChatRoom != null)
         {
             Sprite avatar = (avatarIndex >= 0 && avatarIndex < avatarSprites.Count) ? avatarSprites[avatarIndex] : null;
             directChatRoom.OpenChatRoom(girlName, avatar);
             directChatRoom.transform.SetAsLastSibling();
+        }
+
+        // 4. Hide popup banner if it's currently showing
+        if (topBanner != null)
+        {
+            topBanner.HideBanner();
         }
 
         RemoveNotificationsFrom(girlName);
