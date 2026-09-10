@@ -1,0 +1,48 @@
+{
+  "callerName": "Daisy",
+  "startNodeId": "start",
+  "timeoutPrompts": [
+    "Daisy: Comms check! You afk or did your mic cut out?",
+    "Daisy: Yo! Say something, match queue is finding a lobby!",
+    "Daisy: Don't choke before we even drop! Hello?",
+    "Daisy: Dropping comms, ping me later."
+  ],
+  "nodes": [
+    {
+      "nodeId": "start",
+      "partnerDialogue": "Daisy: Yo! Perfect timing, queue just placed us into the top seed bracket! You warmed up?",
+      "choices": [
+        { "choiceText": "Aim is locked in. Let's get this win.", "nextNodeId": "locked_in" },
+        { "choiceText": "Wait, top seed already?!", "nextNodeId": "nervous" },
+        { "choiceText": "What's the drop strategy?", "nextNodeId": "strategy" }
+      ]
+    },
+    {
+      "nodeId": "locked_in",
+      "partnerDialogue": "Daisy: That's what I like to hear! We take high ground near the radio tower and gatekeep the zone.",
+      "choices": [
+        { "choiceText": "I'll cover your flank. Let's go.", "nextNodeId": "END_CALL" },
+        { "choiceText": "Don't rush in solo this time!", "nextNodeId": "solo_banter" }
+      ]
+    },
+    {
+      "nodeId": "nervous",
+      "partnerDialogue": "Daisy: Relax! You've got me on point. Just watch my back and trade kills if I push.",
+      "choices": [
+        { "choiceText": "Got your back no matter what.", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "strategy",
+      "partnerDialogue": "Daisy: Fast loot at the warehouse, then rotate before the circle pushes. Simple and deadly.",
+      "choices": [
+        { "choiceText": "Ready when you are.", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "solo_banter",
+      "partnerDialogue": "Daisy: Hey, that was tactical aggression! Alright, match countdown is starting. Catch you on the server!",
+      "choices": []
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "callerName": "Junia",
+  "startNodeId": "start",
+  "timeoutPrompts": [
+    "Junia: Hello? Steam wand is hissing, did you say something?",
+    "Junia: Did your connection cut out? Can you hear me?",
+    "Junia: Don't fall asleep on me during closing shift!",
+    "Junia: Line must be dead. Talk soon."
+  ],
+  "nodes": [
+    {
+      "nodeId": "start",
+      "partnerDialogue": "Junia: Hey! The grinder is finally off. Just wiping down the espresso group heads. What are you up to?",
+      "choices": [
+        { "choiceText": "Just waiting to hear about that Ethiopian roast.", "nextNodeId": "roast" },
+        { "choiceText": "Working late, running entirely on caffeine.", "nextNodeId": "caffeine" },
+        { "choiceText": "Wishing I was at the café instead.", "nextNodeId": "flirt" }
+      ]
+    },
+    {
+      "nodeId": "roast",
+      "partnerDialogue": "Junia: It turned out incredible! Cupped it twenty minutes ago—crisp citrus and floral notes all through the finish.",
+      "choices": [
+        { "choiceText": "Save me a bag of beans from this batch.", "nextNodeId": "save_batch" },
+        { "choiceText": "You really know your craft, Junia.", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "caffeine",
+      "partnerDialogue": "Junia: Don't overdo it past sunset! Swap to chamomile or mint, or you won't sleep a wink tonight.",
+      "choices": [
+        { "choiceText": "Only if you brew it for me tomorrow.", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "flirt",
+      "partnerDialogue": "Junia: Flattery noted! Maybe I'll keep the corner booth open for you tomorrow morning.",
+      "choices": [
+        { "choiceText": "I'll be the first one in line.", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "save_batch",
+      "partnerDialogue": "Junia: Already labeled with your name on the shelf behind the bar. Rest up, {PlayerName}!",
+      "choices": []
+    }
+  ]
+}

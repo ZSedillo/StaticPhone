@@ -25,7 +25,7 @@
       "id": "oy_call_ready",
       "partnerMessage": "Line is secure. Hit the call button on your screen before interference begins.",
       "linkUrl": "",
-      "triggerEvent": "START_CALL_RINGTONE",
+      "triggerEvent": "ENABLE_VOICE_CALL",
       "choices": []
     }
   ]

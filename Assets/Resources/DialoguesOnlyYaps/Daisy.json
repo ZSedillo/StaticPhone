@@ -14,7 +14,7 @@
     },
     {
       "id": "oy_plan",
-      "partnerMessage": "We're running a duo tournament tonight. Check out my match telemetry:",
+      "partnerMessage": "Running a duo tournament tonight. Check out my match telemetry before queue pops:",
       "linkUrl": "onlyyaps.gg/match_stats/daisy_kd",
       "triggerEvent": "UNLOCK_TOURNAMENT_STATS",
       "choices": [
@@ -25,7 +25,7 @@
       "id": "oy_call_ready",
       "partnerMessage": "Green call icon is armed at the top. Ring me before the match queue pops!",
       "linkUrl": "",
-      "triggerEvent": "START_CALL_RINGTONE",
+      "triggerEvent": "ENABLE_VOICE_CALL",
       "choices": []
     }
   ]

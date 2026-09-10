@@ -1,0 +1,48 @@
+{
+  "callerName": "Evelyn",
+  "startNodeId": "start",
+  "timeoutPrompts": [
+    "Evelyn: ...Is the line secured? Why aren't you answering?",
+    "Evelyn: {PlayerName}? The signal meter is fluctuating.",
+    "Evelyn: If this frequency is compromised, I have to wipe the log.",
+    "Evelyn: Disconnecting now."
+  ],
+  "nodes": [
+    {
+      "nodeId": "start",
+      "partnerDialogue": "Evelyn: *low whisper* Keep your voice low. I'm inside the records basement. Did you examine the frequency graph?",
+      "choices": [
+        { "choiceText": "The 18Hz pulse doesn't look natural.", "nextNodeId": "unnatural" },
+        { "choiceText": "Are you safe down there alone?", "nextNodeId": "safety" },
+        { "choiceText": "I haven't opened the file yet.", "nextNodeId": "unopened" }
+      ]
+    },
+    {
+      "nodeId": "unnatural",
+      "partnerDialogue": "Evelyn: Exactly. It mimics seismic tremors, but the intervals repeat every sixty seconds like clockwork.",
+      "choices": [
+        { "choiceText": "Someone is generating it intentionally.", "nextNodeId": "intentional" },
+        { "choiceText": "Get out of there before security notices.", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "safety",
+      "partnerDialogue": "Evelyn: Safe enough. The heavy vault door locked behind me, but I found an maintenance shaft.",
+      "choices": [
+        { "choiceText": "Don't take reckless chances.", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "unopened",
+      "partnerDialogue": "Evelyn: Open it as soon as we hang up. Look at sector four on the chart. It links everything.",
+      "choices": [
+        { "choiceText": "I'm checking it right now.", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "intentional",
+      "partnerDialogue": "Evelyn: *distant metallic scrape* ...Did you hear that? I need to kill my lantern. I'll message you later.",
+      "choices": []
+    }
+  ]
+}

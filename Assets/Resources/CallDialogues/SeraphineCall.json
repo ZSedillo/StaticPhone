@@ -1,0 +1,54 @@
+{
+  "callerName": "Seraphine",
+  "startNodeId": "start",
+  "timeoutPrompts": [
+    "Seraphine: ...Are you there? I hear background noise.",
+    "Seraphine: Hello? Did you freeze up on me?",
+    "Seraphine: If you're not going to speak, I have to get back to composing.",
+    "Seraphine: Goodbye then."
+  ],
+  "nodes": [
+    {
+      "nodeId": "start",
+      "partnerDialogue": "Seraphine: You picked up. The hall is finally quiet now... I wanted to ask what you thought of the draft I sent.",
+      "choices": [
+        { "choiceText": "The melody is haunting. It gave me chills.", "nextNodeId": "compliment" },
+        { "choiceText": "It felt intense. Are you stressed lately?", "nextNodeId": "concern" },
+        { "choiceText": "I'm still studying it measure by measure.", "nextNodeId": "studying" }
+      ]
+    },
+    {
+      "nodeId": "compliment",
+      "partnerDialogue": "Seraphine: That means more to me than you know. Most people only hear the polish, not the weight behind it.",
+      "choices": [
+        { "choiceText": "Play me the closing chord before you hang up.", "nextNodeId": "chord" },
+        { "choiceText": "Take care tonight, Seraphine.", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "concern",
+      "partnerDialogue": "Seraphine: Stressed? Perhaps. The stage demands perfection... but hearing your voice helps steady my hands.",
+      "choices": [
+        { "choiceText": "Don't push yourself too hard.", "nextNodeId": "END_CALL" },
+        { "choiceText": "Call me whenever you need a breather.", "nextNodeId": "breather" }
+      ]
+    },
+    {
+      "nodeId": "studying",
+      "partnerDialogue": "Seraphine: Take your time. True art shouldn't be rushed. Let me know when you reach the crescendo.",
+      "choices": [
+        { "choiceText": "Will do. Rest well.", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "chord",
+      "partnerDialogue": "Seraphine: *soft piano chime over line* ...There. Goodnight, {PlayerName}.",
+      "choices": []
+    },
+    {
+      "nodeId": "breather",
+      "partnerDialogue": "Seraphine: ...I will hold you to that promise. Goodnight.",
+      "choices": []
+    }
+  ]
+}

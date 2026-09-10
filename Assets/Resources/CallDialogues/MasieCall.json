@@ -1,0 +1,48 @@
+{
+  "callerName": "Masie",
+  "startNodeId": "start",
+  "timeoutPrompts": [
+    "Masie: Hello? The greenhouse is so quiet, can you hear me?",
+    "Masie: {PlayerName}? Did you put the phone down?",
+    "Masie: Hello? I'm going to mist the ferns if you're busy.",
+    "Masie: Bye for now!"
+  ],
+  "nodes": [
+    {
+      "nodeId": "start",
+      "partnerDialogue": "Masie: Oh, wonderful, you picked up! I was just propagating the rare jade vine cuttings before sunset.",
+      "choices": [
+        { "choiceText": "Did the monstera bloom open up fully?", "nextNodeId": "monstera" },
+        { "choiceText": "Your voice always sounds so soothing.", "nextNodeId": "soothing" },
+        { "choiceText": "How do you manage that entire conservatory?", "nextNodeId": "manage" }
+      ]
+    },
+    {
+      "nodeId": "monstera",
+      "partnerDialogue": "Masie: It did! The creamy variegation on the newest leaf is stunning. Nature is truly patient.",
+      "choices": [
+        { "choiceText": "I'd love to come see it in person.", "nextNodeId": "visit" },
+        { "choiceText": "Your botanical posts are my favorite part of the day.", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "soothing",
+      "partnerDialogue": "Masie: Working with plants teaches you to breathe and slow down. You should try it sometime!",
+      "choices": [
+        { "choiceText": "Only if you're the one teaching me.", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "manage",
+      "partnerDialogue": "Masie: One leaf at a time! Consistent soil moisture and gentle indirect sunlight is all they need.",
+      "choices": [
+        { "choiceText": "Good life advice in general.", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "visit",
+      "partnerDialogue": "Masie: The greenhouse gate is always unlocked for you. Have a restful evening, {PlayerName}!",
+      "choices": []
+    }
+  ]
+}

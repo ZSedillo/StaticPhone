@@ -25,7 +25,7 @@
       "id": "oy_call_ready",
       "partnerMessage": "I have tuned my strings. Press the green call button at your leisure.",
       "linkUrl": "",
-      "triggerEvent": "START_CALL_RINGTONE",
+      "triggerEvent": "ENABLE_VOICE_CALL",
       "choices": []
     }
   ]

@@ -1,0 +1,53 @@
+{
+  "callerName": "Andiva",
+  "startNodeId": "start",
+  "timeoutPrompts": [
+    "Andiva: Hello? You took the call just to give me silence?",
+    "Andiva: Darling, my time is billable by the second. Are you there?",
+    "Andiva: I have a runway rehearsal to run. Speak or I'm hanging up.",
+    "Andiva: Unbelievable. Bye."
+  ],
+  "nodes": [
+    {
+      "nodeId": "start",
+      "partnerDialogue": "Andiva: Finally. I just wrapped the fitting. Tell me honestly—did you see the moodboard I sent earlier?",
+      "choices": [
+        { "choiceText": "The silhouettes look incredible.", "nextNodeId": "compliment" },
+        { "choiceText": "A bit daring, don't you think?", "nextNodeId": "critique" },
+        { "choiceText": "I'm still studying the lookbook.", "nextNodeId": "busy" }
+      ]
+    },
+    {
+      "nodeId": "compliment",
+      "partnerDialogue": "Andiva: Naturally. I spent three weeks sourcing the velvet alone. You have an eye for high fashion.",
+      "choices": [
+        { "choiceText": "You make it look effortless.", "nextNodeId": "effortless" },
+        { "choiceText": "Save me a seat in the front row.", "nextNodeId": "front_row" }
+      ]
+    },
+    {
+      "nodeId": "critique",
+      "partnerDialogue": "Andiva: Daring is the entire point. Safe fashion is boring fashion. You'll see once the models walk.",
+      "choices": [
+        { "choiceText": "Fair point. Good luck tonight.", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "busy",
+      "partnerDialogue": "Andiva: Don't take all season. Trends wait for no one. Text me when you finish the third page.",
+      "choices": [
+        { "choiceText": "Will do, Andiva.", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "effortless",
+      "partnerDialogue": "Andiva: If only you saw the sewing cuts on my fingers. But thank you, {PlayerName}. Speak soon.",
+      "choices": []
+    },
+    {
+      "nodeId": "front_row",
+      "partnerDialogue": "Andiva: Reserved under your name already. Don't be late. Ciao.",
+      "choices": []
+    }
+  ]
+}

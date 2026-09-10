@@ -23,9 +23,9 @@
     },
     {
       "id": "oy_call_ready",
-      "partnerMessage": "Tap that glowing call button! Let me hear your reaction to this track!! 🎧",
+      "partnerMessage": "Tap that glowing call button! Let me hear your reaction to this track!!",
       "linkUrl": "",
-      "triggerEvent": "START_CALL_RINGTONE",
+      "triggerEvent": "ENABLE_VOICE_CALL",
       "choices": []
     }
   ]

@@ -25,7 +25,7 @@
       "id": "oy_call_ready",
       "partnerMessage": "The green icon awaits your intent. Let the ether carry our voices.",
       "linkUrl": "",
-      "triggerEvent": "START_CALL_RINGTONE",
+      "triggerEvent": "ENABLE_VOICE_CALL",
       "choices": []
     }
   ]

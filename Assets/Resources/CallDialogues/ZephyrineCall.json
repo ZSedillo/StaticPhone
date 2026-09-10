@@ -1,0 +1,53 @@
+{
+  "callerName": "Zephyrine",
+  "startNodeId": "start",
+  "timeoutPrompts": [
+    "Zephyrine: ...The candle wax pools in silence. Are you present?",
+    "Zephyrine: Do the cards make you hesitate? Speak your mind.",
+    "Zephyrine: The connection thins like vapor. Speak before it fades.",
+    "Zephyrine: The cards have closed. Farewell."
+  ],
+  "nodes": [
+    {
+      "nodeId": "start",
+      "partnerDialogue": "Zephyrine: You heard the call through the veil. The cards for you are drawn and waiting.",
+      "choices": [
+        { "choiceText": "Reveal what the High Priestess means.", "nextNodeId": "priestess" },
+        { "choiceText": "Is there good news in the spread?", "nextNodeId": "good_news" },
+        { "choiceText": "I'm a little skeptical about readings.", "nextNodeId": "skeptic" }
+      ]
+    },
+    {
+      "nodeId": "priestess",
+      "partnerDialogue": "Zephyrine: Intuition over logic. You are searching for an answer you already possess in your heart.",
+      "choices": [
+        { "choiceText": "That feels surprisingly accurate.", "nextNodeId": "accurate" },
+        { "choiceText": "What does the second card say?", "nextNodeId": "second_card" }
+      ]
+    },
+    {
+      "nodeId": "good_news",
+      "partnerDialogue": "Zephyrine: The Wheel of Fortune sits inverted. Not misfortune, but unexpected change. Prepare yourself.",
+      "choices": [
+        { "choiceText": "I can adapt to whatever comes.", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "skeptic",
+      "partnerDialogue": "Zephyrine: Skepticism is healthy. The cards only mirror what your subconscious already knows.",
+      "choices": [
+        { "choiceText": "Perhaps you're right.", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "accurate",
+      "partnerDialogue": "Zephyrine: The cards do not deceive. Trust your instincts tonight. Sleep well, {PlayerName}.",
+      "choices": []
+    },
+    {
+      "nodeId": "second_card",
+      "partnerDialogue": "Zephyrine: The Star. Hope shines through whatever mystery surrounds you. Goodnight.",
+      "choices": []
+    }
+  ]
+}

@@ -19,6 +19,7 @@ public class SavedContactData
     public string lastMessageTime;
     public string currentNodeId = "start";
     public bool isUnlockedInOnlyYaps = false;
+    public bool canVoiceCall = false; // Persisted voice call consent
     public List<SavedChatMessage> chatHistory = new List<SavedChatMessage>();
 }
 
@@ -60,7 +61,8 @@ public static class ChatSaveSystem
                 contactBio = bio,
                 avatarIndex = avatarIndex,
                 lastMessageTime = "Just now",
-                currentNodeId = "start"
+                currentNodeId = "start",
+                canVoiceCall = false
             };
             DB.savedContacts.Add(contact);
             Save();

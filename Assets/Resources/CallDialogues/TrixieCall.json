@@ -1,0 +1,43 @@
+{
+  "callerName": "Trixie",
+  "startNodeId": "start",
+  "timeoutPrompts": [
+    "Trixie: Yo? Hellooo? Can you hear me over the bass?",
+    "Trixie: Did your signal die out or what?!",
+    "Trixie: Hello?! Look, festival security is waving at me, talk to me!",
+    "Trixie: Aight, dropping the call!"
+  ],
+  "nodes": [
+    {
+      "nodeId": "start",
+      "partnerDialogue": "Trixie: YOOOO!! You actually answered! The main stage is vibrating so hard my drinks are sliding off the mixer!!",
+      "choices": [
+        { "choiceText": "Hold the phone toward the speakers!", "nextNodeId": "speakers" },
+        { "choiceText": "Are you drinking water between sets?!", "nextNodeId": "hydrated" },
+        { "choiceText": "You sound like you're having the time of your life!", "nextNodeId": "hype" }
+      ]
+    },
+    {
+      "nodeId": "speakers",
+      "partnerDialogue": "Trixie: LISTEN TO THIS DROP COMING IN! *muffled synthetic roar over line* INSANE RIGHT?!",
+      "choices": [
+        { "choiceText": "THAT SOUNDS MASSIVE! Go destroy the crowd!", "nextNodeId": "END_CALL" },
+        { "choiceText": "Don't blow your eardrums out!", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "hydrated",
+      "partnerDialogue": "Trixie: Haha! Yes Mom, bottle of water is right next to my decks! Don't worry about me!",
+      "choices": [
+        { "choiceText": "Good. Now go tear the roof off!", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "hype",
+      "partnerDialogue": "Trixie: Always am! Next time you gotta be right here in the booth with me!",
+      "choices": [
+        { "choiceText": "Count me in. Go kill it!", "nextNodeId": "END_CALL" }
+      ]
+    }
+  ]
+}

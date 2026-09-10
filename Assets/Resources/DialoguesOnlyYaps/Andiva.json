@@ -9,21 +9,21 @@
       "triggerEvent": "",
       "choices": [
         { "choiceText": "I'm ready for the makeover critique.", "nextId": "oy_critique", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Can we just talk on call instead of texting?", "nextId": "oy_call_pitch", "linkUrl": "", "triggerEvent": "" }
+        { "choiceText": "Can we talk on voice call instead?", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
       ]
     },
     {
       "id": "oy_critique",
-      "partnerMessage": "Rule number one: ditch the graphic tees unless they're vintage runway. Here, study this look:",
+      "partnerMessage": "Rule number one: ditch the graphic tees unless they're vintage runway. Study this seasonal lookbook:",
       "linkUrl": "onlyyaps.gallery/andiva/lookbook_01",
       "triggerEvent": "UNLOCK_LOOKBOOK",
       "choices": [
-        { "choiceText": "That actually looks sharp. Voice call me to explain rule two?", "nextId": "oy_call_pitch", "linkUrl": "", "triggerEvent": "" }
+        { "choiceText": "That looks sharp. Call me and explain rule two.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
       ]
     },
     {
-      "id": "oy_call_pitch",
-      "partnerMessage": "Hit the green voice call icon at the top right, darling. Let's see if your voice matches your confidence. 📞",
+      "id": "oy_call_ready",
+      "partnerMessage": "Hit the green voice call icon at the top right, darling. Let's see if your voice matches your confidence.",
       "linkUrl": "",
       "triggerEvent": "ENABLE_VOICE_CALL",
       "choices": []
