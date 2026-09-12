@@ -16,19 +16,25 @@ public class DeleteProgressButton : MonoBehaviour
 
     private void OnDeleteClicked()
     {
-        if (GameManager.Instance != null)
-        {
-            GameManager.Instance.ResetAllProgress();
-        }
-        else
-        {
-            ChatSaveSystem.DeleteAllProgress();
-        }
-
-        // Always reset the static seen-card memory
-        DatingCardController.ResetSeenProfiles();
-
-        Scene currentScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currentScene.buildIndex);
+    if (GameManager.Instance != null)
+    {
+        GameManager.Instance.ResetAllProgress();
     }
+    else
+    {
+        ChatSaveSystem.DeleteAllProgress();
+    }
+
+    // Reset tasks in memory and wipe its PlayerPrefs key
+    if (TaskManager.Instance != null)
+    {
+        TaskManager.Instance.ResetAllTasks();
+    }
+
+    // Always reset the static seen-card memory
+    DatingCardController.ResetSeenProfiles();
+
+    Scene currentScene = SceneManager.GetActiveScene();
+    SceneManager.LoadScene(currentScene.buildIndex);
+}
 }

@@ -11,7 +11,12 @@ public class DatingAppNavigation : MonoBehaviour
         public string tabName;
         public GameObject panel;
         public Button navButton;
+        [Tooltip("The Task ID to complete when this tab is clicked")]
+        public string taskId;
     }
+
+    [Header("App Launch Task")]
+    [SerializeField] private string appOpenTaskId = "TASK_OPEN_DATING_APP";
 
     [Header("Navigation Tabs (0: Profile, 1: Explore, 2: Likes, 3: Chats)")]
     public List<NavTab> tabs = new List<NavTab>();
@@ -25,6 +30,15 @@ public class DatingAppNavigation : MonoBehaviour
 
     private int currentTabIndex = -1;
     private Coroutine activeTransitionCoroutine;
+
+    private void OnEnable()
+    {
+        // Whenever the DatingAppWindow GameObject becomes active, complete the app open task!
+        if (!string.IsNullOrEmpty(appOpenTaskId))
+        {
+            TaskManager.Instance?.CompleteTask(appOpenTaskId);
+        }
+    }
 
     void Start()
     {
@@ -50,6 +64,12 @@ public class DatingAppNavigation : MonoBehaviour
     public void SwitchTab(int targetIndex, bool instant)
     {
         if (targetIndex == currentTabIndex || targetIndex < 0 || targetIndex >= tabs.Count) return;
+
+        // Check off the task associated with clicking this specific tab
+        if (!string.IsNullOrEmpty(tabs[targetIndex].taskId))
+        {
+            TaskManager.Instance?.CompleteTask(tabs[targetIndex].taskId);
+        }
 
         if (activeTransitionCoroutine != null)
         {

@@ -99,8 +99,19 @@ public class DirectChatRoomController : MonoBehaviour
     public void OpenChatRoom(string partnerName, Sprite avatarSprite)
     {
         gameObject.SetActive(true);
-        activeGirlName = partnerName.Trim();
 
+        // Sanitize incoming name by stripping "OY_" for display and JSON lookup
+        string rawName = partnerName.Trim();
+        if (rawName.StartsWith("OY_", System.StringComparison.OrdinalIgnoreCase))
+        {
+            activeGirlName = rawName.Substring(3);
+        }
+        else
+        {
+            activeGirlName = rawName;
+        }
+
+        // Keep saveKey consistent with existing storage conventions
         string saveKey = isOnlyYaps ? ("OY_" + activeGirlName) : activeGirlName;
         activeContact = ChatSaveSystem.AddOrGetContact(saveKey, "", 0);
 
@@ -109,6 +120,7 @@ public class DirectChatRoomController : MonoBehaviour
             NotificationManager.Instance.SetCurrentOpenChat(isOnlyYaps ? "OnlyYaps" : activeGirlName);
         }
 
+        // Header displays clean name without the OY_ prefix
         if (txtPartnerName != null) txtPartnerName.text = activeGirlName;
         if (partnerAvatar != null && avatarSprite != null) partnerAvatar.sprite = avatarSprite;
 
@@ -136,6 +148,7 @@ public class DirectChatRoomController : MonoBehaviour
             InstantiateBubble(msg.messageText, msg.isPlayer, autoScroll: false);
         }
 
+        // Load dialogue JSON using clean name (e.g., DialoguesOnlyYaps/Andiva)
         string dialoguePath = isOnlyYaps
             ? ("DialoguesOnlyYaps/" + activeGirlName)
             : ("Dialogues/" + activeGirlName + "Dialogue");
@@ -219,8 +232,10 @@ public class DirectChatRoomController : MonoBehaviour
                 activeContact.lastMessageTime = System.DateTime.Now.ToString("h:mm tt");
                 ChatSaveSystem.Save();
 
+                string notifyContactKey = isOnlyYaps ? ("OY_" + activeGirlName) : activeGirlName;
+
                 if (GameManager.Instance != null)
-                    GameManager.Instance.UpdateLastMessage(activeGirlName, formatted);
+                    GameManager.Instance.UpdateLastMessage(notifyContactKey, formatted);
 
                 if (NotificationManager.Instance != null)
                 {
@@ -246,9 +261,11 @@ public class DirectChatRoomController : MonoBehaviour
         activeContact.lastMessageTime = System.DateTime.Now.ToString("h:mm tt");
         ChatSaveSystem.Save();
 
+        string updateKey = isOnlyYaps ? ("OY_" + activeGirlName) : activeGirlName;
+
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.UpdateLastMessage(activeGirlName, formattedMessage);
+            GameManager.Instance.UpdateLastMessage(updateKey, formattedMessage);
         }
 
         CheckAndApplyNodeEvents(currentNode);
@@ -303,9 +320,11 @@ public class DirectChatRoomController : MonoBehaviour
         activeContact.lastMessageTime = System.DateTime.Now.ToString("h:mm tt");
         ChatSaveSystem.Save();
 
+        string updateKey = isOnlyYaps ? ("OY_" + activeGirlName) : activeGirlName;
+
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.UpdateLastMessage(activeGirlName, playerText);
+            GameManager.Instance.UpdateLastMessage(updateKey, playerText);
         }
 
         InstantiateBubble(playerText, isPlayer: true, linkUrl: linkUrl, eventTrigger: eventTrigger, autoScroll: true);
@@ -392,7 +411,7 @@ public class DirectChatRoomController : MonoBehaviour
 
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.UpdateLastMessage(girlName, formatted);
+            GameManager.Instance.UpdateLastMessage(saveKey, formatted);
         }
 
         if (gameObject.activeInHierarchy && activeGirlName.Equals(girlName, System.StringComparison.OrdinalIgnoreCase))
@@ -412,9 +431,11 @@ public class DirectChatRoomController : MonoBehaviour
 
     private IEnumerator DelayedPartnerReply(string message)
     {
+        string updateKey = isOnlyYaps ? ("OY_" + activeGirlName) : activeGirlName;
+
         if (GameManager.Instance != null)
         {
-            GameManager.Instance.UpdateLastMessage(activeGirlName, "typing...");
+            GameManager.Instance.UpdateLastMessage(updateKey, "typing...");
         }
 
         ShowTypingIndicator();

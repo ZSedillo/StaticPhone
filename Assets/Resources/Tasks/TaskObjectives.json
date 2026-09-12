@@ -1,0 +1,82 @@
+{
+  "tasks": [
+    {
+      "taskId": "TASK_OPEN_DATING_APP",
+      "title": "Looking for Spark",
+      "description": "Open the Dating App to find potential matches.",
+      "isMainStory": true
+    },
+    {
+      "taskId": "TASK_FIRST_MATCH",
+      "title": "First Spark",
+      "description": "Match with your first profile on Dating App.",
+      "isMainStory": true
+    },
+    {
+      "taskId": "TASK_OPEN_ONLYYAPS",
+      "title": "Going Private",
+      "description": "Open OnlyYaps to read your incoming direct messages.",
+      "isMainStory": true
+    },
+    {
+      "taskId": "TASK_ONLYYAPS_UNLOCK",
+      "title": "Off The Grid",
+      "description": "Convince a match to share their private OnlyYaps link.",
+      "isMainStory": true
+    },
+    {
+      "taskId": "TASK_FIRST_CALL",
+      "title": "On The Line",
+      "description": "Complete your first voice call on OnlyYaps.",
+      "isMainStory": true
+    },
+    {
+      "taskId": "TASK_DEEP_CONVO",
+      "title": "Under the Surface",
+      "description": "Reach the final conversation climax with any contact.",
+      "isMainStory": true
+    },
+    {
+      "taskId": "TASK_CHECK_PROFILE",
+      "title": "Self Reflection",
+      "description": "Check your personal profile tab on Dating App.",
+      "isMainStory": false
+    },
+    {
+      "taskId": "TASK_CHECK_EXPLORE",
+      "title": "Window Shopping",
+      "description": "Browse matches in the Explore tab on Dating App.",
+      "isMainStory": false
+    },
+    {
+      "taskId": "TASK_CHECK_LIKES",
+      "title": "Who Likes Me?",
+      "description": "Open the Likes tab to see your admirers.",
+      "isMainStory": false
+    },
+    {
+      "taskId": "TASK_CHECK_CHATS",
+      "title": "Inbox Explorer",
+      "description": "Open your messages tab on Dating App.",
+      "isMainStory": false
+    },
+    {
+      "taskId": "TASK_SILENCE_HANGUP",
+      "title": "Lost For Words",
+      "description": "Freeze during a call and let them hang up on you.",
+      "isMainStory": false
+    },
+    {
+      "taskId": "TASK_FUMBLE",
+      "title": "Fumbled the Bag",
+      "description": "Pick a dialogue choice that derails a conversation.",
+      "isMainStory": false
+    },
+    {
+      "taskId": "TASK_THREE_CALLS",
+      "title": "Social Butterfly",
+      "description": "Unlock voice calling with 3 different contacts.",
+      "isMainStory": false
+    }
+  ]
+}

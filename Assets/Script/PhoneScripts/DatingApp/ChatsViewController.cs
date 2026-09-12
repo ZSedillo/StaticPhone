@@ -38,7 +38,7 @@ public class ChatsViewController : MonoBehaviour
         RefreshChatsUI();
     }
 
-public void RefreshChatsUI()
+    public void RefreshChatsUI()
     {
         if (chatsContentParent == null || chatItemPrefab == null) return;
 
@@ -50,20 +50,38 @@ public void RefreshChatsUI()
 
         if (GameManager.Instance == null) return;
 
-        // Populate dynamic matches from GameManager
+        HashSet<string> spawnedNames = new HashSet<string>(System.StringComparer.OrdinalIgnoreCase);
+
         for (int i = 0; i < GameManager.Instance.activeChats.Count; i++)
         {
             ContactChatData chatData = GameManager.Instance.activeChats[i];
-            SavedContactData savedContact = ChatSaveSystem.GetContact(chatData.contactName);
+            if (chatData == null) continue;
 
-            // --- ONLYYAPS FILTER CHECK ---
-            if (isOnlyYapsView)
+            // Normalize name: "OY_Andiva" -> "Andiva"
+            string cleanName = chatData.contactName.StartsWith("OY_", System.StringComparison.OrdinalIgnoreCase)
+                ? chatData.contactName.Substring(3)
+                : chatData.contactName;
+
+            // Check unlock state using both clean name and raw name
+            SavedContactData saved = ChatSaveSystem.GetContact(cleanName) ?? ChatSaveSystem.GetContact(chatData.contactName);
+            bool isUnlocked = saved != null && saved.isUnlockedInOnlyYaps;
+
+            // 1. In OnlyYaps: Only show if she unlocked OnlyYaps
+            if (isOnlyYapsView && !isUnlocked)
             {
-                // If this is OnlyYaps, skip any girl who has NOT unlocked it
-                if (savedContact == null || !savedContact.isUnlockedInOnlyYaps)
-                {
-                    continue;
-                }
+                continue;
+            }
+
+            // 2. In Dating App: Never show pure OY_ contacts
+            if (!isOnlyYapsView && chatData.contactName.StartsWith("OY_", System.StringComparison.OrdinalIgnoreCase))
+            {
+                continue;
+            }
+
+            // 3. Prevent duplicate cards for the same character
+            if (!spawnedNames.Add(cleanName))
+            {
+                continue;
             }
 
             GameObject newChat = Instantiate(chatItemPrefab, chatsContentParent);
@@ -72,14 +90,13 @@ public void RefreshChatsUI()
             if (ui != null)
             {
                 string lastMsg = "New match! Say hi.";
-                
                 if (chatData.conversationHistory != null && chatData.conversationHistory.Count > 0)
                 {
                     lastMsg = chatData.conversationHistory[chatData.conversationHistory.Count - 1].messageText;
                 }
-                else if (savedContact != null && savedContact.chatHistory.Count > 0)
+                else if (saved != null && saved.chatHistory != null && saved.chatHistory.Count > 0)
                 {
-                    lastMsg = savedContact.chatHistory[savedContact.chatHistory.Count - 1].messageText;
+                    lastMsg = saved.chatHistory[saved.chatHistory.Count - 1].messageText;
                 }
 
                 Sprite avatar = (chatData.avatarIndex >= 0 && chatData.avatarIndex < profilePhotos.Count)
@@ -88,11 +105,11 @@ public void RefreshChatsUI()
 
                 int index = i;
                 ui.Setup(
-                    chatData.contactName, 
+                    cleanName, // Always displays clean "Andiva" without "OY_"
                     lastMsg, 
                     chatData.lastMessageTime, 
                     avatar, 
-                    () => OnChatSelected(chatData.contactName, index)
+                    () => OnChatSelected(cleanName, index)
                 );
             }
         }
@@ -102,8 +119,10 @@ public void RefreshChatsUI()
     {
         if (GameManager.Instance == null || directChatRoom == null) return;
 
+        // Look up by clean name or OY_ name
         ContactChatData selectedChat = GameManager.Instance.activeChats.Find(c => 
-            c.contactName.Equals(contactName, System.StringComparison.OrdinalIgnoreCase));
+            c.contactName.Equals(contactName, System.StringComparison.OrdinalIgnoreCase) ||
+            c.contactName.Equals("OY_" + contactName, System.StringComparison.OrdinalIgnoreCase));
 
         if (selectedChat != null)
         {
