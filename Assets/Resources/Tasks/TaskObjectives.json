@@ -77,6 +77,150 @@
       "title": "Social Butterfly",
       "description": "Unlock voice calling with 3 different contacts.",
       "isMainStory": false
-    }
+    },
+    {
+    "id": "TASK_TOUCHED_HEART",
+    "title": "Melted the Ice",
+    "description": "Crack through Andiva's theatrical armor and touch his heart.",
+    "isMainStory": false,
+    "isCompleted": false,
+    "requiredEvent": "TOUCHED_HEART"
+  },
+  {
+    "id": "TASK_UNLOCK_LOOKBOOK",
+    "title": "Front Row Pass",
+    "description": "Unlock Andiva's private lookbook and cat gallery links.",
+    "isMainStory": false,
+    "isCompleted": false,
+    "requiredEvent": "UNLOCK_LOOKBOOK"
+  },
+  {
+    "id": "TASK_ROMANCE_CLIMAX",
+    "title": "True Armor",
+    "description": "Reach the romantic climax ending with Andiva.",
+    "isMainStory": false,
+    "isCompleted": false,
+    "requiredEvent": "CLIMAX_ROMANCE_PERFECT"
+  },
+  {
+    "id": "TASK_DISMISSED",
+    "title": "Lukewarm Reception",
+    "description": "Fail to impress Andiva through apathy or cold responses.",
+    "isMainStory": false,
+    "isCompleted": false,
+    "requiredEvent": "FAILURE_DISMISSED"
+  },
+  {
+    "id": "TASK_CRUEL_BLOCKED",
+    "title": "Walk of Shame",
+    "description": "Get permanently blocked by taking cruelty too far.",
+    "isMainStory": false,
+    "isCompleted": false,
+    "requiredEvent": "FAILURE_BLOCKED"
+  },
+  {
+  "id": "TASK_FUMBLE_BAG",
+  "title": "Fumbled the Bag",
+  "description": "Pick a dialogue choice that derails a conversation.",
+  "isMainStory": false,
+  "isCompleted": false,
+  "requiredEvent": "FUMBLE_CONVERSATION"
+  },
+  {
+    "id": "TASK_DAISY_MATCH",
+    "title": "Enter the Lobby",
+    "description": "Match and initiate contact with Daisy on the Dating App.",
+    "isMainStory": true,
+    "isCompleted": false,
+    "requiredEvent": "DAISY_MATCHED"
+  },
+  {
+    "id": "TASK_DAISY_ONLYYAPS",
+    "title": "Private Discord Comm",
+    "description": "Convince Daisy to share her private OnlyYaps server link.",
+    "isMainStory": true,
+    "isCompleted": false,
+    "requiredEvent": "UNLOCK_ONLYYAPS"
+  },
+  {
+    "id": "TASK_DAISY_HEART",
+    "title": "Duo Synergy",
+    "description": "Touch Daisy's heart by validating her struggles in competitive esports.",
+    "isMainStory": false,
+    "isCompleted": false,
+    "requiredEvent": "TOUCHED_HEART"
+  },
+  {
+    "id": "TASK_DAISY_DEEP_TALK",
+    "title": "Behind the Screen",
+    "description": "Learn about Daisy's high school collegiate journey and burnout.",
+    "isMainStory": false,
+    "isCompleted": false,
+    "requiredEvent": "DEEP_TALK"
+  },
+  {
+    "id": "TASK_DAISY_BULLY",
+    "title": "Toxic Teammate",
+    "description": "Flame Daisy's stats or mock her gaming setup.",
+    "isMainStory": false,
+    "isCompleted": false,
+    "requiredEvent": "BULLY_DAISY"
+  },
+  {
+    "id": "TASK_DAISY_FUMBLE",
+    "title": "Hard Thrown Round",
+    "description": "Derail a conversation with Daisy so badly that she threatens to block you.",
+    "isMainStory": false,
+    "isCompleted": false,
+    "requiredEvent": "FUMBLE_CONVERSATION"
+  },
+  {
+    "id": "TASK_DAISY_ROMANCE_END",
+    "title": "Radiant Duo",
+    "description": "Reach the romantic victory screen with Daisy.",
+    "isMainStory": false,
+    "isCompleted": false,
+    "requiredEvent": "CLIMAX_ROMANCE_PERFECT"
+  },
+  {
+    "id": "TASK_DAISY_COACH_END",
+    "title": "Carried to Immortal",
+    "description": "Lock in Daisy as your permanent esports coach and duo partner.",
+    "isMainStory": false,
+    "isCompleted": false,
+    "requiredEvent": "CLIMAX_BESTIE_COUTURE"
+  },
+  {
+  "id": "TASK_LEFT_ON_READ",
+  "title": "Radio Silence",
+  "description": "Say something boring or insensitive and get left on read.",
+  "isMainStory": false,
+  "isCompleted": false,
+  "requiredEvent": "GET_GHOSTED"
+  },
+    {
+    "id": "TASK_JUNIA_SKEPTIC",
+    "title": "Analog vs. Digital",
+    "description": "Engage Junia in a spirited debate over manual craft vs. modern convenience.",
+    "isMainStory": false,
+    "isCompleted": false,
+    "requiredEvent": "JUNIA_SKEPTIC"
+  },
+  {
+    "id": "TASK_JUNIA_TOUCHED",
+    "title": "First Crack",
+    "description": "Break through Junia's defensive creative fatigue and validate her passion.",
+    "isMainStory": false,
+    "isCompleted": false,
+    "requiredEvent": "TOUCHED_HEART"
+  },
+  {
+    "id": "TASK_JUNIA_GHOSTED",
+    "title": "Cold Brew",
+    "description": "Get left on read by Junia after criticizing her life choices.",
+    "isMainStory": false,
+    "isCompleted": false,
+    "requiredEvent": "GET_GHOSTED"
+  }
   ]
 }

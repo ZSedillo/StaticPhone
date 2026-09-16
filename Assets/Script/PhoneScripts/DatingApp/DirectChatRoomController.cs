@@ -49,6 +49,9 @@ public class DirectChatRoomController : MonoBehaviour
     private Coroutine partnerReplyCoroutine;
     private GameObject currentTypingIndicatorObj;
 
+    // Tracks which call we are currently on during the session (1 or 2)
+    private int completedCallCount = 0;
+
     private void Awake()
     {
         if (btnBack != null)
@@ -64,31 +67,146 @@ public class DirectChatRoomController : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        // Register call triggers and post-call resume listeners
+        DialogueEventManager.Register("TRIGGER_CALL_1", HandleCall1Trigger);
+        DialogueEventManager.Register("TRIGGER_CALL_2", HandleCall2Trigger);
+        DialogueEventManager.Register("CALL_COMPLETED", HandleCallCompleted);
+        DialogueEventManager.Register("RESET_CALL_DIALOGUE", HandleCallResetOrDropped);
+    }
+
+    private void OnDisable()
+    {
+        // Unregister listeners to avoid memory leaks or duplicate calls
+        DialogueEventManager.Unregister("TRIGGER_CALL_1", HandleCall1Trigger);
+        DialogueEventManager.Unregister("TRIGGER_CALL_2", HandleCall2Trigger);
+        DialogueEventManager.Unregister("CALL_COMPLETED", HandleCallCompleted);
+        DialogueEventManager.Unregister("RESET_CALL_DIALOGUE", HandleCallResetOrDropped);
+    }
+
+    // =========================================================================
+    // VOICE CALL ROUTING & RESUME LOGIC
+    // =========================================================================
+
+    private void HandleCall1Trigger(string characterName)
+    {
+        LaunchSpecificCall(characterName, 1);
+    }
+
+    private void HandleCall2Trigger(string characterName)
+    {
+        LaunchSpecificCall(characterName, 2);
+    }
+
     private void OnCallButtonClicked()
     {
         if (activeContact != null && activeContact.canVoiceCall)
         {
-            Sprite avatar = partnerAvatar != null ? partnerAvatar.sprite : null;
-            Debug.Log($"[DirectChatRoom] Voice call triggered by player to: {activeGirlName}");
-
-            if (callOverlayController != null)
-            {
-                callOverlayController.StartOutgoingCall(activeGirlName, avatar);
-            }
-            else if (VoiceCallOverlayController.Instance != null)
-            {
-                VoiceCallOverlayController.Instance.StartOutgoingCall(activeGirlName, avatar);
-            }
-            else
-            {
-                Debug.LogError("[DirectChatRoom] VoiceCallOverlayController reference is missing!");
-            }
+            // Call next appropriate sequence (Call 1 or Call 2)
+            int nextCallIndex = completedCallCount >= 1 ? 2 : 1;
+            LaunchSpecificCall(activeGirlName, nextCallIndex);
         }
         else
         {
             Debug.LogWarning($"[DirectChatRoom] Voice call blocked: No consent from {activeGirlName} yet.");
         }
     }
+
+    private void LaunchSpecificCall(string characterName, int callIndex)
+    {
+        string cleanName = CleanCharacterName(characterName);
+        if (string.IsNullOrEmpty(cleanName)) cleanName = activeGirlName;
+
+        // Junia doesn't do calls
+        if (cleanName.Equals("Junia", System.StringComparison.OrdinalIgnoreCase))
+        {
+            Debug.LogWarning("[DirectChatRoom] Junia does not accept voice calls.");
+            return;
+        }
+
+        Sprite avatar = partnerAvatar != null ? partnerAvatar.sprite : null;
+
+        // Evelyn uses "start", Andiva/Daisy use "call1_start" / "call2_start"
+        string startNode = "start";
+        if (cleanName.Equals("Andiva", System.StringComparison.OrdinalIgnoreCase) ||
+            cleanName.Equals("Daisy", System.StringComparison.OrdinalIgnoreCase))
+        {
+            startNode = (callIndex == 2) ? "call2_start" : "call1_start";
+        }
+
+        Debug.Log($"[DirectChatRoom] Starting Call {callIndex} for {cleanName} at node '{startNode}'");
+
+        if (callOverlayController != null)
+        {
+            callOverlayController.StartOutgoingCall(cleanName, avatar, startNode);
+        }
+        else if (VoiceCallOverlayController.Instance != null)
+        {
+            VoiceCallOverlayController.Instance.StartOutgoingCall(cleanName, avatar, startNode);
+        }
+        else
+        {
+            Debug.LogError("[DirectChatRoom] VoiceCallOverlayController reference is missing!");
+        }
+    }
+
+    private void HandleCallCompleted(string characterName)
+    {
+        string cleanName = CleanCharacterName(characterName);
+        if (!cleanName.Equals(activeGirlName, System.StringComparison.OrdinalIgnoreCase)) return;
+
+        completedCallCount++;
+        Debug.Log($"[DirectChatRoom] Call completed with {cleanName}. Completed call count: {completedCallCount}");
+
+        // Resume chat at the appropriate post-call hub node
+        string postCallNodeId = (completedCallCount == 1) ? "oy_post_call_1_hub" : "oy_post_call_2_hub";
+
+        // Evelyn uses "oy_call_ready" or "oy_records" progression
+        if (cleanName.Equals("Evelyn", System.StringComparison.OrdinalIgnoreCase))
+        {
+            postCallNodeId = "oy_ending_romance_safe_harbor";
+        }
+
+        AdvanceChatToNode(postCallNodeId);
+    }
+
+    private void HandleCallResetOrDropped(string characterName)
+    {
+        string cleanName = CleanCharacterName(characterName);
+        if (!cleanName.Equals(activeGirlName, System.StringComparison.OrdinalIgnoreCase)) return;
+
+        // If the call dropped prematurely, transition to reset node if available
+        AdvanceChatToNode("oy_call_missed_reset");
+    }
+
+    private void AdvanceChatToNode(string targetNodeId)
+    {
+        string dialoguePath = isOnlyYaps
+            ? ("DialoguesOnlyYaps/" + activeGirlName)
+            : ("Dialogues/" + activeGirlName + "Dialogue");
+
+        DialogueNodeData nextNode = DialogueLoader.GetNode(dialoguePath, targetNodeId);
+        if (nextNode != null)
+        {
+            currentNode = nextNode;
+            activeContact.currentNodeId = targetNodeId;
+            ChatSaveSystem.Save();
+
+            if (!string.IsNullOrEmpty(currentNode.partnerMessage))
+            {
+                partnerReplyCoroutine = StartCoroutine(DelayedPartnerReply(currentNode.partnerMessage));
+            }
+            else
+            {
+                StartCoroutine(DisplayChoicesCoroutine());
+            }
+        }
+    }
+
+    // =========================================================================
+    // ROOM LIFECYCLE & CORE CHAT
+    // =========================================================================
 
     public void OpenChatRoom(ContactChatData contactData, Sprite avatarSprite)
     {
@@ -100,18 +218,9 @@ public class DirectChatRoomController : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        // Sanitize incoming name by stripping "OY_" for display and JSON lookup
-        string rawName = partnerName.Trim();
-        if (rawName.StartsWith("OY_", System.StringComparison.OrdinalIgnoreCase))
-        {
-            activeGirlName = rawName.Substring(3);
-        }
-        else
-        {
-            activeGirlName = rawName;
-        }
+        activeGirlName = CleanCharacterName(partnerName);
+        completedCallCount = 0; // Reset call progress for the open session
 
-        // Keep saveKey consistent with existing storage conventions
         string saveKey = isOnlyYaps ? ("OY_" + activeGirlName) : activeGirlName;
         activeContact = ChatSaveSystem.AddOrGetContact(saveKey, "", 0);
 
@@ -120,14 +229,15 @@ public class DirectChatRoomController : MonoBehaviour
             NotificationManager.Instance.SetCurrentOpenChat(isOnlyYaps ? "OnlyYaps" : activeGirlName);
         }
 
-        // Header displays clean name without the OY_ prefix
         if (txtPartnerName != null) txtPartnerName.text = activeGirlName;
         if (partnerAvatar != null && avatarSprite != null) partnerAvatar.sprite = avatarSprite;
 
         if (btnCall != null)
         {
-            btnCall.gameObject.SetActive(isOnlyYaps);
-            if (isOnlyYaps)
+            // Junia never has a call button active
+            bool canCall = isOnlyYaps && !activeGirlName.Equals("Junia", System.StringComparison.OrdinalIgnoreCase);
+            btnCall.gameObject.SetActive(canCall);
+            if (canCall)
             {
                 btnCall.onClick.RemoveAllListeners();
                 btnCall.onClick.AddListener(OnCallButtonClicked);
@@ -148,7 +258,6 @@ public class DirectChatRoomController : MonoBehaviour
             InstantiateBubble(msg.messageText, msg.isPlayer, autoScroll: false);
         }
 
-        // Load dialogue JSON using clean name (e.g., DialoguesOnlyYaps/Andiva)
         string dialoguePath = isOnlyYaps
             ? ("DialoguesOnlyYaps/" + activeGirlName)
             : ("Dialogues/" + activeGirlName + "Dialogue");
@@ -197,7 +306,7 @@ public class DirectChatRoomController : MonoBehaviour
                 activeContact.canVoiceCall = true;
                 ChatSaveSystem.Save();
             }
-            if (btnCall != null)
+            if (btnCall != null && !activeGirlName.Equals("Junia", System.StringComparison.OrdinalIgnoreCase))
             {
                 btnCall.interactable = true;
             }
@@ -349,12 +458,23 @@ public class DirectChatRoomController : MonoBehaviour
                 {
                     activeContact.canVoiceCall = true;
                     ChatSaveSystem.Save();
-                    if (btnCall != null) btnCall.interactable = true;
+                    if (btnCall != null && !activeGirlName.Equals("Junia", System.StringComparison.OrdinalIgnoreCase))
+                    {
+                        btnCall.interactable = true;
+                    }
                     Debug.Log($"[DirectChatRoom] Voice call permission granted by {activeGirlName}!");
+                }
+                else if (currentNode.triggerEvent == "TRIGGER_CALL_1")
+                {
+                    DialogueEventManager.TriggerEvent("TRIGGER_CALL_1", activeGirlName);
+                }
+                else if (currentNode.triggerEvent == "TRIGGER_CALL_2")
+                {
+                    DialogueEventManager.TriggerEvent("TRIGGER_CALL_2", activeGirlName);
                 }
                 else if (currentNode.triggerEvent == "START_CALL_RINGTONE")
                 {
-                    StartCoroutine(DelayedIncomingCallTrigger(activeGirlName, 3f));
+                    StartCoroutine(DelayedIncomingCallTrigger(activeGirlName, 2f));
                 }
             }
 
@@ -595,6 +715,15 @@ public class DirectChatRoomController : MonoBehaviour
 
         messageScrollRect.verticalNormalizedPosition = targetPos;
         scrollCoroutine = null;
+    }
+
+    private string CleanCharacterName(string rawName)
+    {
+        if (string.IsNullOrEmpty(rawName)) return "Match";
+        string trimmed = rawName.Trim();
+        return trimmed.StartsWith("OY_", System.StringComparison.OrdinalIgnoreCase)
+            ? trimmed.Substring(3)
+            : trimmed;
     }
 
     private string FormatDialogueText(string rawText)

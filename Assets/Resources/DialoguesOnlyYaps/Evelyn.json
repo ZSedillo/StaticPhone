@@ -4,29 +4,756 @@
   "nodes": [
     {
       "id": "oy_evelyn_start",
-      "partnerMessage": "Door is locked, EMF sensor is powered on. You won't leak any of this archive, right?",
+      "partnerMessage": "Deadbolt engaged, Faraday mesh grounded, and I've pulled the blackout curtains completely shut. You're inside the vault, {PlayerName}.\n\nBefore I mount the reels onto the deck... promise me you aren't going to turn around and leak this archive onto some bottom-feeder forum. I've had five years of research stolen once already.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Classified with me. What did you uncover?", "nextId": "oy_records", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Call me and brief me on the case directly.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+        { "choiceText": "Strictly classified with me, Evelyn. You have my absolute word.", "nextId": "oy_classified_promise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Leak it? I don't even know what I'm looking at yet. Show me the data.", "nextId": "oy_evidence_demand", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Relax with the spy roleplay. It's just old tape reels, not state secrets.", "nextId": "oy_roleplay_dismissive", "linkUrl": "", "triggerEvent": "BULLY_EVELYN" },
+        { "choiceText": "Skip the text logs for now. Call my line and brief me directly.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_classified_promise",
+      "partnerMessage": "...God, thank you. You have no idea how much physical tension that released in my shoulders.\n\nWhen you spend weeks baking brittle magnetic acetate in a laboratory dehydrator just to salvage four minutes of audio, handing those files to another person feels like handing over your own medical records.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Your research is sacred to you. I treat it with the same respect.", "nextId": "oy_sacred_respect", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Take a breath, Evelyn. What's the master reel on this drive?", "nextId": "oy_records", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Baking magnetic acetate? Isn't that for sticky-shed syndrome?", "nextId": "oy_tape_baking_nerd", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Who stole your research before? What happened to them?", "nextId": "oy_stolen_research_backstory", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_evidence_demand",
+      "partnerMessage": "Straight to the data. No pleasantries. I can respect an analytical mind.\n\nThis is the calibrated audio spectrogram from the abandoned mountain observatory recorded at 3:14 AM on the winter solstice. Notice the unnatural 18 Hz harmonic spike right below human hearing:",
+      "linkUrl": "onlyyaps.vault/spectrogram_094",
+      "triggerEvent": "TRIGGER_GLITCH_EFFECT",
+      "choices": [
+        { "choiceText": "That waveform isn't random background hum. The comb filtering is deliberate.", "nextId": "oy_comb_filtering_reaction", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Looks like an electrical ground loop from an old transformer down the road.", "nextId": "oy_ground_loop_skeptic", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" },
+        { "choiceText": "Honestly, it looks like audio artifact scribble. Anyone could fake this in Audacity.", "nextId": "oy_fake_audacity_fumble", "linkUrl": "", "triggerEvent": "FUMBLE_CONVERSATION" },
+        { "choiceText": "Why was the recording taken specifically at 3:14 AM?", "nextId": "oy_time_significance", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_roleplay_dismissive",
+      "partnerMessage": "'Roleplay'? Five years of archival acoustic preservation reduced to child's play in one sentence.\n\nWhy did you even bother swiping right or entering my vault if you're this painfully detached?",
+      "linkUrl": "",
+      "triggerEvent": "FUMBLE_CONVERSATION",
+      "choices": [
+        { "choiceText": "I'm sorry. I was being cynical to sound cool. Please show me the work.", "nextId": "oy_cynical_apology", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Because watching people obsess over dust motes is amusing to me.", "nextId": "oy_rabbit_hole_bully", "linkUrl": "", "triggerEvent": "BULLY_EVELYN" },
+        { "choiceText": "Whatever. Go play with your microphones.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" }
+      ]
+    },
+    {
+      "id": "oy_stolen_research_backstory",
+      "partnerMessage": "My graduate advisor at St. Jude's Institute. He took my multi-channel acoustic logs from the 19th-century salt mine shafts, slapped his own name as primary author, and claimed the infrasound anomalies were simply seismic micro-fractures.\n\nHe got tenure. I got my department funding slashed and an eviction notice.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "That's sickening, Evelyn. Academia can be ruthlessly predatory.", "nextId": "oy_predatory_academia_support", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Did you ever try to confront the board with your original timestamps?", "nextId": "oy_board_confrontation", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Maybe his seismic micro-fracture explanation was actually scientifically sound?", "nextId": "oy_advisor_defense_fumble", "linkUrl": "", "triggerEvent": "FUMBLE_CONVERSATION" }
+      ]
+    },
+    {
+      "id": "oy_predatory_academia_support",
+      "partnerMessage": "Predatory doesn't begin to describe it. It taught me one brutal rule: if you don't air-gap your findings and keep your raw master tapes under lock and key, people will strip-mine your soul and call it peer review.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You don't have to defend your findings from me. Show me what you salvaged.", "nextId": "oy_records", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I want to help you prove him wrong once and for all.", "nextId": "oy_prove_him_wrong", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_board_confrontation",
+      "partnerMessage": "I walked into the dean's office with six pounds of reel documentation and cryptographic hash logs. You know what he said? 'Evelyn, don't make yourself hysterical over routine data attribution.'\n\nThat was the exact afternoon I bought my deadbolts.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Being labeled 'hysterical' when you're armed with facts is infuriating.", "nextId": "oy_hysterical_label_validation", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Let's leave those cowards behind. Show me the observatory data.", "nextId": "oy_records", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_advisor_defense_fumble",
+      "partnerMessage": "...Of course. Why believe the woman who spent four weeks sleeping on the damp bedrock when you can take the side of an old man in a tweed jacket who never even visited the site?\n\nI should have known better than to open up.",
+      "linkUrl": "",
+      "triggerEvent": "FUMBLE_CONVERSATION",
+      "choices": [
+        { "choiceText": "Wait, Evelyn! I didn't mean it like that, I was playing devil's advocate!", "nextId": "oy_devils_advocate_save", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "If you can't handle objective questioning, your science is weak.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" }
+      ]
+    },
+    {
+      "id": "oy_devils_advocate_save",
+      "partnerMessage": "The devil has enough advocates, {PlayerName}. I need someone who actually evaluates the raw acoustic evidence without hiding behind institutional bias.\n\nLook at this waterfall chart and tell me if this looks like a random seismic fracture to you.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Show me the chart. I'll give it an honest, unbiased look.", "nextId": "oy_records", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_hysterical_label_validation",
+      "partnerMessage": "Thank you... Hearing someone just acknowledge that anger without telling me to calm down feels like being pulled out of a frozen lake. Let's look at the observatory reel.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Lead the way, Evelyn.", "nextId": "oy_records", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_prove_him_wrong",
+      "partnerMessage": "We will. When this archive is fully cross-referenced and verified, it won't be an academic paper; it will be an undeniable acoustic reality. Here is where it starts:",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Unlock the visual feed.", "nextId": "oy_records", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_time_significance",
+      "partnerMessage": "3:14 AM is the exact moment local ambient RF noise drops below -110 dBm in that valley. The ionosphere stabilizes, the regional freight train line stops running its diesel engines, and the background thermal noise floor hits absolute minimum.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "The dead hour. When all artificial interference dies out.", "nextId": "oy_dead_hour_reflection", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "And that's when the 18 Hz anomaly emerged?", "nextId": "oy_records", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_dead_hour_reflection",
+      "partnerMessage": "Exactly. The dead hour. When the rest of the world is unconscious, the earth itself starts humming. It's the only time my mind feels quiet enough to listen.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Do you spend every night awake during the dead hour?", "nextId": "oy_every_night_awake", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "Show me what the earth was humming that night.", "nextId": "oy_records", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_every_night_awake",
+      "partnerMessage": "Pretty much. My sleep cycle collapsed back in college and never really recovered. By 2:30 AM, my apartment feels like a capsule floating in deep space. That's why having someone text me like this feels surreal.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "I'll keep your space capsule company whenever you're drifting.", "nextId": "oy_space_capsule_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Sleep deprivation ruins cognitive acuity, Evelyn. You need rest.", "nextId": "oy_sleep_health_scold", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" }
+      ]
+    },
+    {
+      "id": "oy_space_capsule_flirt",
+      "partnerMessage": "...Careful, {PlayerName}. If you make me feel safe, I might start expecting your messages at 3:00 AM every night. I get attached to steady frequencies.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Expect them. I'm not going anywhere. Now show me the file.", "nextId": "oy_records", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Let's verify that steady frequency over voice call right now.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_sleep_health_scold",
+      "partnerMessage": "I know, I know! You sound like my general practitioner. But when you have forty reels of magnetic tape in queue that could crumble to dust within six months, sleep feels like a luxury I can't afford.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Preserving history is noble, but not at the expense of your health.", "nextId": "oy_health_priority_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Show me the file before you pass out from exhaustion.", "nextId": "oy_records", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_health_priority_comfort",
+      "partnerMessage": "...Nobody has ever told me that with real concern in their voice. Usually people just ask when the next episode of my findings is coming out. Thank you.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I care about Evelyn, not just the findings. Show me the spectrogram.", "nextId": "oy_records", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_tape_baking_nerd",
+      "partnerMessage": "You actually know what binder hydrolysis is?! Most people think tape baking means putting a cassette in a kitchen oven! Yes—130 degrees Fahrenheit for eight hours to set the binder so the oxide doesn't scrape off on the capstan.\n\nOkay... you just earned serious access privileges.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I care about the craft. Show me what that baked reel revealed.", "nextId": "oy_records", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I care about the girl running the dehydrator even more.", "nextId": "oy_care_about_girl", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "What tape stock was it? Vintage Scotch 206 or old Ampex?", "nextId": "oy_tape_stock_nerd", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_tape_stock_nerd",
+      "partnerMessage": "Ampex 456 Grand Master from the spring of 1978! The infamous batch with the unstable polyurethane binder formulation. One wrong pass over the playback head and the entire oxide layer strips off like wet mascara.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Restoring that takes surgical nerve. You're brilliant, Evelyn.", "nextId": "oy_surgical_nerve_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Did you manage to transfer it to 24-bit 96kHz before it degraded?", "nextId": "oy_digital_transfer_check", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_surgical_nerve_praise",
+      "partnerMessage": "Surgical nerve and three pots of black tea! My hands didn't stop shaking until the digital buffer completed the final block checksum. Let me show you what survived that transfer:",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Unveil it.", "nextId": "oy_records", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_digital_transfer_check",
+      "partnerMessage": "Better: 32-bit floating point at 192 kHz straight into an optical converter. Clean bit-perfect copy. Here is the visual proof:",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Show me.", "nextId": "oy_records", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_sacred_respect",
+      "partnerMessage": "You're different from the people at the university department. My former thesis partner called my field recordings 'acoustic pareidolia for lonely introverts' right before he took our joint archival grant and transferred to audio DSP engineering.\n\nI haven't let another person look over my shoulder while editing in three years.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "He was blind to what you were building. You're not alone in this room anymore.", "nextId": "oy_not_alone_anymore", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Did that betrayal make you put deadbolts on everything?", "nextId": "oy_betrayal_trust", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "Well, pareidolia IS a scientific fact in 90% of audio clips.", "nextId": "oy_pareidolia_lecture", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" }
       ]
     },
     {
       "id": "oy_records",
-      "partnerMessage": "The audio spectrogram from the abandoned observatory. Look at that distinct 18Hz spike:",
+      "partnerMessage": "Open the visual file below. It's the 18 Hz spectral waterfall from the seismic sub-floor beneath the telescope dome. Look at the center channel between timestamps 03:14:20 and 03:14:45:",
       "linkUrl": "onlyyaps.vault/spectrogram_094",
       "triggerEvent": "TRIGGER_GLITCH_EFFECT",
       "choices": [
-        { "choiceText": "That looks like an unnatural waveform. Call me now.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+        { "choiceText": "Wait... those frequency peaks repeat in an 8-bit binary pattern. How is that possible?", "nextId": "oy_binary_discovery", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Could be resonant wind flutter cutting through the telescope slit.", "nextId": "oy_wind_dome_skeptic", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" },
+        { "choiceText": "Looks like an ordinary compression artifact from exporting to MP3.", "nextId": "oy_mp3_compression_fumble", "linkUrl": "", "triggerEvent": "FUMBLE_CONVERSATION" },
+        { "choiceText": "What kind of microphone did you use to catch sub-20 Hz frequencies?", "nextId": "oy_mic_specs_q", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_mic_specs_q",
+      "partnerMessage": "Custom Brüel & Kjær seismic pressure transducers coupled with an infrasonic condenser capsule potted in silicone oil. Standard studio microphones drop off sharply at 20 Hz; this setup measures air displacement down to 0.5 Hz.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Potted in silicone oil to eliminate thermal wind drift... that's genius.", "nextId": "oy_silicone_oil_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "And what did that transducer pick up on the center channel?", "nextId": "oy_comb_filtering_reaction", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_silicone_oil_praise",
+      "partnerMessage": "You actually understand sensor damping! Do you know how lonely it is building custom acoustic capsules in an apartment kitchen while everyone else is out partying? You getting this means the world to me.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'd rather talk sensor damping with you than party anywhere else.", "nextId": "oy_comb_filtering_reaction", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_comb_filtering_reaction",
+      "partnerMessage": "YOU NOTICED THE COMB FILTERING! *audio static glitch*\n\nMy hands are literally shaking against my desk. A physical acoustic wave does not phase-cancel like that in free air unless it's reflecting off a moving boundary or modulated by a conscious resonator.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Or by something trying to push human speech through structural stone.", "nextId": "oy_articulate_speech", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Let me hear the decoded WAV file over voice call. Let's listen together.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" },
+        { "choiceText": "Or someone had a ventilation fan running on a faulty belt.", "nextId": "oy_fan_belt_skeptic", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" }
+      ]
+    },
+    {
+      "id": "oy_ground_loop_skeptic",
+      "partnerMessage": "I checked the municipal utility grid maps first, detective! The entire mountain ridge had its transformer disconnected in October 1994 when the facility was decommissioned.\n\nThere is no copper line carrying alternating current within four miles. The energy is completely battery-independent.",
+      "linkUrl": "",
+      "triggerEvent": "EVELYN_SKEPTIC",
+      "choices": [
+        { "choiceText": "That eliminates the power grid. What about a pirate radio transmitter?", "nextId": "oy_pirate_radio_theory", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I stand corrected. You really did do your homework.", "nextId": "oy_homework_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Still could be illegal copper salvage crews running a generator.", "nextId": "oy_generator_skeptic", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_fake_audacity_fumble",
+      "partnerMessage": "Audacity?! I run calibrated multi-thousand dollar spectrum analyzers with SHA-256 cryptographic hash timestamps on the raw uncompressed WAVs, and you compare it to a high schooler with a free download? Unbelievable.",
+      "linkUrl": "",
+      "triggerEvent": "FUMBLE_CONVERSATION",
+      "choices": [
+        { "choiceText": "Evelyn, wait! I was testing your defensive protocols! Don't shut down!", "nextId": "oy_defensive_protocols_save", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "If you get this defensive over software, you know your data is shaky.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" }
+      ]
+    },
+    {
+      "id": "oy_cynical_apology",
+      "partnerMessage": "Mmh. Apology logged. Cynicism is easy, {PlayerName}. Walking into an unlit basement with an audio recorder and admitting that our physics textbooks might have missing chapters takes guts.\n\nLet's look at the audio waterfall together.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Show me what you've found. I'm completely tuned in.", "nextId": "oy_records", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_rabbit_hole_bully",
+      "partnerMessage": "You're not a skeptic; you're just an empty spectator who mocks other people's passion because your own life has zero mystery in it.\n\nVault access permanently revoked.",
+      "linkUrl": "",
+      "triggerEvent": "FAILURE_BLOCKED",
+      "choices": []
+    },
+    {
+      "id": "oy_seenzone_1",
+      "partnerMessage": "Status: Read just now.\n\nEvelyn has muted notifications for this session.",
+      "linkUrl": "",
+      "triggerEvent": "GHOST_SEQUENCE_START",
+      "choices": [
+        { "choiceText": "Evelyn? You there?", "nextId": "oy_seenzone_2", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Look, I crossed the line. I'm sorry.", "nextId": "oy_seenzone_recover", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Fine, stay mad in your dusty room.", "nextId": "oy_ending_ignored_permanent", "linkUrl": "", "triggerEvent": "BULLY_EVELYN" }
+      ]
+    },
+    {
+      "id": "oy_seenzone_2",
+      "partnerMessage": "Status: Read 12m ago.\n\n[Typing...]\n\nEvelyn has gone offline.",
+      "linkUrl": "",
+      "triggerEvent": "GET_GHOSTED",
+      "choices": []
+    },
+    {
+      "id": "oy_ending_ignored_permanent",
+      "partnerMessage": "User disconnected. Evelyn has permanently revoked your encryption key and blocked your device ID.",
+      "linkUrl": "",
+      "triggerEvent": "FAILURE_BLOCKED",
+      "choices": []
+    },
+    {
+      "id": "oy_seenzone_recover",
+      "partnerMessage": "...I don't waste time on people who make me feel foolish for caring about things.\n\nIf you want to stay in this chat, act like someone who respects five years of field work.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I do respect it. Show me the spectrogram.", "nextId": "oy_records", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_care_about_girl",
+      "partnerMessage": "...Don't say things like that unless your frequency is completely clear of static, {PlayerName}. I'm used to guys finding me interesting for forty-eight hours until they realize I spend Friday nights reading county land deeds instead of drinking at bars.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'd rather read land deeds in the dark with you than be anywhere else.", "nextId": "oy_land_deeds_romance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "County land deeds? What did you find on the observatory title?", "nextId": "oy_observatory_title", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_not_alone_anymore",
+      "partnerMessage": "Hearing you say that... it feels like taking off a heavy field coat after walking through freezing sleet.\n\nSometimes I sit in this room at 3 AM with four monitors glowing, listening to audio hiss until my temples throb, wondering if I'm just archiving my own isolation.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You're not archiving isolation. You're building a lighthouse. Call me.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" },
+        { "choiceText": "Take off the headphones, Evelyn. You don't have to carry the silence alone tonight.", "nextId": "oy_take_off_headphones", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_betrayal_trust",
+      "partnerMessage": "Terribly. I put steel deadbolts on my studio door, bought a standalone air-gapped terminal with no internet access, and stopped submitting to university journals entirely.\n\nIf someone wants to evaluate my findings now, they have to prove they aren't going to turn it into a cheap punchline.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Holding on that tightly must make your hands cramp up.", "nextId": "oy_hands_ache_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "That sounds exhausting. Do you ever feel like you built your own prison?", "nextId": "oy_prison_reflection", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_pareidolia_lecture",
+      "partnerMessage": "Of course it is! Auditory pareidolia accounts for nearly 85% of alleged EVP recordings. The human brain hates acoustic chaos and maps phonetic speech over pink noise.\n\nWhich is precisely why I only archive recordings that pass a double-blind panel test with three independent listeners who don't know the test prompt.",
+      "linkUrl": "",
+      "triggerEvent": "EVELYN_SKEPTIC",
+      "choices": [
+        { "choiceText": "Double-blind testing... you really are a scientist first.", "nextId": "oy_scientist_first_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Let me be your fourth independent listener. Put me on voice call.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_binary_discovery",
+      "partnerMessage": "IT DOES! You saw it! Look at the 8-bit octets:\n01010011 01010100 01001001 01001100 01001100\n\nIt translates directly into ASCII: 'S-T-I-L-L'. The exact same word I found etched beneath the wallpaper in the municipal pumping station three months ago.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "'Still waiting'... the frequency is an echo looping across fifty years.", "nextId": "oy_echo_across_decades", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Call my phone right now. I need to hear that raw WAV track through my headphones.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" },
+        { "choiceText": "Could it be a calibration beacon left behind by telecom engineers?", "nextId": "oy_telecom_beacon_skeptic", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" }
+      ]
+    },
+    {
+      "id": "oy_wind_dome_skeptic",
+      "partnerMessage": "I thought so too during the initial site survey! Until I deployed an ultrasonic anemometer directly inside the dome slit. Zero wind velocity inside the shutter that night; atmospheric pressure was dead flat at 1013 millibars.\n\nYet the 18 Hz amplitude spiked 24 decibels above the room floor.",
+      "linkUrl": "",
+      "triggerEvent": "EVELYN_SKEPTIC",
+      "choices": [
+        { "choiceText": "Then we are officially out of conventional explanations.", "nextId": "oy_out_of_explanations", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "What do you think is on the other side of that 18 Hz modulation?", "nextId": "oy_other_side_reflection", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_mp3_compression_fumble",
+      "partnerMessage": "MP3 compression?! I archive strictly in 32-bit floating point 192 kHz broadcast WAV files via gold-plated Mogami cables! You're clearly not even looking at the technical headers.",
+      "linkUrl": "",
+      "triggerEvent": "FUMBLE_CONVERSATION",
+      "choices": [
+        { "choiceText": "My mistake, Evelyn. I was looking on my phone screen. Tell me more.", "nextId": "oy_recover_after_tech_fumble", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Audio file snobs are the most exhausting people alive.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" }
+      ]
+    },
+    {
+      "id": "oy_articulate_speech",
+      "partnerMessage": "Yes! Exactly! Like vocal cords trying to form words using concrete and iron pipes instead of flesh. God, my pulse is hammering against my ribs.\n\nHaving someone who doesn't laugh when I say that... it feels like walking out of an anechoic chamber into fresh air.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'm right here with you, Evelyn. Take my hand across this screen. Call me.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" },
+        { "choiceText": "Let me hear that pulse over voice comms. Ring me.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_fan_belt_skeptic",
+      "partnerMessage": "An HVAC fan belt produces a fundamental motor hum between 50 and 60 Hz with harmonic overtones at 120 and 240 Hz! It cannot physically generate an 18 Hz sub-bass carrier without tearing the motor off its mountings!",
+      "linkUrl": "",
+      "triggerEvent": "EVELYN_SKEPTIC",
+      "choices": [
+        { "choiceText": "You tore my theory to pieces. I respect the acoustic physics.", "nextId": "oy_homework_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_pirate_radio_theory",
+      "partnerMessage": "Pirate radio transmits in megahertz bands—VHF or UHF. Infrasound at 18 Hz doesn't propagate through small dipole antennas; it propagates through bedrock, dense aquifers, and the calcium in human bones.\n\nThat's why people feel nauseous before they even hear it.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Propagates through bone... that's why the hair stands up on your neck.", "nextId": "oy_hair_stands_up", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Have you ever felt that nausea yourself on site?", "nextId": "oy_nausea_site_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_homework_praise",
+      "partnerMessage": "Thank you. I don't chase ghost stories for campfire thrills, {PlayerName}. I chase acoustic data that survives rigorous scientific falsification.\n\nThat's why having your skepticism keeps me honest. It prevents me from drifting into fantasy.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'll always keep you grounded. Call me and let's run the next file.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_generator_skeptic",
+      "partnerMessage": "Generator exhaust leaves thermal carbon plumes visible on thermal FLIR imagers. I flew my drone over the ridge before hiking in; the roof snow was undisturbed for three weeks. Nothing human had set foot up there.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "A drone survey before hiking in? You're a full-blown intelligence operative.", "nextId": "oy_operative_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_defensive_protocols_save",
+      "partnerMessage": "...Testing my protocols? You're playing with fire, {PlayerName}. But at least you didn't flinch when I pushed back.\n\nI'll let you hear the analog tape playback if you promise to keep your headphones level.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Headphones are leveled. Connect the voice line.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_care_about_girl_branch",
+      "partnerMessage": "You don't even know me yet. You know the researcher with chalk on her elbows and coffee stains on her field jacket.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "That's exactly who I want to know. The girl behind the data.", "nextId": "oy_land_deeds_romance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_land_deeds_romance",
+      "partnerMessage": "...You're dangerously disarming, you know that? I was fully prepared to keep you at arm's length behind technical jargon, and here you are offering to sit on the floor of my studio.\n\nI haven't cooked dinner for anyone in over two years.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Then let me cook for you. While you bake your tapes, I'll make warm pasta.", "nextId": "oy_pasta_studio_romance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Let's start with a voice call first. Hear my voice before you let me in.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_observatory_title",
+      "partnerMessage": "The original land deed from 1912 was signed by a private astronomer named Dr. Silas Vance. He spent twenty years cataloging radio noise from Jupiter before anyone knew celestial bodies emitted radio waves.\n\nIn his final journal entry, he wrote: 'The mountain is not quiet. It is singing in a key below my ears.'",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Singing in a key below his ears... the 18 Hz carrier wave.", "nextId": "oy_key_below_ears_revelation", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "What happened to Dr. Vance after that entry?", "nextId": "oy_vance_demise_history", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_vance_demise_history",
+      "partnerMessage": "He died at his drafting table forty-eight hours later with his headphones still clamped over his ears. His assistant reported that the galvanometers were vibrating so violently that the ink pens snapped off their arms.\n\nThe local paper called it 'apoplexy.' But I found his original galena crystal detector in the county historical society basement last month.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You tracked down his actual detector?! Evelyn, that's forensic gold.", "nextId": "oy_forensic_gold_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Did you hook it up to modern preamps to see if it still resonates?", "nextId": "oy_crystal_test_nerd", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_forensic_gold_praise",
+      "partnerMessage": "Gold isn't the half of it! The lead sulfide crystal was still tuned to the exact same resonant gap. When I plugged it into my oscilloscope, the trace drew the exact same Lissajous pattern as the 18 Hz mountain waterfall.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "A Lissajous figure... a geometric fingerprint preserved across ninety years.", "nextId": "oy_lissajous_fascination", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Show me the trace. Call me so we can look at it live.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_crystal_test_nerd",
+      "partnerMessage": "First thing I did! I shielded it inside an iron biscuit tin to block modern cell phone towers. The crystal still hummed at sub-audible frequencies without any power source attached.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "That defies basic electromagnetic conservation of energy unless it's scavenging RF.", "nextId": "oy_rf_scavenging_skeptic", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" }
+      ]
+    },
+    {
+      "id": "oy_rf_scavenging_skeptic",
+      "partnerMessage": "Exactly! It was scavenging telluric currents straight out of the mountain's granite ridge! The geology itself is an organic radio transmitter.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You are a genuine scientific visionary, Evelyn.", "nextId": "oy_visionary_romance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_visionary_romance",
+      "partnerMessage": "...Nobody has ever called me a visionary. Usually I get called obsessive, exhausting, or impossible to live with. Hearing you say that makes my throat tighten up.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Then let me call you tonight so you can hear me say it out loud.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_lissajous_fascination",
+      "partnerMessage": "A closed loop that never opens, repeating like a heartbeat in the dark. It made me realize that whoever—or whatever—left that signal was trying to say: 'I was here. Do not forget me.'",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You didn't forget them. And I won't forget you, Evelyn.", "nextId": "oy_ending_romance_safe_harbor", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
+      ]
+    },
+    {
+      "id": "oy_take_off_headphones",
+      "partnerMessage": "...Taking off the headphones. Doing it right now.\n\n*heavy exhale*\n\nIt's quiet in here. Just the faint hum of the hard drive cooler and the rain tapping against my windowpane. It feels weirdly peaceful with you on the other end of this screen.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Keep them off for the night, Evelyn. Let me be your quiet peace. Call me.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" },
+        { "choiceText": "I'm right here. I'm not closing this chat until you fall asleep.", "nextId": "oy_ending_romance_safe_harbor", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
+      ]
+    },
+    {
+      "id": "oy_prison_reflection",
+      "partnerMessage": "Every single day. Some nights I look at the deadbolts, the thermal cameras, the backup power supplies... and I ask myself if I'm keeping intruders out, or keeping myself locked in so I never have to risk getting hurt by someone real again.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Let me unlock the door from the outside, Evelyn. Step into the light with me.", "nextId": "oy_unlock_door_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "You don't have to risk getting hurt with me. I'll always be your safe harbor.", "nextId": "oy_ending_romance_safe_harbor", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
+      ]
+    },
+    {
+      "id": "oy_scientist_first_praise",
+      "partnerMessage": "Because if you don't use strict empirical controls, you're just writing emotional fanfiction with audio equipment. The truth only matters if it can survive being attacked by people who want to disprove it.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'll be your scientific collaborator. Let's inspect the files on voice.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_echo_across_decades",
+      "partnerMessage": "A broadcast that never attenuates to zero... It's tragic and hauntingly romantic. Like someone carved their grief into the geology of the mountain because human memory wasn't durable enough to hold it.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "We heard it, Evelyn. That means their grief isn't lost anymore.", "nextId": "oy_ending_romance_safe_harbor", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" },
+        { "choiceText": "Let's listen to the full reel together over voice comms right now.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_telecom_beacon_skeptic",
+      "partnerMessage": "Telecom beacons operate under FCC Part 15 regulations in the high megahertz spectrum with digital FSK modulation! They don't transmit continuous analog 18 Hz sub-audible carriers with ASCII byte intervals! The telemetry doesn't match telecom architecture.",
+      "linkUrl": "",
+      "triggerEvent": "EVELYN_SKEPTIC",
+      "choices": [
+        { "choiceText": "Fair enough. Your knowledge of radio regulations is terrifyingly complete.", "nextId": "oy_homework_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_out_of_explanations",
+      "partnerMessage": "When you eliminate the impossible, whatever remains—however improbable—must be the truth. Arthur Conan Doyle was right about that.\n\nWe are looking at an acoustic footprint left by something that didn't have lungs.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Something that didn't have lungs... give me your voice line. Let's listen.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_other_side_reflection",
+      "partnerMessage": "I think it's human memory. I think extreme emotional trauma or profound longing leaves a magnetic alignment on iron-bearing rock strata, identical to how a magnetic tape head records sound onto iron oxide.\n\nWe aren't hearing ghosts. We're hearing the mountain play back a memory.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Stone Tape Theory, elevated by modern acoustic physics. Beautiful.", "nextId": "oy_stone_tape_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "If the mountain records memories, what is it recording between us tonight?", "nextId": "oy_earth_recording_us", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_recover_after_tech_fumble",
+      "partnerMessage": "Alright... look, I know I can get pedantic about audio specs. It's just that when people treat field recordings like low-res internet jokes, it feels like they're spitting on five years of my life.\n\nReset. What do you see on the waterfall display?",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I see the 18 Hz binary modulation. It spells out 'STILL'.", "nextId": "oy_binary_discovery", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_hair_stands_up",
+      "partnerMessage": "Yes! The human nervous system is an organic acoustic sensor! Long before your eardrums register pressure, your hair follicles and vestibular canal detect the phase compression wave.\n\nYour body knows you aren't alone before your eyes do.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "My body definitely knows you're special, Evelyn. Ring my line.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_nausea_site_talk",
+      "partnerMessage": "In the lower boiler tunnel of St. Jude's sanitarium. My inner ear lost horizon balance, my vision turned gray around the edges, and my digital recorder showed an infrasonic spike at 18.9 Hz.\n\nI had to crawl on my knees back to the access ladder in complete pitch black.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You crawled in the dark alone?! Promise me you will never go into a tunnel without me.", "nextId": "oy_never_alone_promise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_operative_flirt",
+      "partnerMessage": "FLIR thermal reconnaissance, acoustic parabolic sensors, municipal water table surveys... my friends in college called it obsessive neurosis.\n\nYou calling it 'intelligence operative' work makes my heart flutter embarrassingly fast.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Then let's form an operational unit. Hit my voice call button.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_pasta_studio_romance",
+      "partnerMessage": "Garlic butter, fresh basil, and bread while tape reels spin in the background? ...That sounds so warm it almost hurts to think about.\n\nNobody has ever wanted to take care of me in this room, {PlayerName}.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'm going to take care of you, Evelyn. Call me tonight so we can plan it.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" },
+        { "choiceText": "You deserve someone who sees both the scientist and the girl.", "nextId": "oy_ending_romance_safe_harbor", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
+      ]
+    },
+    {
+      "id": "oy_key_below_ears_revelation",
+      "partnerMessage": "Dr. Vance died at his desk with his headphones plugged into an analog galena crystal set in 1933. The coroner wrote 'heart failure brought on by intense nervous exhaustion.'\n\nHe wasn't crazy. He was just the first person who noticed the frequency.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "And you're the one finishing his symphony. Let me listen with you.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_unlock_door_tender",
+      "partnerMessage": "...I'm unlocking the deadbolt in my head right now. It's terrifying, but having you here makes the room feel warmer than it has in years.\n\nCall my line. Let me hear your actual voice before I lose my courage.",
+      "linkUrl": "",
+      "triggerEvent": "ENABLE_VOICE_CALL",
+      "choices": [
+        { "choiceText": "Calling you right now, Evelyn. Pick up.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+      ]
+    },
+    {
+      "id": "oy_never_alone_promise",
+      "partnerMessage": "...I promise. Hand on my heart. From now on, you hold the backup flashlight and monitor the telemetry.\n\nHaving a field partner who cares about whether I come back out of the tunnel... that changes everything.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Always by your side. Now ring my line, partner.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_stone_tape_praise",
+      "partnerMessage": "You actually know the stone tape hypothesis?! Thomas Lethbridge proposed it in 1961, but he lacked multi-channel FFT analyzers to isolate the acoustic carrier wave!\n\nYou're not just a match; you're the research co-author I spent five years praying for.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Then let's co-author the future together. Hit the call button.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+      ]
+    },
+    {
+      "id": "oy_earth_recording_us",
+      "partnerMessage": "...It's recording my pulse jumping through the floorboards. It's recording my hands letting go of the mouse to type this back to you.\n\nYou have an unnervingly powerful way of making the whole universe shrink down to just this screen.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Let the universe shrink. As long as you and I are in it. Call me.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" },
+        { "choiceText": "I mean every word, Evelyn. You are my safe harbor, too.", "nextId": "oy_ending_romance_safe_harbor", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
+      ]
+    },
+    {
+      "id": "oy_hands_ache_comfort",
+      "partnerMessage": "...They do ache. My fingers are stiff from splicing tape, my eyes have dry red veins from staring at waterfalls, and some nights I just want someone to come into this room, take off my headphones, and tell me it's okay to sleep.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "It's okay to sleep, Evelyn. I've got the watch tonight. Call me.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" },
+        { "choiceText": "Let me hold your hands until the ache fades away.", "nextId": "oy_ending_romance_safe_harbor", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
       ]
     },
     {
       "id": "oy_call_ready",
-      "partnerMessage": "Line is secure. Hit the call button on your screen before interference begins.",
+      "partnerMessage": "Encrypted audio carrier is established. Voice permissions greenlit at top right.\n\nHit the call button before local RF interference scrambles our link.",
       "linkUrl": "",
       "triggerEvent": "ENABLE_VOICE_CALL",
+      "choices": [
+        { "choiceText": "Initiating secure audio link...", "nextId": "oy_call_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+      ]
+    },
+    {
+      "id": "oy_call_ringing",
+      "partnerMessage": "Audio handshake detected! Tone is bridging into my monitor headphones! Pick up, {PlayerName}!",
+      "linkUrl": "",
+      "triggerEvent": "START_CALL_RINGTONE",
       "choices": []
+    },
+    {
+      "id": "oy_call_missed_reset",
+      "partnerMessage": "Carrier signal dropped! Or did an anomalous RF pulse scramble your audio driver? 📻\n\nMy headphones are still warm and the line is clear. Hit the green call icon again when your link stabilizes!",
+      "linkUrl": "",
+      "triggerEvent": "ENABLE_VOICE_CALL",
+      "choices": [
+        { "choiceText": "Carrier dropped for a second! Calling you right back!", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" },
+        { "choiceText": "Got goosebumps from the static tone, but I'm dialed in now.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+      ]
+    },
+    {
+      "id": "oy_ending_romance_safe_harbor",
+      "partnerMessage": "Safe harbor confirmed. You broke through five years of padlocks, paranoia, and radio static to find the girl underneath.\n\nTap the voice call icon right now—I'm ready to turn off the monitors and listen to you.",
+      "linkUrl": "",
+      "triggerEvent": "CLIMAX_ROMANCE_PERFECT",
+      "choices": [
+        { "choiceText": "Calling you now, Evelyn. My favorite mystery.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+      ]
     }
   ]
 }

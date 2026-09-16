@@ -1,53 +1,217 @@
 {
   "callerName": "Andiva",
-  "startNodeId": "start",
+  "startNodeId": "call1_start",
   "timeoutPrompts": [
-    "Andiva: Hello? You took the call just to give me silence?",
-    "Andiva: Darling, my time is billable by the second. Are you there?",
-    "Andiva: I have a runway rehearsal to run. Speak or I'm hanging up.",
-    "Andiva: Unbelievable. Bye."
+    "Andiva: Darling? I have five hundred dollars of French silk pinned to my kneecap! Speak to me!",
+    "Andiva: Hello? You picked up just to listen to me hyperventilate into the receiver?",
+    "Andiva: Reginald is sniffing my rotary cutter. Say something or I have to hang up!",
+    "Andiva: Unbelievable. Disconnecting before I ruin this bodice."
   ],
   "nodes": [
     {
-      "nodeId": "start",
-      "partnerDialogue": "Andiva: Finally. I just wrapped the fitting. Tell me honestly—did you see the moodboard I sent earlier?",
+      "nodeId": "call1_start",
+      "partnerDialogue": "Andiva: *frantic hiss of steam iron, shears clattering on wood* Thank god you picked up! Reginald just headbutted my box of tailor's chalk into dust and the invisible zipper on this emerald corset is jammed three-quarters of the way up! Tell me you're calm because I am five seconds away from taking rotary shears to the whole atelier!",
       "choices": [
-        { "choiceText": "The silhouettes look incredible.", "nextNodeId": "compliment" },
-        { "choiceText": "A bit daring, don't you think?", "nextNodeId": "critique" },
-        { "choiceText": "I'm still studying the lookbook.", "nextNodeId": "busy" }
+        { "choiceText": "Breathe, Andiva. Set down the shears before you do something irreversible.", "nextNodeId": "c1_breathe_shears" },
+        { "choiceText": "Don't force the slider! What's caught in the teeth?", "nextNodeId": "c1_inspect_teeth" },
+        { "choiceText": "Tailor's wax or bar soap. Rub it right along the coil.", "nextNodeId": "c1_wax_trick" },
+        { "choiceText": "Dramatic entrance as always, darling. Talk me through it.", "nextNodeId": "c1_dramatic_banter" }
       ]
     },
     {
-      "nodeId": "compliment",
-      "partnerDialogue": "Andiva: Naturally. I spent three weeks sourcing the velvet alone. You have an eye for high fashion.",
+      "nodeId": "c1_breathe_shears",
+      "partnerDialogue": "Andiva: *heavy, trembling exhale* Shears down. On the mahogany cutting board. Hands off the emerald velvet. God... your voice cut straight through my panic. My pulse is hammering like a techno bassline.",
       "choices": [
-        { "choiceText": "You make it look effortless.", "nextNodeId": "effortless" },
-        { "choiceText": "Save me a seat in the front row.", "nextNodeId": "front_row" }
+        { "choiceText": "Good boy. Now look at the slider tab. Is the organza facing pinched?", "nextNodeId": "c1_slider_inspection" },
+        { "choiceText": "Close your eyes for three seconds. Inhale with me... exhale...", "nextNodeId": "c1_grounding_breath" }
       ]
     },
     {
-      "nodeId": "critique",
-      "partnerDialogue": "Andiva: Daring is the entire point. Safe fashion is boring fashion. You'll see once the models walk.",
+      "nodeId": "c1_inspect_teeth",
+      "partnerDialogue": "Andiva: The inner organza bias binding! It got sucked right under the metal slider shoe when I zipped it up the dress form. If I pull harder, the teeth snap off the coil and the gown is dead.",
       "choices": [
-        { "choiceText": "Fair point. Good luck tonight.", "nextNodeId": "END_CALL" }
+        { "choiceText": "Take a fine tapestry needle and back the fabric out from underneath.", "nextNodeId": "c1_needle_release" },
+        { "choiceText": "Pinch the bottom of the zipper tape to relieve the lateral tension first.", "nextNodeId": "c1_relieve_tension" }
       ]
     },
     {
-      "nodeId": "busy",
-      "partnerDialogue": "Andiva: Don't take all season. Trends wait for no one. Text me when you finish the third page.",
+      "nodeId": "c1_wax_trick",
+      "partnerDialogue": "Andiva: Beeswax! I have a cake of tailor's beeswax right by the pincushion! *furious rubbing sound* Wait... easing the slider back down... *clean metallic click* IT MOVED! The tab cleared the lining fold!",
       "choices": [
-        { "choiceText": "Will do, Andiva.", "nextNodeId": "END_CALL" }
+        { "choiceText": "Told you. You're too skilled to let a little brass conquer you.", "nextNodeId": "c1_victory_banter" },
+        { "choiceText": "Now get that corset pinned before Reginald plans his next heist.", "nextNodeId": "c1_reginald_warning" }
       ]
     },
     {
-      "nodeId": "effortless",
-      "partnerDialogue": "Andiva: If only you saw the sewing cuts on my fingers. But thank you, {PlayerName}. Speak soon.",
-      "choices": []
+      "nodeId": "c1_dramatic_banter",
+      "partnerDialogue": "Andiva: Dramatic?! When seven thousand dollars of Lyon velvet and forty hours of hand basting are hanging by a thread, drama is a basic survival instinct! But hearing you laugh just lowered my blood pressure by thirty points.",
+      "choices": [
+        { "choiceText": "Let's save those seven thousand dollars together. Where is it jammed?", "nextNodeId": "c1_slider_inspection" },
+        { "choiceText": "Take a breath, maestro. Tell me what needs saving.", "nextNodeId": "c1_inspect_teeth" }
+      ]
     },
     {
-      "nodeId": "front_row",
-      "partnerDialogue": "Andiva: Reserved under your name already. Don't be late. Ciao.",
-      "choices": []
+      "nodeId": "c1_grounding_breath",
+      "partnerDialogue": "Andiva: Inhaling... exhaling... *soft, shuddering laugh* Look at you playing emergency runway medic over speakerphone. Reginald just rubbed his wet nose against my ankle. The crisis room has officially de-escalated.",
+      "choices": [
+        { "choiceText": "Now let's free that organza without tearing a single thread.", "nextNodeId": "c1_needle_release" }
+      ]
+    },
+    {
+      "nodeId": "c1_slider_inspection",
+      "partnerDialogue": "Andiva: The bias tape is wedged right inside the left groove of the slider. It's locked tight against the brass stops. If I use pliers, I risk denting the teeth.",
+      "choices": [
+        { "choiceText": "No pliers. Use an unthreaded embroidery needle to gently wiggle the weave free.", "nextNodeId": "c1_needle_release" },
+        { "choiceText": "Wiggle the zipper pull backward two millimeters while gently pulling the cloth.", "nextNodeId": "c1_wiggle_release" }
+      ]
+    },
+    {
+      "nodeId": "c1_needle_release",
+      "partnerDialogue": "Andiva: Slipping the dull end of a size 7 tapestry needle under the fold... *soft scrape* ...wiggling the fibers... AND IT'S FREE! *zipper zips cleanly with a sharp zip* ZERO TEAR! The weave didn't even distort! Oh god, I could kiss you right through this microphone!",
+      "choices": [
+        { "choiceText": "Save that kiss for Friday night. Now lock that seam down.", "nextNodeId": "c1_save_kiss_end" },
+        { "choiceText": "I expect front-row VIP seats for this emergency consult.", "nextNodeId": "c1_vip_tickets_end" },
+        { "choiceText": "You did the handiwork, Andiva. I was just the steady voice.", "nextNodeId": "c1_steady_voice_praise" }
+      ]
+    },
+    {
+      "nodeId": "c1_relieve_tension",
+      "partnerDialogue": "Andiva: Pinching the tape base... easing the pressure... *small pop* It shifted! The fabric loosened its grip inside the runner! Now slipping the needle through... AND IT'S OUT!",
+      "choices": [
+        { "choiceText": "Masterpiece saved. Breathe easy, darling.", "nextNodeId": "c1_save_kiss_end" }
+      ]
+    },
+    {
+      "nodeId": "c1_wiggle_release",
+      "partnerDialogue": "Andiva: Backing it two millimeters... *gentle snap* It glided clean! The teeth realigned perfectly! The silhouette on this mannequin is completely pristine!",
+      "choices": [
+        { "choiceText": "You're a genius, Andiva. Now finish pinning.", "nextNodeId": "c1_save_kiss_end" }
+      ]
+    },
+    {
+      "nodeId": "c1_victory_banter",
+      "partnerDialogue": "Andiva: I am a genius, aren't I? *giggles breathlessly* But honestly... if you hadn't been in my ear talking me down, I would have ripped the lining with my bare hands out of pure spite.",
+      "choices": [
+        { "choiceText": "I'll always be here to stop you from spite-ripping silk. Hang up and text me.", "nextNodeId": "c1_save_kiss_end" }
+      ]
+    },
+    {
+      "nodeId": "c1_reginald_warning",
+      "partnerDialogue": "Andiva: Reginald has been bribed with a dish of salmon pate and locked out of the fitting room! The bodice is secure, the zipper is basted, and my sanity has been restored by a thread.",
+      "choices": [
+        { "choiceText": "Let me let you get back to pinning. Jump back into chat when you're ready.", "nextNodeId": "c1_save_kiss_end" }
+      ]
+    },
+    {
+      "nodeId": "c1_steady_voice_praise",
+      "partnerDialogue": "Andiva: The steady voice is the whole point! When you work solo in an atelier, panic echoes off the walls. Having you anchor me kept my hands from shaking. I owe you everything tonight.",
+      "choices": [
+        { "choiceText": "You don't owe me anything. Go finish your masterpiece. Talk in chat.", "nextNodeId": "c1_save_kiss_end" }
+      ]
+    },
+    {
+      "nodeId": "c1_save_kiss_end",
+      "partnerDialogue": "Andiva: Deal. Friday night, front row, and that kiss is non-negotiable! Let me wipe the chalk off my fingers and switch back to text. Check your OnlyYaps right now, darling. Bye!",
+      "choices": [
+        { "choiceText": "[Hang Up and Resume OnlyYaps Chat]", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "c1_vip_tickets_end",
+      "partnerDialogue": "Andiva: Front row center, seated next to the Italian fashion attache with chilled champagne! Now let me hang up, wash my hands, and text you back in the room. Don't leave your screen!",
+      "choices": [
+        { "choiceText": "[Hang Up and Resume OnlyYaps Chat]", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "call2_start",
+      "partnerDialogue": "Andiva: *voice very hushed, room echoes with empty silence* ...Hello? Are you still awake with me, {PlayerName}?\n\nI just killed the overhead work lights. All the industrial tubes are off. The dress forms look like tall gray statues in the dark. My Italian boots are kicked under the bench, I'm sitting flat on the hardwood floor with my back against the cutting table, and I'm staring up at the gown.",
+      "choices": [
+        { "choiceText": "I'm right here with you, Andiva. How does the gown look under the spotlight?", "nextNodeId": "c2_gown_spotlight" },
+        { "choiceText": "You sound completely spent. How are your feet and hands feeling?", "nextNodeId": "c2_physical_toll" },
+        { "choiceText": "You did it. Three weeks of blood, pins, and sleepless nights. You finished it.", "nextNodeId": "c2_triumph_realization" }
+      ]
+    },
+    {
+      "nodeId": "c2_gown_spotlight",
+      "partnerDialogue": "Andiva: *whispers softly* It looks like living liquid smoke. There's only one spotlight left on in the room, pointing straight down at the pedestal. The moonlight is catching the micro-pearls along the hem, and for the first time in six months... I don't see the mistakes. I don't see the crooked basting. I just see what I spent my whole youth dreaming of making.",
+      "choices": [
+        { "choiceText": "Because you poured your whole soul into that velvet. It's undeniable.", "nextNodeId": "c2_soul_in_velvet" },
+        { "choiceText": "I wish I were sitting on that floor right beside you holding your hand.", "nextNodeId": "c2_beside_you_floor" },
+        { "choiceText": "Your father was wrong about you. He was so incredibly wrong.", "nextNodeId": "c2_father_wrong_climax" }
+      ]
+    },
+    {
+      "nodeId": "c2_physical_toll",
+      "partnerDialogue": "Andiva: *soft, exhausted laugh* My arches are thrumming with pain. My fingertips have dozens of tiny purple pinpricks from hand-rolling the hem. But hearing you ask about my tired feet instead of asking if the collection is commercially viable... it makes my chest ache in the sweetest way.",
+      "choices": [
+        { "choiceText": "Because I care about Andiva the person, not Andiva the brand.", "nextNodeId": "c2_person_not_brand" },
+        { "choiceText": "On Friday after the show, you aren't walking anywhere. I'm carrying you to dinner.", "nextNodeId": "c2_carry_to_dinner" }
+      ]
+    },
+    {
+      "nodeId": "c2_triumph_realization",
+      "partnerDialogue": "Andiva: I did, didn't I? *sniffles softly, voice catching* When my father told me tailoring was a frivolous waste of a man's life, I swore I'd build something so undeniably magnificent that nobody could ever make me feel small again.\n\nAnd sitting here in the dark with you on this phone... I don't feel like I have to prove anything anymore.",
+      "choices": [
+        { "choiceText": "You never had to prove anything to me. You are home now.", "nextNodeId": "c2_home_now_comfort" },
+        { "choiceText": "The whole world is going to see your genius tomorrow.", "nextNodeId": "c2_world_will_see" }
+      ]
+    },
+    {
+      "nodeId": "c2_soul_in_velvet",
+      "partnerDialogue": "Andiva: I did. And the crazy thing is... you saw it before the runway was even set up. You saw it when it was just chalk dust, jammed zippers, and cold tea with pins in it. You didn't wait for the applause to tell you I was worth something.",
+      "choices": [
+        { "choiceText": "I will always stand by you in the studio scraps, not just on the red carpet.", "nextNodeId": "c2_vow_resolution" }
+      ]
+    },
+    {
+      "nodeId": "c2_beside_you_floor",
+      "partnerDialogue": "Andiva: God, I wish you were. The wood floor is freezing, but if you were leaning against this bench with me, pulling a wool blanket over our shoulders... I don't think I'd ever stand up. I'd just let the fashion world move on without me.",
+      "choices": [
+        { "choiceText": "We'll have that quiet together soon. I promise you.", "nextNodeId": "c2_vow_resolution" }
+      ]
+    },
+    {
+      "nodeId": "c2_father_wrong_climax",
+      "partnerDialogue": "Andiva: He was. And for the first time in my life, that doesn't make me angry. It just makes me feel sad for him, because he spent his whole life inspecting metal parts while I get to feel what it's like to create something that breathes.",
+      "choices": [
+        { "choiceText": "You broke the cycle, Andiva. You chose beauty.", "nextNodeId": "c2_vow_resolution" }
+      ]
+    },
+    {
+      "nodeId": "c2_person_not_brand",
+      "partnerDialogue": "Andiva: Nobody has ever seen Andiva the boy with chalk on his knuckles. Everyone just wants the sharp, sarcastic stylist who makes them look pretty for galas. You saw the real boy, {PlayerName}, and you didn't flinch.",
+      "choices": [
+        { "choiceText": "I could never flinch from you. You're the most beautiful thing in that room.", "nextNodeId": "c2_vow_resolution" }
+      ]
+    },
+    {
+      "nodeId": "c2_carry_to_dinner",
+      "partnerDialogue": "Andiva: *laughs through wet eyelashes* You better! If you drop me on the sidewalk in front of the bistro, I will write a scathing critique of your posture in Italian! But god... being taken care of sounds like the rarest luxury in the world.",
+      "choices": [
+        { "choiceText": "I'm taking care of you from now on. Count on it.", "nextNodeId": "c2_vow_resolution" }
+      ]
+    },
+    {
+      "nodeId": "c2_home_now_comfort",
+      "partnerDialogue": "Andiva: Home... *heavy, peaceful exhale* Yes. That's what your voice feels like. Not a spotlight, not a runway. Just... home. A place where I can put down the shears and sleep.",
+      "choices": [
+        { "choiceText": "Rest your eyes, darling. The battle is won.", "nextNodeId": "c2_vow_resolution" }
+      ]
+    },
+    {
+      "nodeId": "c2_world_will_see",
+      "partnerDialogue": "Andiva: Let them look. Let the critics write their columns. But when the finale model walks out, I will only be looking through the curtain for you in the front row.",
+      "choices": [
+        { "choiceText": "I'll be right there holding your gaze.", "nextNodeId": "c2_vow_resolution" }
+      ]
+    },
+    {
+      "nodeId": "c2_vow_resolution",
+      "partnerDialogue": "Andiva: Sir Reginald just crawled into my lap and started purring like an engine. I'm packing my boots into my tote bag, locking the studio deadbolt, and calling a yellow cab.\n\nHang up and read my message in the chat room right now. I'll see you in my dreams tonight, my love.",
+      "choices": [
+        { "choiceText": "[Hang Up and Return to Chat for Finale]", "nextNodeId": "END_CALL" }
+      ]
     }
   ]
 }

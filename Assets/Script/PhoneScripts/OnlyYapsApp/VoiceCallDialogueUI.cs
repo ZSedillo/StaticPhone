@@ -44,11 +44,11 @@ public class VoiceCallDialogueUI : MonoBehaviour
         if (screenRoot != null) screenRoot.SetActive(false);
     }
 
-    public void StartCallDialogue(string callerName, Sprite avatar)
+    public void StartCallDialogue(string callerName, Sprite avatar, string entryNodeId = "")    
     {
         if (string.IsNullOrEmpty(callerName))
         {
-            callerName = "Seraphine"; // Fallback safety
+            callerName = "Seraphine";
         }
 
         activeConvo = LoadConversation(callerName);
@@ -62,8 +62,11 @@ public class VoiceCallDialogueUI : MonoBehaviour
         ClearChoices();
         ResetTimerUI();
 
-        string startNode = !string.IsNullOrEmpty(activeConvo.startNodeId) ? activeConvo.startNodeId : "start";
-        GoToNode(startNode, isInitial: true);
+        // If a specific entry node was passed (e.g. "call1_start" or "call2_start"), jump to it
+        string targetNode = !string.IsNullOrEmpty(entryNodeId) ? entryNodeId : activeConvo.startNodeId;
+        if (string.IsNullOrEmpty(targetNode)) targetNode = "start";
+
+        GoToNode(targetNode, isInitial: true);
     }
 
     private void OnPlayerChoiceSelected(string choiceText, string nextNodeId)

@@ -26,6 +26,7 @@ public class VoiceCallOverlayController : MonoBehaviour
 
     private Coroutine callRoutine;
     private string activeCaller = "";
+    private string activeStartNodeId = "";
 
     private void Awake()
     {
@@ -37,9 +38,11 @@ public class VoiceCallOverlayController : MonoBehaviour
         if (btnEndCall != null) btnEndCall.onClick.AddListener(EndOrRejectCall);
     }
 
-    public void StartOutgoingCall(string contactName, Sprite avatar)
+    public void StartOutgoingCall(string contactName, Sprite avatar, string startNodeId = "")
     {
-        // 1. Fully activate before touching UI or starting coroutines
+        activeCaller = contactName;
+        activeStartNodeId = startNodeId;
+
         gameObject.SetActive(true);
         if (callOverlayRoot != null) callOverlayRoot.SetActive(true);
         transform.SetAsLastSibling();
@@ -54,8 +57,11 @@ public class VoiceCallOverlayController : MonoBehaviour
         callRoutine = StartCoroutine(OutgoingCallRoutine());
     }
 
-    public void TriggerIncomingCall(string contactName, Sprite avatar)
+    public void TriggerIncomingCall(string contactName, Sprite avatar, string startNodeId = "")
     {
+        activeCaller = contactName;
+        activeStartNodeId = startNodeId;
+
         gameObject.SetActive(true);
         if (callOverlayRoot != null) callOverlayRoot.SetActive(true);
         transform.SetAsLastSibling();
@@ -92,7 +98,6 @@ public class VoiceCallOverlayController : MonoBehaviour
             }
             else
             {
-                // Soft placeholder tint instead of stark white block
                 callerAvatarImage.color = new Color(0.3f, 0.3f, 0.3f, 1f);
             }
         }
@@ -100,16 +105,15 @@ public class VoiceCallOverlayController : MonoBehaviour
 
     private IEnumerator OutgoingCallRoutine()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2.5f);
 
         if (incomingControlsGroup != null) incomingControlsGroup.SetActive(false);
         if (activeControlsGroup != null) activeControlsGroup.SetActive(true);
 
-        // Open off-phone HUD dialogue once partner answers
         if (VoiceCallDialogueUI.Instance != null)
         {
             Sprite av = callerAvatarImage != null ? callerAvatarImage.sprite : null;
-            VoiceCallDialogueUI.Instance.StartCallDialogue(activeCaller, av);
+            VoiceCallDialogueUI.Instance.StartCallDialogue(activeCaller, av, activeStartNodeId);
         }
 
         float timer = 0f;
@@ -126,6 +130,12 @@ public class VoiceCallOverlayController : MonoBehaviour
     private IEnumerator IncomingCallTimeoutRoutine()
     {
         yield return new WaitForSeconds(15f);
+
+        if (TaskManager.Instance != null)
+        {
+            TaskManager.Instance.CompleteTaskByEvent("LOST_FOR_WORDS");
+        }
+
         EndOrRejectCall();
     }
 
@@ -138,11 +148,10 @@ public class VoiceCallOverlayController : MonoBehaviour
 
         callRoutine = StartCoroutine(ActiveCallTimerRoutine());
 
-        // Open off-phone HUD dialogue
         if (VoiceCallDialogueUI.Instance != null)
         {
             Sprite av = callerAvatarImage != null ? callerAvatarImage.sprite : null;
-            VoiceCallDialogueUI.Instance.StartCallDialogue(activeCaller, av);
+            VoiceCallDialogueUI.Instance.StartCallDialogue(activeCaller, av, activeStartNodeId);
         }
     }
 
@@ -165,6 +174,17 @@ public class VoiceCallOverlayController : MonoBehaviour
         {
             StopCoroutine(callRoutine);
             callRoutine = null;
+        }
+
+        if (VoiceCallDialogueUI.Instance != null)
+        {
+            VoiceCallDialogueUI.Instance.gameObject.SetActive(false);
+        }
+
+        if (!string.IsNullOrEmpty(activeCaller))
+        {
+            DialogueEventManager.TriggerEvent("CALL_COMPLETED", activeCaller);
+            DialogueEventManager.TriggerEvent("RESET_CALL_DIALOGUE", activeCaller);
         }
 
         if (callOverlayRoot != null) callOverlayRoot.SetActive(false);

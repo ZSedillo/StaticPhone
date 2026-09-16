@@ -1,54 +1,384 @@
 {
   "callerName": "Seraphine",
-  "startNodeId": "start",
+  "startNodeId": "call1_start",
   "timeoutPrompts": [
-    "Seraphine: ...Are you there? I hear background noise.",
-    "Seraphine: Hello? Did you freeze up on me?",
-    "Seraphine: If you're not going to speak, I have to get back to composing.",
-    "Seraphine: Goodbye then."
+    "Seraphine: {PlayerName}? Please... my hand is locked and the silence in this room is terrifying.",
+    "Seraphine: Speak to me... I can't catch my breath on this floor alone.",
+    "Seraphine: Are you there?! Don't go silent on me while my fingers won't move!",
+    "Seraphine: The line dropped... I have to try and pry these fingers open alone."
   ],
   "nodes": [
     {
-      "nodeId": "start",
-      "partnerDialogue": "Seraphine: You picked up. The hall is finally quiet now... I wanted to ask what you thought of the draft I sent.",
+      "nodeId": "call1_start",
+      "partnerDialogue": "Seraphine: *sharp, ragged gasps for air, dissonant piano keys ringing out in an echoing chamber* {PlayerName}! Oh god, you answered... my right hand just seized completely! My fourth finger is curled rigid into my palm, my forearm is burning like white-hot wire, and the entire Rachmaninoff score just crashed onto the pedals! Talk to me—I'm hyperventilating and I can't feel my thumb!",
       "choices": [
-        { "choiceText": "The melody is haunting. It gave me chills.", "nextNodeId": "compliment" },
-        { "choiceText": "It felt intense. Are you stressed lately?", "nextNodeId": "concern" },
-        { "choiceText": "I'm still studying it measure by measure.", "nextNodeId": "studying" }
+        { "choiceText": "Breathe with me, Seraphine. Inhale for four counts... exhale for four. Listen only to my voice.", "nextNodeId": "c1_breathing_anchor" },
+        { "choiceText": "Don't force the finger open! If you tear an inflamed tendon sheath, you'll do permanent damage.", "nextNodeId": "c1_dont_force_spasm" },
+        { "choiceText": "Slide off the bench onto the floor right now. Get your back flat against the Steinway leg.", "nextNodeId": "c1_sit_on_floor" },
+        { "choiceText": "Take a breath. I'm right here in studio 4B with you. You're not alone in the dark.", "nextNodeId": "c1_not_alone_opening" }
       ]
     },
     {
-      "nodeId": "compliment",
-      "partnerDialogue": "Seraphine: That means more to me than you know. Most people only hear the polish, not the weight behind it.",
+      "nodeId": "c1_breathing_anchor",
+      "partnerDialogue": "Seraphine: *audible, trembling breath over receiver* In... two, three, four... out... two, three, four... *shuddering sob* God, your voice cut straight through the buzzing in my ears. My pulse felt like a snare drum in my throat. I'm shaking so hard the brass lamp is rattling on the music desk.",
       "choices": [
-        { "choiceText": "Play me the closing chord before you hang up.", "nextNodeId": "chord" },
-        { "choiceText": "Take care tonight, Seraphine.", "nextNodeId": "END_CALL" }
+        { "choiceText": "Keep that tempo. Don't look at the keys. Just keep your eyes on the floor.", "nextNodeId": "c1_eyes_on_floor" },
+        { "choiceText": "Good. Keep that rhythm. Now gently rest your right wrist across your lap.", "nextNodeId": "c1_rest_wrist_lap" },
+        { "choiceText": "Slide down onto the hardwood floor. Take all the tension out of your back.", "nextNodeId": "c1_sit_on_floor" }
       ]
     },
     {
-      "nodeId": "concern",
-      "partnerDialogue": "Seraphine: Stressed? Perhaps. The stage demands perfection... but hearing your voice helps steady my hands.",
+      "nodeId": "c1_eyes_on_floor",
+      "partnerDialogue": "Seraphine: Eyes on the floor... *heavy exhale* The parquet wood has rosin dust from the cellists who were in here earlier. There's a scratch near the pedal box where someone dropped a music stand years ago. Focusing on the scratches is actually helping... my heart rate is slowing down a fraction.",
       "choices": [
-        { "choiceText": "Don't push yourself too hard.", "nextNodeId": "END_CALL" },
-        { "choiceText": "Call me whenever you need a breather.", "nextNodeId": "breather" }
+        { "choiceText": "Good. Stay with those scratches. Now slide off the bench so your back is supported.", "nextNodeId": "c1_sit_on_floor" },
+        { "choiceText": "How does the forearm feel? Is the muscle still locked like iron?", "nextNodeId": "c1_hand_sensation_check" }
       ]
     },
     {
-      "nodeId": "studying",
-      "partnerDialogue": "Seraphine: Take your time. True art shouldn't be rushed. Let me know when you reach the crescendo.",
+      "nodeId": "c1_dont_force_spasm",
+      "partnerDialogue": "Seraphine: I tried to pry it flat with my left hand before calling and a bolt of agony shot straight up into my elbow! I was so terrified of canceling the audition that I almost ripped my own tendon! *crying softly* Why does my body keep betraying me?!",
       "choices": [
-        { "choiceText": "Will do. Rest well.", "nextNodeId": "END_CALL" }
+        { "choiceText": "It's not betraying you, Seraphine—it's begging you to stop punishing it. Breathe.", "nextNodeId": "c1_body_not_betraying" },
+        { "choiceText": "Stop touching it. Put your left hand over your chest and feel your heart slow down.", "nextNodeId": "c1_breathing_anchor" },
+        { "choiceText": "You've been drilling eight hours a day on cold tendons. It's exhaustion, not failure.", "nextNodeId": "c1_exhaustion_not_failure" }
       ]
     },
     {
-      "nodeId": "chord",
-      "partnerDialogue": "Seraphine: *soft piano chime over line* ...There. Goodnight, {PlayerName}.",
-      "choices": []
+      "nodeId": "c1_exhaustion_not_failure",
+      "partnerDialogue": "Seraphine: Exhaustion feels like failure when the jury only hears the end result. Maestro Vane says an artist doesn't get to have physical limits—he says limits are just excuses for amateurs.",
+      "choices": [
+        { "choiceText": "Maestro Vane sits in an armchair while you bleed. His opinion isn't worth your health.", "nextNodeId": "c1_body_not_betraying" },
+        { "choiceText": "Let's prove him wrong by saving your hand first. Sit down on the floor.", "nextNodeId": "c1_sit_on_floor" }
+      ]
     },
     {
-      "nodeId": "breather",
-      "partnerDialogue": "Seraphine: ...I will hold you to that promise. Goodnight.",
-      "choices": []
+      "nodeId": "c1_sit_on_floor",
+      "partnerDialogue": "Seraphine: *fabric rustles, heavy thump as she slides down to the floor* I'm on the parquet floor. My back is pressed against the front leg of the piano. The wood is cold through my cardigan, but it's keeping my spine grounded. My sheet music is scattered all over my skirts... dozens of white pages with red pencil markings.",
+      "choices": [
+        { "choiceText": "Let the sheet music lie there. Rachmaninoff can wait. How does the hand feel right now?", "nextNodeId": "c1_hand_sensation_check" },
+        { "choiceText": "Do you have warm water or a tea kettle nearby in the studio?", "nextNodeId": "c1_kettle_towel_check" },
+        { "choiceText": "Lean your head back against the wood. Just close your eyes for thirty seconds.", "nextNodeId": "c1_head_back_rest" }
+      ]
+    },
+    {
+      "nodeId": "c1_head_back_rest",
+      "partnerDialogue": "Seraphine: Head against the piano leg... *shuddering sigh* The nine-foot soundboard above me is still vibrating faintly from the chords I smashed before the spasm. It feels like leaning against a giant wooden ribcage that's slowly falling asleep.",
+      "choices": [
+        { "choiceText": "Let it fall asleep with you. Now, what's happening in your right forearm?", "nextNodeId": "c1_hand_sensation_check" },
+        { "choiceText": "Do you have any warm water to get blood circulating back into that arm?", "nextNodeId": "c1_kettle_towel_check" }
+      ]
+    },
+    {
+      "nodeId": "c1_not_alone_opening",
+      "partnerDialogue": "Seraphine: You have no idea how vast and terrifying this room feels when your hands stop working. In a conservatory, an injured pianist is treated like a racehorse with a broken leg. You're the only person who answered without a lecture on technique.",
+      "choices": [
+        { "choiceText": "Because I care about you, not the recital score. Now let's release that spasm.", "nextNodeId": "c1_sit_on_floor" },
+        { "choiceText": "Have they really made you feel that disposable here?", "nextNodeId": "c1_disposable_confession" }
+      ]
+    },
+    {
+      "nodeId": "c1_disposable_confession",
+      "partnerDialogue": "Seraphine: Last year a second-year prodigy tore an intrinsic muscle in her palm during the Prokofiev second concerto. They replaced her with an alternate the next morning and took her name off the hall posters by noon. Nobody talks about her anymore. It's like she vanished.",
+      "choices": [
+        { "choiceText": "You are not going to vanish. I'm holding onto you. Now get down on the floor.", "nextNodeId": "c1_sit_on_floor" }
+      ]
+    },
+    {
+      "nodeId": "c1_body_not_betraying",
+      "partnerDialogue": "Seraphine: *sniffles, voice dropping an octave* 'Begging me to stop punishing it...' My professor tells me pain is just lack of discipline. He told me Vladimir Horowitz practiced ten hours a day through bleeding fingertips and never complained.",
+      "choices": [
+        { "choiceText": "Horowitz took twelve-year sabbaticals because of nervous exhaustion. Your professor is repeating toxic myths.", "nextNodeId": "c1_horowitz_debunk" },
+        { "choiceText": "You are not Horowitz. You are Seraphine, and your health comes first.", "nextNodeId": "c1_horowitz_debunk" }
+      ]
+    },
+    {
+      "nodeId": "c1_rest_wrist_lap",
+      "partnerDialogue": "Seraphine: Resting in my lap. The tendon along my forearm feels like a taut guitar string tuned two octaves too high. It's vibrating under my skin like an electric wire.",
+      "choices": [
+        { "choiceText": "Use the pad of your left thumb. Very gently stroke the meat of your forearm toward the elbow.", "nextNodeId": "c1_massage_technique" },
+        { "choiceText": "Don't press hard. Just warm the skin with friction first.", "nextNodeId": "c1_skin_friction" }
+      ]
+    },
+    {
+      "nodeId": "c1_skin_friction",
+      "partnerDialogue": "Seraphine: Rubbing the skin... *soft friction sound* The warmth from my left palm is helping a tiny bit. The skin was freezing cold from shock. My knuckles are still pale white, though.",
+      "choices": [
+        { "choiceText": "Now start stroking gently toward the elbow. Work the blood back up the arm.", "nextNodeId": "c1_massage_technique" }
+      ]
+    },
+    {
+      "nodeId": "c1_hand_sensation_check",
+      "partnerDialogue": "Seraphine: The fourth finger is still slightly hooked, but the white-knuckle cramp is softening. The tips of my fingers are ice cold, like I dipped them in snow. I can't feel the ridges of my fingerprints against my skirt.",
+      "choices": [
+        { "choiceText": "That's reduced circulation from the muscle clamp. Do you have hot water in your kettle?", "nextNodeId": "c1_kettle_towel_check" },
+        { "choiceText": "Tuck your hand under your opposite armpit. Use your own body heat to thaw them.", "nextNodeId": "c1_body_heat_thaw" }
+      ]
+    },
+    {
+      "nodeId": "c1_body_heat_thaw",
+      "partnerDialogue": "Seraphine: Tucking it under my arm... *shivering inhale* Ah, it's so cold against my ribs! But the warmth is penetrating the back of the hand. My thumb is tingling like pins and needles. Sensation is returning.",
+      "choices": [
+        { "choiceText": "Good, that tingling means circulation is rushing back. Now let's get that hot towel.", "nextNodeId": "c1_kettle_towel_check" }
+      ]
+    },
+    {
+      "nodeId": "c1_kettle_towel_check",
+      "partnerDialogue": "Seraphine: I have my electric studio kettle on the window ledge. The water from my chamomile tea is still steaming hot, and I have a clean cotton rehearsal cloth.",
+      "choices": [
+        { "choiceText": "Soak the cloth in the warm water, wring it damp, and drape it across your forearm.", "nextNodeId": "c1_warm_cloth_drape" },
+        { "choiceText": "Pour some warm water into a mug and let your fingers wrap around the porcelain first.", "nextNodeId": "c1_mug_wrap_warmth" }
+      ]
+    },
+    {
+      "nodeId": "c1_mug_wrap_warmth",
+      "partnerDialogue": "Seraphine: *ceramic clatter, pouring sound* Wrapping my fingers around the warm porcelain mug... *long, peaceful exhale* Oh... the heat is radiating straight into the palm arch. The curled tendon is unclenching like a thawing branch. This feels incredible.",
+      "choices": [
+        { "choiceText": "Now take that warm cloth and lay it across the forearm tendon.", "nextNodeId": "c1_warm_cloth_drape" }
+      ]
+    },
+    {
+      "nodeId": "c1_horowitz_debunk",
+      "partnerDialogue": "Seraphine: *soft, disbelieving laugh through tears* You know about Horowitz's sabbaticals? You actually know performance history... nobody in my studio ever mentions the breakdowns. They only talk about the Carnegie Hall encores and the flawless octaves.",
+      "choices": [
+        { "choiceText": "Because people love the myth of invincibility. But I love your reality. Now get that warm cloth.", "nextNodeId": "c1_kettle_towel_check" },
+        { "choiceText": "They ignore the cost because they don't have to pay it. You're the one paying it.", "nextNodeId": "c1_paying_cost_talk" }
+      ]
+    },
+    {
+      "nodeId": "c1_paying_cost_talk",
+      "partnerDialogue": "Seraphine: I am paying it. With my youth, with my sleep, with every weekend I spent in a windowless room while other people were falling in love or walking in the park. Sometimes I look in the bathroom mirror here and I don't recognize the girl staring back.",
+      "choices": [
+        { "choiceText": "I recognize her. And she's worth saving. Let's get that warm cloth on your arm.", "nextNodeId": "c1_kettle_towel_check" }
+      ]
+    },
+    {
+      "nodeId": "c1_massage_technique",
+      "partnerDialogue": "Seraphine: *soft gasp of relief* Stroking with the thumb pad... oh... *sharp exhale* A huge knot near the brachioradialis just dissolved with a dull pop. The fourth finger just uncurled three millimeters on its own!",
+      "choices": [
+        { "choiceText": "Keep the pressure gentle and steady. Don't dig in.", "nextNodeId": "c1_finger_release_triumph" },
+        { "choiceText": "Work your way down toward the wrist joint. Slow, circular strokes.", "nextNodeId": "c1_circular_strokes" }
+      ]
+    },
+    {
+      "nodeId": "c1_circular_strokes",
+      "partnerDialogue": "Seraphine: Circular strokes around the carpal tunnel entrance... *breathing deepens* The burning sensation is turning into a dull ache. The electric buzz in my fingers is fading.",
+      "choices": [
+        { "choiceText": "Now lay the warm damp cloth over the whole arm.", "nextNodeId": "c1_warm_cloth_drape" }
+      ]
+    },
+    {
+      "nodeId": "c1_warm_cloth_drape",
+      "partnerDialogue": "Seraphine: Draping the steaming cloth over my wrist and forearm... *long, deep, luxurious sigh* Oh god... the warmth is sinking straight into the flexor tendon sheath. The throbbing is subsiding into a dull, heavy ache.",
+      "choices": [
+        { "choiceText": "Feel the warmth untangling the fibers. How is the finger?", "nextNodeId": "c1_finger_release_triumph" },
+        { "choiceText": "Close your eyes and let the steam do its work. No practicing tonight.", "nextNodeId": "c1_finger_release_triumph" }
+      ]
+    },
+    {
+      "nodeId": "c1_finger_release_triumph",
+      "partnerDialogue": "Seraphine: *soft click of knuckles extending* It opened. My fourth finger is resting flat against my wool skirt again. No snapping, no sharp pain... just heavy, exhausted muscle fibers. *whispers* You pulled me back. You literally saved my career tonight, {PlayerName}.",
+      "choices": [
+        { "choiceText": "I didn't save your career, Seraphine—I just reminded you to breathe.", "nextNodeId": "c1_humble_grounding" },
+        { "choiceText": "You did the work. Your hands just needed compassion instead of a whip.", "nextNodeId": "c1_compassion_lesson" },
+        { "choiceText": "Are you going to be okay getting back to your dorm?", "nextNodeId": "c1_dorm_walk_concern" }
+      ]
+    },
+    {
+      "nodeId": "c1_dorm_walk_concern",
+      "partnerDialogue": "Seraphine: My dorm is only two hundred meters across the conservatory courtyard. I have my heavy wool coat and a cashmere scarf. But right now... I don't want to stand up yet. I just want to sit on this floor and listen to you.",
+      "choices": [
+        { "choiceText": "Then stay on the floor. I'm not hanging up.", "nextNodeId": "c1_stay_on_floor_tender" }
+      ]
+    },
+    {
+      "nodeId": "c1_stay_on_floor_tender",
+      "partnerDialogue": "Seraphine: *voice very soft, echoing in the wooden room* Thank you... The silence in here usually feels like an interrogation. Having your breath on the line makes it feel like an acoustic blanket.",
+      "choices": [
+        { "choiceText": "Never hold your breath for a score again, Seraphine. Never.", "nextNodeId": "c1_wrap_up_safe" }
+      ]
+    },
+    {
+      "nodeId": "c1_humble_grounding",
+      "partnerDialogue": "Seraphine: Breathing is everything. In classical piano, if you hold your breath, the phrasing dies. Tonight I was holding my breath until my body literally forced me onto the floor.",
+      "choices": [
+        { "choiceText": "Never hold your breath for a score, Seraphine. Never.", "nextNodeId": "c1_wrap_up_safe" }
+      ]
+    },
+    {
+      "nodeId": "c1_compassion_lesson",
+      "partnerDialogue": "Seraphine: 'Compassion instead of a whip...' I am going to etch that sentence into the rim of my practice desk. I have lived under the whip for fourteen years. Hearing someone offer warmth instead... it feels like walking out of winter.",
+      "choices": [
+        { "choiceText": "Let winter end tonight. Stay on the floor, keep the warm cloth on, and rest.", "nextNodeId": "c1_wrap_up_safe" }
+      ]
+    },
+    {
+      "nodeId": "c1_wrap_up_safe",
+      "partnerDialogue": "Seraphine: *gentle rustle of fabric, quiet peaceful breathing* The Steinway's soundboard has finally stopped ringing. The room is completely still. I'm going to wrap both wrists in elastic compression bandage, leave the Rachmaninoff score on the floor, and just sit here with my back against the piano leg.\n\nHang up and message me in the studio feed. I need a few minutes in the quiet before I stand up. Thank you, my anchor.",
+      "choices": [
+        { "choiceText": "[Hang Up and Return to OnlyYaps Chat]", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "call2_start",
+      "partnerDialogue": "Seraphine: *hushed, velvety whisper echoing in a cavernous wooden room, single delicate unpedaled piano note tolls softly* ...Listen to that, {PlayerName}.\n\nMiddle C on a nine-foot Hamburg Steinway, struck with just the natural weight of an index finger. No pedal. The acoustic decay lasts twenty-two seconds before fading into the silence of the hall.\n\nThe conservatory building lights clicked off ten minutes ago. The security guards have locked the exterior iron gates. There is only blue moonlight slicing through the tall clerestory window, reflecting off the black lacquer lid like deep water.",
+      "choices": [
+        { "choiceText": "Twenty-two seconds of pure resonance. It sounds like church bells across an empty lake.", "nextNodeId": "c2_acoustic_decay_praise" },
+        { "choiceText": "How are your wrists feeling under that moonlight, Seraphine?", "nextNodeId": "c2_wrist_status_tender" },
+        { "choiceText": "Sitting alone in a locked conservatory at midnight... you sound so peaceful.", "nextNodeId": "c2_peaceful_midnight_talk" },
+        { "choiceText": "What does the air smell like in there right now?", "nextNodeId": "c2_smell_sensory_talk" }
+      ]
+    },
+    {
+      "nodeId": "c2_smell_sensory_talk",
+      "partnerDialogue": "Seraphine: It smells like French lemon polish on ancient mahogany, cold rosin dust from the string players, and the faint lavender aroma of the tea steam rising from my thermos. It smells like decades of focused devotion.",
+      "choices": [
+        { "choiceText": "It sounds like an acoustic cathedral that exists only for you tonight.", "nextNodeId": "c2_peaceful_midnight_talk" },
+        { "choiceText": "How are your hands holding up in that cool air?", "nextNodeId": "c2_wrist_status_tender" }
+      ]
+    },
+    {
+      "nodeId": "c2_acoustic_decay_praise",
+      "partnerDialogue": "Seraphine: Church bells across an empty lake... *soft, breathless laugh* That is precisely what Heinrich Neuhaus wrote about Russian tone production in 1958. You have an ear that belongs in a masterclass, {PlayerName}. You hear the poetry before the mechanics.",
+      "choices": [
+        { "choiceText": "I only hear the poetry because you're the one striking the key.", "nextNodeId": "c2_poetry_flirt" },
+        { "choiceText": "Did you wrap your wrists like you promised me earlier?", "nextNodeId": "c2_wrist_status_tender" }
+      ]
+    },
+    {
+      "nodeId": "c2_wrist_status_tender",
+      "partnerDialogue": "Seraphine: Wrapped snug in beige elastic bandage, with cooling arnica balm underneath. The throbbing has receded into a distant, gentle numbness. I can flex all five fingers cleanly without a whisper of pain.\n\nFor the first time in six months, I don't feel like my body is an enemy I have to conquer.",
+      "choices": [
+        { "choiceText": "Because tonight you made peace with your instrument.", "nextNodeId": "c2_made_peace_bond" },
+        { "choiceText": "Keep those bandages on until Friday. No secret scales while I'm not looking.", "nextNodeId": "c2_no_secret_scales_banter" }
+      ]
+    },
+    {
+      "nodeId": "c2_peaceful_midnight_talk",
+      "partnerDialogue": "Seraphine: It is peaceful. During the daytime, this practice annex sounds like a war zone—violins scraping in 4A, opera sopranos shrieking in 4C, brass quintets rehearsing downstairs. But at midnight, the walls hold all that acoustic energy like a battery holding warmth. It feels like an ancient cathedral.",
+      "choices": [
+        { "choiceText": "And you are the resident high priestess of this cathedral.", "nextNodeId": "c2_priestess_banter" },
+        { "choiceText": "What does your mind turn to when the annex goes quiet like this?", "nextNodeId": "c2_what_mind_turns_to" }
+      ]
+    },
+    {
+      "nodeId": "c2_poetry_flirt",
+      "partnerDialogue": "Seraphine: *whispers* Stop that. You make my cheeks burn even in an unheated rehearsal room. If my adjudicators knew that a few sentences over a phone line could dismantle my concert composure, they would revoke my fellowship.",
+      "choices": [
+        { "choiceText": "Let them try. What were you about to play for me before I called?", "nextNodeId": "c2_nocturne_intro" }
+      ]
+    },
+    {
+      "nodeId": "c2_made_peace_bond",
+      "partnerDialogue": "Seraphine: I made peace with it because you stripped away the fear. All my life, playing piano felt like walking a tightrope over a pit of sharp stones while my family and teachers watched for the slightest wobble. Tonight, with you on this line, I remembered why I climbed up in the first place.",
+      "choices": [
+        { "choiceText": "Because you love the height, and the sky belongs to you.", "nextNodeId": "c2_sky_belongs_to_you" }
+      ]
+    },
+    {
+      "nodeId": "c2_no_secret_scales_banter",
+      "partnerDialogue": "Seraphine: *laughs softly, a sound rich with warmth* I promise on my signed Urtext edition of Bach's Well-Tempered Clavier: zero scales. My hands are strictly under your jurisdiction until Friday afternoon.",
+      "choices": [
+        { "choiceText": "I accept the responsibility. Now play me that quiet melody you promised.", "nextNodeId": "c2_nocturne_intro" }
+      ]
+    },
+    {
+      "nodeId": "c2_priestess_banter",
+      "partnerDialogue": "Seraphine: A priestess with chalk on her skirts and lavender tea in her thermos! But... yes. There is something sacred about this space when the competition disappears.",
+      "choices": [
+        { "choiceText": "Play me the sacred song, Seraphine. The one you keep only for yourself.", "nextNodeId": "c2_nocturne_intro" }
+      ]
+    },
+    {
+      "nodeId": "c2_what_mind_turns_to",
+      "partnerDialogue": "Seraphine: It turns to freedom. Real freedom. Not the freedom of winning first prize in Vienna, but the freedom of walking down a cobblestone street with someone who loves me for my flaws, eating pastries, laughing until our ribs ache, and never having to apologize for being human.",
+      "choices": [
+        { "choiceText": "That freedom is waiting for you on Friday. I'm bringing the pastries.", "nextNodeId": "c2_friday_pastries_promise" },
+        { "choiceText": "You never have to apologize to me for being human. Not once.", "nextNodeId": "c2_never_apologize_vow" }
+      ]
+    },
+    {
+      "nodeId": "c2_sky_belongs_to_you",
+      "partnerDialogue": "Seraphine: *voice thick with profound emotion* It does belong to me. And tonight, I want to share the sky with you.",
+      "choices": [
+        { "choiceText": "Play for me, Seraphine. I'm listening with everything I have.", "nextNodeId": "c2_nocturne_intro" }
+      ]
+    },
+    {
+      "nodeId": "c2_nocturne_intro",
+      "partnerDialogue": "Seraphine: *soft rustle of bench leather, unpedaled soft-pedal shift* Chopin's Nocturne in C-sharp minor, Opus posthumous. He wrote it for his older sister Ludwika as an exercise before tackling his second concerto. It has no bravura double-octaves, no theatrical cascades. Just an unadorned, weeping melody over quiet arpeggios in the left hand.\n\n*four quiet, achingly gentle piano chords toll through the receiver, followed by a fragile, soaring melody played with immense tenderness*\n\nListen to the rubato... it breathes because my heart is breathing with you.",
+      "choices": [
+        { "choiceText": "It sounds like starlight touching cold water. It's breathtaking, Seraphine.", "nextNodeId": "c2_starlight_praise" },
+        { "choiceText": "*Stay completely silent and let the notes hang in the air.*", "nextNodeId": "c2_silent_devotion" },
+        { "choiceText": "Listen to that left hand. So tender. Like footsteps in snow.", "nextNodeId": "c2_footsteps_in_snow" }
+      ]
+    },
+    {
+      "nodeId": "c2_footsteps_in_snow",
+      "partnerDialogue": "Seraphine: Footsteps in snow... *melody continues, notes cascading like falling frost* That is the exact image Chopin had in his diaries while living in Majorca. He was freezing in an abandoned monastery, coughing blood, yet he wrote harmonies that felt like pure starlight.",
+      "choices": [
+        { "choiceText": "You bring that starlight to life. Don't stop.", "nextNodeId": "c2_nocturne_climax" }
+      ]
+    },
+    {
+      "nodeId": "c2_starlight_praise",
+      "partnerDialogue": "Seraphine: *melody continues softly, keys depressing with delicate wooden thuds* Starlight on cold water... *she sighs softly mid-phrase* When I play it with my left hand resting gently and my right wrist floating, the piano doesn't feel like a ninety-thousand-dollar iron machine. It feels like an extension of my own vocal cords.",
+      "choices": [
+        { "choiceText": "Because you aren't fighting the instrument anymore. You're letting it sing.", "nextNodeId": "c2_nocturne_climax" }
+      ]
+    },
+    {
+      "nodeId": "c2_silent_devotion",
+      "partnerDialogue": "Seraphine: *the music swells with gentle romantic longing, then resolves into a quiet, major-mode tierce de Picardie that decays into total silence over twelve long seconds* \n\n...You didn't say a word. You just let the sound die naturally into the wood. Nobody has ever had the discipline to give me true silence at the end of a piece. They always rush to clap or critique.",
+      "choices": [
+        { "choiceText": "Applause would have cheapened something that sacred. That was for us.", "nextNodeId": "c2_nocturne_climax" }
+      ]
+    },
+    {
+      "nodeId": "c2_nocturne_climax",
+      "partnerDialogue": "Seraphine: *the final bass chord lingers, faint creak of piano bench as she leans back* That was for us. The first piece I have played in five years that had nothing to do with juries, scholarships, or professors. Just a gift from my hands to your ears across the dark.",
+      "choices": [
+        { "choiceText": "It is the greatest gift I have ever received in my life.", "nextNodeId": "c2_friday_pastries_promise" },
+        { "choiceText": "I'm going to remember the sound of that decay for the rest of my life.", "nextNodeId": "c2_friday_pastries_promise" }
+      ]
+    },
+    {
+      "nodeId": "c2_never_apologize_vow",
+      "partnerDialogue": "Seraphine: *sniffles softly, voice rich with tears* Hearing you say that makes my ribcage feel two sizes larger. I've spent twenty-one years feeling like an audition that never ends. You are the only person who offered me a seat and told me the test was over.",
+      "choices": [
+        { "choiceText": "The test is over, Seraphine. You passed with flying colors.", "nextNodeId": "c2_friday_pastries_promise" }
+      ]
+    },
+    {
+      "nodeId": "c2_friday_pastries_promise",
+      "partnerDialogue": "Seraphine: Friday afternoon at two o'clock. The south side door of the conservatory practice annex will be unlocked. Room 4B.\n\nI will have the Steinway open, the brass lamp lit, and two porcelain mugs of hot lavender tea. You will sit on the leather bench right beside me, our shoulders touching, and I will play the entire second movement of the Rachmaninoff for you with no bandages and no fear.",
+      "choices": [
+        { "choiceText": "I'll be there early, holding two warm almond croissants with powdered sugar.", "nextNodeId": "c2_final_vow" },
+        { "choiceText": "Our shoulders touching on that bench. That's where I belong.", "nextNodeId": "c2_final_vow" },
+        { "choiceText": "And if your wrist feels tired, we just close the lid and eat croissants in silence.", "nextNodeId": "c2_croissant_silence_comfort" }
+      ]
+    },
+    {
+      "nodeId": "c2_croissant_silence_comfort",
+      "partnerDialogue": "Seraphine: *laughs with pure, radiant delight* Croissants in silence on a Steinway bench... yes. Even better. A true rebellion against the conservatory.",
+      "choices": [
+        { "choiceText": "Then it's a date, my concert rebel.", "nextNodeId": "c2_final_vow" }
+      ]
+    },
+    {
+      "nodeId": "c2_final_vow",
+      "partnerDialogue": "Seraphine: *takes a deep, peaceful, radiant breath* Almond croissants and Chopin beside the person who saved my hands. I don't think Vienna itself could offer me anything sweeter than that.\n\nI'm going to lower the fallboard now. *heavy, velvety click of wooden lid closing* The piano is sleeping. I'm packing my portfolio, buttoning my wool coat, and walking back to my dorm with my head held high.",
+      "choices": [
+        { "choiceText": "Sleep gently, my concert pianist. Friday is our beginning.", "nextNodeId": "c2_closing_goodnight" },
+        { "choiceText": "Walk under the streetlights with your chin up. You conquered the night.", "nextNodeId": "c2_closing_goodnight" }
+      ]
+    },
+    {
+      "nodeId": "c2_closing_goodnight",
+      "partnerDialogue": "Seraphine: *whispers intimately directly against the microphone* Friday is our beginning. Hang up and read my final note in the chat feed. I'm going to fall asleep tonight dreaming of warm croissants and unmetered silence.\n\nGoodnight, {PlayerName}. Thank you for giving my music its soul back. Sleep in peace.",
+      "choices": [
+        { "choiceText": "[Hang Up and Return to Chat for Finale]", "nextNodeId": "END_CALL" }
+      ]
     }
   ]
 }

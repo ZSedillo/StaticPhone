@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +7,10 @@ public class TaskPanelController : MonoBehaviour
 {
     [Header("Panel Root")]
     [SerializeField] private GameObject taskPanelRoot;
+
+    [Header("Scroll Area")]
+    [Tooltip("Drag the 'Scroll View' GameObject here")]
+    [SerializeField] private ScrollRect taskScrollRect;
 
     [Header("Buttons")]
     [Tooltip("The Task icon button inside Page 2 of the phone")]
@@ -18,6 +23,8 @@ public class TaskPanelController : MonoBehaviour
     [SerializeField] private RectTransform mainStoryContentParent;
     [SerializeField] private RectTransform optionalContentParent;
     [SerializeField] private GameObject taskItemPrefab;
+
+    private Coroutine refreshCoroutine;
 
     private void Awake()
     {
@@ -76,12 +83,15 @@ public class TaskPanelController : MonoBehaviour
     {
         if (TaskManager.Instance == null || taskItemPrefab == null) return;
 
-        // 1. Destroy old clones
+        // 1. Immediately disable and unparent old clones so layout calculations ignore them
         if (mainStoryContentParent != null)
         {
             for (int i = mainStoryContentParent.childCount - 1; i >= 0; i--)
             {
-                Destroy(mainStoryContentParent.GetChild(i).gameObject);
+                Transform child = mainStoryContentParent.GetChild(i);
+                child.gameObject.SetActive(false);
+                child.SetParent(null);
+                Destroy(child.gameObject);
             }
         }
 
@@ -89,7 +99,10 @@ public class TaskPanelController : MonoBehaviour
         {
             for (int i = optionalContentParent.childCount - 1; i >= 0; i--)
             {
-                Destroy(optionalContentParent.GetChild(i).gameObject);
+                Transform child = optionalContentParent.GetChild(i);
+                child.gameObject.SetActive(false);
+                child.SetParent(null);
+                Destroy(child.gameObject);
             }
         }
 
@@ -103,12 +116,27 @@ public class TaskPanelController : MonoBehaviour
             TaskItemUI ui = itemObj.GetComponent<TaskItemUI>();
             if (ui != null)
             {
-                // Support either Setup or Bind method depending on your TaskItemUI implementation
                 ui.Setup(task);
             }
         }
 
-        // 3. Immediately rebuild layout calculations to prevent visual jumping / squished text
+        // 3. Rebuild layout and snap scroll position to top
+        if (refreshCoroutine != null)
+        {
+            StopCoroutine(refreshCoroutine);
+        }
+
+        if (gameObject.activeInHierarchy)
+        {
+            refreshCoroutine = StartCoroutine(RebuildAndResetScroll());
+        }
+    }
+
+    private IEnumerator RebuildAndResetScroll()
+    {
+        // Wait until Unity finishes processing the newly spawned cards
+        yield return new WaitForEndOfFrame();
+
         Canvas.ForceUpdateCanvases();
 
         if (mainStoryContentParent != null)
@@ -117,13 +145,14 @@ public class TaskPanelController : MonoBehaviour
         if (optionalContentParent != null)
             LayoutRebuilder.ForceRebuildLayoutImmediate(optionalContentParent);
 
-        if (mainStoryContentParent != null && mainStoryContentParent.parent != null)
+        if (taskScrollRect != null && taskScrollRect.content != null)
         {
-            RectTransform scrollContent = mainStoryContentParent.parent as RectTransform;
-            if (scrollContent != null)
-            {
-                LayoutRebuilder.ForceRebuildLayoutImmediate(scrollContent);
-            }
+            LayoutRebuilder.ForceRebuildLayoutImmediate(taskScrollRect.content);
+
+            // 1f = snap to top, preventing intermediate gaps when reopening
+            taskScrollRect.verticalNormalizedPosition = 1f;
         }
+
+        refreshCoroutine = null;
     }
 }

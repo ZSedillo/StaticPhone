@@ -2,46 +2,289 @@
   "callerName": "Evelyn",
   "startNodeId": "start",
   "timeoutPrompts": [
-    "Evelyn: ...Is the line secured? Why aren't you answering?",
-    "Evelyn: {PlayerName}? The signal meter is fluctuating.",
-    "Evelyn: If this frequency is compromised, I have to wipe the log.",
-    "Evelyn: Disconnecting now."
+    "Evelyn: ...Is the line secured? Why aren't you answering? Speak to me.",
+    "Evelyn: {PlayerName}? My signal strength meter is fluctuating down to one bar. Are you there?",
+    "Evelyn: If this carrier frequency is compromised, I have to wipe the flash drive and bail.",
+    "Evelyn: Footsteps in the corridor. Disconnecting now."
   ],
   "nodes": [
     {
       "nodeId": "start",
-      "partnerDialogue": "Evelyn: *low whisper* Keep your voice low. I'm inside the records basement. Did you examine the frequency graph?",
+      "partnerDialogue": "Evelyn: *hushed, ragged whisper* Keep your volume down. I had to squeeze through a rusted drainage grate beneath the archive annex. My lantern is down to its lowest diode setting. Did you examine the frequency graph I sent before my cellular data dropped?",
       "choices": [
-        { "choiceText": "The 18Hz pulse doesn't look natural.", "nextNodeId": "unnatural" },
-        { "choiceText": "Are you safe down there alone?", "nextNodeId": "safety" },
-        { "choiceText": "I haven't opened the file yet.", "nextNodeId": "unopened" }
+        { "choiceText": "The 18 Hz harmonic pulse doesn't look natural at all.", "nextNodeId": "unnatural" },
+        { "choiceText": "Forget the graph—are you safe down there by yourself?!", "nextNodeId": "safety_first" },
+        { "choiceText": "I haven't opened the file yet; my connection was caching.", "nextNodeId": "unopened" },
+        { "choiceText": "Wait... what was that low hum in the background of your mic?", "nextNodeId": "ambient_hum_check" }
       ]
     },
     {
       "nodeId": "unnatural",
-      "partnerDialogue": "Evelyn: Exactly. It mimics seismic tremors, but the intervals repeat every sixty seconds like clockwork.",
+      "partnerDialogue": "Evelyn: Exactly. *faint clink of metal tools* It mimics low-grade seismic settling, but the modulation peaks repeat every sixty seconds with microsecond accuracy. Earth doesn't shake on atomic clock intervals.",
       "choices": [
-        { "choiceText": "Someone is generating it intentionally.", "nextNodeId": "intentional" },
-        { "choiceText": "Get out of there before security notices.", "nextNodeId": "END_CALL" }
+        { "choiceText": "Someone is generating that wave intentionally through the bedrock.", "nextNodeId": "intentional" },
+        { "choiceText": "Could it be an old pneumatic tube dispatch line under the floor?", "nextNodeId": "pneumatic_theory" },
+        { "choiceText": "Whatever it is, get your data and extract right now. Security will sweep.", "nextNodeId": "urgent_extraction" }
       ]
     },
     {
-      "nodeId": "safety",
-      "partnerDialogue": "Evelyn: Safe enough. The heavy vault door locked behind me, but I found an maintenance shaft.",
+      "nodeId": "safety_first",
+      "partnerDialogue": "Evelyn: *breath trembles slightly* Safe enough. The vault door at the main corridor latched shut behind me—electronic maglock engaged from the outside. But I located an unmapped ventilation shaft behind a row of filing cabinets.",
       "choices": [
-        { "choiceText": "Don't take reckless chances.", "nextNodeId": "END_CALL" }
+        { "choiceText": "You're locked inside a basement vault?! Evelyn, that's not 'safe enough'!", "nextNodeId": "locked_in_panic" },
+        { "choiceText": "Stay calm. Check the vent for fresh airflow. Can you feel a draft?", "nextNodeId": "check_vent_draft" },
+        { "choiceText": "I'm getting in my car right now to pull you out of there.", "nextNodeId": "drive_to_rescue" }
       ]
     },
     {
       "nodeId": "unopened",
-      "partnerDialogue": "Evelyn: Open it as soon as we hang up. Look at sector four on the chart. It links everything.",
+      "partnerDialogue": "Evelyn: *sharp intake of air* Open it immediately once we clear this call. Look directly at sector four on the waterfall plot. The frequency cuts out in a sequence of sharp notches. It's a dead man's telegraph.",
       "choices": [
-        { "choiceText": "I'm checking it right now.", "nextNodeId": "END_CALL" }
+        { "choiceText": "A telegraph? Like Morse code encoded in sub-bass?", "nextNodeId": "morse_in_subbass" },
+        { "choiceText": "Downloading it on my terminal right now. Talk me through it.", "nextNodeId": "walkthrough_terminal" }
+      ]
+    },
+    {
+      "nodeId": "ambient_hum_check",
+      "partnerDialogue": "Evelyn: You hear it through the phone mic?! *whispers intensely* Hold on... I'm pressing my phone case against the granite foundation. Listen to this:",
+      "choices": [
+        { "choiceText": "It sounds like a massive engine spinning down in the deep earth.", "nextNodeId": "deep_engine_sound" },
+        { "choiceText": "That's not machinery. That's acoustic vocal resonance.", "nextNodeId": "vocal_resonance_call" }
       ]
     },
     {
       "nodeId": "intentional",
-      "partnerDialogue": "Evelyn: *distant metallic scrape* ...Did you hear that? I need to kill my lantern. I'll message you later.",
+      "partnerDialogue": "Evelyn: Yes. A deliberate transmitter. *distant metallic scrape* ...Wait. Stop talking. Freeze.",
+      "choices": [
+        { "choiceText": "...Evelyn? What was that?", "nextNodeId": "scrape_investigate" },
+        { "choiceText": "Kill the lantern. Duck behind the steel cabinets.", "nextNodeId": "kill_lantern_stealth" }
+      ]
+    },
+    {
+      "nodeId": "pneumatic_theory",
+      "partnerDialogue": "Evelyn: I traced the copper conduit layout along the ceiling joists—the pneumatic system was decommissioned in 1968 and the brass pipes are choked with lime dust. This pulse is coming from below the concrete slab.",
+      "choices": [
+        { "choiceText": "Beneath the slab? How deep does that foundation go?", "nextNodeId": "deep_foundation_q" },
+        { "choiceText": "Then you're standing on top of whatever is broadcasting.", "nextNodeId": "standing_on_broadcast" }
+      ]
+    },
+    {
+      "nodeId": "urgent_extraction",
+      "partnerDialogue": "Evelyn: I'm not leaving empty-handed! I found Dr. Vance's missing ledger from October 1931 tucked behind an electrical distribution box. The pages are bound in oiled canvas; they're intact.",
+      "choices": [
+        { "choiceText": "Shove the ledger in your bag, take the ventilation shaft, and go.", "nextNodeId": "bag_and_vent" },
+        { "choiceText": "What does the final page say? Read me one line.", "nextNodeId": "read_final_page" }
+      ]
+    },
+    {
+      "nodeId": "locked_in_panic",
+      "partnerDialogue": "Evelyn: Don't raise your voice! Sound carries like gunfire down these brick tunnels. Look... my heart is in my throat too, okay? But panicking burns oxygen and ruins judgment.",
+      "choices": [
+        { "choiceText": "You're right. Deep breath. What tools do you have in your kit?", "nextNodeId": "tool_inventory" },
+        { "choiceText": "Just promise me you won't take another step without telling me.", "nextNodeId": "promise_anchor" }
+      ]
+    },
+    {
+      "nodeId": "check_vent_draft",
+      "partnerDialogue": "Evelyn: Holding my lighter to the louvers... *spark click* Flame is bending inward at thirty degrees. Strong negative pressure draft. It leads straight up to the street-level intake alley.",
+      "choices": [
+        { "choiceText": "That's your exfil route. Can you fit through the opening?", "nextNodeId": "vent_fit_check" },
+        { "choiceText": "Keep the lighter off so you don't ignite pocket gas. Flashlight only.", "nextNodeId": "safety_scold_sweet" }
+      ]
+    },
+    {
+      "nodeId": "drive_to_rescue",
+      "partnerDialogue": "Evelyn: *voice cracks softly* ...You'd really drive out to an abandoned municipal lot in the freezing rain at midnight for me? Nobody has ever offered to come get me, {PlayerName}.",
+      "choices": [
+        { "choiceText": "I'd drive through a hurricane for you. Stay on the line; I'm heading out.", "nextNodeId": "rescue_drive_climax" },
+        { "choiceText": "Of course I would. I promised you wouldn't be alone anymore.", "nextNodeId": "rescue_vow_tender" }
+      ]
+    },
+    {
+      "nodeId": "morse_in_subbass",
+      "partnerDialogue": "Evelyn: Yes! Decoded the first three sets: 'C-E-L-L-A-R - D-E-E-P'. Someone with a low-frequency oscillator was tapping out warnings while the facility was being sealed in concrete.",
+      "choices": [
+        { "choiceText": "Warnings about what?!", "nextNodeId": "warning_content" },
+        { "choiceText": "Document the transcript and climb into that shaft right now.", "nextNodeId": "bag_and_vent" }
+      ]
+    },
+    {
+      "nodeId": "walkthrough_terminal",
+      "partnerDialogue": "Evelyn: Look at 18.2 Hz down to 17.9 Hz. See how the waveform mirrors an electrocardiogram pulse? It isn't random. It has a rhythm like a resting heartbeat.",
+      "choices": [
+        { "choiceText": "A 52 BPM resting pulse... exactly like a human in deep sleep.", "nextNodeId": "resting_heartbeat_reveal" }
+      ]
+    },
+    {
+      "nodeId": "deep_engine_sound",
+      "partnerDialogue": "Evelyn: It's vibrating through the soles of my combat boots. The granite isn't just carrying sound; it's acting as a giant acoustic horn. Whatever is down there has been running for decades.",
+      "choices": [
+        { "choiceText": "That's enough data for one lifetime. Time to evacuate.", "nextNodeId": "bag_and_vent" },
+        { "choiceText": "Can you drop a contact mic down the conduit before you go?", "nextNodeId": "drop_contact_mic" }
+      ]
+    },
+    {
+      "nodeId": "vocal_resonance_call",
+      "partnerDialogue": "Evelyn: *shivers audibly* Don't say that while I'm down here in the dark... But... God, you're right. The formant frequencies align at 700 Hz and 1200 Hz. That's the vowel 'O'.",
+      "choices": [
+        { "choiceText": "Evelyn, pack your gear and get out through the vent right now. I mean it.", "nextNodeId": "bag_and_vent" }
+      ]
+    },
+    {
+      "nodeId": "scrape_investigate",
+      "partnerDialogue": "Evelyn: *whispers from under a desk* It's coming from the other side of the heavy vault door. Something is turning the brass release handle from the outside corridor.",
+      "choices": [
+        { "choiceText": "Is there a manual latch on your side to pin it shut?", "nextNodeId": "pin_manual_latch" },
+        { "choiceText": "Bolt into the ventilation shaft. Don't look back.", "nextNodeId": "bag_and_vent" }
+      ]
+    },
+    {
+      "nodeId": "kill_lantern_stealth",
+      "partnerDialogue": "Evelyn: Lantern killed. Complete darkness down here. *quiet fabric rustle* I'm wedged between the structural iron beam and the archival shelves. My heart is beating so loud I'm terrified they'll hear it.",
+      "choices": [
+        { "choiceText": "Listen to my voice in your ear. Steady breathing. Inhale... exhale...", "nextNodeId": "steady_breathing_grounding" },
+        { "choiceText": "Can you see any flashlight sweep under the door gap?", "nextNodeId": "flashlight_sweep_check" }
+      ]
+    },
+    {
+      "nodeId": "deep_foundation_q",
+      "partnerMessage": "",
+      "partnerDialogue": "Evelyn: The blueprints show a subterranean drainage aquifer dug down eighty feet during the 1880 reservoir construction. It was supposedly backfilled with gravel, but this acoustic clearance proves it's still hollow.",
+      "choices": [
+        { "choiceText": "A hollow cavern under the town center... that's your next expedition.", "nextNodeId": "next_expedition_promise" }
+      ]
+    },
+    {
+      "nodeId": "standing_on_broadcast",
+      "partnerDialogue": "Evelyn: Right on top of it. My hair is literally standing up off my scalp from electrostatic charge. It feels like standing next to a lightning strike three seconds before the thunder hits.",
+      "choices": [
+        { "choiceText": "Then jump off that strike point before it discharges. Into the vent!", "nextNodeId": "bag_and_vent" }
+      ]
+    },
+    {
+      "nodeId": "bag_and_vent",
+      "partnerDialogue": "Evelyn: Slipping the ledger into my dry-bag. *grunts softly* Vent cover screws came loose with my pocket multi-tool. I'm hoisting my pack up into the ductwork now.",
+      "choices": [
+        { "choiceText": "Stay on the line while you crawl. Don't disconnect.", "nextNodeId": "crawling_duct_live" },
+        { "choiceText": "I'll meet you at the alley mouth. Where is the street grate?", "nextNodeId": "alley_mouth_meetup" }
+      ]
+    },
+    {
+      "nodeId": "read_final_page",
+      "partnerDialogue": "Evelyn: *paper rustles in the dark* Dr. Vance wrote: 'October 29. We dug until the drill bit struck bronze. The sound did not stop; it welcomed us.' ...That's the last sentence in the book.",
+      "choices": [
+        { "choiceText": "That gave me chills down my spine. Now close the book and get out.", "nextNodeId": "bag_and_vent" }
+      ]
+    },
+    {
+      "nodeId": "tool_inventory",
+      "partnerDialogue": "Evelyn: Heavy crowbar, multi-tool, contact mics, spare lithium cells, and a signal repeater. I have enough hardware to get through sheet metal if I have to.",
+      "choices": [
+        { "choiceText": "That's my girl. Smart, prepared, and lethal. Head for the vent.", "nextNodeId": "bag_and_vent" }
+      ]
+    },
+    {
+      "nodeId": "promise_anchor",
+      "partnerDialogue": "Evelyn: *voice softens into the mic* I promise. Hearing you stay on the line... it stops the dark from closing in around me. You're my anchor, {PlayerName}.",
+      "choices": [
+        { "choiceText": "Always your anchor. Now let's get you out into the night air.", "nextNodeId": "bag_and_vent" }
+      ]
+    },
+    {
+      "nodeId": "vent_fit_check",
+      "partnerDialogue": "Evelyn: Rectangular galvanized duct, twenty-four inches wide. Tight squeeze with my field jacket, but entirely doable. I'm climbing in.",
+      "choices": [
+        { "choiceText": "I'm listening to every footstep. Keep moving forward.", "nextNodeId": "crawling_duct_live" }
+      ]
+    },
+    {
+      "nodeId": "safety_scold_sweet",
+      "partnerDialogue": "Evelyn: *snickers softly* Yes, sir. Lighter clicked off. Switching to the red penlight. Look at you playing field safety officer over the radio.",
+      "choices": [
+        { "choiceText": "Someone has to keep you in one piece. Into the ductwork!", "nextNodeId": "bag_and_vent" }
+      ]
+    },
+    {
+      "nodeId": "rescue_drive_climax",
+      "partnerDialogue": "Evelyn: Alley behind the old municipal water commission on 6th Avenue! The exhaust grate opens between two brick dumpsters! I'm crawling up toward the rain right now!",
+      "choices": [
+        { "choiceText": "Engine is running, heater is blasted, warm coffee is on the dash. See you in five minutes.", "nextNodeId": "alley_rendezvous_climax" }
+      ]
+    },
+    {
+      "nodeId": "rescue_vow_tender",
+      "partnerDialogue": "Evelyn: *heavy, emotional exhale* ...You kept your word. When my head breaks through that street grate and I see your headlights, I think I might actually burst into tears.",
+      "choices": [
+        { "choiceText": "I'll be right there to catch you when you climb out. Keep climbing.", "nextNodeId": "alley_rendezvous_climax" }
+      ]
+    },
+    {
+      "nodeId": "warning_content",
+      "partnerDialogue": "Evelyn: The next sequence reads: 'DO NOT VENTILATE SHAFT NINE.' Whatever they sealed below this foundation... they didn't want fresh oxygen reaching it.",
+      "choices": [
+        { "choiceText": "And you're crawling out through the exhaust. Move, Evelyn, NOW!", "nextNodeId": "bag_and_vent" }
+      ]
+    },
+    {
+      "nodeId": "resting_heartbeat_reveal",
+      "partnerDialogue": "Evelyn: Exactly fifty-two beats per minute. A resting metabolic rhythm buried in thirty tons of wet shale. We aren't documenting history, {PlayerName}. We're listening to something waiting to wake up.",
+      "choices": [
+        { "choiceText": "Then let's let it sleep while we escape. Out through the duct!", "nextNodeId": "bag_and_vent" }
+      ]
+    },
+    {
+      "nodeId": "drop_contact_mic",
+      "partnerDialogue": "Evelyn: Slipped the piezo transducer down into the floor fissure and secured the cable with gaffer tape. Transmission line is feeding my remote recorder. Science served! Now I'm getting out!",
+      "choices": [
+        { "choiceText": "Legendary field work. Now climb!", "nextNodeId": "bag_and_vent" }
+      ]
+    },
+    {
+      "nodeId": "pin_manual_latch",
+      "partnerDialogue": "Evelyn: Slid the emergency mechanical dead-pin into the striker plate! *heavy clunk* It won't budge from the outside now. Buying myself five minutes. Heading up the shaft!",
+      "choices": [
+        { "choiceText": "Climb fast and don't stop until you smell rain.", "nextNodeId": "crawling_duct_live" }
+      ]
+    },
+    {
+      "nodeId": "steady_breathing_grounding",
+      "partnerDialogue": "Evelyn: *matching your breaths* Inhale... exhale... God, your voice is steady. The scraping stopped. Whoever was on the other side just turned their key and walked away toward the stairwell.",
+      "choices": [
+        { "choiceText": "Clear corridor. Now is your window. Into the vent, go!", "nextNodeId": "bag_and_vent" }
+      ]
+    },
+    {
+      "nodeId": "flashlight_sweep_check",
+      "partnerDialogue": "Evelyn: Yellow beam sliced under the door gap twice, paused, and swept back out. Security guard doing his routine rounds. He didn't see the broken lock. I'm moving while his back is turned!",
+      "choices": [
+        { "choiceText": "Go, go, go! Into the ductwork!", "nextNodeId": "bag_and_vent" }
+      ]
+    },
+    {
+      "nodeId": "next_expedition_promise",
+      "partnerDialogue": "Evelyn: *soft, excited laugh* Our next expedition. You and me with climbing harnesses and waterproof hydrophones. God, that sounds like the greatest adventure of my life. But first... let's survive this one.",
+      "choices": [
+        { "choiceText": "Deal. Climb up to that alley grate.", "nextNodeId": "bag_and_vent" }
+      ]
+    },
+    {
+      "nodeId": "crawling_duct_live",
+      "partnerDialogue": "Evelyn: *metallic scraping of elbows on galvanized steel* Duct is narrowing slightly... I can feel the temperature dropping! The air smells like wet asphalt and rain! I see streetlamp glare through the iron bars ahead!",
+      "choices": [
+        { "choiceText": "Push the grate open! I'm right outside in the car watching the alley!", "nextNodeId": "alley_rendezvous_climax" },
+        { "choiceText": "Careful on the street iron, it'll be slick from the rain.", "nextNodeId": "alley_rendezvous_climax" }
+      ]
+    },
+    {
+      "nodeId": "alley_mouth_meetup",
+      "partnerDialogue": "Evelyn: 6th Avenue, alleyway between the municipal annex and the brick electrical substation! Look for the steam vent with the rusted green iron grating!",
+      "choices": [
+        { "choiceText": "I see the steam rising right now. I'm pulling up beside the curb!", "nextNodeId": "alley_rendezvous_climax" }
+      ]
+    },
+    {
+      "nodeId": "alley_rendezvous_climax",
+      "partnerDialogue": "Evelyn: *heavy clatter of iron grate opening, loud rush of pouring rain* I'M OUT! I see your headlights through the mist! *ragged, joyful gasp* Unlock the passenger door, {PlayerName}! I'm running toward your car right now!",
       "choices": []
     }
   ]

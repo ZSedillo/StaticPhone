@@ -2,40 +2,623 @@
   "girlName": "Masie",
   "age": 22,
   "personality": "Greenhouse Botanist",
-  "bio": "Green tea, Monstera cuttings, and quiet gardens. Talk plants to me.",
+  "bio": "Researching subtropical epiphytes by day, tending humid glasshouses by night. If you think plants are just interior decor accessories, we probably won't get along.",
   "avatarIndex": 5,
   "nodes": [
     {
       "id": "start",
-      "partnerMessage": "Hello {PlayerName} 🌱! Just finished repotting my rare carnivorous plants. Do you keep any greenery in your space?",
+      "partnerMessage": "Hello, {PlayerName} 🌱\n\nI just finished wiping down terra cotta benches and misting the highland pitcher plants. My fingernails have peat moss under them and my hair smells like wet pine bark, so forgive me if I'm not the typical glamorous match on here.\n\nTell me honestly before we start talking: do you actually keep any living greenery in your space, or do you view plants as furniture that happens to breathe?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I have succulents on my desk.", "nextId": "succulent_chat", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "I usually forget to water plastic plants.", "nextId": "black_thumb", "linkUrl": "", "triggerEvent": "" }
+        { "choiceText": "I have a few quiet survivors on my windowsill. Jade and trailing pothos.", "nextId": "green_thumb_start", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I'm the kind of person who manages to kill low-maintenance succulents.", "nextId": "black_thumb_start", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Plants are fine, but I'm swiping on you, not a potted fern.", "nextId": "you_not_fern_pivot", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Honestly? They just make a mess with dirt and dead leaves.", "nextId": "mess_cynical_start", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
       ]
     },
     {
-      "id": "succulent_chat",
-      "partnerMessage": "Good light and draining soil! You have natural instincts. My botanical collection is too vast for this UI.",
+      "id": "green_thumb_start",
+      "partnerMessage": "Jade and pothos are honest companions. They don't demand a commercial humidifier or imported volcanic soil; they just ask for steady morning light and someone who remembers them once a week.\n\nMost people buy rare variegated Monsteras just to post them on social feeds, and then abandon them when root rot sets in. What drew you to keep them around?",
       "linkUrl": "",
-      "triggerEvent": "",
+      "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Show me the full greenhouse.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        { "choiceText": "Having something quiet and alive in the room keeps me grounded when life gets loud.", "nextId": "grounded_quiet_talk", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Honestly, watching a new leaf uncurl after a rough week is surprisingly comforting.", "nextId": "unfurl_leaf_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Someone gave them to me as housewarming gifts, and I felt guilty letting them die.", "nextId": "guilt_caretaker_banter", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
-      "id": "black_thumb",
-      "partnerMessage": "Oh no! We need to rehabilitate your botanical karma immediately. I brew relaxing herbal infusions.",
+      "id": "black_thumb_start",
+      "partnerMessage": "Everyone who claims to have a 'black thumb' usually just made the mistake of loving their plants with too much tap water. Succulents don't die from thirst; they drown in slow motion because plastic pots don't breathe.\n\nIt's rarely neglect—it's usually smothering.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Share your secret blend.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        { "choiceText": "Smothering out of good intentions... that sounds uncomfortably like human relationships.", "nextId": "human_relation_parallel", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Teach me how to give them breathing room then. I'm ready to learn.", "nextId": "teach_breathing_room", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I think I just forgot they existed for three weeks on a dark bookshelf.", "nextId": "dark_bookshelf_laugh", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "you_not_fern_pivot",
+      "partnerMessage": "Fair point. But for me, the greenhouse isn't a hobby I leave at the door—it's my sanctuary. If someone dislikes the smell of soil or gets annoyed by damp wooden benches, we'd run out of things to talk about by the second date.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Damp wood and clean earth smell a hundred times better than city fumes. Tell me about your sanctuary.", "nextId": "sanctuary_deep_dive", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I don't mind soil. I just wanted to make sure there was a person behind the greenery.", "nextId": "person_behind_greenery", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "mess_cynical_start",
+      "partnerMessage": "Dirt is just broken-down stone and ancient organic memory, {PlayerName}. Without that mess, neither of us would be here breathing oxygen.\n\nIf you prefer sterile white rooms and plastic surfaces, I suspect my world would drive you slightly crazy.",
+      "linkUrl": "",
+      "triggerEvent": "JUNIA_SKEPTIC",
+      "choices": [
+        { "choiceText": "I was being blunt, but you're right. Tell me why that 'mess' matters so much to you.", "nextId": "why_mess_matters", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I just like clean floors, not an indoor jungle.", "nextId": "sterile_floor_fumble", "linkUrl": "", "triggerEvent": "FUMBLE_CONVERSATION" }
+      ]
+    },
+    {
+      "id": "grounded_quiet_talk",
+      "partnerMessage": "Yes... that word. 'Grounded.' In a city where everything moves on glowing screens and tight deadlines, plants operate on geological time. They don't care about quarterly reviews or unanswered messages.\n\nThey just reach toward the glass, cell by cell. Being near them forces your pulse to slow down.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Is that what brought you into botany in the first place? Looking for a way to slow down?", "nextId": "botany_origins_story", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "My pulse usually slows down when I talk to someone who actually listens. Like you.", "nextId": "pulse_slow_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "unfurl_leaf_comfort",
+      "partnerMessage": "Watching a new leaf unfurl is one of the quietest miracles in the world. First the pale green spire pushes through the petiole sheath, tight as an umbrella, and then over forty-eight hours it softens into daylight.\n\nIt takes patience to notice that. Most people are too busy refreshing news feeds to wait two days for a leaf to unroll.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Patience is underrated. What kind of specimens are you studying right now?", "nextId": "specimen_research_talk", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I'd rather wait two days for a leaf with you than spend ten minutes in rush-hour traffic.", "nextId": "rush_hour_banter", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "guilt_caretaker_banter",
+      "partnerMessage": "Guilt is the origin story of half the master gardeners I know! You start out feeling bad for a wilted stem on a clearance shelf, and two years later your apartment looks like a Jurassic conservatory.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Does your personal place look like a Jurassic conservatory?", "nextId": "apartment_jungle_peek", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "human_relation_parallel",
+      "partnerMessage": "...That's surprisingly profound, {PlayerName}.\n\nIt really is like that. People get so anxious about keeping someone close that they drown them in constant attention and check-ins, never letting them drain or dry out. Roots need air just as much as moisture.\n\nYou have an unusually perceptive way of looking at things.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I just believe in giving people room to grow without suffocating them. You included.", "nextId": "room_to_grow_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Do people in your life tend to smother you, Masie?", "nextId": "smothered_personal_history", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "teach_breathing_room",
+      "partnerMessage": "Rule number one: unglazed terra cotta pots only. The clay is porous; it wicks evaporation through the walls so the roots don't sit in stagnant water.\n\nRule number two: pick up the pot before you water. If it feels heavy, walk away. Learn to feel the weight before you act.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "'Feel the weight before you act.' You have a habit of turning gardening into life advice.", "nextId": "life_advice_sweet", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Simple, practical, and clear. What's rule number three?", "nextId": "rule_three_botany", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "dark_bookshelf_laugh",
+      "partnerMessage": "Three weeks in the dark! Poor thing was probably stretching its neck toward the hallway light like a periscope! We're definitely having an intervention for your houseplants.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I accept the sentence. What does the rehabilitation plan involve?", "nextId": "rehab_plan_flirt", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "sanctuary_deep_dive",
+      "partnerMessage": "It's the university's 19th-century palm house. High wrought-iron arches, curved glass panels that fog up when the misting valves hiss, and a central pool of water lilies where a lone bullfrog lives.\n\nAt 7 PM when the security guards lock the iron gates, it's the only place in the city where you can't hear sirens or highway tires.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "A quiet glass cathedral in the middle of a concrete city. That sounds breathtaking.", "nextId": "glass_cathedral_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Do you stay in there alone after hours?", "nextId": "alone_after_hours_q", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "person_behind_greenery",
+      "partnerMessage": "There's definitely a person. She just spends a lot of time talking to pitcher plants because they don't interrupt her or try to hustle her into networking mixers.\n\nI'm guarded, I know. But when you spend years tending fragile living systems, you learn to protect what's delicate.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "You don't need to apologize for protecting your peace. I respect that.", "nextId": "respect_peace_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Pitcher plants don't make great conversationalists though. What's on your mind tonight?", "nextId": "whats_on_mind_tonight", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "why_mess_matters",
+      "partnerMessage": "Because life is cyclical. You drop dried leaves on the forest floor, bacteria break them down into nitrogen, and next spring a wild orchid blooms out of the rot.\n\nWhen people try to scrub everything spotless, they sterilize away the very thing that allows growth to happen.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "That's a very tender way to view decay and recovery.", "nextId": "tender_decay_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "You speak with so much reverence for natural cycles. Where did that come from?", "nextId": "botany_origins_story", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "sterile_floor_fumble",
+      "partnerMessage": "Then you should probably match with someone who works in sterile hospital logistics, {PlayerName}.\n\nI cultivate living soil. I'm not going to apologize for having compost on my work boots.",
+      "linkUrl": "",
+      "triggerEvent": "FUMBLE_CONVERSATION",
+      "choices": [
+        { "choiceText": "Masie, wait. I was making a clumsy joke. I didn't mean to insult your work.", "nextId": "apology_recovery_soil", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Whatever. Have fun with your compost.", "nextId": "cold_exit_dismiss", "linkUrl": "", "triggerEvent": "FAILURE_DISMISSED" }
+      ]
+    },
+    {
+      "id": "botany_origins_story",
+      "partnerMessage": "My grandmother had a modest greenhouse attached to her old brick cottage. During summer storms, we'd sit on wicker chairs inside while rain drummed against the glass overhead, drinking mint tea steeped from fresh garden leaves.\n\nShe passed away when I was sixteen, but whenever the humidity rises in the glasshouse and the scent of damp loam fills the air, it feels like she's just around the corner potting geraniums.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You're keeping her presence alive in every leaf you tend. That's a beautiful legacy.", "nextId": "grandmother_legacy_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Do you still brew your own tea from garden cuttings like she did?", "nextId": "brew_tea_ritual_talk", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "pulse_slow_flirt",
+      "partnerMessage": "...Now you're making my face feel warm. Stop that. Botanists are supposed to be calm, analytical scientists observing plant physiology, not blushing at dating app messages.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Even scientists deserve to feel their heart skip a beat occasionally.", "nextId": "heart_skip_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "What's the specimen on your workbench right now?", "nextId": "specimen_research_talk", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "specimen_research_talk",
+      "partnerMessage": "A colony of *Drosera spatulata*—spoon-leaved sundews. Tiny carnivorous rosettes covered in glandular hairs that glisten with sweet, sticky digestive enzyme droplets. Under the morning light they sparkle like ruby jewels, but to a fruit fly, they're inescapable.\n\nBeauty and predation in a single two-inch plant.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "A gentle girl fascinated by sticky carnivorous predators... there's a wild edge to you, Masie.", "nextId": "wild_edge_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Carnivorous plants have always fascinated me. Do you feed them manually?", "nextId": "carnivorous_care_details", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "rush_hour_banter",
+      "partnerMessage": "You'd give up rush hour to watch cellulose expand under glass? You might be a secret botanist after all. I'll have an apron ready for you.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'll wear the apron if you pour the tea. Tell me about your tea blends.", "nextId": "brew_tea_ritual_talk", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "apartment_jungle_peek",
+      "partnerMessage": "My apartment living room has more grow lights than ceiling lamps! My roommate jokes that if the police flew a thermal drone over our roof, they'd think we're running an illegal operation, when really it's just thirty rare Philodendrons needing 6500 Kelvin light.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Thirty rare Philodendrons and a grow-op misunderstanding. I love that so much.", "nextId": "grow_op_laugh_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "room_to_grow_bond",
+      "partnerMessage": "Thank you, {PlayerName}. That's the rarest gift you can give anyone: space without abandonment.\n\nMost people smother you until you pull away, and then call you distant. Hearing someone understand balance is deeply refreshing.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'll always give you room to breathe, Masie. Tell me about your evening in the glasshouse.", "nextId": "alone_after_hours_q", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "smothered_personal_history",
+      "partnerMessage": "My family had very rigid blueprints for my life. Pre-med, high-earning corporate tracks, manicured suburban lawns. When I switched my major to plant biology and started working night shifts in university conservatories, my parents treated it like a personal betrayal.\n\nThey wanted a topiary hedge clipped into a neat cube. I wanted an overgrown forest.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Clipped hedges are boring and sterile. Overgrown forests are where real life lives.", "nextId": "overgrown_forest_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "It takes courage to break away from someone else's blueprint.", "nextId": "courage_blueprint_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "life_advice_sweet",
+      "partnerMessage": "Gardening IS life advice! Plants figured out survival four hundred million years before primates showed up. If we listened to root systems more often, we'd probably have fewer panic attacks and better friendships.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Then be my teacher. Where can I hear more of your doctrine?", "nextId": "doctrine_pre_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "rule_three_botany",
+      "partnerMessage": "Rule number three: prune without hesitation. Dead wood drains energy from the main stem. If a leaf is yellowing and spent, cut it clean so the plant can send nutrients to the new shoot.\n\nHumans hold onto dead things far too long.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Pruning dead weight... that's a hard lesson, but a necessary one.", "nextId": "pruning_hard_lesson", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "rehab_plan_flirt",
+      "partnerMessage": "Rehabilitation involves moving the survivor to an east-facing window, checking the root ball for dry pockets, and giving you an unglazed pot with proper drainage pebbles. I'll supervise your technique closely.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'm ready for strict supervision, botanist.", "nextId": "supervision_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "glass_cathedral_praise",
+      "partnerMessage": "That's exactly what it feels like. At dusk, when the amber streetlights outside filter through the condensation on the glass panes, the whole room glows like submerged emerald.\n\nI sit on the edge of the stone pond with a thermos of tea, watching the water beetles glide across the surface.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I can picture you sitting by that stone pond so vividly. It sounds magical.", "nextId": "vivid_pond_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Is there room on that stone pond bench for two people?", "nextId": "bench_for_two_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "alone_after_hours_q",
+      "partnerMessage": "Almost every night. My shift ends at 7:30, but I usually stay until 10. There's an old wooden workbench in the back behind the carnivorous bog display where I do my lab notes and botanical sketches.\n\nIt's quiet. No phones ringing, no social feeds updates. Just the hum of the misting pumps.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You sketch your specimens? You're an artist as well as a scientist.", "nextId": "botanical_sketch_talk", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Don't you ever feel lonely in that massive glasshouse after dark?", "nextId": "lonely_after_dark_q", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "respect_peace_bond",
+      "partnerMessage": "Thank you for saying that. In a dating app culture that demands instant intimacy and loud performances, taking things slow feels like a quiet rebellion.\n\nI like that you aren't rushing me.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Plants don't rush their bloom, Masie. Neither will I.", "nextId": "no_rush_bloom_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "What are you working on right now on your workbench?", "nextId": "specimen_research_talk", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "whats_on_mind_tonight",
+      "partnerMessage": "Mostly thinking about winter dormancies. Outdoor plants settle their roots deep and let their top foliage drop to conserve sugar for spring.\n\nHumans never let themselves go dormant. We expect ourselves to produce flowers twelve months a year, and then wonder why we experience burnout.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Humans could learn a lot from seasonal rest. Are you burned out right now, Masie?", "nextId": "masie_burnout_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "tender_decay_bond",
+      "partnerMessage": "Nature doesn't waste grief. Everything gets repurposed into something fertile.\n\nI think that's why being in the greenhouse comforted me so much after my grandmother passed. It proved that endings aren't total erasure—they're just raw material for the next shoot.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "She taught you something profound that outlived her. That's true immortality.", "nextId": "grandmother_legacy_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "apology_recovery_soil",
+      "partnerMessage": "...I appreciate the apology. I know I get defensive when people reduce what I do to dirty chores.\n\nIf you're genuinely willing to look past the surface dirt and understand why this matters to me, I'm willing to keep talking.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I am. Show me what's on your workbench tonight, Masie.", "nextId": "specimen_research_talk", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "cold_exit_dismiss",
+      "partnerMessage": "I will. Have fun in your sterile hallway.",
+      "linkUrl": "",
+      "triggerEvent": "FAILURE_DISMISSED",
+      "choices": []
+    },
+    {
+      "id": "grandmother_legacy_comfort",
+      "partnerMessage": "Thank you, {PlayerName}. That sentence made my chest ache in a gentle way.\n\nI actually keep a cutting of her original Christmas cactus on my lab bench. It's forty-four years old now. Every December it still blooms with vibrant magenta flowers right on schedule.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Forty-four years old... that plant is living family history.", "nextId": "family_history_cactus", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I'd love to see a photo of that cactus blooming.", "nextId": "see_cactus_photo_lead", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "brew_tea_ritual_talk",
+      "partnerMessage": "I do! Dried spearmint, lemon verbena, a pinch of crushed chamomile flowers, and dried stevia leaf for mild natural sweetness. No tea bags, no artificial flavor oils.\n\nIt steeps a pale amber gold. If you ever visit the greenhouse, I'll pour you a porcelain mug fresh from the bench kettle.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Tea steeped from your greenhouse garden in a quiet glass cathedral? That's my ideal date.", "nextId": "ideal_date_tea_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I'm holding you to that porcelain mug promise.", "nextId": "mug_promise_lock", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "heart_skip_flirt",
+      "partnerMessage": "You're dangerous, {PlayerName}. I'm usually the one who stays composed and quiet, and you're making my fingers fumble over my keyboard.\n\nLet's get back to plant biology before I say something reckless.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "What kind of reckless things does a botanist say when her composure slips?", "nextId": "reckless_botanist_banter", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Tell me about those sundews then. Keep us safe.", "nextId": "specimen_research_talk", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "wild_edge_flirt",
+      "partnerMessage": "People mistake quiet for passive all the time! Just because I don't shout doesn't mean I don't have teeth.\n\nSundews look like dew-covered rubies, but they digest protein with acid. Never underestimate the gentle ones.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'd never underestimate you, Masie. The gentle ones are always the strongest.", "nextId": "gentle_strongest_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I like girls with teeth. Keeps things interesting.", "nextId": "teeth_banter_flirt", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "carnivorous_care_details",
+      "partnerMessage": "Only distilled rain water! If you give them tap water, the dissolved mineral salts burn their fine root hairs. And during winter when fruit flies are scarce, I feed each rosette tiny rehydrated bloodworms using watchmaker tweezers.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Feeding sundews with watchmaker tweezers... the sheer dedication you have is breathtaking.", "nextId": "dedication_breathtaking_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "grow_op_laugh_bond",
+      "partnerMessage": "We actually had a campus security guard knock on our apartment door once because the purple-pink glow from our living room window was visible across the quad! He took one look at our Monstera collection, laughed, and asked for a cutting for his wife.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Hahaha! Bribing campus security with plant cuttings is legendary.", "nextId": "bribe_security_laugh", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "overgrown_forest_praise",
+      "partnerMessage": "An overgrown forest... yes. Where moss grows on the fallen logs, roots tangle in the dark, and things have room to breathe without someone trimming them to look polite.\n\nNobody in my family has ever understood that. Having you say it so easily makes me feel seen in a way that's hard to explain.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You don't have to explain it. I see you, Masie. The forest and all.", "nextId": "see_forest_intimate", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "courage_blueprint_comfort",
+      "partnerMessage": "It felt terrifying at the time. I was nineteen, packing my bags with botanical textbooks while my mother told me I was ruining my earning potential.\n\nEvery time I look around the glasshouse at night, I remind myself: I chose this peace with my own hands.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "And you built a life of real substance. That's worth more than any corporate title.", "nextId": "substance_over_title_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "doctrine_pre_yaps",
+      "partnerMessage": "This dating app's chat window feels too narrow and bright for real conversations. It's hard to explain root symbiosis and night-blooming cereus between swiping cards.\n\nI have a private backroom journal on OnlyYaps where I post my night notes, high-res macro photos of carnivorous glands, and quiet sketches.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Give me the greenhouse key. I want to read your night notes.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "pruning_hard_lesson",
+      "partnerMessage": "It is. It hurts when you take the pruning shears to a stem that used to be green. But if you let rot linger out of sentimentality, the whole crown dies from fungal spread.\n\nI had to prune people from my life who demanded I be someone I wasn't. It left scars, but the new growth was finally healthy.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "I'm honored that you're letting me be part of the healthy new growth.", "nextId": "healthy_new_growth_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "supervision_flirt",
+      "partnerMessage": "Strict supervision it is! If I catch you using a plastic moisture meter instead of feeling the weight of the clay pot, you're demoted to washing peat trays.\n\n...Though I suppose I might let you share my tea while you work.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Tea on the bench after potting lessons sounds perfect. Let's move this somewhere quiet.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "vivid_pond_comfort",
+      "partnerMessage": "It feels like stepping outside of modern time. The water lilies close their petals at sundown, the moss stays damp underfoot, and for two hours, the frantic world outside just ceases to exist.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I want to share that peace with you, Masie.", "nextId": "share_peace_prompt_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "bench_for_two_flirt",
+      "partnerMessage": "There's room on the stone bench. It's made of reclaimed slate from an old library roof, so it gets a little cold in the autumn.\n\nYou'd have to sit fairly close to stay warm.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I don't mind sitting close to you at all. Show me your private feed.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "botanical_sketch_talk",
+      "partnerMessage": "Only in graphite and sepia watercolor! Modern photography is great, but when you draw a stamen or a leaf margin by hand, you're forced to observe every millimeter of its anatomy. You have to understand how it lives to draw it accurately.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'd love to see those sepia sketches. Can you share them with me?", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "lonely_after_dark_q",
+      "partnerMessage": "Sometimes. Especially when the misting fans cycle off and the only sound is water dripping from the glass ceiling.\n\nSolitude is sweet, but every now and then you look at the empty stone bench across from you and wish someone were sitting there holding a warm mug, listening to the rain with you.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You don't have to sit by that pond alone anymore, Masie. I'm right here.", "nextId": "not_alone_by_pond_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "no_rush_bloom_tender",
+      "partnerMessage": "...'Plants don't rush their bloom, neither will I.'\n\nI'm taking a screenshot of that message to keep on my phone. Nobody on a dating app has ever spoken to me with that kind of gentleness.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You deserve gentleness, Masie. Always. Let's move somewhere quieter to talk.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "masie_burnout_check",
+      "partnerMessage": "A little bit, if I'm being honest.\n\nBetween university grant proposals, thesis data collection, and keeping two hundred living specimens alive in three microclimates, my body feels like an over-pruned stem.\n\nTalking to you tonight is the first time all week my shoulders haven't felt hunched around my ears.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Drop your shoulders, Masie. Take a deep breath. Let me keep you company.", "nextId": "drop_shoulders_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "family_history_cactus",
+      "partnerMessage": "It really is. Every spring I take two small cuttings from it to root in fresh vermiculite. When I hand them to friends, I tell them: 'You're holding a piece of 1982 in your palm. Treat it gently.'",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Would you ever trust me with one of those cuttings?", "nextId": "trust_with_cutting_intimate", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "see_cactus_photo_lead",
+      "partnerMessage": "I have macro photos of its blossoms under my lab lights! They look like neon magenta lanterns. I posted the full high-res album in my private greenhouse feed.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Show me the album. Send the link.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "ideal_date_tea_flirt",
+      "partnerMessage": "Tea steeped from garden cuttings while rain drums on a glass cathedral ceiling...\n\nIf you show up at my greenhouse door on a rainy evening with warm bread, I might just give you the master key to the conservatory deadbolts.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'll bring fresh sourdough from the bakery down the street. Send me your private link.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "mug_promise_lock",
+      "partnerMessage": "Promise recorded in botanical ink! Two porcelain mugs, fresh mint infusion, and total quiet. Let's step away from this noisy app so I can send you the greenhouse notes.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Lead the way, Masie.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "reckless_botanist_banter",
+      "partnerMessage": "She might admit that she hasn't looked forward to checking her phone like this in over two years.\n\nNow hush. My botanical dignity is hanging by a thread! Click through to my private feed before I lose my nerve completely.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Your secret is safe with me. Send the invite.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "gentle_strongest_bond",
+      "partnerMessage": "You have a remarkable way of understanding things that most people overlook, {PlayerName}. It makes me want to drop my defenses and show you everything I've built.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Show me, Masie. I'm ready to step into your world.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "teeth_banter_flirt",
+      "partnerMessage": "Careful! You might find yourself locked in the carnivorous bog room with tweezers feeding bloodworms to sundews on your Friday night!\n\nMeet me in my private feed. Let's see if you're as bold as you sound.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'm ready for the tweezers. Lead the way.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "dedication_breathtaking_praise",
+      "partnerMessage": "Thank you. To me, it's not a chore; it's keeping a delicate conversation going with living things that rely on you.\n\nI want to show you my lab sketches and the night bloom photos. This swipe app compresses all the macro details into fuzzy pixels.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Give me your private OnlyYaps link. Let's look at them in full resolution.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "bribe_security_laugh",
+      "partnerMessage": "It works every time! Botanists have their own diplomatic currency. Now come join me in my private feed before campus IT notices we've been chatting on a public dating app for an hour.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Joining your private greenhouse room now.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "see_forest_intimate",
+      "partnerMessage": "...Nobody has ever said 'I see you, forest and all.' That might be the most deeply comforting sentence I've ever read.\n\nI'm locking up the main greenhouse bench right now. Step into my private feed so we can talk without interruptions.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Opening the greenhouse door right now.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "substance_over_title_bond",
+      "partnerMessage": "Hearing someone validate the life I chose... it feels like sun breaking through morning fog after days of drizzle.\n\nCome over to my OnlyYaps room. I have something special I want to show you.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'm on my way, Masie.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "healthy_new_growth_bond",
+      "partnerMessage": "I think you already are. It feels so rare to talk to someone whose presence feels like fresh water rather than salt.\n\nClick the link below to my private greenhouse lounge. Let's leave the noisy crowd behind.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Leaving the crowd behind. See you in the greenhouse.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "share_peace_prompt_yaps",
+      "partnerMessage": "I'd really like that. It's getting late, and I usually close my public apps around this hour.\n\nI have a quiet room on OnlyYaps where I keep my private field logs and sketches. The link is right below.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Taking the link. Meet me on the other side.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "not_alone_by_pond_tender",
+      "partnerMessage": "...I'm holding my phone against my chest in the middle of this dark glasshouse, and my throat feels so tight.\n\nI think I've been waiting for someone to say that for a very long time.\n\nTap the private link below, {PlayerName}. Come sit by the pond with me.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Sitting by the pond with you right now.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "drop_shoulders_tender",
+      "partnerMessage": "Shoulders dropped. Slow breath taken.\n\nThank you, {PlayerName}. Truly. Step into my private feed so we can talk without the public app distractions.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Connecting to your private greenhouse feed.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "trust_with_cutting_intimate",
+      "partnerMessage": "I think... I think I would. But you'd have to promise to visit the greenhouse first so I can inspect your potting technique in person.\n\nTap my private link below. Let's plan your first visit.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Planning my visit right now, Masie.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
       ]
     },
     {
       "id": "move_to_yaps",
-      "partnerMessage": "Tap this link into my greenhouse lounge. OnlyYaps has my greenhouse room where we can talk calmly.",
+      "partnerMessage": "I just unlocked the back door to my private greenhouse feed. High-res macro photos of night blooms, field notes, and zero public noise.\n\nCome in, {PlayerName}. Leave the city lights outside.",
       "linkUrl": "onlyyaps.garden/masie_green",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []

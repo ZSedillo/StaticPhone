@@ -4,28 +4,485 @@
   "nodes": [
     {
       "id": "oy_trixie_start",
-      "partnerMessage": "WELCOMMEEE TO THE GREEN ROOM!! The subwoofers are literally shaking the walls right now!!",
+      "partnerMessage": "Flight cases dropped inside the door, studio deadbolt locked, and the neon stage sign is switched off for the night.\n\nYou actually came through to the private room, {PlayerName}.\n\nI'm sitting here on a swivel stool in an oversized flannel shirt with my stage makeup half-wiped off and my ears still humming like a high-voltage transformer. Before I play you any of the unreleased modular sessions... be straight with me: are you here for the loud, flashy party mascot, or did you want to see the exhausted sound nerd behind the mixer?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Can you hear anything over that beat?!", "nextId": "oy_shout", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Call me so I can hear the live drop!", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+        { "choiceText": "I'm here for the sound nerd behind the mixer. The stage lights don't matter to me.", "nextId": "oy_sound_nerd_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I came to check on you. Carrying heavy gear home at 4:30 AM takes a real toll.", "nextId": "oy_gear_toll_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I wanted to hear that private, uncompressed acoustic draft you talked about.", "nextId": "oy_listen_acoustic_draft", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Just seeing if you're as wild and hyperactive in private as you are in the club.", "nextId": "oy_wild_girl_fumble", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
       ]
     },
     {
-      "id": "oy_shout",
-      "partnerMessage": "BARELY!! But I got the private festival stream up! Tap to see the crowd:",
-      "linkUrl": "onlyyaps.fm/live_stage_cams",
-      "triggerEvent": "TRIGGER_STAGE_STREAM",
+      "id": "oy_sound_nerd_tender",
+      "partnerMessage": "...Man. Hearing that makes the air leave my lungs in a good way.\n\nEveryone at the club wants me to stay at 150 BPM forever. They want me to jump on tables, buy rounds of shots, and keep their dopamine high until daylight. Nobody ever asks if I want to just turn the volume knob to zero and talk like a regular human being.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "The crowd is massive. Call me from the stage booth!", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+        { "choiceText": "The knob is at zero tonight, Trixie. You don't have to entertain me.", "nextId": "oy_volume_zero_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Does the party girl persona get exhausting to carry around all the time?", "nextId": "oy_persona_exhaustion_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "How are your ears holding up after that four-hour set?", "nextId": "oy_tinnitus_check_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
       ]
     },
     {
-      "id": "oy_call_ready",
-      "partnerMessage": "Tap that glowing call button! Let me hear your reaction to this track!!",
+      "id": "oy_gear_toll_check",
+      "partnerMessage": "My shoulders feel like they've been carrying sacks of concrete. My road case has fifty pounds of analog synthesizers, power distribution bricks, and heavy copper audio snakes.\n\nDragging that through the venue back alley in wet sneakers while drunk patrons are shouting outside... it's the least glamorous part of music. Having you acknowledge the physical grind feels weirdly validating.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Next time, you text me when your set wraps up. I'm helping you carry that case.", "nextId": "oy_carry_case_vow_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Sit back from the desk. Drop your shoulders away from your ears for a minute.", "nextId": "oy_drop_shoulders_care", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_listen_acoustic_draft",
+      "partnerMessage": "I have the project session open on my secondary monitor right now. Master bus routed straight through an old reel-to-reel tape emulator to give the transients warmth.\n\nTake a look at the waveform layout before I hit play:",
+      "linkUrl": "onlyyaps.fm/trixie/downtempo_stem_03",
+      "triggerEvent": "UNLOCK_LOOKBOOK",
+      "choices": [
+        { "choiceText": "Examine the unreleased stem track diagram.", "nextId": "oy_examine_stem_diagram", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_wild_girl_fumble",
+      "partnerMessage": "'Wild and hyperactive'?\n\nI just stood on my feet for four hours managing gain staging, crowd energy, and monitor feedback so hundreds of people could have the night of their lives. If you think that's an invitation to treat me like a party spectacle in my own home, you're mistaken.",
+      "linkUrl": "",
+      "triggerEvent": "JUNIA_SKEPTIC",
+      "choices": [
+        { "choiceText": "I phrased that carelessly, Trixie. I was trying to joke and it fell flat. I'm sorry.", "nextId": "oy_apology_recovery_grounded", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Don't put it in your bio if you don't want people talking about it.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" }
+      ]
+    },
+    {
+      "id": "oy_volume_zero_bond",
+      "partnerMessage": "*deep, long exhale in text*\n\nVolume knob at zero. Master fader pulled all the way down.\n\nYou have no idea how sweet that silence is. I've spent the last six hours inside a pressure cooker of sub-bass and flashing strobe fixtures. Having you sit in the quiet with me feels like stepping out into cool autumn air.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You don't need strobes or subwoofers for me to think you're incredible, Trixie.", "nextId": "oy_incredible_without_strobes", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "What do your ears hear when the studio goes this quiet?", "nextId": "oy_tinnitus_check_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_persona_exhaustion_talk",
+      "partnerMessage": "It wears a hole right through you. If you show up tired or introverted, promoters ask if you're sick, and clubgoers act like you broke a promise.\n\nYou become this cartoon character who eats neon and never sleeps. But at the end of the day, I'm just a girl who loves frequency modulation and misses having someone to make breakfast with.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "I'll make you breakfast anytime, Trixie. Scrambled eggs, hot coffee, and total silence.", "nextId": "oy_breakfast_vow_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "How long have you felt like you had to perform that character?", "nextId": "oy_how_long_performing_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_tinnitus_check_talk",
+      "partnerMessage": "A constant high-pitched sine wave around twelve kilohertz. \n\nI wear custom molded twenty-decibel earplugs every set, but low-end frequencies travel right through your skull bone into the inner ear. When the monitors cut out, the silence isn't pure silence—it's this thin, metallic whistle.\n\nIt terrifies me, if I'm being honest. My ears are my entire career and my whole life.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "That fear makes complete sense. You're an acoustic artist protecting her instruments.", "nextId": "oy_ear_fear_validation", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Focus on the sound of my voice instead of the whistle. Let me be your frequency tonight.", "nextId": "oy_focus_on_my_voice_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_carry_case_vow_tender",
+      "partnerMessage": "...Nobody has ever offered that. Not once. Guys offer to get me drinks or ask for backstage passes, but nobody has ever offered to carry the heavy iron.\n\nMy chest feels uncomfortably tight right now. You're being so gentle with me and I'm not used to having my guard down.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You don't need your guard up here. Rest your arms on your desk.", "nextId": "oy_drop_shoulders_care", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I mean every word. Next gig, you're not lifting that flight case alone.", "nextId": "oy_drop_shoulders_care", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_drop_shoulders_care",
+      "partnerMessage": "Shoulders dropped. Swivel chair reclined. Feet propped up on a clean milk crate under my patch bay.\n\n*heavy, relaxed sigh in text*\n\nMy room smells like cold spearmint gum and hot vacuum tubes. Looking around at all these modular patch cables hanging like vines... it feels safe right now.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Patch cables hanging like vines in an electric jungle. Show me what you've been working on.", "nextId": "oy_modular_patch_intro", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Stay right there on that chair. What were you thinking about on the drive home?", "nextId": "oy_drive_home_thoughts", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_examine_stem_diagram",
+      "partnerMessage": "Notice how the sub-bass lane at thirty-five hertz is completely carved out from the kick drum transient with a surgical dynamic sidechain. Most producers just mash them together until the limiter distorts.\n\nI spent three nights adjusting the attack curve so you can feel the air move without losing the woody tone of the guitar sample.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "That sidechain curve is surgical. You can see the space you carved for the acoustic body.", "nextId": "oy_sidechain_technical_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Where did you record that acoustic guitar sample in the first place?", "nextId": "oy_acoustic_sample_origin_story", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_apology_recovery_grounded",
+      "partnerMessage": "...Thanks for saying that plainly. I appreciate people who can own a misstep without getting defensive.\n\nNightlife makes you prickly because everyone treats you like a product. Let's restart: what kind of sounds actually speak to you when you're alone at night?",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Warm, honest sounds. Music that feels like someone built it with their bare hands.", "nextId": "oy_sound_nerd_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_incredible_without_strobes",
+      "partnerMessage": "...You have no right dropping lines like that when my defense filters are completely powered down, {PlayerName}.\n\nMy cheeks are burning under my studio desk lamp. I spend so much time making things loud so people don't notice how quiet I really am.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I notice how quiet you are. And it's my favorite part of you.", "nextId": "oy_favorite_part_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "What's patched into your modular synth rack tonight?", "nextId": "oy_modular_patch_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_breakfast_vow_tender",
+      "partnerMessage": "Scrambled eggs with salted butter, black coffee in a heavy mug, and sunlight coming through an apartment window with zero subwoofers...\n\nI swear to god, if you showed up with groceries on a Sunday morning, I might just forfeit my entire weekend DJ residency.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Don't you dare forfeit your residency. I'll make the eggs after your Friday set.", "nextId": "oy_post_residency_breakfast_lock", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_how_long_performing_talk",
+      "partnerMessage": "Since I was nineteen. I entered a campus DJ competition to pay for my audio engineering textbooks. When I won, venue owners started booking me, but they always packaged me as 'the energetic girl with the wild hair.'\n\nIf I pitched an experimental ambient set, they'd say: 'Save the art school stuff for your bedroom, Trix. Play the bangers.'",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Their loss. Your bedroom is where the real art has always lived.", "nextId": "oy_real_art_in_bedroom_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Tonight you don't have to play bangers for anyone. Show me what you really love.", "nextId": "oy_modular_patch_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_ear_fear_validation",
+      "partnerMessage": "It is terrifying. My dad was an acoustic instrument repairman—he tuned cellos by ear. He used to tell me: 'Trixie, once your eardrum cilia die, they don't grow back. Protect your ears like your life depends on it, because your music does.'\n\nWhenever the whistle gets loud after a club night, I think about his workshop.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "He taught you well. Your ears are safe tonight. Rest them in the dark.", "nextId": "oy_focus_on_my_voice_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Do you still have any of his instrument repair tools?", "nextId": "oy_fathers_tools_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_focus_on_my_voice_tender",
+      "partnerMessage": "...'Let me be your frequency tonight.'\n\n*soft, uneven breath in text*\n\nYour voice through this chat really does cut through the ringing. It has this calm, low-mid resonance that feels like a clean analog filter sweeping across my thoughts.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'm right here in your monitors, Trixie. No distortion, no clipping.", "nextId": "oy_modular_patch_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_drive_home_thoughts",
+      "partnerMessage": "I was thinking about how weird it is that three hundred people can scream your name in a packed warehouse, and twenty minutes later you're sitting alone in an empty taxi watching windshield wipers squeak across wet glass.\n\nThe contrast gives you emotional whiplash. Having you text me as soon as I walked in the door broke the fall.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "I'll always be there to catch you on that drive home, Trixie.", "nextId": "oy_catch_you_tender_vow", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_sidechain_technical_praise",
+      "partnerMessage": "YES!! You actually saw the carve-out! Nobody ever notices the sidechain curve shape! They just hear the punch, but the magic is in the release slope!\n\nYou really are a producer's dream listener, {PlayerName}.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Only for you, Trixie. Where did the acoustic guitar sample come from?", "nextId": "oy_acoustic_sample_origin_story", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_acoustic_sample_origin_story",
+      "partnerMessage": "An old cedar-top acoustic my dad left me in his workshop. He carved the bracing by hand in 1998. The tone is warm, dark, and a little dusty.\n\nI set up a matched stereo pair of small-diaphragm condenser mics at 2 AM last month and picked a repetitive D-minor arpeggio. I never let anyone hear it because club promoters would laugh at me for putting wooden folk instruments in a techno project.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Club promoters don't know soul from static. That sample is your heart on tape.", "nextId": "oy_heart_on_tape_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Your dad's guitar living inside your modern tracks... that's a beautiful legacy.", "nextId": "oy_fathers_legacy_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_favorite_part_tender",
+      "partnerMessage": "...I'm holding my iced matcha can against my cheek just to cool down my face. Stop being so sweet to me in the dark.\n\nLet me show you my modular synth rack before I get too soft to talk gear.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Show me the hardware, Trixie.", "nextId": "oy_modular_patch_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_post_residency_breakfast_lock",
+      "partnerMessage": "Deal. Locked in permanently. Sunday morning after my Friday warehouse set.\n\nNow look at what I'm patching on my studio desk before the power supply gets cold:",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Show me the patch.", "nextId": "oy_modular_patch_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_real_art_in_bedroom_bond",
+      "partnerMessage": "It really is. In here, nobody is checking ticket tallies or telling me to speed up the tempo. I can let a single drone oscillate for ten minutes just to hear how the harmonics phase against each other.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "That's pure sound design. Show me that drone.", "nextId": "oy_modular_patch_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_fathers_tools_talk",
+      "partnerMessage": "His brass tuning fork, his hand chisels, and his wooden peg reamer are sitting right on the shelf above my audio interface. When my synthesizers act up, looking at his wooden tools reminds me to be patient with the circuit.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "He would be so proud of the engineer and artist you grew into, Trixie.", "nextId": "oy_fathers_legacy_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_catch_you_tender_vow",
+      "partnerMessage": "Don't make promises you can't keep, {PlayerName}. I've had too many people tell me they'd be there, and then their phones go on silent when the party ends.\n\nIf you're really in my corner... I'm holding onto you with both hands.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Hold onto me as tight as you need. I'm not letting go.", "nextId": "oy_modular_patch_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_heart_on_tape_bond",
+      "partnerMessage": "It is my heart. I ran the guitar stem through a warm bucket-brigade analog delay and layered it with a slow sub-bass sweep. It sounds like watching streetlights blur through rain.\n\nLook at this patch routing on my modular eurorack case:",
+      "linkUrl": "onlyyaps.fm/trixie/eurorack_routing_map",
+      "triggerEvent": "UNLOCK_LOOKBOOK",
+      "choices": [
+        { "choiceText": "Examine the Eurorack patch routing map.", "nextId": "oy_examine_eurorack_map", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_fathers_legacy_tender",
+      "partnerMessage": "Thank you... He always said acoustic instruments need hands to live. I like to think that routing his guitar through modern analog voltage is my way of keeping him in the mix.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "He is in the mix. And the sound is stunning. Show me the patch map.", "nextId": "oy_modular_patch_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_modular_patch_intro",
+      "partnerMessage": "Here is my modular rig. Three rows of aluminum Eurorack modules, thirty braided patch cables connecting low-pass gates to voltage-controlled oscillators.\n\nLook at this routing diagram on my workbench:\nNotice how the clock divider triggers the ambient delay tail every eight measures.",
+      "linkUrl": "onlyyaps.fm/trixie/eurorack_routing_map",
+      "triggerEvent": "UNLOCK_LOOKBOOK",
+      "choices": [
+        { "choiceText": "That clock divider routing creates a natural, breathing pulse. It's brilliant.", "nextId": "oy_clock_divider_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Is your power supply properly isolated? All those modules draw heavy amperage.", "nextId": "oy_power_supply_isolation_check", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_examine_eurorack_map",
+      "partnerMessage": "All thirty patch cords are routed manually. Yellow for control voltage, red for audio signals, black for clock sync.\n\nI was about to record the final stereo master bounce for the label audition, but my main power distribution strip has been buzzing since I turned on the studio monitors.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "A buzzing power strip?! Check the ground loop right now, Trixie!", "nextId": "oy_power_supply_isolation_check", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_clock_divider_praise",
+      "partnerMessage": "Thank you! I wanted it to feel like ocean tide coming in and receding, not an aggressive rigid grid!\n\nWait... *crackling electrical snap through audio interface*\n\n...What was that spark near the Eurorack bus board?",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Trixie?! Did a capacitor just short out?!", "nextId": "oy_call_1_trigger_node", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_power_supply_isolation_check",
+      "partnerMessage": "The auxiliary bus board is drawing twelve volts on the positive rail, but the ground wire is humming through the audio interface!\n\nWait... *loud high-pitched piercing squeal through studio monitors*\n\nOH GOD! FEEDBACK LOOP! MY TINNITUS!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Trixie! Pull the master power switch! Talk to me!", "nextId": "oy_call_1_trigger_node", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_call_1_trigger_node",
+      "partnerMessage": "A GROUND LOOP FEEDBACK SURGE JUST EXPLODED THROUGH MY MONITORS! A 14kHz piercing squeal triggered a massive ringing spike in both my ears, the master rack is crackling, and I can't think straight!\n\nI'm alone in the studio with the cables smoking and I'm hyperventilating on the floor!\n\nHIT THE VOICE CALL BUTTON RIGHT NOW, {PlayerName}! TALK ME DOWN BEFORE MY EARS GIVE OUT!",
+      "linkUrl": "",
+      "triggerEvent": "TRIGGER_CALL_1",
+      "choices": [
+        { "choiceText": "Connecting to Trixie's studio line (Call 1 - Feedback Emergency)...", "nextId": "oy_call_1_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+      ]
+    },
+    {
+      "id": "oy_call_1_ringing",
+      "partnerMessage": "*High-pitched feedback squeal dying down, crackle of hot vacuum tubes, and ragged sobbing over receiver!* Answer it!",
+      "linkUrl": "",
+      "triggerEvent": "START_CALL_RINGTONE",
+      "choices": []
+    },
+    {
+      "id": "oy_post_call_1_hub",
+      "partnerMessage": "*deep, trembling, shuddering breath in text*\n\nMain breaker tripped. Master rack unplugged from the wall. \n\n{PlayerName}... when you counted down my breathing over the phone and told me to press both palms flat against the wooden floorboards until the ringing receded... you literally saved my sanity.\n\nI'm sitting under my desk in the dark with my knees pulled up to my chest. The feedback squeal finally stopped.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You're safe now, Trixie. The power is cut. Just keep your head resting on your knees.", "nextId": "oy_safe_under_desk_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "How is the ringing in your ears right now? Did the spike settle down?", "nextId": "oy_post_surge_ears_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Sitting under a studio desk in the dark... you sound so gentle when the volume is gone.", "nextId": "oy_gentle_under_desk_tender", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "Did any of your analog hardware get damaged in the surge?", "nextId": "oy_hardware_damage_check", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_safe_under_desk_tender",
+      "partnerMessage": "I am staying right here under the desk. The floorboards are cool against my forehead.\n\nIf you hadn't been in my ear, I would have panicked and tried to yank live patch cords with shaking hands. You anchored me when my senses were completely overloaded.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'll always be your anchor when the frequencies get chaotic, Trixie.", "nextId": "oy_anchor_frequency_vow", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Take all the time you need under that desk. I'm right here on the line.", "nextId": "oy_gentle_under_desk_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_post_surge_ears_check",
+      "partnerMessage": "The piercing spike dropped back down to the usual dull background hum. No hearing loss, no blown eardrum—just tired acoustic nerves.\n\nI put in my soft silicone sleeping earplugs so the apartment silence feels soft instead of sharp.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Smart girl. Keep those earplugs in and let your eardrums recover.", "nextId": "oy_safe_under_desk_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_gentle_under_desk_tender",
+      "partnerMessage": "I am gentle under the desk. When I'm on that venue stage behind two thousand watts of amplification, I feel like I have to be ten feet tall and bulletproof.\n\nDown here on the carpet in my socks... I'm just a twenty-two-year-old girl who wants to make something beautiful and feels terrified of being alone in the quiet.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You don't have to be ten feet tall for me, Trixie. The girl on the carpet is the one I care about.", "nextId": "oy_care_about_girl_on_carpet", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "You'll never be alone in the quiet again. I'm in your corner.", "nextId": "oy_anchor_frequency_vow", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_hardware_damage_check",
+      "partnerMessage": "Just a blown fuse on the power rail. Ten-dollar replacement from the hardware store. The vintage Roland and my dad's guitar were unplugged, thank god.\n\nHardware can be replaced. But having someone stay on the line while I was having a breakdown... that can't be bought.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Because you're worth showing up for, Trixie. Every single time.", "nextId": "oy_care_about_girl_on_carpet", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_anchor_frequency_vow",
+      "partnerMessage": "...'Your anchor when the frequencies get chaotic.'\n\nI'm wiping tears off my cheeks with my flannel sleeve. That might be the most deeply comforting sentence anyone has ever spoken to me in my life.\n\nAll my life people asked me to turn up the bass; you're the first person who told me it was okay to listen to the silence.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Silence is where you find yourself again. Come out from under the desk when you're ready.", "nextId": "oy_come_out_from_desk", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_care_about_girl_on_carpet",
+      "partnerMessage": "...*soft, breathless gasp in text*\n\nNobody has ever chosen the girl on the carpet. They always want the headliner with the glow-in-the-dark makeup.\n\nYou have no idea what that does to my chest, {PlayerName}. It feels like an electric circuit finally grounding into clean earth.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You are grounded now, Trixie. Step out from under the desk.", "nextId": "oy_come_out_from_desk", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_come_out_from_desk",
+      "partnerMessage": "Crawling out from under the desk now. Sitting back on my swivel stool.\n\nThe studio monitors are dark and dead. The computer fans have wound down to a complete stop. Outside my bedroom window, the first pale blue light of dawn is creeping over the brick fire escapes.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Dawn light on the fire escapes... that sounds like a peaceful view.", "nextId": "oy_dawn_view_peace_talk", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "How does the room feel now that all the machines are sleeping?", "nextId": "oy_machines_sleeping_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_dawn_view_peace_talk",
+      "partnerMessage": "It's cold blue and lavender. Pigeons are starting to coo on the roof ledge, and a solitary street sweeper is brushing down the avenue three blocks away.\n\nIt feels like the whole city is holding its breath before the morning rush starts.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Let's hold our breath with it. Just you and me in the blue light.", "nextId": "oy_climax_setup_hub", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_machines_sleeping_talk",
+      "partnerMessage": "It feels like a cathedral after the choir goes home. All these synthesizers and wires that were screaming hours ago are just quiet boxes of aluminum and plastic.\n\nIt feels like my room again, not a stage.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Good. Because your room is for you and me tonight. Not the crowd.", "nextId": "oy_climax_setup_hub", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_climax_setup_hub",
+      "partnerMessage": "I pulled my cassette tape recorder onto my lap. It runs on a nine-volt battery, completely isolated from the wall power. No ground loops, no electrical surges.\n\nI have that unreleased downtempo loop of my dad's acoustic guitar recorded onto magnetic tape. It has that warm analog tape hiss that sounds like rain falling on asphalt.\n\nCall my phone line one last time tonight, {PlayerName}. I want to press play and let the tape roll across the line while we watch the sun come up together.",
+      "linkUrl": "",
+      "triggerEvent": "TRIGGER_CALL_2",
+      "choices": [
+        { "choiceText": "Connecting to Trixie's dawn line (Call 2 - Tape Hiss and Sunrise)...", "nextId": "oy_call_2_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+      ]
+    },
+    {
+      "id": "oy_call_2_ringing",
+      "partnerMessage": "*Quiet analog tape hiss, soft mechanical reel click, and warm acoustic guitar notes echoing through receiver...* Answer it, {PlayerName}.",
+      "linkUrl": "",
+      "triggerEvent": "START_CALL_RINGTONE",
+      "choices": []
+    },
+    {
+      "id": "oy_post_call_2_hub",
+      "partnerMessage": "*voice note transcribed in text from bed*\n\nMy cassette player is clicked shut on my nightstand, my curtains are parted so the gold morning sun is hitting my blankets, and my ears are completely at rest.\n\n{PlayerName}... hearing you whisper across that phone line while that tape was rolling... it felt like my entire life slowed down to the exact tempo it was always supposed to be at.\n\nSunday morning. My studio door will be unlocked at nine. I'm buying the eggs, the chives, and the sourdough bread. You just show up and sit across from me at the kitchen table.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Sunday morning at nine. I'll be there with hot coffee, Trixie. Sleep peacefully.", "nextId": "oy_climax_romance_final", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" },
+        { "choiceText": "I'll be knocking on your door at 8:59 AM sharp. It's a date.", "nextId": "oy_climax_romance_final", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
+      ]
+    },
+    {
+      "id": "oy_climax_romance_final",
+      "partnerMessage": "Sunday morning at nine.\n\nNo flight cases, no monitor wedges, no 150 BPM pressure. Just two people eating breakfast in the sunlight, talking without having to scream over the bass.\n\nGoodnight, {PlayerName}. Thank you for grounding my frequency. Sleep gently, my anchor.",
+      "linkUrl": "",
+      "triggerEvent": "CLIMAX_ROMANCE_PERFECT",
+      "choices": []
+    },
+    {
+      "id": "oy_seenzone_1",
+      "partnerMessage": "Status: Read just now.\n\nTrixie has toggled studio mode to 'Do Not Disturb'.",
+      "linkUrl": "",
+      "triggerEvent": "GHOST_SEQUENCE_START",
+      "choices": [
+        { "choiceText": "Trixie? Did the studio interface crash?", "nextId": "oy_seenzone_2", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I'm sorry, Trixie. I made a lazy joke about you being wild and it was disrespectful. Please let me start over.", "nextId": "oy_apology_recovery_grounded", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Leaving people on read after performing all night is pretty dramatic.", "nextId": "oy_ending_failure_cold", "linkUrl": "", "triggerEvent": "FAILURE_BLOCKED" }
+      ]
+    },
+    {
+      "id": "oy_seenzone_2",
+      "partnerMessage": "Status: Read 30m ago.\n\n[Typing...]\n\nTrixie has muted notifications for this session.",
+      "linkUrl": "",
+      "triggerEvent": "GET_GHOSTED",
+      "choices": []
+    },
+    {
+      "id": "oy_call_missed_reset",
+      "partnerMessage": "The audio line disconnected right as the grounding loop was surging! 📶\n\nI'm still sitting by my patch rack with the master power cut. Tap the call icon as soon as your connection stabilizes!",
       "linkUrl": "",
       "triggerEvent": "ENABLE_VOICE_CALL",
+      "choices": [
+        { "choiceText": "Signal reconnected! Calling back right now!", "nextId": "oy_call_1_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+      ]
+    },
+    {
+      "id": "oy_ending_failure_dismissed",
+      "partnerMessage": "I think I'm going to shut off my monitors and leave our conversation here. We operate on completely incompatible frequencies, and I don't have the energy for transactional small talk after a four-hour set. Take care.",
+      "linkUrl": "",
+      "triggerEvent": "FAILURE_DISMISSED",
+      "choices": []
+    },
+    {
+      "id": "oy_ending_failure_cold",
+      "partnerMessage": "I spend all night dealing with entitled drunk people who treat me like entertainment staff; I will not tolerate dismissive entitlement in my private studio.\n\nYou're permanently muted on this channel. Have a safe walk home.",
+      "linkUrl": "",
+      "triggerEvent": "FAILURE_BLOCKED",
       "choices": []
     }
   ]

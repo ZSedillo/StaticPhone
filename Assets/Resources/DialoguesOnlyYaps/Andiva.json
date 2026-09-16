@@ -4,28 +4,805 @@
   "nodes": [
     {
       "id": "oy_andiva_start",
-      "partnerMessage": "Welcome to my VIP lounge, {PlayerName}. Much better than that public app. Now, about that fashion disaster...",
+      "partnerMessage": "Welcome to my private atelier feed, {PlayerName}. The deadbolt is thrown, the showroom assistants have been sent home, and Sir Reginald has claimed his royal throne on my cashmere swatches.\n\nYou actually bypassed the velvet rope into my personal sanctuary. Before I show you the unreleased runway files... tell me: are you here for the glamorous smoke-and-mirrors, or are you prepared to see the raw, unglamorous madness behind the stitches?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I'm ready for the makeover critique.", "nextId": "oy_critique", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Can we talk on voice call instead?", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+        { "choiceText": "I came here for you, obviously. Not just the show.", "nextId": "oy_for_you", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Teach me how to dress first. I need emergency styling triage.", "nextId": "oy_styling_triage", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I'm just curious how ridiculous this VIP room gets.", "nextId": "oy_ridiculous_jab", "linkUrl": "", "triggerEvent": "BULLY_ANDIVA" },
+        { "choiceText": "Why do you work alone in the middle of the night?", "nextId": "oy_why_work_alone", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
       ]
     },
     {
-      "id": "oy_critique",
-      "partnerMessage": "Rule number one: ditch the graphic tees unless they're vintage runway. Study this seasonal lookbook:",
+      "id": "oy_for_you",
+      "partnerMessage": "Smooth operator. Keep talking like that and my night cream is going to crack from smiling. But wait... you aren't just saying that because you think dramatic artists are easy targets for cheap flattery, right?",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Not at all. I genuinely find you captivating, Andiva.", "nextId": "oy_captivating_sincere", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I mean, flattery usually works on theatrical people.", "nextId": "oy_flattery_callout", "linkUrl": "", "triggerEvent": "FUMBLE_CONVERSATION" },
+        { "choiceText": "Maybe a little, but does it matter if it's working?", "nextId": "oy_cocky_pivot", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I don't flatter people I don't respect.", "nextId": "oy_respect_first", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_respect_first",
+      "partnerMessage": "...Mmh. That actually pierced right through my ribs. Respect is a currency that's practically counterfeit in this industry. People will kiss your cheek at a gala and then trash your hemline in Vogue thirty minutes later.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "The industry sounds toxic. How do you keep your head clear?", "nextId": "oy_keep_head_clear", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "I'm not the fashion press. You don't have to watch your back with me.", "nextId": "oy_safe_harbor_promise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "That's high fashion, isn't it? Shark tank rules.", "nextId": "oy_shark_tank_view", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_keep_head_clear",
+      "partnerMessage": "I don't! *hysterical laugh* I drink iced Americanos until my hands vibrate, scream into velvet pillows, and tell Reginald all my grievances while he licks his paws with total indifference.\n\nThen I sit down at the Singer sewing machine and turn all that spite into something breathtaking.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Turning spite into beauty... that's the true definition of couture.", "nextId": "oy_spite_to_beauty", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Show me what you're turning into beauty tonight.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Reginald sounds like the only sane one in the studio.", "nextId": "oy_reginald_photo", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_safe_harbor_promise",
+      "partnerMessage": "Hearing you say that feels like unzipping a corset after fourteen hours on the runway. God, my shoulders just dropped two inches.\n\nYou have no idea how heavy this armor gets, {PlayerName}.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Then leave the armor by the door. What are we making tonight?", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Who made you put the armor on in the first place?", "nextId": "oy_origin_of_armor", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_shark_tank_view",
+      "partnerMessage": "Shark tank with silk ribbons! But darling, I'm not the bait; I'm the one sewing the fishing nets. Still, swimming with predators every day makes you crave someone gentle.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I can be as gentle as you need.", "nextId": "oy_safe_harbor_promise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Let's see what the shark is building on the drafting table.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_origin_of_armor",
+      "partnerMessage": "My father. An industrial tool-and-die inspector in Brescia who measured life in hundredths of a millimeter. When I told him at sixteen that I wanted to drape chiffon and cut silk bias, he looked at me like I had admitted to treason.\n\nHe told me: 'If you choose to be frivolous, don't expect the world to be kind to you.'",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Couture isn't frivolous. It's architecture for the human body.", "nextId": "oy_architecture_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Did you ever try to show him what you built?", "nextId": "oy_show_father_work", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "Maybe he was just worried you'd starve as a struggling artist.", "nextId": "oy_father_pragmatic_defense", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
+      ]
+    },
+    {
+      "id": "oy_architecture_praise",
+      "partnerMessage": "'Architecture for the human body!' I could kiss your cheek right off your face! That is the exact phrase Cristobal Balenciaga used in 1958! You actually understand the engineering of a silhouette!",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Of course I do. Show me the architecture you're building tonight.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I understand because I see how much heart you pour into it.", "nextId": "oy_heart_pour_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_heart_pour_bond",
+      "partnerMessage": "...Nobody ever looks at the heart. They look at the tag, they look at the retail price, they look at the celebrity wearing it on the red carpet. You looking at the heart... it makes me feel dangerously vulnerable.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Vulnerability is where your best art comes from, Andiva.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_show_father_work",
+      "partnerMessage": "I sent him tickets to my Milan graduate runway show. Front row, envelope hand-delivered by courier. His seat was empty the entire night. He left a voicemail three days later saying he had inventory audits.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "That's unforgivable. He missed seeing his son become a master.", "nextId": "oy_master_validation", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I will never leave your front row seat empty, Andiva. Ever.", "nextId": "oy_front_row_vow", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_master_validation",
+      "partnerMessage": "Thank you... I carried that empty chair in my mind for seven years. Every collection I designed was subconsciously trying to scream at that empty chair: 'LOOK AT ME!'",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You don't need to scream anymore. I am looking right at you.", "nextId": "oy_looking_at_you_climax", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_front_row_vow",
+      "partnerMessage": "...You have no right making a promise that big to someone who sews alone at 2 AM. My throat is tight. If you break that promise, {PlayerName}, I will haunt your wardrobe with polyester forever.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I never break promises. Now show me what I'll be watching from that front row.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_looking_at_you_climax",
+      "partnerMessage": "Hearing you say that... it feels like someone just turned off a siren that's been ringing in my ears since I was sixteen.\n\nLet's get to work. I want to show you the centerpiece of my soul.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Unveil it, maestro.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_father_pragmatic_defense",
+      "partnerMessage": "'Worried'? No, darling. Worry sounds like: 'Be careful, let me help you pay for your first pattern drafting kit.' Disgust sounds like: 'Don't embarrass my surname with costumes.' There is a vast difference.",
+      "linkUrl": "",
+      "triggerEvent": "FUMBLE_CONVERSATION",
+      "choices": [
+        { "choiceText": "I spoke without knowing the wound. I'm sorry, Andiva.", "nextId": "oy_apology_accepted", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "You're still carrying a lot of resentment.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" }
+      ]
+    },
+    {
+      "id": "oy_spite_to_beauty",
+      "partnerMessage": "Spite is the most durable fuel on earth! Better than premium gasoline! You tell me I can't drape twenty yards of raw organza without seam buckling? Watch me do it by hand with silk pins while listening to opera!",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Show me that spite on the dress form right now.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Opera and silk pins? You are a walking dramatic masterpiece.", "nextId": "oy_dramatic_masterpiece_banter", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_dramatic_masterpiece_banter",
+      "partnerMessage": "I am Puccini in tailored trousers, honey! But enough about my neuroses. Look at what's mounted on my dress form tonight.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Show me.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_why_work_alone",
+      "partnerMessage": "Because during the day, the showroom is invaded by influencers asking for free loaner gowns for Coachella, boutique buyers haggling over wholesale margins, and assistants dropping pins into the HVAC registers.\n\nAt night, the fluorescent hum dies down. It's just me, the steam from the iron, and the fabric whispering where it wants to fall.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "The fabric whispers? That sounds almost mystical.", "nextId": "oy_fabric_whisper_talk", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Sounds like you need an assistant who actually knows how to respect the space.", "nextId": "oy_assistant_pitch", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "You romanticize sleep deprivation way too much, Andiva.", "nextId": "oy_sleep_scold", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_fabric_whisper_talk",
+      "partnerMessage": "It is mystical! Every textile has a grain, an attitude, a bias. Heavy Lyon silk velvet wants to fall like liquid marble; silk gazar wants to float like frozen air. If you force it with tension, the garment looks dead.\n\nYou have to listen to what the cloth wants to do.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You treat cloth the way a poet treats words.", "nextId": "oy_poet_treats_words", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "What does tonight's emerald velvet want to do?", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_poet_treats_words",
+      "partnerMessage": "...I am blushing so hard my neck is mottled red. Stop that! I'm supposed to be an aloof Milanese couturier, not a giggling schoolboy!",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "The blushing schoolboy is much more endearing. Show me the gown.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_assistant_pitch",
+      "partnerMessage": "Are you submitting a resume, {PlayerName}? Because the starting salary is zero dollars, but the perks include unlimited espresso and listening to me monologue about bias tape at 3 AM.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'll take the job on one condition: I get to hold your shears.", "nextId": "oy_hold_shears_banter", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I'll hold the pins. Show me what we're working on.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_hold_shears_banter",
+      "partnerMessage": "Hold my twenty-four-karat gold-plated tailor shears?! Those were hand-forged in Sheffield! You have to pass three background checks and kiss my ring first!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Where's the ring? Let's get it over with.", "nextId": "oy_ring_kiss_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_ring_kiss_flirt",
+      "partnerMessage": "You're infuriatingly charming. My heart just did an illegal triple pirouette against my ribs.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Now show me the gown before your heart gives out completely.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_sleep_scold",
+      "partnerMessage": "Sleep is for people whose runway collections aren't debuting in seventy-two hours! But fine, point taken. Let me show you what's keeping me awake.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Unveil it.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_styling_triage",
+      "partnerMessage": "Triage! I live for an emergency aesthetic overhaul! Rule number one: ditch the corporate graphic tees unless they're archived runway. Study my introductory private moodboard first:",
       "linkUrl": "onlyyaps.gallery/andiva/lookbook_01",
       "triggerEvent": "UNLOCK_LOOKBOOK",
       "choices": [
-        { "choiceText": "That looks sharp. Call me and explain rule two.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+        { "choiceText": "Checked the board. That charcoal overcoat looks breathtaking on you.", "nextId": "oy_lookbook_reaction", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Half of these looks belong in a Victorian funeral.", "nextId": "oy_funeral_joke", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "This looks like a clown exploded in a thrift shop.", "nextId": "oy_clown_insult", "linkUrl": "", "triggerEvent": "BULLY_ANDIVA" },
+        { "choiceText": "The tailoring on that double-breasted lapel is immaculate.", "nextId": "oy_lapel_nerd", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
       ]
     },
     {
-      "id": "oy_call_ready",
-      "partnerMessage": "Hit the green voice call icon at the top right, darling. Let's see if your voice matches your confidence.",
+      "id": "oy_lapel_nerd",
+      "partnerMessage": "YOU NOTICED THE BELLY ON THE LAPEL?! Most people just look at the button stance! I hand-padded that canvas interlining for six hours with silk thread to get that soft Italian roll!",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Hand-padded canvas roll... that's Savile Row-level obsession.", "nextId": "oy_savile_row_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Show me what you're hand-padding tonight.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_savile_row_praise",
+      "partnerMessage": "Better than Savile Row, darling—Savile Row with Italian flair! You actually know garment anatomy?! Where have you been my whole life?!",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Waiting for a tailor who could make my heart skip a beat. Show me your gown.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_ridiculous_jab",
+      "partnerMessage": "Darling, ridiculous is high art! If you're looking for dull khaki predictability, go subscribe to a tax accountant's vlog. Here, we run on champagne, steam presses, and razor-sharp shears.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Show me what's under the shears. What's the real studio gossip?", "nextId": "oy_studio_tea", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Razor blades? You sound like an edgy teenager.", "nextId": "oy_goth_insult", "linkUrl": "", "triggerEvent": "BULLY_ANDIVA" },
+        { "choiceText": "I'd rather see what you look like without the costume on.", "nextId": "oy_unmasked", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I'm staying because behind all the theatricality, you're brilliant.", "nextId": "oy_behind_theatricality", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_behind_theatricality",
+      "partnerMessage": "...You saw through the smoke bombs. Damn you. I spend so much energy being loud so people don't look closely at how tired I am.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I see how tired you are, Andiva. Let me sit with you in the quiet.", "nextId": "oy_sit_in_quiet", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Rest your eyes for five minutes. What's on the dress form?", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_sit_in_quiet",
+      "partnerMessage": "Sitting in the quiet with someone... that sounds like a foreign country. Nobody ever wants quiet with me; they want the fireworks show.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Fireworks are over. It's just you and me. Show me your finale look.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_captivating_sincere",
+      "partnerMessage": "God... you have a way with words that makes my ribcage feel two sizes too small. You have no idea how rare it is for someone to speak to me like I'm a real person and not a colorful party favor.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You're real to me, Andiva. Show me the person without the show.", "nextId": "oy_unmasked", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Don't sell yourself short. You're an extraordinary artist.", "nextId": "oy_extraordinary_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Let's see what that real person is creating tonight.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_flattery_callout",
+      "partnerMessage": "Ouch. Way to flatten my entire character into a disposable caricature. I'm theatrical because the world was dull, not because I'm gullible.",
+      "linkUrl": "",
+      "triggerEvent": "FUMBLE_CONVERSATION",
+      "choices": [
+        { "choiceText": "You're right. I apologize. I get cynical when I like someone.", "nextId": "oy_apology_accepted", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Don't get sensitive, you literally call yourself theatrical.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" },
+        { "choiceText": "I was trying to be witty, but I missed the mark. Forgive me?", "nextId": "oy_charming_recover", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_cocky_pivot",
+      "partnerMessage": "Confidence borders on arrogance very quickly in this dressing room, {PlayerName}. But... I suppose a little audacity has never completely turned me away.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Good to know. Tell me what keeps someone in your good graces.", "nextId": "oy_good_graces", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I back up every ounce of audacity I bring.", "nextId": "oy_back_it_up", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_lookbook_reaction",
+      "partnerMessage": "Thank you! I tailored the shoulders myself on my vintage Singer machine. I nearly gave myself carpal tunnel stitching that Italian silk lining!",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You tailored that yourself?! That's insane talent.", "nextId": "oy_talent_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Would you ever tailor something for me?", "nextId": "oy_tailor_for_player", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_funeral_joke",
+      "partnerMessage": "A chic Victorian funeral! Mourning the death of mediocre casualwear! We wear black because it absorbs the tears of envious onlookers.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "You're utterly unhinged and I'm here for it.", "nextId": "oy_unhinged_nod", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Tell me what rule number two is.", "nextId": "oy_rule_two", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_clown_insult",
+      "partnerMessage": "That clown makes more in one styling consult than you make in a month, sweetie. You can insult my personality, but don't you dare come for my editorial curation.",
+      "linkUrl": "",
+      "triggerEvent": "FUMBLE_CONVERSATION",
+      "choices": [
+        { "choiceText": "Just testing if your pride was as fragile as your ego.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" },
+        { "choiceText": "Fair hit. I went too far. Let me make it up to you.", "nextId": "oy_apology_accepted", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_studio_tea",
+      "partnerMessage": "Oh honey, the tea is scalding. A lead photographer at fashion week just got kicked out of his hotel because he tried to iron his tuxedo using a panini press!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "A panini press?! Did it leave grill marks on the lapel?!", "nextId": "oy_panini_laugh", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Fashion industry people are completely divorced from reality.", "nextId": "oy_divorced_reality", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_goth_insult",
+      "partnerMessage": "Teenagers have soul, darling! They have raw conviction! Unlike boring desk jockeys who hide behind cynical commentary on mobile apps.",
+      "linkUrl": "",
+      "triggerEvent": "FUMBLE_CONVERSATION",
+      "choices": [
+        { "choiceText": "Touché. You really don't miss, do you?", "nextId": "oy_never_miss", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Whatever helps you sleep in your heavy eyeliner.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" }
+      ]
+    },
+    {
+      "id": "oy_unmasked",
+      "partnerMessage": "Without the show? Right now I'm curled up on my emerald velvet sofa, wrapped in an oversized fleece blanket that has cheese puff dust on the sleeve. Sir Reginald is snoring so loud he sounds like an outboard motor.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "That sounds infinitely better than any red carpet.", "nextId": "oy_better_than_carpet", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Cheese puff dust on vintage velvet? You heathen!", "nextId": "oy_heathen_banter", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Show me what's sitting next to you on that velvet sofa.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_extraordinary_praise",
+      "partnerMessage": "You're laying it on thick, {PlayerName}. But my god, my soul was starving for that. When you're always the funny gay friend, everyone forgets you have a heart that beats.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'm here to remind you as often as you need.", "nextId": "oy_deep_connection", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Have people really made you feel that invisible?", "nextId": "oy_invisible_trauma", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_apology_accepted",
+      "partnerMessage": "Thank you. Vulnerability acknowledged. I get prickly because I spent too many years being mocked by guys who pretended to be my friend in public.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "You don't ever have to worry about that with me.", "nextId": "oy_safe_bonding", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "What did they do to you?", "nextId": "oy_highschool_story", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_charming_recover",
+      "partnerMessage": "Mmh. Points for quick reflexes and not letting your ego drag you down. I can work with that. Now... what were we talking about before the turbulence?",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "How much I want to hear about your passions.", "nextId": "oy_talent_praise", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Your cat, Sir Reginald. Introduce us properly.", "nextId": "oy_reginald_photo", "linkUrl": "onlyyaps.gallery/andiva/reginald_cat", "triggerEvent": "UNLOCK_LOOKBOOK" }
+      ]
+    },
+    {
+      "id": "oy_seenzone_1",
+      "partnerMessage": "Status: Read just now.\n\nAndiva has muted notifications for this session.",
+      "linkUrl": "",
+      "triggerEvent": "GHOST_SEQUENCE_START",
+      "choices": [
+        { "choiceText": "Andiva? Come on, don't leave me on read.", "nextId": "oy_seenzone_2", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I'm sorry. I was being defensive and petty. Please forgive me.", "nextId": "oy_seenzone_recover", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Fine, stay silent. You're exhausting anyway.", "nextId": "oy_ending_failure_cruel", "linkUrl": "", "triggerEvent": "FAILURE_BLOCKED" }
+      ]
+    },
+    {
+      "id": "oy_seenzone_2",
+      "partnerMessage": "Status: Read 18m ago.\n\n[Typing...]\n\nAndiva has set his status to 'Offline - Draping Couture'.",
+      "linkUrl": "",
+      "triggerEvent": "GET_GHOSTED",
+      "choices": []
+    },
+    {
+      "id": "oy_seenzone_recover",
+      "partnerMessage": "...I don't have the stomach for people who tear down my work. If you want to stay in my private room, treat me with the respect you'd give anyone pouring their soul into their hands.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "You have my respect, Andiva. Show me what you're working on.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_good_graces",
+      "partnerMessage": "Number one: honesty. Brutal, unvarnished, sweet honesty. Number two: understanding that when I scream about shoulder pads, it's performance art, not neurosis.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I can handle both. In fact, I respect it.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_back_it_up",
+      "partnerMessage": "Show me, then. Don't just type sweet nothings into a keyboard. Tell me what you see when you look at me.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "A brilliant artist who had to build fortresses to survive.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_talent_praise",
+      "partnerMessage": "Nobody ever compliments the craftsmanship, they just ask where I bought it! You actually notice the craft. That... genuinely makes my chest ache in the best way.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Real artistry deserves to be celebrated. What are you building right now?", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_tailor_for_player",
+      "partnerMessage": "I would make you look so devastating that pedestrians would bump into street poles when you walk past.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'll let you tailor me anytime. What's on your drafting table tonight?", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_unhinged_nod",
+      "partnerMessage": "Unhinged and unbothered! That is the official motto of the House of Andiva!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Hit me with Rule Two. I need the full doctrine.", "nextId": "oy_rule_two", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_rule_two",
+      "partnerMessage": "Rule Two: Never wear shoes that squeak on linoleum. Nothing destroys masculine romantic mystery faster than sounding like a wet dolphin with every step.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "A wet dolphin?! I'm wheezing over here!", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_panini_laugh",
+      "partnerMessage": "IT LEFT GRILL MARKS! DIAGONAL CHAR LINES ON THE SATIN! He claimed it was 'deconstructed avant-garde grill-couture' and won an award! The industry is a fever dream!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I love how alive you get when talking about this. What's on your table right now?", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_divorced_reality",
+      "partnerMessage": "Divorced, remarried, and living in an alternate dimension! That's why having someone like you to text feels like coming back down to Earth.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I like grounding you. Let me see what you're working on tonight.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_never_miss",
+      "partnerMessage": "Never! Sharpened my tongue for twenty-three years, darling. But I much prefer using it for sweet things when the company is worth it.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Show me what you're crafting under all that wit.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_better_than_carpet",
+      "partnerMessage": "It really is. The red carpet is just flashes and people checking who's standing behind you. At home, Sir Reginald doesn't care if I'm wearing Prada or a bathrobe, as long as I scratch behind his one ear.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Reginald is a philosopher king. Introduce me to your work tonight.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_heathen_banter",
+      "partnerMessage": "The velvet was Scotchgarded in 1989, it can survive nuclear fallout! And I will not deny my cat his evening nap just because I dropped a cheesy snack!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "You have your priorities straight. What are you sewing tonight?", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_deep_connection",
+      "partnerMessage": "You're doing something very dangerous to my pulse right now. I don't know whether to blow a kiss or run for the nearest exit before I get attached.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Stay. Show me the project that's keeping you awake.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_invisible_trauma",
+      "partnerMessage": "People love having the witty stylist on their arm for cocktails, but when it's 2 AM and the eyeliner is running, suddenly everyone's phone is on silent. You learn to rely strictly on yourself.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "My phone is never on silent for you, Andiva. Ever.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_safe_bonding",
+      "partnerMessage": "I want to believe that so badly. It's terrifying letting your guard down when the armor has kept you alive this long.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "One piece at a time. I'm right here with you.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_highschool_story",
+      "partnerMessage": "The usual. Secret dates behind the sports field bleachers, but in the hallways I was a ghost he didn't know. Promised he'd take me to prom, then took a cheerleader to keep up appearances.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "That's gut-wrenching. You deserved someone who was proud of you.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_reginald_photo",
+      "partnerMessage": "Here he is in all his scruffy majesty! Notice the regal scar over his eye and the total disregard for house rules:",
+      "linkUrl": "onlyyaps.gallery/andiva/reginald_cat",
+      "triggerEvent": "UNLOCK_LOOKBOOK",
+      "choices": [
+        { "choiceText": "He is magnificent. Now show me what you're working on tonight.", "nextId": "oy_velvet_showcase_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_velvet_showcase_intro",
+      "partnerMessage": "The finale gown for Friday's showcase. Eighteen yards of heavy silk velvet dyed in custom emerald with micro-seed pearls basted into the structural corsetry.\n\nI've been hand-stitching the interior boning channels since 8 PM. Look at this neckline construction:\nNotice how the sweetheart plunge is reinforced with spring steel stays.",
+      "linkUrl": "onlyyaps.gallery/andiva/emerald_gown_draft",
+      "triggerEvent": "UNLOCK_LOOKBOOK",
+      "choices": [
+        { "choiceText": "Spring steel stays... that takes surgical precision to keep from poking through.", "nextId": "oy_steel_stays_reaction", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Isn't velvet notoriously slippery to seam without puckering?", "nextId": "oy_velvet_slip_skeptic", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" },
+        { "choiceText": "Why emerald? Most finales go with white or gold.", "nextId": "oy_why_emerald_story", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_steel_stays_reaction",
+      "partnerMessage": "Surgical precision and four pricked fingertips! You have to cap the ends in dipped plastic and wrap them in cotton flannel so they never wear through the satin lining.\n\nWait... *distant clatter of metal across the cutting table*\n\nOH GOD. REGINALD. GET OFF THE BENCH RIGHT NOW!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Andiva?! What just crashed?!", "nextId": "oy_call_1_trigger_node", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Don't let him near the emerald velvet!", "nextId": "oy_call_1_trigger_node", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_velvet_slip_skeptic",
+      "partnerMessage": "You baste it twice with silk thread and use a walking foot with tissue paper underneath! I didn't spend five years in Milan to get defeated by pile friction!\n\nWait... *loud metallic crash*\n\nREGINALD! DROP THAT TAPE MEASURE!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "What's happening in the atelier?!", "nextId": "oy_call_1_trigger_node", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_why_emerald_story",
+      "partnerMessage": "Because white is surrender and gold is arrogant! Emerald is poison and vitality all at once. It's the color of the moss growing on stone cathedrals in the rain.\n\nWait... *clatter of falling cans*\n\nNO NO NO! REGINALD!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Andiva! Are you okay?!", "nextId": "oy_call_1_trigger_node", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_call_1_trigger_node",
+      "partnerMessage": "Reginald just headbutted my box of tailor's wax into the trash bin, the invisible zipper on the gown's left hip is jammed tight, and I have five straight pins clenched between my teeth!\n\nI can't type with both hands holding the tension on this bodice!\n\nHIT THE VOICE CALL BUTTON RIGHT NOW BEFORE I TEAR THIS SILK IN HALF!",
+      "linkUrl": "",
+      "triggerEvent": "TRIGGER_CALL_1",
+      "choices": [
+        { "choiceText": "Initiating emergency line to Andiva's atelier (Call 1)...", "nextId": "oy_call_1_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+      ]
+    },
+    {
+      "id": "oy_call_1_ringing",
+      "partnerMessage": "*Shears snipping violently through the speakerphone!* Pick up, darling!",
+      "linkUrl": "",
+      "triggerEvent": "START_CALL_RINGTONE",
+      "choices": []
+    },
+    {
+      "id": "oy_post_call_1_hub",
+      "partnerMessage": "*heavy, shuddering sigh of relief through text*\n\nZipper slider backed out. Velvet weave completely unblemished. Reginald has been bribed with dried salmon paste and is currently sleeping off his crimes on my cashmere swatches.\n\n{PlayerName}... hearing your voice calmly talk me through backing that brass tab out while my fingers were trembling... you literally saved three weeks of manual basting.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You did the work, Andiva. I just kept your hands steady.", "nextId": "oy_steady_hands_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Told you: you're too brilliant to let a zipper defeat you.", "nextId": "oy_brilliant_defeat_banter", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Now that the panic is over, how is your body holding up?", "nextId": "oy_body_exhaustion_check", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_steady_hands_bond",
+      "partnerMessage": "Keeping my hands steady is everything. When you're solo in an atelier at midnight, there's no safety net. If you panic, you ruin seven thousand dollars of imported textile.\n\nHaving your calm in my ear was the sweetest luxury in this room.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'll always be your calm when the runway goes crazy.", "nextId": "oy_body_exhaustion_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Does anyone else ever see you when you're this vulnerable?", "nextId": "oy_anyone_else_vulnerable", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_anyone_else_vulnerable",
+      "partnerMessage": "Never. My showroom manager thinks I'm made of chrome and titanium. If my clients saw me with chalk dust on my neck crying over a jammed zipper, they'd pull their contracts.\n\nYou're the only one who gets to see the raw seams.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "The raw seams are my favorite part. Now take a breath.", "nextId": "oy_body_exhaustion_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_brilliant_defeat_banter",
+      "partnerMessage": "A brass zipper will NEVER conquer Andiva! But lord, my heart rate was at 140 BPM! I need ten minutes of silent hand-stitching to reset my nervous system.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Take those ten minutes. How are your feet holding up?", "nextId": "oy_body_exhaustion_check", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_body_exhaustion_check",
+      "partnerMessage": "My feet feel like they've been beaten with meat tenderizers. I've been standing on this hardwood floor in Italian leather boots since 9 AM yesterday. My lumbar spine is screaming, but the finale hem has to be hand-rolled before the morning steam press.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Take those boots off right now. You can hand-roll the hem barefoot.", "nextId": "oy_boots_off_order", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Why do you push yourself to the point of physical collapse, Andiva?", "nextId": "oy_why_push_collapse", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "Pain is temporary, runway perfection is forever.", "nextId": "oy_pain_temporary_toxic", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
+      ]
+    },
+    {
+      "id": "oy_pain_temporary_toxic",
+      "partnerMessage": "Spoken like every toxic fashion director I've ever worked under! But unlike them, I know when my body is about to give out. A little compassion goes a lot further than runway slogans, {PlayerName}.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "You're right. Take the boots off. I'm sorry.", "nextId": "oy_boots_off_order", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_boots_off_order",
+      "partnerMessage": "Boots unzipped. Kicked straight under the cutting table. Ahhhhh... God, that feels heavenly. Look at you bossing around an international fashion designer in his own studio!",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Someone has to protect you from your own workaholic tendencies.", "nextId": "oy_why_push_collapse", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Now sit on the floor and tell me what you're really afraid of.", "nextId": "oy_why_push_collapse", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_why_push_collapse",
+      "partnerMessage": "Because if I stop moving, the silence rushes in.\n\nWhen I was twenty, my first partner left me for an investment banker because he said: 'Andiva, you're an exhausting sideshow. Nobody wants to build a real family with someone who turns breakfast into a theatrical performance.'\n\nI push until I collapse because if I'm always working, I never have to face the thought that maybe he was right.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "He was a coward who couldn't handle your light, Andiva.", "nextId": "oy_light_validation", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "You don't need to perform for me. I love you when you're completely quiet.", "nextId": "oy_love_in_quiet_vow", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Have you ever tried just being ordinary for a weekend?", "nextId": "oy_ordinary_weekend_talk", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_ordinary_weekend_talk",
+      "partnerMessage": "Ordinary? What does that even look like? Grocery shopping in sweatpants? Eating cereal out of the box while watching old sitcoms?\n\n...God, why does that sound so heartbreakingly desirable right now?",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Because you deserve ordinary peace with someone who adores you.", "nextId": "oy_love_in_quiet_vow", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_light_validation",
+      "partnerMessage": "...I'm sitting on the cutting floor barefoot, wiping my eyes with silk organza scraps so I don't get tears on the velvet. You have this terrifying power to dismantle every wall I built.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Walls are for prisons, Andiva. You're free now.", "nextId": "oy_climax_setup_hub", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_love_in_quiet_vow",
+      "partnerMessage": "'I love you when you're completely quiet.'\n\n...Do you have any idea what that sentence does to someone who has spent ten years shouting just to be seen? My hands are trembling, and for once it has nothing to do with low blood sugar.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I mean every word. Finish the hem, darling. Let's close the night.", "nextId": "oy_climax_setup_hub", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_climax_setup_hub",
+      "partnerMessage": "The final blind stitches are locked in.\n\nI just snipped the thread with my gold stork scissors. I switched off the industrial cutting lights. All the fluorescent tubes overhead are dark.\n\nThere's only one spotlight left, pointing straight down at the emerald gown on the center dress form. It looks... like living liquid smoke.\n\nCall my line one last time, {PlayerName}. I want to talk to you in the dark before I call a cab.",
+      "linkUrl": "",
+      "triggerEvent": "TRIGGER_CALL_2",
+      "choices": [
+        { "choiceText": "Connecting to Andiva's line for Call 2 (Finale)...", "nextId": "oy_call_2_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+      ]
+    },
+    {
+      "id": "oy_call_2_ringing",
+      "partnerMessage": "*Quiet echoes of the midnight atelier through the receiver...* Answer it, my heart.",
+      "linkUrl": "",
+      "triggerEvent": "START_CALL_RINGTONE",
+      "choices": []
+    },
+    {
+      "id": "oy_post_call_2_hub",
+      "partnerMessage": "*sent from the backseat of a rain-slicked taxi*\n\nMy boots are in my tote bag, Sir Reginald is fast asleep inside his carrier with his pink nose poking through the mesh, and the streetlights outside the window are blurring into long golden streaks.\n\n{PlayerName}... when you told me on that call that I'm home with you... the whole city suddenly felt warm.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You are home with me, Andiva. Friday is just the victory lap.", "nextId": "oy_climax_romance_final", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" },
+        { "choiceText": "Get some sleep tonight. You conquered your mountain.", "nextId": "oy_climax_romance_final", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
+      ]
+    },
+    {
+      "id": "oy_climax_romance_final",
+      "partnerMessage": "Friday night. You in the front row center seat with my VIP lanyard around your neck. When the finale model walks out in that emerald gown, I won't be looking at the critics or the cameras.\n\nI'll be looking directly at you from behind the curtain.\n\nSleep gently tonight, my muse. I'll text you the second my eyes open tomorrow. Ciao, my love.",
+      "linkUrl": "",
+      "triggerEvent": "CLIMAX_ROMANCE_PERFECT",
+      "choices": []
+    },
+    {
+      "id": "oy_call_missed_reset",
+      "partnerMessage": "Darling, did the connection drop? Or did Reginald swat your phone off the nightstand? 📱\n\nI'm still right here on the cutting room floor. Hit the call button again when your link stabilizes!",
       "linkUrl": "",
       "triggerEvent": "ENABLE_VOICE_CALL",
+      "choices": [
+        { "choiceText": "Signal dropped for a second! Calling you right back!", "nextId": "oy_call_1_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+      ]
+    },
+    {
+      "id": "oy_ending_failure_dismissed",
+      "partnerMessage": "You're lukewarm, {PlayerName}. A room-temperature glass of tap water. I don't do lukewarm. Best of luck on whatever app tolerates this level of apathy.",
+      "linkUrl": "",
+      "triggerEvent": "FAILURE_DISMISSED",
+      "choices": []
+    },
+    {
+      "id": "oy_ending_failure_cruel",
+      "partnerMessage": "Cruelty isn't wit, darling. It's just rot. You're blocked, deleted, and forgotten. Don't ever step into my studio.",
+      "linkUrl": "",
+      "triggerEvent": "FAILURE_BLOCKED",
       "choices": []
     }
   ]

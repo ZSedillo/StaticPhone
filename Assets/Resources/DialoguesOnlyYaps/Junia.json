@@ -4,29 +4,707 @@
   "nodes": [
     {
       "id": "oy_junia_start",
-      "partnerMessage": "Closed the café register and locked the doors. Only VIPs get this direct feed.",
+      "partnerMessage": "Deadbolt is thrown, register is balanced, and the espresso machine boiler is down to pilot mode. Just me, the smell of toasted chaff, and the streetlights outside the front glass.\n\nYou actually followed me into the private feed, {PlayerName}.\n\nBefore I start measuring out green coffee... fair warning: I don't do voice calls. My hearing is already half-shot from ten years of standing next to industrial exhaust blowers, and I hate holding a glowing rectangle against my cheek while my hands are covered in coffee oils. Text only. If you need someone who purrs into a microphone, you swiped on the wrong girl.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Glad I made the cut. What are you roasting?", "nextId": "oy_beans", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "No texting. Voice call me right now.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+        { "choiceText": "Text only is a relief. I'd rather read your thoughts at your own pace anyway.", "nextId": "oy_text_relief", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Fair enough. What batch are you loading into the hopper tonight?", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "No calls? Sounds like you're hiding behind a keyboard because you're socially awkward.", "nextId": "oy_awkward_insult", "linkUrl": "", "triggerEvent": "BULLY_JUNIA" },
+        { "choiceText": "Why do you stay late in the dark by yourself instead of going home?", "nextId": "oy_why_stay_late", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
       ]
     },
     {
-      "id": "oy_beans",
-      "partnerMessage": "Single-origin Ethiopian Yirgacheffe. Blueberry and jasmine notes. See the roast profile chart:",
+      "id": "oy_text_relief",
+      "partnerMessage": "Thank you. Seriously.\n\nEveryone on dating apps treats texting like a sprint to a phone call, and then on the phone they just run out of things to say after five minutes and breathe into the mic while watching short-form videos. With text, you actually have to consider the words before you hit send.\n\nIt leaves room to breathe between thoughts.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "It gives words back their weight. What's on your mind while the roaster warms up?", "nextId": "oy_whats_on_your_mind", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "You don't strike me as someone who does anything without considering it first.", "nextId": "oy_deliberate_nature_compliment", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Let's see if your coffee is as thoughtful as your philosophy.", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Does the quiet ever get overwhelming in here after closing?", "nextId": "oy_why_stay_late", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_deliberate_nature_compliment",
+      "partnerMessage": "Ha. Tell that to my impulse purchases of expired black-and-white 120 film stock from estate sales. My refrigerator vegetable crisper is entirely full of Kodak Tri-X from 1998 and half-empty jars of sourdough starter.\n\nI guess I am deliberate about the stuff that actually leaves an impression, though. Life is too short to drink flat coffee or shoot plastic lenses.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "A vegetable crisper full of expired film is the most Junia detail imaginable.", "nextId": "oy_crisper_film_banter", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Does film from 1998 even develop properly without heavy fogging?", "nextId": "oy_expired_film_science", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Sourdough starter and film chemistry in the same fridge? You're playing with fire.", "nextId": "oy_fridge_hazard_banter", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_fridge_hazard_banter",
+      "partnerMessage": "Hey, everything is in amber glass jars with waterproof wax pencil labels! I'm reckless with my finances, not with cross-contamination.\n\nThough I did once accidentally use distilled rinse water intended for fixer to hydrate a bread levain. Bread tasted faintly metallic. Didn't die, so we call that a win.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Accidental chemical sourdough. Truly an alchemist at work.", "nextId": "oy_crisper_film_banter", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Please tell me you don't feed that bread to your café customers.", "nextId": "oy_customer_bread_banter", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_customer_bread_banter",
+      "partnerMessage": "Never! Customer loaves are baked in a certified commissary kitchen on Tuesdays with commercial yeast and organic flour. The weird experiments stay strictly in my personal apartment counter.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Good to know I won't get chemical poisoning if I visit your shop.", "nextId": "oy_crisper_film_banter", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_crisper_film_banter",
+      "partnerMessage": "Hey, celery rots in four days, but cold-stored silver emulsion keeps for decades. Priorities, {PlayerName}!\n\nPlus, the base fog on expired film gives street portraits this milky, dreamlike quality that modern digital sensors spend thousands of dollars in software filters trying to fake.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Have you ever shot a portrait of someone you actually cared about on that film?", "nextId": "oy_portrait_someone_cared", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "Show me what you're working on right now before the burner gets too hot.", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "How does the emulsion hold up when the silver halide crystals age?", "nextId": "oy_expired_film_science", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_portrait_someone_cared",
+      "partnerMessage": "Once. My grandfather, right before he had his stroke. He was sitting on our back porch in his favorite green cardigan, peeling an orange with his pocketknife.\n\nThe expired film gave the shadows this deep charcoal patina, and the orange peel practically glowed in the gray tones. My mother still has that print framed in her entryway.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You gave your family an heirloom that will outlast all of us.", "nextId": "oy_heirloom_validation", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Do you ever take self-portraits on that stock?", "nextId": "oy_self_portrait_question", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_heirloom_validation",
+      "partnerMessage": "That's why I do it. When you press a phone button, you make a file. When you expose silver crystals on acetate, you catch physical photons bouncing off someone's skin and trap them in chemical salt.\n\nIt's tangible evidence that someone was real.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "That kind of sensitivity makes you special, Junia. Truly.", "nextId": "oy_whats_on_your_mind", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Let's make sure tonight's roast gets that same level of care.", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_self_portrait_question",
+      "partnerMessage": "Never. I hate being in front of the lens. I feel stiff, awkward, like I don't know what to do with my arms. I'd much rather be the ghost behind the viewfinder looking out.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "One day, I'm going to take a portrait of you where you don't look away.", "nextId": "oy_portrait_of_junia_promise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Being the observer is safer. I get it.", "nextId": "oy_observer_safer_relate", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_portrait_of_junia_promise",
+      "partnerMessage": "...I might actually let you. But only if you use manual focus and promise not to retouch my laugh lines or my messy hair.\n\nLet's see what you're made of first, though.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Manual focus only. Zero retouching. Show me your roaster.", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_observer_safer_relate",
+      "partnerMessage": "Much safer. If you're holding the camera, nobody asks you how you're feeling. They just assume you're the artist recording the scene.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Well, the camera is down right now. How ARE you feeling, Junia?", "nextId": "oy_whats_on_your_mind", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_expired_film_science",
+      "partnerMessage": "You add a pinch of benzotriazole to the developer tray as an anti-fogging agent and develop in ice-cold chemistry for sixteen minutes! It drops the grain sensitivity back down and preserves the shadow detail.\n\nWait... you actually care about emulsion chemistry? You're not just humoring me?",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'm genuinely fascinated by how much physical mastery you put into your work.", "nextId": "oy_mastery_validation", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I care because you care, Junia. It's rare to see someone this dialed in.", "nextId": "oy_rare_dialed_in", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_rare_dialed_in",
+      "partnerMessage": "Dialed in or slightly obsessed... line is blurry at 11:30 PM. But when you spend all day dealing with small logistics, dialing into chemistry is the only thing that keeps me grounded.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "What kind of logistics? What's draining you lately?", "nextId": "oy_whats_on_your_mind", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_mastery_validation",
+      "partnerMessage": "...That hits deeper than you realize. Most people look at my roastery or my darkroom and think it's a hipster hobby my parents subsidized.\n\nThey don't know I spent four years working night shifts at an industrial bakery just to save up enough money to buy my first 5-kilo drum roaster.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Every blister on your hands is earned. Don't let anyone take that from you.", "nextId": "oy_blisters_earned_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Night shifts at an industrial bakery? That sounds brutal on the body.", "nextId": "oy_bakery_struggles", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_blisters_earned_comfort",
+      "partnerMessage": "Thanks. I needed that. My older brother still calls my shop 'the vanity project.' He works in commercial real estate and thinks if you don't have twenty employees under you by twenty-five, you're failing.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Your brother builds spreadsheets. You build community and flavor. Not the same league.", "nextId": "oy_brother_contrast_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Family opinions can be the heaviest weight in the room.", "nextId": "oy_family_weight_relate", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_brother_contrast_praise",
+      "partnerMessage": "Haha! I am writing that down on my clipboard. 'Spreadsheets vs. Flavor.' If he visits this weekend, I might just tape that sentence to the front counter.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Tape it right next to the register. Now show me the green beans.", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_family_weight_relate",
+      "partnerMessage": "They really are. Because part of you always wants them to walk in, take a sip, and say: 'Oh. Now I get why you stayed up all night.' But they never do. They just ask what my margins are.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "I get it, Junia. Even without tasting it yet, I get why you stayed up.", "nextId": "oy_i_get_it_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_i_get_it_comfort",
+      "partnerMessage": "...You're going to make me soft. I have an industrial gas burner to ignite, I can't be getting emotional over text messages right now.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Go ignite the burner then. I'll be right here watching the numbers with you.", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_bakery_struggles",
+      "partnerMessage": "Twelve-hour shifts hauling 50-pound sacks of unbleached flour into industrial spiral mixers at 3 AM. The flour dust gets into your lungs, your clothes, your eyelashes. You blow your nose and it comes out white dough.\n\nI used to sit on the loading dock during my twenty-minute break, coughing up flour and looking at street photography books under the yellow security lights, telling myself that one day I'd build a room where I worked for myself.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "And you built it. Look around the room you're sitting in right now. You made it real.", "nextId": "oy_you_built_it_climax", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "That kind of grit is terrifyingly rare. I admire your spine, Junia.", "nextId": "oy_admire_spine_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_you_built_it_climax",
+      "partnerMessage": "...I'm looking at the copper pipes and the burlap bags right now. Sometimes I get so bogged down in monthly rent panic and equipment repairs that I forget to look up and realize the kid on the bakery dock actually made it.\n\nThank you, {PlayerName}. Seriously. I needed to be reminded of that tonight.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Whenever you forget, text me. I'll remind you every single time.", "nextId": "oy_remind_you_vow", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Now show me that Ethiopian lot. Let's see what that dream roasts like.", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_remind_you_vow",
+      "partnerMessage": "Careful making vows like that to a girl who smells like woodsmoke and espresso grounds. I might hold you to it when the heating element blows at 4 AM in the dead of winter.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Hold me to it. I'll bring the space heater and a thermos of soup.", "nextId": "oy_space_heater_promise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I wouldn't have offered if I didn't mean every word.", "nextId": "oy_space_heater_promise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_space_heater_promise",
+      "partnerMessage": "Soup and a space heater at 4 AM... God, you're trying to ruin my reputation as a self-sufficient lone wolf, aren't you?\n\nLet's get this batch loaded before I turn into total mush.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Load the drum. What are we roasting tonight?", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_admire_spine_bond",
+      "partnerMessage": "Spine is all you have when your bank account has double digits and your roaster's gas valve is leaking. But having someone acknowledge the spine instead of calling me 'stubborn' feels like taking off heavy boots.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Take the boots off for the night, Junia. What's on the schedule?", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_why_stay_late",
+      "partnerMessage": "Because the city only makes sense when the daytime crowd goes away.\n\nFrom 7 AM to 3 PM, people come in here with AirPods jammed in their ears, throwing credit cards on the counter without looking at me, complaining about a ten-cent dairy alternative surcharge while texting their stockbrokers.\n\nAt night, the room gets quiet. The smell of cooling metal settles in. It's the only time the shop actually belongs to me.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Must be exhausting feeling like invisible wallpaper to hundreds of people every day.", "nextId": "oy_invisible_wallpaper_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Does the quiet ever get too quiet? Like nobody is coming back in the morning?", "nextId": "oy_too_quiet_anxiety", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "They're paying your bills, Junia. You don't have to love them, just charge them.", "nextId": "oy_transactional_fumble", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
+      ]
+    },
+    {
+      "id": "oy_invisible_wallpaper_bond",
+      "partnerMessage": "...'Invisible wallpaper.' That's the exact phrase. You're just a coffee-dispensing machine with hair and sneakers to them.\n\nThat's why when someone looks at me through text and asks actual questions about what I'm doing, my heart does this stupid little hitch in my throat.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You're not wallpaper to me, Junia. You're the whole canvas. What's the plan tonight?", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Let me keep that hitch in your throat going. Show me your roast profile.", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_too_quiet_anxiety",
+      "partnerMessage": "Every single Sunday night. I stand by the cooling tray and think: 'What if the neighborhood forgets we're here? What if a multinational chain opens two doors down and my regulars just drift away?'\n\nThe fear never really leaves your ribs.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "A corporate chain can't replicate your heart or your hands. People stay for you.", "nextId": "oy_corporate_cant_replicate", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "If that fear keeps you sharp, it's not entirely an enemy.", "nextId": "oy_fear_sharp_pragmatic", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_corporate_cant_replicate",
+      "partnerMessage": "You have this insane way of making the monsters under my bed look like dust bunnies. I'm taking a screenshot of that message to read when my morning opening anxiety spikes at 5:30 AM.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Save it, frame it, whatever you need. Now show me what we're roasting.", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_fear_sharp_pragmatic",
+      "partnerMessage": "True. Fear is a great insulator against complacency. If you get comfortable in small-business hospitality, you're dead in six months.\n\nSpeaking of keeping sharp: look at this curve before I dump the hopper.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Bring up the data.", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_transactional_fumble",
+      "partnerMessage": "'Just charge them.'\n\nIf I wanted to live a purely transactional life, I would have stayed in accounts payable. If everything is just a monetary exchange to you, why are you even in my private backroom?",
+      "linkUrl": "",
+      "triggerEvent": "FUMBLE_CONVERSATION",
+      "choices": [
+        { "choiceText": "Junia, wait. I was being cynical to sound grounded. I'm sorry.", "nextId": "oy_sincere_apology_counter", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Because you're cute and I wanted to see how deep the rabbit hole went.", "nextId": "oy_rabbit_hole_shallow", "linkUrl": "", "triggerEvent": "BULLY_JUNIA" },
+        { "choiceText": "Whatever. It's just a job.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" }
+      ]
+    },
+    {
+      "id": "oy_rabbit_hole_shallow",
+      "partnerMessage": "Right. A curiosity tourist. Come poke the indie roaster girl to see if she does tricks.\n\nAccess revoked. Have fun at the drive-thru window.",
+      "linkUrl": "",
+      "triggerEvent": "FAILURE_BLOCKED",
+      "choices": []
+    },
+    {
+      "id": "oy_awkward_insult",
+      "partnerMessage": "'Socially awkward'? Because I prefer the tactile rhythm of text over stammering into an audio feed while my roaster is screaming at 400 degrees?\n\nThanks for proving within two messages that you aren't worth the bandwidth. Bye.",
+      "linkUrl": "",
+      "triggerEvent": "BULLY_JUNIA",
+      "choices": [
+        { "choiceText": "Junia, I was teasing! Don't take everything so defensively.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" },
+        { "choiceText": "Enjoy talking to your coffee beans alone in the dark.", "nextId": "oy_hard_ghost_exit", "linkUrl": "", "triggerEvent": "FAILURE_BLOCKED" }
+      ]
+    },
+    {
+      "id": "oy_seenzone_1",
+      "partnerMessage": "Status: Read just now.\n\nJunia has minimized the conversation.",
+      "linkUrl": "",
+      "triggerEvent": "GHOST_SEQUENCE_START",
+      "choices": [
+        { "choiceText": "Junia? You still there?", "nextId": "oy_seenzone_2", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I crossed a line. I'm genuinely sorry for being dismissive.", "nextId": "oy_seenzone_recover", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Leaving people on read is pretty childish.", "nextId": "oy_hard_ghost_exit", "linkUrl": "", "triggerEvent": "BULLY_JUNIA" }
+      ]
+    },
+    {
+      "id": "oy_seenzone_2",
+      "partnerMessage": "Status: Read 18m ago.\n\n[Typing...]\n\nJunia has switched status to 'Roasting - Do Not Disturb'.",
+      "linkUrl": "",
+      "triggerEvent": "GET_GHOSTED",
+      "choices": []
+    },
+    {
+      "id": "oy_seenzone_recover",
+      "partnerMessage": "...I don't have the emotional energy for people who treat manual work like a punchline.\n\nIf you want to stay in this private channel, talk to me like someone who actually respects what it takes to build something by hand.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I do respect it, Junia. Truly. Show me the batch you're running.", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I was thoughtless and I apologize. I want to understand your craft.", "nextId": "oy_sincere_apology_counter", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_hard_ghost_exit",
+      "partnerMessage": "User '{PlayerName}' was removed from the private backroom by Junia. Reason: 'Total lack of respect for labor and craft.'",
+      "linkUrl": "",
+      "triggerEvent": "FAILURE_BLOCKED",
+      "choices": []
+    },
+    {
+      "id": "oy_sincere_apology_counter",
+      "partnerMessage": "...Look, I know people think specialty coffee is pretentious. And god knows there are plenty of hipsters who turn it into an obnoxious status symbol.\n\nBut for me, it's the only thing my uncle left me that still smells like him. So when people reduce it to a cynical transaction, it cuts deeper than it should.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "I shouldn't have trampled on that. Tell me about the lot you're roasting tonight.", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "How long has it been since he passed away?", "nextId": "oy_uncle_passing_timeline", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_uncle_passing_timeline",
+      "partnerMessage": "Three years this November. He had this laugh that could cut through the sound of two commercial grinders running at once. When the shop is completely silent at night, that's when I miss that laugh the most.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "He would be so proud that you kept this drum spinning, Junia.", "nextId": "oy_what_uncle_would_say", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_beans_intro",
+      "partnerMessage": "Single-origin Ethiopian Yirgacheffe, natural process from the Gedeb district. Grown at 2,000 meters in iron-rich volcanic soil, dried on raised bamboo beds for twenty-one days.\n\nLook at this roast profile curve before I charge the drum:\nNotice how I extended the drying phase between minutes 4 and 7 to stretch the enzymatic sugars.",
       "linkUrl": "onlyyaps.roast/batch_402_curves",
       "triggerEvent": "UNLOCK_COFFEE_PROFILE",
       "choices": [
-        { "choiceText": "That roast curve looks precise. Call me while you grind it.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+        { "choiceText": "Stretching the drying phase preserves those delicate blueberry and jasmine aromatics.", "nextId": "oy_maillard_knowledge_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Doesn't extending the dry phase risk baking the core of the bean?", "nextId": "oy_baking_risk_skeptic", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" },
+        { "choiceText": "Why did you choose this specific lot from Gedeb?", "nextId": "oy_why_gedeb_story", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
       ]
     },
     {
-      "id": "oy_call_ready",
-      "partnerMessage": "Grinder is running. Tap the green call button at the top and let's talk.",
+      "id": "oy_baking_risk_skeptic",
+      "partnerMessage": "Only if your drum speed is too slow and your airflow is choked! I keep drum RPM at 62 and pull a negative static pressure of 12 pascals through the chaff cyclone. The convective transfer is so fast the heat penetrates straight to the embryo without stalling the core.\n\nI know my thermodynamics, {PlayerName}. Don't challenge the roaster on her own drum.",
       "linkUrl": "",
-      "triggerEvent": "ENABLE_VOICE_CALL",
+      "triggerEvent": "JUNIA_SKEPTIC",
+      "choices": [
+        { "choiceText": "Consider me thoroughly put in my place. You handle heat like a surgeon.", "nextId": "oy_surgeon_respect", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "62 RPM on a 5-kilo drum? That's unusually fast.", "nextId": "oy_drum_speed_nerd", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_drum_speed_nerd",
+      "partnerMessage": "It maximizes conductive contact time on the cast iron without letting the beans drag along the drum wall! It's how you get zero scorched faces on high-density high-altitude seed.\n\nOkay, the fact that you know drum RPM ranges means you're either a competitor spying on my curves, or an absurdly well-read coffee nerd.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Not a competitor. Just someone falling hard for the girl behind the drum.", "nextId": "oy_falling_hard_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Just a coffee nerd who appreciates someone at the top of her game.", "nextId": "oy_surgeon_respect", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_falling_hard_flirt",
+      "partnerMessage": "Stop making my cheeks hotter than my bean probe! The thermocouple is reading 385°F, I don't need my face matching the digital readout!\n\nSeriously though... nobody talks to me like this. It's making it very difficult to stay focused on my gas dampers.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Focus on the gas dampers first. I'm right here when the batch drops.", "nextId": "oy_focus_on_batch_sweet", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I'll let you focus. What's the rate of rise looking like?", "nextId": "oy_focus_on_batch_sweet", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_focus_on_batch_sweet",
+      "partnerMessage": "Burner dialed back to 35%. Gas pressure steady. Airflow wide open.\n\n*ten seconds of silence*\n\nThere it is. First crack. It sounds like someone snapping dry twigs in a silent forest. The whole room smells like hot blueberry muffins and caramelized raw cane sugar.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Pull the sample trier. Let's see the color development.", "nextId": "oy_trier_pull_color", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Listen to that rhythm. That's your mastery talking.", "nextId": "oy_trier_pull_color", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_trier_pull_color",
+      "partnerMessage": "*metallic scraping of brass sleeve*\n\nEven milk chocolate hue across the whole face. Chaff separated clean. Development time ratio is sitting right at 15.5%.\n\nThree... two... one... DROP!\n\n*loud roar of beans hitting the stainless steel cooling tray and agitator sweeping*",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Flawless roast curve, Junia. You nailed it.", "nextId": "oy_nailed_curve_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Now step away from the burner, take a breath, and talk to me.", "nextId": "oy_step_away_breathe", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_nailed_curve_praise",
+      "partnerMessage": "We nailed it. Hearing you follow along in text while the drum was turning... it felt like you were standing right at my shoulder, watching the glass sight hole with me.\n\nI haven't felt that kind of partnership since my uncle was alive.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Partnership doesn't stop when the drum cools down, Junia.", "nextId": "oy_partnership_doesnt_stop", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Tell me about him. What would he say if he saw this batch?", "nextId": "oy_what_uncle_would_say", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_step_away_breathe",
+      "partnerMessage": "*heavy exhale*\n\nStepping away. Sitting down on a burlap sack of green Colombian Supremo. Wiping my forehead with the back of my forearm. My hands have that fine caffeine tremor, but my chest feels completely unknotted for the first time all week.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Lean back against the sacks. You did amazing work tonight.", "nextId": "oy_partnership_doesnt_stop", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Drink some water, roaster girl. You can't survive on roast steam alone.", "nextId": "oy_drink_water_care", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_drink_water_care",
+      "partnerMessage": "Yes, boss. Drinking from my glass beaker right now. Cold, filtered water has never tasted so good.\n\nYou really don't let up on taking care of me, do you?",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Not a chance. Someone has to look out for the person who looks out for everyone else.", "nextId": "oy_partnership_doesnt_stop", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_what_uncle_would_say",
+      "partnerMessage": "He would have pulled two beans out of the cooling tray, crunched them between his back molars to check the internal roast density, squinted at me through his bifocals, and said: 'Too good for the morning commute crowd. Save this for the people who actually taste their lives.'\n\nAnd then he would have asked who the hell I was texting with a smile on my face at midnight.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "And what would you have told him about me?", "nextId": "oy_what_tell_uncle_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_what_tell_uncle_flirt",
+      "partnerMessage": "I would have told him: 'Uncle Sal, I found someone who understands why we bake the tapes, why we stretch the Maillard curve, and why a lopsided knitted scarf is worth more than a store-bought sweater.'\n\nAnd he would have told me not to let you get away.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Listen to Uncle Sal. I'm not getting away, Junia.", "nextId": "oy_carry_together_climax", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" },
+        { "choiceText": "What's the rest of your night look like now that the beans are in the bin?", "nextId": "oy_darkroom_pivot", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_partnership_doesnt_stop",
+      "partnerMessage": "...You're really serious about this, aren't you? This isn't just late-night texting banter for you.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I have never been more serious about anything in my life. What's next on your bench tonight?", "nextId": "oy_darkroom_pivot", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_maillard_knowledge_praise",
+      "partnerMessage": "YES! EXACTLY! If you rush through yellowing, you leave the core raw and get grassy bitterness. If you drag it out too long, you bake out the floral aromatics. It's a knife-edge balance that requires all your attention.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You walk that knife-edge every day. That's why your coffee has a cult following.", "nextId": "oy_surgeon_respect", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_surgeon_respect",
+      "partnerMessage": "Thank you. A roast curve is an equation in motion. Convection, conduction, moisture evaporation, and bean mass shifting simultaneously. You have to feel the drum vibrations through the soles of your boots to know when to pull the trier.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Pull the trier. Let's see the color development.", "nextId": "oy_trier_pull_color", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_why_gedeb_story",
+      "partnerMessage": "Because it was the last green coffee contract my uncle sampled before he passed away. We sat together cupping five different lots, and when we slurped this one, his eyes lit up like a kid seeing snow for the first time. He said: 'Junia, this doesn't taste like dirt and smoke. This tastes like late summer berries.'\n\nI bought twenty bags with my own savings just to keep that memory alive in the hopper.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You didn't just buy coffee bags. You bought a vessel for his joy.", "nextId": "oy_what_uncle_would_say", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Let's honor that memory and roast it to absolute perfection tonight.", "nextId": "oy_focus_on_batch_sweet", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_darkroom_pivot",
+      "partnerMessage": "Now comes the part of the night where my courage usually fails me.\n\nI have to go into the back supply closet, tape the door seam with weatherstripping, mix fresh Ilford fixer, and develop a 35mm roll of portraits I took of old Arthur down at the freight docks.\n\nHe passed away last week. His daughter came by the shop yesterday to tell me. This roll is the last photograph ever taken of him, and I've been procrastinating for three days because I'm terrified I blew the exposure.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Arthur... the dockworker who carved you the cedar fishing lure?", "nextId": "oy_arthur_recollection", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Why terrified? You know your exposure triangle better than anyone.", "nextId": "oy_exposure_fear_deep", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_arthur_recollection",
+      "partnerMessage": "You remembered the wooden lure... *long pause*\n\nYes. Arthur. He sat on the tailgate of his pickup truck in the freezing dawn mist, drinking black coffee out of an enamel mug, telling me stories about how the waterfront used to smell like pine lumber before the glass condos went up.\n\nIf I ruined this roll in the developer tank, that moment is erased from the world forever.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You didn't ruin it, Junia. Your hands were steady when you pressed the shutter.", "nextId": "oy_steady_hands_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I'm staying right here in this text chat while you pour the chemistry. You're not alone.", "nextId": "oy_darkroom_companion_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_exposure_fear_deep",
+      "partnerMessage": "Because the sun was rising behind him! Extreme backlight, harsh shadows on his face, no reflector. I had to meter for his eyes and pray the Tri-X latitude could hold the highlights.\n\nIf I overdevelop, the sky blows out to pure white paper. If I underdevelop, his eyes turn into two black inkwells.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Tri-X has three stops of highlight latitude. Trust the film, and trust yourself.", "nextId": "oy_trust_film_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_steady_hands_comfort",
+      "partnerMessage": "My hands don't feel steady right now. I'm measuring 10 milliliters of D-76 concentrate into the graduated cylinder, and the glass is clinking against the stainless steel sink.\n\nStay on text with me while I load the spiral reel in the dark bag. Keep talking to me so the dark doesn't close in.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "I'm right here. Hands in the changing bag. Feel the film leader with your index fingers.", "nextId": "oy_changing_bag_step", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_darkroom_companion_bond",
+      "partnerMessage": "Taping the door seam now. Red safelight on.\n\nThe smell of acetic acid and wet cardboard is filling the closet. I have my phone propped up against the enlarger baseboard where I can see your messages.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "First thirty seconds of development: continuous gentle agitation. Start the timer.", "nextId": "oy_development_process_start", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_trust_film_comfort",
+      "partnerMessage": "...Okay. Inhale. Exhale. D-76 poured. Tank sealed.\n\nStarting continuous agitation. Inverting the tank... one... two... three... tapping the base against the sink to dislodge air bubbles.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Rest for thirty seconds. How are your hands feeling now?", "nextId": "oy_inversion_rest_chat", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_changing_bag_step",
+      "partnerMessage": "Scissors snipped the leader square. Feeling the ball bearings on the plastic reel... *click-click-click*\n\nFilm is winding smoothly onto the spirals. No buckling. Tank lid locked tight.\n\nHands pulled out of the dark bag! Room lights back on! Pouring developer now!",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Clock is running. Rest thirty seconds, then three inversions.", "nextId": "oy_inversion_rest_chat", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_development_process_start",
+      "partnerMessage": "Developer is in! Tank inverted continuously for thirty seconds. Base tapped on the porcelain. Now resting for minute two.\n\nI'm watching the text cursor blink on my screen while the chemical clock counts down. Having you here makes this tiny closet feel ten times bigger.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Minute two: three inversions, tap the base. Keep your rhythm steady.", "nextId": "oy_inversion_rest_chat", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_inversion_rest_chat",
+      "partnerMessage": "*three inversions completed, sharp tap on sink*\n\nResting again. Minute four of eight.\n\nYou know what's crazy? In high school, my art teacher told me film was a dead medium and that I was wasting my youth learning skills that machines could do faster.\n\nEvery time I stand in this closet, I think about that. A machine can do it faster, but a machine doesn't care if Arthur's eyes are sharp.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "A machine has no reverence. That's why your art matters. Invert again for minute five.", "nextId": "oy_minute_five_inversion", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_minute_five_inversion",
+      "partnerMessage": "Inverting... tap!\n\nMinute six. Getting the stop bath ready. The vinegar smell is strong, but my hands aren't shaking anymore. Having you count the intervals with me through text is the most soothing thing I've ever experienced in a darkroom.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Minute seven: three inversions. Prepare to dump developer at minute eight.", "nextId": "oy_final_developer_dump", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_final_developer_dump",
+      "partnerMessage": "Seven... eight! DUMPING DEVELOPER!\n\n*sound of liquid gushing into drain*\n\nStop bath in! Agitating for thirty seconds! Halting the chemical reaction!\n\nStop bath dumped! Rapid fixer poured in! Now we wait three minutes for the silver halide to clear.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Three minutes until we see Arthur. Breathe, Junia. The hard part is done.", "nextId": "oy_three_minute_wait", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_three_minute_wait",
+      "partnerMessage": "Water wash is running in the sink, rinsing the fixer out.\n\nI have the film squeegee in my hand. I'm unspooling the wet strip from the plastic reel.\n\n*long, silent gap of three minutes*\n\n{PlayerName}...",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Junia? What do you see on the negatives?", "nextId": "oy_negatives_reveal", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_negatives_reveal",
+      "partnerMessage": "His eyes... the steam rising off the enamel mug... the grain on his wool coat.\n\nIt's perfect. The highlight latitude held the sunrise behind his shoulders, and his face is completely sharp. You can see the tiny smile lines at the corners of his eyes.\n\nI'm standing here in my wet rubber apron holding this dripping strip of plastic up to the bare ceiling bulb, and I'm crying so hard I can barely see my phone screen.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You preserved him, Junia. Arthur's story is safe because of you. I'm so proud of you.", "nextId": "oy_proud_of_you_climax", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Hang that strip up to dry. You did something truly sacred tonight.", "nextId": "oy_sacred_work_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_sacred_work_comfort",
+      "partnerMessage": "Squeegeed both sides with distilled water. Clipped it to the wire hanger under the exhaust fan with wooden clothespins.\n\nI'm unlocking the supply closet door and stepping back into the roastery.\n\nThe air out here smells like cooling Ethiopian Yirgacheffe and fresh rain. Everything feels completely still.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Come sit on the counter. Let's talk about what happens next.", "nextId": "oy_proud_of_you_climax", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_proud_of_you_climax",
+      "partnerMessage": "Nobody has told me they're proud of me since my uncle passed away. My parents just ask if I've turned a quarterly profit yet.\n\nYou didn't ask for a voice call, you didn't rush me, and you stayed with me through every single minute of developer agitation in the dark.\n\nYou didn't run when things got heavy, {PlayerName}.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'm never running from you, Junia. I want to be here for the roasts, the darkroom, and everything in between.", "nextId": "oy_climax_romance_unfold", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
+      ]
+    },
+    {
+      "id": "oy_climax_romance_unfold",
+      "partnerMessage": "I just unlocked the deadbolt on the alley back door.\n\nThe rain is tapping against the glass transom, the street is dead quiet, the cooling tray is full of fresh coffee, and Arthur's film is drying on the line.\n\nCome over, {PlayerName}. No screens between us. Come sit on this wooden counter, drink coffee out of a chipped porcelain cup, and let me look at you with my own eyes.",
+      "linkUrl": "",
+      "triggerEvent": "CLIMAX_ROMANCE_PERFECT",
+      "choices": [
+        { "choiceText": "I'm pulling on my jacket and heading out the door right now. Leave the porch light on.", "nextId": "oy_final_resolution", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_final_resolution",
+      "partnerMessage": "Amber porch light is glowing over the alley cobblestones. Fresh Yirgacheffe is ground into the French press.\n\nSee you in ten minutes, my favorite person.",
+      "linkUrl": "",
+      "triggerEvent": "",
       "choices": []
+    },
+    {
+      "id": "oy_whats_on_your_mind",
+      "partnerMessage": "Exhaustion, mostly. The good kind and the terrifying kind.\n\nMy roastery lease jumps 15% next month, the main drum bearing is starting to chatter, and I spent two hours developing a test roll of street portraits that came out with water spots all over the emulsion.\n\nSome nights I ask myself why I didn't just take an office desk job and buy a nice couch.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Because a nice couch doesn't give you that feeling when first crack pops in the drum.", "nextId": "oy_first_crack_meaning", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Water spots on negatives? Did you run out of wetting agent in your final wash?", "nextId": "oy_photoflo_technical", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_photoflo_technical",
+      "partnerMessage": "Yes! Ran completely out of Kodak Photo-Flo! Tried using diluted organic soap like an idiot and streaked the whole roll.\n\nWait... you actually know darkroom rinse chemistry?! Who ARE you?!",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Just someone who respects the craft. Show me the batch, Junia.", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_first_crack_meaning",
+      "partnerMessage": "...Yeah. When that first crack snaps, the room fills with sweet toasted grain and warm stone fruit, and for sixty seconds, the rent doesn't matter.\n\nHere, look at the profile curve before I charge the drum:",
+      "linkUrl": "onlyyaps.roast/batch_402_curves",
+      "triggerEvent": "UNLOCK_COFFEE_PROFILE",
+      "choices": [
+        { "choiceText": "Examine the Ethiopian Yirgacheffe curve.", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_deserve_someone_tender",
+      "partnerMessage": "I'm so used to being the strong one—the girl who drags sixty-pound green bean sacks across concrete, solders copper pipes under the sink, and smiles at customers when sales are slow. Having someone say I deserve care... it feels foreign.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Foreign doesn't mean wrong. Let's see that roast curve.", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_carry_together_climax",
+      "partnerMessage": "First crack achieved. You saw past the cynical barrier, past the coffee stains, and straight into the girl trying to hold her world together with twine and tape.\n\nI just unlocked the alley door. The coffee is cooling and the darkroom is quiet. Come over.",
+      "linkUrl": "",
+      "triggerEvent": "CLIMAX_ROMANCE_PERFECT",
+      "choices": [
+        { "choiceText": "On my way right now, Junia. Leave the light on.", "nextId": "oy_final_resolution", "linkUrl": "", "triggerEvent": "" }
+      ]
     }
   ]
 }

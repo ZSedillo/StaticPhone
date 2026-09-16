@@ -2,40 +2,1236 @@
   "girlName": "Andiva",
   "age": 23,
   "personality": "Theatrical Stylist",
-  "bio": "Darling, fashion is an art form, not an accident. Don't be boring.",
+  "bio": "Fashion is theatrical armor, darling. Gay, overly opinionated, and secretly hoping someone looks past the rhinestones. Don't be boring.",
   "avatarIndex": 7,
   "nodes": [
     {
       "id": "start",
-      "partnerMessage": "Darling {PlayerName}, thank goodness you matched. The fashion taste on this app is an absolute crime scene.",
+      "partnerMessage": "Hi, {PlayerName}... um, wait. That was tragically boring. Hi! Sorry. I usually rehearse my openers in front of a full-length vanity mirror, but right now my palms are sweating on my silk phone case.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Are you offering fashion police protection?", "nextId": "fashion_critique", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Hey! My hoodie and sweatpants are peak comfort.", "nextId": "horror_reaction", "linkUrl": "", "triggerEvent": "" }
+        { "choiceText": "Honestly, that was cute. Most people here just send 'sup'.", "nextId": "awkward_reassure", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Silk phone case? Tell me you're dramatic without telling me.", "nextId": "playful_roast", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Yikes. If you need a script to say hi, this is going to be painful.", "nextId": "harsh_start", "linkUrl": "", "triggerEvent": "BULLY_ANDIVA" }
       ]
     },
     {
-      "id": "fashion_critique",
-      "partnerMessage": "Honey, I am the judge, jury, and stylist. But this chat is way too cramped for my commentary.",
+      "id": "awkward_reassure",
+      "partnerMessage": "'Sup' is a criminal offense in three different European capitals! If someone says 'sup' to me, I assume they fold their socks into round balls and have zero respect for silhouettes.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Where should we take this then?", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        { "choiceText": "Wait, what's wrong with balling socks? It saves drawer space!", "nextId": "sock_rant", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I appreciate a man with high standards. What's your real vibe?", "nextId": "vibe_check", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
-      "id": "horror_reaction",
-      "partnerMessage": "Sweatpants?! In public?! I need smelling salts immediately. We cannot discuss this here.",
+      "id": "playful_roast",
+      "partnerMessage": "Dramatic? Honey, drama is free therapy. Why exist in grayscale when you can walk through life like you're stepping off a helicopter in Milan?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Fine, give me your handle on OnlyYaps.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        { "choiceText": "Because a helicopter in Milan sounds loud, expensive, and stressful.", "nextId": "pragmatic_push", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Fair point. But do you ever take the runway sunglasses off?", "nextId": "sunglasses_metaphor", "linkUrl": "", "triggerEvent": "" }
       ]
+    },
+    {
+      "id": "harsh_start",
+      "partnerMessage": "Oh, wonderful. A critic straight out of the gate. Did you wake up on the side of the bed that hates joy, or do you always treat matches like disappointing job applicants?",
+      "linkUrl": "",
+      "triggerEvent": "FUMBLE_CONVERSATION",
+      "choices": [
+        { "choiceText": "I just prefer someone who doesn't overthink a basic greeting.", "nextId": "bully_deepen_1", "linkUrl": "", "triggerEvent": "BULLY_ANDIVA" },
+        { "choiceText": "My bad. Cheap sarcasm. Let's reset: I'm {PlayerName}.", "nextId": "reset_apology", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "sock_rant",
+      "partnerMessage": "It stretches the elastic cuffs, you barbarian! Roll them! Fold them neatly like delicate French pastries! Ugh, I can already tell your closet is a war zone.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "It really is. You'd probably faint if you saw my floordrobe.", "nextId": "floordrobe_reaction", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Hey, don't come after my closet until you've earned that right.", "nextId": "boundary_check", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "vibe_check",
+      "partnerMessage": "My real vibe? Exhausted romantic trapped inside the body of an editorial stylist who spends too much on matcha and vintage brooches. What about you, {PlayerName}?",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "A little grounded, a little tired of games, hoping for something real.", "nextId": "real_interest", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "Just exploring. Not looking to get dragged into anyone's personal opera.", "nextId": "casual_distance", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "pragmatic_push",
+      "partnerMessage": "Loud, expensive, and stressful is the exact recipe for adrenaline! Though... to be entirely honest, my real Tuesday night is usually a sheet mask and watching reruns in oversized flannel.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "See, that actually sounds lovely. The real person underneath.", "nextId": "underneath_reveal", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Flannel? What happened to Milan?", "nextId": "milan_defense", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "sunglasses_metaphor",
+      "partnerMessage": "Only when the lights are low and the person sitting across from me doesn't look like they're going to flinch at who I actually am.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Have people flinched before?", "nextId": "past_wounds", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "That got intense quick. You always this moody?", "nextId": "moody_callout", "linkUrl": "", "triggerEvent": "FUMBLE_CONVERSATION" }
+      ]
+    },
+    {
+      "id": "bully_deepen_1",
+      "partnerMessage": "Darling, in the gay dating scene, if you don't overthink, you get reduced to a archetype in four seconds flat. But forgive me for not fitting into whatever tiny box you planned for me.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "You're doing a great job reducing yourself with this melodrama.", "nextId": "bully_deepen_2", "linkUrl": "", "triggerEvent": "BULLY_ANDIVA" },
+        { "choiceText": "Look, I was being blunt. Didn't mean to hit a sore spot.", "nextId": "soften_up", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "reset_apology",
+      "partnerMessage": "Mmh. Grudgingly accepted. I have a very fragile shell lined with titanium, {PlayerName}. Don't tap on the glass unless you intend to feed the fish.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Fair enough. What do you feed on, fish food or flattery?", "nextId": "flattery_humor", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Tell me what made the shell so thick in the first place.", "nextId": "past_wounds", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "floordrobe_reaction",
+      "partnerMessage": "Floordrobe?! I need a tranquilizer dart. Tell me there isn't laundry piled on that one specific chair in the corner of your room.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "The chair has a soul and it carries my weekly burden.", "nextId": "chair_humor", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "You're hilarious when you're scandalized.", "nextId": "charming_flirt", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "boundary_check",
+      "partnerMessage": "Ooh, sharp edges. I respect a person who defends their perimeter. Most guys just roll over or agree with everything I say until they get bored.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I don't play yes-man. You want an accessory or a partner?", "nextId": "partner_question", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I'm just tired of strangers making assumptions.", "nextId": "weary_bonding", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "real_interest",
+      "partnerMessage": "Something real. God, it sounds almost mythological on an app like this. Half my matches want a free styling makeover, and the other half want someone discreet who never introduces them to their friends.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'd introduce you to everyone. Bright colors and all.", "nextId": "introduced_compliment", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Being someone's dirty little secret is awful. You deserve better.", "nextId": "deserve_better", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Maybe you attract that energy because you're so loud.", "nextId": "victim_blame", "linkUrl": "", "triggerEvent": "FUMBLE_CONVERSATION" }
+      ]
+    },
+    {
+      "id": "casual_distance",
+      "partnerMessage": "An opera requires passion, darling, and passion takes stamina! If you're looking for bland small talk about the weather, there are 4,000 corporate accountants two swipes to your left.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Touché. Give me the opera then. What's Act One?", "nextId": "act_one_story", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "You really can't turn it off for five seconds, can you?", "nextId": "bully_deepen_2", "linkUrl": "", "triggerEvent": "BULLY_ANDIVA" }
+      ]
+    },
+    {
+      "id": "underneath_reveal",
+      "partnerMessage": "Don't tell anyone about the flannel, {PlayerName}. It ruins my brand. If Vogue finds out I own fleece pajama bottoms with penguins on them, my career is finished.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Penguins?! Oh, that's it. You're completely disarmed now.", "nextId": "penguin_banter", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Your secret is safe with me. I think it's adorable.", "nextId": "adorable_flirt", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "milan_defense",
+      "partnerMessage": "Milan exists in my posture! But nobody can survive in tailored wool 24/7 without their soul shriveling into a dehydrated raisin.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "So what does your soul actually run on?", "nextId": "soul_fuel", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "past_wounds",
+      "partnerMessage": "Of course they have. Grew up in a sleepy coastal suburb where anything louder than beige was considered an insurrection. My own father told me I'd 'grow out of the glitter.' Ten years later, I am the glitter.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "That takes real courage to double down on who you are.", "nextId": "courage_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Sounds like you turned yourself into a caricature out of spite.", "nextId": "spite_analysis", "linkUrl": "", "triggerEvent": "FUMBLE_CONVERSATION" }
+      ]
+    },
+    {
+      "id": "moody_callout",
+      "partnerMessage": "Moody? I share one speck of genuine vulnerability and you call it moody. And men wonder why gay guys stay emotionally guarded until they're eighty.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'm sorry. I get uncomfortable when things get real so fast.", "nextId": "honest_admit", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "If you can't handle a comment, don't dump your baggage on strangers.", "nextId": "bully_deepen_2", "linkUrl": "", "triggerEvent": "BULLY_ANDIVA" }
+      ]
+    },
+    {
+      "id": "bully_deepen_2",
+      "partnerMessage": "You're charming, aren't you? A real prince charming disguised as an emotional sandpaper block. Why are you even talking to me if I offend your delicate sensibilities?",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Because watching you get flustered is entertaining.", "nextId": "bully_climax", "linkUrl": "", "triggerEvent": "BULLY_ANDIVA" },
+        { "choiceText": "I don't know. Maybe I thought there was something softer underneath.", "nextId": "soften_up", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "soften_up",
+      "partnerMessage": "...Look at that. An actual olive branch. I suppose I can put the claws away for a minute. Truth is, I'm used to fighting for air in conversations.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "You don't have to fight me. I'm listening.", "nextId": "safe_space", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Just dial down the theatricals and we'll get along fine.", "nextId": "conditional_peace", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "flattery_humor",
+      "partnerMessage": "Flattery is acceptable, but sincerity is rare vintage champagne. Give me a compliment that isn't about my hair or my jawline. Surprise me.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I like how passionate you get about the things you care about.", "nextId": "passion_compliment", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I like that beneath the theatricality, you're sharp as a razor.", "nextId": "sharp_compliment", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "chair_humor",
+      "partnerMessage": "The Chair of Damnation! Every home has one. I bet it's currently holding a pair of jeans that are 'too clean for the hamper but too dirty for the drawer.'",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "How did you read my room with satellite precision?!", "nextId": "psychic_reveal", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "You're terrifying. Are you spying on me right now?", "nextId": "spying_banter", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "charming_flirt",
+      "partnerMessage": "Careful, darling. Flattery will get you everywhere, and by everywhere I mean me dragging you to an antique rug market at 7:00 AM on a Saturday.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Deal, but you're buying the iced coffee.", "nextId": "coffee_date_hook", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "7:00 AM on a weekend? That's grounds for an immediate block.", "nextId": "weekend_sleep", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "partner_question",
+      "partnerMessage": "A partner. A real, messy, terrifying, beautiful partner who doesn't treat me like a cartoon character or run when I have a low-energy Tuesday.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "That sounds like exactly what I came here to find.", "nextId": "mutual_longing", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Low-energy Tuesdays happen. I make great comfort food.", "nextId": "comfort_food", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "weary_bonding",
+      "partnerMessage": "It's the fatigue of modern dating. We're all carrying around miniature CVs on our phones, grading each other like terrible HR managers.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "So let's drop the resume. What's your favorite unglamorous memory?", "nextId": "unglamorous_memory", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "introduced_compliment",
+      "partnerMessage": "Don't say that unless you mean it, {PlayerName}. People say that until my boots click on their mother's hardwood floor and their eyes start darting around the room.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I mean every word. Life's too short to date someone in secret.", "nextId": "sincere_promise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Well, maybe keep the 6-inch platforms at home for brunch.", "nextId": "platform_joke", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "deserve_better",
+      "partnerMessage": "Thank you... You have no idea how heavy that particular ghost is. I spent two years with someone who would drop my hand the moment we ran into someone from his gym.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "He was a coward. You shouldn't have had to shrink for him.", "nextId": "coward_validation", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Gym culture can be tough on guys, to be fair.", "nextId": "defense_ex", "linkUrl": "", "triggerEvent": "FUMBLE_CONVERSATION" }
+      ]
+    },
+    {
+      "id": "victim_blame",
+      "partnerMessage": "'Loud'? So I'm responsible for other people being ashamed of loving a man? Good grief. I thought for two seconds you were different.",
+      "linkUrl": "",
+      "triggerEvent": "FUMBLE_CONVERSATION",
+      "choices": [
+        { "choiceText": "I just mean moderation is attractive.", "nextId": "moderation_lecture", "linkUrl": "", "triggerEvent": "BULLY_ANDIVA" },
+        { "choiceText": "Wait, no. That came out terribly wrong. I'm sorry.", "nextId": "backpedal_sincere", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "act_one_story",
+      "partnerMessage": "Act One begins with a young, stubborn apprentice ruining 50 yards of raw silk at an atelier because he insisted on dyeing it electric chartreuse. I was fired, broke, and ecstatic.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Chartreuse?! You were a menace from day one!", "nextId": "chartreuse_laugh", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Did you ever regret not playing it safe?", "nextId": "playing_safe_q", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "penguin_banter",
+      "partnerMessage": "They're wearing tiny earmuffs, okay?! It is peak thermal engineering and I will not be shamed by a person who probably owns novelty socks from Christmas 2019!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Hey! Those Christmas socks have sentimental value!", "nextId": "novelty_socks", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I think seeing you in penguin pajamas might actually kill me with cuteness.", "nextId": "cuteness_attack", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "adorable_flirt",
+      "partnerMessage": "Shh. Stop. My cheekbones are burning and I have too much highlighter on for this kind of physiological reaction.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "You're cute when you're caught off guard.", "nextId": "blushing_stylist", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "soul_fuel",
+      "partnerMessage": "Iced matcha with oat milk, Fleetwood Mac on vinyl, and people who tell the truth even when their voice is shaking.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "That last one... that hit home.", "nextId": "truth_shaking", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "Matcha tastes like wet grass. There, I told the truth.", "nextId": "matcha_blasphemy", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "courage_praise",
+      "partnerMessage": "Thank you, {PlayerName}. Honestly. Most people either scoff or call it self-indulgent. It wasn't about being seen—it was about not wanting to disappear.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "You're impossible to miss now. In the best way.", "nextId": "impossible_to_miss", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Did you and your dad ever make peace?", "nextId": "father_relationship", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "spite_analysis",
+      "partnerMessage": "Maybe some of it started as spite. But spite is just grief with a manicure, darling. Eventually you learn to love what you've built for yourself.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "'Grief with a manicure'... wow. That's profound.", "nextId": "grief_manicure_nod", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Still sounds exhausting to keep up all the time.", "nextId": "exhausting_persona", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "honest_admit",
+      "partnerMessage": "I appreciate the honesty. Vulnerability is terrifying. We're both just two people staring into blue-light glass hoping not to get hurt.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Then let's make a deal: zero games from here on out.", "nextId": "zero_games_pact", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "bully_climax",
+      "partnerMessage": "Entertaining? I am an artist, not your court jester. You're just another insecure match who punches down to feel tall. Go download an AI girlfriend if you want a doormat.",
+      "linkUrl": "onlyyaps.app/andiva_style",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    },
+    {
+      "id": "safe_space",
+      "partnerMessage": "You have no idea how much hearing that actually loosens my shoulders. It's rare that someone lets me just... sit without performing.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Take a breath, Andiva. You're doing great.", "nextId": "breathe_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Tell me about your real passions outside styling.", "nextId": "passions_outside", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "conditional_peace",
+      "partnerMessage": "Dial it down? I can lower the volume, darling, but the song stays the same. Take it or leave it.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'll take it. Full volume is fine.", "nextId": "full_volume_accept", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Then I guess we're at an impasse.", "nextId": "impasse_exit", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "passion_compliment",
+      "partnerMessage": "People usually just say 'you have great taste.' They don't notice the hours of research, the history, the sweat that goes into creating a world through fabric. Thank you.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I see the work. And I see you.", "nextId": "seen_validation", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "What's the dream project you haven't made yet?", "nextId": "dream_project", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "sharp_compliment",
+      "partnerMessage": "Razor sharp is required equipment! If you don't have a tongue like a scalpel in this industry, they'll turn you into an unpaid intern forever.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Ever cut someone who didn't deserve it?", "nextId": "accidental_cuts", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "psychic_reveal",
+      "partnerMessage": "I am a style psychic! I can look at a man's shoe choice and tell you his relationship with his mother within a 5% margin of error.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Okay genius, what do beat-up white sneakers say?", "nextId": "sneaker_analysis", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "What about Chelsea boots?", "nextId": "chelsea_boots", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "spying_banter",
+      "partnerMessage": "I don't need to spy when your vibe radiates through the Wi-Fi signal, honey. It's screaming 'handsome, but needs someone to steam his shirts.'",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Did you just call me handsome?", "nextId": "handsome_catch", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I happen to love wrinkly linen shirts.", "nextId": "linen_debate", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "coffee_date_hook",
+      "partnerMessage": "Cold brew, oat milk, one pump of vanilla. Memorize it. If we survive this chat, you might have to order it for me while I inspect vintage velvet.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Written down in my mental notebook.", "nextId": "mental_notebook", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "weekend_sleep",
+      "partnerMessage": "Fine, 11:00 AM! But anything past noon is sleeping through half the daylight and I have aesthetics to harvest!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Deal. 11:00 AM brunch sounds perfect.", "nextId": "brunch_agreement", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "mutual_longing",
+      "partnerMessage": "Then why does it feel like finding someone like that is harder than sourcing deadstock Japanese denim? I'm so tired of the games, {PlayerName}.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "The game ends here. Let's talk somewhere better than this swipe app.", "nextId": "pre_yaps_invite", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "comfort_food",
+      "partnerMessage": "Wait... you cook? Like actual food with ingredients, not just microwave cardboard?",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Real garlic, fresh herbs, the whole routine.", "nextId": "cooking_swoon", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I make a killer pasta dish when I care about the person.", "nextId": "pasta_romance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "unglamorous_memory",
+      "partnerMessage": "Sneaking into a 24-hour laundromat during a monsoon with my best friend, eating dollar tacos on the spinning dryer because our basement flooded. We were soaked, broke, and laughing until our ribs hurt.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "That's genuine movie magic right there.", "nextId": "movie_magic_reply", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "See, that person is way more interesting than the Milan stylist.", "nextId": "real_person_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "sincere_promise",
+      "partnerMessage": "...You're making it very hard for me to keep my cynical wall up, you know that right? My heart just did that stupid flutter thing.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Let it flutter. You're safe with me, Andiva.", "nextId": "safe_promise_link", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "platform_joke",
+      "partnerMessage": "Darling, the platforms are non-negotiable! How else am I supposed to look down with gentle condescension at people who cut the line?",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'll hold your hand so you don't roll an ankle.", "nextId": "hold_hand_flirt", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "coward_validation",
+      "partnerMessage": "He was. But it took me eight months of therapy to stop feeling like I was the embarrassment. It means a lot to hear someone just say it plainly.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "You were never the problem. You were just too big for his tiny world.", "nextId": "too_big_world", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "defense_ex",
+      "partnerMessage": "Oh please. Don't play devil's advocate for someone who treated me like a secret shame. That's not understanding, that's complicity.",
+      "linkUrl": "",
+      "triggerEvent": "FUMBLE_CONVERSATION",
+      "choices": [
+        { "choiceText": "You're right. I spoke without thinking. I'm sorry.", "nextId": "sincere_correction", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I was just trying to be balanced.", "nextId": "bully_deepen_2", "linkUrl": "", "triggerEvent": "BULLY_ANDIVA" }
+      ]
+    },
+    {
+      "id": "moderation_lecture",
+      "partnerMessage": "'Moderation'? Honey, vanilla comes in tubs at the supermarket. If you wanted bland, go date yogurt.",
+      "linkUrl": "onlyyaps.app/andiva_style",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    },
+    {
+      "id": "backpedal_sincere",
+      "partnerMessage": "Thank you for stopping yourself. It takes guts to realize when you stepped on a landmine and step off carefully.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I really do want to get this right with you.", "nextId": "get_it_right", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "chartreuse_laugh",
+      "partnerMessage": "It looked like a neon highlighter exploded on a Victorian duke! The head tailor almost had an aneurysm. But you know what? A pop star bought the ruined bolt two days later for five grand.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "You're an absolute chaos goblin and I love it.", "nextId": "chaos_goblin", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "playing_safe_q",
+      "partnerMessage": "Playing it safe in styling is how you end up designing beige corporate polo shirts for dental conventions. Death before khakis.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "'Death before khakis' needs to be on your gravestone.", "nextId": "gravestone_joke", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "novelty_socks",
+      "partnerMessage": "Keep them hidden under your bed when I visit, or I will replace them with hand-dyed merino wool socks while you're asleep.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Wait, did you just casually plan on visiting my place?", "nextId": "visiting_caught", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "cuteness_attack",
+      "partnerMessage": "I have layers, darling! Beneath the sharp tongue and architectural blazers is an oversized toddler who likes cocoa with tiny marshmallows.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "That is the best plot twist I've heard all year.", "nextId": "plot_twist_romance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "blushing_stylist",
+      "partnerMessage": "Stop it! I am supposed to be an untouchable tastemaker, not turning crimson because a cute match called me adorable.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "So you think I'm cute too?", "nextId": "mutual_attraction", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "truth_shaking",
+      "partnerMessage": "It takes so much guts to show up as yourself. Every date feels like an audition where you're terrified they'll find out you're human.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Audition over. You got the part.", "nextId": "audition_over", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "matcha_blasphemy",
+      "partnerMessage": "WET GRASS?! Did you just slander the ceremonial green nectar of the gods?! Our wedding is canceled! Canceled!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Wedding? We haven't even had our first drink yet!", "nextId": "wedding_escalation", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I'll drink it if you hold my hand through the agony.", "nextId": "hold_hand_tea", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "impossible_to_miss",
+      "partnerMessage": "You have a very dangerous way of disarming me, {PlayerName}. I'm usually the one directing the narrative.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Maybe it's nice to let someone else steer for once.", "nextId": "steer_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "father_relationship",
+      "partnerMessage": "We talk twice a year. He asks about sports I don't follow, I ask about cars I don't drive. It's polite silence. It took me a long time to realize you can't force someone to admire art they don't understand.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "That must leave an ache, even now.", "nextId": "ache_empathy", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Families are overrated anyway.", "nextId": "overrated_family", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "grief_manicure_nod",
+      "partnerMessage": "I should trademark that. But really... thank you for not brushing it off as drama. It's nice when someone understands the subtext.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I pay attention to you, Andiva. More than you think.", "nextId": "paying_attention", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "exhausting_persona",
+      "partnerMessage": "It is exhausting. That's why I'm sitting here in sweatpants on this stupid app hoping someone gives me an excuse to unclench my jaw.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Unclench it. You can be off-duty with me.", "nextId": "off_duty_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "zero_games_pact",
+      "partnerMessage": "A pact then. The 'No Bullshit, No Ghosting' treaty of 2026. Signed in metaphorical ink.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Signed and sealed. Now tell me your biggest guilty pleasure.", "nextId": "guilty_pleasure", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "breathe_comfort",
+      "partnerMessage": "Inhale... exhale. Okay. Wow. You're actually really grounding to talk to. Usually matches hype up my neurotic energy until I'm climbing the walls.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I like being your calm harbor.", "nextId": "calm_harbor", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "passions_outside",
+      "partnerMessage": "I rescue stray cats. Specifically older, ugly ones nobody wants because they have ragged ears and grumpy faces. I have a one-eyed tuxedo cat named Sir Reginald who rules my living room.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Sir Reginald?! Stop, you're making me fall for you right now.", "nextId": "reginald_swoon", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Cats? I'm more of a dog person honestly.", "nextId": "dog_person_debate", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "full_volume_accept",
+      "partnerMessage": "Then buckle up, darling. Full volume includes impromptu runway shows in the grocery store cereal aisle.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'll provide the background beatboxing by the Captain Crunch.", "nextId": "cereal_aisle_beatbox", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "impasse_exit",
+      "partnerMessage": "Fair enough. At least we saved each other forty-five minutes of painful small talk. Best of luck on the swipe feed.",
+      "linkUrl": "onlyyaps.app/andiva_style",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    },
+    {
+      "id": "seen_validation",
+      "partnerMessage": "...Nobody has said that to me before. Truly. They see the hair or the outfits, but never the actual effort underneath.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Then let's get off this crowded dating feed and talk for real.", "nextId": "pre_yaps_invite", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "dream_project",
+      "partnerMessage": "A fully genderless haute couture line made entirely from repurposed workwear and deadstock velvet. Heavy denim meets soft drapery. High-fashion armor for sensitive souls.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "That sounds visionary. I want to be in the front row.", "nextId": "front_row_promise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "accidental_cuts",
+      "partnerMessage": "Yeah... early on. When you're used to being attacked, you start swinging at shadows. I lost a good friend because I made a vicious critique about her jacket when she was just trying to support me.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "It takes growth to admit that. Did you ever apologize?", "nextId": "apology_growth", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "sneaker_analysis",
+      "partnerMessage": "Beat-up white sneakers mean you're either effortlessly confident or your laundry hamper is overflowing and you ran out of clean shoes. There is no middle ground!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "What if it's both?", "nextId": "both_sneakers", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "chelsea_boots",
+      "partnerMessage": "Chelsea boots mean you have taste, you like autumn weather, and you probably drink black coffee while staring dramatically out rain-streaked windows.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "You caught me. That's literally my Sunday morning.", "nextId": "sunday_rain_boots", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "handsome_catch",
+      "partnerMessage": "I have two functional eyes and your profile pictures aren't awful! That is high praise from an editorial consultant, darling!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'll take the win. You look stunning in that green silk top, by the way.", "nextId": "green_silk_compliment", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "linen_debate",
+      "partnerMessage": "Wrinkly linen is acceptable ONLY if you are lounging on a sailboat off the Amalfi coast with a spritz in hand! Not in an air-conditioned coffee shop in the suburbs!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Take me to the Amalfi coast and I'll wear whatever you want.", "nextId": "amalfi_flirt", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "mental_notebook",
+      "partnerMessage": "Good boy. Gold star for attentiveness. Most matches forget my name within twelve text exchanges.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I don't forget things about people who matter.", "nextId": "people_who_matter", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "brunch_agreement",
+      "partnerMessage": "It's a date. If you show up in flip-flops, I will throw my croissant at your forehead.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Only clean leather boots, I promise.", "nextId": "boots_promise", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "pre_yaps_invite",
+      "partnerMessage": "You have no idea how loud this app feels right now compared to this conversation. I don't want to talk to other matches. I want to talk to you.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Then let's take this private. Give me your OnlyYaps.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "cooking_swoon",
+      "partnerMessage": "Stop talking. A man who cooks real food with fresh garlic?! That is practically erotic fiction in my tax bracket.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Come over sometime and I'll cook for you and Sir Reginald.", "nextId": "reginald_dinner", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "pasta_romance",
+      "partnerMessage": "Handmade pasta? If you make fresh tagliatelle for me, I might propose before the breadsticks arrive.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Only if we can eat it on the floor with bad movies.", "nextId": "floor_pasta_date", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "movie_magic_reply",
+      "partnerMessage": "That night reminded me that beauty isn't something you purchase at a boutique—it's what happens when you let your guard down and just exist.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I want to make memories like that with you.", "nextId": "memories_together", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "real_person_praise",
+      "partnerMessage": "The Milan stylist pays my rent, but the taco-eating kid in the laundromat is the one who goes to sleep at night. I'm glad you like him.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I like both of you. A lot.", "nextId": "like_both_confession", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "safe_promise_link",
+      "partnerMessage": "God... you really know how to crack through armor, don't you? Look, I refuse to keep having this conversation in this stupid public swipe feed.",
+      "linkUrl": "onlyyaps.app/andiva_style",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    },
+    {
+      "id": "hold_hand_flirt",
+      "partnerMessage": "Holding my hand in public? Bold words, {PlayerName}. I might just hold you to that.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Please do. I don't make promises I can't keep.", "nextId": "pre_yaps_invite", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "too_big_world",
+      "partnerMessage": "I'm screenshotting that sentence and framing it. Seriously... thank you. That heals something old inside me.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Anytime. Now let's get out of this noise.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "sincere_correction",
+      "partnerMessage": "Apology accepted. Let's start fresh. The past is dead anyway; I'd rather talk about what's sitting right in front of me.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Which is me, hoping for your private handle.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "get_it_right",
+      "partnerMessage": "The fact that you care about getting it right already puts you ahead of 99% of people I've talked to this year.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Then give me a real chance. Link me your private chat.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "chaos_goblin",
+      "partnerMessage": "Chaos goblin with impeccable eyeliner, thank you very much! And don't you forget it!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Never. Now give me that private handle so we can scheme.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "gravestone_joke",
+      "partnerMessage": "Carved in marble in an italic serif font! And there will be velvet ropes around the tombstone!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'll be the VIP guest list bouncer.", "nextId": "vip_bouncer", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "visiting_caught",
+      "partnerMessage": "Did I stutter? If a man matches with me, he either gets an aesthetic upgrade or he runs away screaming. There is no middle lane!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'm not running. I'm waiting.", "nextId": "not_running_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "plot_twist_romance",
+      "partnerMessage": "Cocoa, bad horror movies, and someone who doesn't judge when I scream at jump scares. That's the real dream.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'll keep you safe during the scary parts.", "nextId": "safe_scary_parts", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "mutual_attraction",
+      "partnerMessage": "Obviously! I didn't swipe right for your philosophical treatises, darling—though your brain is a very delightful bonus.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Beauty and brains. You hit the jackpot.", "nextId": "jackpot_laugh", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "audition_over",
+      "partnerMessage": "God... you're smooth when you want to be. My heart is beating like a drum over here.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Then let's take this to voice. Or at least somewhere private.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "wedding_escalation",
+      "partnerMessage": "I move fast, darling! I've already chosen our floral arrangements: deep burgundy calla lilies and trailing dark ivy!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "As long as the cake is chocolate, you have my blessing.", "nextId": "chocolate_cake_pact", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "hold_hand_tea",
+      "partnerMessage": "Deal! I'll hold your hand, you drink the grassy matcha, and we'll judge everyone walking past the window.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Sounds like our first official date.", "nextId": "first_official_date", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "steer_comfort",
+      "partnerMessage": "It feels terrifying. But with you... oddly peaceful. Like I can put the megaphone down.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Put it down, Andiva. I'm right here.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "ache_empathy",
+      "partnerMessage": "It does. Some days more than others. But building a chosen family of people who actually see you... that's where the healing lives.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'd love to be part of that chosen circle.", "nextId": "chosen_circle_invite", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "overrated_family",
+      "partnerMessage": "Blood is just biology. Chosen family is loyalty and love. I know which one I'm investing in.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Well said. Let's invest in each other.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "paying_attention",
+      "partnerMessage": "You're dangerous, {PlayerName}. Truly. You make me want to tell you things I haven't even told my journal.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Tell me everything. On OnlyYaps.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "off_duty_comfort",
+      "partnerMessage": "Off-duty Andiva is messy, wears oversized sweaters, and eats peanut butter straight from the jar with a spoon. You ready for that?",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'll bring an extra spoon.", "nextId": "spoon_date", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "guilty_pleasure",
+      "partnerMessage": "Trashy reality TV dating shows where everyone is toxic and cries in hot tubs. I watch it with a face mask on and yell at the TV like it's the World Cup.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I am 100% joining you on the couch for that.", "nextId": "couch_tv_date", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "calm_harbor",
+      "partnerMessage": "A calm harbor... God, that sounds so nice. My whole life has felt like a choppy storm lately.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Dock your boat here then. Let's go private.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "reginald_swoon",
+      "partnerMessage": "Reginald is a very strict judge of character! If he sits on your lap, it means you're husband material. If he hisses, you have to leave via the fire escape.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'll bring salmon treats. I play to win.", "nextId": "salmon_treats", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "dog_person_debate",
+      "partnerMessage": "Reginald will convert you in three minutes, darling. He has the personality of an ancient philosopher who screams when his bowl is half full.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I look forward to meeting the legend.", "nextId": "reginald_dinner", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "cereal_aisle_beatbox",
+      "partnerMessage": "Hahaha! Deal! Froot Loops runway walk coming right up!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Let's plan our runway route on OnlyYaps.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "front_row_promise",
+      "partnerMessage": "You'll be seated right next to the editor-in-chief, darling. With champagne in hand.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'll cheer the loudest when you take your bow.", "nextId": "bow_romance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "apology_growth",
+      "partnerMessage": "Two years later. I made her a bespoke coat and showed up on her doorstep crying like a baby. We're closer than ever now. You have to fix what you break.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "That shows who you really are at your core. A good man.", "nextId": "good_man_validation", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "both_sneakers",
+      "partnerMessage": "A paradox! My favorite kind of mystery. We'll have to investigate in person.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Let's set up that investigation on OnlyYaps.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "sunday_rain_boots",
+      "partnerMessage": "Oh, you romantic sap. You're trying to melt me, aren't you?",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Is it working?", "nextId": "melting_confession", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "green_silk_compliment",
+      "partnerMessage": "Thank you... It's vintage 1994 Galliano silk. I ate ramen for three weeks to afford it, so I appreciate that you noticed!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Worth every bowl of ramen. You looked regal.", "nextId": "regal_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "amalfi_flirt",
+      "partnerMessage": "Packing my bags right now! Two vintage Louis Vuitton trunks and a hat box!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'll carry the luggage if you navigate.", "nextId": "luggage_pact", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "people_who_matter",
+      "partnerMessage": "...You're going to make me cry in my silk robe, {PlayerName}. Stop being so wonderfully genuine.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Never. Now let's get out of this public app.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "boots_promise",
+      "partnerMessage": "Good. You pass the preliminary inspection with flying colors.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Where do I claim my prize?", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "reginald_dinner",
+      "partnerMessage": "It's an official date. Reginald and I will be waiting. But first, add me on OnlyYaps so we don't lose each other.",
+      "linkUrl": "onlyyaps.app/andiva_style",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    },
+    {
+      "id": "floor_pasta_date",
+      "partnerMessage": "Floor pasta, bad movies, and candlelight. Best date pitch I've received in my entire life.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Then let's make it happen. Give me your link.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "memories_together",
+      "partnerMessage": "I'd really love that, {PlayerName}. More than I expected to when I downloaded this app.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Come on, send me your handle.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "like_both_confession",
+      "partnerMessage": "You have no idea how much that means. Seriously. I'm hitting the invite button before I get too emotional on here.",
+      "linkUrl": "onlyyaps.app/andiva_style",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    },
+    {
+      "id": "vip_bouncer",
+      "partnerMessage": "You'd look dashing with an earpiece and a clipboard, darling.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Only for your VIP section. Let's move to OnlyYaps.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "not_running_flirt",
+      "partnerMessage": "Then stay right there. I'm sending my private room invite.",
+      "linkUrl": "onlyyaps.app/andiva_style",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    },
+    {
+      "id": "safe_scary_parts",
+      "partnerMessage": "Deal. You get the popcorn, I bring the blankets and Sir Reginald.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Perfect. Send me the link.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "jackpot_laugh",
+      "partnerMessage": "Modest too! We are going to have way too much fun, aren't we?",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Count on it. Give me your OnlyYaps.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "chocolate_cake_pact",
+      "partnerMessage": "Dark chocolate with raspberry coulis. We have an agreement!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Now send me that invite link, fiancé.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "first_official_date",
+      "partnerMessage": "It's locked in my calendar, darling. Hit my private room so we can coordinate.",
+      "linkUrl": "onlyyaps.app/andiva_style",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    },
+    {
+      "id": "chosen_circle_invite",
+      "partnerMessage": "Consider yourself invited to the inner sanctum. Don't break my heart now.",
+      "linkUrl": "onlyyaps.app/andiva_style",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    },
+    {
+      "id": "spoon_date",
+      "partnerMessage": "Skippy crunchy or smooth? Choose wisely; our entire future hinges on this answer.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Crunchy, obviously. Texture matters.", "nextId": "crunchy_praise", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Smooth. Like my conversation.", "nextId": "smooth_praise", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "crunchy_praise",
+      "partnerMessage": "CORRECT! Texture is life! You're officially hired as my companion. Link below!",
+      "linkUrl": "onlyyaps.app/andiva_style",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    },
+    {
+      "id": "smooth_praise",
+      "partnerMessage": "Cheeky! I'll forgive it only because you're charming. Tap the link below.",
+      "linkUrl": "onlyyaps.app/andiva_style",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    },
+    {
+      "id": "couch_tv_date",
+      "partnerMessage": "I have face masks with charcoal extracts ready for both of us! See you on OnlyYaps!",
+      "linkUrl": "onlyyaps.app/andiva_style",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    },
+    {
+      "id": "salmon_treats",
+      "partnerMessage": "You've cracked the code. Bribery works every time. Tap my link, darling!",
+      "linkUrl": "onlyyaps.app/andiva_style",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    },
+    {
+      "id": "bow_romance",
+      "partnerMessage": "If you cheer the loudest, I might just pull you up onto the runway with me. Link below, gorgeous.",
+      "linkUrl": "onlyyaps.app/andiva_style",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    },
+    {
+      "id": "good_man_validation",
+      "partnerMessage": "Thank you, {PlayerName}. That was healing to hear. Meet me in my private room?",
+      "linkUrl": "onlyyaps.app/andiva_style",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    },
+    {
+      "id": "melting_confession",
+      "partnerMessage": "Completely puddle-shaped. You win. Hit the link below before I say something embarrassing.",
+      "linkUrl": "onlyyaps.app/andiva_style",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    },
+    {
+      "id": "regal_praise",
+      "partnerMessage": "Regal?! Oh, I'm never taking it off now. Tap the link below so we can keep talking!",
+      "linkUrl": "onlyyaps.app/andiva_style",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
+    },
+    {
+      "id": "luggage_pact",
+      "partnerMessage": "A true gentleman! Hit the link below and let's map out Italy.",
+      "linkUrl": "onlyyaps.app/andiva_style",
+      "triggerEvent": "UNLOCK_ONLYYAPS",
+      "choices": []
     },
     {
       "id": "move_to_yaps",
-      "partnerMessage": "Tap my invite link below right now. The tea is boiling and I refuse to spill it here. 💅",
+      "partnerMessage": "Tap my invite link below right now. The tea is boiling and I refuse to spill it here where everyone can watch. 💅",
       "linkUrl": "onlyyaps.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []

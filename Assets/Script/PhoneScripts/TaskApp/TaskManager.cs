@@ -50,6 +50,8 @@ public class TaskManager : MonoBehaviour
 
     public void CompleteTask(string taskId)
     {
+        if (string.IsNullOrEmpty(taskId)) return;
+
         TaskData task = allTasks.Find(t => t.taskId.Equals(taskId, StringComparison.OrdinalIgnoreCase));
         if (task != null && !task.isCompleted)
         {
@@ -57,6 +59,29 @@ public class TaskManager : MonoBehaviour
             SaveTaskProgress();
             OnTasksUpdated?.Invoke();
             Debug.Log($"<color=#38E54D>[TaskManager] Objective Checked: {task.title} ({task.taskId})</color>");
+        }
+    }
+
+    /// <summary>
+    /// Completes a task triggered by an event name (e.g. "LOST_FOR_WORDS" on call timeouts or ghosting).
+    /// </summary>
+    public void CompleteTaskByEvent(string eventName)
+    {
+        if (string.IsNullOrEmpty(eventName)) return;
+
+        // 1. Check if the event name matches the taskId directly
+        TaskData task = allTasks.Find(t => t.taskId.Equals(eventName, StringComparison.OrdinalIgnoreCase));
+
+        // 2. If found, mark it complete; otherwise fallback to CompleteTask
+        if (task != null)
+        {
+            CompleteTask(task.taskId);
+        }
+        else
+        {
+            // Fallback attempt to complete by ID in case it was mapped by ID
+            CompleteTask(eventName);
+            Debug.Log($"[TaskManager] Event triggered: '{eventName}' (no direct task match found).");
         }
     }
 

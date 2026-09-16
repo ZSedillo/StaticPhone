@@ -2,40 +2,841 @@
   "girlName": "Evelyn",
   "age": 25,
   "personality": "Paranormal Sleuth",
-  "bio": "If you hear footsteps upstairs when nobody is home, call me first.",
+  "bio": "If you hear footsteps upstairs when nobody is home, call me first. Archival audio researcher, magnetic tape restorer, and professional skeptic hunter. Don't be boring.",
   "avatarIndex": 4,
   "nodes": [
     {
       "id": "start",
-      "partnerMessage": "Hey {PlayerName}... ever get that cold prickle on your neck like something is standing right behind your chair?",
+      "partnerMessage": "Hey {PlayerName}... quick baseline test before we waste each other's time: ever get that sudden, icy prickle on the back of your neck? Like someone is standing two inches behind your chair, breathing against your collar?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Only when I stay up too late staring at screens.", "nextId": "rational_take", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "All the time. My room definitely has entity activity.", "nextId": "spooky_interest", "linkUrl": "", "triggerEvent": "" }
+        { "choiceText": "Only when I stay up way too late staring at blue-light screens in the dark.", "nextId": "rational_take", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" },
+        { "choiceText": "All the time. Pretty sure my apartment has active residual energy.", "nextId": "spooky_interest", "linkUrl": "", "triggerEvent": "PARANORMAL_INVESTIGATOR" },
+        { "choiceText": "You sound like someone who skipped their psychiatric medication today.", "nextId": "insult_crazy", "linkUrl": "", "triggerEvent": "BULLY_EVELYN" },
+        { "choiceText": "Don't look now, but I just checked behind me and nothing was there.", "nextId": "checked_behind", "linkUrl": "", "triggerEvent": "" }
       ]
     },
     {
       "id": "rational_take",
-      "partnerMessage": "Denial is the first symptom of spiritual static. I have recorded evidence you need to hear.",
+      "partnerMessage": "Denial is the classic first line of psychological defense, darling. Most people blame cold drafts or eye strain because the alternative—that acoustic space isn't empty—is too uncomfortable to sit with.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Send the recording.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        { "choiceText": "I'm open-minded, just evidence-based. What kind of evidence do you actually collect?", "nextId": "evidence_explain", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Drafty floorboards and eye strain are empirical physics. Ghost stories are campfire tales.", "nextId": "skeptic_push", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" },
+        { "choiceText": "Is everything a paranormal mystery to you, or do you ever just relax?", "nextId": "relax_critique", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "What if the chill on the neck is just a micro-spasm in the trapezius muscle?", "nextId": "trapezius_scientific", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" }
       ]
     },
     {
       "id": "spooky_interest",
-      "partnerMessage": "I knew your energy frequency felt irregular! I have an ongoing investigation channel.",
+      "partnerMessage": "I knew it. Your profile photo gave off a distinct electromagnetic resonance. Tell me: what kind of activity? Tapping on drywall, localized cold spots, or objects mysteriously changing position?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Let me in.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        { "choiceText": "Things moving when I leave the room. Keys, mugs, notebooks.", "nextId": "poltergeist_banter", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Radio static turning into whisper fragments right around 3:00 AM.", "nextId": "radio_static_deep", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Sudden temperature plunges in the hallway, like walking into a meat locker.", "nextId": "cold_spots_physics", "linkUrl": "", "triggerEvent": "PARANORMAL_INVESTIGATOR" },
+        { "choiceText": "I was just playing along. I don't actually believe in fairy tales.", "nextId": "fake_interest_fumble", "linkUrl": "", "triggerEvent": "FUMBLE_CONVERSATION" }
       ]
     },
     {
-      "id": "move_to_yaps",
-      "partnerMessage": "Open this secure case file link. Move to my OnlyYaps room before the connection gets monitored.",
+      "id": "insult_crazy",
+      "partnerMessage": "How delightfully original. You swipe right on an archival researcher just to regurgitate the same worn-out joke my high school guidance counselor used? Revolutionary intellect on display.",
+      "linkUrl": "",
+      "triggerEvent": "FUMBLE_CONVERSATION",
+      "choices": [
+        { "choiceText": "My bad. Sarcasm is my default reflex when someone catches me off guard.", "nextId": "recover_apology", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Enjoy talking to dust motes and microwave hums in your dark room.", "nextId": "hard_ghost_exit", "linkUrl": "", "triggerEvent": "BULLY_EVELYN" },
+        { "choiceText": "I apologize, Evelyn. That was uncalled for. Tell me what you really do.", "nextId": "sincere_reboot", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "checked_behind",
+      "partnerMessage": "Of course you didn't see anything. Anomalous phenomena don't register in visible optical spectrums, {PlayerName}. They register in infrasound—around 18.9 Hz, where the human eyeball literally vibrates in its socket.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Wait, the fear frequency? You actually know the acoustic biology behind this.", "nextId": "science_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "You are terrifyingly thorough. Remind me never to explore an attic with you.", "nextId": "attic_joke", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Does the 18.9 Hz resonance also induce temporal disorientation?", "nextId": "temporal_disorientation_q", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" }
+      ]
+    },
+    {
+      "id": "evidence_explain",
+      "partnerMessage": "Multi-band audio spectrum analyzers, analog magnetic reel-to-reels, and calibrated thermal drift monitors. I don't run around screaming like television clowns; I isolate frequencies and cross-reference county blueprints.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "That's actually fascinating. What's the strangest recording you've ever captured?", "nextId": "strangest_recording", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "Analog tape? Isn't magnetic tape prone to ghost-echo print-through bleed?", "nextId": "tape_bleed_nerd", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "County blueprints? You do historical property research too?", "nextId": "blueprints_curiosity", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "How do you filter out environmental 60 Hz electrical mains hum?", "nextId": "mains_hum_nerd", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "skeptic_push",
+      "partnerMessage": "I respect hard skeptics far more than blind believers. Skeptics keep my methodology clean. A mystery is only delicious when you systematically dismantle every boring explanation first.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Then test me. What's your favorite urban legend you personally debunked?", "nextId": "debunk_myth", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Sounds like we'd make a balanced team: your obsession and my grounded anchor.", "nextId": "duo_dynamic", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "What if you spend your entire youth chasing something that never existed?", "nextId": "existential_skeptic", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "relax_critique",
+      "partnerMessage": "Relax? In a universe full of electromagnetic noise, uncataloged frequencies, and forgotten architecture? Relaxation is for people who have zero curiosity about what happens after dark.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Curiosity is fine, but burnout is real. When was the last time you slept eight hours?", "nextId": "burnout_sleep_talk", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "You sound like you live on cold brew and conspiracy forums.", "nextId": "cold_brew_banter", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Even radio operators take off their headsets when their shift ends.", "nextId": "radio_shift_metaphor", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "trapezius_scientific",
+      "partnerMessage": "Spoken like an orthopedic surgeon who hasn't stepped into an unshielded substation cellar. Muscle spasms don't correlate with a 3.5°C localized temperature drop in a closed sealed room, {PlayerName}.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Localized air vortexes caused by micro-fissures in masonry?", "nextId": "masonry_vortex", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" },
+        { "choiceText": "You've got an answer for everything. I like that.", "nextId": "mind_works_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "poltergeist_banter",
+      "partnerMessage": "Kinetic displacement! Either you have an undiagnosed REM sleepwalking habit, or something in your building's structural footprint is politely demanding your attention.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Could be carbon monoxide poisoning. Have you checked your ambient detectors?", "nextId": "carbon_monoxide_read", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Maybe my phantom roommate just wants me to do the dishes.", "nextId": "kitchen_ghost_laugh", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "What if it's seismic micro-tremors rattling loose shelving?", "nextId": "seismic_micro_tremors", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" }
+      ]
+    },
+    {
+      "id": "radio_static_deep",
+      "partnerMessage": "Electronic Voice Phenomena through white noise sweeps... God, that gave me goosebumps down my forearms. Most people tune out static, but that narrow band between stations is where the veil is paper thin.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "What did the whisper say when you captured it?", "nextId": "whisper_story", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "Does spending all your nights in the dark with static ever get lonely?", "nextId": "lonely_in_dark", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Isn't that just auditory pareidolia? The brain forcing order onto random chaos?", "nextId": "pareidolia_argument", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" }
+      ]
+    },
+    {
+      "id": "cold_spots_physics",
+      "partnerMessage": "Rapid endothermic thermal drop! Heat energy is being consumed by an unseen catalyst. If you place an infrared pyrometer at ground level, you often see a geometric column of cold air.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "A geometric column? Like a cylinder standing in space?", "nextId": "geometric_cylinder", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "You describe it with such clinical detachment, it makes it eerie.", "nextId": "clinical_detachment", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "fake_interest_fumble",
+      "partnerMessage": "Ah. Leading me on just to mock my field research. How delightfully predictable. My time is far too valuable for casual tourists, {PlayerName}.",
+      "linkUrl": "",
+      "triggerEvent": "GHOST_SEQUENCE_START",
+      "choices": [
+        { "choiceText": "Wait, Evelyn, I was teasing! Let me hear your actual research.", "nextId": "recover_apology", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Have fun chasing spooky wind gusts.", "nextId": "hard_ghost_exit", "linkUrl": "", "triggerEvent": "BULLY_EVELYN" }
+      ]
+    },
+    {
+      "id": "recover_apology",
+      "partnerMessage": "Fine. Probationary status granted. But keep your cheap condescension outside my frequency band. I have actual archival case files to audit.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Understood. Tell me about the case file you're working on right now.", "nextId": "evidence_explain", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I promise to be good. What reel are you currently baking?", "nextId": "tape_bleed_nerd", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "sincere_reboot",
+      "partnerMessage": "...Apology logged. I get defensive because ninety percent of matches open with jokes about Ouija boards and exorcisms. If you want sincerity, I will give you sincerity.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I want the real Evelyn. Tell me how this all started.", "nextId": "origin_story", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "science_praise",
+      "partnerMessage": "Thank you! Finally, someone with an educated frontal cortex. Vic Tandy's 1998 laboratory experiment with 19 Hz standing waves proved infrasound creates gray-blob optical illusions. Science and the supernatural aren't enemies; they're translation dialects.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Translation dialects... I really like the way your mind works, Evelyn.", "nextId": "mind_works_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "So you're more of a scientific detective than a superstitious believer.", "nextId": "debunk_detective", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Tandy was investigating a medical equipment factory basement, right?", "nextId": "tandy_depth", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "attic_joke",
+      "partnerMessage": "Attics are amateur hour. Too much fiberglass insulation, too many raccoon droppings. The real anomalous signatures hide in municipal aqueduct basements and decommissioned sanitarium boiler tunnels.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Creepy boiler tunnels? Now you're definitely taking me on our first date.", "nextId": "date_pitch", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Tunnels sound like a great place to contract tetanus or get arrested.", "nextId": "tetanus_joke", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "temporal_disorientation_q",
+      "partnerMessage": "Spot on! Infrasonic field exposure creates mild inner ear vestibular confusion. People think hours have passed when it's only been four minutes. Or vice versa.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Ever experienced that time slip yourself during an investigation?", "nextId": "time_slip_confession", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "strangest_recording",
+      "partnerMessage": "An abandoned marshland water pumping station built in 1884. At 2:40 AM, all twelve digital channels picked up a harmonic hum that matched an old Welsh lullaby. When I listened through my studio monitor headphones, someone took a breath right against my left ear cushion.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Didn't that terrify you?!", "nextId": "terrified_q", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Weren't you scared being out there alone in the dark with no backup?", "nextId": "alone_in_dark", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Did you analyze the breath for lung capacity acoustics?", "nextId": "lung_capacity_nerd", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "tape_bleed_nerd",
+      "partnerMessage": "YES! Print-through from adjacent magnetic wraps! Which is exactly why I bake my polyester and acetate reels in a laboratory dehydrator at 130°F before playback! You know tape chemistry?! Marry me.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Thermal tape baking and signal restoration? Consider the proposal accepted.", "nextId": "marriage_banter", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Show me the spectral analysis. I want to see the waterfall graph.", "nextId": "waterfall_graph_hook", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Sticky-shed syndrome on Ampex 456 reels is a nightmare to restore.", "nextId": "sticky_shed_deep", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "blueprints_curiosity",
+      "partnerMessage": "Every single building has a memory inscribed in its foundation. When you cross-reference original 1920s land deeds with seismic fault lines and water tables, you start noticing patterns that the city planners swept under the rug.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "What kind of patterns? Secret annexes?", "nextId": "secret_annexes", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "You're a historian wearing a paranormal investigator's coat.", "nextId": "historian_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "mains_hum_nerd",
+      "partnerMessage": "Steep notch filters at 60 Hz, 120 Hz, and 180 Hz! If you don't notch out electrical ground loops, every refrigerator compressor in the zip code sounds like a demon chanting.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You are absurdly competent. It's wildly attractive.", "nextId": "competence_attraction", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "debunk_myth",
+      "partnerMessage": "The 'Black Mountain Ghost Lantern.' Locals swore it was the spirit of an executed railway conductor. Spent five nights with an optical surveyor: it was car headlights refracting through thermal inversion layers on County Highway 41. Solved in 72 hours flat.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "You're like a real-life Scully. Sharp, relentless, and wildly attractive.", "nextId": "scully_compliment", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Don't the locals get mad when you kill their folklore?", "nextId": "locals_mad_q", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "duo_dynamic",
+      "partnerMessage": "A skeptic and a sleuth. The classic binary. I explore the shadows with parabolic microphones, and you keep the flashlight batteries charged so we don't plummet down elevator shafts.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Deal. Where do I sign the partner contract?", "nextId": "partner_contract_sign", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I'll carry the heavy equipment as long as you promise not to vanish into thin air.", "nextId": "carry_equipment_banter", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "existential_skeptic",
+      "partnerMessage": "...That question kept me awake for six months in university. What if I'm just an acoustic archivist cataloging ghosts of my own loneliness? But then you find an unexplainable signal... and reality bends.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Even if the signals are just echoes, you give them meaning by listening.", "nextId": "give_echoes_meaning", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I want to be there when reality bends for you.", "nextId": "be_there_reality_bends", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "burnout_sleep_talk",
+      "partnerMessage": "...Three days ago. Maybe four. My circadian rhythm is essentially a polite fiction at this point. When you're cleaning audio waveforms, two hours feels like twenty minutes.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'm coming over to make you hot chamomile tea and take your headphones off.", "nextId": "tea_takeover_romance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "You need someone in your life to force you away from the monitor.", "nextId": "force_away_monitor", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "cold_brew_banter",
+      "partnerMessage": "Cold brew, dark roast, double filtered, zero sugar! And archival microfilm databases, thank you very much! Reddit is for amateurs.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I make a killer pour-over. You bring the case files, I bring the brew.", "nextId": "coffee_date_pitch", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "radio_shift_metaphor",
+      "partnerMessage": "That hit uncomfortably close to the center. When my grandfather was on the merchant vessel radio watch, he knew when to shut the receiver. I... haven't learned how to turn it off yet.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Let me turn it off for you tonight. Just for an hour.", "nextId": "turn_it_off_hour", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "masonry_vortex",
+      "partnerMessage": "Good hypothesis! But we deployed smoke pencils along the baseboards; zero drafts. The air was dead still. Yet the mercury dropped. That's why I keep digging.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "You test every variable. I have so much respect for your brain.", "nextId": "respect_your_brain", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "carbon_monoxide_read",
+      "partnerMessage": "First item on my field checklist! CO poisoning triggers temporal distortion, paranoia, and shadow-people hallucinations. You genuinely care about empirical safety protocol. My pulse just jumped for purely biological reasons.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I care about your safety above all else, Evelyn.", "nextId": "safety_romance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "kitchen_ghost_laugh",
+      "partnerMessage": "If spectral entities washed ceramic plates, my apartment would look like an architectural showroom! Sadly, residual energy rarely scrubs cast iron pans.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Then let me come over and cook for you while you digitize your reels.", "nextId": "cook_for_her", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "seismic_micro_tremors",
+      "partnerMessage": "Checked against USGS seismic monitors. No fault shifts within 80 miles during the incident window. The keys moved across a flat mahogany table at a steady 2 inches per second.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Okay, that gave me goosebumps.", "nextId": "goosebumps_mutual", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "whisper_story",
+      "partnerMessage": "It said... 'Still waiting.' Just two syllables, buried beneath 400 Hz ground hum. It wasn't menacing. It was just an echo of heartbreak preserved in magnetic iron oxide.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "That's hauntingly tragic.", "nextId": "hauntingly_tragic", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "You listen to the forgotten dead because nobody else will.", "nextId": "forgotten_dead_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "lonely_in_dark",
+      "partnerMessage": "...More than I admit out loud. When you spend your nights listening to empty frequencies, the silence in your own kitchen becomes deafening. People label me as 'the spooky weirdo,' so I stopped opening my door.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Open it for me, Evelyn. You don't have to listen to the silence alone anymore.", "nextId": "invite_in_romance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I don't think you're weird at all. I think you're brilliant and brave.", "nextId": "brilliant_validation", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "pareidolia_argument",
+      "partnerMessage": "Acoustic pareidolia accounts for about 85% of EVPs. The human mind hates random noise and stitches phonemes together. That's why I only catalog Class-A recordings where three independent listeners identify the exact same words without prompts.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Rigorous double-blind methodology. You really leave nothing to chance.", "nextId": "double_blind_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "geometric_cylinder",
+      "partnerMessage": "Exactly four feet in diameter, floor to ceiling. Walking through it feels like stepping inside an industrial walk-in freezer. Five seconds later, it dissipated like dry ice vapor.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Did you record any ionization readings?", "nextId": "ionization_nerd", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "clinical_detachment",
+      "partnerMessage": "If you let the fear creep into your voice, your hands shake, your equipment drops, and your data gets corrupted. The clinical detachment is survival armor.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You don't need armor when you're talking to me, Evelyn.", "nextId": "drop_armor_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "mind_works_flirt",
+      "partnerMessage": "Be careful, {PlayerName}. People who like how my mind works usually end up getting recruited for 3:00 AM expeditions to flooded hospital tunnels.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "My boots are laced and my flashlight is packed. Let's go.", "nextId": "trunk_packed_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Only if we stop for greasy 24-hour diner pancakes on the drive back.", "nextId": "diner_pancakes_deal", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "debunk_detective",
+      "partnerMessage": "I eliminate the 99% that can be explained by acoustics, mold spore toxicity, and electrical interference so that when that 1% happens... you KNOW you're standing before the unexplainable.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Show me your 1% case files. I want to see the real mystery.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "tandy_depth",
+      "partnerMessage": "Yes! Warwick University laboratory! The extraction fan was resonating with the room's dimensional modes. The fact that you know Tandy's specific lab setting makes my pulse beat at 120 BPM.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "A shared nerd frequency. We're on the same wavelength.", "nextId": "same_wavelength_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "date_pitch",
+      "partnerMessage": "A date in an underground municipal tunnel with parabolic microphones and black coffee? That might be the single most romantic proposition I have ever received in my life.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'll hold your hand when the temperature drops. Send me your private link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "tetanus_joke",
+      "partnerMessage": "I have had my booster shot, thank you! And I carry a certified municipal utility permit. I'm a professional, not a trespasser.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "A girl who obeys municipal safety codes. Truly irresistible.", "nextId": "safety_romance", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "time_slip_confession",
+      "partnerMessage": "Once. In the sub-basement of an 1890s asylum chapel. I thought I had been taking ambient decibel readings for fifteen minutes. When I emerged to the van, four hours had passed and the morning fog was rolling in.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "That sounds terrifying and miraculous at the same time.", "nextId": "terrifying_miraculous", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "strangest_recording_followup",
+      "partnerMessage": "I sat on the cold concrete listening to that breath for ten minutes. I didn't feel evil. I just felt someone's unfinished memory suspended in the damp air.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Do you think we leave a trace behind when we go?", "nextId": "trace_behind_q", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "That kind of sensitivity makes you special, Evelyn.", "nextId": "sensitivity_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "terrified_q",
+      "partnerMessage": "Terrified? My knees were shaking so hard I dropped my DAT recorder into muddy weeds! But the adrenaline rush of hearing something that breaks known acoustic models... it's pure euphoria.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Next time, let me hold the recorder so your hands stay warm.", "nextId": "hold_recorder_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "You really chase the unknown like a storm chaser.", "nextId": "strangest_recording_followup", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "alone_in_dark",
+      "partnerMessage": "I was. Shivering in damp boots, staring up at rusted pipes, wondering what the hell I was doing with my life. That was the night I realized I didn't want to do this alone anymore.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You don't have to be alone anymore, Evelyn. I'm right here with you.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "What brought you into this field in the first place?", "nextId": "origin_story", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "lung_capacity_nerd",
+      "partnerMessage": "Exhalation duration was 4.2 seconds with a distinct bronchial wheeze centered at 780 Hz. Consistent with an elderly adult suffering from chronic pulmonary edema. The history records matched an 1892 pump operator who died on duty.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You gave that forgotten man his identity back. That's profound.", "nextId": "identity_back_romance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "marriage_banter",
+      "partnerMessage": "Setting the date! Our wedding will take place in an anechoic chamber with binaural audio recordings playing as our processional march!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "As long as the cake has black velvet frosting, deal. Let's move to OnlyYaps.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "waterfall_graph_hook",
+      "partnerMessage": "The waterfall plot shows a distinct harmonic comb filter signature where the human voice shouldn't exist. I have the high-resolution spectrogram in my private vault.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Send me the vault key. I want to study it with you.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "sticky_shed_deep",
+      "partnerMessage": "The urethane binder absorbs moisture and turns to gummy sludge! Watching an irreplaceable 1950s recording scrape off on tape heads is true horror. You genuinely understand the physical medium!",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I appreciate the fragile art of preserving lost moments. Just like you do.", "nextId": "preserving_lost_moments", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "secret_annexes",
+      "partnerMessage": "Fever wards walled off during the 1918 influenza epidemic. Forgotten drainage cisterns under elementary schools. History isn't dead; people just put drywall over it.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "You make history feel like an active crime scene. I'm hooked.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "historian_praise",
+      "partnerMessage": "That's exactly what I am! But 'historian' sounds like tweed jackets and dusty archives. 'Sleuth' sounds like trench coats and broken rules.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "The trench coat definitely suits you better.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "competence_attraction",
+      "partnerMessage": "...Nobody has ever called my equipment isolation procedures 'attractive' before. My cheeks are officially hotter than a vacuum tube pre-amplifier.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Intelligence is the most attractive frequency there is. Move this to OnlyYaps.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "scully_compliment",
+      "partnerMessage": "Dana Scully was my childhood idol! The trench coat, the skeptical analytical gaze, the refusal to look away. You really know how to make a researcher's heart flutter.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Then let me be your partner in the field. Link me your vault.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "locals_mad_q",
+      "partnerMessage": "Furious! They tried to run me out of town because the 'spooklight' was keeping their souvenir gift shop in business! Good science ruins bad tourist traps every time.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "You're a menace to tourist traps and I love it. Move this to OnlyYaps.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "partner_contract_sign",
+      "partnerMessage": "Contract terms: coffee duty rotates daily, flashlights must carry backup lithium cells, and you never leave me alone in a room if the temperature starts dropping.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I will never leave your side, Evelyn. Contract signed.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "carry_equipment_banter",
+      "partnerMessage": "My Pelican hard-cases weigh about 45 pounds each. If you carry them without throwing your back out, I might actually let you pick the radio station on our drives.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Heavy lifting is my specialty. Deal.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "give_echoes_meaning",
+      "partnerMessage": "...That is the most beautiful thing anyone has ever said about my work. People usually ask if I can help them talk to their dead hamster. You understand the reverence.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Because I see the reverence in you. Take this to your private room.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "be_there_reality_bends",
+      "partnerMessage": "When reality bends, you need someone whose hand you can squeeze so you know you haven't slipped off the edge of the world. I think I'd trust your hand.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Hold onto it as tight as you need. Link me your vault.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "tea_takeover_romance",
+      "partnerMessage": "Taking my headphones off? ...That might be the sweetest, most gentle thing anyone has ever said to me. My shoulders just dropped three inches.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Let them drop. You're off-duty with me. Link me your vault.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "force_away_monitor",
+      "partnerMessage": "I need that. Badly. My eyes have permanent red veins from staring at spectral waveforms until the sun comes up.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "I'll be your digital detox partner. Give me your OnlyYaps handle.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "coffee_date_pitch",
+      "partnerMessage": "Fresh pour-over coffee while reviewing 1940s reel-to-reel magnetic recordings? You are speaking my love language, {PlayerName}.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Then let's set it up. Send me your private link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "turn_it_off_hour",
+      "partnerMessage": "An hour... just sixty minutes where I don't listen for ghosts, don't worry about grant funding, and just talk to you? God, that sounds like paradise.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Let me give you that paradise. Let's move to OnlyYaps.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "respect_your_brain",
+      "partnerMessage": "Most people think I'm paranoid or crazy. Having someone see the intellectual rigor behind it... it makes me want to tell you everything.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Tell me everything in your private channel. Send the link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "safety_romance",
+      "partnerMessage": "Nobody has ever worried about my safety during a field investigation before. Usually people just want me to walk into dark basements first to see what screams.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I walk in first. Always. Give me your OnlyYaps link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "cook_for_her",
+      "partnerMessage": "Real food? Made with fresh garlic and olive oil, instead of instant noodles eaten cold over an oscilloscope?! You might actually be a guardian angel sent to save me from scurvy.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Angel or not, dinner is on me. Send me your private handle.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "goosebumps_mutual",
+      "partnerMessage": "Chills are the skin's way of acknowledging an acoustic anomaly! Now imagine standing there at 3:00 AM holding the light.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I don't have to imagine. Let's do it together. Link me.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "hauntingly_tragic",
+      "partnerMessage": "Ghosts aren't demons or monsters, {PlayerName}. They're just unresolved human grief trapped in physical architecture. When you understand that, you stop being afraid and start listening.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You have a profound level of empathy, Evelyn. That's what makes you so captivating.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "forgotten_dead_praise",
+      "partnerMessage": "...Nobody has ever put it into words like that. Yes. Someone has to remember them. But it's so nice to know someone remembers me, too.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I will never forget you, Evelyn. Let's talk somewhere secure.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "double_blind_praise",
+      "partnerMessage": "If you don't use double-blind protocols, you're just writing emotional fanfiction with tape recorders. Real research demands rigor.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Let me be your double-blind audio reviewer. Send the link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "ionization_nerd",
+      "partnerMessage": "Positive ion density spiked to 14,000 ions per cubic centimeter right in the core. Enough to make the hair on your forearms stand straight up.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Show me the sensor logs in your vault.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "drop_armor_tender",
+      "partnerMessage": "It feels... strange. I haven't taken the armor off in so long that my shoulders feel bare. But with you, it doesn't feel cold.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'll keep you warm, Evelyn. Always. Send me the link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "trunk_packed_flirt",
+      "partnerMessage": "A willing accomplice! The absolute best kind! Pack extra flashlight batteries and an insulated thermos of dark coffee.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "On it. Lead the way to OnlyYaps.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "diner_pancakes_deal",
+      "partnerMessage": "Blueberry pancakes with whipped butter at 4:30 AM while reviewing night audio? That is an airtight contract, {PlayerName}.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Contract locked in. Send me your private vault link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "same_wavelength_flirt",
+      "partnerMessage": "In a world full of phase cancellations, finding someone in harmonic resonance feels like a statistical impossibility.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Then let's not fight statistics. Let's make it real on OnlyYaps.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "terrifying_miraculous",
+      "partnerMessage": "It changed my worldview permanently. We inhabit such a tiny sliver of observable reality.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "I want to explore the rest of that reality with you. Link me.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "hold_recorder_flirt",
+      "partnerMessage": "Deal. I'll hold your hand, you hold the directional shotgun microphone. We'll be completely unstoppable.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Unstoppable duo. Link me your private server.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "origin_story",
+      "partnerMessage": "My grandfather was a radio operator on merchant ships in the North Atlantic. When he passed away, I inherited his shortwave receiver. Late at night, tuning through static, I realized how much human voice gets lost in the ether. I just wanted to catch it before it evaporated.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "He would be so proud of the reverence you treat sound with.", "nextId": "grandfather_pride", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "You carry his legacy forward every time you press record.", "nextId": "legacy_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Did he ever tell you stories about ghost ships or anomalous SOS distress calls?", "nextId": "ghost_ships_q", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "identity_back_romance",
+      "partnerMessage": "...You understand what I do better than my own family does. That was never about catching ghosts for thrills; it was about honoring the forgotten.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You have a noble heart, Evelyn. Let's move this to your vault.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "preserving_lost_moments",
+      "partnerMessage": "Sound is the only art form that only exists while it is disappearing. Once you realize that, every second becomes precious.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Then let's not waste another second. Send me your private link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "grandfather_pride",
+      "partnerMessage": "...I really needed to hear that tonight, {PlayerName}. Thank you. Seriously. He was the only person who never called me weird for listening to the rain on the antenna wire.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'll sit on the porch and listen to the antenna wire with you anytime. Send the link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "legacy_praise",
+      "partnerMessage": "I still keep his brass Morse key on my desk right next to my digital audio converter. Old world meets new world.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Show me on OnlyYaps. I'd love to see your setup.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "ghost_ships_q",
+      "partnerMessage": "He told me about an SOS Morse loop picked up off the coast of Greenland from a trawler that sank in 1928. It transmitted every November for twenty-two years on 500 kHz. Pure atmospheric magnetic trap.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "A magnetic ghost in the ionosphere... that's incredible. Show me the file.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "trace_behind_q",
+      "partnerMessage": "Energy cannot be created or destroyed, right? Thermodynamics 101. Every word whispered in a room vibrates the plaster. It doesn't disappear; it just attenuates down into the noise floor.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Then let's say words that vibrate the plaster with something good.", "nextId": "something_good_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "sensitivity_praise",
+      "partnerMessage": "Most people call it neurotic obsession. Hearing you call it sensitivity makes me feel like I don't have to apologize for who I am.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Never apologize for who you are to me. Come on, link me your vault.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "something_good_flirt",
+      "partnerMessage": "You're dangerously charming when you want to be. My heart rate is definitely defying baseline parameters right now.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Let me hear that heart rate on OnlyYaps. Send the link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "hard_ghost_exit",
+      "partnerMessage": "Low-vibrational static detected. Purging conversation buffer from memory. Have a thoroughly mediocre existence.",
+      "linkUrl": "",
+      "triggerEvent": "GET_GHOSTED",
+      "choices": []
+    },
+    {
+      "id": "vault_pitch_forward",
+      "partnerMessage": "Open this encrypted case file link right now. Move to my private OnlyYaps investigation vault before this public channel gets compromised by radio static. 📼🔍",
       "linkUrl": "onlyyaps.vault/evelyn_evp",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []

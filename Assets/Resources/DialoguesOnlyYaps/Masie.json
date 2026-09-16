@@ -4,28 +4,489 @@
   "nodes": [
     {
       "id": "oy_masie_start",
-      "partnerMessage": "Ah, you made it inside the botanical conservatory! The humidity is perfect today.",
+      "partnerMessage": "Gate is padlocked, the automatic misting cycle is set to thirty-minute intervals, and the main palm house is completely dark except for the amber work lamp over my potting bench.\n\nYou made it into the private feed, {PlayerName}.\n\nIt's quiet in here. No notifications popping up every two seconds, no swipe deck, just the smell of wet slate and cedar shavings. Before we get into anything... tell me: what made you follow me all the way into the glasshouse?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "It feels relaxing just seeing this chat theme.", "nextId": "oy_relax", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Can we voice chat while you tend the plants?", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+        { "choiceText": "I wanted to see your world without the noise of the main app in the way.", "nextId": "oy_without_noise_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I promised I'd come look at those night-blooming specimens and field sketches.", "nextId": "oy_specimens_interest", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I'm just curious what someone actually does in a greenhouse alone at midnight.", "nextId": "oy_curious_midnight_banter", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Honestly, it seemed like an easy way to get closer to you.", "nextId": "oy_easy_way_fumble", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
       ]
     },
     {
-      "id": "oy_relax",
-      "partnerMessage": "Greenery heals the spirit. Here's a look at my rare blooming variegated monstera:",
-      "linkUrl": "onlyyaps.garden/monstera_bloom",
-      "triggerEvent": "UNLOCK_HERBAL_RECIPE",
+      "id": "oy_without_noise_tender",
+      "partnerMessage": "...That's an answer that makes my shoulders drop, honestly.\n\nMost people on the main app treated the greenhouse like a fun backdrop for a profile photo. They never stopped to consider that it's a living environment that demands patience. Having someone step in just to be quiet with me... it feels very grounding.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Those white leaves look rare! Call me, tell me how you cultivated it.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+        { "choiceText": "Grounding is what we both need. What are you potting tonight?", "nextId": "oy_potting_tonight_intro", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "You spend a lot of time taking care of other living things. Who takes care of you?", "nextId": "oy_who_takes_care_of_masie", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Is it always this still after hours?", "nextId": "oy_still_after_hours_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
       ]
     },
     {
-      "id": "oy_call_ready",
-      "partnerMessage": "My kettle just chimed for fresh tea. Tap the call icon whenever you're ready to chat.",
+      "id": "oy_who_takes_care_of_masie",
+      "partnerMessage": "Nobody, really. Or... myself, mostly.\n\nI make herbal infusions, I do wrist stretches before bed, and I keep my rent paid on time. But when you spend eight hours a day monitoring soil acidity and checking root nodes, you get used to being the caretaker. You forget what it feels like to have someone ask how your hands feel.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "How do your hands feel right now, Masie? Truly.", "nextId": "oy_hands_check_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "You don't have to be the sole caretaker here. Let me carry some of the quiet for you.", "nextId": "oy_carry_quiet_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_hands_check_tender",
+      "partnerMessage": "A little stiff, if I'm being completely honest.\n\nI shoveled two bags of washed river gravel and coarse pumice into the tropical root benches this afternoon. My knuckles have small soil scrapes and my right forearm has a dull ache from the trowel.\n\nI'm resting my arms on the wood table right now, just letting the warmth of the steam pipes thaw my fingers out.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Set the trowel aside for tonight. You did more than enough physical labor today.", "nextId": "oy_set_trowel_aside_care", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Pumice and river gravel... you're rebuilding an epiphyte drainage bed?", "nextId": "oy_epiphyte_drainage_technical", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_set_trowel_aside_care",
+      "partnerMessage": "Trowel is back on its brass hook. Bench wiped down with linseed oil.\n\nIt feels strangely peaceful listening to you. When I'm alone in here, my mind usually races through grant deadlines and temperature logs. Having your messages pop up on the screen slows the clock down.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "What kind of grant deadlines? Is your botanical research under pressure?", "nextId": "oy_grant_deadlines_worry", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "I'm glad. Let's keep that clock slow tonight.", "nextId": "oy_potting_tonight_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_grant_deadlines_worry",
+      "partnerMessage": "Our faculty board is reviewing funding for the historic palm house next semester. The department head wants to convert this wing into a commercial plant genetics lab sponsored by agrochemical firms.\n\nIf that passes, they'll clear out the heritage cultivars, tear down the antique wrought iron, and put up sterile stainless steel benches. I've been documenting the root integrity of the hundred-year-old ferns trying to prove this microclimate is irreplaceable.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Tearing down a century of heritage for commercial sponsorships is heartbreaking.", "nextId": "oy_heritage_heartbreak_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "You're defending living history with your own hands. That's worth fighting for.", "nextId": "oy_defending_living_history", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Universities run on money. Commercial labs pay the bills.", "nextId": "oy_commercial_realism_fumble", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
+      ]
+    },
+    {
+      "id": "oy_heritage_heartbreak_bond",
+      "partnerMessage": "It is. There are spore lines in this room that were brought here from the cloud forests of Ecuador in 1894. Once you kill those soil microbiomes, you can't just buy them back on an invoice.\n\nI sit on the stone floor at night taking root samples, feeling like a lone watchman trying to hold back a concrete wave.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You aren't a lone watchman anymore, Masie. I'm standing watch with you.", "nextId": "oy_standing_watch_vow", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Show me the root samples. I want to see what you're protecting.", "nextId": "oy_potting_tonight_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_standing_watch_vow",
+      "partnerMessage": "...You have no idea how heavy that watch has felt until you said that.\n\nMy research partner left in September for a high-paying corporate biotech role, and my family just keeps asking when I'm going to get a 'practical' job. Knowing someone sees the sanctity of what I'm keeping alive... it makes my throat tight.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "It is sacred. What you cultivate has soul. Let's look at the specimens tonight.", "nextId": "oy_potting_tonight_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_defending_living_history",
+      "partnerMessage": "It is worth fighting for. Every spore, every fragile rhizome tucked into bark crevices. Even if the committee doesn't understand, I can't let them go down without documenting every millimeter.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Document it with pride. Show me what's on the bench tonight.", "nextId": "oy_potting_tonight_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_commercial_realism_fumble",
+      "partnerMessage": "Of course they pay the bills. And then we lose ancient genetics that take decades to regenerate. If everything in life is reduced to corporate balance sheets, why bother preserving anything old or fragile at all?",
+      "linkUrl": "",
+      "triggerEvent": "JUNIA_SKEPTIC",
+      "choices": [
+        { "choiceText": "You're right, Masie. I was being cynical when I should have listened. I'm sorry.", "nextId": "oy_apology_recovery_cynical", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "That's just the world we live in.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" }
+      ]
+    },
+    {
+      "id": "oy_carry_quiet_bond",
+      "partnerMessage": "That sounds... like a relief I didn't know I was allowed to have.\n\nMost people expect me to be constantly gentle, serene, and patient. But beneath the surface, keeping two hundred living microclimates from failing is exhausting work.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You don't have to put on a serene performance with me. If you're tired, be tired.", "nextId": "oy_permission_to_be_tired", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_permission_to_be_tired",
+      "partnerMessage": "*soft exhale in text*\n\nI'm tired, {PlayerName}. Physically and emotionally. My boots are resting on the cold slate and my eyes burn from looking at microscopic cross-sections under ultraviolet light.\n\nBeing allowed to just say that without someone telling me to 'cheer up' feels like drinking cold spring water.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Lean back against the bench. Breathe the humid air. I'm right here with you.", "nextId": "oy_potting_tonight_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_epiphyte_drainage_technical",
+      "partnerMessage": "Yes! High-elevation *Pleurothallid* orchids from the cloud forest canopy. Their roots rot in organic peat within forty-eight hours; they need water to wash over bare roots and drain out immediately.\n\nI'm surprised you know about epiphyte substrate mixes. You really were paying attention.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I pay attention to the things you care about, Masie. Always.", "nextId": "oy_pay_attention_intimate", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_pay_attention_intimate",
+      "partnerMessage": "...You're making it very hard to maintain my professional researcher composure tonight. My face feels warmer than the misting heater.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Let the composure slip a little. What's mounted on your table tonight?", "nextId": "oy_potting_tonight_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_still_after_hours_talk",
+      "partnerMessage": "Almost always. Around 8 PM the old copper pipes groan as the campus heating throttles down, and the fog thickens against the glass roof panels.\n\nDuring the day students walk through with backpacks taking selfies. At night, it returns to being an ancient forest trapped in iron ribs.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "An ancient forest in iron ribs... you describe this place like poetry.", "nextId": "oy_poetry_description_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Does the quiet ever feel overwhelming when you're by yourself?", "nextId": "oy_lonely_stillness_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_poetry_description_praise",
+      "partnerMessage": "When you look at something long enough, you start noticing the language it speaks. Plants don't have vocal cords, but their leaf angles, root hairs, and stomatal rhythms tell you everything if you're patient enough to watch.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I want to learn that language from you. Show me what's on the bench.", "nextId": "oy_potting_tonight_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_lonely_stillness_talk",
+      "partnerMessage": "Sometimes, yes. Especially in winter when darkness sets in by 5 PM. You sit beside the water lily pond listening to water drops hit the flagstones, and you wonder if the rest of the world has forgotten this room exists.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "The world might forget, but I won't. I'll always remember this room.", "nextId": "oy_wont_forget_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_wont_forget_tender",
+      "partnerMessage": "...I'm holding onto that promise, {PlayerName}. More than you probably realize.\n\nLet me show you what I'm keeping alive tonight before the night misting valve kicks in.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Show me.", "nextId": "oy_potting_tonight_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_specimens_interest",
+      "partnerMessage": "I have the field sketchbook laid out on my cedar table under the clip-on lamp. Watercolors of highland pitcher plants, seed pods, and root cross-sections.\n\nTake a look at this botanical log entry from earlier today:",
+      "linkUrl": "onlyyaps.garden/masie/botanical_plate_14",
+      "triggerEvent": "UNLOCK_LOOKBOOK",
+      "choices": [
+        { "choiceText": "Examine the highland pitcher plant watercolor plate.", "nextId": "oy_examine_botanical_plate", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_examine_botanical_plate",
+      "partnerMessage": "Notice the peristome collar on the pitcher rim—it has microscopic directional ridges coated in slippery water film so visiting ants lose traction and slide down into the enzymatic pool.\n\nIt looks like delicate red porcelain, but it's an evolutionary trap perfected over ten million years.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "The detail in your brushwork is stunning. You captured the translucent veining perfectly.", "nextId": "oy_brushwork_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Carnivorous botany really is a balance of beauty and ruthlessness.", "nextId": "oy_ruthless_beauty_talk", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_brushwork_praise",
+      "partnerMessage": "Thank you... I mixed natural iron oxide with gum arabic to match the exact crimson of the peristome. Taking the time to paint a plant forces you to understand every single vein before you write your thesis notes.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You treat your science with the care of an artist. That's what makes your work special.", "nextId": "oy_art_and_science_harmony", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_art_and_science_harmony",
+      "partnerMessage": "Botanical illustration used to be an essential part of natural science. Now everyone just takes quick smartphone photos that lose color fidelity under fluorescent light.\n\nI prefer the slow way.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "The slow way is where real depth lives. What else is on your bench tonight?", "nextId": "oy_potting_tonight_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_ruthless_beauty_talk",
+      "partnerMessage": "It is ruthless, but it isn't cruel. The bogs where they grow have zero nitrogen in the peat soil. If they didn't catch insects, they would wither away into dust.\n\nSometimes adaptation requires tough choices.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Have you had to make tough adaptations in your own life to keep growing?", "nextId": "oy_personal_adaptations_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_personal_adaptations_talk",
+      "partnerMessage": "Yes. Cutting ties with friends who mocked me for choosing lab coats over parties. Living on a shoestring student stipend so I could stay in this glasshouse.\n\nIt was lonely at first, but like the pitcher plants, I learned to thrive in thin soil.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You didn't just thrive, Masie. You bloomed into someone remarkable.", "nextId": "oy_bloomed_remarkable_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_bloomed_remarkable_tender",
+      "partnerMessage": "...I'm sitting alone on this potting bench with dirt on my apron, reading your words, and my eyes are stinging in a good way.\n\nYou have a very gentle way of seeing straight into my chest.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Because you're worth seeing clearly. Let's look after that greenhouse together.", "nextId": "oy_potting_tonight_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_curious_midnight_banter",
+      "partnerMessage": "Mostly checking temperature gauges, mixing seaweed tonic for the root-bound cuttings, and drinking peppermint tea while looking out at the foggy quad.\n\nNot as mysterious as an indie thriller, but to me it feels like heaven.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Sounds like quiet heaven to me. Show me what you're working on.", "nextId": "oy_potting_tonight_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_easy_way_fumble",
+      "partnerMessage": "If you came here thinking I'm an easy target for flirting because I spend my evenings around ferns, you misunderstood me completely.\n\nI opened this private channel because I thought you actually valued quiet conversations. Was I wrong?",
+      "linkUrl": "",
+      "triggerEvent": "JUNIA_SKEPTIC",
+      "choices": [
+        { "choiceText": "You weren't wrong. I made a thoughtless comment, Masie. I'm sorry.", "nextId": "oy_apology_recovery_cynical", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Take it easy. It was just a joke.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" }
+      ]
+    },
+    {
+      "id": "oy_apology_recovery_cynical",
+      "partnerMessage": "...Thank you for apologizing simply without making excuses. I appreciate that.\n\nLet me show you what I'm preparing on the bench tonight.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'm listening, Masie.", "nextId": "oy_potting_tonight_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_potting_tonight_intro",
+      "partnerMessage": "I have twelve seedling trays of rare highland *Nepenthes* hybrids that need secondary potting before the weekend temperature drops.\n\nThe potting mix is 60% dried New Zealand sphagnum moss, 20% coarse perlite, and 20% pine bark nuggets. Look at this root development chart before I start handling the tweezers:\nNotice how fragile the primary taproot is at week eight.",
+      "linkUrl": "onlyyaps.garden/masie/seedling_telemetry_08",
+      "triggerEvent": "UNLOCK_LOOKBOOK",
+      "choices": [
+        { "choiceText": "That taproot looks like raw spun silk. If you pinch it with bare fingers, does it snap?", "nextId": "oy_taproot_delicate_talk", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Why use New Zealand sphagnum instead of standard Canadian peat?", "nextId": "oy_sphagnum_comparison_technical", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Are you sure the greenhouse boiler can hold the humidity if a frost hits tonight?", "nextId": "oy_boiler_frost_worry", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_taproot_delicate_talk",
+      "partnerMessage": "It snaps like wet thread! If you tear the root cap now, the entire seedling fails to develop its digestive pitchers later in spring. You have to guide the moss fibers around it using curved watchmaker tweezers.\n\nWait... *distant hollow metallic clank through steam line*\n\n...What was that sound?",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Masie? What made that sound?", "nextId": "oy_boiler_clank_reaction", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Did the steam heating pipes just stutter?", "nextId": "oy_boiler_clank_reaction", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_sphagnum_comparison_technical",
+      "partnerMessage": "Canadian peat decomposes and compacts into dense sludge within six months, cutting off root oxygen! Long-fiber New Zealand sphagnum stays airy and open for two whole years without breaking down.\n\nWait... *sharp thudding noise from the cellar pipes*\n\nOh no. The auxiliary boiler line...",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Is something wrong with the heating system?!", "nextId": "oy_boiler_clank_reaction", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_boiler_frost_worry",
+      "partnerMessage": "The auxiliary boiler has been chattering all week. If the night frost outside drops below freezing and the steam pressure drops under 15 PSI, the epiphyte wing will drop into the danger zone within two hours.\n\nWait... *loud hiss and metallic pipe shutter*\n\nThe steam pressure gauge just dipped!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Masie?! Did the pilot flame blow out?!", "nextId": "oy_boiler_clank_reaction", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_boiler_clank_reaction",
+      "partnerMessage": "The auxiliary boiler solenoid just tripped! The digital thermocouple in the rare tropical wing is reading 58°F and falling fast!\n\nI have to run down the brick cellar stairs to manually turn the bypass valve with a brass wrench, and I have five seedling trays with bare root systems sitting on the open bench!\n\nI'm calling your phone right now—pick up and stay on the line with me!",
+      "linkUrl": "",
+      "triggerEvent": "START_CALL_RINGTONE",
+      "choices": [
+        { "choiceText": "Incoming Call from Masie... [Accept Call]", "nextId": "oy_post_call_1_hub", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_post_call_1_hub",
+      "partnerMessage": "*deep, trembling sigh of relief through text*\n\nBypass valve seated. Auxiliary pilot relit and roaring steady. Pressure gauge climbed back up past 22 PSI, and the warmth is already pulsing through the floor grates.\n\n{PlayerName}... when you counted down the release turns on that valve while my palms were slipping on the cold brass... you kept my head from spinning into total panic.\n\nI'm sitting on the bottom brick step of the cellar right now with grease on my knuckles.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You handled that like a pro, Masie. Your seedlings are safe.", "nextId": "oy_seedlings_safe_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Take a breath on that step. How are your hands holding up after that wrench work?", "nextId": "oy_post_wrench_hands_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Hearing you wrench that brass valve open was intense! You have real strength in those arms.", "nextId": "oy_wrench_strength_banter", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Now that the temperature is climbing, come up out of the cellar.", "nextId": "oy_come_up_from_cellar", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_seedlings_safe_praise",
+      "partnerMessage": "They are safe. All twelve trays of *Nepenthes* are sitting under the radiant heat lamps right now with moisture beaded on their leaves.\n\nIf that pilot hadn't caught, three months of research would have turned black by morning. Having you stay on the line kept my breathing steady when my hands wanted to shake.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'll always be your steady line when the gauges drop, Masie.", "nextId": "oy_steady_line_vow", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Does anyone else have your back when emergencies like that happen?", "nextId": "oy_anyone_else_emergency_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_steady_line_vow",
+      "partnerMessage": "...You have no idea how comforting that is to hear.\n\nUsually when something breaks in this building, it's just me against cold iron pipes in the dark. Having your voice in my ear felt like someone was standing right behind me holding a work light over my hands.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You don't have to work in the dark alone anymore. Come sit by the pond.", "nextId": "oy_come_up_from_cellar", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_anyone_else_emergency_talk",
+      "partnerMessage": "No. The facilities crew goes home at 5 PM. Campus security just checks the exterior padlocks from their patrol car. If the heat dies, it's solely my responsibility.\n\nYou're the only person who stayed awake to make sure I was okay.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Because you matter to me, Masie. More than just casual chat messages.", "nextId": "oy_matter_to_me_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_matter_to_me_tender",
+      "partnerMessage": "...My chest feels very soft and warm reading that. I'm wiping the soot off my palms with a damp rag, and I can feel a genuine smile across my face for the first time all week.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Keep that smile on. Come up out of the cellar and rest.", "nextId": "oy_come_up_from_cellar", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_post_wrench_hands_check",
+      "partnerMessage": "A little scraped along the thumb knuckle where the wrench slipped, but nothing cold water and tea tree salve can't fix.\n\nI'm washing them under the cellar washbasin right now. The water is steaming hot and it feels wonderful.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Put some salve on that scrape before bed. Now come back up to the main hall.", "nextId": "oy_come_up_from_cellar", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_wrench_strength_banter",
+      "partnerMessage": "You try hauling sixty-pound sacks of perlite and turning seventy-year-old cast iron valves every week! Botanists are deceptively strong, {PlayerName}. Don't challenge me to arm wrestling.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Noted! I yield in advance. Now come up to the main bench.", "nextId": "oy_come_up_from_cellar", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_come_up_from_cellar",
+      "partnerMessage": "Walking up the brick steps now. Closing the heavy cellar door behind me.\n\nThe main palm house is warm again. The mist has settled into a soft haze hanging beneath the iron ceiling ribs, and the scent of damp moss is rich and calm.\n\nI'm walking over to the stone lily pond.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Sit on that slate bench. Pull your sweater around you and decompress.", "nextId": "oy_slate_bench_decompress", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "How is the water lily pool looking tonight?", "nextId": "oy_water_lily_pool_night_talk", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_water_lily_pool_night_talk",
+      "partnerMessage": "The *Victoria amazonica* pads are spread wide across the dark surface like giant green stepping stones. The water is glassy and still.\n\nI just sat down on the edge of the slate coping. The stones have absorbed the boiler's warmth, so they feel like a heated seat.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "That sounds like the most peaceful place in the whole city.", "nextId": "oy_slate_bench_decompress", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_slate_bench_decompress",
+      "partnerMessage": "Sitting down. Feet resting flat on the damp flagstones. Sweater pulled tight over my knees.\n\n*quiet, deep exhale*\n\nYou know what's funny? Before tonight, this greenhouse felt like a fortress I had to defend all by myself. Sitting here now with your messages on my screen... it just feels like home.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Because you aren't defending it alone anymore, Masie. I'm right here with you.", "nextId": "oy_home_with_you_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "You built something truly sacred here. Anyone with eyes can see that.", "nextId": "oy_sacred_building_validation", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_sacred_building_validation",
+      "partnerMessage": "Thank you... That word means a lot coming from you. In an era where everything is disposable, caring for fragile things feels like an act of devotion.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "It is devotion. And you deserve someone devoted to you in return.", "nextId": "oy_home_with_you_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_home_with_you_tender",
+      "partnerMessage": "...'Home.'\n\nI haven't felt that word in my ribs since my grandmother's kitchen. It's strange how you managed to bring that warmth back into an iron-and-glass greenhouse at midnight.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Because warmth comes from the person you're sharing the space with. Not the building.", "nextId": "oy_post_call_2_hub", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_post_call_2_hub",
+      "partnerMessage": "My thermos is empty, my hands are finally warm, and I'm looking down into the still water watching the reflection of the iron rafters.\n\n{PlayerName}... when you answered that call and kept me grounded while the steam was hissing in the dark... all the tension I've held inside my shoulders for the last six months just dissolved.\n\nCome to the conservatory gate on Saturday afternoon. I have an unglazed terra cotta pot, fresh mountain loam, and that cutting of my grandmother's Christmas cactus waiting for you on the bench.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Saturday afternoon at the gate. I'll be there, Masie. Rest well tonight.", "nextId": "oy_climax_romance_final", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" },
+        { "choiceText": "I'll bring fresh bread from the bakery down the street. It's a date.", "nextId": "oy_climax_romance_final", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
+      ]
+    },
+    {
+      "id": "oy_climax_romance_final",
+      "partnerMessage": "Saturday afternoon. I'll leave the south iron wicket gate unlocked for you.\n\nWe'll brew the peppermint verbena infusion, pot your cutting together, and sit on this slate ledge while the afternoon sun warms the glass.\n\nGoodnight, {PlayerName}. Thank you for looking past the soil and seeing me. Sleep gently.",
+      "linkUrl": "",
+      "triggerEvent": "CLIMAX_ROMANCE_PERFECT",
+      "choices": []
+    },
+    {
+      "id": "oy_seenzone_1",
+      "partnerMessage": "Status: Read just now.\n\nMasie has closed the greenhouse communication log.",
+      "linkUrl": "",
+      "triggerEvent": "GHOST_SEQUENCE_START",
+      "choices": [
+        { "choiceText": "Masie? Did you lose connection down in the cellar?", "nextId": "oy_seenzone_2", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I'm sorry, Masie. I was being cynical and dismissive of something you love. Please let me restart.", "nextId": "oy_apology_recovery_cynical", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Leaving people on read in an empty greenhouse is pretty dramatic.", "nextId": "oy_ending_failure_cold", "linkUrl": "", "triggerEvent": "FAILURE_BLOCKED" }
+      ]
+    },
+    {
+      "id": "oy_seenzone_2",
+      "partnerMessage": "Status: Read 25m ago.\n\n[Typing...]\n\nMasie has set her status to 'Offline - Tending Root Stock'.",
+      "linkUrl": "",
+      "triggerEvent": "GET_GHOSTED",
+      "choices": []
+    },
+    {
+      "id": "oy_call_missed_reset",
+      "partnerMessage": "The audio line cut out right as the steam valve was hissing! 📶\n\nI'm still sitting by the auxiliary pipe with my wrench. Hit the green call button again as soon as your signal stabilizes!",
       "linkUrl": "",
       "triggerEvent": "ENABLE_VOICE_CALL",
+      "choices": [
+        { "choiceText": "Line reconnected! Calling you back right now!", "nextId": "oy_call_1_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+      ]
+    },
+    {
+      "id": "oy_ending_failure_dismissed",
+      "partnerMessage": "I think I'm going to lock the glasshouse door and leave our conversation here. We view the world through completely incompatible lenses, and I really don't have the energy for cynicism in a place I built for peace. Take care.",
+      "linkUrl": "",
+      "triggerEvent": "FAILURE_DISMISSED",
+      "choices": []
+    },
+    {
+      "id": "oy_ending_failure_cold",
+      "partnerMessage": "I spend all day keeping fragile living things alive; I have zero interest in entertaining dismissive, transactional cynicism in my private sanctuary.\n\nYou're removed from the greenhouse feed. Good luck on other apps.",
+      "linkUrl": "",
+      "triggerEvent": "FAILURE_BLOCKED",
       "choices": []
     }
   ]

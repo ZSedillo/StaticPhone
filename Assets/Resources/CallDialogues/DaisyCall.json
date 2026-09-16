@@ -1,48 +1,248 @@
 {
   "callerName": "Daisy",
-  "startNodeId": "start",
+  "startNodeId": "call1_start",
   "timeoutPrompts": [
-    "Daisy: Comms check! You afk or did your mic cut out?",
-    "Daisy: Yo! Say something, match queue is finding a lobby!",
-    "Daisy: Don't choke before we even drop! Hello?",
-    "Daisy: Dropping comms, ping me later."
+    "Daisy: Comms check! {PlayerName}, don't go silent on me during overtime!",
+    "Daisy: Yo! Round clock is at 0:25! What's the call?!",
+    "Daisy: I'm swinging tree room alone if you don't talk! Hello?!",
+    "Daisy: Dropping the audio channel, match is too intense. Texting you after."
   ],
   "nodes": [
     {
-      "nodeId": "start",
-      "partnerDialogue": "Daisy: Yo! Perfect timing, queue just placed us into the top seed bracket! You warmed up?",
+      "nodeId": "call1_start",
+      "partnerDialogue": "Daisy: *loud mechanical keyboard clatter, heavy breathing, muffled gunshots* You're in! Thank god! Round twenty-five, score is tied 12-12 on Ascent! Our captain's mic just died, coach is yelling over Discord, and my hands are like ice cubes! Talk to me—where are they hitting?!",
       "choices": [
-        { "choiceText": "Aim is locked in. Let's get this win.", "nextNodeId": "locked_in" },
-        { "choiceText": "Wait, top seed already?!", "nextNodeId": "nervous" },
-        { "choiceText": "What's the drop strategy?", "nextNodeId": "strategy" }
+        { "choiceText": "Breathe, Daisy! I'm watching your stream radar. Deep breath, eyes on crosshair.", "nextNodeId": "c1_breathe_anchor" },
+        { "choiceText": "Catwalk smoke is fading in five seconds! Don't dry-peek middle!", "nextNodeId": "c1_smoke_warning" },
+        { "choiceText": "Hold garden arch with the Phantom. Let them walk into your crosshair.", "nextNodeId": "c1_hold_garden" },
+        { "choiceText": "You've clutched this a hundred times in scrims. Trust your hands.", "nextNodeId": "c1_trust_hands" }
       ]
     },
     {
-      "nodeId": "locked_in",
-      "partnerDialogue": "Daisy: That's what I like to hear! We take high ground near the radio tower and gatekeep the zone.",
+      "nodeId": "c1_breathe_anchor",
+      "partnerDialogue": "Daisy: *sharp, shaky inhale* Okay... okay. Inhale... exhale. Hands on WASD. Mouse grip relaxed. God, your voice cut through the static in my head. They just dropped utility on B-main, but it sounds like a fake!",
       "choices": [
-        { "choiceText": "I'll cover your flank. Let's go.", "nextNodeId": "END_CALL" },
-        { "choiceText": "Don't rush in solo this time!", "nextNodeId": "solo_banter" }
+        { "choiceText": "It is a fake! Footstep audio near catwalk bricks—they're rotating to A!", "nextNodeId": "c1_call_rotate" },
+        { "choiceText": "Don't over-rotate yet. Keep one eye on tree room.", "nextNodeId": "c1_hold_tree" }
       ]
     },
     {
-      "nodeId": "nervous",
-      "partnerDialogue": "Daisy: Relax! You've got me on point. Just watch my back and trade kills if I push.",
+      "nodeId": "c1_smoke_warning",
+      "partnerDialogue": "Daisy: Smoke dropping in four... three... *rapid keyboard tapping* Re-smoking the lip of catwalk bricks! One-way is set! Their sniper just tried to contest and clipped my shoulder for 40 damage!",
       "choices": [
-        { "choiceText": "Got your back no matter what.", "nextNodeId": "END_CALL" }
+        { "choiceText": "Fall back toward site generator! Don't re-peek on low health!", "nextNodeId": "c1_fall_back_gen" },
+        { "choiceText": "Pop your flash through the smoke and swing him while he re-chambers!", "nextNodeId": "c1_flash_swing" }
       ]
     },
     {
-      "nodeId": "strategy",
-      "partnerDialogue": "Daisy: Fast loot at the warehouse, then rotate before the circle pushes. Simple and deadly.",
+      "nodeId": "c1_hold_garden",
+      "partnerDialogue": "Daisy: Holding tight angle behind the arch pillar. Crosshair head-level. *mouse click sound* First blood! Caught their initiator sprinting through tree door! But the spike is planted on A-site and our sentinel just went down!",
       "choices": [
-        { "choiceText": "Ready when you are.", "nextNodeId": "END_CALL" }
+        { "choiceText": "1v2 clutch situation. You have full utility and thirty seconds on the spike.", "nextNodeId": "c1_1v2_setup" },
+        { "choiceText": "Don't panic defuse. Isolate the duelist first.", "nextNodeId": "c1_isolate_duelist" }
       ]
     },
     {
-      "nodeId": "solo_banter",
-      "partnerDialogue": "Daisy: Hey, that was tactical aggression! Alright, match countdown is starting. Catch you on the server!",
-      "choices": []
+      "nodeId": "c1_trust_hands",
+      "partnerDialogue": "Daisy: Muscle memory locked. *rapid clicks, keyboard clacking* Re-clearing tree room... caught one rotating through mid! Spike planted A-default! It's a 1v2 for the match!",
+      "choices": [
+        { "choiceText": "Take the 1v2, Daisy. You own this site.", "nextNodeId": "c1_1v2_setup" }
+      ]
+    },
+    {
+      "nodeId": "c1_call_rotate",
+      "partnerDialogue": "Daisy: Rotating through heaven! Dropping off the ledge into site! *heavy in-game audio blast* Spike planted default! It's a 1v2, {PlayerName}! My coach is screaming in Discord, what do I do?!",
+      "choices": [
+        { "choiceText": "Mute your coach. Listen only to me. Flash site generator right now!", "nextNodeId": "c1_flash_gen" }
+      ]
+    },
+    {
+      "nodeId": "c1_hold_tree",
+      "partnerDialogue": "Daisy: Holding tree... caught their lurker creeping up rafters! *clean dink headshot sound* Down to a 1v1 on site! Twenty seconds on the defuse timer!",
+      "choices": [
+        { "choiceText": "Tap the spike to bait the swing, then hold the corner.", "nextNodeId": "c1_tap_spike_bait" }
+      ]
+    },
+    {
+      "nodeId": "c1_fall_back_gen",
+      "partnerDialogue": "Daisy: Backed up to generator! Tucked behind cover! Spike is ticking down, 1v2 scenario! I have one flash and half a magazine left!",
+      "choices": [
+        { "choiceText": "Bank the flash off the metal box and swing right!", "nextNodeId": "c1_flash_gen" }
+      ]
+    },
+    {
+      "nodeId": "c1_flash_swing",
+      "partnerDialogue": "Daisy: Flashing through the smoke... *pop of blind utility* SWINGING! Got him! Headshot on the sniper! Down to a 1v1 on default!",
+      "choices": [
+        { "choiceText": "Tap the defuse! Force him to reveal his position!", "nextNodeId": "c1_tap_spike_bait" }
+      ]
+    },
+    {
+      "nodeId": "c1_1v2_setup",
+      "partnerDialogue": "Daisy: Dropping smoke on rafters to block the high angle! Flashing generator... *in-game gunshot spray* Got the first one! Just the enemy duelist left hiding garden!",
+      "choices": [
+        { "choiceText": "Fake the defuse tap right now. He has to push.", "nextNodeId": "c1_tap_spike_bait" }
+      ]
+    },
+    {
+      "nodeId": "c1_isolate_duelist",
+      "partnerDialogue": "Daisy: Checking garden... caught him sprinting across bricks! *two clean rifle taps* HE'S DOWN! Defusing the spike! Half-stick reached!",
+      "choices": [
+        { "choiceText": "Stick the defuse! Don't let go of the key!", "nextNodeId": "c1_defuse_win" }
+      ]
+    },
+    {
+      "nodeId": "c1_flash_gen",
+      "partnerDialogue": "Daisy: Flashed! *loud in-game kill sound* Got him! Last guy is swinging from garden catwalk! He's spraying through the smoke!",
+      "choices": [
+        { "choiceText": "Crouch-spray transfer into the smoke! Right now, Daisy!", "nextNodeId": "c1_crouch_spray_win" },
+        { "choiceText": "Let him waste his clip, then counter-peek!", "nextNodeId": "c1_counter_peek_win" }
+      ]
+    },
+    {
+      "nodeId": "c1_tap_spike_bait",
+      "partnerDialogue": "Daisy: *clicking sound* Tapped the spike! Half-defuse sound triggered! Footsteps sprinting from garden! HE'S SWINGING!",
+      "choices": [
+        { "choiceText": "Crosshair head-height! Click his head, champion!", "nextNodeId": "c1_headshot_climax_win" }
+      ]
+    },
+    {
+      "nodeId": "c1_crouch_spray_win",
+      "partnerDialogue": "Daisy: *intense mouse clicking, rapid mechanical keyboard clatter* SPRAYING... *loud victory fanfare, horn sounds in game* HE'S DEAD! ROUND WON! 14-12! WE TOOK THE OVERTIME! *screams into microphone, crying with relief* WE WON!",
+      "choices": [
+        { "choiceText": "YOU DID IT! Collegiate quarterfinals champion! Hang up and breathe, Daisy!", "nextNodeId": "c1_hangup_debrief" }
+      ]
+    },
+    {
+      "nodeId": "c1_counter_peek_win",
+      "partnerDialogue": "Daisy: His mag ran empty! SWINGING! *crisp headshot chime* DINK! HE'S DOWN! DEFUSED WITH ZERO POINT SIX SECONDS LEFT! *hyperventilating laugh* WE ACTUALLY WON OVERTIME!",
+      "choices": [
+        { "choiceText": "Incredible discipline, captain! Hang up and talk to me in text!", "nextNodeId": "c1_hangup_debrief" }
+      ]
+    },
+    {
+      "nodeId": "c1_headshot_climax_win",
+      "partnerDialogue": "Daisy: *single sharp click* DINK! Clean one-tap! Spike defused! *match won announcement over in-game speakers* Oh my god... oh my god, {PlayerName}, my hands are shaking so bad I literally dropped my mouse onto the floor!",
+      "choices": [
+        { "choiceText": "Pick up your mouse and slide off that chair. I'm waiting in chat.", "nextNodeId": "c1_hangup_debrief" }
+      ]
+    },
+    {
+      "nodeId": "c1_defuse_win",
+      "partnerDialogue": "Daisy: Spike defused! *loud match win audio* 14-12 final score! Our coach is spamming all-caps in Discord! We kept our seed!",
+      "choices": [
+        { "choiceText": "You earned every second of that victory. Jump back into chat.", "nextNodeId": "c1_hangup_debrief" }
+      ]
+    },
+    {
+      "nodeId": "c1_hangup_debrief",
+      "partnerDialogue": "Daisy: *voice shaking with happy tears* I'm unplugging my headset right now. My teammates are screaming in Discord, but I just want to talk to you. Check OnlyYaps right now—I'm sliding down onto my carpet.",
+      "choices": [
+        { "choiceText": "[Hang Up and Return to Chat]", "nextNodeId": "END_CALL" }
+      ]
+    },
+    {
+      "nodeId": "call2_start",
+      "partnerDialogue": "Daisy: *whispering softly, faint rain tapping on windowpane* ...Hey. Thanks for picking up so fast.\n\nI turned off the triple monitors. The PC fans are finally winding down to a quiet hum. I'm sitting on the edge of my dorm bed in an oversized hoodie, holding my phone with my left hand while my right wrist is wrapped in an ice towel.",
+      "choices": [
+        { "choiceText": "Hey you. How does the wrist feel with the ice pack on?", "nextNodeId": "c2_wrist_status" },
+        { "choiceText": "You sound so peaceful right now compared to overtime comms.", "nextNodeId": "c2_peaceful_contrast" },
+        { "choiceText": "You conquered the server tonight, Daisy. You can rest now.", "nextNodeId": "c2_rest_now_comfort" }
+      ]
+    },
+    {
+      "nodeId": "c2_wrist_status",
+      "partnerDialogue": "Daisy: Cold and numb, which is honestly the best feeling in the world right now. The tendon stopped throbbing about ten minutes ago. My biomechanics notes are sitting on the desk next to my mouse pad, and for the first time all week, they don't look stressful.",
+      "choices": [
+        { "choiceText": "Because your scholarship is safe. You protected your future.", "nextNodeId": "c2_scholarship_safe" },
+        { "choiceText": "Promise me you'll take tomorrow completely off from aim training.", "nextNodeId": "c2_take_day_off_promise" }
+      ]
+    },
+    {
+      "nodeId": "c2_peaceful_contrast",
+      "partnerDialogue": "Daisy: *soft, quiet laugh* It's because the noise is gone. During tournament matches, you have coach callouts, spectator chats, kill sound alerts, and your own panic running at 200 miles an hour. Sitting here talking to you in the dark... it feels like the world finally slowed down to normal speed.",
+      "choices": [
+        { "choiceText": "I'm glad I can be that quiet place for you, Daisy.", "nextNodeId": "c2_quiet_place_bond" },
+        { "choiceText": "What does the campus quad look like outside your window?", "nextNodeId": "c2_campus_window_view" }
+      ]
+    },
+    {
+      "nodeId": "c2_rest_now_comfort",
+      "partnerDialogue": "Daisy: *takes a deep, slow breath* ...Rest. Nobody ever gives me permission to just rest. My coach sent an email about Monday scrims, my group project partners are pinging my university email, but sitting here listening to your voice... I actually feel safe letting my guard down.",
+      "choices": [
+        { "choiceText": "You never have to have your guard up with me. Ever.", "nextNodeId": "c2_guard_down_vow" }
+      ]
+    },
+    {
+      "nodeId": "c2_scholarship_safe",
+      "partnerDialogue": "Daisy: Yeah. My athletics coordinator already emailed: tuition waiver renewed through graduation. My brother can't say I'm wasting my life anymore. But the weirdest part? Winning that match didn't feel half as good as hearing your voice when I was down 12-12.",
+      "choices": [
+        { "choiceText": "Because we're a real duo, on and off the server.", "nextNodeId": "c2_real_duo_lockin" },
+        { "choiceText": "You did the shooting, I just held the flashlight.", "nextNodeId": "c2_flashlight_humility" }
+      ]
+    },
+    {
+      "nodeId": "c2_take_day_off_promise",
+      "partnerDialogue": "Daisy: Promise. No AimLab, no deathmatches, no recoil drills. Just sleeping in until noon, letting Sir Paws-a-Lot sit on my stomach, and thinking about our Sunday morning diner date.",
+      "choices": [
+        { "choiceText": "Sunday morning at the corner booth. Pancakes and hot cocoa.", "nextNodeId": "c2_diner_date_hype" }
+      ]
+    },
+    {
+      "nodeId": "c2_quiet_place_bond",
+      "partnerDialogue": "Daisy: You are. In a world full of people trying to use me for rank or judge me for my hobby, you're the only person who just saw *me*.\n\nI don't think I could ever go back to playing solo after tonight.",
+      "choices": [
+        { "choiceText": "You'll never have to play solo again, Daisy.", "nextNodeId": "c2_never_solo_vow" }
+      ]
+    },
+    {
+      "nodeId": "c2_campus_window_view",
+      "partnerDialogue": "Daisy: Wet yellow leaves on the cobblestones under amber lampposts. The varsity athletics building across the quad is dark. It's raining softly against the glass. It looks peaceful... but it would look a lot better if you were sitting on this windowsill with me.",
+      "choices": [
+        { "choiceText": "Sunday morning I'll be sitting right across from you in person.", "nextNodeId": "c2_diner_date_hype" }
+      ]
+    },
+    {
+      "nodeId": "c2_guard_down_vow",
+      "partnerDialogue": "Daisy: *whispers* I believe you. And for someone who grew up having to defend her space every single day... that's the biggest relief I've ever known.",
+      "choices": [
+        { "choiceText": "Sleep easy tonight, Daisy. You earned your peace.", "nextNodeId": "c2_final_goodnight" }
+      ]
+    },
+    {
+      "nodeId": "c2_real_duo_lockin",
+      "partnerDialogue": "Daisy: A real duo. God, that sounds so warm. I spent five years playing for teams that would replace me in a heartbeat. Having a partner who stays through the storm... that's the real trophy.",
+      "choices": [
+        { "choiceText": "You're my trophy, Daisy. Now rest those eyes.", "nextNodeId": "c2_final_goodnight" }
+      ]
+    },
+    {
+      "nodeId": "c2_flashlight_humility",
+      "partnerDialogue": "Daisy: Don't sell yourself short! When the whole room was screaming, your flashlight was the only reason I didn't lose my footing. You're the reason that defuse went through.",
+      "choices": [
+        { "choiceText": "Then we share the championship. Sleep tight, champion.", "nextNodeId": "c2_final_goodnight" }
+      ]
+    },
+    {
+      "nodeId": "c2_diner_date_hype",
+      "partnerDialogue": "Daisy: Corner booth. Double order of buttermilk pancakes, extra whipped cream, and zero talk about patch notes. I'm wearing my oversized team varsity jacket so everyone on campus knows who you're with.",
+      "choices": [
+        { "choiceText": "I'll wear it with pride. Close your eyes, Daisy.", "nextNodeId": "c2_final_goodnight" }
+      ]
+    },
+    {
+      "nodeId": "c2_never_solo_vow",
+      "partnerDialogue": "Daisy: *sniffles softly, voice full of genuine emotion* Lock that into our contract, {PlayerName}. Because I'm holding onto you with both hands.",
+      "choices": [
+        { "choiceText": "Locked in forever. Goodnight, my Radiant girl.", "nextNodeId": "c2_final_goodnight" }
+      ]
+    },
+    {
+      "nodeId": "c2_final_goodnight",
+      "partnerDialogue": "Daisy: *whispers* My blanket is pulled up to my chin. The ice pack is doing its job. I'm leaving this call on until you hang up, but I'll be waiting for you in the corner booth on Sunday.\n\nGoodnight, my duo. See you on the other side of the screen.",
+      "choices": [
+        { "choiceText": "[Hang Up and Return to Chat for Finale]", "nextNodeId": "END_CALL" }
+      ]
     }
   ]
 }

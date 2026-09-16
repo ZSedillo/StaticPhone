@@ -41,5 +41,17 @@ public class TaskItemUI : MonoBehaviour
         {
             checkboxImage.color = task.isCompleted ? completedBoxColor : uncompletedBoxColor;
         }
+
+        // --- FORCE LAYOUT RECALCULATION FOR MULTI-LINE DESCRIPTIONS ---
+        if (txtDescription != null)
+        {
+            txtDescription.ForceMeshUpdate();
+        }
+
+        RectTransform rt = GetComponent<RectTransform>();
+        if (rt != null)
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(rt);
+        }
     }
 }

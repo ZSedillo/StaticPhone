@@ -4,28 +4,544 @@
   "nodes": [
     {
       "id": "oy_daisy_start",
-      "partnerMessage": "You're in. This channel is unranked, but I still play to win. You got a headset on?",
+      "partnerMessage": "Stream is closed, mic is muted on the shared server, and the dorm room is quiet for once.\n\nI'm sitting here in an oversized sweater with my hair pinned up, just looking at my monitor. Before we get into anything... be honest with me, {PlayerName}. Did you come over to this chat just because you wanted gaming advice, or were you actually curious about who I am when I'm not on camera?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Always geared up. What's the plan?", "nextId": "oy_plan", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Just call me and let's coordinate.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+        { "choiceText": "I'm here for you. The streams and games are interesting, but you're the reason I reached out.", "nextId": "oy_behind_mouse_sweet", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "A bit of both. I respect how dedicated you are, but I wanted to talk to the real person.", "nextId": "oy_drive_and_person", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I wanted to see if your personality off-stream is different from your public persona.", "nextId": "oy_ego_check_banter", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Mostly wondering why someone puts so much of their life into competitive matches.", "nextId": "oy_why_eight_hours", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
       ]
     },
     {
-      "id": "oy_plan",
-      "partnerMessage": "Running a duo tournament tonight. Check out my match telemetry before queue pops:",
-      "linkUrl": "onlyyaps.gg/match_stats/daisy_kd",
-      "triggerEvent": "UNLOCK_TOURNAMENT_STATS",
+      "id": "oy_behind_mouse_sweet",
+      "partnerMessage": "...It's strange reading that, honestly.\n\nMost people I talk to online either want a quick carry to higher ranks or treat me like a novelty because I play competitively. Having someone just talk to me like a normal girl... it takes me off guard a bit.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Those numbers are unreal. Call me now, let's win.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+        { "choiceText": "You don't have to prove anything to me, Daisy. You're allowed to just be yourself.", "nextId": "oy_value_not_score", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Does it happen that often? People seeing your rank before they see you?", "nextId": "oy_leaderboard_accessory_pain", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "You sound like you've been carrying a lot of weight alone lately.", "nextId": "oy_carrying_weight_read", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
       ]
     },
     {
-      "id": "oy_call_ready",
-      "partnerMessage": "Green call icon is armed at the top. Ring me before the match queue pops!",
+      "id": "oy_drive_and_person",
+      "partnerMessage": "Off-camera I'm mostly just an exhausted sophomore trying to pass physiology, drink enough water, and keep up with laundry.\n\nPeople see tournament clips and think it's all highlights, but ninety percent of my week is routine, practice, and quiet stress.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "What kind of stress? You can talk to me about it.", "nextId": "oy_actual_weight_confession", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "You're taking physiology? You're balancing science coursework on top of team scrims?", "nextId": "oy_kinesiology_major_talk", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_ego_check_banter",
+      "partnerMessage": "On stream I have to keep my guard up. In collegiate tournaments, if you don't show confidence, people pick on every hesitation or misplay. It gets tiring.\n\nHere, I don't really care about keeping up an image.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "I'm glad. I'd much rather talk to you without that guard up.", "nextId": "oy_behind_mouse_sweet", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "It must be draining to keep that shield up all day.", "nextId": "oy_fight_or_flight_exhaustion", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_why_eight_hours",
+      "partnerMessage": "Because my tuition depends on it.\n\nI'm on an athletic esports scholarship. If our roster drops out of the regional circuit, the department cuts the stipend for next semester. It's not just a hobby; it's how I afford to stay enrolled.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "That's a massive amount of pressure for a student to carry every day.", "nextId": "oy_scholarship_pressure_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Do your parents support your program, or do they not understand it?", "nextId": "oy_parents_battlefield", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "If the stakes are that high, why not find a regular part-time job on campus?", "nextId": "oy_campus_job_fumble", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
+      ]
+    },
+    {
+      "id": "oy_value_not_score",
+      "partnerMessage": "...Thanks. You have no idea how rarely I hear that.\n\nEvery Monday morning review is about positioning, first-engagement percentages, and round pacing. It's easy to forget I'm a person when everyone around me is looking at spreadsheets.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "How are you physically holding up? Do your wrists or hands ever ache?", "nextId": "oy_wrist_injury_confession", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "How have you been sleeping lately, Daisy? Truly.", "nextId": "oy_how_did_you_sleep", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_leaderboard_accessory_pain",
+      "partnerMessage": "More often than I'd like. People want to be around when you're winning, but the second you have a rough week or want to spend a quiet evening off the computer, they disappear.\n\nIt makes you cautious about who you let in.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "I'm here for the rough days too. You don't have to perform for me.", "nextId": "oy_off_days_promise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "You deserve someone who values you when the screens are turned off.", "nextId": "oy_enjoy_silence_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_carrying_weight_read",
+      "partnerMessage": "I have been, a little bit. My shoulders have been tense all evening.\n\nWe have our regional qualification decider against Northern State tonight. If we lose the third map, our season wraps up early. And our in-game caller's audio setup failed during warmup.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Your caller's audio failed right before a match? That's really rough.", "nextId": "oy_scrim_schedule_intro", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Take a breath. You know the map and the timings better than anyone.", "nextId": "oy_game_sense_reassurance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_actual_weight_confession",
+      "partnerMessage": "It's the quiet fear of failing after putting everything into this.\n\nWhen I told my family I took this path, my older brother told me I was wasting my college years and that I'd regret not taking a safe route. Whenever a match gets tight, that doubt sits right in the back of my mind.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "He took the easy road; you're building your own. You proved your capability when you earned this spot.", "nextId": "oy_brother_projection_truth", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "You aren't playing for his approval. You're playing because you love this.", "nextId": "oy_play_for_younger_self", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_kinesiology_major_talk",
+      "partnerMessage": "Yeah, biomechanics and motor pathways. I started it wanting to understand hand fatigue and reflex speed, but I ended up genuinely loving rehabilitation science.\n\nI'd like to work with athletes down the road—traditional or competitive—so they learn proper recovery before their joints give out.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Are your own hands giving you trouble right now?", "nextId": "oy_wrist_injury_confession", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "That's a grounded, meaningful direction. I really respect that.", "nextId": "oy_ambition_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_fight_or_flight_exhaustion",
+      "partnerMessage": "It really wears on you. By late evening my heart rate still feels elevated, like my body thinks something is about to happen. It takes hours to calm down after scrims.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Then let's keep things low-key tonight. No rush, no performance.", "nextId": "oy_off_the_clock_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "How do you usually unwind when you finally shut down the PC?", "nextId": "oy_wind_down_routine_ask", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_scholarship_pressure_bond",
+      "partnerMessage": "It is heavy, but it's the reality of my tuition. My parents couldn't afford out-of-state fees, so I made a deal with myself to make this work.\n\nSome days I'm grateful for the opportunity, but other days I just feel like an employee whose job is on the line every weekend.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You took responsibility for your own future. That takes real character.", "nextId": "oy_fighter_carved_path", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Let's make sure you hold onto that spot. What does tonight's match look like?", "nextId": "oy_scrim_schedule_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_parents_battlefield",
+      "partnerMessage": "They don't get it. My dad still asks when I'm going to get an internship at an insurance firm. When I told him our regional tournament was broadcast to thousands of people, he just nodded politely.\n\nIt hurts a little. You want your family to understand your work, even if it's unfamiliar to them.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "I see the discipline and work you put in, Daisy. I'm proud of you.", "nextId": "oy_proud_of_you_climax_setup", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "It takes time for older generations to grasp new fields. Don't let that diminish what you've achieved.", "nextId": "oy_blind_spots_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_campus_job_fumble",
+      "partnerMessage": "A campus desk job covers groceries, not five-figure tuition. If it were that simple, I wouldn't be practicing until midnight.\n\nI thought you understood that, but maybe not.",
+      "linkUrl": "",
+      "triggerEvent": "FUMBLE_CONVERSATION",
+      "choices": [
+        { "choiceText": "I spoke without thinking. I'm sorry, Daisy. I know how much is on the line.", "nextId": "oy_apology_accepted_financial", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I'm just being realistic about balancing your health.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" }
+      ]
+    },
+    {
+      "id": "oy_wrist_injury_confession",
+      "partnerMessage": "...My right wrist has had a dull ache along the tendon for about two weeks. I've been taping it and using an ice pack after practices so my coach doesn't pull me for a substitute.\n\nI haven't told anyone on the roster. It feels too risky.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Tendon inflammation gets worse if you ignore it, Daisy. Promise me you'll have it checked soon.", "nextId": "oy_careful_tendon_warning", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "After tonight's decider, you need to ice it and take a real break.", "nextId": "oy_ice_wrist_promise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_how_did_you_sleep",
+      "partnerMessage": "A few broken hours. Kept waking up reviewing map layouts in my head. Woke up feeling stiff.\n\nIt's nice that you asked, though. Usually people only ask if my aim is warmed up.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Your health comes first. Take a slow breath and show me what you're preparing for.", "nextId": "oy_scrim_schedule_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_off_days_promise",
+      "partnerMessage": "I appreciate that more than you know. Because there are days where I'm exhausted, quiet, and not particularly entertaining company.\n\nIf you're willing to stick around for those days, that means a lot to me.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'm not here for entertainment, Daisy. I'm here because I care about you.", "nextId": "oy_clean_broken_mug_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_enjoy_silence_comfort",
+      "partnerMessage": "Comfortable silence is rare. In my team environment, silence usually means someone is frustrated or giving up.\n\nHaving quiet that feels safe is something I haven't had in a while.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You have it with me. What's the map schedule looking like tonight?", "nextId": "oy_scrim_schedule_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_game_sense_reassurance",
+      "partnerMessage": "You're right. I've played this map hundreds of times. I just need to trust my reads and not let the clock rush me.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Exactly. Let's look at the setup notes together.", "nextId": "oy_scrim_schedule_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_brother_projection_truth",
+      "partnerMessage": "I know you're right, but family doubts stick around for years. Hearing someone outside of that circle say it plainly helps loosen that grip.\n\nThank you.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Anytime. Let's get through this match tonight.", "nextId": "oy_scrim_schedule_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_play_for_younger_self",
+      "partnerMessage": "...I remember setting up my first hand-me-down monitor in my bedroom just because I loved improving at something on my own terms.\n\nI think I lost sight of that somewhere between scrims and grade checks. I'll keep that in mind tonight.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "She'd be proud of how far you've come. Show me the map layout.", "nextId": "oy_scrim_schedule_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_ambition_praise",
+      "partnerMessage": "Thanks. That's the long-term goal. Even if competitive play ends after college, I want the degree to mean something tangible for people coming up after me.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "It will. Let's take care of tonight first.", "nextId": "oy_scrim_schedule_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_off_the_clock_tender",
+      "partnerMessage": "Off the clock... that sounds really good right now.\n\nI just pushed my chair back from the desk. It feels steadying to have your messages coming in while I wait for the lobby invite.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Stay calm. What are the key points for the decider?", "nextId": "oy_scrim_schedule_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_wind_down_routine_ask",
+      "partnerMessage": "Usually some tea in an old ceramic mug, stretching my forearms with a small massage ball, and turning down the monitor brightness. Nothing fancy.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Simple and calm. That's a good routine.", "nextId": "oy_cat_mug_banter", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Let's see what the match setup looks like tonight.", "nextId": "oy_scrim_schedule_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_cat_mug_banter",
+      "partnerMessage": "My cousin painted a small cat on the side of it years ago. It's chipped, but it's the one thing on my desk that has nothing to do with gaming hardware.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Those little personal things keep you grounded. Now, let's see the match plan.", "nextId": "oy_scrim_schedule_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_fighter_carved_path",
+      "partnerMessage": "It hasn't been easy, but knowing someone understands the effort makes it feel less solitary.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Show me what you're working with tonight.", "nextId": "oy_scrim_schedule_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_blind_spots_comfort",
+      "partnerMessage": "You're right. I can't expect them to understand something they didn't grow up with. Having someone my age who gets it without judgment is enough.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'll always listen. Show me the notes for tonight.", "nextId": "oy_scrim_schedule_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_careful_tendon_warning",
+      "partnerMessage": "I know. Our sports science faculty always warns us about chronic strain. I promise I'll go by the campus athletic clinic on Monday morning.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Good. I'll check in to make sure you went. Let's look at the match map.", "nextId": "oy_scrim_schedule_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_ice_wrist_promise",
+      "partnerMessage": "I have an ice pack ready in the fridge. As soon as the match concludes, I'm wrapping it up and stepping away from the PC.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Deal. Now show me the defensive setup.", "nextId": "oy_scrim_schedule_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_clean_broken_mug_tender",
+      "partnerMessage": "That's very kind of you, {PlayerName}. Honestly, hearing that calms my nerves down more than you probably realize.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I mean it. Let's look over your map notes.", "nextId": "oy_scrim_schedule_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_apology_accepted_financial",
+      "partnerMessage": "Thanks. I get defensive about it because people assume esports scholarships are easy. Let's reset—here's the layout for tonight's decider.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Let's see it.", "nextId": "oy_scrim_schedule_intro", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_scrim_schedule_intro",
+      "partnerMessage": "Regional decider on Ascent. It's our defensive hold on A-site that's been shaky:\nNotice how their entry player keeps isolating the narrow angle from catwalk into garden.",
+      "linkUrl": "onlyyaps.gg/daisy/ascent_telemetry_decider",
+      "triggerEvent": "UNLOCK_LOOKBOOK",
+      "choices": [
+        { "choiceText": "That sightline is open because the smoke drops slightly too shallow. Placing it deeper cuts off the sniper angle.", "nextId": "oy_deep_smoke_tactical", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Can your team anchor the garage connector with crossfire instead?", "nextId": "oy_sentinel_crossfire_ask", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Your team's rotations look a bit delayed on the mini-map feed.", "nextId": "oy_team_spacing_critique", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
+      ]
+    },
+    {
+      "id": "oy_deep_smoke_tactical",
+      "partnerMessage": "Right, exactly. If we drop it deeper along the catwalk brickwork, it blocks the angle while letting our team hold tree room without being exposed.\n\nWait... the lobby alert just went off. Coach is pulling us into server comms. The decider map is starting.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Daisy, take a deep breath. Trust your practice and stay calm.", "nextId": "oy_call_1_trigger_node", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I'm right here with you. Play steady.", "nextId": "oy_call_1_trigger_node", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_sentinel_crossfire_ask",
+      "partnerMessage": "We tried, but our anchor got caught out twice in early rounds, so I'm covering tree room and catwalk at the same time.\n\nWait... team alerts are pinging. The match client is loading up.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Stay centered, Daisy. You can handle this.", "nextId": "oy_call_1_trigger_node", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_team_spacing_critique",
+      "partnerMessage": "It's delayed because our shot-caller's mic cut out and everyone is relying on pings right now. It's disorganized, but we have to make it work.\n\nCountdown is starting for round one.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Daisy, keep your head clear. You know what to do.", "nextId": "oy_call_1_trigger_node", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_call_1_trigger_node",
+      "partnerMessage": "We're in overtime—12-12 on Ascent! My hands are cold, my team comms are chaotic with the mic issue, and I need a steady voice on the line right now.\n\nCan you pick up the call? Just talk me through the rounds so I don't lose focus.",
+      "linkUrl": "",
+      "triggerEvent": "TRIGGER_CALL_1",
+      "choices": [
+        { "choiceText": "Connecting to Daisy's audio line (Call 1)...", "nextId": "oy_call_1_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+      ]
+    },
+    {
+      "id": "oy_call_1_ringing",
+      "partnerMessage": "*Audio connected: keyboard clicks and team game sounds in background.*",
+      "linkUrl": "",
+      "triggerEvent": "START_CALL_RINGTONE",
+      "choices": []
+    },
+    {
+      "id": "oy_post_call_1_hub",
+      "partnerMessage": "...We closed it out. 14-12.\n\nWhen you counted down the smoke duration and called the garden rotation, the background noise in my head just quieted down. My hands stopped shaking. I was able to secure the final site defuse with half a second to spare.\n\nI just slid back from my desk. My hands are finally starting to warm up.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You stayed focused and played with great discipline, Daisy. That was all you.", "nextId": "oy_clutch_praise_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Your muscle memory held up when it mattered. How is your wrist feeling now?", "nextId": "oy_hands_physical_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "That final round had my heart racing. You handled the pressure so well.", "nextId": "oy_defuse_heart_rate_banter", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "With that win behind you, has your coach confirmed the standing?", "nextId": "oy_coach_reaction_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_clutch_praise_tender",
+      "partnerMessage": "Having your calm voice in the headset made all the difference. When the coach was raising his voice, you were the only steady thing I could hear.\n\nNobody has ever helped ground me through a close game like that.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'm glad I could help you stay centered. You did the real work.", "nextId": "oy_steady_comms_vow", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "You deserved that win after everything you put into practice this week.", "nextId": "oy_doubters_wrong_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_steady_comms_vow",
+      "partnerMessage": "Most people assume competitive matches are just reflex and luck, but when the round is on the line, it feels very lonely.\n\nKnowing you were there on the line took that loneliness away.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You won't have to carry that alone anymore, Daisy. Let's make sure you take care of your hand now.", "nextId": "oy_hands_physical_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_doubters_wrong_comfort",
+      "partnerMessage": "It felt quiet in the lobby after the match ended. Everyone on our Discord just took a breath.\n\nIt feels good to know the work counted for something tonight.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "It counted for a lot. Now go get that ice pack.", "nextId": "oy_hands_physical_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_defuse_heart_rate_banter",
+      "partnerMessage": "My fitness watch buzzed me for high heart rate right as the timer hit zero. Felt like my chest was working overtime.\n\nI'm just glad it's done.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Take the headset off and take a slow breath. You're done for the night.", "nextId": "oy_hands_physical_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_coach_reaction_talk",
+      "partnerMessage": "Coach posted in the group chat that our roster placement is secured through the spring semester.\n\nMy scholarship stipend is safe. I don't have to worry about tuition for next term.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You protected your education with your own effort, Daisy. That's huge.", "nextId": "oy_saved_future_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_saved_future_praise",
+      "partnerMessage": "Hearing you say that genuinely means a lot. It feels like a massive weight lifted off my shoulders.\n\nThank you, {PlayerName}.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You earned it. Now tell me honestly: how is your wrist?", "nextId": "oy_hands_physical_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_hands_physical_check",
+      "partnerMessage": "It's throbbing a bit along the tendon, but I just got the cold pack from the mini-fridge and wrapped a clean hand towel around it.\n\nI'm resting my arm on the desk. It feels much better already.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Keep the cold pack on for fifteen minutes, then rest it completely.", "nextId": "oy_fifteen_minutes_ice", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Why do you push yourself so hard, Daisy? What's the deeper worry?", "nextId": "oy_real_fear_unpacked", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_fifteen_minutes_ice",
+      "partnerMessage": "Cold pack is on. The dull ache is numbing down nicely. The room is dark now, just the yellow streetlight outside the dorm window.\n\nIt feels quiet in here.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Quiet is good. You can decompress now.", "nextId": "oy_real_fear_unpacked", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_real_fear_unpacked",
+      "partnerMessage": "I think... I've always had this fear that if I'm not achieving something measurable, people will just look past me.\n\nGrowing up, my brother was the star athlete, my sister was academic, and I was the quiet kid in the background. I felt like I had to become exceptional at something just to be seen. But tonight, talking to you... I realized I don't feel that need to prove myself.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You don't have to prove anything to be seen, Daisy. I see you clearly.", "nextId": "oy_extraordinary_validation_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "You're valued for who you are, not for trophies or scores.", "nextId": "oy_one_person_sees_you", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_extraordinary_validation_tender",
+      "partnerMessage": "...I'm sitting on the edge of my mattress with tears on my cheek, and for once it's not from stress.\n\nIt's just relief. To know someone is listening to me without expecting anything in return.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You deserve that relief, Daisy. You're a wonderful person.", "nextId": "oy_climax_setup_hub", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_one_person_sees_you",
+      "partnerMessage": "And that means more to me than any leaderboard ranking.\n\nYou stayed with me when it got stressful, and you cared about my health instead of the match stats.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'll always care. Let's close out the night calmly.", "nextId": "oy_climax_setup_hub", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_climax_setup_hub",
+      "partnerMessage": "I put the cold pack back in the fridge, got into my warm sweatpants, and turned off the desk lamp.\n\nThe campus quad is completely quiet under the light rain.\n\nWould you call my line for just a few minutes before we sleep? No game audio, no match talk. Just a quiet goodnight.",
+      "linkUrl": "",
+      "triggerEvent": "TRIGGER_CALL_2",
+      "choices": [
+        { "choiceText": "Calling Daisy for Call 2 (After Hours)...", "nextId": "oy_call_2_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+      ]
+    },
+    {
+      "id": "oy_call_2_ringing",
+      "partnerMessage": "*Quiet audio line connects from the dorm room.*",
+      "linkUrl": "",
+      "triggerEvent": "START_CALL_RINGTONE",
+      "choices": []
+    },
+    {
+      "id": "oy_post_call_2_hub",
+      "partnerMessage": "My phone is resting on the side table, the blanket is pulled up, and my hand feels rested.\n\n{PlayerName}... thank you for talking to me tonight. It felt like talking to someone I've known for years.\n\nLet's meet at that diner near the campus edge on Sunday morning. Just warm coffee, breakfast, and sitting across from each other in person.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Sunday morning at the diner. I'm looking forward to seeing you, Daisy. Sleep well.", "nextId": "oy_climax_romance_final", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" },
+        { "choiceText": "I'll be there waiting at the booth. Rest your eyes tonight, champion.", "nextId": "oy_climax_romance_final", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
+      ]
+    },
+    {
+      "id": "oy_climax_romance_final",
+      "partnerMessage": "Sunday morning at the corner booth.\n\nNo tournament brackets, no screens. Just breakfast and someone I really care about.\n\nGoodnight, {PlayerName}. See you soon.",
+      "linkUrl": "",
+      "triggerEvent": "CLIMAX_ROMANCE_PERFECT",
+      "choices": []
+    },
+    {
+      "id": "oy_seenzone_1",
+      "partnerMessage": "Status: Read just now.\n\nDaisy has toggled her status to 'Do Not Disturb'.",
+      "linkUrl": "",
+      "triggerEvent": "GHOST_SEQUENCE_START",
+      "choices": [
+        { "choiceText": "Daisy? I'm sorry if that came off blunt.", "nextId": "oy_seenzone_2", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I spoke carelessly earlier. I really do want to understand what you're dealing with.", "nextId": "oy_apology_accepted_financial", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "If you're going to ignore me over that, fine.", "nextId": "oy_ending_failure_cold", "linkUrl": "", "triggerEvent": "FAILURE_BLOCKED" }
+      ]
+    },
+    {
+      "id": "oy_seenzone_2",
+      "partnerMessage": "Status: Read 25m ago.\n\nDaisy has closed the direct conversation.",
+      "linkUrl": "",
+      "triggerEvent": "GET_GHOSTED",
+      "choices": []
+    },
+    {
+      "id": "oy_call_missed_reset",
+      "partnerMessage": "The connection dropped for a second.\n\nI'm still sitting by my desk with my headset on my neck. Whenever your signal is stable, feel free to tap the call button again.",
       "linkUrl": "",
       "triggerEvent": "ENABLE_VOICE_CALL",
+      "choices": [
+        { "choiceText": "Signal reconnected. Calling you back now.", "nextId": "oy_call_1_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+      ]
+    },
+    {
+      "id": "oy_ending_failure_dismissed",
+      "partnerMessage": "I think I'm going to leave the conversation here. We don't really view things the same way, and I don't have the energy for small talk that feels unsupportive. Take care.",
+      "linkUrl": "",
+      "triggerEvent": "FAILURE_DISMISSED",
+      "choices": []
+    },
+    {
+      "id": "oy_ending_failure_cold",
+      "partnerMessage": "I deal with enough dismissive comments during competition; I really don't need it in my private time.\n\nI'm going to mute this thread. Good luck with your other matches.",
+      "linkUrl": "",
+      "triggerEvent": "FAILURE_BLOCKED",
       "choices": []
     }
   ]

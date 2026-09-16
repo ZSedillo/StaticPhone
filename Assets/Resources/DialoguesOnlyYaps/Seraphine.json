@@ -4,28 +4,521 @@
   "nodes": [
     {
       "id": "oy_seraphine_start",
-      "partnerMessage": "Welcome to my soundproof study. There are no notifications or algorithm noise here.",
+      "partnerMessage": "The heavy oak door of studio 4B is bolted, the acoustic baffling isolates the street noise, and the only illumination comes from the clip-on brass lamp over my Steinway's music desk.\n\nYou stepped past the threshold, {PlayerName}.\n\nIt is quiet in here. No public spectators, no competition adjudicators with scoring pencils, just forty thousand dollars of hand-bent Bavarian spruce and a girl whose hands are shaking slightly from exhaustion. Before I show you the unreleased rehearsal scores... tell me: what is it you truly want from this room?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Must be calming after a long concert.", "nextId": "oy_quiet", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Play me a few measures over call?", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+        { "choiceText": "I want to hear the music you play when nobody is grading you.", "nextId": "oy_music_without_grades_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I came to check on you. You've been pushing yourself past your physical limit.", "nextId": "oy_physical_limit_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I wanted to listen to those uncompressed 24-bit rehearsal recordings you mentioned.", "nextId": "oy_listen_uncompressed_recordings", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Just seeing if an elite concert pianist is any different from regular girls in private.", "nextId": "oy_regular_girl_fumble", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
       ]
     },
     {
-      "id": "oy_quiet",
-      "partnerMessage": "It is where I truly compose. Here is my current handwritten score draft:",
-      "linkUrl": "onlyyaps.studio/score_suite_no5",
-      "triggerEvent": "UNLOCK_SHEET_MUSIC",
+      "id": "oy_music_without_grades_tender",
+      "partnerMessage": "...'Music without grades.'\n\nI honestly don't know if I remember what that sounds like. Since I was seven years old, every note I played was evaluated: dynamic shading, tempo rubato, wrist elevation, thumb articulation. \n\nTo play simply because it hurts not to... that feels like a language I haven't spoken since childhood.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "The notation is immaculate. Let's call so I can hear it live.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+        { "choiceText": "Then speak it with me tonight. Stumble, play wrong notes—I don't care. Just be free.", "nextId": "oy_speak_language_free_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Who stole that language from you, Seraphine? Your conservatory professor?", "nextId": "oy_who_stole_language_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "What piece did you love before it became an exam question?", "nextId": "oy_childhood_piece_nostalgia", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
       ]
     },
     {
-      "id": "oy_call_ready",
-      "partnerMessage": "I have tuned my strings. Press the green call button at your leisure.",
+      "id": "oy_physical_limit_check",
+      "partnerMessage": "My physical limit was breached somewhere around 6 PM, if I am being brutally honest.\n\nMy fourth finger on my right hand is trembling when I try to hold an octave span, and the extensor tendon along my forearm is burning like a lit fuse. But when the Vienna residency auditions are less than three weeks away, pausing feels like surrender.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Resting an inflamed tendon isn't surrender, Seraphine. It's preservation.", "nextId": "oy_preservation_not_surrender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Take your hands off the keys right now. Rest them on your lap while we talk.", "nextId": "oy_hands_on_lap_command", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_listen_uncompressed_recordings",
+      "partnerMessage": "I have the studio interface connected directly to the soundboard condenser microphones. No digital compression, no auto-leveling—just the raw acoustic decay inside the wood.\n\nListen to this fragment from the second movement cadenza I tracked right before you arrived:",
+      "linkUrl": "onlyyaps.studio/seraphine/cadenza_take_04",
+      "triggerEvent": "UNLOCK_LOOKBOOK",
+      "choices": [
+        { "choiceText": "Listen to the uncompressed cadenza recording.", "nextId": "oy_listen_cadenza_reaction", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_regular_girl_fumble",
+      "partnerMessage": "'Regular girls'?\n\nI am a human being who has bled onto keytops while learning Chopin Scherzos, not an exotic specimen for your curiosity cabinet. If you came here looking for casual entertainment, you walked into the wrong rehearsal hall.",
+      "linkUrl": "",
+      "triggerEvent": "JUNIA_SKEPTIC",
+      "choices": [
+        { "choiceText": "I phrased that poorly, Seraphine. I didn't mean to trivialize your life. I'm sorry.", "nextId": "oy_apology_recovery_regal", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "You don't have to get defensive over a harmless sentence.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" }
+      ]
+    },
+    {
+      "id": "oy_speak_language_free_bond",
+      "partnerMessage": "'Play wrong notes...'\n\n*soft, shuddering breath in text*\n\nIn my world, a wrong note in the hall is treated like a moral failure. Professors look at you with polite contempt, and your peers whisper in the practice annex. \n\nHearing someone tell me that perfection isn't the price of admission... it makes my throat close up with relief.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Your humanity is what makes the music breathe, Seraphine. Not a sterile metronome.", "nextId": "oy_humanity_breathes_music", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Put the lid down for five minutes. Let's just talk about how you're feeling.", "nextId": "oy_hands_on_lap_command", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_who_stole_language_talk",
+      "partnerMessage": "Maestro Vane, my studio director. A brilliant, merciless pedagogue who studied under Neuhaus in Moscow. To him, the piano is a high-precision military apparatus.\n\nHe told me yesterday: 'Seraphine, you play like a Swiss watch. I can set my clock by your tempo. But you play as if you have never bled, never grieved, and never loved.'\n\nIt felt like a scalpel to the ribs.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "He spent years beating the instinct out of you, and now he blames you for being disciplined. That's his cruelty, not your truth.", "nextId": "oy_maestro_cruelty_validation", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Have you ever let yourself love something as fiercely as you play?", "nextId": "oy_love_fiercely_question", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_childhood_piece_nostalgia",
+      "partnerMessage": "Debussy's *Clair de lune*. Cliché, perhaps, but when I was nine years old, I heard my mother playing it downstairs through the floorboards while I was falling asleep.\n\nThe harmonies felt like blue moonlight spilling over my quilt. I begged for lessons the very next morning. I didn't know then that the moonlight would eventually turn into eight-hour drills and tendonitis.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "The moonlight is still inside you, Seraphine. It just got buried under competition scores.", "nextId": "oy_moonlight_still_inside", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Does your mother still play, or did she pass all that expectation onto you?", "nextId": "oy_mother_expectations_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_preservation_not_surrender",
+      "partnerMessage": "I know the physiological facts. Tendon sheaths don't regenerate on pride; they need blood flow and immobility. But the terror of sitting on the studio bench while hearing someone in 4C practice the exact same Rachmaninoff concerto through the wall... it paralyzes me.\n\nIf I rest, I feel like I'm letting Vienna slip through my fingers.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Vienna wants an artist with blood in her veins, not a burnt-out machine with dead tendons.", "nextId": "oy_artist_not_machine_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I'm not letting you destroy your hands tonight. Close the fallboard.", "nextId": "oy_hands_on_lap_command", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_hands_on_lap_command",
+      "partnerMessage": "*soft sound of felt fallboard resting down against keybed*\n\nFallboard closed. Hands resting flat on my woolen skirt.\n\n*long, trembling exhale*\n\nYou have an unnerving amount of authority over me, {PlayerName}. Nobody has ordered me away from the keys since my childhood doctor. My hands feel heavy... and strangely peaceful.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Because someone needs to protect you from your own perfectionism. Keep them in your lap.", "nextId": "oy_protect_from_perfectionism", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "How does the silence in 4B feel once the Steinway stops ringing?", "nextId": "oy_silence_in_4b_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_listen_cadenza_reaction",
+      "partnerMessage": "Listen to the suspension in measure forty-eight. The way the left hand octave drop holds just a millisecond longer before resolving into E major.\n\nVane called that hesitation 'self-indulgent sentimentality.' I called it taking a breath before plunging into the abyss.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "It wasn't self-indulgent. It was agonizingly beautiful. It made my chest ache.", "nextId": "oy_cadenza_beauty_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Vane is deaf to human nuance. That pause is where the real tragedy lives.", "nextId": "oy_maestro_cruelty_validation", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_apology_recovery_regal",
+      "partnerMessage": "...I accept your apology. I am acutely aware that my tone can sound severe. When you spend sixteen hours a day fighting for respect in a male-dominated conservatory faculty, your defenses become razor-sharp.\n\nLet us begin cleanly. Why did you reach out to me?",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Because behind all that discipline, I heard a girl who was carrying an immense emotional weight alone.", "nextId": "oy_without_noise_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_humanity_breathes_music",
+      "partnerMessage": "Humanity... \n\nI looked at my hands earlier under the desk lamp. The calluses along the outer edge of my thumbs from octaves, the purple compression tape around my wrist. I felt like a thoroughbred horse bred only to run around an oval track.\n\nTalking to you is the first time all month someone has looked at me and seen a woman instead of a competition entry.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You are a woman, Seraphine. A brilliant, passionate, breathtaking one.", "nextId": "oy_breathtaking_woman_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Tell me what that woman wants, outside of Vienna and concert halls.", "nextId": "oy_what_seraphine_wants", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_maestro_cruelty_validation",
+      "partnerMessage": "Thank you... God, hearing you say that takes a weight off my sternum that has been pressing down for two years.\n\nThey train you to be a flawless digital reproducer of score text, and then they wonder why our eyes look hollow under stage lighting. He wants blood, but he punishes me every time I bleed outside the margins.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Bleed outside the margins tonight. Show me the passage that is tearing your wrists apart.", "nextId": "oy_rach_passage_technical", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_love_fiercely_question",
+      "partnerMessage": "Never. Love was treated like a dangerous distraction in my household. Romance brings emotional volatility; volatility ruins finger memory and rehearsal focus.\n\nI lived in an acoustic vacuum. Until you began speaking to me with this terrifying gentleness.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Gentleness isn't dangerous, Seraphine. It's the soil music actually grows in.", "nextId": "oy_gentleness_soil_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_mother_expectations_talk",
+      "partnerMessage": "My mother never made the concert stage. She married early, had three children, and gave piano lessons to suburban beginners in our living room.\n\nShe put her unfinished dream onto my shoulders before I had adult teeth. Every time she calls, she doesn't ask how I feel; she asks if my trills are clean.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You are not your mother's second chance. You are Seraphine.", "nextId": "oy_not_mothers_second_chance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "That is an agonizing weight to bear for twenty-one years.", "nextId": "oy_protect_from_perfectionism", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_moonlight_still_inside",
+      "partnerMessage": "...'The moonlight is still inside you.'\n\nI am crying onto my cashmere cardigan. That is so ridiculous. I am an advanced conservatory fellow preparing for European juries, and your words just shattered my composure in ten seconds.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Let the tears fall, Seraphine. Tears are just proof that the ice is melting.", "nextId": "oy_ice_melting_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_artist_not_machine_comfort",
+      "partnerMessage": "You speak with so much certainty. It gives me a grounding anchor when the room feels like it's tilting.\n\nIf only my adjudicators possessed even ten percent of your emotional intelligence.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "They will hear it in your touch when you stop playing out of fear.", "nextId": "oy_protect_from_perfectionism", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_protect_from_perfectionism",
+      "partnerMessage": "Protect me... \n\nI have spent my whole life being told to be stronger, tougher, sharper, more resilient. Nobody has ever stepped in front of me and offered to protect me from the expectations.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'm stepping in front of you now. Rest your wrists while I'm here.", "nextId": "oy_silence_in_4b_talk", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_silence_in_4b_talk",
+      "partnerMessage": "The silence in 4B is strange without the Steinway humming. \n\nYou can hear the faint mechanical hum of the air filtration unit, the distant vibration of the subway running three blocks away under the street, and my own breathing.\n\nIt feels vast. And for the first time in months... not lonely.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Because I'm sharing the room with you, even through the screen.", "nextId": "oy_sharing_room_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "What does your mind wander to when the room is this still?", "nextId": "oy_what_seraphine_wants", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_cadenza_beauty_praise",
+      "partnerMessage": "It made your chest ache... \n\nThen Vane was wrong. If an acoustic phrase can reach through a digital interface and make your heart pause, then it is alive. That is the only validation I care about tonight.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "It reached me completely. What section are you struggling with tonight?", "nextId": "oy_rach_passage_technical", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_breathtaking_woman_tender",
+      "partnerMessage": "...My heart is beating at a tempo that no metronome could ever dictate. You have completely dismantled my concert veneer, {PlayerName}.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Good. Veneers hide the masterpiece underneath.", "nextId": "oy_what_seraphine_wants", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_what_seraphine_wants",
+      "partnerMessage": "What do I want? \n\nI want to walk down a street at midnight with cold wind in my hair, eating warm street pastries with powdered sugar on my fingers, holding hands with someone without worrying if my knuckles will get cold. \n\nI want an ordinary, warm, flawed life with someone who doesn't grade my soul.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "I will give you that life, Seraphine. Flawed, warm, and completely yours.", "nextId": "oy_warm_flawed_life_vow", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Warm pastries and cold wind... we are doing that the second your audition ends.", "nextId": "oy_pastries_audition_promise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_not_mothers_second_chance",
+      "partnerMessage": "'You are not your mother's second chance.'\n\n*long silence*\n\nI have needed to hear someone say that to my face for ten years. You have no idea what that sentence does to my ribcage. It feels like someone unbolted an iron collar.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You are free, Seraphine. The piano belongs to you now, not to her.", "nextId": "oy_piano_belongs_to_you", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_ice_melting_comfort",
+      "partnerMessage": "The ice is melting, and it's terrifying. When you live behind frozen walls, nothing can hurt you. When you let someone warm the room, you realize how raw your skin is.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I won't burn you, Seraphine. I will only keep you warm.", "nextId": "oy_sharing_room_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_sharing_room_tender",
+      "partnerMessage": "I feel your presence so vividly it's startling. As if you are sitting on the opposite end of the Steinway bench, watching the dust motes float through the brass lamp glow.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I wish I were. What were you about to rehearse before I arrived?", "nextId": "oy_rach_passage_technical", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_warm_flawed_life_vow",
+      "partnerMessage": "...Don't make promises to a lonely musician unless you mean every syllable, {PlayerName}. I will hold you to that vow until the end of my days.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Hold me to it. I'm not going anywhere.", "nextId": "oy_rach_passage_technical", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_pastries_audition_promise",
+      "partnerMessage": "It is a binding pact. Warm almond croissants, freezing wind, and zero discussion of polyphonic voice-leading.\n\nNow... look at what I was attempting before the evening unraveled:",
+      "linkUrl": "onlyyaps.studio/seraphine/rach_c_minor_score",
+      "triggerEvent": "UNLOCK_LOOKBOOK",
+      "choices": [
+        { "choiceText": "Examine the Rachmaninoff Concerto score annotations.", "nextId": "oy_examine_score_annotations", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_piano_belongs_to_you",
+      "partnerMessage": "It belongs to me. To my hands, my breath, my grief.\n\nLook at this annotated score page from the climactic *moderato* recapitulation:\nNotice the dense tenth-chords in the left hand alternating with rapid chromatic scales in the right.",
+      "linkUrl": "onlyyaps.studio/seraphine/rach_c_minor_score",
+      "triggerEvent": "UNLOCK_LOOKBOOK",
+      "choices": [
+        { "choiceText": "That tenth-chord span requires massive lateral wrist flexibility. Are you stretching properly?", "nextId": "oy_tenth_chord_stretch_talk", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "The harmonic density on that page looks staggering. It's like an entire orchestra condensed into two hands.", "nextId": "oy_orchestral_density_talk", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_rach_passage_technical",
+      "partnerMessage": "The recapitulation of the first movement. Measure one hundred and sixty. Look at the handwritten pencil markings on my score sheet:\nNotice how Vane wrote 'STRIKE HARDER - LACKS WEIGHT' over the forte chords.",
+      "linkUrl": "onlyyaps.studio/seraphine/rach_c_minor_score",
+      "triggerEvent": "UNLOCK_LOOKBOOK",
+      "choices": [
+        { "choiceText": "Striking harder when your tendons are inflamed will snap something. Don't do it.", "nextId": "oy_tenth_chord_stretch_talk", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "He wants weight from brute force, but Rachmaninoff intended weight from acoustic resonance.", "nextId": "oy_resonance_over_force", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_examine_score_annotations",
+      "partnerMessage": "Vane's red pencil is everywhere across the margins. 'TOO SLOW,' 'ARTICULATE,' 'DON'T DRAG.' It looks like a crime scene.\n\nI sat down at the keyboard thirty minutes ago to force my right hand through that octave descent, and my fourth finger seized up so violently I dropped my pencil under the pedals.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Seraphine! Did your tendon spasm just now?!", "nextId": "oy_call_1_trigger_node", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_tenth_chord_stretch_talk",
+      "partnerMessage": "My hand span is barely nine and a half inches! To catch that low C-flat octave with the minor third above it, my thumb and pinky have to flatten completely parallel to the ivory!\n\nWait... *distant clatter of music stand slipping*\n\n...Oh god. My fourth finger.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Seraphine?! What just happened to your hand?!", "nextId": "oy_call_1_trigger_node", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_orchestral_density_talk",
+      "partnerMessage": "It is an orchestra! The strings are carrying the countermelody while the piano is supposed to sound like bronze church bells tolling in a Russian winter!\n\nWait... *sharp thud on keybed followed by dissonant ringing cluster*\n\nAh...! My wrist!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Seraphine! Talk to me! Did your wrist give out?!", "nextId": "oy_call_1_trigger_node", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_resonance_over_force",
+      "partnerMessage": "Yes! Drop the arm from the shoulder socket and let the soundboard amplify the string vibration! But Vane doesn't care about resonance; he cares about decibel volume!\n\nWait... *rattling fall of sheet music pages across hardwood*\n\nNO NO NO... my hand is locked tight!",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        { "choiceText": "Seraphine! Drop the phone and breathe! What is happening?!", "nextId": "oy_call_1_trigger_node", "linkUrl": "", "triggerEvent": "" }
+      ]
+    },
+    {
+      "id": "oy_call_1_trigger_node",
+      "partnerMessage": "MY RIGHT HAND JUST SEIZED UP IN A TENDON SPASM! My ring finger is curled flat against my palm and won't release, the whole Rachmaninoff score just slid off the music desk onto the floor, and I can't catch my breath!\n\nI'm alone in 4B and the room is spinning!\n\nHIT THE VOICE CALL BUTTON RIGHT NOW, {PlayerName}! I NEED YOUR VOICE BEFORE I LOSE MY MIND!",
+      "linkUrl": "",
+      "triggerEvent": "TRIGGER_CALL_1",
+      "choices": [
+        { "choiceText": "Connecting to Seraphine's studio line (Call 1 - Emergency Grounding)...", "nextId": "oy_call_1_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+      ]
+    },
+    {
+      "id": "oy_call_1_ringing",
+      "partnerMessage": "*Heavy hyperventilating, dissonant piano reverberation, and sobbing through receiver!* Answer it!",
+      "linkUrl": "",
+      "triggerEvent": "START_CALL_RINGTONE",
+      "choices": []
+    },
+    {
+      "id": "oy_post_call_1_hub",
+      "partnerMessage": "*long, trembling, shuddering exhale in text*\n\nThe spasm released.\n\nWarm water from the studio electric kettle over my forearm, fingers extended flat against my wool skirt, breathing slowed down to four counts in, four counts out.\n\n{PlayerName}... when you counted down my breaths over the receiver and told me to let the piano go cold... you pulled me back from the edge of a total nervous collapse.\n\nI'm sitting on the hardwood floor with my back resting against the front leg of the Steinway.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You're safe now, Seraphine. The spasm is over. Keep those hands completely still.", "nextId": "oy_safe_now_post_spasm", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "How does the forearm feel right now? Any sharp burning?", "nextId": "oy_forearm_burn_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Sitting on the floor beneath a concert grand... you look so small compared to your stage persona.", "nextId": "oy_small_under_grand_tender", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
+        { "choiceText": "Now that your breathing is normal, tell me: what scared you the most during that spasm?", "nextId": "oy_spasm_fear_unpacked", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+      ]
+    },
+    {
+      "id": "oy_safe_now_post_spasm",
+      "partnerMessage": "I am keeping them still. Resting in my lap with a warm damp cloth draped over the knuckles.\n\nIf you hadn't been in my ear, I would have forced my fingers through the stretch out of pure panic and permanently torn the tendon sheath. You literally saved my hands tonight.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "I'll always protect those hands, Seraphine. And the girl behind them.", "nextId": "oy_protect_hands_and_girl_vow", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "Your hands are a treasure, but your peace of mind matters more.", "nextId": "oy_peace_matters_more_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_forearm_burn_check",
+      "partnerMessage": "The sharp stabbing heat has subsided into a dull, heavy throb. It feels like aftershocks after an earthquake.\n\nI have arnica gel and compression wrap in my rehearsal bag. I'm going to bandage both wrists before I leave this building.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Good. Wrap them snug, not tight. Rest your head against the piano leg.", "nextId": "oy_small_under_grand_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_small_under_grand_tender",
+      "partnerMessage": "I am small. When I am on stage in a black evening gown under three thousand watts of tungsten floodlights, I project invincibility because weakness is punished.\n\nDown here on the floor, surrounded by fallen sheet music... I'm just a twenty-one-year-old girl who is terrified that her best will never be enough.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "Your best is already extraordinary, Seraphine. You don't have to conquer the world every hour.", "nextId": "oy_extraordinary_best_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
+        { "choiceText": "I love the girl on the floor ten times more than the invincible statue on stage.", "nextId": "oy_love_girl_on_floor_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_spasm_fear_unpacked",
+      "partnerMessage": "The fear that my body was finally betraying me.\n\nThat the thousands of hours of sacrifice would culminate in a doctor telling me: 'You have chronic focal dystonia; you must cancel your performance career.'\n\nWithout music, I felt like an empty hollow reed.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        { "choiceText": "You are not an empty reed. You are a vast, deep, resonant human being.", "nextId": "oy_vast_human_being_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_protect_hands_and_girl_vow",
+      "partnerMessage": "...'And the girl behind them.'\n\nNobody ever cares about the girl. They care about the performance prize, the conservatory prestige, the recital reviews.\n\nTo hear you place me above the music... it feels like walking out of a blizzard into a hearth room.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You are the hearth, Seraphine. The music is just the warmth coming off you.", "nextId": "oy_hearth_warmth_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_peace_matters_more_bond",
+      "partnerMessage": "Peace... I have sought perfection for so long that I forgot peace existed.\n\nSitting here against this wooden leg with your words on my screen, my chest feels completely still.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Keep that stillness. Let the night breathe around you.", "nextId": "oy_climax_setup_hub", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_extraordinary_best_comfort",
+      "partnerMessage": "Thank you... I will carry that sentence into Vienna with me like a talisman tucked into my sheet music folder.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Tuck me into your heart instead. I'll be in the front row.", "nextId": "oy_climax_setup_hub", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_love_girl_on_floor_tender",
+      "partnerMessage": "...*soft gasp in text*\n\n'I love the girl on the floor.'\n\nYou have no right making me feel this defenseless through a glass screen, {PlayerName}. My hands are bandaged, my makeup is ruined from crying, and yet I feel more truly seen than I ever have in my life.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Because you are beautiful exactly as you are right now.", "nextId": "oy_climax_setup_hub", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_vast_human_being_comfort",
+      "partnerMessage": "A vast human being... I am going to write that inside the front cover of my Rachmaninoff score tonight in ink.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Write it in your heart first. Now let me hear you in the quiet.", "nextId": "oy_climax_setup_hub", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_hearth_warmth_tender",
+      "partnerMessage": "The warmth is coming back. Slowly, like dawn creeping over snow.\n\nI stood up from the floor. I gathered the Rachmaninoff pages, placed them neatly in my black leather portfolio, and closed the zipper.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Good. Rehearsal is officially over for tonight.", "nextId": "oy_climax_setup_hub", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_climax_setup_hub",
+      "partnerMessage": "The automated conservatory lights just clicked off for the night.\n\nThere is only the blue moonlight spilling through the high practice room window, cutting across the black lacquer of the Steinway lid like a silver ribbon.\n\nI want to sit on the bench one last time before I walk back to my dorm. No concertos. No tempo requirements. Just one quiet melody played with my left hand and soft pedal while you listen.\n\nCall my phone line, {PlayerName}. Be my only audience in the dark.",
+      "linkUrl": "",
+      "triggerEvent": "TRIGGER_CALL_2",
+      "choices": [
+        { "choiceText": "Connecting to Seraphine's studio line (Call 2 - Moonlight Lullaby)...", "nextId": "oy_call_2_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+      ]
+    },
+    {
+      "id": "oy_call_2_ringing",
+      "partnerMessage": "*Quiet, resonant, unpedaled single notes echoing softly across the receiver...* Answer it, my love.",
+      "linkUrl": "",
+      "triggerEvent": "START_CALL_RINGTONE",
+      "choices": []
+    },
+    {
+      "id": "oy_post_call_2_hub",
+      "partnerMessage": "*voice note transcribed in text from the conservatory exit vestibule*\n\nMy coat is buttoned to my throat, my portfolio is under my arm, and I am standing between the heavy brass doors looking out at the city streets.\n\n{PlayerName}... hearing you whisper across the line while I played that quiet Chopin nocturne in the dark... it felt like my hands were blessed instead of cursed.\n\nCome to the conservatory on Friday afternoon. Studio 4B will be unlocked. I want you to sit on that leather bench beside me while I play the second movement for you in person.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Friday afternoon in studio 4B. I'll be sitting right beside you, Seraphine. Sleep peacefully.", "nextId": "oy_climax_romance_final", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" },
+        { "choiceText": "I'll be there to turn your pages and hold your hand. It's a date.", "nextId": "oy_climax_romance_final", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
+      ]
+    },
+    {
+      "id": "oy_climax_romance_final",
+      "partnerMessage": "Friday afternoon. I will leave the oak door cracked open.\n\nNo adjudicators. No metronomes. Just two people sharing an acoustic space that finally has a soul.\n\nGoodnight, {PlayerName}. Thank you for answering when my hands were shaking. Sleep gently.",
+      "linkUrl": "",
+      "triggerEvent": "CLIMAX_ROMANCE_PERFECT",
+      "choices": []
+    },
+    {
+      "id": "oy_seenzone_1",
+      "partnerMessage": "Status: Read just now.\n\nSeraphine has closed the studio communication log.",
+      "linkUrl": "",
+      "triggerEvent": "GHOST_SEQUENCE_START",
+      "choices": [
+        { "choiceText": "Seraphine? Did the studio door lock you out of signal?", "nextId": "oy_seenzone_2", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "I'm sorry, Seraphine. That was thoughtless and trivializing of me. Please let me restart.", "nextId": "oy_apology_recovery_regal", "linkUrl": "", "triggerEvent": "" },
+        { "choiceText": "Giving someone the silent treatment over a harmless joke is pretty dramatic.", "nextId": "oy_ending_failure_cold", "linkUrl": "", "triggerEvent": "FAILURE_BLOCKED" }
+      ]
+    },
+    {
+      "id": "oy_seenzone_2",
+      "partnerMessage": "Status: Read 30m ago.\n\n[Typing...]\n\nSeraphine has set her status to 'Offline - Closed Rehearsal'.",
+      "linkUrl": "",
+      "triggerEvent": "GET_GHOSTED",
+      "choices": []
+    },
+    {
+      "id": "oy_call_missed_reset",
+      "partnerMessage": "The audio line disconnected right as the acoustic resonance peaked! 📶\n\nI am still seated at the Steinway in studio 4B. Tap the call icon whenever your connection stabilizes.",
       "linkUrl": "",
       "triggerEvent": "ENABLE_VOICE_CALL",
+      "choices": [
+        { "choiceText": "Signal reconnected! Calling back right now!", "nextId": "oy_call_1_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+      ]
+    },
+    {
+      "id": "oy_ending_failure_dismissed",
+      "partnerMessage": "I think I will close the fallboard and end our correspondence here. We perceive the world with irreconcilable priorities, and I have neither the patience nor the emotional bandwidth for cynicism in a space devoted to craft. Take care.",
+      "linkUrl": "",
+      "triggerEvent": "FAILURE_DISMISSED",
+      "choices": []
+    },
+    {
+      "id": "oy_ending_failure_cold",
+      "partnerMessage": "I endure enough cold, clinical critique from my conservatory faculty; I will not tolerate dismissive arrogance in my private sanctuary.\n\nYou are permanently removed from studio 4B. Best of luck on other applications.",
+      "linkUrl": "",
+      "triggerEvent": "FAILURE_BLOCKED",
       "choices": []
     }
   ]
