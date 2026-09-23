@@ -26,9 +26,18 @@ public class DatingCardController : MonoBehaviour
     [Header("Active Card Reference")]
     public RectTransform activeCardRect;
 
+    [Header("Scroll Reference")]
+    public ScrollRect cardScrollRect; // Assign the ActiveCard ScrollRect here, or it will auto-find
+
     [Header("Action Buttons")]
     public Button btnPass;
     public Button btnLike;
+
+    [Header("UI Text & Image References (Drag & Drop)")]
+    public Image profilePhotoRef;
+    public TextMeshProUGUI nameAgeTextRef;
+    public TextMeshProUGUI bioTextRef;
+    public TextMeshProUGUI personalityTextRef;
 
     [Header("RNG Visuals Pool")]
     public List<Sprite> profilePhotos = new List<Sprite>();
@@ -43,7 +52,6 @@ public class DatingCardController : MonoBehaviour
     [SerializeField] private float minMatchDelay = 5f;
     [SerializeField] private float maxMatchDelay = 10f;
 
-    // Tracks cards currently displayed (can be real or dummy)
     public class CardDeckItem
     {
         public string name;
@@ -51,18 +59,19 @@ public class DatingCardController : MonoBehaviour
         public string personality;
         public string bio;
         public int avatarIndex;
-        public bool isGuaranteedMatch; // true for main girls, false for dummy cards
+        public bool isGuaranteedMatch;
     }
 
     private List<DummyProfile> dummyProfiles = new List<DummyProfile>();
     private CardDeckItem currentActiveProfile;
     
-    // Tracks anyone swiped (Pass OR Like) so they NEVER show up again
+    // Tracks swiped profiles so they don't repeat in the current session
     private static HashSet<string> seenProfileNames = new HashSet<string>(System.StringComparer.OrdinalIgnoreCase);
 
     private void Awake()
     {
-        // Populate seen profiles from existing matches in GameManager
+        seenProfileNames.Clear();
+
         if (GameManager.Instance != null && GameManager.Instance.activeChats != null)
         {
             foreach (var chat in GameManager.Instance.activeChats)
@@ -80,20 +89,45 @@ public class DatingCardController : MonoBehaviour
         DialogueLoader.InitializeAllCharacters();
         LoadDummyProfilesFromJSON();
 
-        if (activeCardRect != null)
+        RefreshCurrentCard();
+    }
+
+    private void OnEnable()
+    {
+        if (currentActiveProfile == null)
         {
-            currentActiveProfile = GetNextAvailableProfile();
-            if (currentActiveProfile != null)
+            RefreshCurrentCard();
+        }
+    }
+
+    public void RefreshCurrentCard()
+    {
+        if (activeCardRect == null) return;
+
+        currentActiveProfile = GetNextAvailableProfile();
+        if (currentActiveProfile != null)
+        {
+            activeCardRect.gameObject.SetActive(true);
+            PopulateCardUI(activeCardRect.gameObject, currentActiveProfile);
+
+            // Reset scroll position back to the top for the new person
+            if (cardScrollRect != null)
             {
-                activeCardRect.gameObject.SetActive(true);
-                PopulateCardUI(activeCardRect.gameObject, currentActiveProfile);
+                cardScrollRect.verticalNormalizedPosition = 1f;
             }
-            else
+            else if (activeCardRect.TryGetComponent<ScrollRect>(out var localScroll))
             {
-                activeCardRect.gameObject.SetActive(false);
-                if (btnLike != null) btnLike.interactable = false;
-                if (btnPass != null) btnPass.interactable = false;
+                localScroll.verticalNormalizedPosition = 1f;
             }
+
+            if (btnLike != null) btnLike.interactable = true;
+            if (btnPass != null) btnPass.interactable = true;
+        }
+        else
+        {
+            activeCardRect.gameObject.SetActive(false);
+            if (btnLike != null) btnLike.interactable = false;
+            if (btnPass != null) btnPass.interactable = false;
         }
     }
 
@@ -114,7 +148,7 @@ public class DatingCardController : MonoBehaviour
     {
         List<CardDeckItem> deck = new List<CardDeckItem>();
 
-        // 1. Real Cast (Exclude anyone in seenProfileNames or activeChats)
+        // 1. Real Cast
         List<CharacterDialogueTree> realGirls = DialogueLoader.GetAllCharacters();
         if (realGirls != null)
         {
@@ -122,6 +156,7 @@ public class DatingCardController : MonoBehaviour
             {
                 bool alreadySeen = seenProfileNames.Contains(girl.girlName);
                 bool alreadyMatched = GameManager.Instance != null &&
+                    GameManager.Instance.activeChats != null &&
                     GameManager.Instance.activeChats.Any(c => c.contactName.Equals(girl.girlName, System.StringComparison.OrdinalIgnoreCase));
 
                 if (!alreadySeen && !alreadyMatched)
@@ -139,7 +174,7 @@ public class DatingCardController : MonoBehaviour
             }
         }
 
-        // 2. Dummy Profiles (Exclude anyone in seenProfileNames)
+        // 2. Dummy Profiles
         if (dummyProfiles != null)
         {
             foreach (var dummy in dummyProfiles)
@@ -172,7 +207,6 @@ public class DatingCardController : MonoBehaviour
     {
         if (currentActiveProfile == null) return;
 
-        // Permanently record as seen so she never appears again
         seenProfileNames.Add(currentActiveProfile.name);
         ProcessSwipe(false);
     }
@@ -181,14 +215,12 @@ public class DatingCardController : MonoBehaviour
     {
         if (currentActiveProfile == null) return;
 
-        // Permanently record as seen so she never appears in the deck again
         seenProfileNames.Add(currentActiveProfile.name);
 
         if (currentActiveProfile.isGuaranteedMatch)
         {
             CardDeckItem matchedGirl = currentActiveProfile;
 
-            // Run delayed match routine on GameManager so it persists through UI screen changes
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.StartCoroutine(DelayedMatchRoutine(matchedGirl));
@@ -215,10 +247,8 @@ public class DatingCardController : MonoBehaviour
                 girl.personality,
                 girl.avatarIndex
             );
-            Debug.Log($"[DatingApp] It's a match! {girl.name} matched after {delay:F1}s.");
         }
 
-        // Trigger Notification
         if (NotificationManager.Instance != null)
         {
             NotificationManager.Instance.TriggerNotification(
@@ -233,7 +263,6 @@ public class DatingCardController : MonoBehaviour
     {
         if (activeCardRect == null) return;
 
-        // Clone card for the fly-away animation
         GameObject flyingClone = Instantiate(activeCardRect.gameObject, activeCardRect.parent);
         RectTransform cloneRect = flyingClone.GetComponent<RectTransform>();
         cloneRect.anchoredPosition = activeCardRect.anchoredPosition;
@@ -243,34 +272,25 @@ public class DatingCardController : MonoBehaviour
 
         StartCoroutine(AnimateFlyAndDestroy(cloneRect, isLike));
 
-        // Pull next unswiped profile
-        currentActiveProfile = GetNextAvailableProfile();
-
-        if (currentActiveProfile != null)
-        {
-            activeCardRect.gameObject.SetActive(true);
-            PopulateCardUI(activeCardRect.gameObject, currentActiveProfile);
-        }
-        else
-        {
-            activeCardRect.gameObject.SetActive(false);
-            if (btnLike != null) btnLike.interactable = false;
-            if (btnPass != null) btnPass.interactable = false;
-        }
+        RefreshCurrentCard();
     }
 
     private void PopulateCardUI(GameObject cardObj, CardDeckItem profile)
     {
-        if (profile == null) return;
+        if (profile == null || cardObj == null) return;
 
-        Image photo = cardObj.transform.Find("Contents/ProfilePhoto")?.GetComponent<Image>();
-        TextMeshProUGUI nameAge = cardObj.transform.Find("Contents/NameAgeText")?.GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI bio = cardObj.transform.Find("Contents/BioDetailsText")?.GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI personality = cardObj.transform.Find("Contents/PersonalityTypeText")?.GetComponent<TextMeshProUGUI>();
+        Image photo = profilePhotoRef != null ? profilePhotoRef : cardObj.GetComponentsInChildren<Image>(true).FirstOrDefault(img => img.gameObject.name == "ProfilePhoto");
+        TextMeshProUGUI nameAge = nameAgeTextRef != null ? nameAgeTextRef : cardObj.GetComponentsInChildren<TextMeshProUGUI>(true).FirstOrDefault(t => t.gameObject.name == "NameAgeText");
+        TextMeshProUGUI bio = bioTextRef != null ? bioTextRef : cardObj.GetComponentsInChildren<TextMeshProUGUI>(true).FirstOrDefault(t => t.gameObject.name == "BioDetailsText");
+        TextMeshProUGUI personality = personalityTextRef != null ? personalityTextRef : cardObj.GetComponentsInChildren<TextMeshProUGUI>(true).FirstOrDefault(t => t.gameObject.name == "PersonalityTypeText");
 
-        if (photo != null && profilePhotos.Count > 0 && profile.avatarIndex >= 0 && profile.avatarIndex < profilePhotos.Count)
+        if (photo != null)
         {
-            photo.sprite = profilePhotos[profile.avatarIndex];
+            if (profilePhotos != null && profilePhotos.Count > 0 && profile.avatarIndex >= 0 && profile.avatarIndex < profilePhotos.Count)
+            {
+                photo.sprite = profilePhotos[profile.avatarIndex];
+                photo.color = Color.white;
+            }
         }
 
         if (nameAge != null) nameAge.text = $"{profile.name}, {profile.age}";
@@ -304,7 +324,6 @@ public class DatingCardController : MonoBehaviour
         }
     }
 
-    // Optional helper called by your "Delete Progress" button to reset the card deck
     public static void ResetSeenProfiles()
     {
         seenProfileNames.Clear();
