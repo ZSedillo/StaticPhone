@@ -53,7 +53,7 @@
       "choices": [
         { "choiceText": "That's a massive amount of pressure for a student to carry every day.", "nextId": "oy_scholarship_pressure_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
         { "choiceText": "Do your parents support your program, or do they not understand it?", "nextId": "oy_parents_battlefield", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
-        { "choiceText": "If the stakes are that high, why not find a regular part-time job on campus?", "nextId": "oy_campus_job_fumble", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
+        { "choiceText": "If the stakes are that high, why not find a regular part-time job on campus?", "nextId": "oy_campus_job_fumble", "linkUrl": "", "triggerEvent": "DAISY_SKEPTIC" }
       ]
     },
     {
@@ -134,6 +134,15 @@
       "choices": [
         { "choiceText": "I see the discipline and work you put in, Daisy. I'm proud of you.", "nextId": "oy_proud_of_you_climax_setup", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
         { "choiceText": "It takes time for older generations to grasp new fields. Don't let that diminish what you've achieved.", "nextId": "oy_blind_spots_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_proud_of_you_climax_setup",
+      "partnerMessage": "...Hearing you say that actually makes my throat tighten up a bit. I don't think anyone has just told me they're proud of me without asking about prize pools or grades first.\n\nThank you, {PlayerName}. Really.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "You deserve to hear it. Now show me what you're preparing for tonight.", "nextId": "oy_scrim_schedule_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
       ]
     },
     {
@@ -309,7 +318,7 @@
       "choices": [
         { "choiceText": "That sightline is open because the smoke drops slightly too shallow. Placing it deeper cuts off the sniper angle.", "nextId": "oy_deep_smoke_tactical", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
         { "choiceText": "Can your team anchor the garage connector with crossfire instead?", "nextId": "oy_sentinel_crossfire_ask", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Your team's rotations look a bit delayed on the mini-map feed.", "nextId": "oy_team_spacing_critique", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
+        { "choiceText": "Your team's rotations look a bit delayed on the mini-map feed.", "nextId": "oy_team_spacing_critique", "linkUrl": "", "triggerEvent": "DAISY_SKEPTIC" }
       ]
     },
     {

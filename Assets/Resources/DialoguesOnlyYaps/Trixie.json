@@ -11,7 +11,7 @@
         { "choiceText": "I'm here for the sound nerd behind the mixer. The stage lights don't matter to me.", "nextId": "oy_sound_nerd_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
         { "choiceText": "I came to check on you. Carrying heavy gear home at 4:30 AM takes a real toll.", "nextId": "oy_gear_toll_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
         { "choiceText": "I wanted to hear that private, uncompressed acoustic draft you talked about.", "nextId": "oy_listen_acoustic_draft", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Just seeing if you're as wild and hyperactive in private as you are in the club.", "nextId": "oy_wild_girl_fumble", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
+        { "choiceText": "Just seeing if you're as wild and hyperactive in private as you are in the club.", "nextId": "oy_wild_girl_fumble", "linkUrl": "", "triggerEvent": "TRIXIE_SKEPTIC" }
       ]
     },
     {
@@ -48,7 +48,7 @@
       "id": "oy_wild_girl_fumble",
       "partnerMessage": "'Wild and hyperactive'?\n\nI just stood on my feet for four hours managing gain staging, crowd energy, and monitor feedback so hundreds of people could have the night of their lives. If you think that's an invitation to treat me like a party spectacle in my own home, you're mistaken.",
       "linkUrl": "",
-      "triggerEvent": "JUNIA_SKEPTIC",
+      "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
         { "choiceText": "I phrased that carelessly, Trixie. I was trying to joke and it fell flat. I'm sorry.", "nextId": "oy_apology_recovery_grounded", "linkUrl": "", "triggerEvent": "" },
         { "choiceText": "Don't put it in your bio if you don't want people talking about it.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" }

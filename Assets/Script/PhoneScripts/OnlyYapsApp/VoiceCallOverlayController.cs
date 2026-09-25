@@ -105,27 +105,34 @@ public class VoiceCallOverlayController : MonoBehaviour
 
     private IEnumerator OutgoingCallRoutine()
     {
-        yield return new WaitForSeconds(2.5f);
+    yield return new WaitForSeconds(2.5f);
 
-        if (incomingControlsGroup != null) incomingControlsGroup.SetActive(false);
-        if (activeControlsGroup != null) activeControlsGroup.SetActive(true);
+    if (incomingControlsGroup != null) incomingControlsGroup.SetActive(false);
+    if (activeControlsGroup != null) activeControlsGroup.SetActive(true);
 
-        if (VoiceCallDialogueUI.Instance != null)
-        {
-            Sprite av = callerAvatarImage != null ? callerAvatarImage.sprite : null;
-            VoiceCallDialogueUI.Instance.StartCallDialogue(activeCaller, av, activeStartNodeId);
-        }
-
-        float timer = 0f;
-        while (true)
-        {
-            timer += Time.deltaTime;
-            int minutes = Mathf.FloorToInt(timer / 60f);
-            int seconds = Mathf.FloorToInt(timer % 60f);
-            if (txtCallStatus != null) txtCallStatus.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-            yield return null;
-        }
+    if (VoiceCallDialogueUI.Instance != null)
+    {
+        // Force the dialogue UI to become visible!
+        VoiceCallDialogueUI.Instance.gameObject.SetActive(true);
+        
+        Sprite av = callerAvatarImage != null ? callerAvatarImage.sprite : null;
+        VoiceCallDialogueUI.Instance.StartCallDialogue(activeCaller, av, activeStartNodeId);
     }
+    else
+    {
+        Debug.LogError("[VoiceCallOverlay] VoiceCallDialogueUI.Instance is NULL! Enable CallDialogueHUD in your Scene Hierarchy before pressing Play!");
+    }
+
+    float timer = 0f;
+    while (true)
+    {
+        timer += Time.deltaTime;
+        int minutes = Mathf.FloorToInt(timer / 60f);
+        int seconds = Mathf.FloorToInt(timer % 60f);
+        if (txtCallStatus != null) txtCallStatus.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        yield return null;
+    }
+}
 
     private IEnumerator IncomingCallTimeoutRoutine()
     {
@@ -141,19 +148,26 @@ public class VoiceCallOverlayController : MonoBehaviour
 
     public void AcceptCall()
     {
-        if (callRoutine != null) StopCoroutine(callRoutine);
+    if (callRoutine != null) StopCoroutine(callRoutine);
 
-        if (incomingControlsGroup != null) incomingControlsGroup.SetActive(false);
-        if (activeControlsGroup != null) activeControlsGroup.SetActive(true);
+    if (incomingControlsGroup != null) incomingControlsGroup.SetActive(false);
+    if (activeControlsGroup != null) activeControlsGroup.SetActive(true);
 
-        callRoutine = StartCoroutine(ActiveCallTimerRoutine());
+    callRoutine = StartCoroutine(ActiveCallTimerRoutine());
 
-        if (VoiceCallDialogueUI.Instance != null)
-        {
-            Sprite av = callerAvatarImage != null ? callerAvatarImage.sprite : null;
-            VoiceCallDialogueUI.Instance.StartCallDialogue(activeCaller, av, activeStartNodeId);
-        }
+    if (VoiceCallDialogueUI.Instance != null)
+    {
+        // Force the dialogue UI to become visible!
+        VoiceCallDialogueUI.Instance.gameObject.SetActive(true);
+        
+        Sprite av = callerAvatarImage != null ? callerAvatarImage.sprite : null;
+        VoiceCallDialogueUI.Instance.StartCallDialogue(activeCaller, av, activeStartNodeId);
     }
+    else
+    {
+        Debug.LogError("[VoiceCallOverlay] VoiceCallDialogueUI.Instance is NULL! Enable CallDialogueHUD in your Scene Hierarchy before pressing Play!");
+    }
+}
 
     private IEnumerator ActiveCallTimerRoutine()
     {
@@ -170,24 +184,24 @@ public class VoiceCallOverlayController : MonoBehaviour
 
     public void EndOrRejectCall()
     {
-        if (callRoutine != null)
-        {
-            StopCoroutine(callRoutine);
-            callRoutine = null;
-        }
-
-        if (VoiceCallDialogueUI.Instance != null)
-        {
-            VoiceCallDialogueUI.Instance.gameObject.SetActive(false);
-        }
-
-        if (!string.IsNullOrEmpty(activeCaller))
-        {
-            DialogueEventManager.TriggerEvent("CALL_COMPLETED", activeCaller);
-            DialogueEventManager.TriggerEvent("RESET_CALL_DIALOGUE", activeCaller);
-        }
-
-        if (callOverlayRoot != null) callOverlayRoot.SetActive(false);
-        gameObject.SetActive(false);
+    if (callRoutine != null)
+    {
+        StopCoroutine(callRoutine);
+        callRoutine = null;
     }
+
+    if (VoiceCallDialogueUI.Instance != null)
+    {
+        VoiceCallDialogueUI.Instance.gameObject.SetActive(false);
+    }
+
+    if (!string.IsNullOrEmpty(activeCaller))
+    {
+        // Only trigger CALL_COMPLETED so it advances properly without looping back
+        DialogueEventManager.TriggerEvent("CALL_COMPLETED", activeCaller);
+    }
+
+    if (callOverlayRoot != null) callOverlayRoot.SetActive(false);
+    gameObject.SetActive(false);
+}
 }

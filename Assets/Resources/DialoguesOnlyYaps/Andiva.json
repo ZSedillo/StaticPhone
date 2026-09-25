@@ -76,7 +76,7 @@
       "choices": [
         { "choiceText": "Couture isn't frivolous. It's architecture for the human body.", "nextId": "oy_architecture_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
         { "choiceText": "Did you ever try to show him what you built?", "nextId": "oy_show_father_work", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
-        { "choiceText": "Maybe he was just worried you'd starve as a struggling artist.", "nextId": "oy_father_pragmatic_defense", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
+        { "choiceText": "Maybe he was just worried you'd starve as a struggling artist.", "nextId": "oy_father_pragmatic_defense", "linkUrl": "", "triggerEvent": "ANDIVA_SKEPTIC" }
       ]
     },
     {
@@ -594,7 +594,7 @@
       "triggerEvent": "UNLOCK_LOOKBOOK",
       "choices": [
         { "choiceText": "Spring steel stays... that takes surgical precision to keep from poking through.", "nextId": "oy_steel_stays_reaction", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Isn't velvet notoriously slippery to seam without puckering?", "nextId": "oy_velvet_slip_skeptic", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" },
+        { "choiceText": "Isn't velvet notoriously slippery to seam without puckering?", "nextId": "oy_velvet_slip_skeptic", "linkUrl": "", "triggerEvent": "ANDIVA_SKEPTIC" },
         { "choiceText": "Why emerald? Most finales go with white or gold.", "nextId": "oy_why_emerald_story", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
       ]
     },
@@ -689,7 +689,7 @@
       "choices": [
         { "choiceText": "Take those boots off right now. You can hand-roll the hem barefoot.", "nextId": "oy_boots_off_order", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
         { "choiceText": "Why do you push yourself to the point of physical collapse, Andiva?", "nextId": "oy_why_push_collapse", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
-        { "choiceText": "Pain is temporary, runway perfection is forever.", "nextId": "oy_pain_temporary_toxic", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
+        { "choiceText": "Pain is temporary, runway perfection is forever.", "nextId": "oy_pain_temporary_toxic", "linkUrl": "", "triggerEvent": "ANDIVA_SKEPTIC" }
       ]
     },
     {

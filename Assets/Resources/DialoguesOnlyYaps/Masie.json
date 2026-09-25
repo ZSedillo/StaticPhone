@@ -11,7 +11,7 @@
         { "choiceText": "I wanted to see your world without the noise of the main app in the way.", "nextId": "oy_without_noise_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
         { "choiceText": "I promised I'd come look at those night-blooming specimens and field sketches.", "nextId": "oy_specimens_interest", "linkUrl": "", "triggerEvent": "" },
         { "choiceText": "I'm just curious what someone actually does in a greenhouse alone at midnight.", "nextId": "oy_curious_midnight_banter", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Honestly, it seemed like an easy way to get closer to you.", "nextId": "oy_easy_way_fumble", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
+        { "choiceText": "Honestly, it seemed like an easy way to get closer to you.", "nextId": "oy_easy_way_fumble", "linkUrl": "", "triggerEvent": "MASIE_SKEPTIC" }
       ]
     },
     {
@@ -63,7 +63,7 @@
       "choices": [
         { "choiceText": "Tearing down a century of heritage for commercial sponsorships is heartbreaking.", "nextId": "oy_heritage_heartbreak_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
         { "choiceText": "You're defending living history with your own hands. That's worth fighting for.", "nextId": "oy_defending_living_history", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Universities run on money. Commercial labs pay the bills.", "nextId": "oy_commercial_realism_fumble", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
+        { "choiceText": "Universities run on money. Commercial labs pay the bills.", "nextId": "oy_commercial_realism_fumble", "linkUrl": "", "triggerEvent": "MASIE_SKEPTIC" }
       ]
     },
     {
@@ -98,7 +98,7 @@
       "id": "oy_commercial_realism_fumble",
       "partnerMessage": "Of course they pay the bills. And then we lose ancient genetics that take decades to regenerate. If everything in life is reduced to corporate balance sheets, why bother preserving anything old or fragile at all?",
       "linkUrl": "",
-      "triggerEvent": "JUNIA_SKEPTIC",
+      "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
         { "choiceText": "You're right, Masie. I was being cynical when I should have listened. I'm sorry.", "nextId": "oy_apology_recovery_cynical", "linkUrl": "", "triggerEvent": "" },
         { "choiceText": "That's just the world we live in.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" }
@@ -254,7 +254,7 @@
       "id": "oy_easy_way_fumble",
       "partnerMessage": "If you came here thinking I'm an easy target for flirting because I spend my evenings around ferns, you misunderstood me completely.\n\nI opened this private channel because I thought you actually valued quiet conversations. Was I wrong?",
       "linkUrl": "",
-      "triggerEvent": "JUNIA_SKEPTIC",
+      "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
         { "choiceText": "You weren't wrong. I made a thoughtless comment, Masie. I'm sorry.", "nextId": "oy_apology_recovery_cynical", "linkUrl": "", "triggerEvent": "" },
         { "choiceText": "Take it easy. It was just a joke.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" }
@@ -312,10 +312,17 @@
       "id": "oy_boiler_clank_reaction",
       "partnerMessage": "The auxiliary boiler solenoid just tripped! The digital thermocouple in the rare tropical wing is reading 58°F and falling fast!\n\nI have to run down the brick cellar stairs to manually turn the bypass valve with a brass wrench, and I have five seedling trays with bare root systems sitting on the open bench!\n\nI'm calling your phone right now—pick up and stay on the line with me!",
       "linkUrl": "",
-      "triggerEvent": "START_CALL_RINGTONE",
+      "triggerEvent": "TRIGGER_CALL_1",
       "choices": [
-        { "choiceText": "Incoming Call from Masie... [Accept Call]", "nextId": "oy_post_call_1_hub", "linkUrl": "", "triggerEvent": "" }
+        { "choiceText": "Incoming Call from Masie... [Accept Call]", "nextId": "oy_call_1_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
       ]
+    },
+    {
+      "id": "oy_call_1_ringing",
+      "partnerMessage": "*Audio line connecting: echoing footsteps on brick stairs and hissing steam pipes...*",
+      "linkUrl": "",
+      "triggerEvent": "START_CALL_RINGTONE",
+      "choices": []
     },
     {
       "id": "oy_post_call_1_hub",

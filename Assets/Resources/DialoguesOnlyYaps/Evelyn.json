@@ -548,7 +548,7 @@
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "You didn't forget them. And I won't forget you, Evelyn.", "nextId": "oy_ending_romance_safe_harbor", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
+        { "choiceText": "You didn't forget them. And I won't forget you, Evelyn. Let's get on voice call.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
       ]
     },
     {
@@ -558,7 +558,7 @@
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
         { "choiceText": "Keep them off for the night, Evelyn. Let me be your quiet peace. Call me.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" },
-        { "choiceText": "I'm right here. I'm not closing this chat until you fall asleep.", "nextId": "oy_ending_romance_safe_harbor", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
+        { "choiceText": "I'm right here. Let's connect over voice so you don't feel alone.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
       ]
     },
     {
@@ -568,7 +568,7 @@
       "triggerEvent": "DEEP_TALK",
       "choices": [
         { "choiceText": "Let me unlock the door from the outside, Evelyn. Step into the light with me.", "nextId": "oy_unlock_door_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "You don't have to risk getting hurt with me. I'll always be your safe harbor.", "nextId": "oy_ending_romance_safe_harbor", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
+        { "choiceText": "You don't have to risk getting hurt with me. Call me and let me prove it.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
       ]
     },
     {
@@ -586,8 +586,7 @@
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "We heard it, Evelyn. That means their grief isn't lost anymore.", "nextId": "oy_ending_romance_safe_harbor", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" },
-        { "choiceText": "Let's listen to the full reel together over voice comms right now.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
+        { "choiceText": "We heard it, Evelyn. Let's listen to the full reel together over voice comms.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
       ]
     },
     {
@@ -660,8 +659,7 @@
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I'm going to take care of you, Evelyn. Call me tonight so we can plan it.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" },
-        { "choiceText": "You deserve someone who sees both the scientist and the girl.", "nextId": "oy_ending_romance_safe_harbor", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
+        { "choiceText": "I'm going to take care of you, Evelyn. Call me tonight so we can plan it.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
       ]
     },
     {
@@ -679,7 +677,7 @@
       "linkUrl": "",
       "triggerEvent": "ENABLE_VOICE_CALL",
       "choices": [
-        { "choiceText": "Calling you right now, Evelyn. Pick up.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+        { "choiceText": "Calling you right now, Evelyn. Pick up.", "nextId": "oy_call_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
       ]
     },
     {
@@ -706,8 +704,7 @@
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Let the universe shrink. As long as you and I are in it. Call me.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" },
-        { "choiceText": "I mean every word, Evelyn. You are my safe harbor, too.", "nextId": "oy_ending_romance_safe_harbor", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
+        { "choiceText": "Let the universe shrink. As long as you and I are in it. Call me.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
       ]
     },
     {
@@ -716,8 +713,7 @@
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "It's okay to sleep, Evelyn. I've got the watch tonight. Call me.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" },
-        { "choiceText": "Let me hold your hands until the ache fades away.", "nextId": "oy_ending_romance_safe_harbor", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
+        { "choiceText": "It's okay to sleep, Evelyn. I've got the watch tonight. Call me.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "ENABLE_VOICE_CALL" }
       ]
     },
     {
@@ -742,18 +738,16 @@
       "linkUrl": "",
       "triggerEvent": "ENABLE_VOICE_CALL",
       "choices": [
-        { "choiceText": "Carrier dropped for a second! Calling you right back!", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" },
-        { "choiceText": "Got goosebumps from the static tone, but I'm dialed in now.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+        { "choiceText": "Carrier dropped for a second! Calling you right back!", "nextId": "oy_call_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" },
+        { "choiceText": "Got goosebumps from the static tone, but I'm dialed in now.", "nextId": "oy_call_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
       ]
     },
     {
       "id": "oy_ending_romance_safe_harbor",
-      "partnerMessage": "Safe harbor confirmed. You broke through five years of padlocks, paranoia, and radio static to find the girl underneath.\n\nTap the voice call icon right now—I'm ready to turn off the monitors and listen to you.",
+      "partnerMessage": "Safe harbor confirmed. Sitting here in the warmth of your passenger seat with the rain drumming on the windshield and Vance's ledger safe in my lap... I finally know what quiet feels like.\n\nYou broke through five years of padlocks, paranoia, and radio static to find the girl underneath. Take us home, {PlayerName}.",
       "linkUrl": "",
       "triggerEvent": "CLIMAX_ROMANCE_PERFECT",
-      "choices": [
-        { "choiceText": "Calling you now, Evelyn. My favorite mystery.", "nextId": "oy_call_ready", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
-      ]
+      "choices": []
     }
   ]
 }

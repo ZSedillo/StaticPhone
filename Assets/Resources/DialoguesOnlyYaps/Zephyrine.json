@@ -11,7 +11,7 @@
         { "choiceText": "I wanted to see the artisan behind the loupe. Someone who moves at the speed of intention, not algorithms.", "nextId": "oy_speed_of_intention_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
         { "choiceText": "I came to check on your hands. Six hours hunched over an escapement takes a heavy physical toll.", "nextId": "oy_physical_toll_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
         { "choiceText": "I promised I'd inspect the macro restoration feed of that astronomical movement.", "nextId": "oy_inspect_macro_feed_intro", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Just seeing if an antique watchmaker is as eccentric and dusty as the clocks on her wall.", "nextId": "oy_eccentric_dusty_fumble", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
+        { "choiceText": "Just seeing if an antique watchmaker is as eccentric and dusty as the clocks on her wall.", "nextId": "oy_eccentric_dusty_fumble", "linkUrl": "", "triggerEvent": "ZEPHYRINE_SKEPTIC" }
       ]
     },
     {
@@ -48,7 +48,7 @@
       "id": "oy_eccentric_dusty_fumble",
       "partnerMessage": "'Eccentric and dusty'?\n\nI spend ten hours a day machining tolerances that aerospace engineers would respect, working on micro-mechanical systems designed by eighteenth-century masters. If you think that is a quirky museum exhibit for your entertainment, you have severely misjudged who I am.",
       "linkUrl": "",
-      "triggerEvent": "JUNIA_SKEPTIC",
+      "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
         { "choiceText": "I phrased that thoughtlessly, Zephyrine. I was trying to banter and it was clumsy. I apologize.", "nextId": "oy_apology_recovery_dignified", "linkUrl": "", "triggerEvent": "" },
         { "choiceText": "You don't need to lecture me over a casual joke.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" }
@@ -171,8 +171,8 @@
     },
     {
       "id": "oy_pivot_burnish_praise",
-      "partnerMessage": "You recognized the mirror finish! Diamond paste on gentian pith wood creates that microscopic optical shine by compressing the steel surface molecules so friction drops to near zero.\n\nNow look at the hairspring collet:",
-      "linkUrl": "onlyyaps.horology/zephyrine/cal_1884_macro_01",
+      "partnerMessage": "You recognized the mirror finish! Diamond paste on gentian pith wood creates that microscopic optical shine by compressing the steel surface molecules so friction drops to near zero.\n\nNow look at the hairspring collet in the center of the plate:",
+      "linkUrl": "",
       "triggerEvent": "",
       "choices": [
         { "choiceText": "Is that the original blued steel spring?", "nextId": "oy_breguet_hairspring_technical", "linkUrl": "", "triggerEvent": "" }

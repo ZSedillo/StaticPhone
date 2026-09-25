@@ -357,7 +357,7 @@
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "He would be so proud that you kept this drum spinning, Junia.", "nextId": "oy_what_uncle_would_say", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        { "choiceText": "He would be so proud that you kept this drum spinning, Junia. Show me what you're roasting tonight.", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
       ]
     },
     {
@@ -461,7 +461,7 @@
     },
     {
       "id": "oy_what_tell_uncle_flirt",
-      "partnerMessage": "I would have told him: 'Uncle Sal, I found someone who understands why we bake the tapes, why we stretch the Maillard curve, and why a lopsided knitted scarf is worth more than a store-bought sweater.'\n\nAnd he would have told me not to let you get away.",
+      "partnerMessage": "I would have told him: 'Uncle Sal, I found someone who understands why we save expired film, why we stretch the Maillard curve, and why building something by hand is worth more than a quick profit.'\n\nAnd he would have told me not to let you get away.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -650,14 +650,14 @@
       "linkUrl": "",
       "triggerEvent": "CLIMAX_ROMANCE_PERFECT",
       "choices": [
-        { "choiceText": "I'm pulling on my jacket and heading out the door right now. Leave the porch light on.", "nextId": "oy_final_resolution", "linkUrl": "", "triggerEvent": "" }
+        { "choiceText": "I'm pulling on my jacket and heading out the door right now. Leave the porch light on.", "nextId": "oy_final_resolution", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
       ]
     },
     {
       "id": "oy_final_resolution",
       "partnerMessage": "Amber porch light is glowing over the alley cobblestones. Fresh Yirgacheffe is ground into the French press.\n\nSee you in ten minutes, my favorite person.",
       "linkUrl": "",
-      "triggerEvent": "",
+      "triggerEvent": "CLIMAX_ROMANCE_PERFECT",
       "choices": []
     },
     {
@@ -681,9 +681,9 @@
     },
     {
       "id": "oy_first_crack_meaning",
-      "partnerMessage": "...Yeah. When that first crack snaps, the room fills with sweet toasted grain and warm stone fruit, and for sixty seconds, the rent doesn't matter.\n\nHere, look at the profile curve before I charge the drum:",
-      "linkUrl": "onlyyaps.roast/batch_402_curves",
-      "triggerEvent": "UNLOCK_COFFEE_PROFILE",
+      "partnerMessage": "...Yeah. When that first crack snaps, the room fills with sweet toasted grain and warm stone fruit, and for sixty seconds, the rent doesn't matter.\n\nCome look at the roast schedule before I charge the drum.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
       "choices": [
         { "choiceText": "Examine the Ethiopian Yirgacheffe curve.", "nextId": "oy_beans_intro", "linkUrl": "", "triggerEvent": "" }
       ]
@@ -703,7 +703,7 @@
       "linkUrl": "",
       "triggerEvent": "CLIMAX_ROMANCE_PERFECT",
       "choices": [
-        { "choiceText": "On my way right now, Junia. Leave the light on.", "nextId": "oy_final_resolution", "linkUrl": "", "triggerEvent": "" }
+        { "choiceText": "On my way right now, Junia. Leave the light on.", "nextId": "oy_final_resolution", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
       ]
     }
   ]

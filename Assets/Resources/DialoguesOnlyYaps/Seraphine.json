@@ -11,7 +11,7 @@
         { "choiceText": "I want to hear the music you play when nobody is grading you.", "nextId": "oy_music_without_grades_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
         { "choiceText": "I came to check on you. You've been pushing yourself past your physical limit.", "nextId": "oy_physical_limit_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
         { "choiceText": "I wanted to listen to those uncompressed 24-bit rehearsal recordings you mentioned.", "nextId": "oy_listen_uncompressed_recordings", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Just seeing if an elite concert pianist is any different from regular girls in private.", "nextId": "oy_regular_girl_fumble", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
+        { "choiceText": "Just seeing if an elite concert pianist is any different from regular girls in private.", "nextId": "oy_regular_girl_fumble", "linkUrl": "", "triggerEvent": "SERAPHINE_SKEPTIC" }
       ]
     },
     {
@@ -48,7 +48,7 @@
       "id": "oy_regular_girl_fumble",
       "partnerMessage": "'Regular girls'?\n\nI am a human being who has bled onto keytops while learning Chopin Scherzos, not an exotic specimen for your curiosity cabinet. If you came here looking for casual entertainment, you walked into the wrong rehearsal hall.",
       "linkUrl": "",
-      "triggerEvent": "JUNIA_SKEPTIC",
+      "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
         { "choiceText": "I phrased that poorly, Seraphine. I didn't mean to trivialize your life. I'm sorry.", "nextId": "oy_apology_recovery_regal", "linkUrl": "", "triggerEvent": "" },
         { "choiceText": "You don't have to get defensive over a harmless sentence.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" }
@@ -120,7 +120,7 @@
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Because behind all that discipline, I heard a girl who was carrying an immense emotional weight alone.", "nextId": "oy_without_noise_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        { "choiceText": "Because behind all that discipline, I heard a girl who was carrying an immense emotional weight alone.", "nextId": "oy_music_without_grades_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
       ]
     },
     {
@@ -149,6 +149,15 @@
       "triggerEvent": "DEEP_TALK",
       "choices": [
         { "choiceText": "Gentleness isn't dangerous, Seraphine. It's the soil music actually grows in.", "nextId": "oy_gentleness_soil_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+      ]
+    },
+    {
+      "id": "oy_gentleness_soil_bond",
+      "partnerMessage": "...'The soil music grows in.'\n\nI have spent years trying to grow flowers in concrete because I was told softness was a flaw. Hearing you say that makes me wonder what I could sound like if I finally let myself be held.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        { "choiceText": "Tell me what you want outside of these studio walls, Seraphine.", "nextId": "oy_what_seraphine_wants", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
       ]
     },
     {

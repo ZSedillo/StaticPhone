@@ -113,6 +113,20 @@ public class DirectChatRoomController : MonoBehaviour
         }
     }
 
+    private string GetCallStartNode(string cleanName, int callIndex)
+    {
+        if (cleanName.Equals("Andiva", System.StringComparison.OrdinalIgnoreCase) ||
+            cleanName.Equals("Daisy", System.StringComparison.OrdinalIgnoreCase) ||
+            cleanName.Equals("Zephyrine", System.StringComparison.OrdinalIgnoreCase) ||
+            cleanName.Equals("Trixie", System.StringComparison.OrdinalIgnoreCase) ||
+            cleanName.Equals("Seraphine", System.StringComparison.OrdinalIgnoreCase))
+        {
+            return (callIndex == 2) ? "call2_start" : "call1_start";
+        }
+
+        return "start";
+    }
+
     private void LaunchSpecificCall(string characterName, int callIndex)
     {
         string cleanName = CleanCharacterName(characterName);
@@ -126,14 +140,7 @@ public class DirectChatRoomController : MonoBehaviour
         }
 
         Sprite avatar = partnerAvatar != null ? partnerAvatar.sprite : null;
-
-        // Evelyn uses "start", Andiva/Daisy use "call1_start" / "call2_start"
-        string startNode = "start";
-        if (cleanName.Equals("Andiva", System.StringComparison.OrdinalIgnoreCase) ||
-            cleanName.Equals("Daisy", System.StringComparison.OrdinalIgnoreCase))
-        {
-            startNode = (callIndex == 2) ? "call2_start" : "call1_start";
-        }
+        string startNode = GetCallStartNode(cleanName, callIndex);
 
         Debug.Log($"[DirectChatRoom] Starting Call {callIndex} for {cleanName} at node '{startNode}'");
 
@@ -162,7 +169,7 @@ public class DirectChatRoomController : MonoBehaviour
         // Resume chat at the appropriate post-call hub node
         string postCallNodeId = (completedCallCount == 1) ? "oy_post_call_1_hub" : "oy_post_call_2_hub";
 
-        // Evelyn uses "oy_call_ready" or "oy_records" progression
+        // Evelyn uses "oy_ending_romance_safe_harbor" progression
         if (cleanName.Equals("Evelyn", System.StringComparison.OrdinalIgnoreCase))
         {
             postCallNodeId = "oy_ending_romance_safe_harbor";
@@ -500,16 +507,22 @@ public class DirectChatRoomController : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
+        string cleanName = CleanCharacterName(girlName);
+        if (string.IsNullOrEmpty(cleanName)) cleanName = activeGirlName;
+
+        int nextCallIndex = completedCallCount >= 1 ? 2 : 1;
+        string startNode = GetCallStartNode(cleanName, nextCallIndex);
+
         Sprite avatar = partnerAvatar != null ? partnerAvatar.sprite : null;
-        Debug.Log($"[DirectChatRoom] Incoming call initiated by character: {girlName}");
+        Debug.Log($"[DirectChatRoom] Incoming call initiated by character: {cleanName} at node '{startNode}'");
 
         if (callOverlayController != null)
         {
-            callOverlayController.TriggerIncomingCall(girlName, avatar);
+            callOverlayController.TriggerIncomingCall(cleanName, avatar, startNode);
         }
         else if (VoiceCallOverlayController.Instance != null)
         {
-            VoiceCallOverlayController.Instance.TriggerIncomingCall(girlName, avatar);
+            VoiceCallOverlayController.Instance.TriggerIncomingCall(cleanName, avatar, startNode);
         }
     }
 
