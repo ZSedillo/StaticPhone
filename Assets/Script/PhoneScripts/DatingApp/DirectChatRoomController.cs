@@ -24,6 +24,19 @@ public class DirectChatRoomController : MonoBehaviour
     [SerializeField] private Transform messageFeedContent;
     [SerializeField] private GameObject directMessagePrefab;
 
+    [Header("Bubble Font & Color Customization")]
+    [Tooltip("Drag your TMP Font Asset here to override the chat bubble font.")]
+    [SerializeField] private TMP_FontAsset customMessageFont;
+    [Tooltip("Leave at 0 to keep the prefab's default font size.")]
+    [SerializeField] private float customFontSize = 0f;
+
+    [Tooltip("Check this to override the fixed green bubble and text colors with the colors below.")]
+    [SerializeField] private bool useCustomBubbleColors = true;
+    [SerializeField] private Color partnerBubbleColor = new Color(0.18f, 0.18f, 0.22f, 1f);
+    [SerializeField] private Color partnerTextColor = new Color(1f, 0.92f, 0.2f, 1f); // Yellow default
+    [SerializeField] private Color playerBubbleColor = new Color(0.25f, 0.25f, 0.3f, 1f);
+    [SerializeField] private Color playerTextColor = Color.white;
+
     [Header("Choice Container")]
     [SerializeField] private Transform choiceContainer;
     [SerializeField] private GameObject choiceButtonPrefab;
@@ -602,6 +615,8 @@ public class DirectChatRoomController : MonoBehaviour
         {
             msgUI.Setup("...", false);
         }
+
+        ApplyCustomBubbleStyle(currentTypingIndicatorObj, isPlayer: false);
         TriggerSmoothScroll();
     }
 
@@ -649,12 +664,49 @@ public class DirectChatRoomController : MonoBehaviour
             }
         }
 
+        ApplyCustomBubbleStyle(newMsg, isPlayer);
+
         if (!string.IsNullOrEmpty(eventTrigger))
         {
             DialogueEventManager.TriggerEvent(eventTrigger, activeGirlName);
         }
 
         if (autoScroll) TriggerSmoothScroll();
+    }
+
+    private void ApplyCustomBubbleStyle(GameObject bubbleObj, bool isPlayer)
+    {
+        if (bubbleObj == null) return;
+
+        // 1. Apply Custom Box Color (overrides the fixed green color)
+        if (useCustomBubbleColors)
+        {
+            Color targetBoxColor = isPlayer ? playerBubbleColor : partnerBubbleColor;
+            Image[] images = bubbleObj.GetComponentsInChildren<Image>(true);
+            foreach (Image img in images)
+            {
+                img.color = targetBoxColor;
+            }
+        }
+
+        // 2. Apply Custom Font, Font Size, and Text Color
+        Color targetTextColor = isPlayer ? playerTextColor : partnerTextColor;
+        TMP_Text[] texts = bubbleObj.GetComponentsInChildren<TMP_Text>(true);
+        foreach (TMP_Text t in texts)
+        {
+            if (customMessageFont != null)
+            {
+                t.font = customMessageFont;
+            }
+            if (customFontSize > 0f)
+            {
+                t.fontSize = customFontSize;
+            }
+            if (useCustomBubbleColors)
+            {
+                t.color = targetTextColor;
+            }
+        }
     }
 
     public void UnlockOnlyYapsContact(string girlName)

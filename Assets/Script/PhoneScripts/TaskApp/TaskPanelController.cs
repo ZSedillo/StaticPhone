@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TaskPanelController : MonoBehaviour
 {
@@ -24,6 +25,14 @@ public class TaskPanelController : MonoBehaviour
     [SerializeField] private RectTransform optionalContentParent;
     [SerializeField] private GameObject taskItemPrefab;
 
+    [Header("Font Customization")]
+    [Tooltip("Drag your TMP Font Asset here to override the task text font.")]
+    [SerializeField] private TMP_FontAsset customTaskFont;
+    [Tooltip("Leave at 0 to keep the prefab's default font size.")]
+    [SerializeField] private float customFontSize = 0f;
+    [Tooltip("Check this if you also want the static headers (Objectives, Main Story, etc.) on the panel to use this font.")]
+    [SerializeField] private bool applyFontToPanelHeaders = false;
+
     private Coroutine refreshCoroutine;
 
     private void Awake()
@@ -44,6 +53,11 @@ public class TaskPanelController : MonoBehaviour
         if (TaskManager.Instance != null)
         {
             TaskManager.Instance.OnTasksUpdated += RefreshTaskList;
+        }
+
+        if (applyFontToPanelHeaders && taskPanelRoot != null)
+        {
+            ApplyCustomFont(taskPanelRoot, applySize: false);
         }
 
         if (taskPanelRoot != null)
@@ -118,6 +132,9 @@ public class TaskPanelController : MonoBehaviour
             {
                 ui.Setup(task);
             }
+
+            // Apply custom font and size to the newly spawned task item
+            ApplyCustomFont(itemObj, applySize: true);
         }
 
         // 3. Rebuild layout and snap scroll position to top
@@ -129,6 +146,24 @@ public class TaskPanelController : MonoBehaviour
         if (gameObject.activeInHierarchy)
         {
             refreshCoroutine = StartCoroutine(RebuildAndResetScroll());
+        }
+    }
+
+    private void ApplyCustomFont(GameObject targetObj, bool applySize)
+    {
+        if (targetObj == null) return;
+
+        TMP_Text[] tmpTexts = targetObj.GetComponentsInChildren<TMP_Text>(true);
+        foreach (TMP_Text t in tmpTexts)
+        {
+            if (customTaskFont != null)
+            {
+                t.font = customTaskFont;
+            }
+            if (applySize && customFontSize > 0f)
+            {
+                t.fontSize = customFontSize;
+            }
         }
     }
 

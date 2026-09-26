@@ -42,10 +42,14 @@ public class ChatsViewController : MonoBehaviour
     {
         if (chatsContentParent == null || chatItemPrefab == null) return;
 
-        // Clear previous cards
+        // Clear ONLY spawned ChatItemUI cards (leaves headers like MatchesText intact!)
         for (int i = chatsContentParent.childCount - 1; i >= 0; i--)
         {
-            Destroy(chatsContentParent.GetChild(i).gameObject);
+            Transform child = chatsContentParent.GetChild(i);
+            if (child.GetComponent<ChatItemUI>() != null)
+            {
+                Destroy(child.gameObject);
+            }
         }
 
         if (GameManager.Instance == null) return;

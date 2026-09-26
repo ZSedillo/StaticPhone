@@ -114,11 +114,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99b34d1a2718e244b427481e4033480, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChatItemUI
+  backgroundImage: {fileID: 0}
   avatarImage: {fileID: 4506279455319034792}
   txtName: {fileID: 6647455045016566115}
   txtLastMessage: {fileID: 9221264369599546100}
   txtTimestamp: {fileID: 7750384590873138726}
   btnOpenChat: {fileID: 1322673666976952803}
+  cornerCurveMultiplier: 3
+  datingBgSprite: {fileID: 0}
+  datingBgColor: {r: 0.9547169, g: 0.8958677, b: 0.084663525, a: 1}
+  datingNameColor: {r: 1, g: 1, b: 1, a: 1}
+  datingMessageColor: {r: 1, g: 1, b: 1, a: 1}
+  datingTimestampColor: {r: 1, g: 1, b: 1, a: 1}
+  onlyYapsBgSprite: {fileID: 0}
+  onlyYapsBgColor: {r: 0.27058825, g: 0.7647059, b: 0.10980392, a: 1}
+  onlyYapsNameColor: {r: 1, g: 1, b: 1, a: 1}
+  onlyYapsMessageColor: {r: 1, g: 1, b: 1, a: 1}
+  onlyYapsTimestampColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!114 &1322673666976952803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,8 +242,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3d747b07771511f49810db9d0652e081, type: 2}
+  m_sharedMaterial: {fileID: 963513551435472275, guid: 3d747b07771511f49810db9d0652e081, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -367,8 +379,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Elena
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3d747b07771511f49810db9d0652e081, type: 2}
+  m_sharedMaterial: {fileID: 963513551435472275, guid: 3d747b07771511f49810db9d0652e081, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -504,8 +516,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 00:00
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3d747b07771511f49810db9d0652e081, type: 2}
+  m_sharedMaterial: {fileID: 963513551435472275, guid: 3d747b07771511f49810db9d0652e081, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -609,7 +621,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 45, y: 0}
-  m_SizeDelta: {x: 80, y: 80}
+  m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6272354303451945419
 CanvasRenderer:
@@ -639,7 +651,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -8863113597264128570, guid: ada8247762c9f414c8c60cecc84eec11, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
