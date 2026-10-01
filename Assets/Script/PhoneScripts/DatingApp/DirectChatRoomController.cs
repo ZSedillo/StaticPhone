@@ -116,7 +116,6 @@ public class DirectChatRoomController : MonoBehaviour
     {
         if (activeContact != null && activeContact.canVoiceCall)
         {
-            // Call next appropriate sequence (Call 1 or Call 2)
             int nextCallIndex = completedCallCount >= 1 ? 2 : 1;
             LaunchSpecificCall(activeGirlName, nextCallIndex);
         }
@@ -145,7 +144,6 @@ public class DirectChatRoomController : MonoBehaviour
         string cleanName = CleanCharacterName(characterName);
         if (string.IsNullOrEmpty(cleanName)) cleanName = activeGirlName;
 
-        // Junia doesn't do calls
         if (cleanName.Equals("Junia", System.StringComparison.OrdinalIgnoreCase))
         {
             Debug.LogWarning("[DirectChatRoom] Junia does not accept voice calls.");
@@ -179,10 +177,8 @@ public class DirectChatRoomController : MonoBehaviour
         completedCallCount++;
         Debug.Log($"[DirectChatRoom] Call completed with {cleanName}. Completed call count: {completedCallCount}");
 
-        // Resume chat at the appropriate post-call hub node
         string postCallNodeId = (completedCallCount == 1) ? "oy_post_call_1_hub" : "oy_post_call_2_hub";
 
-        // Evelyn uses "oy_ending_romance_safe_harbor" progression
         if (cleanName.Equals("Evelyn", System.StringComparison.OrdinalIgnoreCase))
         {
             postCallNodeId = "oy_ending_romance_safe_harbor";
@@ -196,7 +192,6 @@ public class DirectChatRoomController : MonoBehaviour
         string cleanName = CleanCharacterName(characterName);
         if (!cleanName.Equals(activeGirlName, System.StringComparison.OrdinalIgnoreCase)) return;
 
-        // If the call dropped prematurely, transition to reset node if available
         AdvanceChatToNode("oy_call_missed_reset");
     }
 
@@ -239,7 +234,7 @@ public class DirectChatRoomController : MonoBehaviour
         gameObject.SetActive(true);
 
         activeGirlName = CleanCharacterName(partnerName);
-        completedCallCount = 0; // Reset call progress for the open session
+        completedCallCount = 0;
 
         string saveKey = isOnlyYaps ? ("OY_" + activeGirlName) : activeGirlName;
         activeContact = ChatSaveSystem.AddOrGetContact(saveKey, "", 0);
@@ -254,7 +249,6 @@ public class DirectChatRoomController : MonoBehaviour
 
         if (btnCall != null)
         {
-            // Junia never has a call button active
             bool canCall = isOnlyYaps && !activeGirlName.Equals("Junia", System.StringComparison.OrdinalIgnoreCase);
             btnCall.gameObject.SetActive(canCall);
             if (canCall)
@@ -400,7 +394,17 @@ public class DirectChatRoomController : MonoBehaviour
         CheckAndApplyNodeEvents(currentNode);
 
         string currentLink = currentNode != null ? currentNode.linkUrl : "";
-        string currentEvent = currentNode != null ? currentNode.triggerEvent : "";
+
+        // Only fire non-call events here so call triggers don't fire twice and interrupt an active call
+        string currentEvent = "";
+        if (currentNode != null && !string.IsNullOrEmpty(currentNode.triggerEvent))
+        {
+            string ev = currentNode.triggerEvent;
+            if (ev != "START_CALL_RINGTONE" && ev != "TRIGGER_CALL_1" && ev != "TRIGGER_CALL_2" && ev != "ENABLE_VOICE_CALL" && ev != "UNLOCK_ONLYYAPS")
+            {
+                currentEvent = ev;
+            }
+        }
 
         if (NotificationManager.Instance != null)
         {
@@ -428,13 +432,26 @@ public class DirectChatRoomController : MonoBehaviour
             TextMeshProUGUI btnText = btnObj.GetComponentInChildren<TextMeshProUGUI>();
 
             string formattedChoiceText = FormatDialogueText(choice.choiceText);
-            if (btnText != null) btnText.text = formattedChoiceText;
+            if (btnText != null)
+            {
+                btnText.text = formattedChoiceText;
+
+                // Ensure ContentSizeFitter on the button or text allows vertical expansion
+                ContentSizeFitter fitter = btnObj.GetComponent<ContentSizeFitter>();
+                if (fitter == null) fitter = btnObj.AddComponent<ContentSizeFitter>();
+                fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+            }
 
             Button btn = btnObj.GetComponent<Button>();
             string nextTargetId = choice.nextId;
             string choiceLink = choice.linkUrl;
             string choiceEvent = choice.triggerEvent;
             btn.onClick.AddListener(() => OnPlayerSelectedChoice(formattedChoiceText, nextTargetId, choiceLink, choiceEvent));
+        }
+
+        if (choiceContainer != null)
+        {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(choiceContainer.GetComponent<RectTransform>());
         }
 
         TriggerSmoothScroll();
@@ -563,7 +580,18 @@ public class DirectChatRoomController : MonoBehaviour
         if (gameObject.activeInHierarchy && activeGirlName.Equals(girlName, System.StringComparison.OrdinalIgnoreCase))
         {
             string currentLink = currentNode != null ? currentNode.linkUrl : "";
-            string currentEvent = currentNode != null ? currentNode.triggerEvent : "";
+
+            // Do not re-trigger call events when the message finishes typing
+            string currentEvent = "";
+            if (currentNode != null && !string.IsNullOrEmpty(currentNode.triggerEvent))
+            {
+                string ev = currentNode.triggerEvent;
+                if (ev != "START_CALL_RINGTONE" && ev != "TRIGGER_CALL_1" && ev != "TRIGGER_CALL_2" && ev != "ENABLE_VOICE_CALL" && ev != "UNLOCK_ONLYYAPS")
+                {
+                    currentEvent = ev;
+                }
+            }
+
             InstantiateBubble(formatted, isPlayer: false, linkUrl: currentLink, eventTrigger: currentEvent, autoScroll: true);
             StartCoroutine(DisplayChoicesCoroutine());
         }
@@ -678,7 +706,6 @@ public class DirectChatRoomController : MonoBehaviour
     {
         if (bubbleObj == null) return;
 
-        // 1. Apply Custom Box Color (overrides the fixed green color)
         if (useCustomBubbleColors)
         {
             Color targetBoxColor = isPlayer ? playerBubbleColor : partnerBubbleColor;
@@ -689,7 +716,6 @@ public class DirectChatRoomController : MonoBehaviour
             }
         }
 
-        // 2. Apply Custom Font, Font Size, and Text Color
         Color targetTextColor = isPlayer ? playerTextColor : partnerTextColor;
         TMP_Text[] texts = bubbleObj.GetComponentsInChildren<TMP_Text>(true);
         foreach (TMP_Text t in texts)

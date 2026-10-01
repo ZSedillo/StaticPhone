@@ -3,36 +3,211 @@
     {
       "profileName": "Chloe",
       "age": 22,
-      "personality": "Ghoster",
-      "bio": "Probably won't text back, don't take it personally.",
+      "personality": "Distant",
+      "bio": "Bad texter because of work, not because I'm ignoring you. Looking for someone patient.",
       "avatarIndex": 0
     },
     {
       "profileName": "Rachel",
       "age": 24,
-      "personality": "Busy Bee",
-      "bio": "Looking for someone with 800+ credit score and 6ft tall.",
+      "personality": "Career Focused",
+      "bio": "Working 50 hours a week and trying to build a stable life. Looking for someone who has their own goals too.",
       "avatarIndex": 1
     },
     {
       "profileName": "Maya",
       "age": 20,
-      "personality": "Clout Chaser",
-      "bio": "Follow my Insta @maya_fake. Don't check this app.",
+      "personality": "Night Owl",
+      "bio": "Honestly just looking for someone to queue FPS games with at 1 AM and talk about random stuff.",
       "avatarIndex": 2
     },
     {
       "profileName": "Brianna",
       "age": 23,
-      "personality": "Serial Swiper",
-      "bio": "Here for free food and validation. Swipe left if you take life seriously.",
+      "personality": "Guarded",
+      "bio": "Just got out of a three-year relationship a few months ago. Taking things very slow, mostly just here to talk.",
       "avatarIndex": 3
     },
     {
       "profileName": "Vanessa",
       "age": 25,
-      "personality": "Cryptic Bio",
-      "bio": "Ask me anything except what I do for a living.",
+      "personality": "Overthinker",
+      "bio": "Tired of small talk that goes nowhere. Tell me what you're actually passionate about.",
+      "avatarIndex": 4
+    },
+    {
+      "profileName": "Hannah",
+      "age": 22,
+      "personality": "Genuine",
+      "bio": "Looking for a real relationship, not situationships. I value honesty, quiet coffee dates, and consistency.",
+      "avatarIndex": 0
+    },
+    {
+      "profileName": "Claire",
+      "age": 26,
+      "personality": "Burnt Out",
+      "bio": "Grad school is draining my soul. Just want someone to sit in silence with while we both do our own thing.",
+      "avatarIndex": 1
+    },
+    {
+      "profileName": "Naomi",
+      "age": 21,
+      "personality": "Co-op Gamer",
+      "bio": "Not really looking to date right now, just moved here and need friends to play survival games or grab ramen with.",
+      "avatarIndex": 2
+    },
+    {
+      "profileName": "Samantha",
+      "age": 24,
+      "personality": "Practical",
+      "bio": "I work night shifts at the hospital so my schedule is a mess. Hoping to find someone who understands adulting comes first.",
+      "avatarIndex": 3
+    },
+    {
+      "profileName": "Elena",
+      "age": 23,
+      "personality": "Old Soul",
+      "bio": "Dating apps feel so artificial, but I don't go out enough to meet people in person. Looking for something long-term.",
+      "avatarIndex": 4
+    },
+    {
+      "profileName": "Kayla",
+      "age": 21,
+      "personality": "Skeptical",
+      "bio": "Everyone on here says they want communication until you actually communicate. Prove me wrong.",
+      "avatarIndex": 0
+    },
+    {
+      "profileName": "Sienna",
+      "age": 25,
+      "personality": "New in Town",
+      "bio": "Relocated last month for my first corporate job and I know zero people here. Down for casual walks or museum trips.",
+      "avatarIndex": 1
+    },
+    {
+      "profileName": "Jade",
+      "age": 19,
+      "personality": "Casual Chatter",
+      "bio": "Insomnia has been kicking my butt lately. Just looking for someone chill to text when the rest of the world is asleep.",
+      "avatarIndex": 2
+    },
+    {
+      "profileName": "Tiffany",
+      "age": 24,
+      "personality": "Homebody",
+      "bio": "My ideal weekend is grocery shopping, cooking a good meal, and watching a series. Looking for a real partner.",
+      "avatarIndex": 3
+    },
+    {
+      "profileName": "Hailey",
+      "age": 23,
+      "personality": "Quiet Type",
+      "bio": "It takes me a while to open up to new people, so please don't rush me to meet up on day one.",
+      "avatarIndex": 4
+    },
+    {
+      "profileName": "Zoe",
+      "age": 20,
+      "personality": "Study Buddy",
+      "bio": "Finals are coming up and I can't focus alone. Looking for a café study buddy before anything romantic.",
+      "avatarIndex": 0
+    },
+    {
+      "profileName": "Madison",
+      "age": 25,
+      "personality": "Emotionally Tired",
+      "bio": "Deleted and redownloaded this app three times this year. Honestly don't know what I'm expecting anymore.",
+      "avatarIndex": 1
+    },
+    {
+      "profileName": "Courtney",
+      "age": 22,
+      "personality": "Intentional",
+      "bio": "Dating with the intention of finding my person. If you don't know what you want yet, please swipe left.",
+      "avatarIndex": 2
+    },
+    {
+      "profileName": "Paige",
+      "age": 21,
+      "personality": "Introvert",
+      "bio": "Social battery drains fast in big crowds, but I can talk for hours one-on-one about books, films, or life.",
+      "avatarIndex": 3
+    },
+    {
+      "profileName": "Kelsey",
+      "age": 23,
+      "personality": "Duo Queue",
+      "bio": "Hardstuck in ranked and tired of solo queueing. Need a pocket healer or someone who doesn't tilt.",
+      "avatarIndex": 4
+    },
+    {
+      "profileName": "Lauren",
+      "age": 24,
+      "personality": "Warmhearted",
+      "bio": "Elementary school teacher. I spend all day taking care of kids, would love to meet someone who checks in on me too.",
+      "avatarIndex": 0
+    },
+    {
+      "profileName": "Leah",
+      "age": 21,
+      "personality": "Platonic First",
+      "bio": "I can't do romantic feelings without being actual friends first. Let's hang out with zero pressure.",
+      "avatarIndex": 1
+    },
+    {
+      "profileName": "Morgan",
+      "age": 26,
+      "personality": "Jaded",
+      "bio": "Tired of being someone's character development arc. Only swipe right if you've actually processed your past.",
+      "avatarIndex": 2
+    },
+    {
+      "profileName": "Lydia",
+      "age": 23,
+      "personality": "Sincere",
+      "bio": "I want the boring kind of love where we fold laundry together and don't have to impress each other.",
+      "avatarIndex": 3
+    },
+    {
+      "profileName": "Nina",
+      "age": 24,
+      "personality": "Commuter",
+      "bio": "Spend two hours in traffic every day. Need someone to call or trade voice notes with on the way home.",
+      "avatarIndex": 4
+    },
+    {
+      "profileName": "Ruby",
+      "age": 21,
+      "personality": "Gamer & Chill",
+      "bio": "Looking for a fifth for our casual Valorant stack or just someone to watch anime streams with.",
+      "avatarIndex": 0
+    },
+    {
+      "profileName": "Phoebe",
+      "age": 21,
+      "personality": "Late Night Talks",
+      "bio": "Here for deep 2 AM conversations about life, regrets, and where we think we'll be in five years.",
+      "avatarIndex": 1
+    },
+    {
+      "profileName": "Lana",
+      "age": 20,
+      "personality": "Lonely",
+      "bio": "Living alone in a studio apartment for the first time and the quiet gets a little loud sometimes. Just want someone to talk to.",
+      "avatarIndex": 2
+    },
+    {
+      "profileName": "Joanna",
+      "age": 25,
+      "personality": "Tired Adult",
+      "bio": "Between rent, groceries, and work, life is chaotic enough. Looking for someone who brings peace, not more stress.",
+      "avatarIndex": 3
+    },
+    {
+      "profileName": "Simone",
+      "age": 24,
+      "personality": "Intentional",
+      "bio": "Here because I genuinely want to find someone to share life with. If you're also looking for something real, say hi.",
       "avatarIndex": 4
     }
   ]

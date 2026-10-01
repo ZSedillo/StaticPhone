@@ -24,9 +24,18 @@ public class VoiceCallOverlayController : MonoBehaviour
     [SerializeField] private GameObject activeControlsGroup;
     [SerializeField] private Button btnEndCall;
 
+    [Header("Audio Settings (USE TWO AUDIO SOURCES)")]
+    [SerializeField] private AudioSource ringAudioSource; // ONLY handles the looping ringtone
+    [SerializeField] private AudioSource sfxAudioSource;  // ONLY handles the accept/reject one-shots
+    
+    [SerializeField] private AudioClip ringingSound;     
+    [SerializeField] private AudioClip acceptCallSound; 
+    [SerializeField] private AudioClip rejectCallSound; 
+
     private Coroutine callRoutine;
     private string activeCaller = "";
     private string activeStartNodeId = "";
+    private bool isCallInProgress = false;
 
     private void Awake()
     {
@@ -38,14 +47,42 @@ public class VoiceCallOverlayController : MonoBehaviour
         if (btnEndCall != null) btnEndCall.onClick.AddListener(EndOrRejectCall);
     }
 
+    private void StartRingingSound()
+    {
+        if (ringAudioSource != null && ringingSound != null)
+        {
+            ringAudioSource.clip = ringingSound;
+            ringAudioSource.loop = true;
+            ringAudioSource.Play();
+        }
+    }
+
+    private void StopRingingSound()
+    {
+        if (ringAudioSource != null)
+        {
+            ringAudioSource.Stop();
+            ringAudioSource.loop = false;
+            ringAudioSource.clip = null;
+        }
+    }
+
     public void StartOutgoingCall(string contactName, Sprite avatar, string startNodeId = "")
     {
+        if (isCallInProgress && gameObject.activeInHierarchy) return;
+        isCallInProgress = true;
+
         activeCaller = contactName;
         activeStartNodeId = startNodeId;
 
         gameObject.SetActive(true);
         if (callOverlayRoot != null) callOverlayRoot.SetActive(true);
         transform.SetAsLastSibling();
+
+        if (VoiceCallDialogueUI.Instance != null)
+        {
+            VoiceCallDialogueUI.Instance.gameObject.SetActive(false);
+        }
 
         SetupCallVisuals(contactName, avatar);
 
@@ -53,12 +90,17 @@ public class VoiceCallOverlayController : MonoBehaviour
         if (activeControlsGroup != null) activeControlsGroup.SetActive(true);
         if (txtCallStatus != null) txtCallStatus.text = "Calling...";
 
+        StartRingingSound();
+
         if (callRoutine != null) StopCoroutine(callRoutine);
         callRoutine = StartCoroutine(OutgoingCallRoutine());
     }
 
     public void TriggerIncomingCall(string contactName, Sprite avatar, string startNodeId = "")
     {
+        if (isCallInProgress && gameObject.activeInHierarchy) return;
+        isCallInProgress = true;
+
         activeCaller = contactName;
         activeStartNodeId = startNodeId;
 
@@ -66,11 +108,18 @@ public class VoiceCallOverlayController : MonoBehaviour
         if (callOverlayRoot != null) callOverlayRoot.SetActive(true);
         transform.SetAsLastSibling();
 
+        if (VoiceCallDialogueUI.Instance != null)
+        {
+            VoiceCallDialogueUI.Instance.gameObject.SetActive(false);
+        }
+
         SetupCallVisuals(contactName, avatar);
 
         if (incomingControlsGroup != null) incomingControlsGroup.SetActive(true);
         if (activeControlsGroup != null) activeControlsGroup.SetActive(false);
         if (txtCallStatus != null) txtCallStatus.text = "Incoming Call...";
+
+        StartRingingSound();
 
         if (callRoutine != null) StopCoroutine(callRoutine);
         callRoutine = StartCoroutine(IncomingCallTimeoutRoutine());
@@ -105,34 +154,37 @@ public class VoiceCallOverlayController : MonoBehaviour
 
     private IEnumerator OutgoingCallRoutine()
     {
-    yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2.5f);
 
-    if (incomingControlsGroup != null) incomingControlsGroup.SetActive(false);
-    if (activeControlsGroup != null) activeControlsGroup.SetActive(true);
+        // 100% physically stops the looping ring channel
+        StopRingingSound();
 
-    if (VoiceCallDialogueUI.Instance != null)
-    {
-        // Force the dialogue UI to become visible!
-        VoiceCallDialogueUI.Instance.gameObject.SetActive(true);
-        
-        Sprite av = callerAvatarImage != null ? callerAvatarImage.sprite : null;
-        VoiceCallDialogueUI.Instance.StartCallDialogue(activeCaller, av, activeStartNodeId);
-    }
-    else
-    {
-        Debug.LogError("[VoiceCallOverlay] VoiceCallDialogueUI.Instance is NULL! Enable CallDialogueHUD in your Scene Hierarchy before pressing Play!");
-    }
+        // Plays the pick-up sound on a completely separate channel
+        if (sfxAudioSource != null && acceptCallSound != null)
+        {
+            sfxAudioSource.PlayOneShot(acceptCallSound);
+        }
 
-    float timer = 0f;
-    while (true)
-    {
-        timer += Time.deltaTime;
-        int minutes = Mathf.FloorToInt(timer / 60f);
-        int seconds = Mathf.FloorToInt(timer % 60f);
-        if (txtCallStatus != null) txtCallStatus.text = string.Format("{0:00}:{1:00}", minutes, seconds);
-        yield return null;
+        if (incomingControlsGroup != null) incomingControlsGroup.SetActive(false);
+        if (activeControlsGroup != null) activeControlsGroup.SetActive(true);
+
+        if (VoiceCallDialogueUI.Instance != null)
+        {
+            VoiceCallDialogueUI.Instance.gameObject.SetActive(true);
+            Sprite av = callerAvatarImage != null ? callerAvatarImage.sprite : null;
+            VoiceCallDialogueUI.Instance.StartCallDialogue(activeCaller, av, activeStartNodeId);
+        }
+
+        float timer = 0f;
+        while (true)
+        {
+            timer += Time.deltaTime;
+            int minutes = Mathf.FloorToInt(timer / 60f);
+            int seconds = Mathf.FloorToInt(timer % 60f);
+            if (txtCallStatus != null) txtCallStatus.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+            yield return null;
+        }
     }
-}
 
     private IEnumerator IncomingCallTimeoutRoutine()
     {
@@ -148,26 +200,29 @@ public class VoiceCallOverlayController : MonoBehaviour
 
     public void AcceptCall()
     {
-    if (callRoutine != null) StopCoroutine(callRoutine);
+        // 100% physically stops the looping ring channel
+        StopRingingSound();
 
-    if (incomingControlsGroup != null) incomingControlsGroup.SetActive(false);
-    if (activeControlsGroup != null) activeControlsGroup.SetActive(true);
+        // Plays the pick-up sound on a completely separate channel
+        if (sfxAudioSource != null && acceptCallSound != null)
+        {
+            sfxAudioSource.PlayOneShot(acceptCallSound);
+        }
 
-    callRoutine = StartCoroutine(ActiveCallTimerRoutine());
+        if (callRoutine != null) StopCoroutine(callRoutine);
 
-    if (VoiceCallDialogueUI.Instance != null)
-    {
-        // Force the dialogue UI to become visible!
-        VoiceCallDialogueUI.Instance.gameObject.SetActive(true);
-        
-        Sprite av = callerAvatarImage != null ? callerAvatarImage.sprite : null;
-        VoiceCallDialogueUI.Instance.StartCallDialogue(activeCaller, av, activeStartNodeId);
+        if (incomingControlsGroup != null) incomingControlsGroup.SetActive(false);
+        if (activeControlsGroup != null) activeControlsGroup.SetActive(true);
+
+        callRoutine = StartCoroutine(ActiveCallTimerRoutine());
+
+        if (VoiceCallDialogueUI.Instance != null)
+        {
+            VoiceCallDialogueUI.Instance.gameObject.SetActive(true);
+            Sprite av = callerAvatarImage != null ? callerAvatarImage.sprite : null;
+            VoiceCallDialogueUI.Instance.StartCallDialogue(activeCaller, av, activeStartNodeId);
+        }
     }
-    else
-    {
-        Debug.LogError("[VoiceCallOverlay] VoiceCallDialogueUI.Instance is NULL! Enable CallDialogueHUD in your Scene Hierarchy before pressing Play!");
-    }
-}
 
     private IEnumerator ActiveCallTimerRoutine()
     {
@@ -184,24 +239,32 @@ public class VoiceCallOverlayController : MonoBehaviour
 
     public void EndOrRejectCall()
     {
-    if (callRoutine != null)
-    {
-        StopCoroutine(callRoutine);
-        callRoutine = null;
-    }
+        StopRingingSound();
 
-    if (VoiceCallDialogueUI.Instance != null)
-    {
-        VoiceCallDialogueUI.Instance.gameObject.SetActive(false);
-    }
+        if (sfxAudioSource != null && rejectCallSound != null)
+        {
+            sfxAudioSource.PlayOneShot(rejectCallSound);
+        }
 
-    if (!string.IsNullOrEmpty(activeCaller))
-    {
-        // Only trigger CALL_COMPLETED so it advances properly without looping back
-        DialogueEventManager.TriggerEvent("CALL_COMPLETED", activeCaller);
-    }
+        isCallInProgress = false;
 
-    if (callOverlayRoot != null) callOverlayRoot.SetActive(false);
-    gameObject.SetActive(false);
-}
+        if (callRoutine != null)
+        {
+            StopCoroutine(callRoutine);
+            callRoutine = null;
+        }
+
+        if (VoiceCallDialogueUI.Instance != null)
+        {
+            VoiceCallDialogueUI.Instance.gameObject.SetActive(false);
+        }
+
+        if (!string.IsNullOrEmpty(activeCaller))
+        {
+            DialogueEventManager.TriggerEvent("CALL_COMPLETED", activeCaller);
+        }
+
+        if (callOverlayRoot != null) callOverlayRoot.SetActive(false);
+        gameObject.SetActive(false);
+    }
 }

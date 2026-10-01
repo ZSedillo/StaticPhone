@@ -16,7 +16,7 @@ public class VoiceCallDialogueUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI txtPartnerSpeakerName;
     [SerializeField] private ScrollRect dialogueScrollRect;
     [SerializeField] private Transform dialogueFeedContent;
-    [SerializeField] private GameObject messageBubblePrefab; // DirectMessagePrefab
+    [SerializeField] private GameObject messageBubblePrefab;
 
     [Header("Right Side - Choices & Pressure Timer")]
     [SerializeField] private Transform choicesContainer;
@@ -25,9 +25,13 @@ public class VoiceCallDialogueUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI txtTimerCounter;
 
     [Header("Speech & Timing Settings")]
-    [SerializeField] private float charactersPerSecond = 35f; // Speed of speech/typing animation
-    [SerializeField] private float partnerReplyDelay = 0.8f;   // Pause before she starts speaking
-    [SerializeField] private float responseTimeout = 10f;       // Player response timer
+    [SerializeField] private float charactersPerSecond = 35f;
+    [SerializeField] private float partnerReplyDelay = 0.8f;   
+    [SerializeField] private float responseTimeout = 10f;      
+
+    [Header("Audio Settings")]
+    [SerializeField] private AudioSource callDialogueAudioSource;
+    [SerializeField] private AudioClip choiceClickSound;
 
     private VoiceCallConversation activeConvo;
     private VoiceCallNode currentNode;
@@ -62,7 +66,6 @@ public class VoiceCallDialogueUI : MonoBehaviour
         ClearChoices();
         ResetTimerUI();
 
-        // If a specific entry node was passed (e.g. "call1_start" or "call2_start"), jump to it
         string targetNode = !string.IsNullOrEmpty(entryNodeId) ? entryNodeId : activeConvo.startNodeId;
         if (string.IsNullOrEmpty(targetNode)) targetNode = "start";
 
@@ -71,17 +74,23 @@ public class VoiceCallDialogueUI : MonoBehaviour
 
     private void OnPlayerChoiceSelected(string choiceText, string nextNodeId)
     {
+        // 1. Play click sound safely from the permanent manager
+        if (callDialogueAudioSource != null && choiceClickSound != null)
+        {
+            callDialogueAudioSource.PlayOneShot(choiceClickSound);
+        }
+
         StopTimer();
         timeoutCounter = 0;
 
-        // 1. Post player's message immediately
+        // 2. Post player's message immediately
         AddPlayerBubble(choiceText);
 
-        // 2. Clear options while partner is speaking
+        // 3. Clear options while partner is speaking (destroys the button)
         ClearChoices();
         ResetTimerUI();
 
-        // 3. Trigger partner reply routine
+        // 4. Trigger partner reply routine
         if (replyCoroutine != null) StopCoroutine(replyCoroutine);
         replyCoroutine = StartCoroutine(DelayedPartnerReplyRoutine(nextNodeId));
     }
@@ -107,14 +116,12 @@ public class VoiceCallDialogueUI : MonoBehaviour
             return;
         }
 
-        // Run typing animation for partner speech; choices & timer start upon completion
         if (typewriterCoroutine != null) StopCoroutine(typewriterCoroutine);
         typewriterCoroutine = StartCoroutine(TypewriterPartnerRoutine(currentNode.partnerDialogue, currentNode.choices));
     }
 
     private IEnumerator TypewriterPartnerRoutine(string fullText, List<VoiceCallChoice> choicesToDisplay)
     {
-        // Prevent player choices or timer from running while she is speaking
         ClearChoices();
         ResetTimerUI();
 
@@ -123,7 +130,6 @@ public class VoiceCallDialogueUI : MonoBehaviour
         GameObject bubble = Instantiate(messageBubblePrefab, dialogueFeedContent);
         DirectMessageUI msgUI = bubble.GetComponent<DirectMessageUI>();
         
-        // Initialize partner bubble styling with blank text
         if (msgUI != null) msgUI.Setup("", false);
 
         TextMeshProUGUI textComp = bubble.GetComponentInChildren<TextMeshProUGUI>();
@@ -138,7 +144,6 @@ public class VoiceCallDialogueUI : MonoBehaviour
 
             if (textComp != null) textComp.text = currentText;
 
-            // Rebuild layout and snap scroll down as the text expands
             if (i % 5 == 0 || i == fullText.Length - 1)
             {
                 Canvas.ForceUpdateCanvases();
@@ -155,10 +160,8 @@ public class VoiceCallDialogueUI : MonoBehaviour
             yield return new WaitForSeconds(delayPerChar);
         }
 
-        // Brief breath after she finishes speaking
         yield return new WaitForSeconds(0.25f);
 
-        // Populate choices on the right
         if (choicesToDisplay != null && choicesToDisplay.Count > 0)
         {
             PopulateChoices(choicesToDisplay);
@@ -166,7 +169,6 @@ public class VoiceCallDialogueUI : MonoBehaviour
         }
         else
         {
-            // If no choices remain, only render the hang up option
             PopulateChoices(new List<VoiceCallChoice>());
             StartCountdownTimer();
         }
@@ -222,7 +224,6 @@ public class VoiceCallDialogueUI : MonoBehaviour
             CreateChoiceButton(choices[i].choiceText, choices[i].nextNodeId, isGoodbye: false);
         }
 
-        // Permanent hang-up option
         CreateChoiceButton("I have to hang up now. Talk later.", "END_CALL", isGoodbye: true);
     }
 
@@ -291,7 +292,6 @@ public class VoiceCallDialogueUI : MonoBehaviour
             string prompt = activeConvo.timeoutPrompts[timeoutCounter];
             timeoutCounter++;
 
-            // Partner speaks silence prompt using typewriter effect, choices re-open afterwards
             if (typewriterCoroutine != null) StopCoroutine(typewriterCoroutine);
             typewriterCoroutine = StartCoroutine(TypewriterPartnerRoutine(prompt, currentNode?.choices));
         }
@@ -343,11 +343,8 @@ public class VoiceCallDialogueUI : MonoBehaviour
     private VoiceCallConversation LoadConversation(string callerName)
     {
         string cleanName = callerName.Replace("OY_", "").Trim();
-
-        // 1. Try loading dedicated file: Resources/CallDialogues/{cleanName}Call
         TextAsset jsonAsset = Resources.Load<TextAsset>("CallDialogues/" + cleanName + "Call");
         
-        // 2. Fallback check for without "Call" suffix
         if (jsonAsset == null)
         {
             jsonAsset = Resources.Load<TextAsset>("CallDialogues/" + cleanName);
@@ -375,9 +372,8 @@ public class VoiceCallDialogueUI : MonoBehaviour
             return convo;
         }
 
-        Debug.LogError($"[VoiceCallDialogueUI] FAILED to load CallDialogues/{cleanName}Call.json! Check file name in Resources/CallDialogues/.");
+        Debug.LogError($"[VoiceCallDialogueUI] FAILED to load CallDialogues/{cleanName}Call.json!");
         
-        // Extended multi-branch fallback so conversations never drop instantly
         VoiceCallConversation fallback = new VoiceCallConversation();
         fallback.callerName = cleanName;
         fallback.startNodeId = "start";
@@ -389,35 +385,6 @@ public class VoiceCallDialogueUI : MonoBehaviour
             {
                 new VoiceCallChoice { choiceText = "Doing good. Glad to hear your voice.", nextNodeId = "chat_good" },
                 new VoiceCallChoice { choiceText = "A bit stressed with everything going on.", nextNodeId = "chat_busy" }
-            }
-        });
-        fallback.nodes.Add(new VoiceCallNode
-        {
-            nodeId = "chat_good",
-            partnerDialogue = $"{cleanName}: Glad to hear. I was thinking about our conversation earlier today.",
-            choices = new List<VoiceCallChoice>
-            {
-                new VoiceCallChoice { choiceText = "Tell me what's on your mind.", nextNodeId = "chat_more" },
-                new VoiceCallChoice { choiceText = "I have to get back to work soon.", nextNodeId = "END_CALL" }
-            }
-        });
-        fallback.nodes.Add(new VoiceCallNode
-        {
-            nodeId = "chat_busy",
-            partnerDialogue = $"{cleanName}: Take a deep breath. Don't let the noise get to you. I'm here if you need to talk.",
-            choices = new List<VoiceCallChoice>
-            {
-                new VoiceCallChoice { choiceText = "Thanks, that means a lot.", nextNodeId = "chat_more" },
-                new VoiceCallChoice { choiceText = "I'll talk to you later.", nextNodeId = "END_CALL" }
-            }
-        });
-        fallback.nodes.Add(new VoiceCallNode
-        {
-            nodeId = "chat_more",
-            partnerDialogue = $"{cleanName}: Let's catch up properly once things quiet down. Don't stay up too late tonight, okay?",
-            choices = new List<VoiceCallChoice>
-            {
-                new VoiceCallChoice { choiceText = "You too. Goodnight.", nextNodeId = "END_CALL" }
             }
         });
         return fallback;

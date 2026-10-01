@@ -14,6 +14,11 @@ public class NavigationBarManager : MonoBehaviour
     public NotificationSwipe notificationPanel;
     public GameObject recentsViewUI; 
     
+    [Header("Audio Settings")]
+    public AudioSource navAudioSource;
+    public AudioClip openAppSound;   // Sound for launching an app
+    public AudioClip navButtonSound; // NEW: Sound for Home, Back, and Recents
+
     // Tracks the app you are currently looking at
     private AppWindow currentApp;
     
@@ -22,6 +27,23 @@ public class NavigationBarManager : MonoBehaviour
     
     // A list of apps running in the background for the Recents View
     public List<AppWindow> openAppsList = new List<AppWindow>(); 
+
+    // --- AUDIO HELPERS ---
+    private void PlayAppOpenSound()
+    {
+        if (navAudioSource != null && openAppSound != null)
+        {
+            navAudioSource.PlayOneShot(openAppSound);
+        }
+    }
+
+    private void PlayNavButtonSound()
+    {
+        if (navAudioSource != null && navButtonSound != null)
+        {
+            navAudioSource.PlayOneShot(navButtonSound);
+        }
+    }
 
     // --- APP ROUTING ---
     public void LaunchApplication(AppWindow appToOpen)
@@ -33,6 +55,7 @@ public class NavigationBarManager : MonoBehaviour
         }
         
         currentApp = appToOpen;
+        PlayAppOpenSound(); // Plays the specific launch app sound
         currentApp.OpenApp();
         
         // Add to recents if it isn't already there
@@ -45,6 +68,8 @@ public class NavigationBarManager : MonoBehaviour
     // --- NAVIGATION BUTTONS ---
     public void OnHomeButtonClicked()
     {
+        PlayNavButtonSound(); // Plays the universal navigation sound
+
         // 1. Close current app
         if (currentApp != null)
         {
@@ -69,12 +94,18 @@ public class NavigationBarManager : MonoBehaviour
         }
         if (homeScreenSwiper != null) homeScreenSwiper.GoToHomePage();
     }
+    
     public void OnBackButtonClicked()
     {
+        PlayNavButtonSound(); // Plays the universal navigation sound
+
         if (recentsViewUI != null && recentsViewUI.activeSelf)
         {
             recentsViewUI.SetActive(false);
-            if (currentApp != null) currentApp.OpenApp();
+            if (currentApp != null) 
+            {
+                currentApp.OpenApp();
+            }
             return;
         }
 
@@ -93,6 +124,8 @@ public class NavigationBarManager : MonoBehaviour
 
     public void OnRecentsButtonClicked()
     {
+        PlayNavButtonSound(); // Plays the universal navigation sound
+
         if (recentsViewUI == null) return;
         
         bool isOpening = !recentsViewUI.activeSelf;
@@ -193,7 +226,7 @@ public class NavigationBarManager : MonoBehaviour
                     () => { // Tap to reopen app
                         StopAllCoroutines();
                         StartCoroutine(AnimateRecentsUI(false));
-                        LaunchApplication(appToKill);
+                        LaunchApplication(appToKill); // LaunchApplication already plays the sound!
                     }
                 );
             }
@@ -226,6 +259,7 @@ public class NavigationBarManager : MonoBehaviour
             recentsViewUI.SetActive(false);
         }
     }
+    
     private IEnumerator CenterRecentsView()
     {
         yield return new WaitForEndOfFrame();

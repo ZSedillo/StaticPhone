@@ -33,6 +33,11 @@ public class TaskPanelController : MonoBehaviour
     [Tooltip("Check this if you also want the static headers (Objectives, Main Story, etc.) on the panel to use this font.")]
     [SerializeField] private bool applyFontToPanelHeaders = false;
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioSource taskAudioSource;
+    [SerializeField] private AudioClip openTaskSound;
+    [SerializeField] private AudioClip closeTaskSound;
+
     private Coroutine refreshCoroutine;
 
     private void Awake()
@@ -80,15 +85,35 @@ public class TaskPanelController : MonoBehaviour
     {
         if (taskPanelRoot != null)
         {
+            // Toggle behavior: if already open, close it instead
+            if (taskPanelRoot.activeSelf)
+            {
+                CloseTaskPanel();
+                return;
+            }
+
+            // 1. Enable the panel FIRST so the AudioSource becomes active
             taskPanelRoot.SetActive(true);
+
+            // 2. Play the sound safely
+            if (taskAudioSource != null && openTaskSound != null)
+            {
+                taskAudioSource.PlayOneShot(openTaskSound);
+            }
+            
             RefreshTaskList();
         }
     }
 
     public void CloseTaskPanel()
     {
-        if (taskPanelRoot != null)
+        if (taskPanelRoot != null && taskPanelRoot.activeSelf)
         {
+            if (taskAudioSource != null && closeTaskSound != null)
+            {
+                taskAudioSource.PlayOneShot(closeTaskSound);
+            }
+
             taskPanelRoot.SetActive(false);
         }
     }

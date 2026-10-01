@@ -9,18 +9,17 @@ public class ChoiceOptionButtonUI : MonoBehaviour
     public TMP_Text buttonText;
 
     [Header("Dating App Theme (Yellow App)")]
-    [Tooltip("Leave empty to keep the default UISprite")]
     public Sprite datingBgSprite;
-    [Tooltip("Set to White if using a custom pre-colored Sprite!")]
-    public Color datingBgColor = new Color(1f, 0.85f, 0.2f, 1f); // Yellow
+    public Color datingBgColor = new Color(1f, 0.85f, 0.2f, 1f);
     public Color datingTextColor = Color.black;
 
     [Header("OnlyYaps Theme (Blue App)")]
-    [Tooltip("Leave empty to keep the default UISprite")]
     public Sprite onlyYapsBgSprite;
-    [Tooltip("Set to White if using a custom pre-colored Sprite!")]
-    public Color onlyYapsBgColor = new Color(0.15f, 0.22f, 0.38f, 1f); // Dark Blue
+    public Color onlyYapsBgColor = new Color(0.15f, 0.22f, 0.38f, 1f);
     public Color onlyYapsTextColor = Color.white;
+
+    private LayoutElement layoutElement;
+    private RectTransform rectTransform;
 
     private void Awake()
     {
@@ -29,16 +28,48 @@ public class ChoiceOptionButtonUI : MonoBehaviour
 
         if (buttonText == null)
             buttonText = GetComponentInChildren<TMP_Text>(true);
+
+        layoutElement = GetComponent<LayoutElement>();
+        rectTransform = GetComponent<RectTransform>();
     }
 
     private void Start()
     {
         ApplyTheme();
+        AdjustHeightToFitText();
     }
 
     private void OnEnable()
     {
         ApplyTheme();
+        AdjustHeightToFitText();
+    }
+
+    private void LateUpdate()
+    {
+        AdjustHeightToFitText();
+    }
+
+    private void AdjustHeightToFitText()
+    {
+        if (buttonText == null || rectTransform == null) return;
+
+        // Ensure text wraps inside the button width instead of overflowing out the sides/top
+        buttonText.textWrappingMode = TextWrappingModes.Normal;
+        buttonText.overflowMode = TextOverflowModes.Overflow;
+
+        float neededHeight = Mathf.Max(45f, buttonText.preferredHeight + 20f);
+
+        if (layoutElement != null && Mathf.Abs(layoutElement.preferredHeight - neededHeight) > 1f)
+        {
+            layoutElement.minHeight = neededHeight;
+            layoutElement.preferredHeight = neededHeight;
+        }
+
+        if (Mathf.Abs(rectTransform.sizeDelta.y - neededHeight) > 1f)
+        {
+            rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, neededHeight);
+        }
     }
 
     public void ApplyTheme()

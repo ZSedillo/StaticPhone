@@ -1,8 +1,18 @@
 using UnityEngine;
 using System.Collections.Generic;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class ChatsViewController : MonoBehaviour
 {
+    [System.Serializable]
+    public class NamedAvatar
+    {
+        public string characterName;
+        public Sprite avatarSprite;
+    }
+
     [Header("App Type")]
     [SerializeField] private bool isOnlyYapsView = false;
 
@@ -10,11 +20,88 @@ public class ChatsViewController : MonoBehaviour
     public Transform chatsContentParent;
     public GameObject chatItemPrefab;
 
-    [Header("Avatar Sprites Pool")]
-    public List<Sprite> profilePhotos = new List<Sprite>();
+    [Header("8 Main Character Avatars (Characters_1 to Characters_8)")]
+    public List<NamedAvatar> mainCharacterAvatars = new List<NamedAvatar>()
+    {
+        new NamedAvatar { characterName = "Andiva" },
+        new NamedAvatar { characterName = "Daisy" },
+        new NamedAvatar { characterName = "Evelyn" },
+        new NamedAvatar { characterName = "Junia" },
+        new NamedAvatar { characterName = "Masie" },
+        new NamedAvatar { characterName = "Seraphine" },
+        new NamedAvatar { characterName = "Trixie" },
+        new NamedAvatar { characterName = "Zephyrine" }
+    };
+
+    [Header("5 Common Avatars for Random Girls (Characters_9 to Characters_13)")]
+    public List<Sprite> commonAvatars = new List<Sprite>();
 
     [Header("Direct Chat Room Reference")]
     public DirectChatRoomController directChatRoom;
+
+#if UNITY_EDITOR
+    private void OnValidate()
+    {
+        AutoPopulateSpritesFromSheet();
+    }
+#endif
+
+    private void Awake()
+    {
+#if UNITY_EDITOR
+        AutoPopulateSpritesFromSheet();
+#endif
+    }
+
+#if UNITY_EDITOR
+    private void AutoPopulateSpritesFromSheet()
+    {
+        Object[] allAssets = AssetDatabase.LoadAllAssetsAtPath("Assets/Game Assets/Profile Pictures/Characters.png");
+        if (allAssets == null || allAssets.Length == 0) return;
+
+        Dictionary<string, Sprite> spriteMap = new Dictionary<string, Sprite>();
+        foreach (Object obj in allAssets)
+        {
+            if (obj is Sprite s)
+            {
+                spriteMap[s.name] = s;
+            }
+        }
+
+        string[] mainNames = { "Andiva", "Daisy", "Evelyn", "Junia", "Masie", "Seraphine", "Trixie", "Zephyrine" };
+        if (mainCharacterAvatars == null || mainCharacterAvatars.Count != 8)
+        {
+            mainCharacterAvatars = new List<NamedAvatar>();
+            for (int i = 0; i < mainNames.Length; i++)
+                mainCharacterAvatars.Add(new NamedAvatar { characterName = mainNames[i] });
+        }
+
+        // Characters_1 to Characters_8 -> 8 Main Girls
+        for (int i = 0; i < 8; i++)
+        {
+            mainCharacterAvatars[i].characterName = mainNames[i];
+            if (mainCharacterAvatars[i].avatarSprite == null && spriteMap.TryGetValue($"Characters_{i + 1}", out Sprite mainSprite))
+            {
+                mainCharacterAvatars[i].avatarSprite = mainSprite;
+            }
+        }
+
+        // Characters_9 to Characters_13 -> 5 Common Girls
+        if (commonAvatars == null) commonAvatars = new List<Sprite>();
+        bool needsCommonFill = commonAvatars.Count < 5 || commonAvatars.Exists(s => s == null);
+        if (needsCommonFill)
+        {
+            commonAvatars.Clear();
+            for (int i = 9; i <= 13; i++)
+            {
+                if (spriteMap.TryGetValue($"Characters_{i}", out Sprite commonSprite))
+                {
+                    commonAvatars.Add(commonSprite);
+                }
+            }
+        }
+    }
+#endif
 
     private void OnEnable()
     {
@@ -38,11 +125,44 @@ public class ChatsViewController : MonoBehaviour
         RefreshChatsUI();
     }
 
+    public Sprite GetAvatarForCharacter(string rawOrCleanName, int avatarIndex = -1)
+    {
+        if (string.IsNullOrEmpty(rawOrCleanName)) return null;
+
+        string cleanName = rawOrCleanName.StartsWith("OY_", System.StringComparison.OrdinalIgnoreCase)
+            ? rawOrCleanName.Substring(3).Trim()
+            : rawOrCleanName.Trim();
+
+        // 1. Check if she is one of the 8 Main Characters by name
+        for (int i = 0; i < mainCharacterAvatars.Count; i++)
+        {
+            if (mainCharacterAvatars[i] != null &&
+                mainCharacterAvatars[i].avatarSprite != null &&
+                cleanName.Equals(mainCharacterAvatars[i].characterName, System.StringComparison.OrdinalIgnoreCase))
+            {
+                return mainCharacterAvatars[i].avatarSprite;
+            }
+        }
+
+        // 2. Otherwise, ONLY use the 5 Common Avatars (never main character sprites)
+        if (commonAvatars != null && commonAvatars.Count > 0)
+        {
+            if (avatarIndex >= 0)
+            {
+                return commonAvatars[avatarIndex % commonAvatars.Count];
+            }
+
+            int hash = Mathf.Abs(cleanName.ToLowerInvariant().GetHashCode());
+            return commonAvatars[hash % commonAvatars.Count];
+        }
+
+        return null;
+    }
+
     public void RefreshChatsUI()
     {
         if (chatsContentParent == null || chatItemPrefab == null) return;
 
-        // Clear ONLY spawned ChatItemUI cards (leaves headers like MatchesText intact!)
         for (int i = chatsContentParent.childCount - 1; i >= 0; i--)
         {
             Transform child = chatsContentParent.GetChild(i);
@@ -61,32 +181,16 @@ public class ChatsViewController : MonoBehaviour
             ContactChatData chatData = GameManager.Instance.activeChats[i];
             if (chatData == null) continue;
 
-            // Normalize name: "OY_Andiva" -> "Andiva"
             string cleanName = chatData.contactName.StartsWith("OY_", System.StringComparison.OrdinalIgnoreCase)
                 ? chatData.contactName.Substring(3)
                 : chatData.contactName;
 
-            // Check unlock state using both clean name and raw name
             SavedContactData saved = ChatSaveSystem.GetContact(cleanName) ?? ChatSaveSystem.GetContact(chatData.contactName);
             bool isUnlocked = saved != null && saved.isUnlockedInOnlyYaps;
 
-            // 1. In OnlyYaps: Only show if she unlocked OnlyYaps
-            if (isOnlyYapsView && !isUnlocked)
-            {
-                continue;
-            }
-
-            // 2. In Dating App: Never show pure OY_ contacts
-            if (!isOnlyYapsView && chatData.contactName.StartsWith("OY_", System.StringComparison.OrdinalIgnoreCase))
-            {
-                continue;
-            }
-
-            // 3. Prevent duplicate cards for the same character
-            if (!spawnedNames.Add(cleanName))
-            {
-                continue;
-            }
+            if (isOnlyYapsView && !isUnlocked) continue;
+            if (!isOnlyYapsView && chatData.contactName.StartsWith("OY_", System.StringComparison.OrdinalIgnoreCase)) continue;
+            if (!spawnedNames.Add(cleanName)) continue;
 
             GameObject newChat = Instantiate(chatItemPrefab, chatsContentParent);
             ChatItemUI ui = newChat.GetComponent<ChatItemUI>();
@@ -103,16 +207,14 @@ public class ChatsViewController : MonoBehaviour
                     lastMsg = saved.chatHistory[saved.chatHistory.Count - 1].messageText;
                 }
 
-                Sprite avatar = (chatData.avatarIndex >= 0 && chatData.avatarIndex < profilePhotos.Count)
-                    ? profilePhotos[chatData.avatarIndex]
-                    : null;
+                Sprite avatar = GetAvatarForCharacter(cleanName, chatData.avatarIndex);
 
                 int index = i;
                 ui.Setup(
-                    cleanName, // Always displays clean "Andiva" without "OY_"
-                    lastMsg, 
-                    chatData.lastMessageTime, 
-                    avatar, 
+                    cleanName,
+                    lastMsg,
+                    chatData.lastMessageTime,
+                    avatar,
                     () => OnChatSelected(cleanName, index)
                 );
             }
@@ -123,17 +225,13 @@ public class ChatsViewController : MonoBehaviour
     {
         if (GameManager.Instance == null || directChatRoom == null) return;
 
-        // Look up by clean name or OY_ name
-        ContactChatData selectedChat = GameManager.Instance.activeChats.Find(c => 
+        ContactChatData selectedChat = GameManager.Instance.activeChats.Find(c =>
             c.contactName.Equals(contactName, System.StringComparison.OrdinalIgnoreCase) ||
             c.contactName.Equals("OY_" + contactName, System.StringComparison.OrdinalIgnoreCase));
 
         if (selectedChat != null)
         {
-            Sprite avatar = (selectedChat.avatarIndex >= 0 && selectedChat.avatarIndex < profilePhotos.Count)
-                ? profilePhotos[selectedChat.avatarIndex]
-                : null;
-
+            Sprite avatar = GetAvatarForCharacter(contactName, selectedChat.avatarIndex);
             directChatRoom.OpenChatRoom(selectedChat, avatar);
         }
     }

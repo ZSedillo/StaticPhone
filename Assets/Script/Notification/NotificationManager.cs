@@ -25,11 +25,15 @@ public class NotificationManager : MonoBehaviour
     [SerializeField] private Button btnOnlyYapsAppIcon;
     [SerializeField] private GameObject onlyYapsAppWindow;
 
-    [Header("Visual Assets")]
+    [Header("Visual Assets (Auto-syncs with ChatsViewController by Character Name)")]
     [SerializeField] private List<Sprite> avatarSprites = new List<Sprite>();
 
     [Header("Text Settings")]
     [SerializeField] private int maxPreviewChars = 32;
+
+    [Header("Audio Settings")]
+    [SerializeField] private AudioSource notificationAudioSource;
+    [SerializeField] private AudioClip notificationSound;
 
     private string currentOpenChatGirlName = string.Empty;
 
@@ -67,6 +71,38 @@ public class NotificationManager : MonoBehaviour
         currentOpenChatGirlName = string.Empty;
     }
 
+    private Sprite ResolveNotificationAvatar(string senderName, int avatarIndex)
+    {
+        // 1. Look up the character by name in any ChatsViewController in the scene
+        var allChatsControllers = FindObjectsByType<ChatsViewController>(FindObjectsInactive.Include);
+        foreach (var controller in allChatsControllers)
+        {
+            if (controller != null)
+            {
+                Sprite found = controller.GetAvatarForCharacter(senderName, avatarIndex);
+                if (found != null) return found;
+            }
+        }
+
+        // 2. If the notification sender is "OnlyYaps", fallback to the OnlyYaps app icon sprite
+        if (!string.IsNullOrEmpty(senderName) &&
+            senderName.Equals("OnlyYaps", StringComparison.OrdinalIgnoreCase) &&
+            btnOnlyYapsAppIcon != null)
+        {
+            Image iconImg = btnOnlyYapsAppIcon.GetComponent<Image>();
+            if (iconImg != null && iconImg.sprite != null)
+                return iconImg.sprite;
+        }
+
+        // 3. Fallback to the local avatarSprites list
+        if (avatarSprites != null && avatarIndex >= 0 && avatarIndex < avatarSprites.Count)
+        {
+            return avatarSprites[avatarIndex];
+        }
+
+        return null;
+    }
+
     public void TriggerNotification(string senderName, string message, int avatarIndex)
     {
         // Don't notify if the player is actively chatting with this character
@@ -76,6 +112,12 @@ public class NotificationManager : MonoBehaviour
             return;
         }
 
+        // Play the notification sound
+        if (notificationAudioSource != null && notificationSound != null)
+        {
+            notificationAudioSource.PlayOneShot(notificationSound);
+        }
+
         string shortPreview = message;
         if (!string.IsNullOrEmpty(message) && message.Length > maxPreviewChars)
         {
@@ -83,7 +125,7 @@ public class NotificationManager : MonoBehaviour
         }
 
         string time = DateTime.Now.ToString("h:mm tt");
-        Sprite avatar = (avatarIndex >= 0 && avatarIndex < avatarSprites.Count) ? avatarSprites[avatarIndex] : null;
+        Sprite avatar = ResolveNotificationAvatar(senderName, avatarIndex);
 
         // 1. Pull-down tray logic
         if (trayContentParent != null && notificationItemPrefab != null)
@@ -167,7 +209,7 @@ public class NotificationManager : MonoBehaviour
         // 1. Reset pull-down shade back up if open
         if (trayContentParent != null)
         {
-            Transform containerTransform = trayContentParent.GetComponentInParent<NotificationSwipe>()?.transform 
+            Transform containerTransform = trayContentParent.GetComponentInParent<NotificationSwipe>()?.transform
                                            ?? trayContentParent.parent;
 
             if (containerTransform != null)
@@ -224,7 +266,7 @@ public class NotificationManager : MonoBehaviour
 
         if (directChatRoom != null)
         {
-            Sprite avatar = (avatarIndex >= 0 && avatarIndex < avatarSprites.Count) ? avatarSprites[avatarIndex] : null;
+            Sprite avatar = ResolveNotificationAvatar(senderName, avatarIndex);
             directChatRoom.OpenChatRoom(senderName, avatar);
             directChatRoom.transform.SetAsLastSibling();
         }

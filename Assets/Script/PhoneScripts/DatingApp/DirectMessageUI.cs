@@ -15,20 +15,32 @@ public class DirectMessageUI : MonoBehaviour
     [SerializeField] private Color partnerBubbleColor = new Color(0.35f, 0.85f, 0.45f); // Green
     [SerializeField] private Color playerBubbleColor = new Color(0.25f, 0.55f, 0.95f);  // Blue
 
+    [Header("Audio Settings")]
+    [SerializeField] private AudioSource messageAudioSource;
+    [SerializeField] private AudioClip incomingMessageSound;
+
     public void Setup(string message, bool isPlayer = false)
     {
-        // 1. Text
+        // 1. Play sound ONLY if it's an incoming message AND a voice call is NOT currently active
+        bool isCallActive = VoiceCallOverlayController.Instance != null && VoiceCallOverlayController.Instance.gameObject.activeInHierarchy;
+
+        if (!isPlayer && !isCallActive && messageAudioSource != null && incomingMessageSound != null)
+        {
+            messageAudioSource.PlayOneShot(incomingMessageSound);
+        }
+
+        // 2. Text
         if (txtMessageBody == null)
             txtMessageBody = GetComponentInChildren<TextMeshProUGUI>();
         
         if (txtMessageBody != null)
             txtMessageBody.text = message;
 
-        // 2. Bubble Color
+        // 3. Bubble Color
         if (bubbleImage != null)
             bubbleImage.color = isPlayer ? playerBubbleColor : partnerBubbleColor;
 
-        // 3. Row Layout & Alignment
+        // 4. Row Layout & Alignment
         if (rowLayoutGroup == null)
             rowLayoutGroup = GetComponent<HorizontalLayoutGroup>();
 
@@ -43,7 +55,7 @@ public class DirectMessageUI : MonoBehaviour
             rowLayoutGroup.childAlignment = isPlayer ? TextAnchor.MiddleRight : TextAnchor.MiddleLeft;
         }
 
-        // 4. Width constraint
+        // 5. Width constraint
         if (textLayoutElement == null && txtMessageBody != null)
             textLayoutElement = txtMessageBody.GetComponent<LayoutElement>();
 
@@ -53,7 +65,7 @@ public class DirectMessageUI : MonoBehaviour
             textLayoutElement.preferredWidth = preferred.x > maxBubbleWidth ? maxBubbleWidth : -1;
         }
 
-        // 5. Rebuild
+        // 6. Rebuild
         RectTransform rt = GetComponent<RectTransform>();
         if (rt != null)
         {
