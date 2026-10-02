@@ -21,37 +21,32 @@ public class DirectMessageUI : MonoBehaviour
 
     public void Setup(string message, bool isPlayer = false)
     {
-        // 1. Play sound ONLY if it's an incoming message AND a voice call is NOT currently active
+        // 1. Play sound
         bool isCallActive = VoiceCallOverlayController.Instance != null && VoiceCallOverlayController.Instance.gameObject.activeInHierarchy;
-
         if (!isPlayer && !isCallActive && messageAudioSource != null && incomingMessageSound != null)
         {
             messageAudioSource.PlayOneShot(incomingMessageSound);
         }
 
         // 2. Text
-        if (txtMessageBody == null)
-            txtMessageBody = GetComponentInChildren<TextMeshProUGUI>();
-        
-        if (txtMessageBody != null)
-            txtMessageBody.text = message;
+        if (txtMessageBody == null) txtMessageBody = GetComponentInChildren<TextMeshProUGUI>();
+        if (txtMessageBody != null) txtMessageBody.text = message;
 
-        // 3. Bubble Color
+        // 3. Bubble Color & Flipping
         if (bubbleImage != null)
+        {
             bubbleImage.color = isPlayer ? playerBubbleColor : partnerBubbleColor;
+            bubbleImage.transform.localScale = new Vector3(isPlayer ? -1 : 1, 1, 1);
+        }
 
         // 4. Row Layout & Alignment
-        if (rowLayoutGroup == null)
-            rowLayoutGroup = GetComponent<HorizontalLayoutGroup>();
-
+        if (rowLayoutGroup == null) rowLayoutGroup = GetComponent<HorizontalLayoutGroup>();
         if (rowLayoutGroup != null)
         {
             rowLayoutGroup.childControlWidth = false;
             rowLayoutGroup.childControlHeight = true;
             rowLayoutGroup.childForceExpandWidth = false;
             rowLayoutGroup.childForceExpandHeight = false;
-            
-            // Left for partner, Right for player
             rowLayoutGroup.childAlignment = isPlayer ? TextAnchor.MiddleRight : TextAnchor.MiddleLeft;
         }
 
@@ -65,11 +60,26 @@ public class DirectMessageUI : MonoBehaviour
             textLayoutElement.preferredWidth = preferred.x > maxBubbleWidth ? maxBubbleWidth : -1;
         }
 
-        // 6. Rebuild
+        // 6. Rebuild Layout
         RectTransform rt = GetComponent<RectTransform>();
-        if (rt != null)
+        if (rt != null) LayoutRebuilder.ForceRebuildLayoutImmediate(rt);
+        
+        // 7. FIX TEXT ALIGNMENT OVERLAP
+        if (txtMessageBody != null)
         {
-            LayoutRebuilder.ForceRebuildLayoutImmediate(rt);
+            if (isPlayer)
+            {
+                 // Un-flip the text so it is readable
+                 txtMessageBody.transform.localScale = new Vector3(-1, 1, 1);
+                 // Force text to align to the left side (Changed from TopRight)
+                 txtMessageBody.alignment = TextAlignmentOptions.TopLeft; 
+            }
+            else
+            {
+                 txtMessageBody.transform.localScale = new Vector3(1, 1, 1);
+                 // Force text to align to the left side
+                 txtMessageBody.alignment = TextAlignmentOptions.TopLeft;
+            }
         }
     }
 }

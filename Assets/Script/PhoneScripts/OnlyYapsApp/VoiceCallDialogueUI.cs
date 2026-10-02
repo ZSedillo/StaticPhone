@@ -32,6 +32,11 @@ public class VoiceCallDialogueUI : MonoBehaviour
     [Header("Audio Settings")]
     [SerializeField] private AudioSource callDialogueAudioSource;
     [SerializeField] private AudioClip choiceClickSound;
+    [SerializeField] private AudioClip[] typewriterSounds;
+    
+    [Header("Typewriter Audio Tweaks")]
+    [SerializeField, Range(1, 10)] private int playSoundEveryXLetters = 3; 
+    [SerializeField, Range(0.1f, 1f)] private float typingVolume = 0.4f; // Softer volume so it doesn't hurt ears
 
     private VoiceCallConversation activeConvo;
     private VoiceCallNode currentNode;
@@ -74,23 +79,19 @@ public class VoiceCallDialogueUI : MonoBehaviour
 
     private void OnPlayerChoiceSelected(string choiceText, string nextNodeId)
     {
-        // 1. Play click sound safely from the permanent manager
         if (callDialogueAudioSource != null && choiceClickSound != null)
         {
+            callDialogueAudioSource.pitch = 1f; // Ensure pitch is normal for UI clicks
             callDialogueAudioSource.PlayOneShot(choiceClickSound);
         }
 
         StopTimer();
         timeoutCounter = 0;
 
-        // 2. Post player's message immediately
         AddPlayerBubble(choiceText);
-
-        // 3. Clear options while partner is speaking (destroys the button)
         ClearChoices();
         ResetTimerUI();
 
-        // 4. Trigger partner reply routine
         if (replyCoroutine != null) StopCoroutine(replyCoroutine);
         replyCoroutine = StartCoroutine(DelayedPartnerReplyRoutine(nextNodeId));
     }
@@ -137,12 +138,28 @@ public class VoiceCallDialogueUI : MonoBehaviour
 
         float delayPerChar = 1f / Mathf.Max(1f, charactersPerSecond);
         string currentText = "";
+        int letterCount = 0; // Tracks letters to space out the sound
 
         for (int i = 0; i < fullText.Length; i++)
         {
             currentText += fullText[i];
-
             if (textComp != null) textComp.text = currentText;
+
+            // Only count and play sounds for actual letters, not empty spaces
+            if (fullText[i] != ' ')
+            {
+                letterCount++;
+                if (letterCount % playSoundEveryXLetters == 0 && callDialogueAudioSource != null && typewriterSounds.Length > 0)
+                {
+                    AudioClip randomClip = typewriterSounds[Random.Range(0, typewriterSounds.Length)];
+                    
+                    // Randomize pitch slightly to prevent it from sounding robotic/grating
+                    callDialogueAudioSource.pitch = Random.Range(0.92f, 1.08f);
+                    
+                    // Play the clip at the lowered typing volume
+                    callDialogueAudioSource.PlayOneShot(randomClip, typingVolume);
+                }
+            }
 
             if (i % 5 == 0 || i == fullText.Length - 1)
             {
@@ -159,6 +176,9 @@ public class VoiceCallDialogueUI : MonoBehaviour
 
             yield return new WaitForSeconds(delayPerChar);
         }
+
+        // Reset pitch to normal when typing is completely done
+        if (callDialogueAudioSource != null) callDialogueAudioSource.pitch = 1f;
 
         yield return new WaitForSeconds(0.25f);
 
