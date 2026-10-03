@@ -7,684 +7,1174 @@
   "nodes": [
     {
       "id": "start",
-      "partnerMessage": "Alright {PlayerName}, tell me your main game or I'm unmatching in 30 seconds. Timer starts now.",
+      "partnerMessage": "Okay, quick question before we get anywhere. What's your main game? And don't lie to me, I can usually tell. 😭",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Tactical shooters. Valiant Protocol and Global Strike all night.", "nextId": "tac_root", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Cozy sandbox games. I build dirt huts and harvest wheat in MineBlock.", "nextId": "cozy_root", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Competitive games are a waste of life. Grow up.", "nextId": "bully_opener", "linkUrl": "", "triggerEvent": "BULLY_DAISY" },
-        { "choiceText": "Timer? Relax, we aren't in overtime on map three of a grand final.", "nextId": "banter_opener", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Tactical shooters. Valiant Protocol and Global Strike all night.",
+          "nextId": "tac_root",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Cozy sandbox games. I build dirt huts and harvest wheat in MineBlock.",
+          "nextId": "cozy_root",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Competitive games are a waste of life. Grow up.",
+          "nextId": "bully_opener",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_DAISY"
+        },
+        {
+          "choiceText": "Timer? Relax, we aren't in overtime on map three of a grand final.",
+          "nextId": "banter_opener",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "tac_root",
-      "partnerMessage": "Oh, an actual human of culture! Don't break my heart: are you a Phantom or Vandal person in Valiant, and do you know default smoke lineups?",
+      "partnerMessage": "Okay, you actually play shooters. Respect. So are you a Phantom or Vandal person? And please tell me you know your smokes.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Vandal. Clean one-taps only. First bullet accuracy or nothing.", "nextId": "vandal_path", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Phantom. Better spray transfer through smokes, zero bullet tracers.", "nextId": "phantom_path", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "I only buy the heavy sniper rifle and hold garage from spawn.", "nextId": "sniper_crutch", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Lineups? I just run onto site, panic, and spray at the ceiling.", "nextId": "spray_panic", "linkUrl": "", "triggerEvent": "FUMBLE_CONVERSATION" }
+        {
+          "choiceText": "Vandal. Clean one-taps only. First bullet accuracy or nothing.",
+          "nextId": "vandal_path",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Phantom. Better spray transfer through smokes, zero bullet tracers.",
+          "nextId": "phantom_path",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "I only buy the heavy sniper rifle and hold garage from spawn.",
+          "nextId": "sniper_crutch",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Lineups? I just run onto site, panic, and spray at the ceiling.",
+          "nextId": "spray_panic",
+          "linkUrl": "",
+          "triggerEvent": "FUMBLE_CONVERSATION"
+        }
       ]
     },
     {
       "id": "cozy_root",
-      "partnerMessage": "A dirt hut?! A literal green-top mud cube in 2026?! Unacceptable. I need to coach your macro skills before I get secondhand tilt.",
+      "partnerMessage": "Wait, you actually build dirt houses? 😭 That's kinda cute, but I'm definitely going to judge your survival skills.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Dirt huts are peak resource efficiency! Zero stone wasted.", "nextId": "dirt_defense", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Then coach me, sensei. My keyboard is ready for your orders.", "nextId": "coach_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "You sound like someone whose bedroom smells like stale sour energy drinks.", "nextId": "smell_insult", "linkUrl": "", "triggerEvent": "BULLY_DAISY" }
+        {
+          "choiceText": "Dirt huts are peak resource efficiency! Zero stone wasted.",
+          "nextId": "dirt_defense",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Then coach me, sensei. My keyboard is ready for your orders.",
+          "nextId": "coach_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "You sound like someone whose bedroom smells like stale sour energy drinks.",
+          "nextId": "smell_insult",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_DAISY"
+        }
       ]
     },
     {
       "id": "bully_opener",
-      "partnerMessage": "Oh wow, an enlightened philosopher on a dating app! Tell me, does looking down on people's hobbies cure your loneliness, or do you always introduce yourself with a red card?",
+      "partnerMessage": "Wow, coming in with that attitude already? You know you're on a dating app, right? 😭",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
-        { "choiceText": "Just wanted to see if your brain functions outside of 120 FPS pixels.", "nextId": "bully_deepen_1", "linkUrl": "", "triggerEvent": "BULLY_DAISY" },
-        { "choiceText": "My bad. That was an awful opening line. Can we please restart?", "nextId": "apology_reset", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Just wanted to see if your brain functions outside of 120 FPS pixels.",
+          "nextId": "bully_deepen_1",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_DAISY"
+        },
+        {
+          "choiceText": "My bad. That was an awful opening line. Can we please restart?",
+          "nextId": "apology_reset",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "banter_opener",
-      "partnerMessage": "Overtime is where legends are forged and frauds get exposed! My heart rate during 14-14 overtime is my cardio for the day.",
+      "partnerMessage": "Honestly, overtime is the worst. My heart's already going crazy by 12-12. That's basically cardio for me.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "That explains the intense energy. What agent role do you main?", "nextId": "agent_role_q", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "You need actual outdoor cardio, girl. Touch grass.", "nextId": "touch_grass_roast", "linkUrl": "", "triggerEvent": "BULLY_DAISY" }
+        {
+          "choiceText": "That explains the intense energy. What agent role do you main?",
+          "nextId": "agent_role_q",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "You need actual outdoor cardio, girl. Touch grass.",
+          "nextId": "touch_grass_roast",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_DAISY"
+        }
       ]
     },
     {
       "id": "vandal_path",
-      "partnerMessage": "A purist! Respect. Nothing fuels my dopamine receptors like that sweet, crisp 'dink' headshot sound when you catch an enemy peeking mid.",
+      "partnerMessage": "Okay, Vandal. I respect it. Nothing beats getting that clean headshot when someone peeks you at the worst possible time.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Especially when it's against toxic duelists talking trash in all-chat.", "nextId": "all_chat_trash", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "What rank are you rocking right now? Be honest with me.", "nextId": "rank_reveal", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "I bet you whiff 90% of your shots and blame hit registration.", "nextId": "hitreg_mock", "linkUrl": "", "triggerEvent": "BULLY_DAISY" }
+        {
+          "choiceText": "Especially when it's against toxic duelists talking trash in all-chat.",
+          "nextId": "all_chat_trash",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "What rank are you rocking right now? Be honest with me.",
+          "nextId": "rank_reveal",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "I bet you whiff 90% of your shots and blame hit registration.",
+          "nextId": "hitreg_mock",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_DAISY"
+        }
       ]
     },
     {
       "id": "phantom_path",
-      "partnerMessage": "YES! Finally someone who understands spray control! Everyone hypes the 160 damage headshot until they spam through smoke and get traced down!",
+      "partnerMessage": "YES. Finally. People act like the Vandal is everything, but a good Phantom spray through smoke is so satisfying.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Brain over aim every time. Utility and positioning win championships.", "nextId": "utility_wins", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "You sound like someone who reads balance patch notes as bedtime stories.", "nextId": "patch_notes_nerd", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Phantom users just can't click heads. It's a crutch for bad aim.", "nextId": "crutch_flame", "linkUrl": "", "triggerEvent": "FUMBLE_CONVERSATION" }
+        {
+          "choiceText": "Brain over aim every time. Utility and positioning win championships.",
+          "nextId": "utility_wins",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "You sound like someone who reads balance patch notes as bedtime stories.",
+          "nextId": "patch_notes_nerd",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Phantom users just can't click heads. It's a crutch for bad aim.",
+          "nextId": "crutch_flame",
+          "linkUrl": "",
+          "triggerEvent": "FUMBLE_CONVERSATION"
+        }
       ]
     },
     {
       "id": "sniper_crutch",
-      "partnerMessage": "A sniper crutch?! Oh no. If you miss your first flick, are you that guy who immediately pulls out a secondary and starts jumping around in panic?",
+      "partnerMessage": "Oh no 😭 You're the sniper guy? What happens when you miss the first shot—do you panic and pull out your pistol?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I never miss. But if I do, my secondary pistol tracking is lethal.", "nextId": "pistol_lethal", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "I panic-jump and pray to the gaming gods. Don't expose my secrets!", "nextId": "panic_laugh", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I never miss. But if I do, my secondary pistol tracking is lethal.",
+          "nextId": "pistol_lethal",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "I panic-jump and pray to the gaming gods. Don't expose my secrets!",
+          "nextId": "panic_laugh",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "spray_panic",
-      "partnerMessage": "Run and spray?! What is this, a plastic-rank deathmatch lobby?! Get your crosshair disciplined or stay far away from my competitive lobbies!",
+      "partnerMessage": "You just run onto site and spray? 😭 Please don't do that in my lobby. I like living.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
-        { "choiceText": "Teach me your discipline then. I genuinely want to learn from you.", "nextId": "coach_flirt", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "It's just a game, stop acting like you're an Olympic athlete.", "nextId": "olympian_mock", "linkUrl": "", "triggerEvent": "BULLY_DAISY" }
+        {
+          "choiceText": "Teach me your discipline then. I genuinely want to learn from you.",
+          "nextId": "coach_flirt",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "It's just a game, stop acting like you're an Olympic athlete.",
+          "nextId": "olympian_mock",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_DAISY"
+        }
       ]
     },
     {
       "id": "dirt_defense",
-      "partnerMessage": "Resource efficiency?! There's literally an Enderman staring into your ceiling right now having an existential crisis on your behalf!",
+      "partnerMessage": "Okay, resource efficiency is a fair argument... but if I see you still living in a dirt box after day three, I'm building you a real house myself.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Come into my server and build me a real fortress then.", "nextId": "fortress_dare", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "I bet your base is just an over-engineered redstone monstrosity.", "nextId": "redstone_callout", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Come into my server and build me a real fortress then.",
+          "nextId": "fortress_dare",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "I bet your base is just an over-engineered redstone monstrosity.",
+          "nextId": "redstone_callout",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "coach_flirt",
-      "partnerMessage": "My coaching fees are steep, {PlayerName}. One large iced peach green tea, zero backseat gaming, and you dry-peek corners only when I call flashes.",
+      "partnerMessage": "My coaching fee is simple: one iced peach green tea and you actually listen to my calls. Deal?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Iced peach green tea is already ordered. What's drill number one?", "nextId": "drill_one", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "What if I end up carrying you on the scoreboard instead?", "nextId": "carry_bet", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "I don't take orders from girls who spend 14 hours inside.", "nextId": "misogyny_bully", "linkUrl": "", "triggerEvent": "BULLY_DAISY" }
+        {
+          "choiceText": "Iced peach green tea is already ordered. What's drill number one?",
+          "nextId": "drill_one",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "What if I end up carrying you on the scoreboard instead?",
+          "nextId": "carry_bet",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "I don't take orders from girls who spend 14 hours inside.",
+          "nextId": "misogyny_bully",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_DAISY"
+        }
       ]
     },
     {
       "id": "smell_insult",
-      "partnerMessage": "My setup smells like lavender room spray and clean keycaps, you barbarian. My keyboard alone costs more than your monthly grocery bill.",
+      "partnerMessage": "Excuse me 😭 My room smells fine. My keyboard, on the other hand, is probably worth more than it should be.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
-        { "choiceText": "Spending $400 on plastic clickers isn't a personality trait.", "nextId": "keyboard_snob_bully", "linkUrl": "", "triggerEvent": "BULLY_DAISY" },
-        { "choiceText": "Wait... you're a custom mechanical keyboard nerd too?", "nextId": "keyboard_nerd_pivot", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Spending $400 on plastic clickers isn't a personality trait.",
+          "nextId": "keyboard_snob_bully",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_DAISY"
+        },
+        {
+          "choiceText": "Wait... you're a custom mechanical keyboard nerd too?",
+          "nextId": "keyboard_nerd_pivot",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "bully_deepen_1",
-      "partnerMessage": "My brain functions fast enough to track 120 FPS target transitions, which is clearly too high of a refresh rate for your boring conversation.",
+      "partnerMessage": "My brain's doing just fine, thanks. Your conversation is the part that's struggling right now.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
-        { "choiceText": "Keep clicking circles in your dark cave, loser.", "nextId": "bully_hard_exit", "linkUrl": "", "triggerEvent": "BULLY_DAISY" },
-        { "choiceText": "Okay, that was actually a witty comeback. Respect.", "nextId": "respect_comeback", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Keep clicking circles in your dark cave, loser.",
+          "nextId": "bully_hard_exit",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_DAISY"
+        },
+        {
+          "choiceText": "Okay, that was actually a witty comeback. Respect.",
+          "nextId": "respect_comeback",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "apology_reset",
-      "partnerMessage": "Mmh. Surprised you walked that back. Most guys on here just double down on 'make me a sandwich' jokes the second they see my match history.",
+      "partnerMessage": "Okay, that was better. Honestly, you'd be surprised how many guys immediately make it weird when they see I play competitively.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I hate that misogynistic trash. You're an athlete, simple as that.", "nextId": "athlete_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Do guys really get that insecure when you outfrag them?", "nextId": "insecure_dudes_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "I hate that misogynistic trash. You're an athlete, simple as that.",
+          "nextId": "athlete_praise",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Do guys really get that insecure when you outfrag them?",
+          "nextId": "insecure_dudes_talk",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "agent_role_q",
-      "partnerMessage": "Duelist and Initiator flex. I play the wind-dash girl when I need to entry, and the owl-drone archer when my squad needs actual site recon.",
+      "partnerMessage": "Usually I flex between duelist and initiator. I like being able to entry when we need it, but I'll play info if the team needs it more.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "A flex player?! That is literally the holy grail of teammates.", "nextId": "holy_grail", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Wind-dash girl? So you bait your team and dash into walls?", "nextId": "dash_bait_joke", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "A flex player?! That is literally the holy grail of teammates.",
+          "nextId": "holy_grail",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Wind-dash girl? So you bait your team and dash into walls?",
+          "nextId": "dash_bait_joke",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "touch_grass_roast",
-      "partnerMessage": "Grass doesn't have 240Hz refresh rate or competitive ranked ladder rewards, sweetie. Go back to mowing your front yard.",
+      "partnerMessage": "I promise you I'd survive outside 😭 I just happen to like ranked more than I like mowing lawns.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
-        { "choiceText": "You're going to get carpal tunnel before you're 22.", "nextId": "carpal_tunnel_flame", "linkUrl": "", "triggerEvent": "BULLY_DAISY" },
-        { "choiceText": "Fair point. What's your favorite off-meta pick when trolling?", "nextId": "off_meta_troll", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "You're going to get carpal tunnel before you're 22.",
+          "nextId": "carpal_tunnel_flame",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_DAISY"
+        },
+        {
+          "choiceText": "Fair point. What's your favorite off-meta pick when trolling?",
+          "nextId": "off_meta_troll",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "all_chat_trash",
-      "partnerMessage": "When they type '?' in chat after round two, and then you 13-3 them and drop 'gg close game'? That is sweeter than any dessert on earth.",
+      "partnerMessage": "Those people who type '?' after every kill are my favorite. Especially when the score ends up 13-3 and suddenly they stop talking.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "The psychological warfare! You're vicious and I love it.", "nextId": "psych_warfare", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "You sound like someone who holds grudges across multiple game seasons.", "nextId": "grudge_banter", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "The psychological warfare! You're vicious and I love it.",
+          "nextId": "psych_warfare",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "You sound like someone who holds grudges across multiple game seasons.",
+          "nextId": "grudge_banter",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "rank_reveal",
-      "partnerMessage": "Hit Radiant two acts ago in Valiant, currently sitting high Immortal while balancing university midterms. In Global Strike, Level 10 on the private competitive client.",
+      "partnerMessage": "I hit Radiant a couple acts ago. I'm around Immortal right now, mostly because I'm juggling school at the same time. And yeah, I'm Level 10 on Global Strike too.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Immortal while in college?! Your discipline must be insane.", "nextId": "discipline_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Sounds like you have zero social life outside your monitor glow.", "nextId": "no_social_life_jab", "linkUrl": "", "triggerEvent": "BULLY_DAISY" },
-        { "choiceText": "I'm hardstuck Gold, but I have god-tier comms and morale support.", "nextId": "gold_support_confess", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Immortal while in college?! Your discipline must be insane.",
+          "nextId": "discipline_praise",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Sounds like you have zero social life outside your monitor glow.",
+          "nextId": "no_social_life_jab",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_DAISY"
+        },
+        {
+          "choiceText": "I'm hardstuck Gold, but I have god-tier comms and morale support.",
+          "nextId": "gold_support_confess",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "hitreg_mock",
-      "partnerMessage": "My headshot percentage is 38.4%, darling. You couldn't hit that if you were standing six inches from a practice dummy.",
+      "partnerMessage": "My headshot percentage is 38.4%, actually. So... maybe don't challenge me too hard yet. 😭",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
-        { "choiceText": "Stats don't matter when you choke under tournament pressure.", "nextId": "choke_pressure_bully", "linkUrl": "", "triggerEvent": "BULLY_DAISY" },
-        { "choiceText": "Damn, 38%? Okay, I'll shut up. That's actually cracked.", "nextId": "cracked_respect", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Stats don't matter when you choke under tournament pressure.",
+          "nextId": "choke_pressure_bully",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_DAISY"
+        },
+        {
+          "choiceText": "Damn, 38%? Okay, I'll shut up. That's actually cracked.",
+          "nextId": "cracked_respect",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "utility_wins",
-      "partnerMessage": "Say that louder for the randoms in solo queue! If nobody throws the blind or drops the smoke, flashy aim is completely useless.",
+      "partnerMessage": "Exactly. Good aim helps, but if nobody's giving you space or setting up the fight, it doesn't matter that much.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I'll be your designated utility support. You call the play, I flash.", "nextId": "support_romance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Let's test this synergy. Where can we actually play together?", "nextId": "pre_yaps_invite", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "I'll be your designated utility support. You call the play, I flash.",
+          "nextId": "support_romance",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Let's test this synergy. Where can we actually play together?",
+          "nextId": "pre_yaps_invite",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "patch_notes_nerd",
-      "partnerMessage": "I have Discord notifications set for when the balance developers breathe! If a rifle recoil spread changes by 0.05 degrees, I need to know!",
+      "partnerMessage": "Okay, maybe I'm a little too invested. I do read the patch notes when they drop. I like knowing why something suddenly feels different in-game.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "That level of passion is wildly attractive to me.", "nextId": "passion_attractive", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "That sounds like a mild psychiatric obsession, but go off.", "nextId": "obsessive_joke", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "That level of passion is wildly attractive to me.",
+          "nextId": "passion_attractive",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "That sounds like a mild psychiatric obsession, but go off.",
+          "nextId": "obsessive_joke",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "crutch_flame",
-      "partnerMessage": "Crutch?! Try transferring spray across three enemies on B-site without missing a single round! You're talking out of your rank.",
+      "partnerMessage": "A crutch? Maybe. But I can still spray transfer when it matters. You'd have to see it before you judge me. 😌",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
-        { "choiceText": "Let me see you do it then. Prove it in a match.", "nextId": "pre_yaps_invite", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Let me see you do it then. Prove it in a match.",
+          "nextId": "pre_yaps_invite",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "pistol_lethal",
-      "partnerMessage": "Mmh. A confident sidearm user. I'll believe it when I see you clutch a 1v2 on eco round with a default pistol without screaming.",
+      "partnerMessage": "I'll believe you when I see it. Everyone's confident until the round comes down to a one-tap with a pistol.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Put me on your squad. I'll show you how it's done.", "nextId": "squad_pitch", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Put me on your squad. I'll show you how it's done.",
+          "nextId": "squad_pitch",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "panic_laugh",
-      "partnerMessage": "Hahaha! At least you admit it! There is nothing more hilarious than an enemy sniper jumping around like a panicked frog when caught off guard.",
+      "partnerMessage": "Okay, at least you're honest 😂. Nothing's funnier than someone panic-jumping because they know they're about to get deleted.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I make people laugh even when I'm dying in-game.", "nextId": "laughing_dying", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I make people laugh even when I'm dying in-game.",
+          "nextId": "laughing_dying",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "olympian_mock",
-      "partnerMessage": "Esports athletes train eight hours a day, have physical trainers, and play for millions. Keep your 1998 mindset to yourself, boomer.",
+      "partnerMessage": "It's more work than people think. Between practice, classes, and tournaments, it gets pretty intense. You don't have to take it as seriously as I do, but it isn't exactly doing nothing all day.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
-        { "choiceText": "You're still sitting on your ass in front of pixels.", "nextId": "bully_hard_exit", "linkUrl": "", "triggerEvent": "BULLY_DAISY" }
+        {
+          "choiceText": "You're still sitting on your ass in front of pixels.",
+          "nextId": "bully_hard_exit",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_DAISY"
+        }
       ]
     },
     {
       "id": "fortress_dare",
-      "partnerMessage": "I will construct a three-tier Japanese pagoda with automated sorting systems, and you are going to farm wheat like a humble serf.",
+      "partnerMessage": "Deal. I'll build you something ridiculous and you're in charge of not touching my storage room. 😭",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "As long as the pagoda has a balcony for us to watch sunset, deal.", "nextId": "pagoda_sunset", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "I'm stealing all your diamonds the second you log off.", "nextId": "steal_diamonds", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "As long as the pagoda has a balcony for us to watch sunset, deal.",
+          "nextId": "pagoda_sunset",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "I'm stealing all your diamonds the second you log off.",
+          "nextId": "steal_diamonds",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "redstone_callout",
-      "partnerMessage": "It IS an over-engineered redstone monstrosity! I automated my furnace room with flying slime machines! It took me 14 hours and I regret nothing!",
+      "partnerMessage": "Okay, guilty. I made the whole thing way more complicated than it needed to be. It took me forever, but it works, so I refuse to regret it.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Fourteen hours?! You're an absolute mad genius.", "nextId": "mad_genius", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Fourteen hours?! You're an absolute mad genius.",
+          "nextId": "mad_genius",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "drill_one",
-      "partnerMessage": "Drill number one: Crosshair placement. If I catch your crosshair dragging along the carpet while walking through A-main, I'm throwing a flashbang right at your face.",
+      "partnerMessage": "First lesson is crosshair placement. Seriously. Keep it where a head is actually going to be, not somewhere near the floor.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Harsh, but fair. What's drill number two?", "nextId": "drill_two", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Harsh, but fair. What's drill number two?",
+          "nextId": "drill_two",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "carry_bet",
-      "partnerMessage": "You? Carry me? In your wildest fever dreams, sweetheart! I'll drop 30 bombs before you finish buying shields on round two.",
+      "partnerMessage": "You carrying me? That's ambitious. 😭 But now I kind of want to see you try.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Talk is cheap on a dating app. Let's see it in the server.", "nextId": "server_duel", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Talk is cheap on a dating app. Let's see it in the server.",
+          "nextId": "server_duel",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "misogyny_bully",
-      "partnerMessage": "'From girls'? Oh, you're one of THOSE guys. The kind who gets fragile when a woman has better recoil control than him. Enjoy your ban.",
+      "partnerMessage": "Oh, that tells me enough. I don't really want to waste my time with someone who talks about women like that.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
-        { "choiceText": "Cry more about it.", "nextId": "bully_hard_exit", "linkUrl": "", "triggerEvent": "BULLY_DAISY" }
+        {
+          "choiceText": "Cry more about it.",
+          "nextId": "bully_hard_exit",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_DAISY"
+        }
       ]
     },
     {
       "id": "keyboard_snob_bully",
-      "partnerMessage": "Enjoy your $10 sticky membrane keyboard while I type at 140 WPM with lubed linear switches and brass plates. Bye scrub.",
+      "partnerMessage": "Okay, you're allowed to roast my keyboard, but I'm not taking a whole speech about how yours is superior. 😭",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
-        { "choiceText": "Imagine being elitist over plastic keys.", "nextId": "bully_hard_exit", "linkUrl": "", "triggerEvent": "BULLY_DAISY" }
+        {
+          "choiceText": "Imagine being elitist over plastic keys.",
+          "nextId": "bully_hard_exit",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_DAISY"
+        }
       ]
     },
     {
       "id": "keyboard_nerd_pivot",
-      "partnerMessage": "Wait, you actually know about custom keyboards?! 65% layout, hand-lubed linear switches, custom coiled cable. It thocks like heavy raindrops on a tin roof.",
+      "partnerMessage": "Wait, you actually know keyboards? Okay, now I'm interested. Mine's a 65% with linear switches and a custom cable. I spent way too much time putting it together.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "That deep thock sound is pure ASMR. You have elite taste.", "nextId": "thock_asmr", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "I need to hear you type on that over voice comms.", "nextId": "hear_keyboard", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "That deep thock sound is pure ASMR. You have elite taste.",
+          "nextId": "thock_asmr",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "I need to hear you type on that over voice comms.",
+          "nextId": "hear_keyboard",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "respect_comeback",
-      "partnerMessage": "See? You can appreciate a good counter-attack when you see one. Maybe you have potential after all.",
+      "partnerMessage": "See? You can take a joke. Maybe this conversation has potential after all.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I'm full of potential. Test me in your private voice channel.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "I'm full of potential. Test me in your private voice channel.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "athlete_praise",
-      "partnerMessage": "Thank you, {PlayerName}. Truly. Do you know how tiring it is to carry four random men and still get told to go back to the kitchen? It gets old.",
+      "partnerMessage": "Thank you. Seriously. It gets tiring hearing that stuff, especially when I'm literally putting in the same work as everyone else on the team.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "You never have to prove your worth to me, Daisy. I see your skill.", "nextId": "see_skill_romance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Let them stay mad while you collect rank trophies.", "nextId": "trophy_praise", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "You never have to prove your worth to me, Daisy. I see your skill.",
+          "nextId": "see_skill_romance",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Let them stay mad while you collect rank trophies.",
+          "nextId": "trophy_praise",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "insecure_dudes_talk",
-      "partnerMessage": "All the time. If I'm top fragging, they get quiet and sullen. If I make one mistake, suddenly it's because 'girls can't aim.' That's why I keep my circle tiny.",
+      "partnerMessage": "Yeah, pretty often. When I'm top fragging, some people suddenly get quiet. Then one mistake happens and it's immediately 'girls can't aim.' That's mostly why I keep my circle small.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Is there room in that circle for someone who genuinely respects you?", "nextId": "circle_room", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Sounds like you carry a lot of frustration from solo queue.", "nextId": "solo_queue_burnout", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "Is there room in that circle for someone who genuinely respects you?",
+          "nextId": "circle_room",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Sounds like you carry a lot of frustration from solo queue.",
+          "nextId": "solo_queue_burnout",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "holy_grail",
-      "partnerMessage": "I play what the team needs! But don't think I won't drop 25 kills with utility setups. I don't just set up plays, I finish them.",
+      "partnerMessage": "I like being the player who fills whatever the team needs. But I'm not just sitting back either. Give me the chance and I'll still take the fight.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Brains, lethal aim, and selflessness. Where have you been hiding?", "nextId": "where_hiding", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Brains, lethal aim, and selflessness. Where have you been hiding?",
+          "nextId": "where_hiding",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "dash_bait_joke",
-      "partnerMessage": "I NEVER DASH INTO WALLS! Okay, maybe once on Bind when my mouse cable snagged on my water bottle, but we don't talk about that incident!",
+      "partnerMessage": "Okay, I swear I don't. 😭 There was one time on Bind where my mouse cable caught on my bottle and it ruined the whole play. I'm never living that down.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Hahaha! Bungee cord for your mouse is arriving tomorrow.", "nextId": "mouse_bungee", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Hahaha! Bungee cord for your mouse is arriving tomorrow.",
+          "nextId": "mouse_bungee",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "carpal_tunnel_flame",
-      "partnerMessage": "I do wrist stretches every two hours, thank you very much. Go be miserable somewhere else.",
+      "partnerMessage": "I actually stretch pretty regularly, so I'm trying to be smart about it. You can make fun of my gaming habits without wishing me an injury, though. 😭",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
-        { "choiceText": "Have fun getting replaced by an aimbot.", "nextId": "bully_hard_exit", "linkUrl": "", "triggerEvent": "BULLY_DAISY" }
+        {
+          "choiceText": "Have fun getting replaced by an aimbot.",
+          "nextId": "bully_hard_exit",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_DAISY"
+        }
       ]
     },
     {
       "id": "off_meta_troll",
-      "partnerMessage": "Shotguns on eco rounds. Sitting inside one-way smoke clouds on site like a spider waiting for prey.",
+      "partnerMessage": "Probably shotguns on eco. I love catching people who think they're completely safe because nobody would be stupid enough to sit there.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "That is absolutely demonic. I love it.", "nextId": "demonic_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "That is absolutely demonic. I love it.",
+          "nextId": "demonic_praise",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "psych_warfare",
-      "partnerMessage": "Psychological warfare is half the battle! If the enemy team starts arguing with each other in all-chat, the game is already won.",
+      "partnerMessage": "Honestly, once a team starts arguing with each other, you can feel the whole match change. Half the job is making them lose focus.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "You're a tactical mastermind. Let's form our duo.", "nextId": "pre_yaps_invite", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "You're a tactical mastermind. Let's form our duo.",
+          "nextId": "pre_yaps_invite",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "grudge_banter",
-      "partnerMessage": "If someone teabags me in round one, I memorize their gamer tag, their skins, and their IP address. They will not see the light of day for the rest of that half.",
+      "partnerMessage": "Okay, maybe I remember people I don't like a little too well. 😭 But the IP thing is a joke. I'm competitive, not insane.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Remind me never to get on your bad side.", "nextId": "bad_side_fear", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "I'll be right beside you hunting them down.", "nextId": "hunting_beside", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Remind me never to get on your bad side.",
+          "nextId": "bad_side_fear",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "I'll be right beside you hunting them down.",
+          "nextId": "hunting_beside",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "discipline_praise",
-      "partnerMessage": "It takes discipline! Wake up at 7, lectures until 2, gym for an hour, study, and then team scrims from 7 to 10 PM. People think gamers are lazy, but my schedule is military.",
+      "partnerMessage": "It takes a lot of planning. Classes, gym, practice, studying... some days I basically just move from one thing to the next. I don't think people realize how packed it gets.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "That is wildly impressive. You have genuine work ethic.", "nextId": "work_ethic_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "When do you ever have time to date?", "nextId": "time_to_date", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "That is wildly impressive. You have genuine work ethic.",
+          "nextId": "work_ethic_praise",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "When do you ever have time to date?",
+          "nextId": "time_to_date",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "no_social_life_jab",
-      "partnerMessage": "I have a 3.8 GPA and a collegiate esports scholarship that pays my tuition. What's your excuse for being mediocre?",
+      "partnerMessage": "I mean, I do have friends 😭. It's just that my schedule is pretty packed. School and competition take up most of my week, so I have to actually plan my free time.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
-        { "choiceText": "Scholarship for playing video games? What a joke.", "nextId": "bully_hard_exit", "linkUrl": "", "triggerEvent": "BULLY_DAISY" },
-        { "choiceText": "Damn. That actually shut me up. You're incredible.", "nextId": "shut_up_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Scholarship for playing video games? What a joke.",
+          "nextId": "bully_hard_exit",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_DAISY"
+        },
+        {
+          "choiceText": "Damn. That actually shut me up. You're incredible.",
+          "nextId": "shut_up_praise",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "gold_support_confess",
-      "partnerMessage": "Gold with good comms beats a silent Diamond with an ego every single time. I'd rather queue with someone who talks.",
+      "partnerMessage": "Honestly, I'd rather queue with someone who communicates well than someone with a higher rank who refuses to talk. Good comms make such a difference.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Then let me talk to you on private voice.", "nextId": "pre_yaps_invite", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Then let me talk to you on private voice.",
+          "nextId": "pre_yaps_invite",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "choke_pressure_bully",
-      "partnerMessage": "I clutched a 1v3 in the collegiate finals while 10,000 people were watching on stream. The only person choking here is you on your own ego.",
+      "partnerMessage": "I've clutched on stage with thousands of people watching. If you're trying to get under my skin, you're going to have to do better than that.",
       "linkUrl": "",
       "triggerEvent": "BULLY_DAISY",
       "choices": [
-        { "choiceText": "Whatever, nerd. Bye.", "nextId": "bully_hard_exit", "linkUrl": "", "triggerEvent": "FUMBLE_CONVERSATION" }
+        {
+          "choiceText": "Whatever, nerd. Bye.",
+          "nextId": "bully_hard_exit",
+          "linkUrl": "",
+          "triggerEvent": "FUMBLE_CONVERSATION"
+        }
       ]
     },
     {
       "id": "cracked_respect",
-      "partnerMessage": "Hahaha, humility looks good on you. Stick with me and I'll get your headshot percentage past 25%.",
+      "partnerMessage": "See? That's better. 😭 I'll get you there eventually, but you're buying the drinks after I carry you through the first few games.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I'm sticking right beside you. Give me your OnlyYaps.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "I'm sticking right beside you. Give me your OnlyYaps.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "support_romance",
-      "partnerMessage": "...You'd really play support for me? Most guys demand to be the star duelist while I'm forced to baby them with heals and flashes.",
+      "partnerMessage": "You'd actually play support for me? Most people want to top frag. I'd honestly appreciate having someone who cares more about making the round work.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I don't need the glory. I just want to see you shine.", "nextId": "see_you_shine", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I don't need the glory. I just want to see you shine.",
+          "nextId": "see_you_shine",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "pre_yaps_invite",
-      "partnerMessage": "This built-in chat app has so much latency it's giving me ghost inputs. I need low-latency comms.",
+      "partnerMessage": "This app is kinda terrible for anything longer than texting. The delay gets annoying. We should just use a proper voice channel.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Where do you run your voice server?", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Where do you run your voice server?",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "passion_attractive",
-      "partnerMessage": "Careful, {PlayerName}. If you gas me up like that, I might actually invite you to watch my collegiate semi-finals on private stream.",
+      "partnerMessage": "Careful, you're making me like you. 😭 I might actually let you watch one of our matches from the private stream.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Front row seat with your banner in my hands. Send the stream link.", "nextId": "front_row_stream", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Front row seat with your banner in my hands. Send the stream link.",
+          "nextId": "front_row_stream",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "obsessive_joke",
-      "partnerMessage": "Obsession is just what amateurs call dedication! But... okay, fine. Maybe I do check weapon tier lists while eating cereal.",
+      "partnerMessage": "Okay, when you put it that way, I sound a little insane. 😭 I just like knowing what changed before I queue.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Admitting it is the first step. Let's talk somewhere better.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Admitting it is the first step. Let's talk somewhere better.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "squad_pitch",
-      "partnerMessage": "I'll think about it. But if you whiff a point-blank shotgun blast, you owe me two bubble teas.",
+      "partnerMessage": "Alright, deal. But if you miss that shotgun shot, I'm collecting my two bubble teas. No excuses.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Deal. Now give me your comms link.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Deal. Now give me your comms link.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "laughing_dying",
-      "partnerMessage": "Gaming with you actually sounds fun instead of a high-stress sweat session. I forgot games could just be fun.",
+      "partnerMessage": "See, that's what I want sometimes. Just playing and laughing instead of treating every match like it's the end of the world.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I'm here to bring the fun back. Come join me on OnlyYaps.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'm here to bring the fun back. Come join me on OnlyYaps.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "pagoda_sunset",
-      "partnerMessage": "A sunset balcony with someone who doesn't grief my storage chests... why is that genuinely the sweetest date pitch I've ever gotten?",
+      "partnerMessage": "Okay... a sunset balcony actually sounds really nice. Especially if you promise not to mess with my storage chests. 😭",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Because I actually care about your peace. Let's make it real.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Because I actually care about your peace. Let's make it real.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "steal_diamonds",
-      "partnerMessage": "If you touch my diamond chest, I will wire TNT under your spawn bed with tripwires. You have been warned!",
+      "partnerMessage": "Touch my diamond chest and we're going to have problems. 😭 I'm not joking about my storage room.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "A dangerous girl. Exactly my type.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "A dangerous girl. Exactly my type.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "mad_genius",
-      "partnerMessage": "My friends called it a mental breakdown, but you call it genius. You're officially hired as my Chief Moral Officer.",
+      "partnerMessage": "Okay, maybe my friends had a point. 😭 But if you think it's genius, I'll take the compliment.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "When do I start my shift? Send the link.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "When do I start my shift? Send the link.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "drill_two",
-      "partnerMessage": "Drill number two: Comms discipline. No screaming 'HE IS ONE HP' when he still has full shields and heavy armor.",
+      "partnerMessage": "Second lesson is comms. Just say what you actually know. Don't yell 'one HP' when the guy still has full health. 😭",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Accurate damage numbers only. I promise.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Accurate damage numbers only. I promise.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "server_duel",
-      "partnerMessage": "I'm warming up my aim right now on AimLab. Meet me in my private OnlyYaps comms channel if you're brave enough.",
+      "partnerMessage": "I'm warming up right now anyway. Come join me and let's see how brave you actually are.",
       "linkUrl": "onlyyaps.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "thock_asmr",
-      "partnerMessage": "You appreciate the thock?! Okay, marry me. Most guys just use whatever crusty keyboard came free with their prebuilt PC.",
+      "partnerMessage": "Okay, you understand the thock. 😭 That's dangerous information. Most people don't care enough to notice the difference.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Only if we can have custom keycaps as wedding favors. Comms link?", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Only if we can have custom keycaps as wedding favors. Comms link?",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "hear_keyboard",
-      "partnerMessage": "You want to hear it live? I'll unmute my studio microphone on OnlyYaps voice. Link below, cutie.",
+      "partnerMessage": "You actually want to hear it? Sure. I'll turn on my mic when we hop over there.",
       "linkUrl": "onlyyaps.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "see_skill_romance",
-      "partnerMessage": "Stop it... my eyes are getting sweaty and gamers aren't allowed to cry over text messages. You're too good to be true.",
+      "partnerMessage": "Stop 😭. You're going to make me emotional over a dating app. But... thank you. That actually means a lot.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I'm completely real, Daisy. Click the link and let's talk.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'm completely real, Daisy. Click the link and let's talk.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "trophy_praise",
-      "partnerMessage": "Damn right! My shelf has three collegiate MVP trophies and there's plenty of room for more.",
+      "partnerMessage": "Yeah, I have a few. I'm proud of them, but honestly the part that means more to me is knowing the work paid off.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Let's win the next one together. Send me the server.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Let's win the next one together. Send me the server.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "circle_room",
-      "partnerMessage": "I think... I think there's room for you. Just don't break my trust, {PlayerName}.",
+      "partnerMessage": "I think there is. I just don't let people in very quickly. So... don't make me regret it, okay?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Never. Let's hop over to OnlyYaps.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Never. Let's hop over to OnlyYaps.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "solo_queue_burnout",
-      "partnerMessage": "It wears your soul down. Playing five matches where everyone's screaming at each other... sometimes I close the game and just sit in the dark.",
+      "partnerMessage": "Yeah. Some nights I close the game and just sit there because I'm too drained to do anything else. That's when I know I need a break.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "You don't have to sit in the dark alone anymore. Talk to me.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You don't have to sit in the dark alone anymore. Talk to me.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "where_hiding",
-      "partnerMessage": "In my custom room waiting for a player who doesn't tilt after losing pistol round! Click my link, handsome.",
+      "partnerMessage": "Probably in my room, honestly. 😭 I'm just waiting for someone who doesn't tilt after one bad round.",
       "linkUrl": "onlyyaps.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "mouse_bungee",
-      "partnerMessage": "A mouse bungee?! If someone gifts me gaming hardware, I am legally obligated to fall in love with them. Link below!",
+      "partnerMessage": "Okay, you got me with that one. 😭 I won't say no to a mouse bungee, though. You might actually win points for that.",
       "linkUrl": "onlyyaps.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "demonic_praise",
-      "partnerMessage": "Demonic and proud! Come check out my highlight reels on OnlyYaps.",
+      "partnerMessage": "I know. 😭 It's probably a terrible habit, but it's fun when it works. I'll show you some clips later.",
       "linkUrl": "onlyyaps.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "bad_side_fear",
-      "partnerMessage": "Stay on my good side and you get complimentary callouts and headshot protection. Link below!",
+      "partnerMessage": "Then stay on my good side. I give good callouts when I like someone. 😌",
       "linkUrl": "onlyyaps.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "hunting_beside",
-      "partnerMessage": "Bonnie and Clyde with sniper rifles. That's our energy. Hop into my server right now.",
+      "partnerMessage": "Okay, now you're making this sound like we're starting a crime spree. 😭 I'll take the duo partner part, though.",
       "linkUrl": "onlyyaps.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "work_ethic_praise",
-      "partnerMessage": "Thank you... most people just think it's easy. Hearing you recognize the grind means everything. Let's move to OnlyYaps.",
+      "partnerMessage": "Thank you. I put a lot into it, so it's nice when someone notices the effort instead of just seeing the wins.",
       "linkUrl": "onlyyaps.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "time_to_date",
-      "partnerMessage": "I make time for people who are worth it. And so far, {PlayerName}... you're making the leaderboard. Comms link below!",
+      "partnerMessage": "I make time. I just don't do the whole disappearing-for-days thing because I got busy with a match. If I like someone, I'll make room for them.",
       "linkUrl": "onlyyaps.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "shut_up_praise",
-      "partnerMessage": "Hahaha! Good. I like someone who can admit when they got outplayed. Meet me on OnlyYaps.",
+      "partnerMessage": "Hahaha, fair. I like that you can take the L and laugh about it. Come on, let's keep talking somewhere better.",
       "linkUrl": "onlyyaps.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "see_you_shine",
-      "partnerMessage": "That might be the sweetest sentence anyone has ever typed to me. My heart rate is spiking and we haven't even spawned yet. Join my server below.",
+      "partnerMessage": "Okay, that was really sweet. 😭 I actually like the idea of having someone there who wants to see me do well, not just tell me to win.",
       "linkUrl": "onlyyaps.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "front_row_stream",
-      "partnerMessage": "VIP access granted. I'll dedicate my first ace clutch to you. Hit my private channel below!",
+      "partnerMessage": "Deal. 😭 But if you jinx my ace, I'm blaming you. I'll send you the private stream.",
       "linkUrl": "onlyyaps.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "bully_hard_exit",
-      "partnerMessage": "Toxic, bad at the game, and zero charm. Unmatched, reported, and blocked from the server. Enjoy solo queue forever.",
+      "partnerMessage": "Yeah, no. I'm not doing this. Unmatching and blocking. Take care.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": []
     },
     {
       "id": "move_to_yaps",
-      "partnerMessage": "Click this server invite link. Join my private OnlyYaps voice channel so we can duo without this app lagging out.",
+      "partnerMessage": "Let's move this somewhere easier. Join my private channel and we can actually talk without this app getting in the way.",
       "linkUrl": "onlyyaps.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []

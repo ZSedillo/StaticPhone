@@ -7,836 +7,1534 @@
   "nodes": [
     {
       "id": "start",
-      "partnerMessage": "Hey {PlayerName}... quick baseline test before we waste each other's time: ever get that sudden, icy prickle on the back of your neck? Like someone is standing two inches behind your chair, breathing against your collar?",
+      "partnerMessage": "Hey {PlayerName}. Random question: do you ever get that weird feeling someone is behind you, even when you know you're alone? Or am I already making this too strange for a dating app?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Only when I stay up way too late staring at blue-light screens in the dark.", "nextId": "rational_take", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" },
-        { "choiceText": "All the time. Pretty sure my apartment has active residual energy.", "nextId": "spooky_interest", "linkUrl": "", "triggerEvent": "PARANORMAL_INVESTIGATOR" },
-        { "choiceText": "You sound like someone who skipped their psychiatric medication today.", "nextId": "insult_crazy", "linkUrl": "", "triggerEvent": "BULLY_EVELYN" },
-        { "choiceText": "Don't look now, but I just checked behind me and nothing was there.", "nextId": "checked_behind", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Only when I stay up way too late staring at a screen.",
+          "nextId": "rational_take",
+          "linkUrl": "",
+          "triggerEvent": "EVELYN_SKEPTIC"
+        },
+        {
+          "choiceText": "Pretty often, actually. I think my apartment has some weird activity.",
+          "nextId": "spooky_interest",
+          "linkUrl": "",
+          "triggerEvent": "PARANORMAL_INVESTIGATOR"
+        },
+        {
+          "choiceText": "You sound like someone who skipped their psychiatric medication today.",
+          "nextId": "insult_crazy",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_EVELYN"
+        },
+        {
+          "choiceText": "Don't look now, but I just checked behind me and there's nothing there.",
+          "nextId": "checked_behind",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "rational_take",
-      "partnerMessage": "Denial is the classic first line of psychological defense, darling. Most people blame cold drafts or eye strain because the alternative—that acoustic space isn't empty—is too uncomfortable to sit with.",
+      "partnerMessage": "Fair. I'm skeptical too, honestly. Cold air, eye strain, bad lighting... there are usually pretty boring explanations. I just don't like assuming that's the answer before I check.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I'm open-minded, just evidence-based. What kind of evidence do you actually collect?", "nextId": "evidence_explain", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Drafty floorboards and eye strain are empirical physics. Ghost stories are campfire tales.", "nextId": "skeptic_push", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" },
-        { "choiceText": "Is everything a paranormal mystery to you, or do you ever just relax?", "nextId": "relax_critique", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "What if the chill on the neck is just a micro-spasm in the trapezius muscle?", "nextId": "trapezius_scientific", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" }
+        {
+          "choiceText": "I'm open-minded, just evidence-based. What kind of evidence do you actually collect?",
+          "nextId": "evidence_explain",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Drafty floorboards and eye strain are empirical physics. Ghost stories are campfire tales.",
+          "nextId": "skeptic_push",
+          "linkUrl": "",
+          "triggerEvent": "EVELYN_SKEPTIC"
+        },
+        {
+          "choiceText": "Is everything a paranormal mystery to you, or do you ever just relax?",
+          "nextId": "relax_critique",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "What if the chill on the neck is just a micro-spasm in the trapezius muscle?",
+          "nextId": "trapezius_scientific",
+          "linkUrl": "",
+          "triggerEvent": "EVELYN_SKEPTIC"
+        }
       ]
     },
     {
       "id": "spooky_interest",
-      "partnerMessage": "I knew it. Your profile photo gave off a distinct electromagnetic resonance. Tell me: what kind of activity? Tapping on drywall, localized cold spots, or objects mysteriously changing position?",
+      "partnerMessage": "Okay, now I'm curious. What happens there? Things moving, weird sounds, cold spots... or something harder to explain?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Things moving when I leave the room. Keys, mugs, notebooks.", "nextId": "poltergeist_banter", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Radio static turning into whisper fragments right around 3:00 AM.", "nextId": "radio_static_deep", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Sudden temperature plunges in the hallway, like walking into a meat locker.", "nextId": "cold_spots_physics", "linkUrl": "", "triggerEvent": "PARANORMAL_INVESTIGATOR" },
-        { "choiceText": "I was just playing along. I don't actually believe in fairy tales.", "nextId": "fake_interest_fumble", "linkUrl": "", "triggerEvent": "FUMBLE_CONVERSATION" }
+        {
+          "choiceText": "Things moving when I leave the room. Keys, mugs, notebooks.",
+          "nextId": "poltergeist_banter",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Radio static turning into whisper fragments right around 3:00 AM.",
+          "nextId": "radio_static_deep",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Sudden temperature plunges in the hallway, like walking into a meat locker.",
+          "nextId": "cold_spots_physics",
+          "linkUrl": "",
+          "triggerEvent": "PARANORMAL_INVESTIGATOR"
+        },
+        {
+          "choiceText": "I was just playing along. I don't actually believe in fairy tales.",
+          "nextId": "fake_interest_fumble",
+          "linkUrl": "",
+          "triggerEvent": "FUMBLE_CONVERSATION"
+        }
       ]
     },
     {
       "id": "insult_crazy",
-      "partnerMessage": "How delightfully original. You swipe right on an archival researcher just to regurgitate the same worn-out joke my high school guidance counselor used? Revolutionary intellect on display.",
+      "partnerMessage": "Yeah... not exactly the opener I was hoping for. You could've just said you think I'm wrong. I'm actually pretty used to people making jokes about what I do.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
-        { "choiceText": "My bad. Sarcasm is my default reflex when someone catches me off guard.", "nextId": "recover_apology", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Enjoy talking to dust motes and microwave hums in your dark room.", "nextId": "hard_ghost_exit", "linkUrl": "", "triggerEvent": "BULLY_EVELYN" },
-        { "choiceText": "I apologize, Evelyn. That was uncalled for. Tell me what you really do.", "nextId": "sincere_reboot", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "My bad. Sarcasm is my default reflex when someone catches me off guard.",
+          "nextId": "recover_apology",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Enjoy talking to dust motes and microwave hums in your dark room.",
+          "nextId": "hard_ghost_exit",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_EVELYN"
+        },
+        {
+          "choiceText": "I apologize, Evelyn. That was uncalled for. Tell me what you really do.",
+          "nextId": "sincere_reboot",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "checked_behind",
-      "partnerMessage": "Of course you didn't see anything. Anomalous phenomena don't register in visible optical spectrums, {PlayerName}. They register in infrasound—around 18.9 Hz, where the human eyeball literally vibrates in its socket.",
+      "partnerMessage": "Then we're probably safe for the moment. The creepy part is that sometimes you don't see anything at all. You just notice your body reacting before your brain has figured out why.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Wait, the fear frequency? You actually know the acoustic biology behind this.", "nextId": "science_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "You are terrifyingly thorough. Remind me never to explore an attic with you.", "nextId": "attic_joke", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Does the 18.9 Hz resonance also induce temporal disorientation?", "nextId": "temporal_disorientation_q", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" }
+        {
+          "choiceText": "Wait, the fear frequency? You actually know the acoustic biology behind this.",
+          "nextId": "science_praise",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "You are terrifyingly thorough. Remind me never to explore an attic with you.",
+          "nextId": "attic_joke",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Does the 18.9 Hz resonance also induce temporal disorientation?",
+          "nextId": "temporal_disorientation_q",
+          "linkUrl": "",
+          "triggerEvent": "EVELYN_SKEPTIC"
+        }
       ]
     },
     {
       "id": "evidence_explain",
-      "partnerMessage": "Multi-band audio spectrum analyzers, analog magnetic reel-to-reels, and calibrated thermal drift monitors. I don't run around screaming like television clowns; I isolate frequencies and cross-reference county blueprints.",
+      "partnerMessage": "Mostly audio recordings, spectrum analysis, thermal readings, old building plans, and whatever else helps rule things out. I'm not interested in convincing myself of a ghost. I'm interested in finding out what actually happened.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "That's actually fascinating. What's the strangest recording you've ever captured?", "nextId": "strangest_recording", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
-        { "choiceText": "Analog tape? Isn't magnetic tape prone to ghost-echo print-through bleed?", "nextId": "tape_bleed_nerd", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "County blueprints? You do historical property research too?", "nextId": "blueprints_curiosity", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "How do you filter out environmental 60 Hz electrical mains hum?", "nextId": "mains_hum_nerd", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "That's actually fascinating. What's the strangest recording you've ever captured?",
+          "nextId": "strangest_recording",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        },
+        {
+          "choiceText": "Analog tape? Isn't magnetic tape prone to ghost-echo print-through bleed?",
+          "nextId": "tape_bleed_nerd",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "County blueprints? You do historical property research too?",
+          "nextId": "blueprints_curiosity",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "How do you filter out environmental 60 Hz electrical mains hum?",
+          "nextId": "mains_hum_nerd",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "skeptic_push",
-      "partnerMessage": "I respect hard skeptics far more than blind believers. Skeptics keep my methodology clean. A mystery is only delicious when you systematically dismantle every boring explanation first.",
+      "partnerMessage": "Honestly, I like skeptics. They keep me from getting sloppy. If something has a normal explanation, I'd rather find it than force a creepy story onto it.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Then test me. What's your favorite urban legend you personally debunked?", "nextId": "debunk_myth", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Sounds like we'd make a balanced team: your obsession and my grounded anchor.", "nextId": "duo_dynamic", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "What if you spend your entire youth chasing something that never existed?", "nextId": "existential_skeptic", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "Then test me. What's your favorite urban legend you personally debunked?",
+          "nextId": "debunk_myth",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Sounds like we'd make a balanced team: your obsession and my grounded anchor.",
+          "nextId": "duo_dynamic",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "What if you spend your entire youth chasing something that never existed?",
+          "nextId": "existential_skeptic",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "relax_critique",
-      "partnerMessage": "Relax? In a universe full of electromagnetic noise, uncataloged frequencies, and forgotten architecture? Relaxation is for people who have zero curiosity about what happens after dark.",
+      "partnerMessage": "I do relax. I just don't apparently relax very well. I tell myself I'll stop working after one more recording, then it's suddenly 2 AM.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Curiosity is fine, but burnout is real. When was the last time you slept eight hours?", "nextId": "burnout_sleep_talk", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "You sound like you live on cold brew and conspiracy forums.", "nextId": "cold_brew_banter", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Even radio operators take off their headsets when their shift ends.", "nextId": "radio_shift_metaphor", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Curiosity is fine, but burnout is real. When was the last time you slept eight hours?",
+          "nextId": "burnout_sleep_talk",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "You sound like you live on cold brew and conspiracy forums.",
+          "nextId": "cold_brew_banter",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Even radio operators take off their headsets when their shift ends.",
+          "nextId": "radio_shift_metaphor",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "trapezius_scientific",
-      "partnerMessage": "Spoken like an orthopedic surgeon who hasn't stepped into an unshielded substation cellar. Muscle spasms don't correlate with a 3.5°C localized temperature drop in a closed sealed room, {PlayerName}.",
+      "partnerMessage": "That could explain one of the sensations. It wouldn't explain every case I've seen, though. That's the part that keeps me interested.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Localized air vortexes caused by micro-fissures in masonry?", "nextId": "masonry_vortex", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" },
-        { "choiceText": "You've got an answer for everything. I like that.", "nextId": "mind_works_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Localized air vortexes caused by micro-fissures in masonry?",
+          "nextId": "masonry_vortex",
+          "linkUrl": "",
+          "triggerEvent": "EVELYN_SKEPTIC"
+        },
+        {
+          "choiceText": "You've got an answer for everything. I like that.",
+          "nextId": "mind_works_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "poltergeist_banter",
-      "partnerMessage": "Kinetic displacement! Either you have an undiagnosed REM sleepwalking habit, or something in your building's structural footprint is politely demanding your attention.",
+      "partnerMessage": "That one gets tricky. Before I blame anything unusual, I'd check sleepwalking, vibrations, shelves that aren't level, even carbon monoxide. The boring explanations come first.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Could be carbon monoxide poisoning. Have you checked your ambient detectors?", "nextId": "carbon_monoxide_read", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Maybe my phantom roommate just wants me to do the dishes.", "nextId": "kitchen_ghost_laugh", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "What if it's seismic micro-tremors rattling loose shelving?", "nextId": "seismic_micro_tremors", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" }
+        {
+          "choiceText": "Could be carbon monoxide poisoning. Have you checked your ambient detectors?",
+          "nextId": "carbon_monoxide_read",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Maybe my phantom roommate just wants me to do the dishes.",
+          "nextId": "kitchen_ghost_laugh",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "What if it's seismic micro-tremors rattling loose shelving?",
+          "nextId": "seismic_micro_tremors",
+          "linkUrl": "",
+          "triggerEvent": "EVELYN_SKEPTIC"
+        }
       ]
     },
     {
       "id": "radio_static_deep",
-      "partnerMessage": "Electronic Voice Phenomena through white noise sweeps... God, that gave me goosebumps down my forearms. Most people tune out static, but that narrow band between stations is where the veil is paper thin.",
+      "partnerMessage": "That one still bothers me. It was just static at first, then there were these little fragments that almost sounded like words. I had to listen to it over and over before I trusted what I was hearing.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "What did the whisper say when you captured it?", "nextId": "whisper_story", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
-        { "choiceText": "Does spending all your nights in the dark with static ever get lonely?", "nextId": "lonely_in_dark", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Isn't that just auditory pareidolia? The brain forcing order onto random chaos?", "nextId": "pareidolia_argument", "linkUrl": "", "triggerEvent": "EVELYN_SKEPTIC" }
+        {
+          "choiceText": "What did the whisper say when you captured it?",
+          "nextId": "whisper_story",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        },
+        {
+          "choiceText": "Does spending all your nights in the dark with static ever get lonely?",
+          "nextId": "lonely_in_dark",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Isn't that just auditory pareidolia? The brain forcing order onto random chaos?",
+          "nextId": "pareidolia_argument",
+          "linkUrl": "",
+          "triggerEvent": "EVELYN_SKEPTIC"
+        }
       ]
     },
     {
       "id": "cold_spots_physics",
-      "partnerMessage": "Rapid endothermic thermal drop! Heat energy is being consumed by an unseen catalyst. If you place an infrared pyrometer at ground level, you often see a geometric column of cold air.",
+      "partnerMessage": "The temperature drop was real enough to show up on the meter. I still don't know what caused it. That's why I keep the raw readings instead of jumping straight to a conclusion.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "A geometric column? Like a cylinder standing in space?", "nextId": "geometric_cylinder", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
-        { "choiceText": "You describe it with such clinical detachment, it makes it eerie.", "nextId": "clinical_detachment", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "A geometric column? Like a cylinder standing in space?",
+          "nextId": "geometric_cylinder",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        },
+        {
+          "choiceText": "You describe it with such clinical detachment, it makes it eerie.",
+          "nextId": "clinical_detachment",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "fake_interest_fumble",
-      "partnerMessage": "Ah. Leading me on just to mock my field research. How delightfully predictable. My time is far too valuable for casual tourists, {PlayerName}.",
+      "partnerMessage": "Oh. Okay. I genuinely thought you were interested for a second there. That's on me. I don't really enjoy being treated like a weird little party trick, though.",
       "linkUrl": "",
       "triggerEvent": "GHOST_SEQUENCE_START",
       "choices": [
-        { "choiceText": "Wait, Evelyn, I was teasing! Let me hear your actual research.", "nextId": "recover_apology", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Have fun chasing spooky wind gusts.", "nextId": "hard_ghost_exit", "linkUrl": "", "triggerEvent": "BULLY_EVELYN" }
+        {
+          "choiceText": "Wait, Evelyn, I was teasing! Let me hear your actual research.",
+          "nextId": "recover_apology",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Have fun chasing spooky wind gusts.",
+          "nextId": "hard_ghost_exit",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_EVELYN"
+        }
       ]
     },
     {
       "id": "recover_apology",
-      "partnerMessage": "Fine. Probationary status granted. But keep your cheap condescension outside my frequency band. I have actual archival case files to audit.",
+      "partnerMessage": "Okay. I'll give you another chance. Just talk to me normally and we're good. I actually have some pretty interesting case files open right now.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Understood. Tell me about the case file you're working on right now.", "nextId": "evidence_explain", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "I promise to be good. What reel are you currently baking?", "nextId": "tape_bleed_nerd", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Understood. Tell me about the case file you're working on right now.",
+          "nextId": "evidence_explain",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "I promise to be good. What reel are you currently baking?",
+          "nextId": "tape_bleed_nerd",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "sincere_reboot",
-      "partnerMessage": "...Apology logged. I get defensive because ninety percent of matches open with jokes about Ouija boards and exorcisms. If you want sincerity, I will give you sincerity.",
+      "partnerMessage": "Thank you. I get defensive because I hear the same jokes all the time. People see 'paranormal researcher' and assume I'm either gullible or trying to scare them for attention. Most of my work is actually pretty quiet.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I want the real Evelyn. Tell me how this all started.", "nextId": "origin_story", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "I want the real Evelyn. Tell me how this all started.",
+          "nextId": "origin_story",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "science_praise",
-      "partnerMessage": "Thank you! Finally, someone with an educated frontal cortex. Vic Tandy's 1998 laboratory experiment with 19 Hz standing waves proved infrasound creates gray-blob optical illusions. Science and the supernatural aren't enemies; they're translation dialects.",
+      "partnerMessage": "Yeah, there's some interesting research around infrasound and perception. I'm less interested in saying 'that proves ghosts' and more interested in understanding why people feel something when they can't see anything.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Translation dialects... I really like the way your mind works, Evelyn.", "nextId": "mind_works_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "So you're more of a scientific detective than a superstitious believer.", "nextId": "debunk_detective", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Tandy was investigating a medical equipment factory basement, right?", "nextId": "tandy_depth", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Translation dialects... I really like the way your mind works, Evelyn.",
+          "nextId": "mind_works_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "So you're more of a scientific detective than a superstitious believer.",
+          "nextId": "debunk_detective",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Tandy was investigating a medical equipment factory basement, right?",
+          "nextId": "tandy_depth",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "attic_joke",
-      "partnerMessage": "Attics are amateur hour. Too much fiberglass insulation, too many raccoon droppings. The real anomalous signatures hide in municipal aqueduct basements and decommissioned sanitarium boiler tunnels.",
+      "partnerMessage": "Attics are honestly pretty overrated. Most of the time it's insulation, animals, bad wiring, and a lot of dust. The older basements are usually much more interesting.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Creepy boiler tunnels? Now you're definitely taking me on our first date.", "nextId": "date_pitch", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Tunnels sound like a great place to contract tetanus or get arrested.", "nextId": "tetanus_joke", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Creepy boiler tunnels? Now you're definitely taking me on our first date.",
+          "nextId": "date_pitch",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Tunnels sound like a great place to contract tetanus or get arrested.",
+          "nextId": "tetanus_joke",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "temporal_disorientation_q",
-      "partnerMessage": "Spot on! Infrasonic field exposure creates mild inner ear vestibular confusion. People think hours have passed when it's only been four minutes. Or vice versa.",
+      "partnerMessage": "It can happen, especially when you're tired or somewhere with a lot of low-frequency noise. I've had investigations where I checked the clock thinking I'd been there fifteen minutes, and it had been hours.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Ever experienced that time slip yourself during an investigation?", "nextId": "time_slip_confession", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "Ever experienced that time slip yourself during an investigation?",
+          "nextId": "time_slip_confession",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "strangest_recording",
-      "partnerMessage": "An abandoned marshland water pumping station built in 1884. At 2:40 AM, all twelve digital channels picked up a harmonic hum that matched an old Welsh lullaby. When I listened through my studio monitor headphones, someone took a breath right against my left ear cushion.",
+      "partnerMessage": "Probably the old water station. Around 2:40 in the morning, the recordings picked up a strange harmonic tone across several channels. Then, on playback, there was a breath right beside the microphone. No one was standing near it.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Didn't that terrify you?!", "nextId": "terrified_q", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Weren't you scared being out there alone in the dark with no backup?", "nextId": "alone_in_dark", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Did you analyze the breath for lung capacity acoustics?", "nextId": "lung_capacity_nerd", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Didn't that terrify you?!",
+          "nextId": "terrified_q",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Weren't you scared being out there alone in the dark with no backup?",
+          "nextId": "alone_in_dark",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Did you analyze the breath for lung capacity acoustics?",
+          "nextId": "lung_capacity_nerd",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "tape_bleed_nerd",
-      "partnerMessage": "YES! Print-through from adjacent magnetic wraps! Which is exactly why I bake my polyester and acetate reels in a laboratory dehydrator at 130°F before playback! You know tape chemistry?! Marry me.",
+      "partnerMessage": "Exactly. Print-through can make old recordings sound like the past is bleeding into itself. A lot of people hear a faint voice and immediately call it paranormal. Half the job is making sure it's actually on the tape.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Thermal tape baking and signal restoration? Consider the proposal accepted.", "nextId": "marriage_banter", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Show me the spectral analysis. I want to see the waterfall graph.", "nextId": "waterfall_graph_hook", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Sticky-shed syndrome on Ampex 456 reels is a nightmare to restore.", "nextId": "sticky_shed_deep", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Thermal tape baking and signal restoration? Consider the proposal accepted.",
+          "nextId": "marriage_banter",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Show me the spectral analysis. I want to see the waterfall graph.",
+          "nextId": "waterfall_graph_hook",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Sticky-shed syndrome on Ampex 456 reels is a nightmare to restore.",
+          "nextId": "sticky_shed_deep",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "blueprints_curiosity",
-      "partnerMessage": "Every single building has a memory inscribed in its foundation. When you cross-reference original 1920s land deeds with seismic fault lines and water tables, you start noticing patterns that the city planners swept under the rug.",
+      "partnerMessage": "Yeah. Old plans help a lot. Buildings get renovated, sealed off, renamed... sometimes the thing you're looking for is literally behind a newer wall. I like seeing how the place changed over time.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "What kind of patterns? Secret annexes?", "nextId": "secret_annexes", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
-        { "choiceText": "You're a historian wearing a paranormal investigator's coat.", "nextId": "historian_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "What kind of patterns? Secret annexes?",
+          "nextId": "secret_annexes",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        },
+        {
+          "choiceText": "You're a historian wearing a paranormal investigator's coat.",
+          "nextId": "historian_praise",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "mains_hum_nerd",
-      "partnerMessage": "Steep notch filters at 60 Hz, 120 Hz, and 180 Hz! If you don't notch out electrical ground loops, every refrigerator compressor in the zip code sounds like a demon chanting.",
+      "partnerMessage": "Usually notch filters and a lot of cleanup work. Electrical hum can ruin an otherwise useful recording, especially in old buildings with terrible grounding. You learn to recognize it pretty quickly.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "You are absurdly competent. It's wildly attractive.", "nextId": "competence_attraction", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You are absurdly competent. It's wildly attractive.",
+          "nextId": "competence_attraction",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "debunk_myth",
-      "partnerMessage": "The 'Black Mountain Ghost Lantern.' Locals swore it was the spirit of an executed railway conductor. Spent five nights with an optical surveyor: it was car headlights refracting through thermal inversion layers on County Highway 41. Solved in 72 hours flat.",
+      "partnerMessage": "There was one local legend about a light on a mountain road that people swore belonged to a dead railway worker. Turns out it was headlights bending through a temperature inversion. Five nights of work for one very boring answer.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "You're like a real-life Scully. Sharp, relentless, and wildly attractive.", "nextId": "scully_compliment", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Don't the locals get mad when you kill their folklore?", "nextId": "locals_mad_q", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "You're like a real-life Scully. Sharp, relentless, and wildly attractive.",
+          "nextId": "scully_compliment",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Don't the locals get mad when you kill their folklore?",
+          "nextId": "locals_mad_q",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "duo_dynamic",
-      "partnerMessage": "A skeptic and a sleuth. The classic binary. I explore the shadows with parabolic microphones, and you keep the flashlight batteries charged so we don't plummet down elevator shafts.",
+      "partnerMessage": "That actually sounds useful. You keep me from overthinking everything, and I make sure we don't ignore the weird stuff just because it's inconvenient.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Deal. Where do I sign the partner contract?", "nextId": "partner_contract_sign", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "I'll carry the heavy equipment as long as you promise not to vanish into thin air.", "nextId": "carry_equipment_banter", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Deal. Where do I sign the partner contract?",
+          "nextId": "partner_contract_sign",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "I'll carry the heavy equipment as long as you promise not to vanish into thin air.",
+          "nextId": "carry_equipment_banter",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "existential_skeptic",
-      "partnerMessage": "...That question kept me awake for six months in university. What if I'm just an acoustic archivist cataloging ghosts of my own loneliness? But then you find an unexplainable signal... and reality bends.",
+      "partnerMessage": "I've thought about that more than I'd like to admit. Sometimes I wonder whether I'm actually chasing evidence or just giving myself a reason to keep looking. Then I find something I can't explain, and I'm back at it.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Even if the signals are just echoes, you give them meaning by listening.", "nextId": "give_echoes_meaning", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "I want to be there when reality bends for you.", "nextId": "be_there_reality_bends", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Even if the signals are just echoes, you give them meaning by listening.",
+          "nextId": "give_echoes_meaning",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "I want to be there when reality bends for you.",
+          "nextId": "be_there_reality_bends",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "burnout_sleep_talk",
-      "partnerMessage": "...Three days ago. Maybe four. My circadian rhythm is essentially a polite fiction at this point. When you're cleaning audio waveforms, two hours feels like twenty minutes.",
+      "partnerMessage": "Eight hours? I honestly can't remember. I've had a few nights lately where I look up and realize it's morning. Once I get focused on a recording, I stop checking the time.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I'm coming over to make you hot chamomile tea and take your headphones off.", "nextId": "tea_takeover_romance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "You need someone in your life to force you away from the monitor.", "nextId": "force_away_monitor", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "I'm coming over to make you hot chamomile tea and take your headphones off.",
+          "nextId": "tea_takeover_romance",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "You need someone in your life to force you away from the monitor.",
+          "nextId": "force_away_monitor",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "cold_brew_banter",
-      "partnerMessage": "Cold brew, dark roast, double filtered, zero sugar! And archival microfilm databases, thank you very much! Reddit is for amateurs.",
+      "partnerMessage": "Cold brew, yes. Conspiracy forums, not really. I prefer old newspapers and actual records. Much less arguing.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I make a killer pour-over. You bring the case files, I bring the brew.", "nextId": "coffee_date_pitch", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I make a killer pour-over. You bring the case files, I bring the brew.",
+          "nextId": "coffee_date_pitch",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "radio_shift_metaphor",
-      "partnerMessage": "That hit uncomfortably close to the center. When my grandfather was on the merchant vessel radio watch, he knew when to shut the receiver. I... haven't learned how to turn it off yet.",
+      "partnerMessage": "That's fair. My grandfather used to say you need to know when to take the receiver off the hook. I understand the idea. I'm just not very good at doing it.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Let me turn it off for you tonight. Just for an hour.", "nextId": "turn_it_off_hour", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Let me turn it off for you tonight. Just for an hour.",
+          "nextId": "turn_it_off_hour",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "masonry_vortex",
-      "partnerMessage": "Good hypothesis! But we deployed smoke pencils along the baseboards; zero drafts. The air was dead still. Yet the mercury dropped. That's why I keep digging.",
+      "partnerMessage": "That was one of our first guesses too. We checked for drafts and couldn't find one. I don't know what caused the drop, but that's why I kept the readings instead of writing a conclusion in the report.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "You test every variable. I have so much respect for your brain.", "nextId": "respect_your_brain", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You test every variable. I have so much respect for your brain.",
+          "nextId": "respect_your_brain",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "carbon_monoxide_read",
-      "partnerMessage": "First item on my field checklist! CO poisoning triggers temporal distortion, paranoia, and shadow-people hallucinations. You genuinely care about empirical safety protocol. My pulse just jumped for purely biological reasons.",
+      "partnerMessage": "Always. Carbon monoxide is one of the first things I rule out, especially in old buildings. Whatever else is going on, I'm not risking someone getting hurt just because a place has a creepy reputation.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I care about your safety above all else, Evelyn.", "nextId": "safety_romance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I care about your safety above all else, Evelyn.",
+          "nextId": "safety_romance",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "kitchen_ghost_laugh",
-      "partnerMessage": "If spectral entities washed ceramic plates, my apartment would look like an architectural showroom! Sadly, residual energy rarely scrubs cast iron pans.",
+      "partnerMessage": "Honestly, I'd settle for a ghost that did dishes. I'd have no complaints. Most of the strange things I've investigated seem completely uninterested in housework.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Then let me come over and cook for you while you digitize your reels.", "nextId": "cook_for_her", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Then let me come over and cook for you while you digitize your reels.",
+          "nextId": "cook_for_her",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "seismic_micro_tremors",
-      "partnerMessage": "Checked against USGS seismic monitors. No fault shifts within 80 miles during the incident window. The keys moved across a flat mahogany table at a steady 2 inches per second.",
+      "partnerMessage": "We checked the seismic data and there wasn't anything nearby that lined up with the timing. The movement was slow and consistent, which is what made it so hard to dismiss.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Okay, that gave me goosebumps.", "nextId": "goosebumps_mutual", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Okay, that gave me goosebumps.",
+          "nextId": "goosebumps_mutual",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "whisper_story",
-      "partnerMessage": "It said... 'Still waiting.' Just two syllables, buried beneath 400 Hz ground hum. It wasn't menacing. It was just an echo of heartbreak preserved in magnetic iron oxide.",
+      "partnerMessage": "It sounded like 'still waiting.' Very faint, buried under the hum. What got to me wasn't that it sounded scary. It sounded... sad. Like somebody left a sentence behind and never got to finish it.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "That's hauntingly tragic.", "nextId": "hauntingly_tragic", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "You listen to the forgotten dead because nobody else will.", "nextId": "forgotten_dead_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "That's hauntingly tragic.",
+          "nextId": "hauntingly_tragic",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "You listen to the forgotten dead because nobody else will.",
+          "nextId": "forgotten_dead_praise",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "lonely_in_dark",
-      "partnerMessage": "...More than I admit out loud. When you spend your nights listening to empty frequencies, the silence in your own kitchen becomes deafening. People label me as 'the spooky weirdo,' so I stopped opening my door.",
+      "partnerMessage": "Yeah. More than I usually say. When you spend enough nights alone with headphones on, even your own kitchen feels strangely quiet. People think the work is exciting all the time. A lot of it is just me, a recorder, and no one to talk to.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Open it for me, Evelyn. You don't have to listen to the silence alone anymore.", "nextId": "invite_in_romance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "I don't think you're weird at all. I think you're brilliant and brave.", "nextId": "brilliant_validation", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Open it for me, Evelyn. You don't have to listen to the silence alone anymore.",
+          "nextId": "invite_in_romance",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "I don't think you're weird at all. I think you're brilliant and brave.",
+          "nextId": "brilliant_validation",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "pareidolia_argument",
-      "partnerMessage": "Acoustic pareidolia accounts for about 85% of EVPs. The human mind hates random noise and stitches phonemes together. That's why I only catalog Class-A recordings where three independent listeners identify the exact same words without prompts.",
+      "partnerMessage": "That's exactly why I'm careful with EVPs. Our brains are very good at turning noise into familiar patterns. I don't count a recording as interesting just because I can convince myself I heard a word.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Rigorous double-blind methodology. You really leave nothing to chance.", "nextId": "double_blind_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Rigorous double-blind methodology. You really leave nothing to chance.",
+          "nextId": "double_blind_praise",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "geometric_cylinder",
-      "partnerMessage": "Exactly four feet in diameter, floor to ceiling. Walking through it feels like stepping inside an industrial walk-in freezer. Five seconds later, it dissipated like dry ice vapor.",
+      "partnerMessage": "Pretty much. It was about four feet across from floor to ceiling. You could feel the temperature change the second you stepped into it, and then it was gone a few seconds later.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Did you record any ionization readings?", "nextId": "ionization_nerd", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Did you record any ionization readings?",
+          "nextId": "ionization_nerd",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "clinical_detachment",
-      "partnerMessage": "If you let the fear creep into your voice, your hands shake, your equipment drops, and your data gets corrupted. The clinical detachment is survival armor.",
+      "partnerMessage": "If I get scared enough that I stop paying attention, I miss details. So I learned to stay calm even when something feels wrong. It isn't that I'm fearless. I'm just trying not to let the fear make decisions for me.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "You don't need armor when you're talking to me, Evelyn.", "nextId": "drop_armor_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You don't need armor when you're talking to me, Evelyn.",
+          "nextId": "drop_armor_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "mind_works_flirt",
-      "partnerMessage": "Be careful, {PlayerName}. People who like how my mind works usually end up getting recruited for 3:00 AM expeditions to flooded hospital tunnels.",
+      "partnerMessage": "Careful. That's how you end up getting invited to some terrible place at 3 AM because I said, 'It'll be interesting.'",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "My boots are laced and my flashlight is packed. Let's go.", "nextId": "trunk_packed_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Only if we stop for greasy 24-hour diner pancakes on the drive back.", "nextId": "diner_pancakes_deal", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "My boots are laced and my flashlight is packed. Let's go.",
+          "nextId": "trunk_packed_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Only if we stop for greasy 24-hour diner pancakes on the drive back.",
+          "nextId": "diner_pancakes_deal",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "debunk_detective",
-      "partnerMessage": "I eliminate the 99% that can be explained by acoustics, mold spore toxicity, and electrical interference so that when that 1% happens... you KNOW you're standing before the unexplainable.",
+      "partnerMessage": "Pretty much. I spend most of my time proving people are hearing old pipes, electrical interference, animals, bad acoustics... and then once in a while something doesn't fit. That's the part I care about.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Show me your 1% case files. I want to see the real mystery.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Show me your 1% case files. I want to see the real mystery.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "tandy_depth",
-      "partnerMessage": "Yes! Warwick University laboratory! The extraction fan was resonating with the room's dimensional modes. The fact that you know Tandy's specific lab setting makes my pulse beat at 120 BPM.",
+      "partnerMessage": "Yes. That case gets oversimplified online, but the experiment itself is really interesting. You actually know the details? Okay, I'm impressed.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "A shared nerd frequency. We're on the same wavelength.", "nextId": "same_wavelength_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "A shared nerd frequency. We're on the same wavelength.",
+          "nextId": "same_wavelength_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "date_pitch",
-      "partnerMessage": "A date in an underground municipal tunnel with parabolic microphones and black coffee? That might be the single most romantic proposition I have ever received in my life.",
+      "partnerMessage": "That is a strangely specific first-date idea. I don't hate it. Coffee afterward is probably non-negotiable, though.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I'll hold your hand when the temperature drops. Send me your private link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'll hold your hand when the temperature drops. Send me your private link.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "tetanus_joke",
-      "partnerMessage": "I have had my booster shot, thank you! And I carry a certified municipal utility permit. I'm a professional, not a trespasser.",
+      "partnerMessage": "I get the joke. And yes, I'm annoyingly careful about safety. Permits, boots, masks, all of it. Being curious doesn't mean being reckless.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "A girl who obeys municipal safety codes. Truly irresistible.", "nextId": "safety_romance", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "A girl who obeys municipal safety codes. Truly irresistible.",
+          "nextId": "safety_romance",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "time_slip_confession",
-      "partnerMessage": "Once. In the sub-basement of an 1890s asylum chapel. I thought I had been taking ambient decibel readings for fifteen minutes. When I emerged to the van, four hours had passed and the morning fog was rolling in.",
+      "partnerMessage": "Once. I was in an old chapel taking readings and thought maybe fifteen minutes had passed. I got back to the van and it was morning. I still don't know exactly what happened, and honestly, that's one of the few cases that still makes me uneasy.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "That sounds terrifying and miraculous at the same time.", "nextId": "terrifying_miraculous", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "That sounds terrifying and miraculous at the same time.",
+          "nextId": "terrifying_miraculous",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "strangest_recording_followup",
-      "partnerMessage": "I sat on the cold concrete listening to that breath for ten minutes. I didn't feel evil. I just felt someone's unfinished memory suspended in the damp air.",
+      "partnerMessage": "I sat there listening to that recording longer than I probably should have. I didn't feel like I was hearing a monster. I felt like I was hearing somebody who had been forgotten.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Do you think we leave a trace behind when we go?", "nextId": "trace_behind_q", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
-        { "choiceText": "That kind of sensitivity makes you special, Evelyn.", "nextId": "sensitivity_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Do you think we leave a trace behind when we go?",
+          "nextId": "trace_behind_q",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        },
+        {
+          "choiceText": "That kind of sensitivity makes you special, Evelyn.",
+          "nextId": "sensitivity_praise",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "terrified_q",
-      "partnerMessage": "Terrified? My knees were shaking so hard I dropped my DAT recorder into muddy weeds! But the adrenaline rush of hearing something that breaks known acoustic models... it's pure euphoria.",
+      "partnerMessage": "Absolutely. I dropped my recorder. My hands were shaking so badly I had to sit down for a minute. I just didn't expect the fear to hit me that hard.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Next time, let me hold the recorder so your hands stay warm.", "nextId": "hold_recorder_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "You really chase the unknown like a storm chaser.", "nextId": "strangest_recording_followup", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Next time, let me hold the recorder so your hands stay warm.",
+          "nextId": "hold_recorder_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "You really chase the unknown like a storm chaser.",
+          "nextId": "strangest_recording_followup",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "alone_in_dark",
-      "partnerMessage": "I was. Shivering in damp boots, staring up at rusted pipes, wondering what the hell I was doing with my life. That was the night I realized I didn't want to do this alone anymore.",
+      "partnerMessage": "I was scared. I was sitting there in damp boots, staring at these rusted pipes, wondering why I thought going into an abandoned building alone was a good idea. That's probably when I realized I didn't want to keep doing this completely on my own.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "You don't have to be alone anymore, Evelyn. I'm right here with you.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "What brought you into this field in the first place?", "nextId": "origin_story", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "You don't have to be alone anymore, Evelyn. I'm right here with you.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "What brought you into this field in the first place?",
+          "nextId": "origin_story",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "lung_capacity_nerd",
-      "partnerMessage": "Exhalation duration was 4.2 seconds with a distinct bronchial wheeze centered at 780 Hz. Consistent with an elderly adult suffering from chronic pulmonary edema. The history records matched an 1892 pump operator who died on duty.",
+      "partnerMessage": "I did. The recording had a breath with a pretty distinct wheeze. The old records matched it to one of the workers who died there. I can't prove that's whose voice it was, but the timing was... hard to ignore.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "You gave that forgotten man his identity back. That's profound.", "nextId": "identity_back_romance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You gave that forgotten man his identity back. That's profound.",
+          "nextId": "identity_back_romance",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "marriage_banter",
-      "partnerMessage": "Setting the date! Our wedding will take place in an anechoic chamber with binaural audio recordings playing as our processional march!",
+      "partnerMessage": "Okay, we're moving extremely fast. 😭 But I'm not exactly complaining. An anechoic chamber is probably the most on-brand wedding venue I could think of.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "As long as the cake has black velvet frosting, deal. Let's move to OnlyYaps.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "As long as the cake has black velvet frosting, deal. Let's move to OnlyYaps.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "waterfall_graph_hook",
-      "partnerMessage": "The waterfall plot shows a distinct harmonic comb filter signature where the human voice shouldn't exist. I have the high-resolution spectrogram in my private vault.",
+      "partnerMessage": "The waterfall plot is actually the interesting part. There's a repeating pattern in there that shouldn't be where it is. I have the full-resolution version saved in my private files.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Send me the vault key. I want to study it with you.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Send me the vault key. I want to study it with you.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "sticky_shed_deep",
-      "partnerMessage": "The urethane binder absorbs moisture and turns to gummy sludge! Watching an irreplaceable 1950s recording scrape off on tape heads is true horror. You genuinely understand the physical medium!",
+      "partnerMessage": "Sticky-shed is awful. The binder gets gummy, the tape starts sticking to the heads, and one mistake can damage something you can't replace. Preserving old recordings is half technical work and half trying not to panic.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I appreciate the fragile art of preserving lost moments. Just like you do.", "nextId": "preserving_lost_moments", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I appreciate the fragile art of preserving lost moments. Just like you do.",
+          "nextId": "preserving_lost_moments",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "secret_annexes",
-      "partnerMessage": "Fever wards walled off during the 1918 influenza epidemic. Forgotten drainage cisterns under elementary schools. History isn't dead; people just put drywall over it.",
+      "partnerMessage": "Mostly sealed-off spaces. Old fever wards, drainage areas, service tunnels... places that were built for a purpose and then covered up when the building changed. I like figuring out what used to be there.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "You make history feel like an active crime scene. I'm hooked.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You make history feel like an active crime scene. I'm hooked.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "historian_praise",
-      "partnerMessage": "That's exactly what I am! But 'historian' sounds like tweed jackets and dusty archives. 'Sleuth' sounds like trench coats and broken rules.",
+      "partnerMessage": "I'll take sleuth. 'Historian' makes me sound like I spend all day arguing over footnotes. Which... I do, sometimes, but that's not the fun part.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "The trench coat definitely suits you better.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "The trench coat definitely suits you better.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "competence_attraction",
-      "partnerMessage": "...Nobody has ever called my equipment isolation procedures 'attractive' before. My cheeks are officially hotter than a vacuum tube pre-amplifier.",
+      "partnerMessage": "That's new. Usually people just ask why I have six different filters open. 😭 But... thank you. I'll take the compliment.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Intelligence is the most attractive frequency there is. Move this to OnlyYaps.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Intelligence is the most attractive frequency there is. Move this to OnlyYaps.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "scully_compliment",
-      "partnerMessage": "Dana Scully was my childhood idol! The trench coat, the skeptical analytical gaze, the refusal to look away. You really know how to make a researcher's heart flutter.",
+      "partnerMessage": "Scully was a huge influence. I liked that she kept asking for evidence even when everybody else wanted an easy answer. That part stuck with me.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Then let me be your partner in the field. Link me your vault.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Then let me be your partner in the field. Link me your vault.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "locals_mad_q",
-      "partnerMessage": "Furious! They tried to run me out of town because the 'spooklight' was keeping their souvenir gift shop in business! Good science ruins bad tourist traps every time.",
+      "partnerMessage": "They were not happy. I get it, though. If you've grown up with a story your whole life, it feels personal when someone comes in and says, 'Actually, it's headlights.'",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "You're a menace to tourist traps and I love it. Move this to OnlyYaps.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "You're a menace to tourist traps and I love it. Move this to OnlyYaps.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "partner_contract_sign",
-      "partnerMessage": "Contract terms: coffee duty rotates daily, flashlights must carry backup lithium cells, and you never leave me alone in a room if the temperature starts dropping.",
+      "partnerMessage": "Fine. Terms are simple: coffee duty rotates, flashlights get backup batteries, and if a room suddenly drops ten degrees, we leave together. No arguments.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I will never leave your side, Evelyn. Contract signed.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I will never leave your side, Evelyn. Contract signed.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "carry_equipment_banter",
-      "partnerMessage": "My Pelican hard-cases weigh about 45 pounds each. If you carry them without throwing your back out, I might actually let you pick the radio station on our drives.",
+      "partnerMessage": "Some of my cases are ridiculously heavy. If you actually carry them without complaining, you can choose the music on the drive back. That's a serious privilege.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Heavy lifting is my specialty. Deal.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Heavy lifting is my specialty. Deal.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "give_echoes_meaning",
-      "partnerMessage": "...That is the most beautiful thing anyone has ever said about my work. People usually ask if I can help them talk to their dead hamster. You understand the reverence.",
+      "partnerMessage": "That... actually means a lot. Most people ask me whether I can talk to dead pets. You understood why I care about the work in the first place.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Because I see the reverence in you. Take this to your private room.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Because I see the reverence in you. Take this to your private room.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "be_there_reality_bends",
-      "partnerMessage": "When reality bends, you need someone whose hand you can squeeze so you know you haven't slipped off the edge of the world. I think I'd trust your hand.",
+      "partnerMessage": "Yeah. I think I'd want someone next to me if something genuinely unexplainable happened. Not because I need rescuing. Just because... it would be nice not to experience it alone.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Hold onto it as tight as you need. Link me your vault.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Hold onto it as tight as you need. Link me your vault.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "tea_takeover_romance",
-      "partnerMessage": "Taking my headphones off? ...That might be the sweetest, most gentle thing anyone has ever said to me. My shoulders just dropped three inches.",
+      "partnerMessage": "You'd really take the headphones away? 😭 Honestly, that sounds nice. I forget what silence feels like when I've been editing all night.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Let them drop. You're off-duty with me. Link me your vault.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Let them drop. You're off-duty with me. Link me your vault.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "force_away_monitor",
-      "partnerMessage": "I need that. Badly. My eyes have permanent red veins from staring at spectral waveforms until the sun comes up.",
+      "partnerMessage": "Yeah... I probably do. I tell myself I'm almost done, then suddenly it's sunrise and my eyes feel like sandpaper.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "I'll be your digital detox partner. Give me your OnlyYaps handle.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'll be your digital detox partner. Give me your OnlyYaps handle.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "coffee_date_pitch",
-      "partnerMessage": "Fresh pour-over coffee while reviewing 1940s reel-to-reel magnetic recordings? You are speaking my love language, {PlayerName}.",
+      "partnerMessage": "Okay, that actually sounds like a date I'd say yes to. Coffee, old recordings, and nobody pretending they're interested in ghosts just to impress me.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Then let's set it up. Send me your private link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Then let's set it up. Send me your private link.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "turn_it_off_hour",
-      "partnerMessage": "An hour... just sixty minutes where I don't listen for ghosts, don't worry about grant funding, and just talk to you? God, that sounds like paradise.",
+      "partnerMessage": "An hour sounds manageable. No headphones, no case files, no checking waveforms. Just sitting somewhere and talking to you sounds... really good right now.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Let me give you that paradise. Let's move to OnlyYaps.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Let me give you that paradise. Let's move to OnlyYaps.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "respect_your_brain",
-      "partnerMessage": "Most people think I'm paranoid or crazy. Having someone see the intellectual rigor behind it... it makes me want to tell you everything.",
+      "partnerMessage": "Thanks. I know I can get a little obsessive, but I really do try to test everything before I make a claim. It's nice when someone notices the work instead of just the creepy stories.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Tell me everything in your private channel. Send the link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Tell me everything in your private channel. Send the link.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "safety_romance",
-      "partnerMessage": "Nobody has ever worried about my safety during a field investigation before. Usually people just want me to walk into dark basements first to see what screams.",
+      "partnerMessage": "Thank you. Most people say they want to come on an investigation and then disappear the second they realize it's cold, dark, and there's nowhere to buy coffee.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I walk in first. Always. Give me your OnlyYaps link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I walk in first. Always. Give me your OnlyYaps link.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "cook_for_her",
-      "partnerMessage": "Real food? Made with fresh garlic and olive oil, instead of instant noodles eaten cold over an oscilloscope?! You might actually be a guardian angel sent to save me from scurvy.",
+      "partnerMessage": "Fresh garlic and actual food? You might have found the fastest way to get me to stop talking about work for an entire evening.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Angel or not, dinner is on me. Send me your private handle.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Angel or not, dinner is on me. Send me your private handle.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "goosebumps_mutual",
-      "partnerMessage": "Chills are the skin's way of acknowledging an acoustic anomaly! Now imagine standing there at 3:00 AM holding the light.",
+      "partnerMessage": "That reaction is pretty normal. Still, standing there at 3 AM with a flashlight while a room does something weird is not exactly relaxing.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I don't have to imagine. Let's do it together. Link me.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "I don't have to imagine. Let's do it together. Link me.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "hauntingly_tragic",
-      "partnerMessage": "Ghosts aren't demons or monsters, {PlayerName}. They're just unresolved human grief trapped in physical architecture. When you understand that, you stop being afraid and start listening.",
+      "partnerMessage": "That's how I see it too. Whether the recordings are paranormal or not, they're usually connected to real people and real places. I don't want to turn that into a cheap scare.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "You have a profound level of empathy, Evelyn. That's what makes you so captivating.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You have a profound level of empathy, Evelyn. That's what makes you so captivating.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "forgotten_dead_praise",
-      "partnerMessage": "...Nobody has ever put it into words like that. Yes. Someone has to remember them. But it's so nice to know someone remembers me, too.",
+      "partnerMessage": "I think about that a lot. Sometimes preserving a voice is the closest thing you can do to keeping a person from disappearing completely. And... yeah, being remembered matters to me too.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I will never forget you, Evelyn. Let's talk somewhere secure.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I will never forget you, Evelyn. Let's talk somewhere secure.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "double_blind_praise",
-      "partnerMessage": "If you don't use double-blind protocols, you're just writing emotional fanfiction with tape recorders. Real research demands rigor.",
+      "partnerMessage": "Exactly. Otherwise you're just hearing what you already wanted to hear. I don't need a creepy recording to be dramatic. I need it to survive someone trying to prove it's wrong.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Let me be your double-blind audio reviewer. Send the link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Let me be your double-blind audio reviewer. Send the link.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "ionization_nerd",
-      "partnerMessage": "Positive ion density spiked to 14,000 ions per cubic centimeter right in the core. Enough to make the hair on your forearms stand straight up.",
+      "partnerMessage": "We got a noticeable ion reading right in the middle of the area. I'm still cautious about what it means, but the spike was definitely there.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Show me the sensor logs in your vault.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Show me the sensor logs in your vault.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "drop_armor_tender",
-      "partnerMessage": "It feels... strange. I haven't taken the armor off in so long that my shoulders feel bare. But with you, it doesn't feel cold.",
+      "partnerMessage": "That's hard for me. I'm so used to keeping everything controlled that letting someone see me uncertain feels... weird. But with you, it doesn't feel as uncomfortable as I expected.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I'll keep you warm, Evelyn. Always. Send me the link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'll keep you warm, Evelyn. Always. Send me the link.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "trunk_packed_flirt",
-      "partnerMessage": "A willing accomplice! The absolute best kind! Pack extra flashlight batteries and an insulated thermos of dark coffee.",
+      "partnerMessage": "Okay, you might actually survive an investigation. Bring a decent flashlight, spare batteries, and something warm. I refuse to spend four hours hearing you complain about the cold.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "On it. Lead the way to OnlyYaps.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "On it. Lead the way to OnlyYaps.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "diner_pancakes_deal",
-      "partnerMessage": "Blueberry pancakes with whipped butter at 4:30 AM while reviewing night audio? That is an airtight contract, {PlayerName}.",
+      "partnerMessage": "Blueberry pancakes after an overnight investigation? Honestly, that's one of the few traditions I could get behind.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Contract locked in. Send me your private vault link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Contract locked in. Send me your private vault link.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "same_wavelength_flirt",
-      "partnerMessage": "In a world full of phase cancellations, finding someone in harmonic resonance feels like a statistical impossibility.",
+      "partnerMessage": "I'll take that. Finding someone who actually gets why I care about this stuff is rarer than it should be.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Then let's not fight statistics. Let's make it real on OnlyYaps.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Then let's not fight statistics. Let's make it real on OnlyYaps.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "terrifying_miraculous",
-      "partnerMessage": "It changed my worldview permanently. We inhabit such a tiny sliver of observable reality.",
+      "partnerMessage": "It did. I left that building thinking about how little of the world we actually understand. It was exciting... and honestly a little humbling.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "I want to explore the rest of that reality with you. Link me.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I want to explore the rest of that reality with you. Link me.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "hold_recorder_flirt",
-      "partnerMessage": "Deal. I'll hold your hand, you hold the directional shotgun microphone. We'll be completely unstoppable.",
+      "partnerMessage": "Deal. You handle the microphone, I'll handle the readings. That sounds much safer than me trying to do both while pretending I'm not nervous.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Unstoppable duo. Link me your private server.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Unstoppable duo. Link me your private server.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "origin_story",
-      "partnerMessage": "My grandfather was a radio operator on merchant ships in the North Atlantic. When he passed away, I inherited his shortwave receiver. Late at night, tuning through static, I realized how much human voice gets lost in the ether. I just wanted to catch it before it evaporated.",
+      "partnerMessage": "My grandfather was a radio operator. When he died, I inherited his old shortwave receiver. I started listening to it late at night and realized how many voices and pieces of history can disappear without anyone noticing. I think that's where this started for me.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "He would be so proud of the reverence you treat sound with.", "nextId": "grandfather_pride", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "You carry his legacy forward every time you press record.", "nextId": "legacy_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Did he ever tell you stories about ghost ships or anomalous SOS distress calls?", "nextId": "ghost_ships_q", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "He would be so proud of the reverence you treat sound with.",
+          "nextId": "grandfather_pride",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "You carry his legacy forward every time you press record.",
+          "nextId": "legacy_praise",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Did he ever tell you stories about ghost ships or anomalous SOS distress calls?",
+          "nextId": "ghost_ships_q",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "identity_back_romance",
-      "partnerMessage": "...You understand what I do better than my own family does. That was never about catching ghosts for thrills; it was about honoring the forgotten.",
+      "partnerMessage": "That's really what it is for me. People get hung up on the ghost part, but I'm more interested in the person behind the recording and the story that got left behind.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "You have a noble heart, Evelyn. Let's move this to your vault.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You have a noble heart, Evelyn. Let's move this to your vault.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "preserving_lost_moments",
-      "partnerMessage": "Sound is the only art form that only exists while it is disappearing. Once you realize that, every second becomes precious.",
+      "partnerMessage": "Exactly. That's why I love old recordings. They're disappearing while you're listening to them. You only get one chance to preserve what was there.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Then let's not waste another second. Send me your private link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Then let's not waste another second. Send me your private link.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "grandfather_pride",
-      "partnerMessage": "...I really needed to hear that tonight, {PlayerName}. Thank you. Seriously. He was the only person who never called me weird for listening to the rain on the antenna wire.",
+      "partnerMessage": "That means a lot. He was probably the one person in my family who never thought I was wasting my time. He'd sit there with that receiver and listen to the rain hitting the antenna like it was music.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I'll sit on the porch and listen to the antenna wire with you anytime. Send the link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'll sit on the porch and listen to the antenna wire with you anytime. Send the link.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "legacy_praise",
-      "partnerMessage": "I still keep his brass Morse key on my desk right next to my digital audio converter. Old world meets new world.",
+      "partnerMessage": "I still keep his old Morse key on my desk. It's next to my audio interface now. Kind of a strange combination, but I like seeing both of them there.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Show me on OnlyYaps. I'd love to see your setup.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Show me on OnlyYaps. I'd love to see your setup.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "ghost_ships_q",
-      "partnerMessage": "He told me about an SOS Morse loop picked up off the coast of Greenland from a trawler that sank in 1928. It transmitted every November for twenty-two years on 500 kHz. Pure atmospheric magnetic trap.",
+      "partnerMessage": "He did. He told me about strange radio loops picked up from ships that had already gone down. Some of the stories were probably weather and signal drift, but the fact that people kept hearing them for years was enough to make me interested.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "A magnetic ghost in the ionosphere... that's incredible. Show me the file.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "A magnetic ghost in the ionosphere... that's incredible. Show me the file.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "trace_behind_q",
-      "partnerMessage": "Energy cannot be created or destroyed, right? Thermodynamics 101. Every word whispered in a room vibrates the plaster. It doesn't disappear; it just attenuates down into the noise floor.",
+      "partnerMessage": "In a physical sense, sound leaves traces everywhere before it fades. In a human sense... I think so too. Maybe not in some mystical way. More like memories, habits, recordings, the things people leave in other people.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Then let's say words that vibrate the plaster with something good.", "nextId": "something_good_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Then let's say words that vibrate the plaster with something good.",
+          "nextId": "something_good_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "sensitivity_praise",
-      "partnerMessage": "Most people call it neurotic obsession. Hearing you call it sensitivity makes me feel like I don't have to apologize for who I am.",
+      "partnerMessage": "Thanks. I used to think being that sensitive was a weakness. Now I mostly think it just means I notice things other people skip over.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Never apologize for who you are to me. Come on, link me your vault.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Never apologize for who you are to me. Come on, link me your vault.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "something_good_flirt",
-      "partnerMessage": "You're dangerously charming when you want to be. My heart rate is definitely defying baseline parameters right now.",
+      "partnerMessage": "Okay... that was smooth. I'm not even going to pretend it didn't work.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Let me hear that heart rate on OnlyYaps. Send the link.", "nextId": "vault_pitch_forward", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Let me hear that heart rate on OnlyYaps. Send the link.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ]
+    },
+    {
+      "id": "invite_in_romance",
+      "partnerMessage": "Yeah... I think I would like that. It's strange how comfortable this conversation feels considering we matched maybe ten minutes ago. Let's keep talking somewhere a little more private.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        {
+          "choiceText": "Then let's take this somewhere quieter. Send me your vault.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ]
+    },
+    {
+      "id": "brilliant_validation",
+      "partnerMessage": "That's really nice to hear. I'm used to explaining what I do before people decide what they think of me. It's refreshing not having to defend every weird little interest.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        {
+          "choiceText": "I want to hear more. Move this to your private channel.",
+          "nextId": "vault_pitch_forward",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "hard_ghost_exit",
-      "partnerMessage": "Low-vibrational static detected. Purging conversation buffer from memory. Have a thoroughly mediocre existence.",
+      "partnerMessage": "Yeah, we're probably not a good match. Take care.",
       "linkUrl": "",
       "triggerEvent": "GET_GHOSTED",
       "choices": []
     },
     {
       "id": "vault_pitch_forward",
-      "partnerMessage": "Open this encrypted case file link right now. Move to my private OnlyYaps investigation vault before this public channel gets compromised by radio static. 📼🔍",
+      "partnerMessage": "Okay, I'm moving this somewhere a little quieter. My private OnlyYaps vault has the recordings, notes, and case files. Come over there and I'll show you the stuff I don't put on the public profile.",
       "linkUrl": "onlyyaps.vault/evelyn_evp",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []

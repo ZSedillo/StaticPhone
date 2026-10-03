@@ -10,426 +10,780 @@
   "nodes": [
     {
       "nodeId": "start",
-      "partnerDialogue": "Masie: *loud hiss of escaping steam, reverberating water drips on cold brick* {PlayerName}! Oh god, you're there! The auxiliary line solenoid tripped and the whole heating riser is freezing up! The digital sensor in the tropical wing just dropped to 52°F—the cloud forest orchids will suffer tissue necrosis in twenty minutes if I don't get the bypass open! Talk to me—I'm down in the dark cellar looking at this massive cast-iron junction!",
+      "partnerDialogue": "*loud hiss of steam, water dripping somewhere deeper in the cellar* {PlayerName}? Oh, thank God. You're there.\n\nOkay, I need you to talk to me for a second because I can barely hear myself think down here. The auxiliary line tripped, the heating riser is dropping fast, and the sensor in the tropical wing is already reading 52°F. If I can't get the bypass open soon, I'm going to lose a lot of the plants we've been growing for months.\n\nI'm at the old cast-iron junction now. It's dark, it's wet, and I have absolutely no idea why I thought I could handle this by myself tonight. Can you stay on the line with me while I figure this out?",
       "choices": [
-        { "choiceText": "Breathe, Masie. I'm right here with you. What does the valve head look like?", "nextNodeId": "c_valve_visual_check" },
-        { "choiceText": "Don't force it dry. Feel along the pipe collar for the mineral bleed screw.", "nextNodeId": "c_bleed_screw_tip" },
-        { "choiceText": "Close your eyes for three seconds. Hear my voice through the noise. You've got this.", "nextNodeId": "c_calm_anchor_opening" },
-        { "choiceText": "What tools do you have in your hands right now?", "nextNodeId": "c_tools_check" }
+        {
+          "choiceText": "Breathe, Masie. I'm right here with you. What does the valve head look like?",
+          "nextNodeId": "c_valve_visual_check"
+        },
+        {
+          "choiceText": "Don't force it dry. Feel along the pipe collar for the mineral bleed screw.",
+          "nextNodeId": "c_bleed_screw_tip"
+        },
+        {
+          "choiceText": "Close your eyes for three seconds. Hear my voice through the noise. You've got this.",
+          "nextNodeId": "c_calm_anchor_opening"
+        },
+        {
+          "choiceText": "What tools do you have in your hands right now?",
+          "nextNodeId": "c_tools_check"
+        }
       ]
     },
     {
       "nodeId": "c_tools_check",
-      "partnerDialogue": "Masie: I've got a fourteen-inch heavy brass pipe wrench, an old rusted flashlight held between my teeth, and my canvas garden gloves! The cellar floor is slick with condensation runoff!",
+      "partnerDialogue": "I've got the big brass pipe wrench, my old flashlight, and these garden gloves that are basically useless because everything down here is wet.\n\nThe floor is slick from the condensation, too. I nearly went down getting to the valve. I know I'm supposed to be calm about this because I've dealt with the boiler before, but right now I'm mostly annoyed that I'm scared.\n\nTell me what you want me to check first. I'm listening.",
       "choices": [
-        { "choiceText": "Drop the gloves. You need direct tactile grip on that wrench.", "nextNodeId": "c_rag_grip_tip" },
-        { "choiceText": "Check the pipe collar first for the mineral bleed screw.", "nextNodeId": "c_bleed_screw_tip" },
-        { "choiceText": "Take the flashlight out of your teeth, set it on the dry brick ledge, and aim it at the valve.", "nextNodeId": "c_valve_visual_check" }
+        {
+          "choiceText": "Drop the gloves. You need direct tactile grip on that wrench.",
+          "nextNodeId": "c_rag_grip_tip"
+        },
+        {
+          "choiceText": "Check the pipe collar first for the mineral bleed screw.",
+          "nextNodeId": "c_bleed_screw_tip"
+        },
+        {
+          "choiceText": "Take the flashlight out of your teeth, set it on the dry brick ledge, and aim it at the valve.",
+          "nextNodeId": "c_valve_visual_check"
+        }
       ]
     },
     {
       "nodeId": "c_valve_visual_check",
-      "partnerDialogue": "Masie: It's an old four-bolt flanged gate valve. The wheel was originally painted yellow, but it's completely crusted over with pale green copper scale and white lime! My palms keep slipping against the oxidized metal!",
+      "partnerDialogue": "It's one of the old four-bolt gate valves. The yellow paint is still underneath all this buildup, but you can barely see it. There's green corrosion around the metal and white mineral crust everywhere.\n\nI've tried turning the wheel by hand twice. Nothing. My hands are slipping and I don't want to put so much force into it that I make something worse. Give me a second... okay. I'm looking at it properly now.\n\nWhat are you seeing that I'm missing?",
       "choices": [
-        { "choiceText": "Take the gloves off. Grip the iron directly with a dry shop rag.", "nextNodeId": "c_rag_grip_tip" },
-        { "choiceText": "Seat the jaws of your pipe wrench across two spokes of the wheel.", "nextNodeId": "c_wrench_spokes" },
-        { "choiceText": "Look around for a copper hammer or a heavy spanner to tap the housing.", "nextNodeId": "c_tap_casing" }
+        {
+          "choiceText": "Take the gloves off. Grip the iron directly with a dry shop rag.",
+          "nextNodeId": "c_rag_grip_tip"
+        },
+        {
+          "choiceText": "Seat the jaws of your pipe wrench across two spokes of the wheel.",
+          "nextNodeId": "c_wrench_spokes"
+        },
+        {
+          "choiceText": "Look around for a copper hammer or a heavy spanner to tap the housing.",
+          "nextNodeId": "c_tap_casing"
+        }
       ]
     },
     {
       "nodeId": "c_bleed_screw_tip",
-      "partnerDialogue": "Masie: *metallic tapping* There! A small brass square-head screw right on the elbow joint! But it looks corroded around the seat. If I loosen it, will scalding steam blast out at my face?",
+      "partnerDialogue": "Wait. I found something. There's a little square brass screw on the elbow joint. It's almost completely buried under the corrosion.\n\nI'm nervous about touching it. It looks like the kind of thing that hasn't moved since before I was born, and I really don't want to find out what's sitting behind it the hard way.\n\nDo you think I should ease it loose, or leave it alone and work on the main wheel?",
       "choices": [
-        { "choiceText": "Only a tiny hiss of vapor. Back it off half a turn to release the vacuum lock.", "nextNodeId": "c_vacuum_release" },
-        { "choiceText": "Keep your face turned away, wrap your sleeve around the wrench, and crack it gently.", "nextNodeId": "c_vacuum_release" },
-        { "choiceText": "Don't touch the screw if you feel unsafe—focus directly on the main wheel instead.", "nextNodeId": "c_valve_visual_check" }
+        {
+          "choiceText": "Only a tiny hiss of vapor. Back it off half a turn to release the vacuum lock.",
+          "nextNodeId": "c_vacuum_release"
+        },
+        {
+          "choiceText": "Keep your face turned away, wrap your sleeve around the wrench, and crack it gently.",
+          "nextNodeId": "c_vacuum_release"
+        },
+        {
+          "choiceText": "Don't touch the screw if you feel unsafe—focus directly on the main wheel instead.",
+          "nextNodeId": "c_valve_visual_check"
+        }
       ]
     },
     {
       "nodeId": "c_calm_anchor_opening",
-      "partnerDialogue": "Masie: *sharp inhale, held, slow shaky exhale* Inhaling... exhaling. Okay. Your voice cut right through the clanking. My pulse was hammering in my throat so hard I couldn't think. I'm looking at the wheel now—it's locked tight with mineral crust.",
+      "partnerDialogue": "*sharp inhale, then a slower breath out* Okay. I'm doing it.\n\nYou'd laugh if you could see me. Twenty minutes ago I was arguing with a professor about greenhouse humidity like it was the most important thing in the world. Now I'm sitting in a freezing cellar with a flashlight and a wrench, trying not to panic.\n\nBut your voice is helping. I can actually focus again. I'm looking at the wheel now. It's completely locked with mineral buildup.",
       "choices": [
-        { "choiceText": "Good girl. Use your pipe wrench handle to tap the casing and crack that crust.", "nextNodeId": "c_tap_casing" },
-        { "choiceText": "Wrap a cloth around the rim and get ready to pull.", "nextNodeId": "c_rag_grip_tip" },
-        { "choiceText": "Check the counterweight arm above the manifold before we apply torque.", "nextNodeId": "c_counterweight_check" }
+        {
+          "choiceText": "Good girl. Use your pipe wrench handle to tap the casing and crack that crust.",
+          "nextNodeId": "c_tap_casing"
+        },
+        {
+          "choiceText": "Wrap a cloth around the rim and get ready to pull.",
+          "nextNodeId": "c_rag_grip_tip"
+        },
+        {
+          "choiceText": "Check the counterweight arm above the manifold before we apply torque.",
+          "nextNodeId": "c_counterweight_check"
+        }
       ]
     },
     {
       "nodeId": "c_counterweight_check",
-      "partnerDialogue": "Masie: The counterweight arm is pegged to the safety stop! If I lift it while the boiler is cold, does it vent steam into the cellar?",
+      "partnerDialogue": "I see it. There's a counterweight arm sitting above the manifold, and it's pressed right against the safety stop.\n\nI don't remember ever seeing it this tightly seated. I could probably move it, but I don't want to guess with a boiler. That's how people get hurt, and I've had enough close calls for one night already.\n\nWhat would you do from where I'm standing?",
       "choices": [
-        { "choiceText": "No, it vents outside through the copper roof flues. Lift the arm two inches!", "nextNodeId": "c_lift_counterweight" },
-        { "choiceText": "Keep the counterweight down and focus purely on the bypass wheel.", "nextNodeId": "c_wrench_spokes" }
+        {
+          "choiceText": "No, it vents outside through the copper roof flues. Lift the arm two inches!",
+          "nextNodeId": "c_lift_counterweight"
+        },
+        {
+          "choiceText": "Keep the counterweight down and focus purely on the bypass wheel.",
+          "nextNodeId": "c_wrench_spokes"
+        }
       ]
     },
     {
       "nodeId": "c_lift_counterweight",
-      "partnerDialogue": "Masie: Lifting the arm... *loud mechanical clack and rush of air* It vented! The backpressure dropped! Now the manual bypass wheel is free to turn!",
+      "partnerDialogue": "Okay... I'm lifting it. Slowly.\n\n*mechanical clack, then a sudden rush of air* Oh. Wow. Okay. That dropped the pressure.\n\nHang on. The wheel moved. Not much, but it moved. That's the first sign all night that this thing is actually going to cooperate with me.\n\nI'm going back to the valve. My hands are shaking a little, but at least they're shaking because I can feel this working now.",
       "choices": [
-        { "choiceText": "Now seat the wrench across the spokes and pull!", "nextNodeId": "c_wrench_spokes" },
-        { "choiceText": "Turn the wheel counter-clockwise until the needle hits 20 PSI!", "nextNodeId": "c_heavy_pull" }
+        {
+          "choiceText": "Now seat the wrench across the spokes and pull!",
+          "nextNodeId": "c_wrench_spokes"
+        },
+        {
+          "choiceText": "Turn the wheel counter-clockwise until the needle hits 20 PSI!",
+          "nextNodeId": "c_heavy_pull"
+        }
       ]
     },
     {
       "nodeId": "c_rag_grip_tip",
-      "partnerDialogue": "Masie: Rag wrapped tight around the rim. Feet planted on the wet brickwork. It feels freezing, like grabbing a block of lake ice! The metal is biting into my palms!",
+      "partnerDialogue": "I wrapped the rag around the rim. Better grip.\n\nMy boots are planted, my gloves are off, and I'm trying to stop relying on my arms alone. The metal is freezing. I can feel the edge of the wheel pressing into my palms.\n\nI don't love this. But okay. I'm ready. Count me in.",
       "choices": [
-        { "choiceText": "Put your shoulder into it. Pull toward your chest on three. One... two... three!", "nextNodeId": "c_heavy_pull" },
-        { "choiceText": "Drop your center of gravity. Use your legs to lever the turn, not just your arms.", "nextNodeId": "c_heavy_pull" }
+        {
+          "choiceText": "Put your shoulder into it. Pull toward your chest on three. One... two... three!",
+          "nextNodeId": "c_heavy_pull"
+        },
+        {
+          "choiceText": "Drop your center of gravity. Use your legs to lever the turn, not just your arms.",
+          "nextNodeId": "c_heavy_pull"
+        }
       ]
     },
     {
       "nodeId": "c_wrench_spokes",
-      "partnerDialogue": "Masie: Wrench braced across the spokes! Using the handle as a lever arm! *deep breath* Giving it everything I have!",
+      "partnerDialogue": "I've got the wrench across the spokes. It's wedged in pretty well.\n\nI had to adjust my footing because the floor is still wet, but I think I've got enough leverage now. Give me one second... yeah. I can feel the whole valve resisting me.\n\nAll right. I'm going to pull. Don't let me overthink it.",
       "choices": [
-        { "choiceText": "Heave down on it, Masie! Don't let it slip!", "nextNodeId": "c_heavy_pull" },
-        { "choiceText": "Lean your whole weight on the handle—snap the mineral lock!", "nextNodeId": "c_heavy_pull" }
+        {
+          "choiceText": "Heave down on it, Masie! Don't let it slip!",
+          "nextNodeId": "c_heavy_pull"
+        },
+        {
+          "choiceText": "Lean your whole weight on the handle—snap the mineral lock!",
+          "nextNodeId": "c_heavy_pull"
+        }
       ]
     },
     {
       "nodeId": "c_vacuum_release",
-      "partnerDialogue": "Masie: *hiss of escaping air and sulfur steam* A little puff of warm water mist hit my wrist! The pressure equalized! The spindle just shifted a millimeter on its own!",
+      "partnerDialogue": "*hiss of air, then a quick splash against metal* Okay—there it is. Just a little burst, but enough to make me jump.\n\nMy wrist got a bit of warm mist on it. Nothing serious. The pressure definitely changed, though. I can feel the spindle move now, just slightly.\n\nThat was the first thing down here that actually sounded normal. I'm going for the wheel while it's loose.",
       "choices": [
-        { "choiceText": "Now grab the wheel! Turn it counter-clockwise while the seal is warm!", "nextNodeId": "c_heavy_pull" },
-        { "choiceText": "Lock the wrench on the spokes and finish the turn!", "nextNodeId": "c_heavy_pull" }
+        {
+          "choiceText": "Now grab the wheel! Turn it counter-clockwise while the seal is warm!",
+          "nextNodeId": "c_heavy_pull"
+        },
+        {
+          "choiceText": "Lock the wrench on the spokes and finish the turn!",
+          "nextNodeId": "c_heavy_pull"
+        }
       ]
     },
     {
       "nodeId": "c_tap_casing",
-      "partnerDialogue": "Masie: *sharp metallic clinking echoes* Chunks of dried white lime are flaking onto my boots! The threads are exposed!",
+      "partnerDialogue": "*sharp metallic taps echo off the brick* That's doing something. Pieces of the buildup are breaking loose now.\n\nThere are flakes all over my boots, and I can finally see more of the threads underneath. I honestly can't believe how badly this thing was seized up.\n\nOkay. The wheel looks better. I'm going to set the wrench again and try it before it decides to lock up on me a second time.",
       "choices": [
-        { "choiceText": "Now lock the wrench in place and lean your body weight down!", "nextNodeId": "c_heavy_pull" },
-        { "choiceText": "Wrap the cloth around the rim and pull with both hands!", "nextNodeId": "c_heavy_pull" }
+        {
+          "choiceText": "Now lock the wrench in place and lean your body weight down!",
+          "nextNodeId": "c_heavy_pull"
+        },
+        {
+          "choiceText": "Wrap the cloth around the rim and pull with both hands!",
+          "nextNodeId": "c_heavy_pull"
+        }
       ]
     },
     {
       "nodeId": "c_heavy_pull",
-      "partnerDialogue": "Masie: *loud grunt of effort, heavy screech of rusted metal giving way* IT TURNED! *deep hydraulic thud through pipes* The pilot burner just ignited with a huge whoosh! The whole boiler jacket is vibrating!",
+      "partnerDialogue": "*grunt of effort, followed by a long scrape of metal* Oh—there. It moved.\n\nIt actually moved.\n\n*deep thud through the pipes, followed by the boiler catching* Wait. That's the burner. It's on.\n\nThe whole jacket is vibrating now. I can hear the water starting to move through the line. I'm not celebrating yet because I don't want to jinx it, but... I think we got it.",
       "choices": [
-        { "choiceText": "Spin it four more rotations until the riser pipe sings!", "nextNodeId": "c_boiler_alive" },
-        { "choiceText": "Step back from the valve! Watch the steam gauge on the main tank!", "nextNodeId": "c_boiler_alive" },
-        { "choiceText": "Listen for any pressure leaks along the seams before you let go.", "nextNodeId": "c_check_leaks_boiler" }
+        {
+          "choiceText": "Spin it four more rotations until the riser pipe sings!",
+          "nextNodeId": "c_boiler_alive"
+        },
+        {
+          "choiceText": "Step back from the valve! Watch the steam gauge on the main tank!",
+          "nextNodeId": "c_boiler_alive"
+        },
+        {
+          "choiceText": "Listen for any pressure leaks along the seams before you let go.",
+          "nextNodeId": "c_check_leaks_boiler"
+        }
       ]
     },
     {
       "nodeId": "c_check_leaks_boiler",
-      "partnerDialogue": "Masie: Checking the gasket seals... *sniffing air, listening close* No hissing at the flanges! Just the steady, rhythmic chug of hot water circulating through the cast-iron radiators!",
+      "partnerDialogue": "I'm checking the flanges now.\n\nNothing obvious. No sharp hissing, no steam shooting out anywhere it shouldn't. Just that steady mechanical sound from the water moving through the system.\n\nI can finally hear myself breathe. Give me a second to make sure I'm not missing something stupid because I'm still running on adrenaline.",
       "choices": [
-        { "choiceText": "Look at the gauge needle. What is it reading?", "nextNodeId": "c_boiler_alive" }
+        {
+          "choiceText": "Look at the gauge needle. What is it reading?",
+          "nextNodeId": "c_boiler_alive"
+        }
       ]
     },
     {
       "nodeId": "c_boiler_alive",
-      "partnerDialogue": "Masie: *fast metallic spinning sound, triumphant laughter* Needle is swinging past 18... 20... 22 PSI! The warmth is already rushing through the overhead copper trunks! The pipes are glowing with heat! The whole cellar ceiling is beginning to radiate warm air!",
+      "partnerDialogue": "The gauge is climbing. Eighteen... twenty... twenty-two.\n\nThat's it. That's the pressure we needed.\n\nI can already feel the heat coming back through the overhead lines. The pipes are warming up, and the air isn't biting anymore. I don't think I've been this relieved over a piece of machinery in my entire life.\n\nLet me check the greenhouse. I need to see the seedlings with my own eyes.",
       "choices": [
-        { "choiceText": "You did it, Masie. The seedlings are safe. Every single one of them.", "nextNodeId": "c_crisis_averted_relief" },
-        { "choiceText": "Listen to that boiler hum. You're an absolute force of nature.", "nextNodeId": "c_crisis_averted_relief" },
-        { "choiceText": "Step away from the heat riser. Let the cast iron do the work now.", "nextNodeId": "c_crisis_averted_relief" }
+        {
+          "choiceText": "You did it, Masie. The seedlings are safe. Every single one of them.",
+          "nextNodeId": "c_crisis_averted_relief"
+        },
+        {
+          "choiceText": "Listen to that boiler hum. You're an absolute force of nature.",
+          "nextNodeId": "c_crisis_averted_relief"
+        },
+        {
+          "choiceText": "Step away from the heat riser. Let the cast iron do the work now.",
+          "nextNodeId": "c_crisis_averted_relief"
+        }
       ]
     },
     {
       "nodeId": "c_crisis_averted_relief",
-      "partnerDialogue": "Masie: *slides down with a heavy breath against the brick wall* Oh god... *shaky, laughing exhale* My knees just gave out completely. I'm sitting flat on the bottom brick step with grease all over my sweater. If you hadn't been in my ear keeping my head straight, I would have panicked and watched three months of research freeze to death.",
+      "partnerDialogue": "*slides down against the brick wall, breathing hard* Oh my God.\n\nGive me a second. My legs are actually shaking.\n\nI know how dramatic that sounds, but I really thought I'd have to watch all of that work die because I couldn't get one stupid valve open. Those plants aren't just plants to me. I've spent months on them. Late nights, failed samples, grant money, arguing with people who think I'm overprotective of a bunch of leaves.\n\nAnd you stayed here the whole time. I don't think you realize how much that mattered.",
       "choices": [
-        { "choiceText": "You kept your own head straight, Masie. I was just holding the line.", "nextNodeId": "c_humility_response" },
-        { "choiceText": "How do your hands feel? Did you scrape yourself on the iron?", "nextNodeId": "c_check_hands_intimate" },
-        { "choiceText": "Take as long as you need on that step. Just breathe the warm air.", "nextNodeId": "c_cellar_breathing" },
-        { "choiceText": "I'm so proud of you. That was terrifying and you didn't back down.", "nextNodeId": "c_proud_of_you_bond" }
+        {
+          "choiceText": "You kept your own head straight, Masie. I was just holding the line.",
+          "nextNodeId": "c_humility_response"
+        },
+        {
+          "choiceText": "How do your hands feel? Did you scrape yourself on the iron?",
+          "nextNodeId": "c_check_hands_intimate"
+        },
+        {
+          "choiceText": "Take as long as you need on that step. Just breathe the warm air.",
+          "nextNodeId": "c_cellar_breathing"
+        },
+        {
+          "choiceText": "I'm so proud of you. That was terrifying and you didn't back down.",
+          "nextNodeId": "c_proud_of_you_bond"
+        }
       ]
     },
     {
       "nodeId": "c_humility_response",
-      "partnerDialogue": "Masie: Don't downplay it. When you're down in a subterranean brick room with seventy-year-old machinery screaming at you, solitude feels like a cage. Your voice made this cellar feel... not so empty.",
+      "partnerDialogue": "Don't do that. Don't make it smaller than it was.\n\nBeing alone down here made everything feel ten times worse. I kept thinking, 'Just handle it. You've fixed things before. Don't be ridiculous.' But after a while that just turns into silence, and silence gets inside your head.\n\nHearing you on the other end gave me something else to focus on. It felt like there was a person in the room with me, even though there wasn't.",
       "choices": [
-        { "choiceText": "You'll never have to face a cold cellar alone again.", "nextNodeId": "c_not_alone_shift" },
-        { "choiceText": "It was never empty as long as you had the courage to pick up that wrench.", "nextNodeId": "c_not_alone_shift" }
+        {
+          "choiceText": "You'll never have to face a cold cellar alone again.",
+          "nextNodeId": "c_not_alone_shift"
+        },
+        {
+          "choiceText": "It was never empty as long as you had the courage to pick up that wrench.",
+          "nextNodeId": "c_not_alone_shift"
+        }
       ]
     },
     {
       "nodeId": "c_check_hands_intimate",
-      "partnerDialogue": "Masie: A little black grease on my palms and a red scrape across my thumb joint where the flange nicked me. But they're warm now. The heat coming up through the floor grates smells like wet cedar bark and hot cast iron.",
+      "partnerDialogue": "My palms are filthy, and I scraped my thumb on the flange. It's nothing serious. Just enough to sting when the adrenaline wears off.\n\nActually... my hands feel warm again now. I didn't notice how cold they were until a minute ago.\n\nYou know, you're very good at asking the practical questions when I'm too distracted to ask them myself. I appreciate that more than I probably sound like I do.",
       "choices": [
-        { "choiceText": "That's the best smell in the world when it means life survived.", "nextNodeId": "c_not_alone_shift" },
-        { "choiceText": "Wash that scrape under clean water as soon as we head upstairs.", "nextNodeId": "c_not_alone_shift" }
+        {
+          "choiceText": "That's the best smell in the world when it means life survived.",
+          "nextNodeId": "c_not_alone_shift"
+        },
+        {
+          "choiceText": "Wash that scrape under clean water as soon as we head upstairs.",
+          "nextNodeId": "c_not_alone_shift"
+        }
       ]
     },
     {
       "nodeId": "c_cellar_breathing",
-      "partnerDialogue": "Masie: Inhaling the steam... *soft laugh* It feels like stepping into a sauna after walking through a snowdrift. The tension in my neck is finally uncoiling.",
+      "partnerDialogue": "*slow breath, then a quiet laugh* Okay. The heat is finally getting to me.\n\nIt's strange how quickly your body catches up once it realizes the emergency is over. My shoulders were practically up around my ears.\n\nI think I was holding my breath this whole time. I can finally feel myself coming back down to earth.",
       "choices": [
-        { "choiceText": "Come on up out of the dark. Let's see the glasshouse now that it's safe.", "nextNodeId": "c_climb_to_glasshouse" },
-        { "choiceText": "Stay on the step for another minute if your legs still feel like jelly.", "nextNodeId": "c_not_alone_shift" }
+        {
+          "choiceText": "Come on up out of the dark. Let's see the glasshouse now that it's safe.",
+          "nextNodeId": "c_climb_to_glasshouse"
+        },
+        {
+          "choiceText": "Stay on the step for another minute if your legs still feel like jelly.",
+          "nextNodeId": "c_not_alone_shift"
+        }
       ]
     },
     {
       "nodeId": "c_proud_of_you_bond",
-      "partnerDialogue": "Masie: *voice catches slightly* Nobody has said they're proud of me in years, {PlayerName}. The biology department just expects the glasshouse to run smoothly, and my parents think I'm playing with house plants. Hearing that from you... it hits somewhere very deep.",
+      "partnerDialogue": "*voice goes quieter for a moment* Nobody's said that to me in a long time.\n\nThe department mostly notices when something breaks. My family notices when I'm not following the life they imagined for me. Most of the time, I just hear what still needs to be done.\n\nSo... thank you. Seriously. I know it's just a sentence, but I needed to hear it more than I realized.",
       "choices": [
-        { "choiceText": "Because I see how much devotion you pour into this place. Come up to the light.", "nextNodeId": "c_climb_to_glasshouse" },
-        { "choiceText": "Your parents don't understand what it means to keep a living ecosystem alive.", "nextNodeId": "c_not_alone_shift" }
+        {
+          "choiceText": "Because I see how much devotion you pour into this place. Come up to the light.",
+          "nextNodeId": "c_climb_to_glasshouse"
+        },
+        {
+          "choiceText": "Your parents don't understand what it means to keep a living ecosystem alive.",
+          "nextNodeId": "c_not_alone_shift"
+        }
       ]
     },
     {
       "nodeId": "c_not_alone_shift",
-      "partnerDialogue": "Masie: *voice softens into something quiet and vulnerable* You know... I've told myself for years that being self-sufficient was the highest virtue. 'Masie can haul the peat herself. Masie can fix the lines. Masie doesn't need anyone.' But sitting here tonight... having someone care whether my hands were cold... it made me realize how lonely that armor was.",
+      "partnerDialogue": "You know what's embarrassing? I've spent years being very proud of the fact that I never need anyone.\n\nI carry things myself. I fix things myself. I stay late and tell people I'm fine even when I'm exhausted. It's useful until you realize you've turned being alone into part of your identity.\n\nSitting here with you on the line tonight made me notice how tired I am of doing that. Not helpless. Just... tired.",
       "choices": [
-        { "choiceText": "Armor is heavy to carry every day. It's okay to set it down.", "nextNodeId": "c_climb_to_glasshouse" },
-        { "choiceText": "Self-reliance is admirable, but sharing the load makes life softer.", "nextNodeId": "c_climb_to_glasshouse" },
-        { "choiceText": "You don't have to carry the whole conservatory on your own shoulders anymore.", "nextNodeId": "c_climb_to_glasshouse" }
+        {
+          "choiceText": "Armor is heavy to carry every day. It's okay to set it down.",
+          "nextNodeId": "c_climb_to_glasshouse"
+        },
+        {
+          "choiceText": "Self-reliance is admirable, but sharing the load makes life softer.",
+          "nextNodeId": "c_climb_to_glasshouse"
+        },
+        {
+          "choiceText": "You don't have to carry the whole conservatory on your own shoulders anymore.",
+          "nextNodeId": "c_climb_to_glasshouse"
+        }
       ]
     },
     {
       "nodeId": "c_climb_to_glasshouse",
-      "partnerDialogue": "Masie: *sound of boots slowly climbing wood-and-brick steps, iron latch clicking open* Let's go upstairs. *creak of heavy door* Ah... {PlayerName}, you should see this. The misting nozzles just kicked on to celebrate the pressure return. The whole central palm house is filled with this ethereal, floating fog.",
+      "partnerDialogue": "*boots on the steps, then the greenhouse door opening* Come on. I'm going back upstairs.\n\nOh... yeah. You need to hear this.\n\nThe misting system just kicked on. Everything is damp again, the glass is fogging up, and the whole place looks completely different now that the heat is back. Five minutes ago I thought this room was going to be a disaster. Now it just feels quiet.\n\nI'm walking toward the main house. Stay with me.",
       "choices": [
-        { "choiceText": "Describe it to me. What does it look like through your eyes?", "nextNodeId": "c_describe_greenhouse_world" },
-        { "choiceText": "Walk over to the water lily pond. Let's sit where it's peaceful.", "nextNodeId": "c_pond_walk" },
-        { "choiceText": "Check the seedling trays on the bench first. Are the leaves upright?", "nextNodeId": "c_check_seedlings_relief" }
+        {
+          "choiceText": "Describe it to me. What does it look like through your eyes?",
+          "nextNodeId": "c_describe_greenhouse_world"
+        },
+        {
+          "choiceText": "Walk over to the water lily pond. Let's sit where it's peaceful.",
+          "nextNodeId": "c_pond_walk"
+        },
+        {
+          "choiceText": "Check the seedling trays on the bench first. Are the leaves upright?",
+          "nextNodeId": "c_check_seedlings_relief"
+        }
       ]
     },
     {
       "nodeId": "c_check_seedlings_relief",
-      "partnerDialogue": "Masie: Walking past the potting bench... *gentle rustle of foliage* The leaves on the *Nepenthes* are glistening with condensation droplets! The pitchers aren't limp at all! The taproots stayed insulated in the wet sphagnum! They made it through without a single brown margin!",
+      "partnerDialogue": "I'm at the potting bench.\n\nOkay... they're upright.\n\nThe leaves are wet with condensation, but they're still firm. No obvious damage around the edges. The trays held their heat better than I expected.\n\nI know they probably look like ordinary plants to anyone else. Right now, though? Seeing them still standing is making me want to sit down again.",
       "choices": [
-        { "choiceText": "That's a miracle of timing. Now take a seat by the pond.", "nextNodeId": "c_pond_walk" },
-        { "choiceText": "Describe the glasshouse to me right now. Paint the picture.", "nextNodeId": "c_describe_greenhouse_world" }
+        {
+          "choiceText": "That's a miracle of timing. Now take a seat by the pond.",
+          "nextNodeId": "c_pond_walk"
+        },
+        {
+          "choiceText": "Describe the glasshouse to me right now. Paint the picture.",
+          "nextNodeId": "c_describe_greenhouse_world"
+        }
       ]
     },
     {
       "nodeId": "c_describe_greenhouse_world",
-      "partnerDialogue": "Masie: The curved glass arches overhead are totally frosted over with white condensation, and the amber streetlights outside turn the whole ceiling into ribbed honeycombs. The tree ferns look like prehistoric umbrellas stretching through the vapor. It feels like we're in a sunken airship at the bottom of the sea.",
+      "partnerDialogue": "The glass is covered in condensation, so the lights outside are all blurred. Everything beyond the panes looks farther away than it really is.\n\nThe tree ferns are catching the mist, the floor is wet, and the copper pipes overhead are finally warming up again. It doesn't look magical or anything. It just looks like a place that's alive and finally settled down.\n\nAfter what happened downstairs, honestly, that's enough for me.",
       "choices": [
-        { "choiceText": "A sunken airship with you... I'd happily stay underwater forever.", "nextNodeId": "c_underwater_flirt" },
-        { "choiceText": "It sounds like a forgotten world that only you know how to wake up.", "nextNodeId": "c_forgotten_world_praise" },
-        { "choiceText": "How does the air feel against your skin after that freezing cellar?", "nextNodeId": "c_air_sensory_details" }
+        {
+          "choiceText": "A sunken airship with you... I'd happily stay underwater forever.",
+          "nextNodeId": "c_underwater_flirt"
+        },
+        {
+          "choiceText": "It sounds like a forgotten world that only you know how to wake up.",
+          "nextNodeId": "c_forgotten_world_praise"
+        },
+        {
+          "choiceText": "How does the air feel against your skin after that freezing cellar?",
+          "nextNodeId": "c_air_sensory_details"
+        }
       ]
     },
     {
       "nodeId": "c_air_sensory_details",
-      "partnerDialogue": "Masie: It's warm, humid, and heavy with the scent of damp moss, crushed pine needles, and sweet decaying bark. It feels like wrapping yourself in a living wool blanket. You can feel your pores opening up.",
+      "partnerDialogue": "It's warm in here now. Humid, a little heavy, and it smells like wet soil and old wood.\n\nThere are still traces of the boiler smell on my clothes. I probably smell terrible.\n\nBut the air feels good. The kind of good where you notice your body unclenching without realizing it was tense in the first place.",
       "choices": [
-        { "choiceText": "Take me to your bench by the pond. Let's just sit in that blanket.", "nextNodeId": "c_pond_walk" },
-        { "choiceText": "It sounds like a place where time completely stops moving.", "nextNodeId": "c_underwater_flirt" }
+        {
+          "choiceText": "Take me to your bench by the pond. Let's just sit in that blanket.",
+          "nextNodeId": "c_pond_walk"
+        },
+        {
+          "choiceText": "It sounds like a place where time completely stops moving.",
+          "nextNodeId": "c_underwater_flirt"
+        }
       ]
     },
     {
       "nodeId": "c_underwater_flirt",
-      "partnerDialogue": "Masie: *gentle, genuine giggle that echoes off the glass* You're hopeless, you know that? But... it really does feel like our own pocket dimension right now. The city outside has subways and sirens and rent notices, and in here there's just chlorophyll and water droplets.",
+      "partnerDialogue": "*small laugh* You really do know how to make me smile when I'm trying to stay serious.\n\nBut... yeah. It does feel separate from everything tonight. My phone usually means emails, deadlines, somebody asking where a report is. Right now it just means you're still there.\n\nI could get used to that.",
       "choices": [
-        { "choiceText": "Take me to your bench by the pond. I want to know what you think about when it's this quiet.", "nextNodeId": "c_pond_walk" },
-        { "choiceText": "The city can stay outside. We're safe in here.", "nextNodeId": "c_pond_walk" }
+        {
+          "choiceText": "Take me to your bench by the pond. I want to know what you think about when it's this quiet.",
+          "nextNodeId": "c_pond_walk"
+        },
+        {
+          "choiceText": "The city can stay outside. We're safe in here.",
+          "nextNodeId": "c_pond_walk"
+        }
       ]
     },
     {
       "nodeId": "c_forgotten_world_praise",
-      "partnerDialogue": "Masie: That's the secret of botany. The world forgets that everything we eat, wear, and breathe was negotiated between green leaves and sunlight millions of years ago. People think I study dirt; I study the only reason humans get to exist at all.",
+      "partnerDialogue": "That's basically why I'm in this field.\n\nPeople joke that I spend my life taking care of plants, but there's so much history in here. Every species has a reason it's here. Every little system we've built is trying to keep something alive long enough for us to understand it.\n\nI think that's what I care about more than anything. Taking something fragile seriously.",
       "choices": [
-        { "choiceText": "And tonight you kept that negotiation alive. Let's head to the water lilies.", "nextNodeId": "c_pond_walk" },
-        { "choiceText": "You speak about plants with the reverence most people reserve for art.", "nextNodeId": "c_art_reverence_talk" }
+        {
+          "choiceText": "And tonight you kept that negotiation alive. Let's head to the water lilies.",
+          "nextNodeId": "c_pond_walk"
+        },
+        {
+          "choiceText": "You speak about plants with the reverence most people reserve for art.",
+          "nextNodeId": "c_art_reverence_talk"
+        }
       ]
     },
     {
       "nodeId": "c_art_reverence_talk",
-      "partnerDialogue": "Masie: Because it is art! But instead of pigment on canvas, it's cellular tissue holding memory across centuries. When you look at an ancient cycad, you're looking at a design that watched dinosaurs go extinct and didn't change a single petal.",
+      "partnerDialogue": "Exactly.\n\nThat's the part I wish people understood. Plants aren't decorative background. Some of them have been adapting for longer than any human story we tell ourselves.\n\nYou look at an old species and realize you're looking at something that survived conditions we'll never experience. It puts my own problems in perspective without making them disappear.",
       "choices": [
-        { "choiceText": "That perspective makes daily human worries feel so small.", "nextNodeId": "c_pond_walk" }
+        {
+          "choiceText": "That perspective makes daily human worries feel so small.",
+          "nextNodeId": "c_pond_walk"
+        }
       ]
     },
     {
       "nodeId": "c_pond_walk",
-      "partnerDialogue": "Masie: *footsteps pad softly along wet slate tiles, quiet trickle of stone fountain* I'm sitting down on the edge of the stone basin. The slate has soaked up the warmth from the cellar pipes beneath the floor—it's like sitting on a warm hearth. The water is totally black and still.",
+      "partnerDialogue": "*soft footsteps over wet slate, water moving nearby* I'm by the pond now.\n\nThis is usually where I come when I don't want to be around anyone. It's quiet enough that you can hear the fountain instead of your own thoughts.\n\nI'm sitting on the edge. The stone's warm from the pipes underneath. For the first time tonight, I'm not listening for something going wrong.",
       "choices": [
-        { "choiceText": "Is your little resident bullfrog out tonight?", "nextNodeId": "c_bullfrog_check" },
-        { "choiceText": "Dip your fingers in the water. Let the rest of the day wash off.", "nextNodeId": "c_dip_fingers" },
-        { "choiceText": "What does the sky look like through the curved glass right now?", "nextNodeId": "c_sky_view_pond" }
+        {
+          "choiceText": "Is your little resident bullfrog out tonight?",
+          "nextNodeId": "c_bullfrog_check"
+        },
+        {
+          "choiceText": "Dip your fingers in the water. Let the rest of the day wash off.",
+          "nextNodeId": "c_dip_fingers"
+        },
+        {
+          "choiceText": "What does the sky look like through the curved glass right now?",
+          "nextNodeId": "c_sky_view_pond"
+        }
       ]
     },
     {
       "nodeId": "c_sky_view_pond",
-      "partnerDialogue": "Masie: Deep indigo. A faint drizzle is tapping against the glass panes, creating little shimmering tracks through the condensation. It's like looking through stained glass in an abandoned cathedral.",
+      "partnerDialogue": "It's dark blue outside. There's a light drizzle, and the drops are running down the glass in little lines.\n\nThe campus lights are on in the distance, but they're soft through the fog. It's actually really nice.\n\nI spend so much time in here working that I forget to stop and look up. Tonight I finally have a reason to.",
       "choices": [
-        { "choiceText": "Is the resident bullfrog keeping you company in your cathedral?", "nextNodeId": "c_bullfrog_check" },
-        { "choiceText": "Dip your hands in the pool. Let the soot wash away.", "nextNodeId": "c_dip_fingers" }
+        {
+          "choiceText": "Is the resident bullfrog keeping you company in your cathedral?",
+          "nextNodeId": "c_bullfrog_check"
+        },
+        {
+          "choiceText": "Dip your hands in the pool. Let the soot wash away.",
+          "nextNodeId": "c_dip_fingers"
+        }
       ]
     },
     {
       "nodeId": "c_bullfrog_check",
-      "partnerDialogue": "Masie: *soft splash* He's right there! Perched on a floating terracotta pot saucer near the papyrus stems. He just gave one low, croaking 'brrr-wump' and tilted his golden eyes at me. I think he's thanking us for not letting his water freeze.",
+      "partnerDialogue": "*soft splash* He's still here.\n\nHe's sitting on the little terracotta saucer like he owns the place. He looked at me when I walked over, then made that ridiculous low croak he does.\n\nI swear he only respects me when I have food. Which is fair. I haven't exactly been a model host lately.",
       "choices": [
-        { "choiceText": "Tell him he owes us rent assistance next month.", "nextNodeId": "c_frog_rent_joke" },
-        { "choiceText": "He knows he has the best guardian on campus.", "nextNodeId": "c_guardian_tender" },
-        { "choiceText": "Does he have an official name, or is he just 'The Bullfrog'?", "nextNodeId": "c_frog_name_talk" }
+        {
+          "choiceText": "Tell him he owes us rent assistance next month.",
+          "nextNodeId": "c_frog_rent_joke"
+        },
+        {
+          "choiceText": "He knows he has the best guardian on campus.",
+          "nextNodeId": "c_guardian_tender"
+        },
+        {
+          "choiceText": "Does he have an official name, or is he just 'The Bullfrog'?",
+          "nextNodeId": "c_frog_name_talk"
+        }
       ]
     },
     {
       "nodeId": "c_frog_name_talk",
-      "partnerDialogue": "Masie: *laughs softly* His scientific name is *Lithobates catesbeianus*, but on my night clipboard his name is Barnaby. He showed up three years ago during a rainstorm and never left. He sleeps under the water hyacinth roots during the heat of the day.",
+      "partnerDialogue": "His name is Barnaby.\n\nHe turned up after a storm a few years ago and never really left. I started keeping notes on him for fun, then it became an actual part of my research because I apparently don't know how to leave anything alone.\n\nHe spends most of the day hiding under the plants. At night he comes out and acts like he pays tuition here.",
       "choices": [
-        { "choiceText": "Barnaby has excellent taste in sanctuaries.", "nextNodeId": "c_guardian_tender" },
-        { "choiceText": "Tell Barnaby that on Saturday, he's sharing his pond with me.", "nextNodeId": "c_frog_rent_joke" }
+        {
+          "choiceText": "Barnaby has excellent taste in sanctuaries.",
+          "nextNodeId": "c_guardian_tender"
+        },
+        {
+          "choiceText": "Tell Barnaby that on Saturday, he's sharing his pond with me.",
+          "nextNodeId": "c_frog_rent_joke"
+        }
       ]
     },
     {
       "nodeId": "c_dip_fingers",
-      "partnerDialogue": "Masie: *sound of gentle water ripples* Dipping my fingertips... it's lukewarm. The soot from the cellar valve is washing off into the current. It feels like baptism after a battle.",
+      "partnerDialogue": "*quiet ripple of water* I'm putting my fingers in.\n\nIt's warmer than I expected.\n\nThere's still dirt and grease on my hands, and it's all washing off slowly. I know that's a very small thing, but right now it feels good to do something that doesn't require me to solve anything.",
       "choices": [
-        { "choiceText": "You fought hard tonight. You deserve every second of this peace.", "nextNodeId": "c_guardian_tender" },
-        { "choiceText": "Lean back against the stone rim. Let the calm take over.", "nextNodeId": "c_rest_head_comfort" }
+        {
+          "choiceText": "You fought hard tonight. You deserve every second of this peace.",
+          "nextNodeId": "c_guardian_tender"
+        },
+        {
+          "choiceText": "Lean back against the stone rim. Let the calm take over.",
+          "nextNodeId": "c_rest_head_comfort"
+        }
       ]
     },
     {
       "nodeId": "c_frog_rent_joke",
-      "partnerDialogue": "Masie: Hahaha! His rent is keeping the water beetles from chewing the lily stems, which he does faithfully every night! He's my most reliable research assistant.",
+      "partnerDialogue": "*laughs* Honestly, that's probably fair.\n\nBarnaby's contribution to the greenhouse is mostly eating bugs and sitting in places he's not supposed to. He still somehow manages to look like the most qualified employee here.\n\nHe's been around long enough that I notice when he isn't in his usual spot.",
       "choices": [
-        { "choiceText": "Until I show up on Saturday to apply for the position.", "nextNodeId": "c_apply_for_job_flirt" },
-        { "choiceText": "He knows a dedicated guardian when he sees one.", "nextNodeId": "c_guardian_tender" }
+        {
+          "choiceText": "Until I show up on Saturday to apply for the position.",
+          "nextNodeId": "c_apply_for_job_flirt"
+        },
+        {
+          "choiceText": "He knows a dedicated guardian when he sees one.",
+          "nextNodeId": "c_guardian_tender"
+        }
       ]
     },
     {
       "nodeId": "c_guardian_tender",
-      "partnerDialogue": "Masie: *whispers softly* Guardian... nobody has ever called me that. When I told my family I was switching from pre-law to plant sciences, my father asked me why I wanted to be a 'glorified janitor for weeds.'",
+      "partnerDialogue": "Guardian is a nicer word than the ones I've heard from my family.\n\nWhen I switched from pre-law to plant sciences, my father asked me what I planned to do with it. When I told him, he basically said I'd traded a real career for taking care of weeds.\n\nI laughed at the time because I didn't want him to know it hurt. It did, though.",
       "choices": [
-        { "choiceText": "Your father couldn't see the cathedral you were building. His loss.", "nextNodeId": "c_father_wound_unpacked" },
-        { "choiceText": "Weeds are just plants that don't need human permission to be strong.", "nextNodeId": "c_weeds_philosophy" },
-        { "choiceText": "Did that comment make you doubt yourself at the time?", "nextNodeId": "c_father_doubt_reflection" }
+        {
+          "choiceText": "Your father couldn't see the cathedral you were building. His loss.",
+          "nextNodeId": "c_father_wound_unpacked"
+        },
+        {
+          "choiceText": "Weeds are just plants that don't need human permission to be strong.",
+          "nextNodeId": "c_weeds_philosophy"
+        },
+        {
+          "choiceText": "Did that comment make you doubt yourself at the time?",
+          "nextNodeId": "c_father_doubt_reflection"
+        }
       ]
     },
     {
       "nodeId": "c_father_doubt_reflection",
-      "partnerDialogue": "Masie: For months. I used to walk through the greenhouse feeling like an impostor, wondering if I was just hiding from real life because the corporate world felt too sharp. It took me a long time to realize that caring for fragile life takes more courage than sitting at a desk.",
+      "partnerDialogue": "For a while, yeah.\n\nI kept wondering whether I'd made some huge mistake and just didn't have the courage to admit it. I'd walk into the greenhouse and feel happy, then feel guilty for being happy because it wasn't the life they wanted for me.\n\nIt took me a long time to stop treating their disappointment like proof that I'd done something wrong.",
       "choices": [
-        { "choiceText": "It takes infinitely more courage. You built a sanctuary with your own hands.", "nextNodeId": "c_father_wound_unpacked" }
+        {
+          "choiceText": "It takes infinitely more courage. You built a sanctuary with your own hands.",
+          "nextNodeId": "c_father_wound_unpacked"
+        }
       ]
     },
     {
       "nodeId": "c_apply_for_job_flirt",
-      "partnerDialogue": "Masie: You'll have to pass a strict interview with the frog first! But... honestly? I don't think he'd object. And I know I wouldn't.",
+      "partnerDialogue": "*laughs softly* Barnaby would make you earn it.\n\nHe has standards. Apparently they involve sitting still, not making sudden movements, and keeping your snacks where he can see them.\n\nBut... I'd probably approve your application before he does.",
       "choices": [
-        { "choiceText": "What does your ideal Saturday afternoon look like with me?", "nextNodeId": "c_saturday_vision" },
-        { "choiceText": "I'll bring treats for Barnaby and fresh bread for you.", "nextNodeId": "c_sourdough_reaction" }
+        {
+          "choiceText": "What does your ideal Saturday afternoon look like with me?",
+          "nextNodeId": "c_saturday_vision"
+        },
+        {
+          "choiceText": "I'll bring treats for Barnaby and fresh bread for you.",
+          "nextNodeId": "c_sourdough_reaction"
+        }
       ]
     },
     {
       "nodeId": "c_father_wound_unpacked",
-      "partnerDialogue": "Masie: He really couldn't see it. In his mind, success was a high-rise office with glass windows looking down at traffic. But I look up through these curved glass panes at the stars and the fog, and I feel rich. Truly rich.",
+      "partnerDialogue": "He wanted something very different for me.\n\nIn his mind, success meant a good salary, a respectable title, an office where people could see what I'd accomplished. I understand where that came from. He wanted me to be secure.\n\nI just don't think he understood that I feel more like myself here than I ever did trying to become the person he had in his head.",
       "choices": [
-        { "choiceText": "Because you measure wealth in things that grow, not things that decay.", "nextNodeId": "c_shared_worldview" },
-        { "choiceText": "True wealth is having peace in your chest when you go to sleep.", "nextNodeId": "c_shared_worldview" }
+        {
+          "choiceText": "Because you measure wealth in things that grow, not things that decay.",
+          "nextNodeId": "c_shared_worldview"
+        },
+        {
+          "choiceText": "True wealth is having peace in your chest when you go to sleep.",
+          "nextNodeId": "c_shared_worldview"
+        }
       ]
     },
     {
       "nodeId": "c_weeds_philosophy",
-      "partnerDialogue": "Masie: Exactly. Dandelions will break through four inches of commercial asphalt just to reach three minutes of afternoon sun. There's a raw defiance in that. I think that's why I fell in love with botany—I wanted that same resilience.",
+      "partnerDialogue": "That's what I like about them.\n\nA weed doesn't care whether you think it belongs there. It finds a crack, gets enough light, and keeps going.\n\nI think I needed that lesson when I was younger. I spent too much time waiting for somebody to tell me I was allowed to choose my own life.",
       "choices": [
-        { "choiceText": "You already have that resilience, Masie. You broke through the asphalt years ago.", "nextNodeId": "c_shared_worldview" },
-        { "choiceText": "Defiance doesn't have to be loud. Sometimes it's just surviving in quiet soil.", "nextNodeId": "c_shared_worldview" }
+        {
+          "choiceText": "You already have that resilience, Masie. You broke through the asphalt years ago.",
+          "nextNodeId": "c_shared_worldview"
+        },
+        {
+          "choiceText": "Defiance doesn't have to be loud. Sometimes it's just surviving in quiet soil.",
+          "nextNodeId": "c_shared_worldview"
+        }
       ]
     },
     {
       "nodeId": "c_rest_head_comfort",
-      "partnerDialogue": "Masie: *soft rustle of wool sweater* Pulling my knees to my chest. Resting my chin on my sweater. It's funny... twenty minutes ago I was terrified everything I worked for was about to freeze to death. And now, sitting here talking to you, it feels like the safest room in the world.",
+      "partnerDialogue": "*quiet rustle of her sweater* I'm just sitting here with my knees up.\n\nIt's funny. An hour ago I was convinced the worst thing that could happen tonight was a dead boiler. Now I'm realizing the bigger thing was how completely alone I felt before you picked up.\n\nThis is probably the first time in a while I've sat somewhere without thinking about what I should be fixing next.",
       "choices": [
-        { "choiceText": "Because you aren't carrying the glasshouse alone anymore.", "nextNodeId": "c_not_alone_vow" },
-        { "choiceText": "Safety is having someone who answers when the cold creeps in.", "nextNodeId": "c_not_alone_vow" }
+        {
+          "choiceText": "Because you aren't carrying the glasshouse alone anymore.",
+          "nextNodeId": "c_not_alone_vow"
+        },
+        {
+          "choiceText": "Safety is having someone who answers when the cold creeps in.",
+          "nextNodeId": "c_not_alone_vow"
+        }
       ]
     },
     {
       "nodeId": "c_not_alone_vow",
-      "partnerDialogue": "Masie: I've spent so long convincing myself that solitude was the only way to protect my peace. But listening to your voice echo beside the water... I realize I wasn't protecting my peace; I was just hiding from being hurt.",
+      "partnerDialogue": "Maybe I was.\n\nI used to tell myself that being alone was peaceful because nobody could disappoint me. That part was true.\n\nI just never admitted the other side of it. Nobody could get close enough to know me either. Tonight feels like a pretty uncomfortable reason to realize that, but I'm glad I did.",
       "choices": [
-        { "choiceText": "You never have to hide with me, Masie. I'm right here.", "nextNodeId": "c_shared_worldview" },
-        { "choiceText": "Opening up takes strength, especially after being judged.", "nextNodeId": "c_shared_worldview" }
+        {
+          "choiceText": "You never have to hide with me, Masie. I'm right here.",
+          "nextNodeId": "c_shared_worldview"
+        },
+        {
+          "choiceText": "Opening up takes strength, especially after being judged.",
+          "nextNodeId": "c_shared_worldview"
+        }
       ]
     },
     {
       "nodeId": "c_shared_worldview",
-      "partnerDialogue": "Masie: *long pause, sound of deep breath and soft water ripples* How do you do that, {PlayerName}? How do you understand the exact architecture of my thoughts without me having to explain it for an hour? Most conversations feel like translating between foreign languages. Talking to you feels like... coming home to my own dialect.",
+      "partnerDialogue": "Can I tell you something?\n\nI don't usually talk this much about myself. I tend to think people get bored when I go too far into things, so I keep it simple and change the subject.\n\nBut with you, I don't feel like I'm performing. I can say what I actually mean, even when it's not particularly flattering or well thought out.\n\nThat's rare for me.",
       "choices": [
-        { "choiceText": "Because when you care about someone, you listen to the roots, not just the leaves.", "nextNodeId": "c_listen_to_roots" },
-        { "choiceText": "Maybe we were looking for the same quiet corner of the world all along.", "nextNodeId": "c_same_quiet_corner" },
-        { "choiceText": "It's easy to understand someone whose soul is as honest as yours.", "nextNodeId": "c_listen_to_roots" }
+        {
+          "choiceText": "Because when you care about someone, you listen to the roots, not just the leaves.",
+          "nextNodeId": "c_listen_to_roots"
+        },
+        {
+          "choiceText": "Maybe we were looking for the same quiet corner of the world all along.",
+          "nextNodeId": "c_same_quiet_corner"
+        },
+        {
+          "choiceText": "It's easy to understand someone whose soul is as honest as yours.",
+          "nextNodeId": "c_listen_to_roots"
+        }
       ]
     },
     {
       "nodeId": "c_listen_to_roots",
-      "partnerDialogue": "Masie: *voice catches, thick with genuine emotion* 'Listen to the roots...' God, that is the most beautiful thing anyone has ever said to me. I'm sitting here with my knees pulled to my chest, and I don't think I've ever felt this safe with another human being.",
+      "partnerDialogue": "*a quiet laugh that fades into a breath* That's... really nice.\n\nMost people listen for the part where they can jump in. They don't really listen for what somebody is trying not to say.\n\nAnd I know we've only been talking for a while, but tonight I don't feel like I have to explain every little piece of myself before you'll understand what I'm getting at.",
       "choices": [
-        { "choiceText": "You are safe with me, Masie. On every level.", "nextNodeId": "c_saturday_vision" },
-        { "choiceText": "Tell me about Saturday. Walk me through our afternoon together.", "nextNodeId": "c_saturday_vision" }
+        {
+          "choiceText": "You are safe with me, Masie. On every level.",
+          "nextNodeId": "c_saturday_vision"
+        },
+        {
+          "choiceText": "Tell me about Saturday. Walk me through our afternoon together.",
+          "nextNodeId": "c_saturday_vision"
+        }
       ]
     },
     {
       "nodeId": "c_same_quiet_corner",
-      "partnerDialogue": "Masie: We were. I've spent twenty-two years feeling like an oddity because I preferred moss and quiet libraries to crowded parties. Finding someone who wants to sit by this dark pond with me... it feels like discovering a rare wild hybrid blooming in the snow.",
+      "partnerDialogue": "Maybe that's what this is.\n\nNot some huge, dramatic thing. Just finding someone who likes the same kind of quiet.\n\nI always thought being understood would feel bigger than this. Turns out it's actually pretty simple. It's just not having to edit yourself every thirty seconds.",
       "choices": [
-        { "choiceText": "Tell me about Saturday. Walk me through our afternoon.", "nextNodeId": "c_saturday_vision" },
-        { "choiceText": "A rare hybrid in the snow... that's exactly what you are.", "nextNodeId": "c_saturday_vision" }
+        {
+          "choiceText": "Tell me about Saturday. Walk me through our afternoon.",
+          "nextNodeId": "c_saturday_vision"
+        },
+        {
+          "choiceText": "A rare hybrid in the snow... that's exactly what you are.",
+          "nextNodeId": "c_saturday_vision"
+        }
       ]
     },
     {
       "nodeId": "c_saturday_vision",
-      "partnerDialogue": "Masie: You'll come to the south wrought-iron wicket gate behind the botany hall around two in the afternoon. I'll have the gate unlatched. When you walk inside, the afternoon sunlight will be streaming through the western glass in long golden shafts.\n\nI'll have my grandmother's forty-four-year-old Christmas cactus on the potting table, an unglazed clay pot, and fresh mountain loam mixed with perlite. We'll take a clean cutting together, dip the stem in willow-water rooting hormone, and bed it into the soil.",
+      "partnerDialogue": "All right. Saturday.\n\nCome through the little iron gate behind the botany hall around two. I'll leave it unlatched.\n\nI'll probably be in the greenhouse already, pretending I wasn't checking the clock every five minutes. We can repot my grandmother's cactus, make tea, and sit by the pond afterward. Nothing fancy.\n\nHonestly, I'd rather have a normal afternoon with you than some big date where we're both trying to impress each other.",
       "choices": [
-        { "choiceText": "And what about the tea you promised me?", "nextNodeId": "c_tea_promise_deepen" },
-        { "choiceText": "I'm going to hold your hands while we set the roots.", "nextNodeId": "c_hold_hands_potting" },
-        { "choiceText": "Tell me more about your grandmother's cactus before we pot it.", "nextNodeId": "c_grandmother_cactus_lore" }
+        {
+          "choiceText": "And what about the tea you promised me?",
+          "nextNodeId": "c_tea_promise_deepen"
+        },
+        {
+          "choiceText": "I'm going to hold your hands while we set the roots.",
+          "nextNodeId": "c_hold_hands_potting"
+        },
+        {
+          "choiceText": "Tell me more about your grandmother's cactus before we pot it.",
+          "nextNodeId": "c_grandmother_cactus_lore"
+        }
       ]
     },
     {
       "nodeId": "c_grandmother_cactus_lore",
-      "partnerDialogue": "Masie: She rooted it from a segment her own mother gave her in 1982. It survived three apartment moves, a broken window during a blizzard, and years of neglect when she got sick. When she passed, my relatives were dividing up her jewelry, but I just took that clay pot.\n\nEvery time it blooms, it feels like her voice telling me that life doesn't stop just because the season gets cold.",
+      "partnerDialogue": "My grandmother got it from her mother in the eighties. It was just one little cutting back then.\n\nIt survived a lot. Moves, bad windows, years when nobody knew what they were doing, the whole thing.\n\nWhen my grandmother got sick, I was more worried about that cactus than I was about most of the things people thought were valuable in her house. When she died, everyone else was picking jewelry. I took the pot.\n\nIt sounds sentimental, I know. I just like having one thing that kept going with us.",
       "choices": [
-        { "choiceText": "She'd be so proud to know it's thriving in your hands.", "nextNodeId": "c_hold_hands_potting" },
-        { "choiceText": "Sharing a piece of that cactus with me... that's the greatest gift I could ever receive.", "nextNodeId": "c_hold_hands_potting" }
+        {
+          "choiceText": "She'd be so proud to know it's thriving in your hands.",
+          "nextNodeId": "c_hold_hands_potting"
+        },
+        {
+          "choiceText": "Sharing a piece of that cactus with me... that's the greatest gift I could ever receive.",
+          "nextNodeId": "c_hold_hands_potting"
+        }
       ]
     },
     {
       "nodeId": "c_hold_hands_potting",
-      "partnerDialogue": "Masie: *soft, breathless laugh* You'll get soil on your palms. But I won't let go. We'll press the dirt firm around the base together so it has an anchor.",
+      "partnerDialogue": "*soft laugh* Then you'll have to accept that you'll leave with dirt under your nails.\n\nWe'll take the cutting, get it set properly, and I'll probably tell you three times not to overwater it because I can't help myself.\n\nBut... yeah. I'd like that. Doing something quiet together instead of trying to fill every second with conversation.",
       "choices": [
-        { "choiceText": "And then we drink tea by the lilies.", "nextNodeId": "c_tea_promise_deepen" },
-        { "choiceText": "I don't mind the soil as long as your hands are in mine.", "nextNodeId": "c_tea_promise_deepen" }
+        {
+          "choiceText": "And then we drink tea by the lilies.",
+          "nextNodeId": "c_tea_promise_deepen"
+        },
+        {
+          "choiceText": "I don't mind the soil as long as your hands are in mine.",
+          "nextNodeId": "c_tea_promise_deepen"
+        }
       ]
     },
     {
       "nodeId": "c_tea_promise_deepen",
-      "partnerDialogue": "Masie: Fresh spearmint and crushed dried verbena steeped in hot spring water. Two heavy ceramic mugs. We'll sit right where I'm sitting now, on the warm slate edge, let our legs dangle, and just talk without any screens or notifications.\n\nJust you and me, breathing air that smells like living earth.",
+      "partnerDialogue": "I have spearmint and some dried verbena in the greenhouse kitchen.\n\nWe'll make two mugs, sit on the stone edge by the lilies, and let the day be over for a while. No work talk unless we actually want to talk about it.\n\nNo notifications, no deadlines, no pretending we're having the perfect date. Just tea and whatever comes up.\n\nThat sounds pretty good to me right now.",
       "choices": [
-        { "choiceText": "That sounds like heaven on earth, Masie.", "nextNodeId": "c_closing_intimacy" },
-        { "choiceText": "I'll bring warm sourdough bread from the bakery down my street to share.", "nextNodeId": "c_sourdough_reaction" },
-        { "choiceText": "What if it rains on Saturday afternoon?", "nextNodeId": "c_rain_saturday_talk" }
+        {
+          "choiceText": "That sounds like heaven on earth, Masie.",
+          "nextNodeId": "c_closing_intimacy"
+        },
+        {
+          "choiceText": "I'll bring warm sourdough bread from the bakery down my street to share.",
+          "nextNodeId": "c_sourdough_reaction"
+        },
+        {
+          "choiceText": "What if it rains on Saturday afternoon?",
+          "nextNodeId": "c_rain_saturday_talk"
+        }
       ]
     },
     {
       "nodeId": "c_rain_saturday_talk",
-      "partnerDialogue": "Masie: If it rains, it's even better! The rain drums against the glass ceiling like thousands of little fingertips, and the air turns cool and clean while we stay warm inside by the steam pipes. It's the coziest sound in existence.",
+      "partnerDialogue": "If it rains, we stay inside.\n\nHonestly, I'd prefer that. Rain on the glass makes the whole place quieter. We can sit by the pond and listen to it while the greenhouse stays warm.\n\nAnd if you bring that sourdough you keep threatening me with, I'm going to have a hard time pretending I'm not impressed.",
       "choices": [
-        { "choiceText": "Then I'm crossing my fingers for rain.", "nextNodeId": "c_closing_intimacy" },
-        { "choiceText": "I'll definitely bring that warm sourdough bread.", "nextNodeId": "c_sourdough_reaction" }
+        {
+          "choiceText": "Then I'm crossing my fingers for rain.",
+          "nextNodeId": "c_closing_intimacy"
+        },
+        {
+          "choiceText": "I'll definitely bring that warm sourdough bread.",
+          "nextNodeId": "c_sourdough_reaction"
+        }
       ]
     },
     {
       "nodeId": "c_sourdough_reaction",
-      "partnerDialogue": "Masie: Sourdough with salted butter and fresh garden tea... {PlayerName}, if you do that, I don't think I'll ever let you leave this greenhouse. You might become a permanent resident alongside Barnaby the bullfrog.",
+      "partnerDialogue": "*laughs* Okay, now you're making this very difficult for me.\n\nFresh sourdough, salted butter, tea, Barnaby pretending he's in charge... that's dangerously close to my idea of an actual date.\n\nI like that it's simple. I don't need anything elaborate. I'd rather remember a good conversation than an expensive dinner.",
       "choices": [
-        { "choiceText": "I wouldn't complain for a single second.", "nextNodeId": "c_closing_intimacy" },
-        { "choiceText": "Barnaby and I will take turns patrolling the lily pads.", "nextNodeId": "c_closing_intimacy" }
+        {
+          "choiceText": "I wouldn't complain for a single second.",
+          "nextNodeId": "c_closing_intimacy"
+        },
+        {
+          "choiceText": "Barnaby and I will take turns patrolling the lily pads.",
+          "nextNodeId": "c_closing_intimacy"
+        }
       ]
     },
     {
       "nodeId": "c_closing_intimacy",
-      "partnerDialogue": "Masie: *takes a deep, peaceful breath* The boiler is humming so steadily now. The temperature gauge across the arch reads 70°F. The seedlings are safe, the steam is warm, and my heart feels full in a way it hasn't felt in a very long time.\n\nThank you for answering your phone tonight. Thank you for stepping into the dark with me.",
+      "partnerDialogue": "*long, steady breath* The boiler sounds normal now.\n\nThe greenhouse is back around 70°F, the seedlings are fine, and I can finally feel how tired I am.\n\nThank you for answering tonight. Really.\n\nAnd thank you for talking to me like I was a person who needed help, not a problem you had to solve. I don't think you realize how different that felt.",
       "choices": [
-        { "choiceText": "I'll always pick up when you call, Masie. Always.", "nextNodeId": "c_goodnight_farewell" },
-        { "choiceText": "Go get some rest on that dorm mattress. You saved a whole world tonight.", "nextNodeId": "c_goodnight_farewell" },
-        { "choiceText": "Sleep gently, my greenhouse guardian.", "nextNodeId": "c_goodnight_farewell" }
+        {
+          "choiceText": "I'll always pick up when you call, Masie. Always.",
+          "nextNodeId": "c_goodnight_farewell"
+        },
+        {
+          "choiceText": "Go get some rest on that dorm mattress. You saved a whole world tonight.",
+          "nextNodeId": "c_goodnight_farewell"
+        },
+        {
+          "choiceText": "Sleep gently, my greenhouse guardian.",
+          "nextNodeId": "c_goodnight_farewell"
+        }
       ]
     },
     {
       "nodeId": "c_goodnight_farewell",
-      "partnerDialogue": "Masie: *whispers softly against the receiver* I'm packing up my sketchbook and closing my field bag. Leaving the south gate key on my desk so I don't forget it on Saturday.\n\nHang up and read my message in the chat room. I'm going to sleep with the window cracked so I can hear the rain.\n\nGoodnight, my anchor. See you Saturday at the gate.",
+      "partnerDialogue": "I'm going to pack up and head upstairs.\n\nI'll leave the south gate key on my desk so I don't forget it for Saturday. I know I'm probably going to wake up tomorrow and wonder why I told you half the things I just told you.\n\nBut... I'm glad I did.\n\nGo get some sleep, okay? And send me a message when you wake up so I know you made it through the night too.\n\nGoodnight, {PlayerName}. See you Saturday.",
       "choices": [
-        { "choiceText": "[Hang Up and Return to Chat for Finale]", "nextNodeId": "END_CALL" }
+        {
+          "choiceText": "[Hang Up and Return to Chat]",
+          "nextNodeId": "END_CALL"
+        }
       ]
     }
   ]

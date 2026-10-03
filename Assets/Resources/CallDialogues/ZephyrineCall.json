@@ -2,281 +2,608 @@
   "callerName": "Zephyrine",
   "startNodeId": "call1_start",
   "timeoutPrompts": [
-    "Zephyrine: {PlayerName}?! Speak to me... the silence in this basement is suffocating!",
-    "Zephyrine: Say something! My vision is blurring and I can't find the pin on these boards!",
-    "Zephyrine: Don't drop off the line while my hands are shaking like this! Please!",
-    "Zephyrine: The line cut out... I have to crawl across this cold floor alone in the dark."
+    "{PlayerName}?! Speak to me... the silence in this basement is suffocating!",
+    "Say something! My vision is blurring and I can't find the pin on these boards!",
+    "Don't drop off the line while my hands are shaking like this! Please!",
+    "The line cut out... I have to crawl across this cold floor alone in the dark."
   ],
   "nodes": [
     {
       "nodeId": "call1_start",
-      "partnerDialogue": "Zephyrine: *frantic hyperventilating, brass tweezers clattering hard against timber, flashlight beam rattling wildly, asynchronous ticking echoing heavily* {PlayerName}! Oh god, you picked up... my hands slipped! The Dumont tweezers pinched the collet shoulder and the brass taper pin pinged straight into the dark! It's less than a tenth of a millimeter wide—a speck of dust on sixty square feet of grooved floorboards! Eighty hours of restoration gone if someone steps on it! Talk to me—my chest is seizing up!",
+      "partnerDialogue": "*fast breathing, a chair leg scraping, the faint clatter of metal on wood* {PlayerName}? Okay. You're here. I dropped the taper pin. I heard it bounce somewhere under the bench, and then I just... lost it. It's tiny, and I've got a lot of expensive history sitting on this floor right now. I'm trying not to panic, but I'm definitely panicking a little. Talk to me.",
       "choices": [
-        { "choiceText": "Zephyrine, FREEZE! Freeze your boots right where they are! Do not take a single step!", "nextNodeId": "c1_freeze_command" },
-        { "choiceText": "Inhale through your nose for four seconds. Hold... exhale. Listen to my voice cut through the clocks.", "nextNodeId": "c1_breathing_anchor" },
-        { "choiceText": "Drop to your knees slowly without sliding your feet. Keep your hands off the floor.", "nextNodeId": "c1_drop_to_knees_care" },
-        { "choiceText": "I'm right here with you in the workshop. You didn't destroy anything. Breathe.", "nextNodeId": "c1_workshop_reassurance" }
+        {
+          "choiceText": "Zephyrine, FREEZE! Freeze your boots right where they are! Do not take a single step!",
+          "nextNodeId": "c1_freeze_command"
+        },
+        {
+          "choiceText": "Inhale through your nose for four seconds. Hold... exhale. Listen to my voice cut through the clocks.",
+          "nextNodeId": "c1_breathing_anchor"
+        },
+        {
+          "choiceText": "Drop to your knees slowly without sliding your feet. Keep your hands off the floor.",
+          "nextNodeId": "c1_drop_to_knees_care"
+        },
+        {
+          "choiceText": "I'm right here with you in the workshop. You didn't destroy anything. Breathe.",
+          "nextNodeId": "c1_workshop_reassurance"
+        },
+        {
+          "choiceText": "Before we search, tell me one thing: are you hurt?",
+          "nextNodeId": "c1_small_room_reality"
+        }
       ]
     },
     {
       "nodeId": "c1_freeze_command",
-      "partnerDialogue": "Zephyrine: *boots lock in place with a sharp scrape* Frozen! I'm completely rigid! My left boot is anchored next to the bench leg, my right heel is lifted... but my heart is hammering so hard I can hear my pulse clicking in my teeth! If my sole landed on that brass wedge, it's crushed into foil!",
+      "partnerDialogue": "*boots stop moving* Okay. I'm not moving. I'm actually frozen here. I can hear my own pulse, which is not helping, and my right heel is still off the floor. I keep thinking I stepped on it even though I know I didn't. I hate how quickly one stupid little mistake can make everything feel catastrophic.",
       "choices": [
-        { "choiceText": "It didn't crush. Brass pins ricochet sideways, not straight down. Breathe with me now.", "nextNodeId": "c1_breathing_anchor" },
-        { "choiceText": "Keep that right foot suspended. Slowly lower yourself down using the bench as an anchor.", "nextNodeId": "c1_drop_to_knees_care" }
+        {
+          "choiceText": "It didn't crush. Brass pins ricochet sideways, not straight down. Breathe with me now.",
+          "nextNodeId": "c1_breathing_anchor"
+        },
+        {
+          "choiceText": "Keep that right foot suspended. Slowly lower yourself down using the bench as an anchor.",
+          "nextNodeId": "c1_drop_to_knees_care"
+        }
       ]
     },
     {
       "nodeId": "c1_breathing_anchor",
-      "partnerDialogue": "Zephyrine: *shuddering, uneven gasp over receiver* In... two, three, four... out... *ragged sob* God, your voice cut right through the panic. My peripheral vision was tunneling into black rings from oxygen deprivation. When that metallic ping echoed off the lathe, my entire world felt like it shattered.",
+      "partnerDialogue": "*uneven breath over the receiver* In... two... three... four. Out. Okay. Again. That's better. I think I got so focused on finding the pin that I forgot I was holding my breath. The room sounded enormous for a second. I couldn't tell what was the clocks and what was my own heartbeat.",
       "choices": [
-        { "choiceText": "Tunnel vision is just adrenaline. Close your eyes for five seconds and let your pupils reset.", "nextNodeId": "c1_reset_pupils" },
-        { "choiceText": "The sound had a sharp timbre. That means it hit wood, not cast iron. It's intact.", "nextNodeId": "c1_acoustic_trajectory_analysis" }
+        {
+          "choiceText": "Tunnel vision is just adrenaline. Close your eyes for five seconds and let your pupils reset.",
+          "nextNodeId": "c1_reset_pupils"
+        },
+        {
+          "choiceText": "The sound had a sharp timbre. That means it hit wood, not cast iron. It's intact.",
+          "nextNodeId": "c1_acoustic_trajectory_analysis"
+        }
       ]
     },
     {
       "nodeId": "c1_drop_to_knees_care",
-      "partnerDialogue": "Zephyrine: *wool trousers brush wood, soft thud as knees touch boards* I'm down on the floor. Both knees planted. The oak timber is cold through my trousers. My hands are hovering over the dust tray like clawed talons because I'm terrified to touch anything.",
+      "partnerDialogue": "*soft thud as her knees hit the boards* I'm down. Both knees are on the floor. It's freezing through my trousers. My hands are hovering over everything because I don't trust myself to reach for anything yet. I know that's probably obvious, but right now even picking up a screw feels like a huge decision.",
       "choices": [
-        { "choiceText": "Rest the backs of your wrists on your thighs. Palms open. Don't touch the boards blindly.", "nextNodeId": "c1_palms_open_control" },
-        { "choiceText": "Where is your inspection flashlight right now?", "nextNodeId": "c1_flashlight_location" }
+        {
+          "choiceText": "Rest the backs of your wrists on your thighs. Palms open. Don't touch the boards blindly.",
+          "nextNodeId": "c1_palms_open_control"
+        },
+        {
+          "choiceText": "Where is your inspection flashlight right now?",
+          "nextNodeId": "c1_flashlight_location"
+        }
       ]
     },
     {
       "nodeId": "c1_workshop_reassurance",
-      "partnerDialogue": "Zephyrine: *sniffling, voice dropping an octave into vulnerability* You have no idea what that piece represents to me. It's not just an 1884 Genevan caliber—it's the only astronomical watch my grandfather never got to see run. If I ruined his balance spring because my fingers wobbled...",
+      "partnerDialogue": "*sniffling, then a steadier breath* Yeah... that's the part I couldn't explain without sounding ridiculous. This isn't just some old watch to me. My grandfather kept this one because he thought it was worth saving, even when other people said it wasn't. I was so sure I could finish what he started. Then the pin flew, and suddenly I was thinking, what if I just proved everyone right?",
       "choices": [
-        { "choiceText": "You didn't ruin it. You made a human twitch, and we are going to find that pin together.", "nextNodeId": "c1_breathing_anchor" },
-        { "choiceText": "Your grandfather spent forty years dropping pins on these exact boards. He'd tell you to grab the light.", "nextNodeId": "c1_flashlight_location" }
+        {
+          "choiceText": "You didn't ruin it. You made a human twitch, and we are going to find that pin together.",
+          "nextNodeId": "c1_breathing_anchor"
+        },
+        {
+          "choiceText": "Your grandfather spent forty years dropping pins on these exact boards. He'd tell you to grab the light.",
+          "nextNodeId": "c1_flashlight_location"
+        },
+        {
+          "choiceText": "What would your grandfather tell you to do right now?",
+          "nextNodeId": "c1_grandfather_pin_memory"
+        }
       ]
     },
     {
       "nodeId": "c1_reset_pupils",
-      "partnerDialogue": "Zephyrine: Eyes closed... *deep, shuddering exhale* Pitch black. The ticking of the thirty regulators on the walls is washing over me like ocean surf. Counting the beats... one, two, three, four, five... my heart rate is slowing down. The black spots in my vision are clearing.",
+      "partnerDialogue": "Eyes closed. Okay. Give me a second. *slow breath* The room is just black now instead of swimming around me. I can hear the wall clocks again. They're actually helping. Five beats, then five more. My hands don't feel quite so disconnected from the rest of me anymore.",
       "choices": [
-        { "choiceText": "Open your eyes. Look at the flashlight in your hand. How steady is the beam?", "nextNodeId": "c1_flashlight_raking_technique" }
+        {
+          "choiceText": "Open your eyes. Look at the flashlight in your hand. How steady is the beam?",
+          "nextNodeId": "c1_flashlight_raking_technique"
+        }
       ]
     },
     {
       "nodeId": "c1_acoustic_trajectory_analysis",
-      "partnerDialogue": "Zephyrine: *sniffling, analytical instinct kicking back in* Wood... yes! It didn't have that high ring of striking the lathe bed or the steel vise. It made a dull, papery 'tink' sound to the northeast of my stool. That means it bounced off the bench skirt and dropped within a three-foot radius!",
+      "partnerDialogue": "*sniffles, then a small pause* Yeah. Wood. I know that sound. It wasn't the sharp hit you'd get from the iron parts of the bench. It bounced. Probably off the skirt or one of the legs. That's enough of a clue to work with. Okay. I'm thinking again instead of just reacting.",
       "choices": [
-        { "choiceText": "Exactly. Your ears are as sharp as your calipers. Now get your flashlight ready.", "nextNodeId": "c1_flashlight_raking_technique" }
+        {
+          "choiceText": "Exactly. Your ears are as sharp as your calipers. Now get your flashlight ready.",
+          "nextNodeId": "c1_flashlight_raking_technique"
+        }
       ]
     },
     {
       "nodeId": "c1_palms_open_control",
-      "partnerDialogue": "Zephyrine: Palms open on my thighs. *deep breath* Controlling the tremor. The cold timber against my knees is grounding me. I can smell the pine sawdust from the corner crate.",
+      "partnerDialogue": "Palms on my thighs. I'm staying still. My knees are freezing, but honestly that's helping. I can smell the sawdust by the crate in the corner, and I can hear the furnace upstairs. Normal things. Good. Normal things are good right now.",
       "choices": [
-        { "choiceText": "Now pick up your inspection flashlight. Do not sweep it wildly from above.", "nextNodeId": "c1_flashlight_raking_technique" }
+        {
+          "choiceText": "Now pick up your inspection flashlight. Do not sweep it wildly from above.",
+          "nextNodeId": "c1_flashlight_raking_technique"
+        }
       ]
     },
     {
       "nodeId": "c1_flashlight_location",
-      "partnerDialogue": "Zephyrine: It's in my right hand. A heavy brass LED torch with a tight optical lens. My knuckles were clamped around it so hard my fingers went numb.",
+      "partnerDialogue": "It's in my right hand. I was gripping it way too hard. My fingers are starting to tingle now that I've loosened them. It's the heavy brass one I use for checking the floor around the bench. I have it. I'm ready.",
       "choices": [
-        { "choiceText": "Loosen that grip. Now lay the barrel of the flashlight flat against the floorboards.", "nextNodeId": "c1_flashlight_raking_technique" }
+        {
+          "choiceText": "Loosen that grip. Now lay the barrel of the flashlight flat against the floorboards.",
+          "nextNodeId": "c1_flashlight_raking_technique"
+        }
       ]
     },
     {
       "nodeId": "c1_flashlight_raking_technique",
-      "partnerDialogue": "Zephyrine: Flashlight laid flat against the wood... *heavy metallic slide over grain* The beam is raking horizontally across the floor at a zero-degree angle! Every tiny speck of dust and wood fiber is casting a long, sharp black shadow across the floorboards!",
+      "partnerDialogue": "The flashlight is flat against the boards. *soft scrape over the wood grain* Oh... that's much better. I can actually see the texture of the floor now instead of just a bright circle. Every little shaving is throwing a shadow. Give me a second. I'm going to move slowly.",
       "choices": [
-        { "choiceText": "Slowly rotate the beam in an arc from the bench skirt toward the chair leg. Look for a metallic glint.", "nextNodeId": "c1_raking_arc_search" },
-        { "choiceText": "Keep your eyes focused six inches in front of the lens. Don't rush.", "nextNodeId": "c1_raking_arc_search" }
+        {
+          "choiceText": "Slowly rotate the beam in an arc from the bench skirt toward the chair leg. Look for a metallic glint.",
+          "nextNodeId": "c1_raking_arc_search"
+        },
+        {
+          "choiceText": "Keep your eyes focused six inches in front of the lens. Don't rush.",
+          "nextNodeId": "c1_raking_arc_search"
+        }
       ]
     },
     {
       "nodeId": "c1_raking_arc_search",
-      "partnerDialogue": "Zephyrine: Sweeping... thirty degrees... forty-five degrees... *flashlight clicks against a floorboard gap* Dust ball... a dropped pegwood splinter... a chipped screw head from last month's pocket watch... *voice hitches sharply* WAIT.",
+      "partnerDialogue": "*slow movement of the flashlight, then a tiny click* Thirty degrees... forty-five... there's dust, a bit of pegwood, one old screw head... wait. Hold on. I think I have something. Don't let me move too fast.",
       "choices": [
-        { "choiceText": "What do you see, Zephyrine?! Don't move your hand!", "nextNodeId": "c1_pin_spotted_suspense" }
+        {
+          "choiceText": "What do you see, Zephyrine?! Don't move your hand!",
+          "nextNodeId": "c1_pin_spotted_suspense"
+        }
       ]
     },
     {
       "nodeId": "c1_pin_spotted_suspense",
-      "partnerDialogue": "Zephyrine: Two inches past the seam of the second floorboard... tucked right against the bevel of the bench leg... there's a microscopic cylinder of bright yellow brass catching the LED beam like a beacon of sunlight! It has a tiny casting shadow behind it!",
+      "partnerDialogue": "Two inches past the seam, right by the bench leg. I can see a tiny brass glint. It's so small I almost missed it. The light is catching one edge of it. I think that's the pin, but I don't want to celebrate until I know for sure.",
       "choices": [
-        { "choiceText": "Is it the taper pin?! Look at the tip—is it conical?", "nextNodeId": "c1_pin_verification" }
+        {
+          "choiceText": "Is it the taper pin?! Look at the tip—is it conical?",
+          "nextNodeId": "c1_pin_verification"
+        }
       ]
     },
     {
       "nodeId": "c1_pin_verification",
-      "partnerDialogue": "Zephyrine: *leaning in, nose inches from the boards* It's conical! The 0.1mm taper I turned on the lathe this afternoon! It didn't get crushed! It landed on a soft pile of wood shavings between the seams! *shuddering, crying laugh* IT'S INTACT, {PlayerName}! IT'S COMPLETELY UNTOUCHED!",
+      "partnerDialogue": "*quiet laugh through tears* It's conical. That's mine. That's the taper pin I made this afternoon. It landed in the wood shavings instead of taking the full hit. I cannot believe it. I genuinely thought I'd ruined the whole job ten minutes ago.",
       "choices": [
-        { "choiceText": "Wet the tip of your pinky finger. Touch it to the pin gently—don't pinch it with metal.", "nextNodeId": "c1_pinky_retrieval" },
-        { "choiceText": "Take a breath before you touch it. No sudden movements.", "nextNodeId": "c1_pinky_retrieval" }
+        {
+          "choiceText": "Wet the tip of your pinky finger. Touch it to the pin gently—don't pinch it with metal.",
+          "nextNodeId": "c1_pinky_retrieval"
+        },
+        {
+          "choiceText": "Take a breath before you touch it. No sudden movements.",
+          "nextNodeId": "c1_pinky_retrieval"
+        }
       ]
     },
     {
       "nodeId": "c1_pinky_retrieval",
-      "partnerDialogue": "Zephyrine: Touching the tip of my pinky to the brass... *soft touch* It adhered! Lifted clean off the floor! *metallic chime as it drops safely into an alcohol dish on the bench* It's in the watch glass dish! Immersed in isopropyl! It's safe on the bench!",
+      "partnerDialogue": "Okay. Easy. *small pause* Touching it now... got it. Yes. It lifted cleanly. I've put it in the watch glass with the alcohol. It's actually safe. Oh my god. It's safe. I need to sit down before I start laughing again.",
       "choices": [
-        { "choiceText": "Breathe out, Zephyrine. You conquered the crisis. The pin is home.", "nextNodeId": "c1_crisis_resolved_aftermath" },
-        { "choiceText": "Listen to your breathing now. You handled that like a master.", "nextNodeId": "c1_crisis_resolved_aftermath" }
+        {
+          "choiceText": "Breathe out, Zephyrine. You conquered the crisis. The pin is home.",
+          "nextNodeId": "c1_crisis_resolved_aftermath"
+        },
+        {
+          "choiceText": "Listen to your breathing now. You handled that like a master.",
+          "nextNodeId": "c1_crisis_resolved_aftermath"
+        }
       ]
     },
     {
       "nodeId": "c1_crisis_resolved_aftermath",
-      "partnerDialogue": "Zephyrine: *slides down with back against bench, knees drawn up, laughing through genuine tears* My knees are shaking like leaves, but my hands... my hands are warm. If you hadn't told me to lay that flashlight flat and rake the beam, I would have crawled blindly and smashed that pin into scrap metal. You literally saved this entire movement tonight.",
+      "partnerDialogue": "*back against the bench, shaky laugh* My legs are still trembling. My hands are fine, though. That's funny. My whole body is falling apart and my hands are the calmest they've been all night. I would have made this so much worse without you. I was getting ready to crawl around and grab at things. You got me to slow down enough to actually look.",
       "choices": [
-        { "choiceText": "We saved it together. Now climb back onto that stool and drink some of that smoky tea.", "nextNodeId": "c1_tea_rest_command" },
-        { "choiceText": "I'm so proud of your poise under pressure, Zephyrine. Seriously.", "nextNodeId": "c1_poise_pride_tender" }
+        {
+          "choiceText": "We saved it together. Now climb back onto that stool and drink some of that smoky tea.",
+          "nextNodeId": "c1_tea_rest_command"
+        },
+        {
+          "choiceText": "I'm so proud of your poise under pressure, Zephyrine. Seriously.",
+          "nextNodeId": "c1_poise_pride_tender"
+        },
+        {
+          "choiceText": "Be honest with me. Were you scared beyond the watch itself?",
+          "nextNodeId": "c1_aftershock_honesty"
+        }
       ]
     },
     {
       "nodeId": "c1_tea_rest_command",
-      "partnerDialogue": "Zephyrine: *stool creaks as she sits* Picking up the heavy iron mug. Hot lapsang souchong... *deep sip, followed by a long, peaceful sigh* The smoky pine flavor is coating my throat. My trapezius muscles are finally letting go of that iron cramp.",
+      "partnerDialogue": "*stool creaks* I'm sitting. Tea's warm. That's already helping. *sip* I forgot how cold my hands were. And my shoulders are killing me. I think I've been tense since the moment that pin left the tweezers.",
       "choices": [
-        { "choiceText": "Keep sipping. Let your hands rest under that clean linen cloth.", "nextNodeId": "c1_wrap_up_call1" }
+        {
+          "choiceText": "Keep sipping. Let your hands rest under that clean linen cloth.",
+          "nextNodeId": "c1_wrap_up_call1"
+        }
       ]
     },
     {
       "nodeId": "c1_poise_pride_tender",
-      "partnerDialogue": "Zephyrine: *voice thick with emotion* Poise... nobody in my guild ever praises poise when things go wrong. They only look for blame. Having you stand by me while I was terrified... that means more than any master certification on my wall.",
+      "partnerDialogue": "*quiet pause* You really mean that? I'm not used to hearing things like that when something goes wrong. Usually the question is just what I broke and how quickly I can fix it. I know I'm supposed to be confident, but... having you stay calm with me mattered more than I expected.",
       "choices": [
-        { "choiceText": "Because you're worth more than any certificate, Zephyrine. Now rest those eyes.", "nextNodeId": "c1_wrap_up_call1" }
+        {
+          "choiceText": "Because you're worth more than any certificate, Zephyrine. Now rest those eyes.",
+          "nextNodeId": "c1_wrap_up_call1"
+        }
       ]
     },
     {
       "nodeId": "c1_wrap_up_call1",
-      "partnerDialogue": "Zephyrine: *soft rustle of bench linen* Linen cloth draped over my hands. Tea mug warming my palms. The thirty clocks are ticking gently around me, like an old lullaby.\n\nHang up and message me in the atelier feed. I'm going to let my pulse idle at seventy beats for twenty minutes before I seat that pin. Thank you for holding my world steady, {PlayerName}.",
+      "partnerDialogue": "*soft rustle of linen, mug set down on wood* My hands are under the cloth. I'm staying off the tools for a bit. The clocks sound normal again, which I didn't think I'd appreciate this much. I'll message you when I'm ready to put the pin back in. Thank you for staying with me through that, {PlayerName}. Seriously. I don't think I would have handled the panic half as well alone.",
       "choices": [
-        { "choiceText": "[Hang Up and Return to OnlyYaps Chat]", "nextNodeId": "END_CALL" }
+        {
+          "choiceText": "One last thing: what are you going to tell yourself when you sit back down at that bench?",
+          "nextNodeId": "c1_watch_not_you"
+        },
+        {
+          "choiceText": "[Hang Up and Return to OnlyYaps Chat]",
+          "nextNodeId": "END_CALL"
+        }
       ]
     },
     {
       "nodeId": "call2_start",
-      "partnerDialogue": "Zephyrine: *crisp, velvety, resonant ticking of an antique 18,000-vibrations-per-hour pocket watch singing clearly and rhythmically over the receiver* ...Listen to that, {PlayerName}.\n\nFive beats every second. Exactly three hundred beats a minute. Eighteen thousand beats an hour.\n\nI just dimmed the stereomicroscope halogen light. There is only the low amber glow of the brass desk lamp and the cold blue moonlight filtering down through the street grate near the docks. The atelier is completely quiet, except for this 1884 Genevan balance wheel swinging in perfect, symmetrical two-hundred-and-seventy-degree arcs.",
+      "partnerDialogue": "*clear, steady ticking comes through the receiver* ...There. Can you hear it? Five beats a second. The watch is actually running properly now. I turned the microscope lamp down because I wanted to hear the movement without all the bench noise. It's just the desk lamp, the room, and this little thing ticking away next to me. After everything that happened earlier, sitting here listening to it feels a little unreal.",
       "choices": [
-        { "choiceText": "That ticking sounds like a silver bird singing inside a brass cage. It's magnificent, Zephyrine.", "nextNodeId": "c2_silver_bird_praise" },
-        { "choiceText": "After fifty-eight years in a safe... you brought that heartbeat back to life.", "nextNodeId": "c2_resurrection_heartbeat_tender" },
-        { "choiceText": "How are your fingers feeling now that the pin is seated?", "nextNodeId": "c2_fingers_status_check" },
-        { "choiceText": "Place the receiver closer to the escapement. I want to hear the pallets drop.", "nextNodeId": "c2_escapement_acoustic_close" }
+        {
+          "choiceText": "That ticking sounds like a silver bird singing inside a brass cage. It's magnificent, Zephyrine.",
+          "nextNodeId": "c2_silver_bird_praise"
+        },
+        {
+          "choiceText": "After fifty-eight years in a safe... you brought that heartbeat back to life.",
+          "nextNodeId": "c2_resurrection_heartbeat_tender"
+        },
+        {
+          "choiceText": "How are your fingers feeling now that the pin is seated?",
+          "nextNodeId": "c2_fingers_status_check"
+        },
+        {
+          "choiceText": "Place the receiver closer to the escapement. I want to hear the pallets drop.",
+          "nextNodeId": "c2_escapement_acoustic_close"
+        },
+        {
+          "choiceText": "Why does an old mechanical watch still matter this much to you?",
+          "nextNodeId": "c2_why_old_watches"
+        }
       ]
     },
     {
       "nodeId": "c2_escapement_acoustic_close",
-      "partnerDialogue": "Zephyrine: *microphone shifts closer, crisp tick-tock sharpens into high-definition clarity* That tiny *chink-chink* is the synthetic ruby pallet stones kissing the hardened steel teeth of the escape wheel. There is less than two hundredths of a millimeter of lock on each tooth. It sounds like two tiny crystal glasses clinking in an empty room.",
+      "partnerDialogue": "*phone shifts closer to the movement* There. That's the bit I wanted you to hear. The pallets are dropping cleanly, and that little click is the stones meeting the escape wheel. It's very quiet in person. On the phone it almost sounds exaggerated. I could sit here listening to it for ages, honestly.",
       "choices": [
-        { "choiceText": "Crystal glasses clinking across a century of silence. That's pure poetry.", "nextNodeId": "c2_silver_bird_praise" },
-        { "choiceText": "Did your grandfather ever describe the sound of this caliber?", "nextNodeId": "c2_grandfather_escapement_lore" }
+        {
+          "choiceText": "Crystal glasses clinking across a century of silence. That's pure poetry.",
+          "nextNodeId": "c2_silver_bird_praise"
+        },
+        {
+          "choiceText": "Did your grandfather ever describe the sound of this caliber?",
+          "nextNodeId": "c2_grandfather_escapement_lore"
+        }
       ]
     },
     {
       "nodeId": "c2_silver_bird_praise",
-      "partnerDialogue": "Zephyrine: A silver bird... *soft, breathless laugh that echoes off the stone basement walls* In his 1890 workshop journals, the Genevan artisan Jean-Marc Vacher wrote that an escapement should sound like a swallow clicking its beak at dusk. You heard the exact same bird he did, one hundred and forty years later.",
+      "partnerDialogue": "A silver bird? *small laugh* I like that. My grandfather used to make little comparisons like that when he was trying to explain why a movement sounded healthy. He'd listen for a minute and then say whether something was 'singing' or 'complaining.' I thought it was just an old man's way of talking. I get it now.",
       "choices": [
-        { "choiceText": "Because great craftsmanship bridges time like nothing else can.", "nextNodeId": "c2_bridge_time_bond" },
-        { "choiceText": "And you are the one who gave the swallow its voice back tonight.", "nextNodeId": "c2_gave_voice_back_tender" }
+        {
+          "choiceText": "Because great craftsmanship bridges time like nothing else can.",
+          "nextNodeId": "c2_bridge_time_bond"
+        },
+        {
+          "choiceText": "And you are the one who gave the swallow its voice back tonight.",
+          "nextNodeId": "c2_gave_voice_back_tender"
+        }
       ]
     },
     {
       "nodeId": "c2_resurrection_heartbeat_tender",
-      "partnerDialogue": "Zephyrine: Fifty-eight years of cold, dark immobility. The lubricants had turned to green resin, the balance staff was snapped, and everyone told the collector it was scrap brass. But looking at it right now on this green leather pad... it's beating with the vigor of something born yesterday morning.",
+      "partnerDialogue": "Fifty-eight years is a long time for anything to sit still. The old oils had dried into this horrible green residue, the staff was damaged, and eventually everyone stopped looking at it. Now it's just... running. That's the strange part. You spend weeks staring at something lifeless and then one minute it starts moving and suddenly the whole bench feels different.",
       "choices": [
-        { "choiceText": "It was just waiting for someone with enough patience to heal it. Someone like you.", "nextNodeId": "c2_healer_tender_bond" }
+        {
+          "choiceText": "It was just waiting for someone with enough patience to heal it. Someone like you.",
+          "nextNodeId": "c2_healer_tender_bond"
+        }
       ]
     },
     {
       "nodeId": "c2_fingers_status_check",
-      "partnerDialogue": "Zephyrine: Completely relaxed. The Dumont tweezers are wiped down and back in their felt slots, my pin-vise is stowed, and my hands are wrapped around a fresh mug of lapsang souchong tea. The tremor is entirely gone. My pulse is beating in sync with the five-beat oscillation of the balance.",
+      "partnerDialogue": "They're good now. A little sore, but good. I've put the tweezers away, my fingers are warm, and I finally unclenched my jaw. I didn't notice how tense I was until the pin was seated. I think I was bracing my whole body around one tiny piece of brass.",
       "choices": [
-        { "choiceText": "In sync with the watch... you really do live on horological time.", "nextNodeId": "c2_horological_time_talk" },
-        { "choiceText": "I'm glad your hands are warm. They performed neurosurgery tonight.", "nextNodeId": "c2_neurosurgery_praise" }
+        {
+          "choiceText": "In sync with the watch... you really do live on horological time.",
+          "nextNodeId": "c2_horological_time_talk"
+        },
+        {
+          "choiceText": "I'm glad your hands are warm. They performed neurosurgery tonight.",
+          "nextNodeId": "c2_neurosurgery_praise"
+        }
       ]
     },
     {
       "nodeId": "c2_grandfather_escapement_lore",
-      "partnerDialogue": "Zephyrine: He told me when he was twenty-five in the Jura mountains, an old master handed him an astronomical movement with a split-seconds complication and said: 'Zephyrine's grandfather, if you can true this balance without scratching the bluing, you will never go hungry a day in your life.' He kept that watch in his display case until the day he passed away.",
+      "partnerDialogue": "He did talk about it. He always said his first real lesson wasn't about making parts. It was learning not to rush when you were nervous. He'd tell the story about an old master handing him a difficult balance and basically saying, 'Sit down. Look at it first.' I didn't understand how important that was until tonight.",
       "choices": [
-        { "choiceText": "And now his display case belongs to a granddaughter who surpassed him.", "nextNodeId": "c2_surpassed_grandfather_tender" }
+        {
+          "choiceText": "And now his display case belongs to a granddaughter who surpassed him.",
+          "nextNodeId": "c2_surpassed_grandfather_tender"
+        }
       ]
     },
     {
       "nodeId": "c2_bridge_time_bond",
-      "partnerDialogue": "Zephyrine: It really does. Empires rise and collapse, currencies become worthless paper, but an anchor escapement obeys the laws of gravity, inertia, and friction forever. It doesn't care about politics or algorithms. It just counts the universe forward.",
+      "partnerDialogue": "That's what I like about it. A watch doesn't care what kind of day you had. It doesn't care whether your phone has fifty notifications or whether you've had a terrible week. If the parts are adjusted properly, it just keeps doing the job in front of it. There's something comforting about that.",
       "choices": [
-        { "choiceText": "And tonight, it's counting our moments forward together.", "nextNodeId": "c2_counting_together_intimacy" }
+        {
+          "choiceText": "And tonight, it's counting our moments forward together.",
+          "nextNodeId": "c2_counting_together_intimacy"
+        }
       ]
     },
     {
       "nodeId": "c2_gave_voice_back_tender",
-      "partnerDialogue": "Zephyrine: *whispers softly against the receiver* I gave it its voice back because you gave me mine when that pin pinged. If I had been alone in this basement tonight, that watch would still be dead in parts. You are part of this movement's history now, {PlayerName}.",
+      "partnerDialogue": "*quiet laugh* That's a dangerous thing to say to me. But... thank you. Earlier I felt like one mistake had taken the whole night away from me. Now I'm sitting here listening to this movement run because I stayed with it instead of giving up. You were part of that. I won't forget it.",
       "choices": [
-        { "choiceText": "I'm honored to be part of your history, Zephyrine.", "nextNodeId": "c2_counting_together_intimacy" }
+        {
+          "choiceText": "I'm honored to be part of your history, Zephyrine.",
+          "nextNodeId": "c2_counting_together_intimacy"
+        }
       ]
     },
     {
       "nodeId": "c2_healer_tender_bond",
-      "partnerDialogue": "Zephyrine: 'Someone with enough patience to heal it...' \n\n*heavy, emotional sigh* \n\nI spent so many years thinking my obsession with old clocks was a flaw—a weird inability to fit into the modern world. Talking to you tonight made me realize that loving things that take time isn't a defect; it's a gift.",
+      "partnerDialogue": "I used to think being this obsessed with old mechanisms meant there was something wrong with me. Most people my age don't want to spend a Saturday making a tiny replacement part for a watch nobody else remembers. But I like this life. I like slow work. I like things that have a history. Tonight I think I finally stopped apologizing for that.",
       "choices": [
-        { "choiceText": "It is the rarest gift in the world. And it's what makes you breathtaking.", "nextNodeId": "c2_breathtaking_gift_tender" }
+        {
+          "choiceText": "It is the rarest gift in the world. And it's what makes you breathtaking.",
+          "nextNodeId": "c2_breathtaking_gift_tender"
+        }
       ]
     },
     {
       "nodeId": "c2_horological_time_talk",
-      "partnerDialogue": "Zephyrine: I do. When the city outside is rushing through red lights, I sit down here with three hundred years of pendulum weights swinging in counterpoint. It makes all the artificial anxiety of the internet feel completely meaningless.",
+      "partnerDialogue": "Pretty much. When I'm down here long enough, the city starts to feel very far away. People outside are rushing around and arguing with their phones and checking the time every five minutes, and I'm sitting in a room where the clocks are literally making time audible. It settles me down. I probably need that more than I admit.",
       "choices": [
-        { "choiceText": "Take me into that counterpoint with you on Sunday.", "nextNodeId": "c2_sunday_date_lock_hub" }
+        {
+          "choiceText": "Take me into that counterpoint with you on Sunday.",
+          "nextNodeId": "c2_sunday_date_lock_hub"
+        }
       ]
     },
     {
       "nodeId": "c2_neurosurgery_praise",
-      "partnerDialogue": "Zephyrine: *chuckles warmly* Neurosurgery on century-old steel! The replacement staff pivot has zero end-shake, the pallet jewels have perfect ruby impulse faces, and the perpetual calendar mechanism is already indexing the leap year cam.",
+      "partnerDialogue": "*laughs softly* That's probably the least normal way anyone has ever described watchmaking, but I'll take it. The replacement staff is seated properly, the pallet faces are clean, and the calendar mechanism is moving the way it should. For tonight, that's enough. I'm not looking for another problem to solve.",
       "choices": [
-        { "choiceText": "Perpetual calendar indexing... that watch won't need adjusting until the year 2100.", "nextNodeId": "c2_2100_year_talk" }
+        {
+          "choiceText": "Perpetual calendar indexing... that watch won't need adjusting until the year 2100.",
+          "nextNodeId": "c2_2100_year_talk"
+        }
       ]
     },
     {
       "nodeId": "c2_surpassed_grandfather_tender",
-      "partnerDialogue": "Zephyrine: *voice catches with genuine tears* I didn't surpass him... I just carried his lantern a few miles further down the road. But I think tonight, if he were standing at the top of the cellar stairs smelling that lapsang tea... he would have smiled.",
+      "partnerDialogue": "I don't think I surpassed him. That's too neat a way to put it. He taught me most of what I know, and half the things I do at this bench are habits I picked up watching him. I just got the chance to finish something he never did. I think he'd be happy about that, though. Maybe a little smug.",
       "choices": [
-        { "choiceText": "He would have poured two mugs and clinked them with you.", "nextNodeId": "c2_counting_together_intimacy" }
+        {
+          "choiceText": "He would have poured two mugs and clinked them with you.",
+          "nextNodeId": "c2_counting_together_intimacy"
+        }
       ]
     },
     {
       "nodeId": "c2_2100_year_talk",
-      "partnerDialogue": "Zephyrine: Exactly. Long after you and I are dust beneath the earth, this little pocket watch will click over on February 28th and know whether it's a leap year or not. That is true immortality.",
+      "partnerDialogue": "Yeah. That's the part that gets me. It's going to keep doing its little job long after we're gone. Someone in another generation can open the case, hear it running, and have no idea who spent all these hours making the repair. I kind of like that. The work gets to outlive you.",
       "choices": [
-        { "choiceText": "Then let's make sure the time we have between now and then counts.", "nextNodeId": "c2_counting_together_intimacy" }
+        {
+          "choiceText": "Then let's make sure the time we have between now and then counts.",
+          "nextNodeId": "c2_counting_together_intimacy"
+        }
       ]
     },
     {
       "nodeId": "c2_counting_together_intimacy",
-      "partnerDialogue": "Zephyrine: *long pause, sound of ticking watch holding steady over her breath* Counting our moments forward together... \n\nI haven't let anyone into this atelier in three years, {PlayerName}. It was my sanctuary, but it was also my bunker. Tonight, having your voice fill the room while this watch woke up... it felt like opening a heavy shutter and letting the sun in for the first time.",
+      "partnerDialogue": "*long pause, ticking steady in the background* I didn't realise how much I wanted someone in this room until tonight. I like being alone here. I really do. But there's a difference between choosing solitude and getting used to it. Hearing you through the receiver made me notice that difference.",
       "choices": [
-        { "choiceText": "I'll always bring the sun into this workshop for you, Zephyrine.", "nextNodeId": "c2_breathtaking_gift_tender" }
+        {
+          "choiceText": "I'll always bring the sun into this workshop for you, Zephyrine.",
+          "nextNodeId": "c2_breathtaking_gift_tender"
+        },
+        {
+          "choiceText": "You sound different tonight. What's going through your head right now?",
+          "nextNodeId": "c2_workshop_personal"
+        }
       ]
     },
     {
       "nodeId": "c2_breathtaking_gift_tender",
-      "partnerDialogue": "Zephyrine: *whispers with profound tenderness* You have completely uncoiled my defenses. I used to think true precision meant keeping everyone at arm's length so my hands wouldn't shake. Now I realize that real precision is having the courage to hold someone else's hand without flinching.",
+      "partnerDialogue": "*quiet breath* I used to think being careful meant keeping people at a distance. Less distraction, less chance of getting hurt, less chance of someone seeing how much I care about this stuff. I don't think I believe that anymore. I think I can care about someone and still keep my hands steady.",
       "choices": [
-        { "choiceText": "Tell me about Sunday afternoon. Walk me through our date at the bench.", "nextNodeId": "c2_sunday_date_lock_hub" }
+        {
+          "choiceText": "Tell me about Sunday afternoon. Walk me through our date at the bench.",
+          "nextNodeId": "c2_sunday_date_lock_hub"
+        },
+        {
+          "choiceText": "We don't have to rush to end the call yet.",
+          "nextNodeId": "c2_stay_a_little_longer"
+        }
       ]
     },
     {
       "nodeId": "c2_sunday_date_lock_hub",
-      "partnerDialogue": "Zephyrine: Sunday afternoon at two o'clock. You walk down the brick steps by the river docks to the heavy oak cellar door. The brass knocker is shaped like an hourglass. \n\nWhen I open the door, the thirty regulators will be ticking, the cast-iron stove will have a fresh cedar log burning, and I'll have two porcelain cups of smoky lapsang tea waiting on the slate coasters. And right in the center of the green leather bench pad... this 1884 Genevan astronomical watch will be waiting for you to wind the mainspring with your own fingers.",
+      "partnerDialogue": "Sunday at two, then. Come through the gate by the docks and knock twice. The workshop will probably still smell like oil and cedar, so don't expect anything glamorous. I'll put the watch under the lamp, make tea, and clear enough space on the bench for you to sit with me. You can wind it yourself. I'll probably hover and tell you you're doing it wrong just to annoy you.",
       "choices": [
-        { "choiceText": "I'll be there at 1:59 PM sharp. And I'm bringing warm cinnamon pastries from the bakery.", "nextNodeId": "c2_final_pastries_vow" },
-        { "choiceText": "Winding a resurrected 1884 watch with the girl who saved it. That's the best afternoon of my life.", "nextNodeId": "c2_final_pastries_vow" }
+        {
+          "choiceText": "I'll be there at 1:59 PM sharp. And I'm bringing warm cinnamon pastries from the bakery.",
+          "nextNodeId": "c2_final_pastries_vow"
+        },
+        {
+          "choiceText": "Winding a resurrected 1884 watch with the girl who saved it. That's the best afternoon of my life.",
+          "nextNodeId": "c2_final_pastries_vow"
+        },
+        {
+          "choiceText": "Forget the details. What does a normal Sunday with you actually look like?",
+          "nextNodeId": "c2_ordinary_sunday"
+        },
+        {
+          "choiceText": "So you're really going to correct my technique on our first date?",
+          "nextNodeId": "c2_playful_tease"
+        }
       ]
     },
     {
       "nodeId": "c2_final_pastries_vow",
-      "partnerDialogue": "Zephyrine: *takes a deep, radiant, peaceful breath* Cinnamon pastries and smoky tea beside thirty ticking clocks with the person who anchored my heart. I don't think the finest salon in Geneva could offer anything half as luxurious as that.\n\nI am placing the glass dust cover over the movement now. *soft velvety click as glass meets wood rim* The swallow is safe inside its bell jar. I'm packing my leather satchel, locking the deadbolts, and heading upstairs to sleep like an apprentice who just passed her master's exam.",
+      "partnerDialogue": "*soft laugh* Cinnamon pastries might be the thing that finally convinces me this counts as a real date. I'll have the tea ready. And I'll put the watch under the dust cover once we're done tonight. No more tools, no more disasters, no heroic last-minute repairs. I'm calling it there while the evening is still good.",
       "choices": [
-        { "choiceText": "Sleep in peace, master horologist. Sunday is our beginning.", "nextNodeId": "c2_closing_goodnight" },
-        { "choiceText": "Walk up those cellar stairs with pride tonight. You resurrected time itself.", "nextNodeId": "c2_closing_goodnight" }
+        {
+          "choiceText": "Sleep in peace, master horologist. Sunday is our beginning.",
+          "nextNodeId": "c2_closing_goodnight"
+        },
+        {
+          "choiceText": "Walk up those cellar stairs with pride tonight. You resurrected time itself.",
+          "nextNodeId": "c2_closing_goodnight"
+        }
       ]
     },
     {
       "nodeId": "c2_closing_goodnight",
-      "partnerDialogue": "Zephyrine: *whispers intimately right into the microphone, background ticking fading softly* Sunday is our beginning. Hang up and read my final note in the atelier feed. I am going to sleep tonight listening to the silence of the docks, knowing that my heart is ticking at the exact right tempo.\n\nGoodnight, {PlayerName}. Thank you for holding the flashlight when the darkness felt too vast. Sleep gently, my anchor.",
+      "partnerDialogue": "*the ticking gets quieter as she moves the phone away* Sunday is ours, then. I'm going upstairs before I find another excuse to keep working. Thank you for tonight, {PlayerName}. Not just for helping me find the pin. For staying on the line when I was embarrassed and scared. Sleep well, okay? I'll see you Sunday.",
       "choices": [
-        { "choiceText": "[Hang Up and Return to Chat for Finale]", "nextNodeId": "END_CALL" }
+        {
+          "choiceText": "[Hang Up and Return to Chat for Finale]",
+          "nextNodeId": "END_CALL"
+        }
+      ]
+    },
+    {
+      "nodeId": "c1_small_room_reality",
+      "partnerDialogue": "*small, shaky laugh* You know what's embarrassing? I know this room better than almost anywhere. I know which board creaks, which drawer sticks, which clock runs a little fast. And the second something went wrong, I suddenly couldn't recognize any of it. I think panic makes familiar places feel strange.",
+      "choices": [
+        {
+          "choiceText": "Then let the room become familiar again. One thing at a time. You're not alone in it right now.",
+          "nextNodeId": "c1_tea_rest_command"
+        },
+        {
+          "choiceText": "You don't have to be perfectly calm just because you're the one who knows this place best.",
+          "nextNodeId": "c1_poise_pride_tender"
+        }
+      ]
+    },
+    {
+      "nodeId": "c1_grandfather_pin_memory",
+      "partnerDialogue": "I can hear my grandfather in my head telling me not to chase a dropped part while I'm upset. He used to say, 'The part isn't running away. You're the one making the room dangerous.' I always rolled my eyes when he said things like that. Tonight I'm realizing he was right.",
+      "choices": [
+        {
+          "choiceText": "Sounds like he knew you pretty well. Slow is part of the craft too.",
+          "nextNodeId": "c1_breathing_anchor"
+        },
+        {
+          "choiceText": "I'd have liked him. Anyone who teaches patience that way gets points from me.",
+          "nextNodeId": "c1_workshop_reassurance"
+        }
+      ]
+    },
+    {
+      "nodeId": "c1_aftershock_honesty",
+      "partnerDialogue": "I thought I was going to have to hang up because I was too embarrassed to let you hear me like that. That's probably the strangest part. The pin wasn't the only thing that scared me. Being seen losing control scared me too. Thank you for not making a big thing out of it.",
+      "choices": [
+        {
+          "choiceText": "You don't owe me composure. You can have a bad minute without becoming a different person.",
+          "nextNodeId": "c1_wrap_up_call1"
+        },
+        {
+          "choiceText": "I'm glad you stayed on the line. I wanted you to know you didn't have to hide it from me.",
+          "nextNodeId": "c1_poise_pride_tender"
+        }
+      ]
+    },
+    {
+      "nodeId": "c1_watch_not_you",
+      "partnerDialogue": "And just so we're clear... if the watch had actually been damaged, I would have been upset. A lot. But it still would have been a repair problem, not a verdict on me. I needed to remember that. You helped me get there.",
+      "choices": [
+        {
+          "choiceText": "Exactly. You're Zephyrine before you're the person fixing this watch.",
+          "nextNodeId": "c1_wrap_up_call1"
+        },
+        {
+          "choiceText": "Good. Keep that thought with you when you go back to the bench.",
+          "nextNodeId": "c1_tea_rest_command"
+        }
+      ]
+    },
+    {
+      "nodeId": "c2_why_old_watches",
+      "partnerDialogue": "Do you know why I still choose old watches when there are easier jobs I could take? I like that somebody cared enough to make every part work with every other part. There's no shortcut hiding inside the mechanism. You have to understand it before you can fix it. I find that satisfying in a way I can't really explain.",
+      "choices": [
+        {
+          "choiceText": "You don't have to explain it better than that. I get why it's yours.",
+          "nextNodeId": "c2_horological_time_talk"
+        },
+        {
+          "choiceText": "So that's what keeps pulling you back after all these years.",
+          "nextNodeId": "c2_counting_together_intimacy"
+        }
+      ]
+    },
+    {
+      "nodeId": "c2_ordinary_sunday",
+      "partnerDialogue": "Honestly, the date probably won't look very impressive from the outside. Tea. Pastries. A workbench. Me complaining about where you put your elbows. Maybe a walk along the docks when I finally stop pretending I need to 'just check one more thing.' But that sounds better to me than anything fancy.",
+      "choices": [
+        {
+          "choiceText": "That sounds exactly like the kind of date I'd rather have.",
+          "nextNodeId": "c2_sunday_date_lock_hub"
+        },
+        {
+          "choiceText": "I like the part where you pretend you're not having fun.",
+          "nextNodeId": "c2_final_pastries_vow"
+        }
+      ]
+    },
+    {
+      "nodeId": "c2_workshop_personal",
+      "partnerDialogue": "There's also something I'm not saying very well. When I let you hear the watch tonight, it stopped feeling like I was showing off my work. It felt more like I was sharing a place that matters to me. That's different. I didn't expect it to feel that personal over a phone call.",
+      "choices": [
+        {
+          "choiceText": "I'm glad you shared it with me. I know that room isn't casual for you.",
+          "nextNodeId": "c2_counting_together_intimacy"
+        },
+        {
+          "choiceText": "Maybe that's why this night feels different from the usual dating-app nonsense.",
+          "nextNodeId": "c2_breathtaking_gift_tender"
+        }
+      ]
+    },
+    {
+      "nodeId": "c2_playful_tease",
+      "partnerDialogue": "And yes, I was serious about telling you you're winding it wrong. You should know what you're getting into. Dating a watchmaker apparently comes with unsolicited technical criticism and very specific tea opinions.",
+      "choices": [
+        {
+          "choiceText": "I can live with the criticism. The tea opinions might be harder.",
+          "nextNodeId": "c2_final_pastries_vow"
+        },
+        {
+          "choiceText": "Fine. You can correct my winding technique on Sunday.",
+          "nextNodeId": "c2_sunday_date_lock_hub"
+        }
+      ]
+    },
+    {
+      "nodeId": "c2_stay_a_little_longer",
+      "partnerDialogue": "I could keep talking to you for another hour without really saying anything important. That's usually how I know I'm comfortable. I don't feel like I have to make every minute impressive. We can just sit here and listen to the watch for a while.",
+      "choices": [
+        {
+          "choiceText": "Then don't make it impressive. Stay with me for another minute.",
+          "nextNodeId": "c2_counting_together_intimacy"
+        },
+        {
+          "choiceText": "I like you like this, Zephyrine. A little tired, a little soft, not trying to perform.",
+          "nextNodeId": "c2_breathtaking_gift_tender"
+        }
       ]
     }
   ]

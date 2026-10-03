@@ -82,7 +82,6 @@ public class DirectChatRoomController : MonoBehaviour
 
     private void OnEnable()
     {
-        // Register call triggers and post-call resume listeners
         DialogueEventManager.Register("TRIGGER_CALL_1", HandleCall1Trigger);
         DialogueEventManager.Register("TRIGGER_CALL_2", HandleCall2Trigger);
         DialogueEventManager.Register("CALL_COMPLETED", HandleCallCompleted);
@@ -91,7 +90,6 @@ public class DirectChatRoomController : MonoBehaviour
 
     private void OnDisable()
     {
-        // Unregister listeners to avoid memory leaks or duplicate calls
         DialogueEventManager.Unregister("TRIGGER_CALL_1", HandleCall1Trigger);
         DialogueEventManager.Unregister("TRIGGER_CALL_2", HandleCall2Trigger);
         DialogueEventManager.Unregister("CALL_COMPLETED", HandleCallCompleted);
@@ -374,6 +372,14 @@ public class DirectChatRoomController : MonoBehaviour
         if (bottomNav != null) bottomNav.SetActive(true);
     }
 
+    // NEW FIX: Cleanly shuts down the UI when a Terminal Node is reached
+    private void EndRouteCompletely()
+    {
+        ClearChoices();
+        Debug.Log($"[DirectChatRoom] Route completed or ended for {activeGirlName}.");
+        CloseChatRoom();
+    }
+
     private void ReceivePartnerMessage(string message)
     {
         RemoveTypingIndicator();
@@ -421,8 +427,13 @@ public class DirectChatRoomController : MonoBehaviour
         ClearChoices();
         yield return new WaitForSeconds(0.2f);
 
+        // NEW FIX: Detects if this is the final node of the story (0 choices)
         if (currentNode == null || currentNode.choices == null || currentNode.choices.Count == 0)
+        {
+            CreateEndRouteButton();
+            TriggerSmoothScroll();
             yield break;
+        }
 
         foreach (DialogueChoiceData choice in currentNode.choices)
         {
@@ -436,7 +447,6 @@ public class DirectChatRoomController : MonoBehaviour
             {
                 btnText.text = formattedChoiceText;
 
-                // Ensure ContentSizeFitter on the button or text allows vertical expansion
                 ContentSizeFitter fitter = btnObj.GetComponent<ContentSizeFitter>();
                 if (fitter == null) fitter = btnObj.AddComponent<ContentSizeFitter>();
                 fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
@@ -455,6 +465,27 @@ public class DirectChatRoomController : MonoBehaviour
         }
 
         TriggerSmoothScroll();
+    }
+
+    // NEW FIX: Spawns the red "Finish Story" button inside the chat box
+    private void CreateEndRouteButton()
+    {
+        if (choiceButtonPrefab == null || choiceContainer == null) return;
+
+        GameObject btnObj = Instantiate(choiceButtonPrefab, choiceContainer);
+        TextMeshProUGUI btnText = btnObj.GetComponentInChildren<TextMeshProUGUI>();
+
+        if (btnText != null)
+        {
+            btnText.text = "<color=#FF7675>Finish Story</color>";
+
+            ContentSizeFitter fitter = btnObj.GetComponent<ContentSizeFitter>();
+            if (fitter == null) fitter = btnObj.AddComponent<ContentSizeFitter>();
+            fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+        }
+
+        Button btn = btnObj.GetComponent<Button>();
+        btn.onClick.AddListener(EndRouteCompletely);
     }
 
     private void OnPlayerSelectedChoice(string playerText, string nextNodeId, string linkUrl = "", string eventTrigger = "")
@@ -581,7 +612,6 @@ public class DirectChatRoomController : MonoBehaviour
         {
             string currentLink = currentNode != null ? currentNode.linkUrl : "";
 
-            // Do not re-trigger call events when the message finishes typing
             string currentEvent = "";
             if (currentNode != null && !string.IsNullOrEmpty(currentNode.triggerEvent))
             {

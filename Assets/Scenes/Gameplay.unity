@@ -7925,6 +7925,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VoiceCallDialogueUI
   screenRoot: {fileID: 636987196}
+  normalChatAppUI: {fileID: 519111123}
   imgPartnerAvatar: {fileID: 1802504026}
   txtPartnerSpeakerName: {fileID: 1004269537}
   dialogueScrollRect: {fileID: 1682839370}

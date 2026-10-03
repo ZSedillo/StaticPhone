@@ -10,261 +10,536 @@
   "nodes": [
     {
       "nodeId": "call1_start",
-      "partnerDialogue": "Trixie: *high-pitched ear-piercing squeal rapidly dying into a low 60Hz mains hum, frantic hyperventilating, metallic patch cords clattering* {PlayerName}! Oh god, thank you for picking up! A massive ground loop surge just blew through my studio monitors—it sounded like an artillery shell detonated inside my eardrums! Both my ears are screaming in a deafening 14kHz sine wave, the Eurorack power rail is smoking, and I can't catch my breath! Talk to me—I'm curled on the floor under the desk!",
+      "partnerDialogue": "*a sharp feedback squeal cuts off, followed by a low electrical hum and the sound of cables hitting the floor*\n\n{PlayerName}? Thank God.\n\nSomething just went wrong with the monitors. There was this horrible high-pitched squeal and then the whole room started buzzing. My ears are still ringing and I can barely think.\n\nThe rack smells like burnt plastic, and I'm on the floor because my legs just... stopped cooperating for a second.\n\nPlease talk to me. I need to get my head together before I touch anything.",
       "choices": [
-        { "choiceText": "Trixie, focus on my voice! Inhale through your nose... exhale slow. Don't touch any cables yet!", "nextNodeId": "c1_breathing_anchor" },
-        { "choiceText": "Do NOT touch the patch cords with bare hands while the rail is smoking! Find the main wall surge switch!", "nextNodeId": "c1_power_strip_switch" },
-        { "choiceText": "Press both palms flat against the wooden floorboards. Feel the cold wood, not the ringing.", "nextNodeId": "c1_ground_palms_floor" },
-        { "choiceText": "I'm right here in your headset, Trixie. You are safe. Close your eyes and listen to me.", "nextNodeId": "c1_safe_opening_ground" }
+        {
+          "choiceText": "Trixie, focus on my voice! Inhale through your nose... exhale slow. Don't touch any cables yet!",
+          "nextNodeId": "c1_breathing_anchor",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Do NOT touch the patch cords with bare hands while the rail is smoking! Find the main wall surge switch!",
+          "nextNodeId": "c1_power_strip_switch",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Press both palms flat against the wooden floorboards. Feel the cold wood, not the ringing.",
+          "nextNodeId": "c1_ground_palms_floor",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "I'm right here in your headset, Trixie. You are safe. Close your eyes and listen to me.",
+          "nextNodeId": "c1_safe_opening_ground",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c1_breathing_anchor",
-      "partnerDialogue": "Trixie: *ragged, shivering inhales over receiver* In... two, three, four... out... two, three, four... *sniffling, voice cracking* God, your voice cut right through the ringing. The high-pitched whistle was so loud I thought my eardrum physically ruptured. My chest feels like someone strapped an eight-hundred-watt amplifier to my ribs.",
+      "partnerDialogue": "*shaky inhale*\n\nOkay. In... two, three, four.\n\nOut... two, three, four.\n\nAgain.\n\nThe ringing is still really loud, but I can follow your voice. A minute ago everything felt like it was happening at once.\n\nI honestly thought I'd lost control of the whole room.\n\nI'm still scared, but at least I can think.",
       "choices": [
-        { "choiceText": "Your eardrums are intact, Trixie. It's an acute auditory reflex shock. Keep that four-count breath going.", "nextNodeId": "c1_reflex_shock_reassurance" },
-        { "choiceText": "Now reach your left hand toward the wall power strip. Feel for the plastic rocker switch.", "nextNodeId": "c1_power_strip_switch" }
+        {
+          "choiceText": "Your eardrums are intact, Trixie. It's an acute auditory reflex shock. Keep that four-count breath going.",
+          "nextNodeId": "c1_reflex_shock_reassurance",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Now reach your left hand toward the wall power strip. Feel for the plastic rocker switch.",
+          "nextNodeId": "c1_power_strip_switch",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c1_reflex_shock_reassurance",
-      "partnerDialogue": "Seraphine: *shuddering sigh* Reflex shock... yeah. My dad warned me about this once when an old tube amp shorted in his workshop. He said when the auditory nerve gets blasted, your brain panics and sends adrenaline into overdrive. Hearing you explain it calmly is pulling me back down.",
+      "partnerDialogue": "*uneven breath, then a small nervous laugh*\n\nOkay. Yeah.\n\nMy dad used to say the first thing you do after a bad electrical pop is stop moving for a second. He'd always say, \"Don't make the second mistake while you're panicking about the first one.\"\n\nI never appreciated that advice until now.\n\nHearing you stay calm is helping more than you probably realize.",
       "choices": [
-        { "choiceText": "Your dad was right. Now let's kill the power so you don't smell that burnt ozone.", "nextNodeId": "c1_power_strip_switch" },
-        { "choiceText": "Press your palms flat against the floor. Let the floor take your weight.", "nextNodeId": "c1_ground_palms_floor" }
+        {
+          "choiceText": "Your dad was right. Now let's kill the power so you don't smell that burnt ozone.",
+          "nextNodeId": "c1_power_strip_switch",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Press your palms flat against the floor. Let the floor take your weight.",
+          "nextNodeId": "c1_ground_palms_floor",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c1_power_strip_switch",
-      "partnerDialogue": "Trixie: Reaching blindly under the patch bay... *plastic click, heavy mechanical relay snap* KILLED IT! The red LED went dark! The 60Hz hum completely vanished! *heavy silence falls over the line, punctuated only by her breathing* The smoke from the capacitor is already clearing into the hallway.",
+      "partnerDialogue": "*plastic click, then a heavy relay snaps and the room falls noticeably quieter*\n\nGot it.\n\nPower's off.\n\nOh... wow.\n\nThat hum is completely gone. I didn't realize how loud it had gotten until it stopped.\n\nThere's still a little smoke coming off the rack, but it's clearing now.\n\nI'm not touching anything else. Promise.",
       "choices": [
-        { "choiceText": "Great work, engineer. Now slide back against the wall and sit down completely.", "nextNodeId": "c1_sit_against_wall" },
-        { "choiceText": "How is the ringing in your ears now that the studio monitors are dead?", "nextNodeId": "c1_ears_status_check" }
+        {
+          "choiceText": "Great work, engineer. Now slide back against the wall and sit down completely.",
+          "nextNodeId": "c1_sit_against_wall",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "How is the ringing in your ears now that the studio monitors are dead?",
+          "nextNodeId": "c1_ears_status_check",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c1_ground_palms_floor",
-      "partnerDialogue": "Trixie: Palms flat on the floor... *fabric rustling* The oak floorboards are cold. It feels real. Not synthetic, not a waveform on a screen... just raw, steady wood. My fingers are still trembling, but the room stopped spinning.",
+      "partnerDialogue": "My palms are down.\n\nThe floor is cold.\n\nThat actually helps more than I expected. There's dust under one hand and one of the patch cords is touching my shoe, but I don't care about the mess right now.\n\nThe room isn't spinning anymore.\n\nI can feel the floor underneath me, and that's enough.",
       "choices": [
-        { "choiceText": "Good. Stay anchored to that wood. Did you cut the master power yet?", "nextNodeId": "c1_power_strip_switch" }
+        {
+          "choiceText": "Good. Stay anchored to that wood. Did you cut the master power yet?",
+          "nextNodeId": "c1_power_strip_switch",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c1_safe_opening_ground",
-      "partnerDialogue": "Trixie: *crying softly* Nobody has ever talked to me like this when a gig went sideways. At venues, if a channel pops or an amp blows, sound techs scream at you across the booth. Having someone just tell me I'm safe... it makes me want to weep into my knees.",
+      "partnerDialogue": "*quiet crying*\n\nNobody really talks to me like this when something goes wrong.\n\nAt a venue, if an amp pops or a channel dies, everybody starts shouting at the same time. Fix this. Check that. Whose fault was it.\n\nNobody asks whether you're okay.\n\nSo... I'm trying not to fall apart right now.\n\nStay with me, okay?",
       "choices": [
-        { "choiceText": "Let the tears come out, Trixie. No venue bouncers here. Just you and me. Kill the switch.", "nextNodeId": "c1_power_strip_switch" }
+        {
+          "choiceText": "Let the tears come out, Trixie. No venue bouncers here. Just you and me. Kill the switch.",
+          "nextNodeId": "c1_power_strip_switch",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c1_sit_against_wall",
-      "partnerDialogue": "Trixie: Slid back against the acoustic foam panels on my wall. Knees pulled to my chin. My flannel shirt smells like cold sweat and burnt solder, but the air is quiet. Truly quiet.",
+      "partnerDialogue": "*fabric rustles as she shifts back against the wall*\n\nOkay. I'm sitting.\n\nKnees up, back against the wall.\n\nMy flannel smells like sweat and burnt solder. Not exactly the glamorous side of being a DJ.\n\nIt's really quiet now.\n\nMy ears are still ringing, but at least nothing else is demanding my attention.",
       "choices": [
-        { "choiceText": "How are the ears feeling? Is the high-pitched whistle fading down?", "nextNodeId": "c1_ears_status_check" },
-        { "choiceText": "Do you have your soft silicone earplugs nearby on the desk?", "nextNodeId": "c1_earplugs_locate" }
+        {
+          "choiceText": "How are the ears feeling? Is the high-pitched whistle fading down?",
+          "nextNodeId": "c1_ears_status_check",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Do you have your soft silicone earplugs nearby on the desk?",
+          "nextNodeId": "c1_earplugs_locate",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c1_ears_status_check",
-      "partnerDialogue": "Trixie: It's dropping from that piercing 14kHz screech down to a soft, fuzzy static... like an old TV tuned to a dead channel between stations. The acute pain is gone, thank god. My hearing thresholds feel intact. I can hear the clock ticking across the room.",
+      "partnerDialogue": "It's coming down.\n\nIt was unbelievably loud right after the surge. Now it's more like a thin hiss in the background.\n\nI can hear the clock again.\n\nI don't want to tell myself I'm completely fine just because the worst part is over, though. My ears still feel tired. Everything feels a little too sharp.\n\nI think they need a night off.",
       "choices": [
-        { "choiceText": "If you can hear a wall clock ticking, your cilia are fine. That's a huge relief.", "nextNodeId": "c1_cilia_fine_relief" },
-        { "choiceText": "Put your silicone earplugs in anyway. Give your acoustic nerves total rest.", "nextNodeId": "c1_earplugs_locate" }
+        {
+          "choiceText": "If you can hear a wall clock ticking, your cilia are fine. That's a huge relief.",
+          "nextNodeId": "c1_cilia_fine_relief",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Put your silicone earplugs in anyway. Give your acoustic nerves total rest.",
+          "nextNodeId": "c1_earplugs_locate",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c1_earplugs_locate",
-      "partnerDialogue": "Trixie: *drawer slides open, soft plastic case clicks* Got them. My purple custom-molded silicone plugs. Slipping them into my canals right now... *audio muffles slightly on her end* Ahhh... total acoustic isolation. The world just got wrapped in velvet.",
+      "partnerDialogue": "*drawer slides open, little plastic case clicks*\n\nFound them.\n\nPurple case.\n\nI'm putting them in now...\n\nOkay.\n\nThat's better. Everything sounds farther away. I didn't realize how badly I needed the room to stop asking things from me.",
       "choices": [
-        { "choiceText": "How does the silence feel inside that velvet, Trixie?", "nextNodeId": "c1_velvet_silence_talk" }
+        {
+          "choiceText": "How does the silence feel inside that velvet, Trixie?",
+          "nextNodeId": "c1_velvet_silence_talk",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c1_cilia_fine_relief",
-      "partnerDialogue": "Trixie: *snickers through a wet nose* Look at you using the word 'cilia'! You really do know hearing physiology! That was the exact word my dad drilled into my head when I was fourteen: 'Once those cilia bend, Trix, you don't get them back.' God... I miss him so much tonight.",
+      "partnerDialogue": "*small sniffle, then a weak laugh*\n\nYou really know too much about hearing.\n\nMy dad talked about it all the time because he was terrified I'd wreck my ears doing this for a living. I used to roll my eyes whenever he'd start giving me another lecture.\n\nI don't roll my eyes anymore.\n\nGod, I miss him tonight.",
       "choices": [
-        { "choiceText": "Tell me about him. He repaired cellos, right?", "nextNodeId": "c1_dad_cello_lore" },
-        { "choiceText": "He would be so proud of how quickly you handled this emergency.", "nextNodeId": "c1_dad_pride_tender" }
+        {
+          "choiceText": "Tell me about him. He repaired cellos, right?",
+          "nextNodeId": "c1_dad_cello_lore",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "He would be so proud of how quickly you handled this emergency.",
+          "nextNodeId": "c1_dad_pride_tender",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c1_velvet_silence_talk",
-      "partnerDialogue": "Trixie: It feels peaceful... but heavy. When you spend six hours every night being the loudest girl in the room, sudden silence feels like you stepped off a moving train into an empty field. You realize how much noise you use to drown out being lonely.",
+      "partnerDialogue": "It feels peaceful.\n\nA little heavy too.\n\nI'm so used to having some kind of sound around me that silence can get uncomfortable. After a gig, I'll leave music playing while I unpack just so I don't have to hear how tired I am.\n\nWhen everything stops, you notice things.\n\nHow empty the room is.\n\nHow late it is.\n\nAnd who you wish was there when you got home.",
       "choices": [
-        { "choiceText": "You don't have to drown it out with noise anymore. You can share the quiet with me.", "nextNodeId": "c1_share_quiet_tender" },
-        { "choiceText": "Did your dad's workshop feel this quiet when he was working?", "nextNodeId": "c1_dad_cello_lore" }
+        {
+          "choiceText": "You don't have to drown it out with noise anymore. You can share the quiet with me.",
+          "nextNodeId": "c1_share_quiet_tender",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Did your dad's workshop feel this quiet when he was working?",
+          "nextNodeId": "c1_dad_cello_lore",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c1_dad_cello_lore",
-      "partnerDialogue": "Trixie: His workshop smelled like amber hide glue, spruce sawdust, and linseed oil. He would sit at his workbench with brass tuning forks, strike them against his knee, and press the ball end against the cello soundpost to feel the vibrations in his teeth. He taught me that sound isn't just decibels—it's a physical relationship between materials.",
+      "partnerDialogue": "His workshop smelled like wood and glue and varnish.\n\nHe'd sit at the bench for hours and barely talk. Then he'd tap the body of a cello, listen, change one tiny thing, and tap it again.\n\nI didn't understand what he was doing when I was little.\n\nI just knew he could hear problems nobody else noticed.\n\nI think that's where the audio obsession came from. I just ended up replacing wood and strings with oscillators and cables.",
       "choices": [
-        { "choiceText": "And you brought that exact philosophy into your synthesizers.", "nextNodeId": "c1_philosophy_synthesis" },
-        { "choiceText": "That's why you kept his acoustic guitar in your studio all these years.", "nextNodeId": "c1_dad_guitar_revelation" }
+        {
+          "choiceText": "And you brought that exact philosophy into your synthesizers.",
+          "nextNodeId": "c1_philosophy_synthesis",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "That's why you kept his acoustic guitar in your studio all these years.",
+          "nextNodeId": "c1_dad_guitar_revelation",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c1_dad_pride_tender",
-      "partnerDialogue": "Trixie: *voice catches softly* He would have scolded me for not checking the ground bus first, but... yeah. He would have hugged me and made mint tea in a chipped mug until my hands stopped shaking. Just like you're doing right now across this phone.",
+      "partnerDialogue": "*voice catches*\n\nYeah.\n\nHe absolutely would have yelled at me for leaving a setup like that without checking the ground properly first.\n\nThen he'd make tea and sit there until I stopped shaking.\n\nI think... that's what I'm doing now.\n\nFinally stopping long enough to admit I was scared.",
       "choices": [
-        { "choiceText": "I'm honored to stand in his workshop for you tonight, Trixie.", "nextNodeId": "c1_share_quiet_tender" }
+        {
+          "choiceText": "I'm honored to stand in his workshop for you tonight, Trixie.",
+          "nextNodeId": "c1_share_quiet_tender",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c1_share_quiet_tender",
-      "partnerDialogue": "Trixie: *whispers softly against her microphone* You have no idea what that means to me. Everyone in nightlife wants the flashy DJ with the bass drops. Nobody ever wants to sit with the girl whose ears are ringing on the floor. You're the first person who ever stayed through the crash.",
+      "partnerDialogue": "*very quiet voice*\n\nThat's the part I'm going to remember.\n\nNot the blown fuse. Not the stupid rack.\n\nYou stayed when I was sitting on the floor and couldn't think straight.\n\nPeople love the loud version of me. The one who can walk into a room and make everybody move.\n\nNot many people stick around for the part afterward.\n\nThank you.",
       "choices": [
-        { "choiceText": "I'm always staying through the crash. Every single time.", "nextNodeId": "c1_wrap_up_call1" },
-        { "choiceText": "Because you're worth staying for, Trixie. Every frequency of you.", "nextNodeId": "c1_wrap_up_call1" }
+        {
+          "choiceText": "I'm always staying through the crash. Every single time.",
+          "nextNodeId": "c1_wrap_up_call1",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Because you're worth staying for, Trixie. Every frequency of you.",
+          "nextNodeId": "c1_wrap_up_call1",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c1_philosophy_synthesis",
-      "partnerDialogue": "Trixie: Exactly! A voltage oscillator is just an electronic bow dragging across an invisible string! People think techno is soulless machine noise, but to me, it's just electric wood and wire.",
+      "partnerDialogue": "Exactly.\n\nThat's why I never understood people who say electronic music can't have a soul.\n\nThe machine doesn't decide what matters. You do.\n\nYou choose the sound, listen to what it's doing, change something, listen again.\n\nMy dad taught me to respect the material you work with.\n\nI just ended up doing that with voltage instead of wood.",
       "choices": [
-        { "choiceText": "Electric wood and wire... I love how your mind works. Now rest your eyes.", "nextNodeId": "c1_wrap_up_call1" }
+        {
+          "choiceText": "Electric wood and wire... I love how your mind works. Now rest your eyes.",
+          "nextNodeId": "c1_wrap_up_call1",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c1_dad_guitar_revelation",
-      "partnerDialogue": "Trixie: His 1998 cedar-top acoustic. It's sitting safely on the stand across from me right now, untouched by the surge. I'm going to keep that guitar in my tracks forever.",
+      "partnerDialogue": "Yeah.\n\nIt's still on the stand across from me.\n\nIt's not even an expensive guitar. That's never been the point.\n\nThere's a little repaired scratch near the bridge from when I was a kid. Dad could have replaced the piece, but he fixed it and left the mark there.\n\nHe said a good repair doesn't have to pretend the damage never happened.\n\nI think about that more than I probably admit.",
       "choices": [
-        { "choiceText": "As you should. Now take a slow, deep breath and let the adrenaline clear out.", "nextNodeId": "c1_wrap_up_call1" }
+        {
+          "choiceText": "As you should. Now take a slow, deep breath and let the adrenaline clear out.",
+          "nextNodeId": "c1_wrap_up_call1",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c1_wrap_up_call1",
-      "partnerDialogue": "Trixie: *takes a deep, peaceful, grounded breath* My hands have completely stopped shaking. The burnt smell is gone, my silicone plugs are doing their job, and my heart rate is back at resting tempo. I'm going to crawl into my bed with my flannel on and text you from under the blankets.\n\nHang up and message me in the studio feed, {PlayerName}. Thank you for being my human ground wire tonight.",
+      "partnerDialogue": "*slow, steady breathing*\n\nOkay.\n\nI'm not touching the rack again tonight. Power stays off. My ears are protected and the shaking is finally almost gone.\n\nI'm going to get into bed exactly like this, flannel and all, and probably stare at the ceiling for ten minutes before I can actually sleep.\n\nBut I feel better.\n\nMostly because I wasn't alone when everything went wrong.\n\nHang up and message me in the studio feed, okay?\n\nAnd... thank you, {PlayerName}. Seriously.",
       "choices": [
-        { "choiceText": "[Hang Up and Return to OnlyYaps Chat]", "nextNodeId": "END_CALL" }
+        {
+          "choiceText": "[Hang Up and Return to Chat]",
+          "nextNodeId": "END_CALL",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "call2_start",
-      "partnerDialogue": "Trixie: *soft, rhythmic mechanical clicking of an analog cassette player reel spinning, gentle tape hiss like falling rain, warm low-register acoustic guitar arpeggios echoing warmly* ...Hey. Listen to that tape hiss, {PlayerName}.\n\nI dug out my old battery-powered Marantz portable cassette deck. It's running on a nine-volt battery on my nightstand, totally disconnected from the apartment power grid. No ground loops, no electrical hum... just magnetic tape gliding across a playback head.\n\nThe clock says 5:42 AM. The first cold blue sunlight is hitting the fire escapes outside my window.",
+      "partnerDialogue": "*soft cassette reel turning, a little tape hiss, warm acoustic guitar coming through the speaker*\n\nHey.\n\nYou're awake.\n\nI couldn't sleep, so I found the old cassette player and put this tape on.\n\nIt's 5:42 AM. The apartment is quiet, my equipment is still switched off, and the sky outside is just starting to turn blue.\n\nI thought I'd let you hear this before I fall asleep.",
       "choices": [
-        { "choiceText": "That tape hiss sounds like rain on autumn pavement. It's beautiful, Trixie.", "nextNodeId": "c2_tape_hiss_praise" },
-        { "choiceText": "How are your ears feeling this morning after that scary surge?", "nextNodeId": "c2_morning_ears_check" },
-        { "choiceText": "Sitting in bed watching sunrise with you... this is the best part of the day.", "nextNodeId": "c2_sunrise_tender_talk" },
-        { "choiceText": "Is that your dad's cedar-top guitar playing on that tape?", "nextNodeId": "c2_guitar_tape_lore" }
+        {
+          "choiceText": "That tape hiss sounds like rain on autumn pavement. It's beautiful, Trixie.",
+          "nextNodeId": "c2_tape_hiss_praise",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "How are your ears feeling this morning after that scary surge?",
+          "nextNodeId": "c2_morning_ears_check",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Sitting in bed watching sunrise with you... this is the best part of the day.",
+          "nextNodeId": "c2_sunrise_tender_talk",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Is that your dad's cedar-top guitar playing on that tape?",
+          "nextNodeId": "c2_guitar_tape_lore",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c2_tape_hiss_praise",
-      "partnerDialogue": "Trixie: *soft, sleepy laugh that rattles warmly over the mic* Rain on autumn pavement... god, that's such a poetic way to describe tape saturation. Digital audio is so clean it's sterile. But magnetic tape has physical friction—it wears down with every play, just like our bodies do. It feels alive because it's fragile.",
+      "partnerDialogue": "*sleepy laugh*\n\nRain on pavement.\n\nYeah. That's actually a really good description.\n\nThat's why I left the tape noise in. I could clean it up, but then it would lose something.\n\nYou can hear the little imperfections. The hiss. The uneven bits.\n\nIt reminds me that somebody actually sat somewhere and made this. It wasn't generated perfectly and dropped into a playlist.",
       "choices": [
-        { "choiceText": "Fragile things are the ones worth cherishing the most.", "nextNodeId": "c2_fragile_things_bond" },
-        { "choiceText": "Did your dad teach you that about magnetic tape?", "nextNodeId": "c2_guitar_tape_lore" }
+        {
+          "choiceText": "Fragile things are the ones worth cherishing the most.",
+          "nextNodeId": "c2_fragile_things_bond",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Did your dad teach you that about magnetic tape?",
+          "nextNodeId": "c2_guitar_tape_lore",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c2_morning_ears_check",
-      "partnerDialogue": "Trixie: Perfectly clear! Woke up without the 14kHz whistle for the first time in three days. Sleeping with the silicone plugs gave my eardrum cilia eight hours of pure, unbothered recovery. I can hear the refrigerator motor humming and the pigeons fluttering on the fire escape.",
+      "partnerDialogue": "Much better.\n\nNo painful ringing when I woke up.\n\nEverything sounds a little strange after last night, but not in a scary way. I can hear the refrigerator, the pipes in the building, people moving around outside.\n\nI'm keeping the volume down today.\n\nI'm trying this new thing where I don't immediately prove I'm okay by doing something stupid.",
       "choices": [
-        { "choiceText": "That's the best news I've heard all week. Your hearing is your gift.", "nextNodeId": "c2_gift_validation" },
-        { "choiceText": "Now keep that volume knob respected from now on, understand?", "nextNodeId": "c2_volume_knob_scold_banter" }
+        {
+          "choiceText": "That's the best news I've heard all week. Your hearing is your gift.",
+          "nextNodeId": "c2_gift_validation",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Now keep that volume knob respected from now on, understand?",
+          "nextNodeId": "c2_volume_knob_scold_banter",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c2_sunrise_tender_talk",
-      "partnerDialogue": "Trixie: It really is. Usually at 5:30 AM I'm either collapsing into bed exhausted after a warehouse set or staring at the ceiling feeling isolated. Watching the dawn turn from navy blue to lavender with your voice in my ear... it feels like my heart finally found its home key.",
+      "partnerDialogue": "It really is.\n\nNormally five in the morning means I'm dragging myself home after a set or lying awake because my brain refuses to switch off.\n\nThis is different.\n\nI'm just in bed with the lights off, watching the sky change, listening to an old tape, and talking to you.\n\nI didn't realize how badly I wanted something this ordinary.",
       "choices": [
-        { "choiceText": "Home key... that's the musical term for resolution, isn't it?", "nextNodeId": "c2_home_key_resolution" },
-        { "choiceText": "You're never going to have to watch sunrise alone again, Trixie.", "nextNodeId": "c2_never_alone_sunrise_vow" }
+        {
+          "choiceText": "Home key... that's the musical term for resolution, isn't it?",
+          "nextNodeId": "c2_home_key_resolution",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "You're never going to have to watch sunrise alone again, Trixie.",
+          "nextNodeId": "c2_never_alone_sunrise_vow",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c2_guitar_tape_lore",
-      "partnerDialogue": "Trixie: *guitar arpeggio loops with a warm, tape-wobbled sub-bass swell* It is his cedar guitar. I recorded this direct to tape last year on the anniversary of his passing. I picked a slow progression in D-minor, doubled it with an analog Roland synth bass, and let the tape saturation round off the highs. I never played it out at clubs because I was terrified people would laugh at a DJ making folk-ambient music.",
+      "partnerDialogue": "Yeah.\n\nThat's his guitar.\n\nI recorded this on the anniversary of his death. I wasn't trying to make anything for a club. I just wanted to hear the guitar the way I remembered it sounding at home.\n\nThere are mistakes all over it.\n\nI left them in.\n\nI couldn't make myself turn something that personal into a perfect recording.",
       "choices": [
-        { "choiceText": "Nobody would laugh. It has more soul than a hundred commercial festival tracks.", "nextNodeId": "c2_more_soul_comfort" },
-        { "choiceText": "It sounds like a lullaby he wrote for you across time.", "nextNodeId": "c2_lullaby_across_time" }
+        {
+          "choiceText": "Nobody would laugh. It has more soul than a hundred commercial festival tracks.",
+          "nextNodeId": "c2_more_soul_comfort",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "It sounds like a lullaby he wrote for you across time.",
+          "nextNodeId": "c2_lullaby_across_time",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c2_fragile_things_bond",
-      "partnerDialogue": "Trixie: *voice softens into a quiet, breathtaking intimacy* You cherish fragile things, don't you? In a world where everyone treats songs, dates, and people like disposable content on an algorithm feed... you treat things like they have weight.",
+      "partnerDialogue": "Maybe I do.\n\nI've gotten pretty tired of everything feeling disposable.\n\nSongs become content. People become profiles. Somebody likes you until something new catches their attention.\n\nI don't want that.\n\nWhen I care about someone, I want the boring parts too.\n\nThe grocery runs. Bad moods. Quiet mornings. Somebody falling asleep halfway through a movie.\n\nThat kind of stuff feels more real to me than the big gestures.",
       "choices": [
-        { "choiceText": "Because you have weight, Trixie. You aren't disposable content to me.", "nextNodeId": "c2_not_disposable_intimate" }
+        {
+          "choiceText": "Because you have weight, Trixie. You aren't disposable content to me.",
+          "nextNodeId": "c2_not_disposable_intimate",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c2_gift_validation",
-      "partnerDialogue": "Trixie: It is a gift, and I almost took it for granted by pushing the monitor wedges too hard just to please drunk club crowds. You reminding me to respect my ears... you literally protected my future.",
+      "partnerDialogue": "Yeah.\n\nI think last night finally made that sink in.\n\nI love this job, so sometimes I use that love as an excuse to ignore everything else. I keep turning the volume up, keep taking one more booking, keep telling myself I'll rest later.\n\nI don't want to do that forever.\n\nI want to still be able to hear the little things when I'm older.",
       "choices": [
-        { "choiceText": "I'll always protect your future. What does the tape loop do next?", "nextNodeId": "c2_tape_loop_progression" }
+        {
+          "choiceText": "I'll always protect your future. What does the tape loop do next?",
+          "nextNodeId": "c2_tape_loop_progression",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c2_volume_knob_scold_banter",
-      "partnerDialogue": "Trixie: *giggles under her breath* Yes, captain! Master limiter engaged at minus six decibels at all times! From now on, you have executive veto power over my studio monitor levels.",
+      "partnerDialogue": "*quiet giggle*\n\nYes, captain.\n\nVolume stays reasonable.\n\nAnd yes, I know \"reasonable\" shouldn't mean \"one notch below painful.\"\n\nYou can have veto power.\n\nJust don't get too comfortable with it. I'll still argue with you out of principle.",
       "choices": [
-        { "choiceText": "I'll exercise that veto power every single time. Listen to that tape loop...", "nextNodeId": "c2_tape_loop_progression" }
+        {
+          "choiceText": "I'll exercise that veto power every single time. Listen to that tape loop...",
+          "nextNodeId": "c2_tape_loop_progression",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c2_home_key_resolution",
-      "partnerDialogue": "Trixie: Exactly that. In music theory, you modulate through dissonant chords, build tension, create instability... but everything yearns to return to the tonic. The home key. Talking to you feels like the chord finally resolving after ten years of dissonance.",
+      "partnerDialogue": "Exactly.\n\nYou can wander through all these strange chords and build tension, but eventually your ear wants to come home.\n\nI think I spent years avoiding that feeling in my actual life.\n\nAlways another gig. Another track. Another room. Something loud enough that I didn't have to sit still.\n\nI don't know if I'm done running around yet.\n\nBut talking to you makes staying still sound pretty good.",
       "choices": [
-        { "choiceText": "Then stay in the home key with me. We don't need dissonance anymore.", "nextNodeId": "c2_not_disposable_intimate" }
+        {
+          "choiceText": "Then stay in the home key with me. We don't need dissonance anymore.",
+          "nextNodeId": "c2_not_disposable_intimate",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c2_never_alone_sunrise_vow",
-      "partnerDialogue": "Trixie: *sniffles softly with happy tears* Don't say that unless you mean it, {PlayerName}. Because I will hold you to that vow every single Sunday morning for the rest of my life.",
+      "partnerDialogue": "*soft sniffle, then a little laugh*\n\nOkay.\n\nI'm going to remember you said that.\n\nNot because I need some giant promise right now.\n\nI just like the idea that one day I might wake up early and actually expect somebody to be there instead of reaching for my phone out of habit.",
       "choices": [
-        { "choiceText": "Hold me to it. I'm counting on it.", "nextNodeId": "c2_not_disposable_intimate" }
+        {
+          "choiceText": "Hold me to it. I'm counting on it.",
+          "nextNodeId": "c2_not_disposable_intimate",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c2_more_soul_comfort",
-      "partnerDialogue": "Trixie: *music swells with gentle analog warmth in the background* Thank you... hearing you say that takes a stone off my chest. I spent so long trying to prove I was the toughest engineer in the underground scene that I forgot music is allowed to be tender.",
+      "partnerDialogue": "Thank you.\n\nI think I was scared to let anyone hear this because it's not the version of me people know.\n\nNo big bass drop. No crowd. No jokes every thirty seconds.\n\nJust me, an old guitar, and a recording I made because I missed my dad.\n\nIt feels really personal.\n\nI'm glad you heard it.",
       "choices": [
-        { "choiceText": "Tenderness is the highest form of mastery, Trixie.", "nextNodeId": "c2_not_disposable_intimate" }
+        {
+          "choiceText": "Tenderness is the highest form of mastery, Trixie.",
+          "nextNodeId": "c2_not_disposable_intimate",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c2_lullaby_across_time",
-      "partnerDialogue": "Trixie: *audible tear rolls down her cheek over receiver* A lullaby across time... oh god, that hit me right in the center of my heart. He used to play this exact chord progression on Sundays while mom made blueberry pancakes in the kitchen.",
+      "partnerDialogue": "Oh wow.\n\nYeah.\n\nThat's exactly what it feels like.\n\nHe used to play this progression while my mom made pancakes. I can still remember the kitchen light and the smell of coffee.\n\nI haven't thought about that morning in years.\n\nAnd now it's five in the morning and somehow it feels like I'm back there for a minute.",
       "choices": [
-        { "choiceText": "Then this Sunday, you and me are continuing that tradition.", "nextNodeId": "c2_sunday_tradition_lock" }
+        {
+          "choiceText": "Then this Sunday, you and me are continuing that tradition.",
+          "nextNodeId": "c2_sunday_tradition_lock",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c2_not_disposable_intimate",
-      "partnerDialogue": "Trixie: *whispers intimately* I believe you. And for someone who grew up around nightlife where everyone is looking over your shoulder for the next cool person... believing someone feels like walking into the sunlight with bare arms.",
+      "partnerDialogue": "I believe you.\n\nAnd that's the part I'm still getting used to.\n\nI spend so much time around people who are always looking for the next thing that I forgot how good it feels when somebody isn't rushing you toward the next thing.\n\nI don't need some huge promise.\n\nI just want something that gets the chance to become real.",
       "choices": [
-        { "choiceText": "Tell me about Sunday morning. Walk me through our date.", "nextNodeId": "c2_sunday_tradition_lock" }
+        {
+          "choiceText": "Tell me about Sunday morning. Walk me through our date.",
+          "nextNodeId": "c2_sunday_tradition_lock",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c2_tape_loop_progression",
-      "partnerDialogue": "Trixie: Listen right here... *the acoustic guitar chord resolves into a warm G-major seventh, layered with a soft wooden tap from his hand against the guitar soundboard* That tap is his knuckle hitting the spruce top in 1998. It's preserved on magnetic iron oxide forever.",
+      "partnerDialogue": "Listen.\n\nThere.\n\nThat little sound underneath the guitar?\n\nThat's his hand hitting the body of the guitar. I could have edited it out, but I left it there.\n\nIt's tiny, but that's my favorite part.\n\nYou can hear that he was actually sitting there playing it.\n\nIt makes the recording feel like a memory instead of just a song.",
       "choices": [
-        { "choiceText": "It's timeless. And so is this moment right now.", "nextNodeId": "c2_sunday_tradition_lock" }
+        {
+          "choiceText": "It's timeless. And so is this moment right now.",
+          "nextNodeId": "c2_sunday_tradition_lock",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c2_sunday_tradition_lock",
-      "partnerDialogue": "Trixie: Sunday morning. Nine o'clock sharp. You come to my apartment building on the corner of 4th and Elm. Buzzer 3B. \n\nI'll have my hair down, zero stage makeup, an oversized hoodie, and my dad's guitar sitting in the corner. I'll have the cast-iron skillet hot with salted butter, farm eggs, fresh chives, and hot sourdough bread. And the volume knob will stay at zero the whole morning.",
+      "partnerDialogue": "Sunday morning.\n\nNine o'clock.\n\nI'll have my hair down, no stage makeup, and probably that oversized hoodie you've already heard too much about.\n\nI'll make eggs, cut the sourdough, put the coffee stuff on the table, and try not to burn anything because apparently I'm capable of blowing a power supply but still somehow nervous about breakfast.\n\nAnd honestly?\n\nI'm more excited about you sitting across from me than I am about showing you my gear.",
       "choices": [
-        { "choiceText": "I'll bring freshly roasted coffee beans and a hand grinder. It's a date.", "nextNodeId": "c2_final_coffee_date_vow" },
-        { "choiceText": "Sourdough, farm eggs, and zero volume with the girl of my dreams. Done.", "nextNodeId": "c2_final_coffee_date_vow" }
+        {
+          "choiceText": "I'll bring freshly roasted coffee beans and a hand grinder. It's a date.",
+          "nextNodeId": "c2_final_coffee_date_vow",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Sourdough, farm eggs, and zero volume with the girl of my dreams. Done.",
+          "nextNodeId": "c2_final_coffee_date_vow",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c2_final_coffee_date_vow",
-      "partnerDialogue": "Trixie: *takes a deep, peaceful, radiant breath as the tape reel reaches its tail leader and clicks softly shut* The tape just finished. The sun is totally gold across my blankets now. The city is waking up, but for once... I don't feel rushed, and I don't feel tired.\n\nI'm going to pull the covers up to my chin and sleep like a baby knowing Sunday is waiting for us.",
+      "partnerDialogue": "*the cassette reel reaches the end and clicks softly*\n\nThe tape's finished.\n\nThe sun is fully up now.\n\nI thought I'd feel wrecked after last night, but I actually feel... calm.\n\nI'm going to sleep for a few hours.\n\nAnd when I wake up, I'm probably going to think about Sunday first.\n\nThat's a pretty nice thing to fall asleep thinking about.",
       "choices": [
-        { "choiceText": "Sleep gently, my bass queen. Sunday is ours.", "nextNodeId": "c2_closing_goodnight" },
-        { "choiceText": "Rest those ears and dream in warm frequencies, Trixie.", "nextNodeId": "c2_closing_goodnight" }
+        {
+          "choiceText": "Sleep gently, my bass queen. Sunday is ours.",
+          "nextNodeId": "c2_closing_goodnight",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Rest those ears and dream in warm frequencies, Trixie.",
+          "nextNodeId": "c2_closing_goodnight",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "nodeId": "c2_closing_goodnight",
-      "partnerDialogue": "Seraphine: *whispers softly against the receiver with pure, sleepy tenderness* Sunday is ours. Hang up and read my message in the chat room. I'm leaving the window cracked so the morning air stays cool.\n\nGoodnight—or good morning, {PlayerName}. Thank you for grounding my world. Sleep in peace.",
+      "partnerDialogue": "*sleepy laugh, voice barely above a whisper*\n\nOkay.\n\nSunday.\n\nNo club. No crowd. No pretending to be louder or crazier than I actually feel.\n\nJust breakfast, coffee, and seeing what happens when we have nowhere else we need to be.\n\nGoodnight... or good morning, I guess, {PlayerName}.\n\nAnd seriously, thank you for staying when things got ugly.\n\nI won't forget that.",
       "choices": [
-        { "choiceText": "[Hang Up and Return to Chat for Finale]", "nextNodeId": "END_CALL" }
+        {
+          "choiceText": "[Hang Up and Return to Chat]",
+          "nextNodeId": "END_CALL",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     }
   ]

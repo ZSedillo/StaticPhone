@@ -2,47 +2,1461 @@
   "callerName": "Junia",
   "startNodeId": "start",
   "timeoutPrompts": [
-    "Junia: Hello? Steam wand is hissing, did you say something?",
-    "Junia: Did your connection cut out? Can you hear me?",
-    "Junia: Don't fall asleep on me during closing shift!",
-    "Junia: Line must be dead. Talk soon."
+    "...Hello? The steam wand is still hissing. Did you say something?",
+    "Did the connection cut out? Can you hear me?",
+    "Don't tell me you fell asleep on me during my closing shift. 😂",
+    "I think the line dropped. Talk to you soon."
   ],
   "nodes": [
     {
       "nodeId": "start",
-      "partnerDialogue": "Junia: Hey! The grinder is finally off. Just wiping down the espresso group heads. What are you up to?",
+      "partnerDialogue": "Hey. The grinder is finally off. I'm just wiping everything down before I lock up.\n\nWhat are you doing right now?",
       "choices": [
-        { "choiceText": "Just waiting to hear about that Ethiopian roast.", "nextNodeId": "roast" },
-        { "choiceText": "Working late, running entirely on caffeine.", "nextNodeId": "caffeine" },
-        { "choiceText": "Wishing I was at the café instead.", "nextNodeId": "flirt" }
+        {
+          "choiceText": "Just waiting to hear about that Ethiopian roast.",
+          "nextNodeId": "roast"
+        },
+        {
+          "choiceText": "Working late. I'm basically running on caffeine at this point.",
+          "nextNodeId": "caffeine"
+        },
+        {
+          "choiceText": "Honestly, wishing I was at the café instead.",
+          "nextNodeId": "flirt"
+        },
+        {
+          "choiceText": "How late are you staying tonight?",
+          "nextNodeId": "closing_late"
+        }
       ]
     },
     {
       "nodeId": "roast",
-      "partnerDialogue": "Junia: It turned out incredible! Cupped it twenty minutes ago—crisp citrus and floral notes all through the finish.",
+      "partnerDialogue": "It actually turned out really nice.\n\nI cupped it about twenty minutes ago. Bright citrus at first, then you get this softer floral thing at the end. I'm pretty happy with it.",
       "choices": [
-        { "choiceText": "Save me a bag of beans from this batch.", "nextNodeId": "save_batch" },
-        { "choiceText": "You really know your craft, Junia.", "nextNodeId": "END_CALL" }
+        {
+          "choiceText": "Save me a bag from this batch.",
+          "nextNodeId": "save_batch"
+        },
+        {
+          "choiceText": "You really know your craft, Junia.",
+          "nextNodeId": "craft_praise"
+        },
+        {
+          "choiceText": "Okay, now I'm curious what you mean by 'floral.'",
+          "nextNodeId": "floral_explain"
+        }
       ]
     },
     {
       "nodeId": "caffeine",
-      "partnerDialogue": "Junia: Don't overdo it past sunset! Swap to chamomile or mint, or you won't sleep a wink tonight.",
+      "partnerDialogue": "Careful. I know that look. 😂\n\nYou keep drinking coffee this late and tomorrow you're going to blame me when you can't sleep.\n\nSwitch to mint or chamomile for the rest of the night.",
       "choices": [
-        { "choiceText": "Only if you brew it for me tomorrow.", "nextNodeId": "END_CALL" }
+        {
+          "choiceText": "Only if you brew it for me tomorrow.",
+          "nextNodeId": "tea_tomorrow"
+        },
+        {
+          "choiceText": "Maybe I'll just sleep when I'm dead.",
+          "nextNodeId": "sleep_joke"
+        }
       ]
     },
     {
       "nodeId": "flirt",
-      "partnerDialogue": "Junia: Flattery noted! Maybe I'll keep the corner booth open for you tomorrow morning.",
+      "partnerDialogue": "You really know how to make a closing shift harder to finish. 😂\n\nI was going to lock up early, but now I'm picturing you sitting in the corner booth.",
       "choices": [
-        { "choiceText": "I'll be the first one in line.", "nextNodeId": "END_CALL" }
+        {
+          "choiceText": "I'll save you a seat too.",
+          "nextNodeId": "corner_booth"
+        },
+        {
+          "choiceText": "Then maybe I should actually come by tomorrow.",
+          "nextNodeId": "tomorrow_cafe"
+        }
       ]
     },
     {
       "nodeId": "save_batch",
-      "partnerDialogue": "Junia: Already labeled with your name on the shelf behind the bar. Rest up, {PlayerName}!",
-      "choices": []
+      "partnerDialogue": "Already set one aside.\n\nI put your name on the bag behind the bar so I don't accidentally sell it to somebody.\n\nDon't make me hold onto it forever, though. 😂",
+      "choices": [
+        {
+          "choiceText": "Deal. I'll come claim it in person.",
+          "nextNodeId": "claim_in_person"
+        },
+        {
+          "choiceText": "You remembered my name. I'm flattered.",
+          "nextNodeId": "remembered_name"
+        }
+      ]
+    },
+    {
+      "nodeId": "craft_praise",
+      "partnerDialogue": "Thanks.\n\nHonestly, hearing that from you feels different than when a customer says it. Customers mostly want to know if it tastes good. You actually care about the work behind it.",
+      "choices": [
+        {
+          "choiceText": "I care about the person doing the work too.",
+          "nextNodeId": "care_person"
+        },
+        {
+          "choiceText": "Then show me what you liked most about the batch.",
+          "nextNodeId": "roast_detail"
+        }
+      ]
+    },
+    {
+      "nodeId": "floral_explain",
+      "partnerDialogue": "It's hard to explain without making you taste it. 😂\n\nIt's kind of like orange peel first, then something softer underneath. A little jasmine, maybe.\n\nI know that sounds pretentious. It just... smells really good.",
+      "choices": [
+        {
+          "choiceText": "I like listening to you get excited about things.",
+          "nextNodeId": "excited_about_it"
+        },
+        {
+          "choiceText": "Now I definitely need a cup.",
+          "nextNodeId": "cup_request"
+        }
+      ]
+    },
+    {
+      "nodeId": "closing_late",
+      "partnerDialogue": "Probably another thirty minutes.\n\nI always tell myself I'll leave right after the last cleanup, then I find one more thing to wipe down and somehow it's midnight.",
+      "choices": [
+        {
+          "choiceText": "You need somebody to drag you out of that café.",
+          "nextNodeId": "drag_you_out"
+        },
+        {
+          "choiceText": "I kind of like imagining you there after everyone leaves.",
+          "nextNodeId": "after_hours_scene"
+        }
+      ]
+    },
+    {
+      "nodeId": "tea_tomorrow",
+      "partnerDialogue": "Deal.\n\nBut I'm making the tea, and you're not allowed to complain that it isn't coffee.\n\nI will absolutely judge you if you ask for sugar, though. 😂",
+      "choices": [
+        {
+          "choiceText": "No sugar. I'll trust the expert.",
+          "nextNodeId": "trust_expert"
+        },
+        {
+          "choiceText": "Okay, now I'm looking forward to tomorrow.",
+          "nextNodeId": "tomorrow_cafe"
+        }
+      ]
+    },
+    {
+      "nodeId": "sleep_joke",
+      "partnerDialogue": "Very funny. 🙄\n\nAnd when you're staring at the ceiling at 3 AM, don't come blaming the roaster girl.",
+      "choices": [
+        {
+          "choiceText": "Then you can stay on text with me until I fall asleep.",
+          "nextNodeId": "stay_on_text"
+        },
+        {
+          "choiceText": "Fine. Mint tea. Happy?",
+          "nextNodeId": "trust_expert"
+        }
+      ]
+    },
+    {
+      "nodeId": "corner_booth",
+      "partnerDialogue": "Good. Because I have a favorite one in the back.\n\nIt's the one people miss when they first walk in. Quiet, near the window.\n\nI think you'd like it.",
+      "choices": [
+        {
+          "choiceText": "Then save that one for me.",
+          "nextNodeId": "reserve_booth"
+        },
+        {
+          "choiceText": "Sounds like you've already planned our date.",
+          "nextNodeId": "date_tease"
+        }
+      ]
+    },
+    {
+      "nodeId": "tomorrow_cafe",
+      "partnerDialogue": "You should.\n\nCome when it's quiet, though. Mornings get busy fast and I'd rather actually talk to you than shout over three grinders.",
+      "choices": [
+        {
+          "choiceText": "Then I'll come early.",
+          "nextNodeId": "early_visit"
+        },
+        {
+          "choiceText": "I'll let you finish your morning first. I don't want to be a distraction.",
+          "nextNodeId": "not_distraction"
+        }
+      ]
+    },
+    {
+      "nodeId": "claim_in_person",
+      "partnerDialogue": "I'd like that.\n\nAnd don't just grab the bag and leave. I'm going to make you taste the roast properly first.",
+      "choices": [
+        {
+          "choiceText": "Fair. One cup, no distractions.",
+          "nextNodeId": "tasting_promise"
+        },
+        {
+          "choiceText": "What if I like the coffee more than I like you?",
+          "nextNodeId": "coffee_competition"
+        }
+      ]
+    },
+    {
+      "nodeId": "remembered_name",
+      "partnerDialogue": "Of course I remembered.\n\nI'm pretending that was completely normal and not me smiling at my phone for the last thirty seconds.",
+      "choices": [
+        {
+          "choiceText": "So I have that effect on you?",
+          "nextNodeId": "effect_on_you"
+        },
+        {
+          "choiceText": "You're cute when you admit things like that.",
+          "nextNodeId": "cute_admission"
+        }
+      ]
+    },
+    {
+      "nodeId": "care_person",
+      "partnerDialogue": "That's dangerous territory, you know.\n\nMost people are interested in the coffee. Very few ask what the person making it is doing okay.\n\nI like that you do.",
+      "choices": [
+        {
+          "choiceText": "Then how are you really doing tonight?",
+          "nextNodeId": "how_really_doing"
+        },
+        {
+          "choiceText": "Good. Because I want to know you, not just your coffee.",
+          "nextNodeId": "know_you"
+        }
+      ]
+    },
+    {
+      "nodeId": "roast_detail",
+      "partnerDialogue": "The finish.\n\nThat's the part I kept tasting after I put the cup down. It stayed sweet instead of getting bitter, which is what I was hoping for.\n\nI know I'm being a nerd about this. 😂",
+      "choices": [
+        {
+          "choiceText": "I like the nerdy version of you.",
+          "nextNodeId": "nerdy_you"
+        },
+        {
+          "choiceText": "You're allowed to be proud of it.",
+          "nextNodeId": "proud_roast"
+        }
+      ]
+    },
+    {
+      "nodeId": "excited_about_it",
+      "partnerDialogue": "Yeah... I do that. 😅\n\nI get talking about something I care about and forget that other people might not care nearly as much.\n\nIt's nice when somebody actually listens.",
+      "choices": [
+        {
+          "choiceText": "Keep talking. I like hearing you like this.",
+          "nextNodeId": "keep_talking"
+        },
+        {
+          "choiceText": "Then tell me something you usually don't tell customers.",
+          "nextNodeId": "private_story"
+        }
+      ]
+    },
+    {
+      "nodeId": "cup_request",
+      "partnerDialogue": "I'll make you one tomorrow.\n\nBut I'm warning you now: if you put sugar in it, I'm taking the cup away. 😂",
+      "choices": [
+        {
+          "choiceText": "Black coffee. I can handle it.",
+          "nextNodeId": "black_coffee"
+        },
+        {
+          "choiceText": "I'll let you choose what I drink.",
+          "nextNodeId": "you_choose"
+        }
+      ]
+    },
+    {
+      "nodeId": "drag_you_out",
+      "partnerDialogue": "Honestly? Maybe.\n\nI have absolutely no idea how to leave work without finding one more thing to fix.\n\nYou'd probably have to physically take my keys away.",
+      "choices": [
+        {
+          "choiceText": "Done. Keys confiscated. You're coming home.",
+          "nextNodeId": "keys_confiscated"
+        },
+        {
+          "choiceText": "Then I'll just sit there until you finally decide to go.",
+          "nextNodeId": "wait_for_you"
+        }
+      ]
+    },
+    {
+      "nodeId": "after_hours_scene",
+      "partnerDialogue": "It's actually really nice after closing.\n\nThe lights are lower, the street is quiet, and the whole room smells different once the machines cool down.\n\nSometimes I just stand behind the counter and enjoy the silence for a minute.",
+      "choices": [
+        {
+          "choiceText": "I'd like to see that side of the café with you.",
+          "nextNodeId": "see_after_hours"
+        },
+        {
+          "choiceText": "That sounds like where you'd finally relax.",
+          "nextNodeId": "finally_relax"
+        }
+      ]
+    },
+    {
+      "nodeId": "trust_expert",
+      "partnerDialogue": "Good answer. 😂\n\nYou might survive my coffee rules after all.",
+      "choices": [
+        {
+          "choiceText": "So when do I get my official tasting?",
+          "nextNodeId": "tasting_promise"
+        },
+        {
+          "choiceText": "I think I'm already earning boyfriend privileges.",
+          "nextNodeId": "boyfriend_privileges"
+        }
+      ]
+    },
+    {
+      "nodeId": "stay_on_text",
+      "partnerDialogue": "You'd probably keep me awake longer. 😂\n\nBut... I wouldn't exactly hate that.",
+      "choices": [
+        {
+          "choiceText": "Then I'll take my chances.",
+          "nextNodeId": "take_chances"
+        },
+        {
+          "choiceText": "I'll behave. Mint tea and sleep.",
+          "nextNodeId": "trust_expert"
+        }
+      ]
+    },
+    {
+      "nodeId": "reserve_booth",
+      "partnerDialogue": "It's yours.\n\nWell... when you're here, anyway. I'm not putting your name on the table. That would be a little too much even for me. 😂",
+      "choices": [
+        {
+          "choiceText": "Fair. I'll just know which one is ours.",
+          "nextNodeId": "our_booth"
+        },
+        {
+          "choiceText": "You're making this sound dangerously date-like.",
+          "nextNodeId": "date_tease"
+        }
+      ]
+    },
+    {
+      "nodeId": "date_tease",
+      "partnerDialogue": "Maybe it is.\n\nCoffee, a quiet table, and me trying not to stare at you while you're drinking something I made.\n\nI'd call that a pretty good morning.",
+      "choices": [
+        {
+          "choiceText": "I think I'd like that a lot.",
+          "nextNodeId": "tomorrow_cafe"
+        },
+        {
+          "choiceText": "Now you're making me impatient.",
+          "nextNodeId": "impatient_flirt"
+        }
+      ]
+    },
+    {
+      "nodeId": "early_visit",
+      "partnerDialogue": "Early it is.\n\nI'll make sure the first pot isn't terrible. That's basically my version of getting dressed up for a date. 😂",
+      "choices": [
+        {
+          "choiceText": "I'll take the coffee date over anything fancy.",
+          "nextNodeId": "coffee_date"
+        },
+        {
+          "choiceText": "Then I'll see you in the morning.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "not_distraction",
+      "partnerDialogue": "You wouldn't be.\n\nHonestly, having one person I actually want to see might make mornings feel a little less repetitive.",
+      "choices": [
+        {
+          "choiceText": "Then I'll give you something to look forward to.",
+          "nextNodeId": "something_to_look_forward"
+        },
+        {
+          "choiceText": "Okay, now I'm definitely coming.",
+          "nextNodeId": "coffee_date"
+        }
+      ]
+    },
+    {
+      "nodeId": "tasting_promise",
+      "partnerDialogue": "Deal.\n\nYou sit across from me, I pour the cup, and you tell me exactly what you think.\n\nNo polite 'it's good' either. I want the real answer.",
+      "choices": [
+        {
+          "choiceText": "You might regret asking for honesty.",
+          "nextNodeId": "honest_tasting"
+        },
+        {
+          "choiceText": "I'll be honest. Promise.",
+          "nextNodeId": "honest_tasting"
+        }
+      ]
+    },
+    {
+      "nodeId": "coffee_competition",
+      "partnerDialogue": "Oh, that's bold. 😂\n\nFine. Let the coffee compete.\n\nBut I'm warning you, I play unfair when my pride is involved.",
+      "choices": [
+        {
+          "choiceText": "Now I definitely have to win you over.",
+          "nextNodeId": "win_you_over"
+        },
+        {
+          "choiceText": "I think I already know who's going to win.",
+          "nextNodeId": "already_win"
+        }
+      ]
+    },
+    {
+      "nodeId": "effect_on_you",
+      "partnerDialogue": "Apparently, yes.\n\nI was trying to act normal about it. Clearly that didn't work.",
+      "choices": [
+        {
+          "choiceText": "Good. I like knowing I'm getting through your guard.",
+          "nextNodeId": "through_guard"
+        },
+        {
+          "choiceText": "Then I'll keep being myself.",
+          "nextNodeId": "stay_yourself"
+        }
+      ]
+    },
+    {
+      "nodeId": "cute_admission",
+      "partnerDialogue": "Don't encourage me. 😂\n\nI'm supposed to be the one doing the teasing here.",
+      "choices": [
+        {
+          "choiceText": "Too late. You're cute.",
+          "nextNodeId": "too_late_cute"
+        },
+        {
+          "choiceText": "Okay, I'll behave... for now.",
+          "nextNodeId": "behave_for_now"
+        }
+      ]
+    },
+    {
+      "nodeId": "how_really_doing",
+      "partnerDialogue": "Honestly?\n\nTired. A little stressed about the shop. But tonight was better than most nights.\n\nTalking to you helped with that more than I expected.",
+      "choices": [
+        {
+          "choiceText": "Then I'm glad I stayed up with you.",
+          "nextNodeId": "glad_stayed"
+        },
+        {
+          "choiceText": "You don't have to carry everything alone.",
+          "nextNodeId": "not_alone"
+        }
+      ]
+    },
+    {
+      "nodeId": "know_you",
+      "partnerDialogue": "Yeah... I know.\n\nAnd that's probably why this feels different. You're interested in the boring parts too.\n\nThose are usually the parts that actually tell you who someone is.",
+      "choices": [
+        {
+          "choiceText": "Then keep showing me the boring parts.",
+          "nextNodeId": "boring_parts"
+        },
+        {
+          "choiceText": "I want the real Junia, not the café version.",
+          "nextNodeId": "real_junia"
+        }
+      ]
+    },
+    {
+      "nodeId": "nerdy_you",
+      "partnerDialogue": "Okay. I might have to keep you. 😂\n\nI spend way too much time thinking about little things that nobody else notices.",
+      "choices": [
+        {
+          "choiceText": "I notice. That's what I like about you.",
+          "nextNodeId": "notice_you"
+        },
+        {
+          "choiceText": "Then give me another coffee fact.",
+          "nextNodeId": "coffee_fact"
+        }
+      ]
+    },
+    {
+      "nodeId": "proud_roast",
+      "partnerDialogue": "Thanks.\n\nI don't always let myself enjoy the wins because I'm already thinking about the next batch.\n\nMaybe I should get better at stopping for a second.",
+      "choices": [
+        {
+          "choiceText": "Start tonight. Enjoy this one with me.",
+          "nextNodeId": "enjoy_together"
+        },
+        {
+          "choiceText": "I'll remind you when you forget.",
+          "nextNodeId": "remember_to_pause"
+        }
+      ]
+    },
+    {
+      "nodeId": "keep_talking",
+      "partnerDialogue": "Okay, but don't blame me when I send you a five-minute explanation about coffee nobody asked for. 😂\n\nActually... I kind of want to know what you like talking about too.",
+      "choices": [
+        {
+          "choiceText": "Games, projects, random stuff. Mostly whatever keeps me interested.",
+          "nextNodeId": "tell_about_you"
+        },
+        {
+          "choiceText": "I could listen to you talk about coffee for hours.",
+          "nextNodeId": "hours_of_coffee"
+        }
+      ]
+    },
+    {
+      "nodeId": "private_story",
+      "partnerDialogue": "Okay, here's one.\n\nSometimes after closing, I sit on the counter with the lights off and listen to old records. No coffee machine, no customers, nothing.\n\nIt's probably the closest thing I have to switching my brain off.",
+      "choices": [
+        {
+          "choiceText": "I wish I could be there for one of those nights.",
+          "nextNodeId": "quiet_night_together"
+        },
+        {
+          "choiceText": "That sounds like a side of you most people never get to see.",
+          "nextNodeId": "hidden_side"
+        }
+      ]
+    },
+    {
+      "nodeId": "black_coffee",
+      "partnerDialogue": "Good. Brave answer. 😂\n\nI'll try not to judge your first reaction too hard.",
+      "choices": [
+        {
+          "choiceText": "You absolutely will judge me.",
+          "nextNodeId": "judge_me"
+        },
+        {
+          "choiceText": "Then I better make a good impression.",
+          "nextNodeId": "good_impression"
+        }
+      ]
+    },
+    {
+      "nodeId": "you_choose",
+      "partnerDialogue": "Dangerous answer.\n\nI might actually pick something weird just to see whether you'll trust me.",
+      "choices": [
+        {
+          "choiceText": "Now I have to know what you'd pick.",
+          "nextNodeId": "junia_choice"
+        },
+        {
+          "choiceText": "I trust you. Surprise me.",
+          "nextNodeId": "surprise_me"
+        }
+      ]
+    },
+    {
+      "nodeId": "keys_confiscated",
+      "partnerDialogue": "You know what? I might actually let you.\n\nSomebody has to stop me from reorganizing the syrup shelf at midnight.",
+      "choices": [
+        {
+          "choiceText": "Good. Your shift is over.",
+          "nextNodeId": "shift_over"
+        },
+        {
+          "choiceText": "Come on. I'll walk you out.",
+          "nextNodeId": "walk_you_out"
+        }
+      ]
+    },
+    {
+      "nodeId": "wait_for_you",
+      "partnerDialogue": "That might work.\n\nI'd probably complain for five minutes and then realize I was ready to leave the whole time.",
+      "choices": [
+        {
+          "choiceText": "Exactly. I know you better than you think.",
+          "nextNodeId": "know_you_better"
+        },
+        {
+          "choiceText": "Then let me be your excuse to go home.",
+          "nextNodeId": "excuse_to_go_home"
+        }
+      ]
+    },
+    {
+      "nodeId": "see_after_hours",
+      "partnerDialogue": "I'd like that.\n\nIt's a very different place when nobody's asking for oat milk substitutions and extra syrup. 😂\n\nYou'd probably see why I stay a little longer sometimes.",
+      "choices": [
+        {
+          "choiceText": "Then show me sometime.",
+          "nextNodeId": "show_me_sometime"
+        },
+        {
+          "choiceText": "Maybe I could become part of your after-hours routine.",
+          "nextNodeId": "after_hours_routine"
+        }
+      ]
+    },
+    {
+      "nodeId": "finally_relax",
+      "partnerDialogue": "Sometimes.\n\nI still bring the work home with me in my head, but those little quiet moments help.\n\nTonight, talking to you is kind of doing the same thing.",
+      "choices": [
+        {
+          "choiceText": "Then stay with me a little longer.",
+          "nextNodeId": "stay_longer"
+        },
+        {
+          "choiceText": "I'm glad I can make the night easier.",
+          "nextNodeId": "make_night_easier"
+        }
+      ]
+    },
+    {
+      "nodeId": "boyfriend_privileges",
+      "partnerDialogue": "Whoa. 😂\n\nYou're moving fast.\n\n...I can't even say I hate the idea, though.",
+      "choices": [
+        {
+          "choiceText": "I can slow down. I just really like you.",
+          "nextNodeId": "really_like_you"
+        },
+        {
+          "choiceText": "Noted. I'll earn them properly.",
+          "nextNodeId": "earn_privileges"
+        }
+      ]
+    },
+    {
+      "nodeId": "take_chances",
+      "partnerDialogue": "Okay, now you're making this dangerous.\n\nI was supposed to be closing the shop, not smiling at my phone.",
+      "choices": [
+        {
+          "choiceText": "Sorry. I'm a distraction.",
+          "nextNodeId": "good_distraction"
+        },
+        {
+          "choiceText": "Finish closing. I'll stay right here.",
+          "nextNodeId": "stay_here"
+        }
+      ]
+    },
+    {
+      "nodeId": "our_booth",
+      "partnerDialogue": "Our booth.\n\nYeah... I like the sound of that more than I probably should. 😂",
+      "choices": [
+        {
+          "choiceText": "Then it's settled.",
+          "nextNodeId": "settled_date"
+        },
+        {
+          "choiceText": "You said it, not me.",
+          "nextNodeId": "you_said_it"
+        }
+      ]
+    },
+    {
+      "nodeId": "impatient_flirt",
+      "partnerDialogue": "Good.\n\nNow imagine me pretending I'm not checking the clock because I actually want you to show up already.",
+      "choices": [
+        {
+          "choiceText": "You might want to stop pretending.",
+          "nextNodeId": "stop_pretending"
+        },
+        {
+          "choiceText": "I'll make sure I'm not late.",
+          "nextNodeId": "not_late"
+        }
+      ]
+    },
+    {
+      "nodeId": "coffee_date",
+      "partnerDialogue": "Then coffee date it is.\n\nNothing fancy. Just us, a quiet table, and me making sure your cup is actually good.",
+      "choices": [
+        {
+          "choiceText": "I think that's perfect.",
+          "nextNodeId": "perfect_date"
+        },
+        {
+          "choiceText": "Now I really can't wait for morning.",
+          "nextNodeId": "morning_wait"
+        }
+      ]
+    },
+    {
+      "nodeId": "goodnight_before_end",
+      "partnerDialogue": "Okay, I should actually finish closing before I start inventing reasons to keep texting you. 😂\n\nGet some sleep, {PlayerName}. I'll see you soon.",
+      "choices": [
+        {
+          "choiceText": "[Hang Up and Resume to Chat]",
+          "nextNodeId": "END_CALL"
+        }
+      ]
+    },
+    {
+      "nodeId": "something_to_look_forward",
+      "partnerDialogue": "I wouldn't hate that.\n\nLately I haven't had many things I'm genuinely looking forward to after a long shift.\n\nMaybe tomorrow will be different.",
+      "choices": [
+        {
+          "choiceText": "Then I'll see you tomorrow morning.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "honest_tasting",
+      "partnerDialogue": "Good. That's what I want.\n\nEven if you hate it, I'll survive. Probably. 😂",
+      "choices": [
+        {
+          "choiceText": "I think I'll like it. Especially because you're making it.",
+          "nextNodeId": "like_you_make_it"
+        }
+      ]
+    },
+    {
+      "nodeId": "win_you_over",
+      "partnerDialogue": "Oh, you're making this a competition now?\n\nFine. I accept.\n\nBut don't blame me when I make you fall for the coffee first.",
+      "choices": [
+        {
+          "choiceText": "Too late. I think I'm falling for the roaster.",
+          "nextNodeId": "falling_for_roaster"
+        }
+      ]
+    },
+    {
+      "nodeId": "already_win",
+      "partnerDialogue": "Confident.\n\nI like that.\n\nWe'll see whether that confidence survives the first sip.",
+      "choices": [
+        {
+          "choiceText": "Tomorrow morning. You, me, one cup.",
+          "nextNodeId": "coffee_date"
+        }
+      ]
+    },
+    {
+      "nodeId": "through_guard",
+      "partnerDialogue": "Maybe a little.\n\nI usually keep people at arm's length for a while. I didn't really expect you to get past that so quickly.",
+      "choices": [
+        {
+          "choiceText": "Then I'll be careful with the part you let me see.",
+          "nextNodeId": "careful_with_you"
+        }
+      ]
+    },
+    {
+      "nodeId": "stay_yourself",
+      "partnerDialogue": "Good.\n\nThat's probably what I like most about this. Neither of us is trying too hard to impress the other.",
+      "choices": [
+        {
+          "choiceText": "I'd rather just be myself with you.",
+          "nextNodeId": "be_yourself_together"
+        }
+      ]
+    },
+    {
+      "nodeId": "too_late_cute",
+      "partnerDialogue": "You're really committed to this, huh? 😂\n\nOkay. Fine. Maybe I don't mind hearing it.",
+      "choices": [
+        {
+          "choiceText": "Good. Because I mean it.",
+          "nextNodeId": "mean_it"
+        }
+      ]
+    },
+    {
+      "nodeId": "behave_for_now",
+      "partnerDialogue": "I'll believe that when I see it.\n\nYou're already trouble.",
+      "choices": [
+        {
+          "choiceText": "Good trouble, though.",
+          "nextNodeId": "good_trouble"
+        }
+      ]
+    },
+    {
+      "nodeId": "glad_stayed",
+      "partnerDialogue": "Me too.\n\nI was going to spend tonight cleaning the counters and thinking about everything that needed fixing tomorrow.\n\nThis is much better.",
+      "choices": [
+        {
+          "choiceText": "Then let's make this a habit.",
+          "nextNodeId": "make_it_habit"
+        }
+      ]
+    },
+    {
+      "nodeId": "not_alone",
+      "partnerDialogue": "I know.\n\nI'm still learning how to actually believe that when someone says it.\n\nBut tonight, I think I do.",
+      "choices": [
+        {
+          "choiceText": "Good. I'm here.",
+          "nextNodeId": "good_im_here"
+        }
+      ]
+    },
+    {
+      "nodeId": "boring_parts",
+      "partnerDialogue": "You say that now. 😂\n\nGive it a few weeks and you'll be hearing about inventory counts and broken grinder burrs.",
+      "choices": [
+        {
+          "choiceText": "I might actually like those stories.",
+          "nextNodeId": "like_those_stories"
+        }
+      ]
+    },
+    {
+      "nodeId": "real_junia",
+      "partnerDialogue": "Then you're going to get a lot of messy hair, bad jokes, tired mornings, and me complaining about suppliers.\n\nHope you're ready.",
+      "choices": [
+        {
+          "choiceText": "That's exactly the version I want.",
+          "nextNodeId": "exact_version"
+        }
+      ]
+    },
+    {
+      "nodeId": "notice_you",
+      "partnerDialogue": "Okay. That's dangerously nice.\n\nMost people notice what I make. You keep noticing me.",
+      "choices": [
+        {
+          "choiceText": "Because you're worth noticing.",
+          "nextNodeId": "worth_noticing"
+        }
+      ]
+    },
+    {
+      "nodeId": "coffee_fact",
+      "partnerDialogue": "Fine. One more.\n\nThe same bean can taste completely different depending on how you roast it. That's probably why I like this work so much. Small changes matter.",
+      "choices": [
+        {
+          "choiceText": "I think that's true about people too.",
+          "nextNodeId": "people_small_changes"
+        }
+      ]
+    },
+    {
+      "nodeId": "enjoy_together",
+      "partnerDialogue": "I like that.\n\nOkay. I'm sitting down for five whole minutes and drinking my own coffee without analyzing it.",
+      "choices": [
+        {
+          "choiceText": "Good. Stay there with me.",
+          "nextNodeId": "stay_with_me"
+        }
+      ]
+    },
+    {
+      "nodeId": "remember_to_pause",
+      "partnerDialogue": "I might actually need that reminder.\n\nI'm good at taking care of everything except myself sometimes.",
+      "choices": [
+        {
+          "choiceText": "Then I'll remind you.",
+          "nextNodeId": "remember_to_pause_again"
+        }
+      ]
+    },
+    {
+      "nodeId": "tell_about_you",
+      "partnerDialogue": "See, that's what I like. No performance. Just whatever you're genuinely into.\n\nTell me more about that sometime.",
+      "choices": [
+        {
+          "choiceText": "I will. Especially if you're buying the coffee.",
+          "nextNodeId": "coffee_bargain"
+        }
+      ]
+    },
+    {
+      "nodeId": "hours_of_coffee",
+      "partnerDialogue": "You'd regret saying that after hour three. 😂\n\nBut... I'd still like talking to you for three hours.",
+      "choices": [
+        {
+          "choiceText": "Then we have a problem. I might never leave.",
+          "nextNodeId": "never_leave"
+        }
+      ]
+    },
+    {
+      "nodeId": "quiet_night_together",
+      "partnerDialogue": "That actually sounds nice.\n\nNo customers. No rush. Just music in the background and somebody I don't have to explain myself to.",
+      "choices": [
+        {
+          "choiceText": "I'd like being that person for you.",
+          "nextNodeId": "that_person"
+        }
+      ]
+    },
+    {
+      "nodeId": "hidden_side",
+      "partnerDialogue": "Yeah.\n\nMost people only meet the version of me that's working.\n\nMaybe I'd like you to meet the one that's not.",
+      "choices": [
+        {
+          "choiceText": "I'd really like that.",
+          "nextNodeId": "meet_real_her"
+        }
+      ]
+    },
+    {
+      "nodeId": "judge_me",
+      "partnerDialogue": "Absolutely. It's part of the job.\n\nBut I'll pretend I'm not judging while I watch you take the first sip.",
+      "choices": [
+        {
+          "choiceText": "You're impossible.",
+          "nextNodeId": "impossible_junia"
+        }
+      ]
+    },
+    {
+      "nodeId": "good_impression",
+      "partnerDialogue": "That's cute.\n\nYou don't actually have to impress me, you know.",
+      "choices": [
+        {
+          "choiceText": "I know. I just want you to like me.",
+          "nextNodeId": "want_you_like_me"
+        }
+      ]
+    },
+    {
+      "nodeId": "junia_choice",
+      "partnerDialogue": "Probably a little cortado.\n\nSomething simple. I'd rather make you a small good drink than drown you in a giant cup.",
+      "choices": [
+        {
+          "choiceText": "Cortado it is.",
+          "nextNodeId": "coffee_date"
+        }
+      ]
+    },
+    {
+      "nodeId": "surprise_me",
+      "partnerDialogue": "Okay. I like that.\n\nYou just volunteered to trust the roaster. Brave move. 😂",
+      "choices": [
+        {
+          "choiceText": "I trust you.",
+          "nextNodeId": "trust_junia"
+        }
+      ]
+    },
+    {
+      "nodeId": "shift_over",
+      "partnerDialogue": "Deal.\n\nNow I can finally take the apron off and pretend I'm a normal person again.",
+      "choices": [
+        {
+          "choiceText": "I like you in both versions.",
+          "nextNodeId": "both_versions"
+        }
+      ]
+    },
+    {
+      "nodeId": "walk_you_out",
+      "partnerDialogue": "Then wait by the door.\n\nI have to count the till one last time, because apparently romance doesn't cancel accounting.",
+      "choices": [
+        {
+          "choiceText": "Take your time. I'll wait.",
+          "nextNodeId": "wait_for_you"
+        }
+      ]
+    },
+    {
+      "nodeId": "know_you_better",
+      "partnerDialogue": "Maybe you do.\n\nThat's a little scary... but in a good way.",
+      "choices": [
+        {
+          "choiceText": "I'll take that as a compliment.",
+          "nextNodeId": "compliment_taken"
+        }
+      ]
+    },
+    {
+      "nodeId": "excuse_to_go_home",
+      "partnerDialogue": "Then congratulations. You're officially my favorite excuse to stop working.",
+      "choices": [
+        {
+          "choiceText": "I'll take the title.",
+          "nextNodeId": "favorite_title"
+        }
+      ]
+    },
+    {
+      "nodeId": "show_me_sometime",
+      "partnerDialogue": "I will.\n\nMaybe tomorrow, when the shop is quiet again.",
+      "choices": [
+        {
+          "choiceText": "I'll be there.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "after_hours_routine",
+      "partnerDialogue": "Careful. If you become part of that routine, I might start expecting you there.\n\nAnd I'm not sure I'd want to stop.",
+      "choices": [
+        {
+          "choiceText": "Then don't.",
+          "nextNodeId": "dont_stop_routine"
+        }
+      ]
+    },
+    {
+      "nodeId": "stay_longer",
+      "partnerDialogue": "Okay.\n\nThen stay. I don't really feel like rushing you off anymore.",
+      "choices": [
+        {
+          "choiceText": "I'm not going anywhere.",
+          "nextNodeId": "im_not_going_anywhere"
+        }
+      ]
+    },
+    {
+      "nodeId": "make_night_easier",
+      "partnerDialogue": "You do.\n\nMore than I expected when I picked up the phone tonight.",
+      "choices": [
+        {
+          "choiceText": "I'm glad I called you back.",
+          "nextNodeId": "glad_called_back"
+        }
+      ]
+    },
+    {
+      "nodeId": "really_like_you",
+      "partnerDialogue": "That's okay.\n\nI really like you too. I was just trying to be cool about it.",
+      "choices": [
+        {
+          "choiceText": "You don't have to be cool with me.",
+          "nextNodeId": "dont_be_cool"
+        }
+      ]
+    },
+    {
+      "nodeId": "earn_privileges",
+      "partnerDialogue": "I like that answer.\n\nSlow is probably better anyway. I'd rather actually get to know you than rush into something because it feels good tonight.",
+      "choices": [
+        {
+          "choiceText": "Then let's do it properly.",
+          "nextNodeId": "do_it_properly"
+        }
+      ]
+    },
+    {
+      "nodeId": "good_distraction",
+      "partnerDialogue": "A very effective one.\n\nI don't remember the last time I smiled this much during closing.",
+      "choices": [
+        {
+          "choiceText": "Then I'll stay your favorite distraction.",
+          "nextNodeId": "favorite_distraction"
+        }
+      ]
+    },
+    {
+      "nodeId": "stay_here",
+      "partnerDialogue": "Okay.\n\nThen I'll finish the last few things while you keep me company.",
+      "choices": [
+        {
+          "choiceText": "Deal. I'm here.",
+          "nextNodeId": "deal_here"
+        }
+      ]
+    },
+    {
+      "nodeId": "settled_date",
+      "partnerDialogue": "Settled.\n\nI should probably warn you that I take coffee dates embarrassingly seriously.",
+      "choices": [
+        {
+          "choiceText": "Good. I take you seriously too.",
+          "nextNodeId": "take_seriously"
+        }
+      ]
+    },
+    {
+      "nodeId": "you_said_it",
+      "partnerDialogue": "I did.\n\nAnd now I'm realizing I can't take it back without sounding like a coward. 😂",
+      "choices": [
+        {
+          "choiceText": "Good. Don't take it back.",
+          "nextNodeId": "dont_take_back"
+        }
+      ]
+    },
+    {
+      "nodeId": "stop_pretending",
+      "partnerDialogue": "Maybe I should.\n\nI'm not exactly subtle when I actually like somebody.",
+      "choices": [
+        {
+          "choiceText": "I'm starting to notice.",
+          "nextNodeId": "notice_like"
+        }
+      ]
+    },
+    {
+      "nodeId": "not_late",
+      "partnerDialogue": "Good.\n\nI'll save the quiet table and pretend I wasn't watching the clock waiting for you.",
+      "choices": [
+        {
+          "choiceText": "See you tomorrow.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "perfect_date",
+      "partnerDialogue": "Yeah.\n\nThat's pretty much my definition of a good morning.",
+      "choices": [
+        {
+          "choiceText": "Then it's a date.",
+          "nextNodeId": "its_a_date"
+        }
+      ]
+    },
+    {
+      "nodeId": "morning_wait",
+      "partnerDialogue": "Same.\n\nNow I'm definitely not getting anything done because I'm thinking about tomorrow.",
+      "choices": [
+        {
+          "choiceText": "Go finish closing, then.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "like_you_make_it",
+      "partnerDialogue": "Okay, that was unfairly sweet.\n\nNow I'm going to be smiling while I clean the counter again.",
+      "choices": [
+        {
+          "choiceText": "Good. That's exactly what I wanted.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "falling_for_roaster",
+      "partnerDialogue": "Oh.\n\nWell... I can work with that.\n\nJust don't tell me I didn't warn you. 😂",
+      "choices": [
+        {
+          "choiceText": "See you tomorrow, roaster girl.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "careful_with_you",
+      "partnerDialogue": "Thank you.\n\nI think that's what I need more than anything. Someone who doesn't treat the soft parts like a joke.",
+      "choices": [
+        {
+          "choiceText": "I won't.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "be_yourself_together",
+      "partnerDialogue": "Then let's keep doing that.\n\nNo pretending. Just us figuring each other out.",
+      "choices": [
+        {
+          "choiceText": "I'd like that.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "mean_it",
+      "partnerDialogue": "Okay.\n\nThen I might have to get used to being complimented by you.",
+      "choices": [
+        {
+          "choiceText": "Get used to it.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "good_trouble",
+      "partnerDialogue": "Definitely good trouble.\n\nThe kind I wouldn't mind getting into again tomorrow.",
+      "choices": [
+        {
+          "choiceText": "I'll hold you to that.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "make_it_habit",
+      "partnerDialogue": "I'd like that.\n\nIt'd be nice having one thing in the day that I actually look forward to.",
+      "choices": [
+        {
+          "choiceText": "Then it's a date tomorrow.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "good_im_here",
+      "partnerDialogue": "Okay.\n\nThen don't disappear on me the second the app gets boring.",
+      "choices": [
+        {
+          "choiceText": "I won't.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "like_those_stories",
+      "partnerDialogue": "You're weird. 😂\n\nI like that.",
+      "choices": [
+        {
+          "choiceText": "Good. We match.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "exact_version",
+      "partnerDialogue": "Then you're getting the real deal.\n\nNo polished café-owner version. Just me.",
+      "choices": [
+        {
+          "choiceText": "That's exactly who I want.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "worth_noticing",
+      "partnerDialogue": "You're making it really hard to keep this casual.\n\nNot that I'm complaining.",
+      "choices": [
+        {
+          "choiceText": "I'm not either.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "people_small_changes",
+      "partnerDialogue": "Maybe that's why I like both coffee and photography.\n\nSmall details change the whole thing. You just have to pay attention.",
+      "choices": [
+        {
+          "choiceText": "I'm paying attention to you.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "stay_with_me",
+      "partnerDialogue": "I will.\n\nFive whole minutes. No work talk. Just you and me.",
+      "choices": [
+        {
+          "choiceText": "That sounds perfect.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "remember_to_pause_again",
+      "partnerDialogue": "Okay.\n\nI trust you to remind me when I forget.",
+      "choices": [
+        {
+          "choiceText": "Deal.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "coffee_bargain",
+      "partnerDialogue": "Deal.\n\nYou provide the conversation, I provide the coffee. That's fair.",
+      "choices": [
+        {
+          "choiceText": "Sounds like a good partnership.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "never_leave",
+      "partnerDialogue": "That might be a problem.\n\nI'd probably just keep making coffee so you'd have an excuse to stay.",
+      "choices": [
+        {
+          "choiceText": "I wouldn't complain.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "that_person",
+      "partnerDialogue": "Yeah...\n\nI'd like that.",
+      "choices": [
+        {
+          "choiceText": "Then I’ll be that person.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "meet_real_her",
+      "partnerDialogue": "Then maybe tomorrow you get to meet the quiet version of me.\n\nI think you'd like her.",
+      "choices": [
+        {
+          "choiceText": "I'm looking forward to it.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "impossible_junia",
+      "partnerDialogue": "Probably.\n\nBut you keep calling me cute, so I think we're even.",
+      "choices": [
+        {
+          "choiceText": "Fair.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "want_you_like_me",
+      "partnerDialogue": "You don't have to say that like it's a job interview. 😂\n\nI already like you.",
+      "choices": [
+        {
+          "choiceText": "Good. That's all I wanted to hear.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "trust_junia",
+      "partnerDialogue": "Then I'll make sure I give you something worth trusting me over.\n\nSee you tomorrow.",
+      "choices": [
+        {
+          "choiceText": "See you tomorrow.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "both_versions",
+      "partnerDialogue": "Good answer.\n\nMaybe you'll get to see both more often.",
+      "choices": [
+        {
+          "choiceText": "I'd like that.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "compliment_taken",
+      "partnerDialogue": "It is.\n\nAnd I'm keeping it.",
+      "choices": [
+        {
+          "choiceText": "Keep it. You earned it.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "favorite_title",
+      "partnerDialogue": "I'll put it on my unofficial résumé.\n\n'Professional roaster. Amateur night-owl. Favorite excuse to go home.' 😂",
+      "choices": [
+        {
+          "choiceText": "Perfect résumé.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "dont_stop_routine",
+      "partnerDialogue": "I won't.\n\nActually... I think I'd like having someone in my quiet little routine.",
+      "choices": [
+        {
+          "choiceText": "Then I'll be there.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "im_not_going_anywhere",
+      "partnerDialogue": "Good.\n\nThat made me smile more than it should have.",
+      "choices": [
+        {
+          "choiceText": "I'm glad.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "glad_called_back",
+      "partnerDialogue": "Me too.\n\nTonight ended up being a lot better than I expected.",
+      "choices": [
+        {
+          "choiceText": "Then I'm glad I was part of it.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "dont_be_cool",
+      "partnerDialogue": "That's probably easier with you.\n\nI don't feel like I have to act put together all the time.",
+      "choices": [
+        {
+          "choiceText": "Good. I like you as you are.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "do_it_properly",
+      "partnerDialogue": "Yeah.\n\nSlow, honest, and no weird games. I could get used to that.",
+      "choices": [
+        {
+          "choiceText": "Me too.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "favorite_distraction",
+      "partnerDialogue": "I'll allow it.\n\nJust don't make me start looking forward to closing shift. 😂",
+      "choices": [
+        {
+          "choiceText": "Too late.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "deal_here",
+      "partnerDialogue": "Deal.\n\nOkay, I should finish before sunrise at this point.",
+      "choices": [
+        {
+          "choiceText": "[Hang Up and Resume to Chat]",
+          "nextNodeId": "END_CALL"
+        }
+      ]
+    },
+    {
+      "nodeId": "take_seriously",
+      "partnerDialogue": "That's actually really nice to hear.\n\nI think I like where this is going.",
+      "choices": [
+        {
+          "choiceText": "Me too.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "dont_take_back",
+      "partnerDialogue": "I won't.\n\nSome things are better left said.",
+      "choices": [
+        {
+          "choiceText": "Then don't take it back.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "notice_like",
+      "partnerDialogue": "Yeah.\n\nI'm starting to realize I'm not very good at hiding it from you.",
+      "choices": [
+        {
+          "choiceText": "You don't have to.",
+          "nextNodeId": "goodnight_before_end"
+        }
+      ]
+    },
+    {
+      "nodeId": "its_a_date",
+      "partnerDialogue": "It's a date.\n\nOkay. Now I really have to go finish closing before I accidentally stay here all night.",
+      "choices": [
+        {
+          "choiceText": "[Hang Up and Resume to Chat]",
+          "nextNodeId": "END_CALL"
+        }
+      ]
     }
   ]
 }

@@ -11,7 +11,6 @@ public class VoiceCallDialogueUI : MonoBehaviour
     [Header("Root Canvas/Panel")]
     [SerializeField] private GameObject screenRoot;
     
-    // NEW: We will drag your normal chat app here so we can hide it during the call!
     [Header("UI To Hide During Call")]
     [SerializeField] private GameObject normalChatAppUI; 
 
@@ -67,7 +66,6 @@ public class VoiceCallDialogueUI : MonoBehaviour
         activeConvo = LoadConversation(callerName);
         timeoutCounter = 0;
 
-        // NEW: Hide the normal chat app inside the phone!
         if (normalChatAppUI != null) normalChatAppUI.SetActive(false);
 
         if (screenRoot != null) screenRoot.SetActive(true);
@@ -111,6 +109,13 @@ public class VoiceCallDialogueUI : MonoBehaviour
 
     public void GoToNode(string nodeId, bool isInitial = false)
     {
+        // NEW: Check if this is the literal end of the story
+        if (nodeId == "END_ROUTE")
+        {
+            EndRouteCompletely();
+            return;
+        }
+
         if (nodeId == "END_CALL" || string.IsNullOrEmpty(nodeId))
         {
             EndCallDialogue();
@@ -183,14 +188,22 @@ public class VoiceCallDialogueUI : MonoBehaviour
 
         yield return new WaitForSeconds(0.25f);
 
+        // NEW: Properly differentiates between choices, Game Over, and silence hangup
         if (choicesToDisplay != null && choicesToDisplay.Count > 0)
         {
             PopulateChoices(choicesToDisplay);
             StartCountdownTimer();
         }
+        else if (choicesToDisplay != null && choicesToDisplay.Count == 0)
+        {
+            // This is a Terminal Node (End of Story). Generates a red finish button.
+            ClearChoices();
+            CreateChoiceButton("Finish Story", "END_ROUTE", isGoodbye: true);
+        }
         else
         {
-            PopulateChoices(new List<VoiceCallChoice>());
+            // Forced silence hang-up. Wait for DelayedHangup.
+            ClearChoices();
             StartCountdownTimer();
         }
 
@@ -337,13 +350,30 @@ public class VoiceCallDialogueUI : MonoBehaviour
         if (typewriterCoroutine != null) StopCoroutine(typewriterCoroutine);
         if (screenRoot != null) screenRoot.SetActive(false);
 
-        // NEW: Turn the normal chat app back on when the call hangs up!
         if (normalChatAppUI != null) normalChatAppUI.SetActive(true);
 
         if (VoiceCallOverlayController.Instance != null)
         {
             VoiceCallOverlayController.Instance.EndOrRejectCall();
         }
+    }
+
+    // NEW: Actual Game Over / Route Completed
+    public void EndRouteCompletely()
+    {
+        StopTimer();
+        if (replyCoroutine != null) StopCoroutine(replyCoroutine);
+        if (typewriterCoroutine != null) StopCoroutine(typewriterCoroutine);
+        if (screenRoot != null) screenRoot.SetActive(false);
+
+        // FIX: We deliberately do NOT turn the normalChatAppUI back on! The loop is broken.
+        
+        if (VoiceCallOverlayController.Instance != null)
+        {
+            VoiceCallOverlayController.Instance.EndOrRejectCall();
+        }
+        
+        Debug.Log("Route Completed Successfully!");
     }
 
     private void ClearChoices()

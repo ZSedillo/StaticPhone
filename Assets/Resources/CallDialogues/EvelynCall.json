@@ -2,289 +2,1099 @@
   "callerName": "Evelyn",
   "startNodeId": "start",
   "timeoutPrompts": [
-    "Evelyn: ...Is the line secured? Why aren't you answering? Speak to me.",
-    "Evelyn: {PlayerName}? My signal strength meter is fluctuating down to one bar. Are you there?",
-    "Evelyn: If this carrier frequency is compromised, I have to wipe the flash drive and bail.",
-    "Evelyn: Footsteps in the corridor. Disconnecting now."
+    "...Is the line secured? Why aren't you answering? Speak to me.",
+    "{PlayerName}? My signal keeps dropping to one bar. Are you there?",
+    "If this carrier gets compromised, I have to wipe the drive and leave. Please answer.",
+    "I hear footsteps in the corridor. I'm disconnecting for a second."
   ],
   "nodes": [
     {
       "nodeId": "start",
-      "partnerDialogue": "Evelyn: *hushed, ragged whisper* Keep your volume down. I had to squeeze through a rusted drainage grate beneath the archive annex. My lantern is down to its lowest diode setting. Did you examine the frequency graph I sent before my cellular data dropped?",
+      "partnerDialogue": "*quietly* Hey. Keep your voice down, okay? I had to crawl through a rusted drainage grate under the archive annex. My light's almost useless down here.\n\nDid you get the frequency graph I sent before my data died?",
       "choices": [
-        { "choiceText": "The 18 Hz harmonic pulse doesn't look natural at all.", "nextNodeId": "unnatural" },
-        { "choiceText": "Forget the graph—are you safe down there by yourself?!", "nextNodeId": "safety_first" },
-        { "choiceText": "I haven't opened the file yet; my connection was caching.", "nextNodeId": "unopened" },
-        { "choiceText": "Wait... what was that low hum in the background of your mic?", "nextNodeId": "ambient_hum_check" }
+        {
+          "choiceText": "The 18 Hz pulse doesn't look natural at all.",
+          "nextNodeId": "unnatural"
+        },
+        {
+          "choiceText": "Forget the graph. Are you actually safe down there alone?",
+          "nextNodeId": "safety_first"
+        },
+        {
+          "choiceText": "I haven't opened it yet. My connection was caching.",
+          "nextNodeId": "unopened"
+        },
+        {
+          "choiceText": "Wait... what's that low hum behind you?",
+          "nextNodeId": "ambient_hum_check"
+        }
       ]
     },
     {
       "nodeId": "unnatural",
-      "partnerDialogue": "Evelyn: Exactly. *faint clink of metal tools* It mimics low-grade seismic settling, but the modulation peaks repeat every sixty seconds with microsecond accuracy. Earth doesn't shake on atomic clock intervals.",
+      "partnerDialogue": "Exactly. At first I thought it was ordinary settling, but the same little peaks keep coming back at almost the exact same interval. It's too neat.\n\nI know that sounds ridiculous over the phone, but once you see the whole graph, you'll get why I'm bothered by it.",
       "choices": [
-        { "choiceText": "Someone is generating that wave intentionally through the bedrock.", "nextNodeId": "intentional" },
-        { "choiceText": "Could it be an old pneumatic tube dispatch line under the floor?", "nextNodeId": "pneumatic_theory" },
-        { "choiceText": "Whatever it is, get your data and extract right now. Security will sweep.", "nextNodeId": "urgent_extraction" }
+        {
+          "choiceText": "Someone could be generating that signal on purpose.",
+          "nextNodeId": "intentional"
+        },
+        {
+          "choiceText": "Could it be an old pneumatic line vibrating under the floor?",
+          "nextNodeId": "pneumatic_theory"
+        },
+        {
+          "choiceText": "Whatever it is, get your data and get out before security finds you.",
+          "nextNodeId": "urgent_extraction"
+        }
       ]
     },
     {
       "nodeId": "safety_first",
-      "partnerDialogue": "Evelyn: *breath trembles slightly* Safe enough. The vault door at the main corridor latched shut behind me—electronic maglock engaged from the outside. But I located an unmapped ventilation shaft behind a row of filing cabinets.",
+      "partnerDialogue": "I'm okay. Mostly. The main vault door locked behind me, which wasn't exactly part of my plan, but I found a ventilation shaft behind some filing cabinets.\n\nSo... I'm not trapped forever. Probably.",
       "choices": [
-        { "choiceText": "You're locked inside a basement vault?! Evelyn, that's not 'safe enough'!", "nextNodeId": "locked_in_panic" },
-        { "choiceText": "Stay calm. Check the vent for fresh airflow. Can you feel a draft?", "nextNodeId": "check_vent_draft" },
-        { "choiceText": "I'm getting in my car right now to pull you out of there.", "nextNodeId": "drive_to_rescue" }
+        {
+          "choiceText": "'Probably' is not reassuring, Evelyn.",
+          "nextNodeId": "locked_in_panic"
+        },
+        {
+          "choiceText": "Check the vent for airflow. Do you feel a draft?",
+          "nextNodeId": "check_vent_draft"
+        },
+        {
+          "choiceText": "I'm getting in my car. I'm coming to get you.",
+          "nextNodeId": "drive_to_rescue"
+        }
       ]
     },
     {
       "nodeId": "unopened",
-      "partnerDialogue": "Evelyn: *sharp intake of air* Open it immediately once we clear this call. Look directly at sector four on the waterfall plot. The frequency cuts out in a sequence of sharp notches. It's a dead man's telegraph.",
+      "partnerDialogue": "Okay, open it as soon as we're off this call. Look at sector four on the waterfall plot. The signal keeps dropping out in these little gaps.\n\nIt looks almost like someone is deliberately interrupting it.",
       "choices": [
-        { "choiceText": "A telegraph? Like Morse code encoded in sub-bass?", "nextNodeId": "morse_in_subbass" },
-        { "choiceText": "Downloading it on my terminal right now. Talk me through it.", "nextNodeId": "walkthrough_terminal" }
+        {
+          "choiceText": "Like Morse code hidden under the bass range?",
+          "nextNodeId": "morse_in_subbass"
+        },
+        {
+          "choiceText": "I'm opening it now. Talk me through what I'm seeing.",
+          "nextNodeId": "walkthrough_terminal"
+        }
       ]
     },
     {
       "nodeId": "ambient_hum_check",
-      "partnerDialogue": "Evelyn: You hear it through the phone mic?! *whispers intensely* Hold on... I'm pressing my phone case against the granite foundation. Listen to this:",
+      "partnerDialogue": "You heard that? Seriously? Hold on.\n\n*pause*\n\nI'm putting the phone against the foundation. Don't say anything for a second. Just listen.",
       "choices": [
-        { "choiceText": "It sounds like a massive engine spinning down in the deep earth.", "nextNodeId": "deep_engine_sound" },
-        { "choiceText": "That's not machinery. That's acoustic vocal resonance.", "nextNodeId": "vocal_resonance_call" }
+        {
+          "choiceText": "It sounds like something huge turning over underground.",
+          "nextNodeId": "deep_engine_sound"
+        },
+        {
+          "choiceText": "That almost sounds like a voice resonance, not machinery.",
+          "nextNodeId": "vocal_resonance_call"
+        }
       ]
     },
     {
       "nodeId": "intentional",
-      "partnerDialogue": "Evelyn: Yes. A deliberate transmitter. *distant metallic scrape* ...Wait. Stop talking. Freeze.",
+      "partnerDialogue": "I think so too. *metal scrapes somewhere nearby*\n\n...Wait. Stop talking for a second.",
       "choices": [
-        { "choiceText": "...Evelyn? What was that?", "nextNodeId": "scrape_investigate" },
-        { "choiceText": "Kill the lantern. Duck behind the steel cabinets.", "nextNodeId": "kill_lantern_stealth" }
+        {
+          "choiceText": "Evelyn? What was that?",
+          "nextNodeId": "scrape_investigate"
+        },
+        {
+          "choiceText": "Turn the light off and get behind something solid.",
+          "nextNodeId": "kill_lantern_stealth"
+        }
       ]
     },
     {
       "nodeId": "pneumatic_theory",
-      "partnerDialogue": "Evelyn: I traced the copper conduit layout along the ceiling joists—the pneumatic system was decommissioned in 1968 and the brass pipes are choked with lime dust. This pulse is coming from below the concrete slab.",
+      "partnerDialogue": "I checked the old plans. The pneumatic system was shut down decades ago, and the pipes are packed with dust.\n\nThe pulse is definitely stronger below the concrete slab, not up here.",
       "choices": [
-        { "choiceText": "Beneath the slab? How deep does that foundation go?", "nextNodeId": "deep_foundation_q" },
-        { "choiceText": "Then you're standing on top of whatever is broadcasting.", "nextNodeId": "standing_on_broadcast" }
+        {
+          "choiceText": "How deep does the foundation go?",
+          "nextNodeId": "deep_foundation_q"
+        },
+        {
+          "choiceText": "So you're basically standing on top of the signal.",
+          "nextNodeId": "standing_on_broadcast"
+        }
       ]
     },
     {
       "nodeId": "urgent_extraction",
-      "partnerDialogue": "Evelyn: I'm not leaving empty-handed! I found Dr. Vance's missing ledger from October 1931 tucked behind an electrical distribution box. The pages are bound in oiled canvas; they're intact.",
+      "partnerDialogue": "I know. I'm trying. But I found something I can't leave behind.\n\nIt's Dr. Vance's missing ledger from 1931. I thought it was gone for good. The pages are actually in decent shape.",
       "choices": [
-        { "choiceText": "Shove the ledger in your bag, take the ventilation shaft, and go.", "nextNodeId": "bag_and_vent" },
-        { "choiceText": "What does the final page say? Read me one line.", "nextNodeId": "read_final_page" }
+        {
+          "choiceText": "Take the ledger and leave. We can study it somewhere safer.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "What's on the final page? Read me one line.",
+          "nextNodeId": "read_final_page"
+        }
       ]
     },
     {
       "nodeId": "locked_in_panic",
-      "partnerDialogue": "Evelyn: Don't raise your voice! Sound carries like gunfire down these brick tunnels. Look... my heart is in my throat too, okay? But panicking burns oxygen and ruins judgment.",
+      "partnerDialogue": "I know. I know. I'm trying not to panic.\n\nJust... stay with me for a minute, okay? When I hear your voice, I can think clearly again.",
       "choices": [
-        { "choiceText": "You're right. Deep breath. What tools do you have in your kit?", "nextNodeId": "tool_inventory" },
-        { "choiceText": "Just promise me you won't take another step without telling me.", "nextNodeId": "promise_anchor" }
+        {
+          "choiceText": "I'm here. What do you have in your kit?",
+          "nextNodeId": "tool_inventory"
+        },
+        {
+          "choiceText": "Promise me you won't move without telling me first.",
+          "nextNodeId": "promise_anchor"
+        }
       ]
     },
     {
       "nodeId": "check_vent_draft",
-      "partnerDialogue": "Evelyn: Holding my lighter to the louvers... *spark click* Flame is bending inward at thirty degrees. Strong negative pressure draft. It leads straight up to the street-level intake alley.",
+      "partnerDialogue": "There's a draft. A pretty strong one, actually. It pulls upward toward the street intake.\n\nThat might be our way out.",
       "choices": [
-        { "choiceText": "That's your exfil route. Can you fit through the opening?", "nextNodeId": "vent_fit_check" },
-        { "choiceText": "Keep the lighter off so you don't ignite pocket gas. Flashlight only.", "nextNodeId": "safety_scold_sweet" }
+        {
+          "choiceText": "Good. Can you fit through it?",
+          "nextNodeId": "vent_fit_check"
+        },
+        {
+          "choiceText": "Put the lighter away. Let's not add gas to tonight's problems.",
+          "nextNodeId": "safety_scold_sweet"
+        }
       ]
     },
     {
       "nodeId": "drive_to_rescue",
-      "partnerDialogue": "Evelyn: *voice cracks softly* ...You'd really drive out to an abandoned municipal lot in the freezing rain at midnight for me? Nobody has ever offered to come get me, {PlayerName}.",
+      "partnerDialogue": "*small breath* You're serious? You'd actually come all the way out here?\n\nNobody's ever volunteered to come get me from one of these places before, {PlayerName}.",
       "choices": [
-        { "choiceText": "I'd drive through a hurricane for you. Stay on the line; I'm heading out.", "nextNodeId": "rescue_drive_climax" },
-        { "choiceText": "Of course I would. I promised you wouldn't be alone anymore.", "nextNodeId": "rescue_vow_tender" }
+        {
+          "choiceText": "Of course I'm serious. Stay on the line until I get there.",
+          "nextNodeId": "rescue_drive_climax"
+        },
+        {
+          "choiceText": "I told you. You're not doing this alone anymore.",
+          "nextNodeId": "rescue_vow_tender"
+        }
       ]
     },
     {
       "nodeId": "morse_in_subbass",
-      "partnerDialogue": "Evelyn: Yes! Decoded the first three sets: 'C-E-L-L-A-R - D-E-E-P'. Someone with a low-frequency oscillator was tapping out warnings while the facility was being sealed in concrete.",
+      "partnerDialogue": "Yes. I ran the sequence a few times because I thought I was forcing the pattern. I wasn't.\n\nThe first message reads: 'CELLAR DEEP.' Someone was trying to leave a warning while this place was being sealed up.",
       "choices": [
-        { "choiceText": "Warnings about what?!", "nextNodeId": "warning_content" },
-        { "choiceText": "Document the transcript and climb into that shaft right now.", "nextNodeId": "bag_and_vent" }
+        {
+          "choiceText": "Warning about what?",
+          "nextNodeId": "warning_content"
+        },
+        {
+          "choiceText": "Save the transcript and get into the shaft right now.",
+          "nextNodeId": "bag_and_vent"
+        }
       ]
     },
     {
       "nodeId": "walkthrough_terminal",
-      "partnerDialogue": "Evelyn: Look at 18.2 Hz down to 17.9 Hz. See how the waveform mirrors an electrocardiogram pulse? It isn't random. It has a rhythm like a resting heartbeat.",
+      "partnerDialogue": "Look at the section around 18 Hz. The shape keeps rising and falling in almost the same rhythm.\n\nIt reminds me of a heartbeat, which is... honestly the least comforting thing I could have found tonight.",
       "choices": [
-        { "choiceText": "A 52 BPM resting pulse... exactly like a human in deep sleep.", "nextNodeId": "resting_heartbeat_reveal" }
+        {
+          "choiceText": "It's about 52 beats a minute, right?",
+          "nextNodeId": "resting_heartbeat_reveal"
+        },
+        {
+          "choiceText": "Could the pattern just be equipment cycling?",
+          "nextNodeId": "equipment_cycle_skeptic"
+        }
       ]
     },
     {
       "nodeId": "deep_engine_sound",
-      "partnerDialogue": "Evelyn: It's vibrating through the soles of my combat boots. The granite isn't just carrying sound; it's acting as a giant acoustic horn. Whatever is down there has been running for decades.",
+      "partnerDialogue": "I can feel it through my boots. It's low enough that I don't even really hear it anymore. I just feel the floor vibrating.\n\nThat's what scares me. Whatever's making it isn't just in the microphone.",
       "choices": [
-        { "choiceText": "That's enough data for one lifetime. Time to evacuate.", "nextNodeId": "bag_and_vent" },
-        { "choiceText": "Can you drop a contact mic down the conduit before you go?", "nextNodeId": "drop_contact_mic" }
+        {
+          "choiceText": "Okay. That's enough. Get out while you can.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "Can you get a contact mic down there before you leave?",
+          "nextNodeId": "drop_contact_mic"
+        }
       ]
     },
     {
       "nodeId": "vocal_resonance_call",
-      "partnerDialogue": "Evelyn: *shivers audibly* Don't say that while I'm down here in the dark... But... God, you're right. The formant frequencies align at 700 Hz and 1200 Hz. That's the vowel 'O'.",
+      "partnerDialogue": "Don't say that. *nervous laugh* I'm already standing in a dark basement listening to something I can't explain.\n\nBut... yeah. There are frequencies in it that line up strangely well with human speech.",
       "choices": [
-        { "choiceText": "Evelyn, pack your gear and get out through the vent right now. I mean it.", "nextNodeId": "bag_and_vent" }
+        {
+          "choiceText": "Pack your gear and get out. We can analyze the recording later.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "Stay with me for ten seconds. What does it sound like now?",
+          "nextNodeId": "voice_pattern_followup"
+        }
       ]
     },
     {
       "nodeId": "scrape_investigate",
-      "partnerDialogue": "Evelyn: *whispers from under a desk* It's coming from the other side of the heavy vault door. Something is turning the brass release handle from the outside corridor.",
+      "partnerDialogue": "I'm under a desk. Don't laugh.\n\nThere's someone on the other side of the vault door. I can hear the handle moving.",
       "choices": [
-        { "choiceText": "Is there a manual latch on your side to pin it shut?", "nextNodeId": "pin_manual_latch" },
-        { "choiceText": "Bolt into the ventilation shaft. Don't look back.", "nextNodeId": "bag_and_vent" }
+        {
+          "choiceText": "Is there a way to pin the door from your side?",
+          "nextNodeId": "pin_manual_latch"
+        },
+        {
+          "choiceText": "Forget the door. Get to the vent now.",
+          "nextNodeId": "bag_and_vent"
+        }
       ]
     },
     {
       "nodeId": "kill_lantern_stealth",
-      "partnerDialogue": "Evelyn: Lantern killed. Complete darkness down here. *quiet fabric rustle* I'm wedged between the structural iron beam and the archival shelves. My heart is beating so loud I'm terrified they'll hear it.",
+      "partnerDialogue": "Light's off. I can't see a thing.\n\nI'm wedged between a beam and the shelves. I can hear my own heartbeat, which is not helping.",
       "choices": [
-        { "choiceText": "Listen to my voice in your ear. Steady breathing. Inhale... exhale...", "nextNodeId": "steady_breathing_grounding" },
-        { "choiceText": "Can you see any flashlight sweep under the door gap?", "nextNodeId": "flashlight_sweep_check" }
+        {
+          "choiceText": "Listen to me. Slow breaths. I'm right here.",
+          "nextNodeId": "steady_breathing_grounding"
+        },
+        {
+          "choiceText": "Can you see any light under the door?",
+          "nextNodeId": "flashlight_sweep_check"
+        }
       ]
     },
     {
       "nodeId": "deep_foundation_q",
-      "partnerMessage": "",
-      "partnerDialogue": "Evelyn: The blueprints show a subterranean drainage aquifer dug down eighty feet during the 1880 reservoir construction. It was supposedly backfilled with gravel, but this acoustic clearance proves it's still hollow.",
+      "partnerDialogue": "About eighty feet according to the old plans. There used to be a drainage structure down there. They claimed it was filled in, but the readings suggest part of it is still hollow.",
       "choices": [
-        { "choiceText": "A hollow cavern under the town center... that's your next expedition.", "nextNodeId": "next_expedition_promise" }
+        {
+          "choiceText": "That can be tomorrow's expedition. Tonight we get you out.",
+          "nextNodeId": "next_expedition_promise"
+        },
+        {
+          "choiceText": "You really want to go back down there with me, don't you?",
+          "nextNodeId": "future_expedition_flirt"
+        }
       ]
     },
     {
       "nodeId": "standing_on_broadcast",
-      "partnerDialogue": "Evelyn: Right on top of it. My hair is literally standing up off my scalp from electrostatic charge. It feels like standing next to a lightning strike three seconds before the thunder hits.",
+      "partnerDialogue": "Pretty much. And I'm getting static every time I touch the metal railing.\n\nI hate admitting this, but I'm starting to think staying here any longer is a bad idea.",
       "choices": [
-        { "choiceText": "Then jump off that strike point before it discharges. Into the vent!", "nextNodeId": "bag_and_vent" }
+        {
+          "choiceText": "Then listen to that feeling. Into the vent, now.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "Good. I need you alive more than I need another reading.",
+          "nextNodeId": "care_over_data"
+        }
       ]
     },
     {
       "nodeId": "bag_and_vent",
-      "partnerDialogue": "Evelyn: Slipping the ledger into my dry-bag. *grunts softly* Vent cover screws came loose with my pocket multi-tool. I'm hoisting my pack up into the ductwork now.",
+      "partnerDialogue": "Okay. Ledger's in the dry bag. Vent cover is off.\n\nI'm getting my pack through first. Don't hang up on me while I crawl in there.",
       "choices": [
-        { "choiceText": "Stay on the line while you crawl. Don't disconnect.", "nextNodeId": "crawling_duct_live" },
-        { "choiceText": "I'll meet you at the alley mouth. Where is the street grate?", "nextNodeId": "alley_mouth_meetup" }
+        {
+          "choiceText": "I'm not going anywhere. Keep talking to me.",
+          "nextNodeId": "crawling_duct_live"
+        },
+        {
+          "choiceText": "I'll meet you at the street exit. Tell me what you see when you're out.",
+          "nextNodeId": "alley_mouth_meetup"
+        }
       ]
     },
     {
       "nodeId": "read_final_page",
-      "partnerDialogue": "Evelyn: *paper rustles in the dark* Dr. Vance wrote: 'October 29. We dug until the drill bit struck bronze. The sound did not stop; it welcomed us.' ...That's the last sentence in the book.",
+      "partnerDialogue": "*paper rustles*\n\nHe wrote, 'We drilled until the bit struck bronze. The sound did not stop. It welcomed us.'\n\nThat's it. No explanation. Nothing after it.",
       "choices": [
-        { "choiceText": "That gave me chills down my spine. Now close the book and get out.", "nextNodeId": "bag_and_vent" }
+        {
+          "choiceText": "Okay. Close the book. We leave now.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "You can tell me the rest tomorrow. Right now I need you safe.",
+          "nextNodeId": "care_over_data"
+        }
       ]
     },
     {
       "nodeId": "tool_inventory",
-      "partnerDialogue": "Evelyn: Heavy crowbar, multi-tool, contact mics, spare lithium cells, and a signal repeater. I have enough hardware to get through sheet metal if I have to.",
+      "partnerDialogue": "Crowbar, multitool, two contact mics, spare batteries, and a signal repeater.\n\nI know. I overpack.",
       "choices": [
-        { "choiceText": "That's my girl. Smart, prepared, and lethal. Head for the vent.", "nextNodeId": "bag_and_vent" }
+        {
+          "choiceText": "Tonight I'm very grateful that you overpack.",
+          "nextNodeId": "prepared_banter"
+        },
+        {
+          "choiceText": "Good. Take the essentials and head for the vent.",
+          "nextNodeId": "bag_and_vent"
+        }
       ]
     },
     {
       "nodeId": "promise_anchor",
-      "partnerDialogue": "Evelyn: *voice softens into the mic* I promise. Hearing you stay on the line... it stops the dark from closing in around me. You're my anchor, {PlayerName}.",
+      "partnerDialogue": "I promise.\n\nAnd... thank you. I know I joke about being fine all the time, but hearing you say 'don't do this alone' actually got to me.",
       "choices": [
-        { "choiceText": "Always your anchor. Now let's get you out into the night air.", "nextNodeId": "bag_and_vent" }
+        {
+          "choiceText": "Then don't. Let me stay on the line until you're outside.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "You can lean on me a little, Evelyn.",
+          "nextNodeId": "lean_on_me"
+        }
       ]
     },
     {
       "nodeId": "vent_fit_check",
-      "partnerDialogue": "Evelyn: Rectangular galvanized duct, twenty-four inches wide. Tight squeeze with my field jacket, but entirely doable. I'm climbing in.",
+      "partnerDialogue": "It's tight, but I can fit. I'm taking the jacket off and sending my bag ahead.\n\nThis is going to be deeply undignified.",
       "choices": [
-        { "choiceText": "I'm listening to every footstep. Keep moving forward.", "nextNodeId": "crawling_duct_live" }
+        {
+          "choiceText": "I promise not to laugh. Probably.",
+          "nextNodeId": "duct_banter"
+        },
+        {
+          "choiceText": "Just keep moving. I'll be listening the whole way.",
+          "nextNodeId": "crawling_duct_live"
+        }
       ]
     },
     {
       "nodeId": "safety_scold_sweet",
-      "partnerDialogue": "Evelyn: *snickers softly* Yes, sir. Lighter clicked off. Switching to the red penlight. Look at you playing field safety officer over the radio.",
+      "partnerDialogue": "*tiny laugh* Okay, okay. Lighter's away.\n\nYou're weirdly bossy when you're worried about me.",
       "choices": [
-        { "choiceText": "Someone has to keep you in one piece. Into the ductwork!", "nextNodeId": "bag_and_vent" }
+        {
+          "choiceText": "Only because you keep giving me reasons to worry.",
+          "nextNodeId": "worried_about_her"
+        },
+        {
+          "choiceText": "Good. Now get into the duct before I start giving you a full safety lecture.",
+          "nextNodeId": "bag_and_vent"
+        }
       ]
     },
     {
       "nodeId": "rescue_drive_climax",
-      "partnerDialogue": "Evelyn: Alley behind the old municipal water commission on 6th Avenue! The exhaust grate opens between two brick dumpsters! I'm crawling up toward the rain right now!",
+      "partnerDialogue": "The alley is behind the old water commission building on 6th. There's a rusted grate between two dumpsters.\n\nIf I lose signal, keep your headlights on. I should be able to see them through the rain.",
       "choices": [
-        { "choiceText": "Engine is running, heater is blasted, warm coffee is on the dash. See you in five minutes.", "nextNodeId": "alley_rendezvous_climax" }
+        {
+          "choiceText": "I'll keep them on. Get out and come straight to the car.",
+          "nextNodeId": "alley_rendezvous_climax"
+        },
+        {
+          "choiceText": "And when you get in, you're getting the warmest seat and a coffee.",
+          "nextNodeId": "rescue_warmth"
+        }
       ]
     },
     {
       "nodeId": "rescue_vow_tender",
-      "partnerDialogue": "Evelyn: *heavy, emotional exhale* ...You kept your word. When my head breaks through that street grate and I see your headlights, I think I might actually burst into tears.",
+      "partnerDialogue": "*quiet exhale* You really remembered that.\n\nOkay. I'm moving. And when I see your headlights, I'm probably going to have a very embarrassing emotional moment.",
       "choices": [
-        { "choiceText": "I'll be right there to catch you when you climb out. Keep climbing.", "nextNodeId": "alley_rendezvous_climax" }
+        {
+          "choiceText": "You can have your emotional moment. Just get to me safely.",
+          "nextNodeId": "alley_rendezvous_climax"
+        },
+        {
+          "choiceText": "I'll pretend I didn't see you cry if you pretend you didn't see me worrying.",
+          "nextNodeId": "mutual_embarrassment"
+        }
       ]
     },
     {
       "nodeId": "warning_content",
-      "partnerDialogue": "Evelyn: The next sequence reads: 'DO NOT VENTILATE SHAFT NINE.' Whatever they sealed below this foundation... they didn't want fresh oxygen reaching it.",
+      "partnerDialogue": "The next part says, 'Do not ventilate shaft nine.'\n\nI don't know why, but after everything we've heard tonight, I'm not interested in finding out what fresh air is supposed to wake up.",
       "choices": [
-        { "choiceText": "And you're crawling out through the exhaust. Move, Evelyn, NOW!", "nextNodeId": "bag_and_vent" }
+        {
+          "choiceText": "Then we don't. Get out through the vent and leave it alone.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "Agreed. We can investigate it another day, with actual backup.",
+          "nextNodeId": "future_expedition_flirt"
+        }
       ]
     },
     {
       "nodeId": "resting_heartbeat_reveal",
-      "partnerDialogue": "Evelyn: Exactly fifty-two beats per minute. A resting metabolic rhythm buried in thirty tons of wet shale. We aren't documenting history, {PlayerName}. We're listening to something waiting to wake up.",
+      "partnerDialogue": "Fifty-two. About as close to a resting heartbeat as I can reasonably call it.\n\nI don't want to romanticize it, because I really don't know what it means. But I can't pretend it doesn't freak me out a little.",
       "choices": [
-        { "choiceText": "Then let's let it sleep while we escape. Out through the duct!", "nextNodeId": "bag_and_vent" }
+        {
+          "choiceText": "Then let it freak you out later. Right now, let's get you out.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "We'll figure it out together when you're safe.",
+          "nextNodeId": "figure_it_out_together"
+        }
       ]
     },
     {
       "nodeId": "drop_contact_mic",
-      "partnerDialogue": "Evelyn: Slipped the piezo transducer down into the floor fissure and secured the cable with gaffer tape. Transmission line is feeding my remote recorder. Science served! Now I'm getting out!",
+      "partnerDialogue": "I got the contact mic down the crack. I'm recording a clean feed now.\n\nAnd... okay. I got enough. I'm done tempting fate. I'm climbing out.",
       "choices": [
-        { "choiceText": "Legendary field work. Now climb!", "nextNodeId": "bag_and_vent" }
+        {
+          "choiceText": "Good. Mission accomplished. Get moving.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "You really just risked your life for one more recording.",
+          "nextNodeId": "obsession_callout"
+        }
       ]
     },
     {
       "nodeId": "pin_manual_latch",
-      "partnerDialogue": "Evelyn: Slid the emergency mechanical dead-pin into the striker plate! *heavy clunk* It won't budge from the outside now. Buying myself five minutes. Heading up the shaft!",
+      "partnerDialogue": "Found it. I'm sliding the emergency pin through the striker now.\n\n*heavy clunk*\n\nOkay. That buys me a few minutes. I'm heading for the vent.",
       "choices": [
-        { "choiceText": "Climb fast and don't stop until you smell rain.", "nextNodeId": "crawling_duct_live" }
+        {
+          "choiceText": "Good. Don't spend those minutes doing anything clever.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "I'll stay quiet unless you need me. Keep moving.",
+          "nextNodeId": "crawling_duct_live"
+        }
       ]
     },
     {
       "nodeId": "steady_breathing_grounding",
-      "partnerDialogue": "Evelyn: *matching your breaths* Inhale... exhale... God, your voice is steady. The scraping stopped. Whoever was on the other side just turned their key and walked away toward the stairwell.",
+      "partnerDialogue": "*breathes with you*\n\nOkay. Better. The scraping stopped. I think whoever was out there moved on.\n\nI hate that my first instinct was still to investigate it.",
       "choices": [
-        { "choiceText": "Clear corridor. Now is your window. Into the vent, go!", "nextNodeId": "bag_and_vent" }
+        {
+          "choiceText": "Save the detective work for daylight. Vent now.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "That's one of the things I like about you. Even when you're scared, you're curious.",
+          "nextNodeId": "curiosity_comfort"
+        }
       ]
     },
     {
       "nodeId": "flashlight_sweep_check",
-      "partnerDialogue": "Evelyn: Yellow beam sliced under the door gap twice, paused, and swept back out. Security guard doing his routine rounds. He didn't see the broken lock. I'm moving while his back is turned!",
+      "partnerDialogue": "There's a flashlight beam under the door. Twice. Then nothing.\n\nI think it's just security doing rounds, but I'm not taking the chance. I'm moving while I can.",
       "choices": [
-        { "choiceText": "Go, go, go! Into the ductwork!", "nextNodeId": "bag_and_vent" }
+        {
+          "choiceText": "Go. I'm right here.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "Text me when you're through the grate.",
+          "nextNodeId": "bag_and_vent"
+        }
       ]
     },
     {
       "nodeId": "next_expedition_promise",
-      "partnerDialogue": "Evelyn: *soft, excited laugh* Our next expedition. You and me with climbing harnesses and waterproof hydrophones. God, that sounds like the greatest adventure of my life. But first... let's survive this one.",
+      "partnerDialogue": "You know what's funny? Ten minutes ago I'd have called going back down there 'an awful idea.'\n\nNow I'm already thinking about what equipment we'd bring.",
       "choices": [
-        { "choiceText": "Deal. Climb up to that alley grate.", "nextNodeId": "bag_and_vent" }
+        {
+          "choiceText": "So there will be a next time. Good.",
+          "nextNodeId": "future_expedition_flirt"
+        },
+        {
+          "choiceText": "Only after coffee, daylight, and an actual safety plan.",
+          "nextNodeId": "field_rules_flirt"
+        }
       ]
     },
     {
       "nodeId": "crawling_duct_live",
-      "partnerDialogue": "Evelyn: *metallic scraping of elbows on galvanized steel* Duct is narrowing slightly... I can feel the temperature dropping! The air smells like wet asphalt and rain! I see streetlamp glare through the iron bars ahead!",
+      "partnerDialogue": "*metal scraping* I'm in the duct. This is the worst camping trip I've ever been on.\n\nWait... I can smell rain. I think I'm getting close.",
       "choices": [
-        { "choiceText": "Push the grate open! I'm right outside in the car watching the alley!", "nextNodeId": "alley_rendezvous_climax" },
-        { "choiceText": "Careful on the street iron, it'll be slick from the rain.", "nextNodeId": "alley_rendezvous_climax" }
+        {
+          "choiceText": "Keep going. You're almost there.",
+          "nextNodeId": "alley_rendezvous_climax"
+        },
+        {
+          "choiceText": "You owe me a very boring coffee after this.",
+          "nextNodeId": "boring_coffee_promise"
+        },
+        {
+          "choiceText": "Talk to me. What do you see ahead?",
+          "nextNodeId": "streetlight_sighting"
+        }
       ]
     },
     {
       "nodeId": "alley_mouth_meetup",
-      "partnerDialogue": "Evelyn: 6th Avenue, alleyway between the municipal annex and the brick electrical substation! Look for the steam vent with the rusted green iron grating!",
+      "partnerDialogue": "I'm near the exit. There's a rusted grate and a steam vent just past the brick substation.\n\nTell me you can actually see it from the street.",
       "choices": [
-        { "choiceText": "I see the steam rising right now. I'm pulling up beside the curb!", "nextNodeId": "alley_rendezvous_climax" }
+        {
+          "choiceText": "I see the steam. Keep coming toward me.",
+          "nextNodeId": "alley_rendezvous_climax"
+        },
+        {
+          "choiceText": "I'm parked where you can see the headlights. You're almost home.",
+          "nextNodeId": "headlights_home"
+        }
       ]
     },
     {
       "nodeId": "alley_rendezvous_climax",
-      "partnerDialogue": "Evelyn: *heavy clatter of iron grate opening, loud rush of pouring rain* I'M OUT! I see your headlights through the mist! *ragged, joyful gasp* Unlock the passenger door, {PlayerName}! I'm running toward your car right now!",
+      "partnerDialogue": "*iron grate clatters open; rain in the background*\n\nI'm out. I'm actually out.\n\nI see your headlights. Unlock the passenger door before I freeze out here, {PlayerName}.",
+      "choices": [
+        {
+          "choiceText": "Door's unlocked. Get in here, you idiot. You're soaked.",
+          "nextNodeId": "inside_car_safe"
+        },
+        {
+          "choiceText": "Come on. Warm car, dry towel, then you can tell me everything.",
+          "nextNodeId": "inside_car_safe"
+        }
+      ]
+    },
+    {
+      "nodeId": "equipment_cycle_skeptic",
+      "partnerDialogue": "I checked that before calling you. The recorder's power cycle doesn't match it.\n\nYou're not wrong to ask, though. Honestly, I like that you challenge me when I get excited.",
+      "choices": [
+        {
+          "choiceText": "Then I'll keep asking questions. Someone has to keep you honest.",
+          "nextNodeId": "challenge_me_flirt"
+        },
+        {
+          "choiceText": "Good. Now let's focus on getting you home.",
+          "nextNodeId": "bag_and_vent"
+        }
+      ]
+    },
+    {
+      "nodeId": "voice_pattern_followup",
+      "partnerDialogue": "Wait... give me a second.\n\nIt's almost like someone trying to form a vowel and failing. There's a shape to it.\n\nOkay, I officially hate this place.",
+      "choices": [
+        {
+          "choiceText": "Good. Hate it from somewhere safer. Get out.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "You can hate it. I'll stay on the line until you're outside.",
+          "nextNodeId": "stay_on_line_tender"
+        }
+      ]
+    },
+    {
+      "nodeId": "future_expedition_flirt",
+      "partnerDialogue": "*laughs softly* Climbing gear, extra batteries, two recorders, and you carrying the heavy case.\n\nI'm already picturing it, which is probably a problem.",
+      "choices": [
+        {
+          "choiceText": "I'll carry the case. You handle the spooky science.",
+          "nextNodeId": "field_rules_flirt"
+        },
+        {
+          "choiceText": "And afterward, we find somewhere warm and get breakfast.",
+          "nextNodeId": "breakfast_after"
+        }
+      ]
+    },
+    {
+      "nodeId": "care_over_data",
+      "partnerDialogue": "...Yeah. You're right.\n\nI don't always notice when I've crossed that line until somebody else points it out. I get so focused on the answer that I forget there's a person attached to it.\n\nTonight that person needs to get home.",
+      "choices": [
+        {
+          "choiceText": "Exactly. The mystery can wait. You can't.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "That's the version of you I want to know too.",
+          "nextNodeId": "know_you_better"
+        }
+      ]
+    },
+    {
+      "nodeId": "prepared_banter",
+      "partnerDialogue": "Don't encourage me. Next time I'll bring a second bag just for batteries.\n\nAlthough... having someone around who doesn't complain about the equipment would be nice.",
+      "choices": [
+        {
+          "choiceText": "I'll carry the batteries. You can carry the weird haunted gadgets.",
+          "nextNodeId": "carry_the_gear_flirt"
+        },
+        {
+          "choiceText": "Let's get you out first. Gear jokes later.",
+          "nextNodeId": "bag_and_vent"
+        }
+      ]
+    },
+    {
+      "nodeId": "lean_on_me",
+      "partnerDialogue": "That's the problem. I'm not very good at that.\n\nBut... maybe I can practice. Start with tonight.",
+      "choices": [
+        {
+          "choiceText": "Start with staying on the line with me.",
+          "nextNodeId": "stay_on_line_tender"
+        },
+        {
+          "choiceText": "Good. Then let me be useful for once.",
+          "nextNodeId": "bag_and_vent"
+        }
+      ]
+    },
+    {
+      "nodeId": "duct_banter",
+      "partnerDialogue": "You better not laugh.\n\n*pause*\n\nOkay, you can laugh a little. This is objectively ridiculous.",
+      "choices": [
+        {
+          "choiceText": "I knew there was a funny side under all the field notes.",
+          "nextNodeId": "funny_side"
+        },
+        {
+          "choiceText": "Now crawl, investigator.",
+          "nextNodeId": "crawling_duct_live"
+        }
+      ]
+    },
+    {
+      "nodeId": "worried_about_her",
+      "partnerDialogue": "You know, that's actually kind of sweet.\n\nMost people think the interesting part is the mystery. You're worried about whether I come home in one piece.",
+      "choices": [
+        {
+          "choiceText": "Because you matter more than the mystery.",
+          "nextNodeId": "matters_more"
+        },
+        {
+          "choiceText": "Now stop distracting me and get through that vent.",
+          "nextNodeId": "bag_and_vent"
+        }
+      ]
+    },
+    {
+      "nodeId": "rescue_warmth",
+      "partnerDialogue": "Warm seat and coffee? You really did plan this.\n\nOkay. That might be the nicest rescue I've ever had.",
+      "choices": [
+        {
+          "choiceText": "I'm trying to set a high standard.",
+          "nextNodeId": "alley_rendezvous_climax"
+        },
+        {
+          "choiceText": "Get in the car first. Flirting can wait until you're dry.",
+          "nextNodeId": "alley_rendezvous_climax"
+        }
+      ]
+    },
+    {
+      "nodeId": "mutual_embarrassment",
+      "partnerDialogue": "Deal.\n\nAnd just so we're clear, I wasn't crying. My eyes were reacting to... rain. Aggressively.",
+      "choices": [
+        {
+          "choiceText": "Of course. Very scientific explanation.",
+          "nextNodeId": "alley_rendezvous_climax"
+        },
+        {
+          "choiceText": "Whatever helps you sleep tonight.",
+          "nextNodeId": "alley_rendezvous_climax"
+        }
+      ]
+    },
+    {
+      "nodeId": "figure_it_out_together",
+      "partnerDialogue": "I like that.\n\nNot 'I believe you no matter what,' just... 'we'll figure it out.' That feels better somehow.",
+      "choices": [
+        {
+          "choiceText": "You don't need blind belief. You need someone who stays curious with you.",
+          "nextNodeId": "stay_curious_together"
+        },
+        {
+          "choiceText": "And someone to pull you out of places like this.",
+          "nextNodeId": "bag_and_vent"
+        }
+      ]
+    },
+    {
+      "nodeId": "obsession_callout",
+      "partnerDialogue": "I know.\n\nYou don't have to tell me twice. I do this every time. 'One more sample.' 'One more scan.' Then suddenly it's three in the morning and I'm eating crackers for dinner.",
+      "choices": [
+        {
+          "choiceText": "Then tonight you stop at one more sample.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "I'll remind you to eat next time.",
+          "nextNodeId": "remind_me_to_eat"
+        }
+      ]
+    },
+    {
+      "nodeId": "curiosity_comfort",
+      "partnerDialogue": "That's probably the nicest way anyone has ever described it.\n\nMost people just call me stubborn.",
+      "choices": [
+        {
+          "choiceText": "You can be stubborn and still be worth caring about.",
+          "nextNodeId": "worth_caring_about"
+        },
+        {
+          "choiceText": "Okay, enough emotional honesty. Get into the vent.",
+          "nextNodeId": "bag_and_vent"
+        }
+      ]
+    },
+    {
+      "nodeId": "field_rules_flirt",
+      "partnerDialogue": "Deal. Rule one: we tell someone where we're going. Rule two: we bring two flashlights. Rule three... you don't disappear on me.",
+      "choices": [
+        {
+          "choiceText": "Rule three is easy.",
+          "nextNodeId": "rule_three_tender"
+        },
+        {
+          "choiceText": "Agreed. And rule four: breakfast after every investigation.",
+          "nextNodeId": "breakfast_after"
+        }
+      ]
+    },
+    {
+      "nodeId": "boring_coffee_promise",
+      "partnerDialogue": "I would genuinely love that. No ghosts, no tunnels, no weird frequencies. Just coffee and something normal.\n\nI think I need normal more than I realized.",
+      "choices": [
+        {
+          "choiceText": "Then we'll do boring. Very boring.",
+          "nextNodeId": "normal_morning"
+        },
+        {
+          "choiceText": "We'll earn the boring coffee first. Keep crawling.",
+          "nextNodeId": "crawling_duct_live"
+        }
+      ]
+    },
+    {
+      "nodeId": "streetlight_sighting",
+      "partnerDialogue": "I see a little gap ahead. There's streetlight coming through.\n\nOh my God... I can actually see the rain.",
+      "choices": [
+        {
+          "choiceText": "Almost there. Keep going.",
+          "nextNodeId": "alley_rendezvous_climax"
+        },
+        {
+          "choiceText": "I'm right outside. First thing you see is me.",
+          "nextNodeId": "headlights_home"
+        }
+      ]
+    },
+    {
+      "nodeId": "headlights_home",
+      "partnerDialogue": "I see them.\n\nOkay. That feels weirdly comforting. I've been down here for what feels like hours, and suddenly seeing your headlights makes everything feel real again.",
+      "choices": [
+        {
+          "choiceText": "Come on. I'm getting you out of the rain.",
+          "nextNodeId": "alley_rendezvous_climax"
+        }
+      ]
+    },
+    {
+      "nodeId": "challenge_me_flirt",
+      "partnerDialogue": "Good. I actually want that.\n\nJust don't get smug when you're right.",
+      "choices": [
+        {
+          "choiceText": "No promises.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "I'll save the smugness for coffee.",
+          "nextNodeId": "boring_coffee_promise"
+        }
+      ]
+    },
+    {
+      "nodeId": "stay_on_line_tender",
+      "partnerDialogue": "Okay. Stay with me.\n\nYou know, I thought calling you from down here would make me feel more embarrassed. Instead it kind of feels like you're standing next to me.",
+      "choices": [
+        {
+          "choiceText": "Maybe that's exactly where I should be.",
+          "nextNodeId": "beside_you"
+        },
+        {
+          "choiceText": "Then let's get you out and make that a real coffee date.",
+          "nextNodeId": "bag_and_vent"
+        }
+      ]
+    },
+    {
+      "nodeId": "carry_the_gear_flirt",
+      "partnerDialogue": "Okay, deal. I'll trust you with the heavy case.\n\nDon't let that go to your head.",
+      "choices": [
+        {
+          "choiceText": "Too late.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "I'll behave. Probably.",
+          "nextNodeId": "bag_and_vent"
+        }
+      ]
+    },
+    {
+      "nodeId": "funny_side",
+      "partnerDialogue": "I have a funny side. It just gets buried under several layers of obsessive note-taking.\n\nYou might have to earn access to it.",
+      "choices": [
+        {
+          "choiceText": "I'll take that as a challenge.",
+          "nextNodeId": "challenge_me_flirt"
+        },
+        {
+          "choiceText": "Challenge accepted after we get you out.",
+          "nextNodeId": "crawling_duct_live"
+        }
+      ]
+    },
+    {
+      "nodeId": "matters_more",
+      "partnerDialogue": "...You really know how to catch me off guard.\n\nOkay. I needed to hear that tonight.",
+      "choices": [
+        {
+          "choiceText": "Then come home safe for me.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "And maybe let me worry about you a little more often.",
+          "nextNodeId": "know_you_better"
+        }
+      ]
+    },
+    {
+      "nodeId": "stay_curious_together",
+      "partnerDialogue": "Yeah. I like that.\n\nYou don't have to understand everything I do. You just have to be willing to ask.",
+      "choices": [
+        {
+          "choiceText": "Then keep showing me your world.",
+          "nextNodeId": "know_you_better"
+        },
+        {
+          "choiceText": "First lesson: get out of the basement alive.",
+          "nextNodeId": "bag_and_vent"
+        }
+      ]
+    },
+    {
+      "nodeId": "remind_me_to_eat",
+      "partnerDialogue": "Please do. I'm terrible at noticing when I've skipped a meal.\n\nAnd don't you dare tell anyone I admitted that.",
+      "choices": [
+        {
+          "choiceText": "Your secret is safe. Now move.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "Deal. Coffee and food after this.",
+          "nextNodeId": "breakfast_after"
+        }
+      ]
+    },
+    {
+      "nodeId": "worth_caring_about",
+      "partnerDialogue": "...I know I'm not easy.\n\nI think that's why this is getting to me. You're hearing the difficult parts and you're still here.",
+      "choices": [
+        {
+          "choiceText": "I'm still here.",
+          "nextNodeId": "rule_three_tender"
+        },
+        {
+          "choiceText": "Then get home and let me prove it over coffee.",
+          "nextNodeId": "normal_morning"
+        }
+      ]
+    },
+    {
+      "nodeId": "rule_three_tender",
+      "partnerDialogue": "Good. Because I'm starting to like having you around.\n\nMore than is probably sensible after one terrifying night underground.",
+      "choices": [
+        {
+          "choiceText": "You can decide what's sensible tomorrow.",
+          "nextNodeId": "inside_car_safe"
+        },
+        {
+          "choiceText": "Tonight we just get you home.",
+          "nextNodeId": "bag_and_vent"
+        }
+      ]
+    },
+    {
+      "nodeId": "breakfast_after",
+      "partnerDialogue": "Breakfast after every investigation. I can live with that.\n\nPancakes, maybe. And no one is allowed to mention subsonic frequencies before I've eaten.",
+      "choices": [
+        {
+          "choiceText": "Deal. Pancakes first, paranormal theories later.",
+          "nextNodeId": "inside_car_safe"
+        },
+        {
+          "choiceText": "You're going to regret giving me permission to order pancakes for you.",
+          "nextNodeId": "inside_car_safe"
+        }
+      ]
+    },
+    {
+      "nodeId": "normal_morning",
+      "partnerDialogue": "I think I'd like that.\n\nA quiet morning. Coffee. You. No abandoned buildings. No emergency exits. Just... normal.",
+      "choices": [
+        {
+          "choiceText": "Then that's what we're doing.",
+          "nextNodeId": "inside_car_safe"
+        },
+        {
+          "choiceText": "Let's start by getting you somewhere warm.",
+          "nextNodeId": "inside_car_safe"
+        }
+      ]
+    },
+    {
+      "nodeId": "beside_you",
+      "partnerDialogue": "That's a dangerous thing to say to someone who spends too much time alone.\n\nI might actually start believing you.",
+      "choices": [
+        {
+          "choiceText": "Good. I mean it.",
+          "nextNodeId": "bag_and_vent"
+        },
+        {
+          "choiceText": "Then you'd better come out of that tunnel and test the theory.",
+          "nextNodeId": "bag_and_vent"
+        }
+      ]
+    },
+    {
+      "nodeId": "know_you_better",
+      "partnerDialogue": "I want that too.\n\nNot just the investigations. The boring stuff. What you eat, what you do when you're tired, what makes you laugh. All of it.",
+      "choices": [
+        {
+          "choiceText": "Then we'll start with breakfast.",
+          "nextNodeId": "breakfast_after"
+        },
+        {
+          "choiceText": "And I'll keep answering your weird questions too.",
+          "nextNodeId": "inside_car_safe"
+        }
+      ]
+    },
+    {
+      "nodeId": "inside_car_safe",
+      "partnerDialogue": "*car door closes; rain becomes muffled*\n\nOh my God. Warmth. Dry seats. No concrete walls.\n\nI think I forgot what normal air feels like.",
+      "choices": [
+        {
+          "choiceText": "Here. Towel first. Then breathe.",
+          "nextNodeId": "after_escape_soft"
+        },
+        {
+          "choiceText": "You made it. That's all I care about right now.",
+          "nextNodeId": "after_escape_tender"
+        },
+        {
+          "choiceText": "You look exhausted. Let me drive. No more investigating tonight.",
+          "nextNodeId": "let_me_drive"
+        }
+      ]
+    },
+    {
+      "nodeId": "after_escape_soft",
+      "partnerDialogue": "*quiet laugh* You're being very domestic for someone who just rescued me from a tunnel.\n\nI like it.",
+      "choices": [
+        {
+          "choiceText": "Get used to it.",
+          "nextNodeId": "romance_in_car"
+        },
+        {
+          "choiceText": "First we dry you off. Then you can tell me everything.",
+          "nextNodeId": "story_in_car"
+        }
+      ]
+    },
+    {
+      "nodeId": "after_escape_tender",
+      "partnerDialogue": "I know.\n\nAnd... thank you. I don't think I realized how scared I was until I got into this car and saw you sitting here.",
+      "choices": [
+        {
+          "choiceText": "You don't have to thank me. Just stay here with me for a minute.",
+          "nextNodeId": "quiet_moment_car"
+        },
+        {
+          "choiceText": "Next time, maybe we do something that doesn't involve near-death experiences.",
+          "nextNodeId": "normal_date_pitch"
+        }
+      ]
+    },
+    {
+      "nodeId": "let_me_drive",
+      "partnerDialogue": "Yeah. I think I should let you.\n\nMy hands are still shaking a little.",
+      "choices": [
+        {
+          "choiceText": "Then let them shake. You're safe now.",
+          "nextNodeId": "quiet_moment_car"
+        },
+        {
+          "choiceText": "Sit back. I'll get you somewhere warm.",
+          "nextNodeId": "normal_date_pitch"
+        }
+      ]
+    },
+    {
+      "nodeId": "story_in_car",
+      "partnerDialogue": "You're really still curious? After all that?\n\nOkay. The short version is that the basement had something down there that matched the old recordings. The long version is going to take several coffees.",
+      "choices": [
+        {
+          "choiceText": "Then I'll buy the coffees.",
+          "nextNodeId": "coffee_promise"
+        },
+        {
+          "choiceText": "I can live with that. Tell me the long version tomorrow.",
+          "nextNodeId": "normal_date_pitch"
+        }
+      ]
+    },
+    {
+      "nodeId": "romance_in_car",
+      "partnerDialogue": "*soft laugh* Careful. I could get very comfortable with that.\n\nWarm car. Rain outside. You sitting next to me. It feels... unexpectedly nice.",
+      "choices": [
+        {
+          "choiceText": "Then stay a little longer.",
+          "nextNodeId": "quiet_moment_car"
+        },
+        {
+          "choiceText": "I'll take you home, but I'm not letting you disappear after tonight.",
+          "nextNodeId": "normal_date_pitch"
+        }
+      ]
+    },
+    {
+      "nodeId": "quiet_moment_car",
+      "partnerDialogue": "...Okay. Just a minute.\n\nNo phones. No recordings. No case file.\n\nJust us sitting here while the rain hits the windshield.",
+      "choices": [
+        {
+          "choiceText": "I could get used to this.",
+          "nextNodeId": "soft_goodnight"
+        },
+        {
+          "choiceText": "Me too, Evelyn.",
+          "nextNodeId": "soft_goodnight"
+        }
+      ]
+    },
+    {
+      "nodeId": "normal_date_pitch",
+      "partnerDialogue": "Then let's do something normal next time. Coffee. Breakfast. Somewhere with lights that actually work.\n\nAnd you can make fun of how much equipment I carry.",
+      "choices": [
+        {
+          "choiceText": "Deal. And I'm choosing the breakfast place.",
+          "nextNodeId": "soft_goodnight"
+        },
+        {
+          "choiceText": "Deal. But I'm still hearing the full story eventually.",
+          "nextNodeId": "soft_goodnight"
+        }
+      ]
+    },
+    {
+      "nodeId": "coffee_promise",
+      "partnerDialogue": "Okay. But you don't get to complain when I turn one coffee into a three-hour conversation about old recordings.",
+      "choices": [
+        {
+          "choiceText": "I think that's exactly what I'm signing up for.",
+          "nextNodeId": "soft_goodnight"
+        },
+        {
+          "choiceText": "Three hours? Fine. But pancakes are mandatory.",
+          "nextNodeId": "soft_goodnight"
+        }
+      ]
+    },
+    {
+      "nodeId": "soft_goodnight",
+      "partnerDialogue": "...Tonight was terrifying. But hearing your voice through all of it made it easier.\n\nI don't usually let people this close this quickly. I think you might be becoming an exception.\n\nGet home safe, okay? And text me when you do. I'd like to wake up tomorrow and know you made it home too.",
       "choices": []
     }
   ]

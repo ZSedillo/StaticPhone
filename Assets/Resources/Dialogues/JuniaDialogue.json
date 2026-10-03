@@ -7,780 +7,1478 @@
   "nodes": [
     {
       "id": "start",
-      "partnerMessage": "Fair warning before you get your hopes up: my hands permanently smell like espresso grounds and stop-bath vinegar, and my camera roll is 90% test exposures of textured brick walls.\n\nStill want to talk, or were you looking for someone who actually has their life together?",
+      "partnerMessage": "Okay, fair warning: my hands usually smell like espresso and fixer, and half my camera roll is just test shots of walls.\n\nStill interested, or were you hoping to meet someone who has their life a little more together?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Textured brick walls and dark roast? Sounds like my kind of chaos.", "nextId": "brick_walls_relate", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Stop-bath vinegar? You still develop your own 35mm film by hand?", "nextId": "film_chemistry_nerd", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
-        { "choiceText": "Honestly, you sound like every artsy hipster cliché in the city.", "nextId": "hipster_cliche_insult", "linkUrl": "", "triggerEvent": "BULLY_JUNIA" },
-        { "choiceText": "Does anyone on this app actually have their life together?", "nextId": "life_together_banter", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Textured brick walls and dark roast? Sounds like my kind of chaos.",
+          "nextId": "brick_walls_relate",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Stop-bath vinegar? You still develop your own 35mm film by hand?",
+          "nextId": "film_chemistry_nerd",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        },
+        {
+          "choiceText": "Honestly, you sound like every artsy hipster cliché in the city.",
+          "nextId": "hipster_cliche_insult",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_JUNIA"
+        },
+        {
+          "choiceText": "Does anyone on this app actually have their life together?",
+          "nextId": "life_together_banter",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "brick_walls_relate",
-      "partnerMessage": "Ha. Chaos is generous. My apartment currently has three drying lines strung across the shower holding negative strips, and I'm drinking cold brew out of a glass measuring beaker because all my mugs are in the sink.\n\nWhat kind of chaos are you bringing to the table, {PlayerName}?",
+      "partnerMessage": "Calling it chaos is probably generous. I have three drying lines across my shower right now, and I'm drinking cold brew out of a measuring beaker because every mug is in the sink.\n\nWhat's your version of chaos, {PlayerName}?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "The kind where I stay up way too late overthinking projects nobody asked for.", "nextId": "overthinking_projects", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Mostly just laundry piles that have evolved into sentient roommates.", "nextId": "laundry_pile_laugh", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "I don't do chaos. I have spreadsheets and strict schedules.", "nextId": "spreadsheet_contrast", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" },
-        { "choiceText": "I'm usually the one putting out fires other people started.", "nextId": "putting_out_fires", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "The kind where I stay up way too late overthinking projects nobody asked for.",
+          "nextId": "overthinking_projects",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Mostly just laundry piles that have evolved into sentient roommates.",
+          "nextId": "laundry_pile_laugh",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "I don't do chaos. I have spreadsheets and strict schedules.",
+          "nextId": "spreadsheet_contrast",
+          "linkUrl": "",
+          "triggerEvent": "JUNIA_SKEPTIC"
+        },
+        {
+          "choiceText": "I'm usually the one putting out fires other people started.",
+          "nextId": "putting_out_fires",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "film_chemistry_nerd",
-      "partnerMessage": "Wait... you actually know what stop-bath is?\n\nMost people think film photography is just slapping a grainy filter on an iPhone shot. Yeah, I develop in my bathroom with the door taped shut with weatherstripping. D-76 powder, fixer, the whole mess. It's tedious, smelly, and completely ruins your manicure, but pulling a wet roll off the reel never stops feeling like magic.",
+      "partnerMessage": "Wait, you actually know what stop-bath is?\n\nYeah, I still develop my own film. Tiny bathroom, door shut, chemicals everywhere. It's messy and it absolutely destroys my manicure, but seeing a roll come out right still gets me every time.",
       "linkUrl": "",
-      "triggerEvent": "DEEP_TALK",
+      "triggerEvent": "",
       "choices": [
-        { "choiceText": "Watching an image appear out of silver halide in the dark... it's pure alchemy.", "nextId": "alchemy_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Why put yourself through that when digital sensors shoot 40 megapixels instantly?", "nextId": "digital_vs_film_debate", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" },
-        { "choiceText": "Show me one of your favorite frames. The one that made the smell worth it.", "nextId": "favorite_frame_ask", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "How many ruined rolls did it take before you stopped panicking in the dark bag?", "nextId": "ruined_rolls_confession", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Watching an image appear in the dark... that's kind of magical.",
+          "nextId": "alchemy_praise",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Why put yourself through that when digital sensors shoot 40 megapixels instantly?",
+          "nextId": "digital_vs_film_debate",
+          "linkUrl": "",
+          "triggerEvent": "JUNIA_SKEPTIC"
+        },
+        {
+          "choiceText": "Show me one of your favorite frames. The one that made the smell worth it.",
+          "nextId": "favorite_frame_ask",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "How many ruined rolls did it take before you stopped panicking in the dark bag?",
+          "nextId": "ruined_rolls_confession",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "hipster_cliche_insult",
-      "partnerMessage": "Ouch. Right in the tote bag.\n\nLook, if caring about the tactile things you make with your hands makes me a cliché, I'll take it over sitting around being cynical behind an anonymous screen any day of the week.",
+      "partnerMessage": "Okay, ow. 😭\n\nLook, I know how it sounds. I just happen to like making things the slow way. You don't have to like it, but calling me a cliché after three messages is a little rough.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
-        { "choiceText": "My bad. That was a lazy jab. Sarcasm is my worst habit.", "nextId": "sarcasm_apology", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Just calling it like I see it. Have fun wasting money on film.", "nextId": "hard_ghost_exit", "linkUrl": "", "triggerEvent": "BULLY_JUNIA" },
-        { "choiceText": "I just mean everyone claims they're 'authentic' until you look closer.", "nextId": "authenticity_debate", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
+        {
+          "choiceText": "My bad. That was a lazy jab. Sarcasm is my worst habit.",
+          "nextId": "sarcasm_apology",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Just calling it like I see it. Have fun wasting money on film.",
+          "nextId": "hard_ghost_exit",
+          "linkUrl": "",
+          "triggerEvent": "BULLY_JUNIA"
+        },
+        {
+          "choiceText": "I just mean everyone claims they're 'authentic' until you look closer.",
+          "nextId": "authenticity_debate",
+          "linkUrl": "",
+          "triggerEvent": "JUNIA_SKEPTIC"
+        }
       ]
     },
     {
       "id": "life_together_banter",
-      "partnerMessage": "Fair point. The ones who pretend they do are usually the scariest.\n\nI run a micro-roastery from 6 AM to 2 PM, spend my afternoons squinting through a 50mm viewfinder, and fall asleep reading old coffee bean import tariffs. Glamorous, right?",
+      "partnerMessage": "Fair question. The people who insist they have everything figured out usually scare me a little.\n\nI roast coffee in the morning, work on film in the afternoon, and somehow end up reading old coffee trade records at night. So... no. Not exactly organized chaos, but chaos.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Import tariffs? Okay, that's oddly specific. How'd you get into roasting?", "nextId": "roasting_origin", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
-        { "choiceText": "Sounds like you rarely give yourself permission to just stop and breathe.", "nextId": "permission_to_breathe", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "50mm lens only? That's commitment to the classic focal length.", "nextId": "fifty_mil_lens_talk", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Import tariffs? Okay, that's oddly specific. How'd you get into roasting?",
+          "nextId": "roasting_origin",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        },
+        {
+          "choiceText": "Sounds like you rarely give yourself permission to just stop and breathe.",
+          "nextId": "permission_to_breathe",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "50mm lens only? That's commitment to the classic focal length.",
+          "nextId": "fifty_mil_lens_talk",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "What does a normal night look like for you when nobody needs anything?",
+          "nextId": "late_night_roastery",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "overthinking_projects",
-      "partnerMessage": "...Oof. That hits way too close to home. You ever finish something, look at it, and instead of feeling proud you just feel this hollow pit like: 'Cool, but what if I ruined the middle section?'",
+      "partnerMessage": "Oh no. I know that one.\n\nYou finish something and your first thought isn't 'nice, I did it.' It's 'wait... what if I messed up the middle and nobody noticed yet?'",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Every single time. We're our own worst critics.", "nextId": "worst_critics_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "That's perfectionism lying to you. What you make has value just because you made it.", "nextId": "perfectionism_validation", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "I usually just abandon projects once they get to 80% complete.", "nextId": "eighty_percent_habit", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Every single time. We're our own worst critics.",
+          "nextId": "worst_critics_bond",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "That's perfectionism lying to you. What you make has value because you made it.",
+          "nextId": "perfectionism_validation",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "I usually just abandon projects once they get to 80% complete.",
+          "nextId": "eighty_percent_habit",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "laundry_pile_laugh",
-      "partnerMessage": "Haha! As long as the clean pile and the dirty pile have an established diplomatic border, that's completely respectable adulting in my book.",
+      "partnerMessage": "Honestly, as long as the clean pile and dirty pile have agreed on a border, I respect it. 😂",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "They have a fragile treaty. Anyway, what keeps you busy when you're not in the darkroom?", "nextId": "roasting_origin", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "My treaty broke down last Tuesday. Send aid packages.", "nextId": "send_aid_packages", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "They have a fragile treaty. Anyway, what keeps you busy when you're not in the darkroom?",
+          "nextId": "roasting_origin",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "My treaty broke down last Tuesday. Send aid packages.",
+          "nextId": "send_aid_packages",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "spreadsheet_contrast",
-      "partnerMessage": "A spreadsheet person, huh? Part of me wants to recoil in horror, but honestly... my finances are written on the backs of brown craft paper bags. I probably need someone with an Excel grid in my life so I don't accidentally forget to pay my water bill.",
+      "partnerMessage": "A spreadsheet person? That's almost suspicious. 😭\n\nMeanwhile my finances are mostly notes on paper bags and receipts I swear I'll organize later.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I'll manage the bills, you bring the fresh pour-overs. Perfect trade.", "nextId": "trade_agreement_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Sounds like a mess waiting to happen. You can't run an actual business on paper bags.", "nextId": "business_criticism_fumble", "linkUrl": "", "triggerEvent": "FUMBLE_CONVERSATION" },
-        { "choiceText": "There's an art to spreadsheets too. Formulas can be surprisingly elegant.", "nextId": "spreadsheet_art_defense", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "I'll manage the bills, you bring the fresh pour-overs. Perfect trade.",
+          "nextId": "trade_agreement_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Sounds like a mess waiting to happen. You can't run an actual business on paper bags.",
+          "nextId": "business_criticism_fumble",
+          "linkUrl": "",
+          "triggerEvent": "FUMBLE_CONVERSATION"
+        },
+        {
+          "choiceText": "There's an art to spreadsheets too. Formulas can be surprisingly elegant.",
+          "nextId": "spreadsheet_art_defense",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "putting_out_fires",
-      "partnerMessage": "Ah, the reliable friend syndrome. Everyone brings you their broken pieces because you never drop anything, but then nobody asks what you're holding yourself.",
+      "partnerMessage": "That sounds like the reliable-friend curse. Everybody knows you'll answer the phone, so they bring you their problems.\n\nThen when you're having a bad day, suddenly you're the one nobody checks on.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "You read people very well for someone who claims to only look at brick walls.", "nextId": "read_people_well", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "It gets heavy sometimes. Do you carry that for your friends too?", "nextId": "carry_for_friends", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "You read people very well for someone who claims to only look at brick walls.",
+          "nextId": "read_people_well",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "It gets heavy sometimes. Do you carry that for your friends too?",
+          "nextId": "carry_for_friends",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "alchemy_praise",
-      "partnerMessage": "YES. You get it. In a world where everything is frictionless and digital—where you can delete a selfie in half a second because your smile wasn't symmetrical—film forces you to commit. You press the shutter, you carry that little hidden silver secret in your pocket, and you wait.",
+      "partnerMessage": "Yes. Exactly.\n\nWith film, you can't immediately check the shot and fix it. You press the shutter, live with the decision, and find out later whether you were right. I kind of like that.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "The waiting is what gives it weight. Instant gratification ruins the magic.", "nextId": "waiting_magic_connect", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Do you apply that same patience to people, or just to your film reels?", "nextId": "patience_people_flirt", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
-        { "choiceText": "What happens when you wait two weeks and the roll comes out blank?", "nextId": "blank_roll_grief", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "The waiting is what gives it weight. Instant gratification ruins the magic.",
+          "nextId": "waiting_magic_connect",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Do you apply that same patience to people, or just to your film reels?",
+          "nextId": "patience_people_flirt",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        },
+        {
+          "choiceText": "What happens when you wait two weeks and the roll comes out blank?",
+          "nextId": "blank_roll_grief",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "digital_vs_film_debate",
-      "partnerMessage": "Digital is clean. It's sharp, it's efficient, and it has zero soul. Digital gives you data; film gives you memory. If I want clinical perfection, I'll go buy a stock photo.",
+      "partnerMessage": "Digital is great. Seriously. It's clean, fast, and incredibly useful.\n\nI just like that film makes me slow down. I don't think digital is soulless; I think I need something that stops me from taking 200 versions of the same photo.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Fair point. The imperfections are usually where the story lives.", "nextId": "imperfections_story", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "That's romantic, but digital photographers still capture real emotion.", "nextId": "digital_pushback", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" },
-        { "choiceText": "I think equipment matters less than the person holding it.", "nextId": "person_holding_it", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Fair point. The imperfections are usually where the story lives.",
+          "nextId": "imperfections_story",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "That's romantic, but digital photographers still capture real emotion.",
+          "nextId": "digital_pushback",
+          "linkUrl": "",
+          "triggerEvent": "JUNIA_SKEPTIC"
+        },
+        {
+          "choiceText": "I think equipment matters less than the person holding it.",
+          "nextId": "person_holding_it",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "favorite_frame_ask",
-      "partnerMessage": "It was an old man sitting on the back bumper of a rusty pickup truck at dawn near the produce docks. His hands were weathered like river stone, holding an enamel cup of black coffee with steam catching the first amber slant of sunrise.\n\nI shot it on Kodak Tri-X 400 pushed two stops. The grain looks like sandpaper, but his eyes look like they've seen three lifetimes.",
+      "partnerMessage": "There's one I keep coming back to. An older guy sitting on the back of a rusty pickup near the docks, drinking black coffee at sunrise.\n\nI shot it on Tri-X. The frame isn't perfect, but his face has this look that made me stop for a second before taking the picture.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "You don't just take pictures, Junia. You really see people.", "nextId": "really_see_people", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Did you ever talk to him, or did you just take his photo and walk away?", "nextId": "did_you_talk_to_him", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
-        { "choiceText": "Pushed two stops? Must have had some intense contrast in the shadows.", "nextId": "pushed_stops_technical", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "You don't just take pictures, Junia. You really see people.",
+          "nextId": "really_see_people",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Did you ever talk to him, or did you just take his photo and walk away?",
+          "nextId": "did_you_talk_to_him",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        },
+        {
+          "choiceText": "Pushed two stops? Must have had some intense contrast in the shadows.",
+          "nextId": "pushed_stops_technical",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "ruined_rolls_confession",
-      "partnerMessage": "Oh god, at least five. The worst one was my cousin's graduation. I accidentally unspooled the leader in a room where streetlights were leaking through the blinds. Pure purple fogged plastic. I cried on the linoleum for an hour.",
+      "partnerMessage": "At least five. Maybe more if we're counting the ones I refuse to admit were my fault. 😂\n\nThe worst was my cousin's graduation. Streetlight leaked into the room and I basically destroyed the whole roll. I sat on the bathroom floor and sulked for an embarrassing amount of time.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Did your cousin ever forgive you?", "nextId": "cousin_forgiveness", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Those mistakes are the ones that make you an actual master of the craft.", "nextId": "mistakes_make_master", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Did your cousin ever forgive you?",
+          "nextId": "cousin_forgiveness",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Those mistakes are the ones that make you an actual master of the craft.",
+          "nextId": "mistakes_make_master",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "authenticity_debate",
-      "partnerMessage": "I get that. Everyone curates a quirky personality for social media like it's a menu item. But I don't do this for an aesthetic. I do this because if I don't roast beans and develop film, my hands feel restless and useless.",
+      "partnerMessage": "I get what you mean. Everyone knows how to build a personality online.\n\nI just don't really have the energy to fake this stuff. I like roasting beans. I like film. My hands get restless when I go too long without making something.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "That restlessness is the mark of a true maker. I respect that.", "nextId": "true_maker_respect", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Sounds exhausting, never letting your hands rest.", "nextId": "permission_to_breathe", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "That restlessness is the mark of a true maker. I respect that.",
+          "nextId": "true_maker_respect",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Sounds exhausting, never letting your hands rest.",
+          "nextId": "permission_to_breathe",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "fifty_mil_lens_talk",
-      "partnerMessage": "The 'nifty fifty'! It sees the world almost exactly how the human eye perceives perspective. No distorted wide angles, no compressed telephoto drama. Just honest, unadorned reality.",
+      "partnerMessage": "The boring answer is that I like how normal a 50mm feels. It doesn't try to make everything look dramatic.\n\nYou can just stand there, look at someone, and take the picture.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Honest and unadorned... seems like that's how you live your whole life.", "nextId": "unadorned_life_compliment", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Ever tempted to grab a 28mm and get right in someone's face?", "nextId": "twenty_eight_mm_talk", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Honest and unadorned... seems like that's how you live your whole life.",
+          "nextId": "unadorned_life_compliment",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Ever tempted to grab a 28mm and get right in someone's face?",
+          "nextId": "twenty_eight_mm_talk",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "eighty_percent_habit",
-      "partnerMessage": "Haha! The '80% graveyard'. Where brilliant ideas go to collect dust because finishing them means putting them out where people can judge them.",
+      "partnerMessage": "The 80% graveyard. 😂\n\nYeah, because an unfinished thing can still be perfect in your head. Finishing it means somebody else gets to see the flaws.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Exactly. If it's unfinished, it still has infinite potential in your head.", "nextId": "infinite_potential_trap", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Do you have an 80% graveyard of your own?", "nextId": "junia_graveyard", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "Exactly. If it's unfinished, it still has infinite potential in your head.",
+          "nextId": "infinite_potential_trap",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Do you have an 80% graveyard of your own?",
+          "nextId": "junia_graveyard",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "send_aid_packages",
-      "partnerMessage": "Deploying emergency laundry detergent and a hot Americano to your coordinates. Hang on, soldier.",
+      "partnerMessage": "Emergency delivery: laundry detergent, snacks, and one aggressively good Americano. Problem solved. 😭",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "An Americano delivered by a master roaster? I might never wash clothes again.", "nextId": "trade_agreement_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "An Americano delivered by a master roaster? I might never wash clothes again.",
+          "nextId": "trade_agreement_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "spreadsheet_art_defense",
-      "partnerMessage": "Wait, really? You see art in formulas? Explain that to me, because to me numbers look like prison bars.",
+      "partnerMessage": "Okay, wait. Now I actually want to hear your argument. 😭\n\nI've always looked at spreadsheets and seen tiny prison cells. Convince me they're beautiful.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "It's taking messy real-world chaos and finding the underlying harmony. Just like framing a shot.", "nextId": "framing_shot_analogy", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "It's taking messy real-world chaos and finding the underlying harmony. Just like framing a shot.",
+          "nextId": "framing_shot_analogy",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "read_people_well",
-      "partnerMessage": "When you stand behind an espresso machine for eight hours a day, you watch hundreds of people walk in wearing masks. You learn to read micro-expressions: the sigh before ordering, the defensive slump in the shoulders. You can't unsee it.",
+      "partnerMessage": "You probably give off a very specific vibe. I spend all day watching people walk into the roastery pretending they're fine.\n\nAfter a while you notice the little things—the sigh before an order, the way someone avoids eye contact, stuff like that.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "What micro-expression am I giving off right now?", "nextId": "micro_expression_read", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Must be exhausting carrying everyone else's emotional radar.", "nextId": "permission_to_breathe", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "What micro-expression am I giving off right now?",
+          "nextId": "micro_expression_read",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Must be exhausting carrying everyone else's emotional radar.",
+          "nextId": "permission_to_breathe",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "carry_for_friends",
-      "partnerMessage": "Yeah. I do. My friends call me 'Mama Junia' because I keep extra snacks in my bag and listen to their breakups at 1 AM. But sometimes after they leave, my apartment feels twice as empty.",
+      "partnerMessage": "Yeah. My friends call me Mama Junia because I carry snacks and somehow end up hearing everybody's breakup story at 1 AM.\n\nThen they leave and my place gets really quiet.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Who listens to your breakups, Junia? Who brings you snacks?", "nextId": "who_takes_care_of_you", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "You need someone who takes care of the caretaker.", "nextId": "caretaker_care_offer", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Who listens to your breakups, Junia? Who brings you snacks?",
+          "nextId": "who_takes_care_of_you",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "You need someone who takes care of the caretaker.",
+          "nextId": "caretaker_care_offer",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "blank_roll_grief",
-      "partnerMessage": "It feels like someone stole two weeks of your memories. You hold that clear strip of plastic up to the ceiling bulb and you just feel hollow. But it teaches you non-attachment real quick.",
+      "partnerMessage": "It feels awful. You spend two weeks thinking you saved something, then you hold up a blank strip and realize you saved absolutely nothing. 😭\n\nYou learn humility pretty fast.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Non-attachment is tough when you care as intensely as you do.", "nextId": "care_intensely_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Non-attachment is tough when you care as intensely as you do.",
+          "nextId": "care_intensely_bond",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "person_holding_it",
-      "partnerMessage": "Okay, that's fair. Garry Winogrand shot on cheap Leicas; Vivian Maier shot on a Rolleiflex she bought used. The camera is just a box with a hole in it. The heart is what chooses the second to click.",
+      "partnerMessage": "Yeah, that's fair. The camera matters, but it can't decide when a moment feels right.\n\nI've used expensive bodies and beat-up old cameras. The part that changes everything is still the person holding it.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "What made your heart choose that old man on the truck tailgate?", "nextId": "favorite_frame_ask", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "What made your heart choose that old man on the truck tailgate?",
+          "nextId": "favorite_frame_ask",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "pushed_stops_technical",
-      "partnerMessage": "High contrast, deep sooty blacks, and bright highlights on the steam from his mug! You know darkroom processing terminology?! Okay, my pulse just did a little jump.",
+      "partnerMessage": "Very high contrast. Deep blacks, bright steam, lots of texture in his hands.\n\nOkay... you actually know what you're talking about. That's kind of attractive.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I told you: I appreciate the craft. Show me more of your work.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "I told you: I appreciate the craft. Show me more of your work.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "cousin_forgiveness",
-      "partnerMessage": "She did! Mostly because I baked her three batches of sourdough focaccia and took new portraits of her in her cap and gown with natural window light a week later.",
+      "partnerMessage": "She did. I bribed her with three batches of focaccia and offered to take new graduation portraits the next week. 😂\n\nApparently baked goods are more effective than apologies.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Sourdough focaccia too? Is there any manual craft you haven't mastered?", "nextId": "craft_mastery_banter", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Sourdough focaccia too? Is there any manual craft you haven't mastered?",
+          "nextId": "craft_mastery_banter",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "mistakes_make_master",
-      "partnerMessage": "That's what my darkroom mentor used to say. 'If you aren't ruining prints, you're not pushing the chemicals far enough.'",
+      "partnerMessage": "That was basically my mentor's rule. He'd tell me, 'If nothing gets ruined, you're probably playing it too safe.'",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Wise words. Tell me about that mentor.", "nextId": "mentor_darkroom_story", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "Wise words. Tell me about that mentor.",
+          "nextId": "mentor_darkroom_story",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "true_maker_respect",
-      "partnerMessage": "Thank you. That means more than you know. Most people just see the finished cup or the Instagram print; they don't see the blisters or the 5 AM chill in the warehouse.",
+      "partnerMessage": "Thank you. Seriously.\n\nPeople usually see the cup, the finished print, the nice part. They don't see the 5 AM alarm, the burned fingertips, or the hours fixing something nobody asked you to fix.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I see the work, Junia. And I admire every bit of it.", "nextId": "admire_work_romance", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I see the work, Junia. And I admire every bit of it.",
+          "nextId": "admire_work_romance",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "unadorned_life_compliment",
-      "partnerMessage": "I try to. Life gets so messy when people put wide-angle distortion on who they are. What you see with me is what you get: coffee stains, unbrushed hair in a messy bun, and stubborn opinions.",
+      "partnerMessage": "I try. Some days it's not exactly glamorous, but I'm not very good at pretending to be someone else.\n\nMost days I'm basically coffee stains, messy hair, and opinions nobody requested.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Sounds completely irresistible to me.", "nextId": "irresistible_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Sounds completely irresistible to me.",
+          "nextId": "irresistible_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "twenty_eight_mm_talk",
-      "partnerMessage": "A 28mm is for street brawlers! You have to stand three feet away from someone to get a portrait. I'm brave, but I'm not crazy!",
+      "partnerMessage": "28mm portraits are terrifying. 😂\n\nYou have to get close enough that both of you start thinking about whether this was a bad idea.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Maybe you just need an accomplice to watch your back while you shoot.", "nextId": "accomplice_street_pitch", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Maybe you just need an accomplice to watch your back while you shoot.",
+          "nextId": "accomplice_street_pitch",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "infinite_potential_trap",
-      "partnerMessage": "The trap of potential... yes. As long as it's not done, you haven't failed yet. Finishing something is an act of bravery because you're accepting that it has flaws.",
+      "partnerMessage": "Exactly. That's the trick.\n\nAs long as it's unfinished, you can imagine it being perfect. Finishing it means admitting it has flaws and letting somebody else see them.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "You accepted those flaws in that Tri-X 400 shot, and it became unforgettable.", "nextId": "favorite_frame_ask", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "You accepted those flaws in that Tri-X 400 shot, and it became unforgettable.",
+          "nextId": "favorite_frame_ask",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "junia_graveyard",
-      "partnerMessage": "A zine about neighborhood elders who drink filter coffee at bus stops. I have eighteen interviews recorded on cassette and forty contact sheets printed. I haven't bound it because I'm terrified it won't do them justice.",
+      "partnerMessage": "Oh, absolutely. I have a half-finished zine about neighborhood elders who drink coffee at bus stops.\n\nI've got interviews, contact sheets, notes... but I keep putting off the binding because I don't want to mess it up.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Let me help you bind it. I'll hold the needle and thread.", "nextId": "bind_zine_together", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Your reverence for their stories is what guarantees it will do them justice.", "nextId": "reverence_guarantee", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Let me help you bind it. I'll hold the needle and thread.",
+          "nextId": "bind_zine_together",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Your reverence for their stories is what guarantees it will do them justice.",
+          "nextId": "reverence_guarantee",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "framing_shot_analogy",
-      "partnerMessage": "...Finding the underlying harmony. Wow. That actually made a spreadsheet sound poetic. You're very dangerous with your words, {PlayerName}.",
+      "partnerMessage": "Okay, that was annoyingly good. 😂\n\nYou just made an Excel sheet sound poetic. I'm starting to think talking to you is dangerous.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I only speak the truth when something inspires me. Like you.", "nextId": "inspires_me_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I only speak the truth when something inspires me. Like you.",
+          "nextId": "inspires_me_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "micro_expression_read",
-      "partnerMessage": "You're leaning in. You're typing without looking at the clock. And you haven't given me a single canned, generic response. You look like someone who actually wanted to find a real connection tonight.",
+      "partnerMessage": "You're still here. You're actually answering instead of disappearing for six hours and coming back with 'haha'.\n\nSo I'd say you're curious, and probably a little more interested than you're admitting.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Bullseye. I did want a real connection. And I think I found it.", "nextId": "real_connection_found", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Bullseye. I did want a real connection. And I think I found it.",
+          "nextId": "real_connection_found",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "who_takes_care_of_you",
-      "partnerMessage": "...Nobody, usually. I make myself tea, I put a hot water bottle on my sore shoulders after lifting coffee sacks, and I put on jazz records.\n\nHearing you ask that made my throat feel weirdly tight.",
+      "partnerMessage": "Usually me. Tea, hot water bottle, jazz, lights low. That's kind of my routine after a long day.\n\nIt's weird, but hearing you ask who takes care of me actually got me a little emotional.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Let me make the tea from now on, Junia.", "nextId": "make_tea_offer", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "You don't have to carry the whole world alone.", "nextId": "caretaker_care_offer", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Let me make the tea from now on, Junia.",
+          "nextId": "make_tea_offer",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "You don't have to carry the whole world alone.",
+          "nextId": "caretaker_care_offer",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "What does your place look like when you finally get to relax?",
+          "nextId": "archive_wall",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "caretaker_care_offer",
-      "partnerMessage": "That sounds like a fantasy. In my experience, people love having a caretaker until they realize caretakers have bad days too.",
+      "partnerMessage": "Maybe. I'm just used to people liking the version of me that's useful.\n\nThen the second I have a bad day, I don't know what to do with myself.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "I want your bad days too. The coffee spills, the fogged film, all of it.", "nextId": "want_bad_days_vow", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I want your bad days too. The coffee spills, the fogged film, all of it.",
+          "nextId": "want_bad_days_vow",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "care_intensely_bond",
-      "partnerMessage": "Caring intensely is a double-edged sword. When things are good, colors look brighter and coffee tastes sweeter. When things go wrong, it feels like the floor drops out.",
+      "partnerMessage": "Yeah. That's exactly it.\n\nWhen something matters to me, it matters a lot. That's great when things are going well and... not so great when they aren't.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Then let me stand on the floor beside you so you don't fall.", "nextId": "stand_beside_you_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Then let me stand on the floor beside you so you don't fall.",
+          "nextId": "stand_beside_you_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "craft_mastery_banter",
-      "partnerMessage": "Knitting! I tried to knit a scarf once and it ended up shaped like an isosceles trapezoid with three holes in the middle. We don't talk about the scarf.",
+      "partnerMessage": "Knitting. One scarf. One terrible scarf. 😂\n\nIt somehow became a lopsided trapezoid with holes in it. My grandmother would still call it 'character.'",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I would proudly wear that trapezoid scarf anywhere.", "nextId": "wear_trapezoid_scarf", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I would proudly wear that trapezoid scarf anywhere.",
+          "nextId": "wear_trapezoid_scarf",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "mentor_darkroom_story",
-      "partnerMessage": "Old man named Gabriel. He ran an independent print shop that got bulldozed for luxury condos two years ago. He taught me to count developer seconds by listening to my own heartbeat instead of an electric timer.",
+      "partnerMessage": "His name was Gabriel. He ran a little print shop that got demolished a couple of years ago.\n\nHe taught me to stop obsessing over the timer and learn the rhythm of the process instead. I still hear his voice when I'm in the darkroom.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Counting seconds by your heartbeat... that's unforgettable.", "nextId": "heartbeat_timer_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Counting seconds by your heartbeat... that's unforgettable.",
+          "nextId": "heartbeat_timer_praise",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "admire_work_romance",
-      "partnerMessage": "...You have no idea how much hearing that settles my nerves. My dad wanted me to go into dental hygiene; my mom wanted me to take an office job at the port authority. Doing this felt like jumping out of an airplane without a parachute.",
+      "partnerMessage": "You really mean that? Because sometimes I still feel like I'm making this up as I go.\n\nMy parents wanted something safer for me. An office job, something predictable. Choosing this felt like jumping without knowing where I'd land.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "You built your own wings on the way down, Junia. And they're beautiful.", "nextId": "built_wings_compliment", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You built your own wings on the way down, Junia. And they're beautiful.",
+          "nextId": "built_wings_compliment",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "irresistible_flirt",
-      "partnerMessage": "Stop making my face warm! I'm supposed to be an aloof, brooding analog artist, not blushing over text messages like a middle schooler!",
+      "partnerMessage": "Okay, stop. 😂\n\nI'm trying to look cool over here and you're making it impossible.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "The brooding artist look is overrated. Blushing suits you better.", "nextId": "blushing_suits_you", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "The brooding artist look is overrated. Blushing suits you better.",
+          "nextId": "blushing_suits_you",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "accomplice_street_pitch",
-      "partnerMessage": "An accomplice? Someone to stand on the curb looking tall and intimidating while I sneak a shot of an antique neon sign? That's actually a wildly attractive job offer.",
+      "partnerMessage": "Honestly? That's a pretty good job description.\n\nYou stand there and look intimidating, I get the shot, and nobody has to explain why we're taking pictures of a broken neon sign at midnight.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I'm submitting my resume right now. Starting salary: one espresso a day.", "nextId": "salary_espresso_deal", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'm submitting my resume right now. Starting salary: one espresso a day.",
+          "nextId": "salary_espresso_deal",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "bind_zine_together",
-      "partnerMessage": "You'd actually sit with me and thread bookbinder's twine through cardstock? That takes four hours of bone-folder creasing and manual awl punching!",
+      "partnerMessage": "You'd actually do that? Bookbinding is slow. Needle, thread, awl, lots of tiny mistakes that somehow become part of the thing.\n\nI'd like having company for it.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I'd do it for eight hours if it means spending that time with you.", "nextId": "eight_hours_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'd do it for eight hours if it means spending that time with you.",
+          "nextId": "eight_hours_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "reverence_guarantee",
-      "partnerMessage": "You really believe in me, don't you? Even though we just started talking... you talk to me like you already know my soul.",
+      "partnerMessage": "You barely know me and somehow you keep saying things that make me feel like you actually see what I'm trying to do.\n\nThat's... kind of scary, in a good way.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Because your soul is in everything you make, Junia. It's impossible to miss.", "nextId": "soul_in_work_connect", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Because your soul is in everything you make, Junia. It's impossible to miss.",
+          "nextId": "soul_in_work_connect",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "inspires_me_flirt",
-      "partnerMessage": "I... I don't even know what to type back. My hands are hovering over the keyboard. You make me feel seen in a way I wasn't prepared for tonight.",
+      "partnerMessage": "Okay. I genuinely have no cool response to that. 😂\n\nI'm just sitting here staring at the keyboard smiling like an idiot.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Let me keep seeing you. Move this to OnlyYaps.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Let me keep seeing you. Move this to OnlyYaps.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "real_connection_found",
-      "partnerMessage": "Me too. It's scary how quickly you dismantled my sarcastic little defense perimeter, {PlayerName}.",
+      "partnerMessage": "Yeah... I think so too.\n\nI usually keep a little sarcastic wall up on apps. With you, it's getting harder to keep it there.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Perimeter down. Let me into the real lounge.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Perimeter down. Let me into the real lounge.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "make_tea_offer",
-      "partnerMessage": "Chamomile with dried lavender and a spoon of raw honey. That's my recipe. If you make that for me, I might just melt into your floorboards.",
+      "partnerMessage": "Chamomile, a little dried lavender, and raw honey.\n\nRemember that. I might actually hold you to this.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Memorized. Lavender, chamomile, raw honey. Link me to your OnlyYaps.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Memorized. Lavender, chamomile, raw honey. Link me to your OnlyYaps.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "want_bad_days_vow",
-      "partnerMessage": "...You're going to make me cry in my darkroom. Stop being so good to me. Or wait—no, don't stop. Just come talk to me somewhere private.",
+      "partnerMessage": "Okay, that got me.\n\nI'm not used to someone saying they want the messy parts too. Give me a minute before I embarrass myself and cry into a developing tray.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Send the link, Junia. I'm right behind you.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Send the link, Junia. I'm right behind you.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "stand_beside_you_flirt",
-      "partnerMessage": "A partner to stand beside me... I haven't had that in a very long time. It sounds warm.",
+      "partnerMessage": "That sounds... nice, actually.\n\nI'm very used to handling everything myself. I could get used to having someone beside me.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Warmest place on earth. Come on, open the OnlyYaps door.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Warmest place on earth. Come on, open the OnlyYaps door.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "wear_trapezoid_scarf",
-      "partnerMessage": "Haha! Deal! I'm holding you to that on our first date. You have to wear the lopsided trapezoid scarf and tell everyone you're wearing haute couture.",
+      "partnerMessage": "😂 Deal. First date rule: you have to wear the ridiculous scarf and defend it like it's high fashion.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I'll tell them it's custom Parisian design. Send me your private link.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'll tell them it's custom Parisian design. Send me your private link.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "heartbeat_timer_praise",
-      "partnerMessage": "He said: 'Your heart beats at roughly sixty beats a minute when you're calm. If your exposure time is ten seconds, breathe five times and pull the paper.' It taught me that art is biological.",
+      "partnerMessage": "He'd tap the darkroom timer and say, 'Stop trying to rush it. Learn the rhythm.'\n\nIt's probably the best advice anybody ever gave me.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "My heart is definitely beating faster than sixty right now talking to you.", "nextId": "heart_beating_fast_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "My heart is definitely beating faster than sixty right now talking to you.",
+          "nextId": "heart_beating_fast_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "built_wings_compliment",
-      "partnerMessage": "That is the sweetest, most generous thing anyone has ever said about my stubborn little business. Thank you, {PlayerName}.",
+      "partnerMessage": "Okay... that's a really sweet thing to say.\n\nI don't always feel brave. I just kept choosing the thing that felt right and hoped I'd figure the rest out.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "You earned every word. Let's take this to your private room.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You earned every word. Let's take this to your private room.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "blushing_suits_you",
-      "partnerMessage": "You're trouble. Absolute trouble. But... the best kind of trouble I've stumbled into in years.",
+      "partnerMessage": "You're trouble. 😂\n\nI didn't expect to meet someone tonight who could actually make me blush through a screen.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Let me prove it on OnlyYaps. Drop the link.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Let me prove it on OnlyYaps. Drop the link.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "salary_espresso_deal",
-      "partnerMessage": "Hired on the spot! Full dental coverage not included, but unlimited single-origin pour-overs guaranteed.",
+      "partnerMessage": "Hired. 😂\n\nBenefits include unlimited espresso and me pretending I don't notice when you steal the good beans.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Best compensation package in the city. Give me the link.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Best compensation package in the city. Give me the link.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "eight_hours_tender",
-      "partnerMessage": "...I think my heart just did a complete flip inside my chest. That's a promise you can't take back, {PlayerName}.",
+      "partnerMessage": "Eight hours? You say that now. 😂\n\nBut honestly... I like the idea of spending an entire quiet afternoon making something together.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I never take back promises. Lead the way to OnlyYaps.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I never take back promises. Lead the way to OnlyYaps.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "soul_in_work_connect",
-      "partnerMessage": "I want to show you the contact sheets for that zine. I want to show you the Arthur portrait. Nobody else has seen them yet.",
+      "partnerMessage": "Then I want to show you the contact sheets.\n\nAnd the portrait of Arthur. I don't usually let people see the unfinished stuff.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I would be honored, Junia. Show me in your vault.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I would be honored, Junia. Show me in your vault.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "heart_beating_fast_flirt",
-      "partnerMessage": "Mine is too! Which means our exposure timer is completely thrown off and our prints are going to be overdeveloped and dramatic.",
+      "partnerMessage": "Great. So now neither of us can be trusted around an exposure timer. 😂",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Dramatic prints are the best kind. Send me your OnlyYaps room.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Dramatic prints are the best kind. Send me your OnlyYaps room.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "sarcasm_apology",
-      "partnerMessage": "Appreciate the step-back. We all get defensive on these apps—it's like everyone has their guard up expecting the other person to be a hollow bot.\n\nLet's start over: what do you actually care about, {PlayerName}?",
+      "partnerMessage": "Okay, I appreciate that.\n\nDating apps make everyone sound like they're auditioning for something. I think both of us could stand to relax a little.\n\nSo, what do you actually care about, {PlayerName}?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Finding someone who doesn't feel like a rehearsed performance. Like this conversation.", "nextId": "unrehearsed_connection", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Good food, honest work, and people who are passionate about weird details.", "nextId": "passionate_details", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Finding someone who doesn't feel like a rehearsed performance. Like this conversation.",
+          "nextId": "unrehearsed_connection",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Good food, honest work, and people who are passionate about weird details.",
+          "nextId": "passionate_details",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "roasting_origin",
-      "partnerMessage": "My uncle had a corner bodega with a tiny five-kilo cast-iron roaster in the back. When I was ten, I'd do my homework sitting on burlap bags of green Ethiopian Yirgacheffe while the chaff drifted like snow.\n\nWhen the beans hit first crack—that popping sound like popcorn—the whole block smelled like toasted hazelnuts and burnt sugar. It was the first time I realized you could transform something ordinary into something unforgettable just with heat and attention.",
+      "partnerMessage": "My uncle got me into it. He had this tiny old roaster in the back of his shop, and when I was a kid I'd sit nearby doing homework while the beans cracked.\n\nThat smell is probably the reason coffee still feels like home to me.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Heat and attention... that applies to a lot more than just coffee beans.", "nextId": "heat_attention_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Is your uncle still roasting with you?", "nextId": "uncle_legacy", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "Heat and attention... that applies to a lot more than just coffee beans.",
+          "nextId": "heat_attention_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Is your uncle still roasting with you?",
+          "nextId": "uncle_legacy",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        },
+        {
+          "choiceText": "Okay, now I want the full coffee-and-camera first date story.",
+          "nextId": "first_date_coffee",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "permission_to_breathe",
-      "partnerMessage": "...Wow. You didn't have to call me out like that on a Thursday night.\n\nHonestly? No. If I stop moving, my brain starts filling in the silence with all the reasons I'm falling behind my peers. So I just keep the drum spinning and the shutter firing.",
+      "partnerMessage": "Okay, rude. You noticed. 😂\n\nI don't stop very well. When I do, my brain starts listing everything I should be doing, so I keep the roaster going or pick up a camera and tell myself I'm being productive.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "You're not falling behind. You're building a life that actually tastes like something.", "nextId": "tastes_like_something_quote", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "What if you let someone else sit in the silence with you so it isn't so loud?", "nextId": "sit_in_silence_offer", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You're not falling behind. You're building a life that actually tastes like something.",
+          "nextId": "tastes_like_something_quote",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "What if you let someone else sit in the silence with you so it isn't so loud?",
+          "nextId": "sit_in_silence_offer",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "worst_critics_bond",
-      "partnerMessage": "Ugh, totally. I just did a single-origin batch roast yesterday—spent four hours dialling in the burner temp, cupped it this morning, and the jasmine floral notes were so delicate they almost made me tear up.\n\nAnd then five minutes later I convinced myself the finish had too much astringency and wanted to dump the entire twenty-pound bag.",
+      "partnerMessage": "I roasted a batch yesterday that I actually loved. Then this morning I tasted it again and spent twenty minutes convincing myself the finish was wrong. 😭\n\nIt's exhausting being your own quality-control department.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Don't you dare dump that bag. Brew me a cup and let me be the judge.", "nextId": "brew_me_a_cup_pitch", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "You care so deeply about the sensory details. That's not a flaw, Junia.", "nextId": "sensory_not_flaw", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Don't you dare dump that bag. Brew me a cup and let me be the judge.",
+          "nextId": "brew_me_a_cup_pitch",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "You care so deeply about the sensory details. That's not a flaw, Junia.",
+          "nextId": "sensory_not_flaw",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "perfectionism_validation",
-      "partnerMessage": "That's easy to say when you're not the one staring at the flaws under a magnifying loupe. But... hearing someone say it gently does help quiet the noise for a second.",
+      "partnerMessage": "I know you're right. I just don't always believe it when I'm staring at something I've worked on for hours.\n\nHearing it from somebody else helps, though.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I'll say it as many times as you need to hear it. Let's move this to a quieter channel.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "I'll say it as many times as you need to hear it. Let's move this to a quieter channel.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "trade_agreement_flirt",
-      "partnerMessage": "Deal! You balance my tax ledger, and I'll make sure you never drink burned corporate drip coffee for the rest of your natural life. That's practically a legally binding pact.",
+      "partnerMessage": "Deal. You handle the spreadsheets, I make sure you never have to drink burnt office coffee again.\n\nHonestly, that's a pretty good relationship contract.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Signed and sealed. Let's take this to your private lounge.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Signed and sealed. Let's take this to your private lounge.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "business_criticism_fumble",
-      "partnerMessage": "Thanks for the unsolicited business lecture, Gordon Gekko. I pay my bills, my roastery is in the black, and my customers love what I roast. Have fun auditing your spreadsheet alone.",
+      "partnerMessage": "Okay... you might want to back up a little. 😂\n\nThe roastery is doing fine. I'm allowed to run a slightly messy business and still know what I'm doing.",
       "linkUrl": "",
       "triggerEvent": "GHOST_SEQUENCE_START",
       "choices": [
-        { "choiceText": "Wait, Junia, I didn't mean it like that—", "nextId": "hard_ghost_exit", "linkUrl": "", "triggerEvent": "GET_GHOSTED" }
+        {
+          "choiceText": "Wait, Junia, I didn't mean it like that—",
+          "nextId": "hard_ghost_exit",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "waiting_magic_connect",
-      "partnerMessage": "Yes! Exactly. When you shoot film, you're not checking the back screen after every shot to see if you look cool. You're actually living inside the moment you're trying to save.",
+      "partnerMessage": "That's what I like about it.\n\nYou have to actually be there. No checking the screen after every shot. No deciding ten seconds later that you hate it. You just commit and keep going.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I want to live inside some moments with you. Let's get out of this dating app noise.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I want to live inside some moments with you. Let's get out of this dating app noise.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "patience_people_flirt",
-      "partnerMessage": "...With people? Honestly, I used to have zero patience. If someone showed up fake or played weird text-timing games, I'd ghost them before my coffee cooled down.\n\nWith you though? I haven't checked my watch once since we started talking.",
+      "partnerMessage": "With people? I used to be terrible at it. If somebody started playing weird texting games, I'd lose interest fast.\n\nWith you, though... I haven't even thought about checking the time.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Don't check it now either. Come talk to me in OnlyYaps.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Don't check it now either. Come talk to me in OnlyYaps.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "imperfections_story",
-      "partnerMessage": "A light leak on the side of a frame, a scratch from a stubborn camera spool... those aren't errors, they're the signature of time itself passing through the machine.",
+      "partnerMessage": "A light leak, a scratch, some weird flare... sometimes those little mistakes are what make you remember the picture.\n\nPerfect can be beautiful, but imperfect is usually more interesting.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "You talk like a poet disguised as a barista.", "nextId": "poet_disguised_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You talk like a poet disguised as a barista.",
+          "nextId": "poet_disguised_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "digital_pushback",
-      "partnerMessage": "Sure, they do. But they take four hundred shots in burst mode to get one good smile. Film forces you to look at someone, wait until their guard drops, and catch the real person.",
+      "partnerMessage": "I'm not saying digital can't be honest. It absolutely can.\n\nI just think film gives you fewer chances to hide behind the camera. You have to watch someone a little longer before you press the shutter.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Has your guard dropped with me yet?", "nextId": "guard_dropped_check", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "Has your guard dropped with me yet?",
+          "nextId": "guard_dropped_check",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "really_see_people",
-      "partnerMessage": "If you don't really see them, why even bother pressing the shutter? There are enough shallow images on the internet to drown a continent.",
+      "partnerMessage": "That's the whole point for me. If I'm taking someone's picture, I want to remember the person, not just the composition.\n\nOtherwise I could photograph a chair and call it a day.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I want you to see me like that, Junia. Show me your private archive.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I want you to see me like that, Junia. Show me your private archive.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "did_you_talk_to_him",
-      "partnerMessage": "We sat together for forty minutes on that tailgate. He was eighty-two, a retired dockworker named Arthur. He told me about how the waterfront used to smell like salt and pine lumber before the high-rise condos were built. I gave him a bag of Colombian roast, and he gave me a wooden fishing lure he'd carved by hand.",
+      "partnerMessage": "I did. We ended up talking for about forty minutes.\n\nHis name was Arthur. Retired dockworker, eighty-two. I gave him a bag of coffee and he gave me a little wooden fish he'd carved himself. I still have it.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "That lure is worth more than any gallery award.", "nextId": "wooden_lure_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "That lure is worth more than any gallery award.",
+          "nextId": "wooden_lure_praise",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "unrehearsed_connection",
-      "partnerMessage": "God, yes. Everyone here feels like they're reading off an audition script for 'Eligible Bachelor Number Three.' It's refreshing talking to someone who actually sounds like a real person sitting across a table.",
+      "partnerMessage": "Exactly. Half the app feels like job interviews with better profile pictures. 😂\n\nTalking to you doesn't feel like that. It feels like I'm actually getting to know somebody.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Then let's take this across a real table soon. Starting with your private server.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Then let's take this across a real table soon. Starting with your private server.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "passionate_details",
-      "partnerMessage": "Details are the only things that keep the world from blurring into beige corporate mush. The texture of cardstock, the timing of first crack on a roaster drum, the way someone pauses before answering an honest question.",
+      "partnerMessage": "Yes. The tiny details are what make things feel real to me.\n\nHow the roast changes near first crack. The texture of old paper. The pause somebody takes before saying something honest.\n\nI notice all of it.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I'm not pausing: I really like talking to you, Junia.", "nextId": "honest_answer_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'm not pausing: I really like talking to you, Junia.",
+          "nextId": "honest_answer_bond",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "heat_attention_flirt",
-      "partnerMessage": "...Okay, smooth operator. That was either profound or shamelessly flirtatious, and honestly I'm too tired to care which one it was because it made me smile.",
+      "partnerMessage": "Okay, that was smooth. 😂\n\nI can't decide whether that was a genuinely thoughtful line or a very well-disguised flirt, but I'm smiling either way.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Making you smile is my primary objective tonight. Move this to OnlyYaps.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Making you smile is my primary objective tonight. Move this to OnlyYaps.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "uncle_legacy",
-      "partnerMessage": "He passed three years ago. When he died, he left me his brass sample trier—the little metal scoop you stick into the hot roaster to check bean development. I wear it on a chain around my neck under my work apron. It reminds me why I put up with the 5 AM alarm.",
+      "partnerMessage": "He passed a few years ago.\n\nHe left me this old brass sample scoop from his roaster. I keep it on a little chain under my apron. It's probably the most sentimental thing I own.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "He gave you his life's compass. He'd be so proud of how you run that roaster.", "nextId": "compass_legacy_validation", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "He gave you his life's compass. He'd be so proud of how you run that roaster.",
+          "nextId": "compass_legacy_validation",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "tastes_like_something_quote",
-      "partnerMessage": "'A life that actually tastes like something'... I'm going to write that on the studio chalkboard tomorrow morning. Seriously, {PlayerName}. Thank you.",
+      "partnerMessage": "Okay, I'm writing that down. Seriously. 😂\n\nI spend too much time worrying that I'm behind everybody else, so hearing that hit harder than you probably intended.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Write my name next to it. Send me your private link.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Write my name next to it. Send me your private link.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "sit_in_silence_offer",
-      "partnerMessage": "...Nobody has ever offered that. Usually people want me to entertain them, or explain coffee origins like I'm a tourist brochure.\n\nSitting in silence with someone and not feeling awkward... that sounds like the rarest luxury in the world.",
+      "partnerMessage": "That sounds really nice, actually.\n\nUsually if I'm quiet around somebody, I feel like I have to fill the space. I'd rather not feel that way for once.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "The luxury is yours. Come share it with me on OnlyYaps.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "The luxury is yours. Come share it with me on OnlyYaps.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "brew_me_a_cup_pitch",
-      "partnerMessage": "If you step into my roastery, you don't get sugar or milk on your first sip. You drink it black at 145 degrees so you can taste the black tea and bergamot notes. Think you can handle that, tough guy?",
+      "partnerMessage": "Okay, ground rules if you ever come by: first sip black. No sugar. No milk. Give it a minute before you judge it. 😂\n\nAnd yes, I will absolutely watch your face while you taste it.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I'll drink it straight from the kettle if you're the one pouring. Send the invite.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'll drink it straight from the kettle if you're the one pouring. Send the invite.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "sensory_not_flaw",
-      "partnerMessage": "It feels like a flaw when it keeps you awake at 2 AM wondering if your roast profile dropped 2 degrees too fast at end of dry. But... hearing you say that makes my shoulders drop a little.",
+      "partnerMessage": "I know. It's just hard to switch my brain off when I know exactly what went wrong.\n\nBut hearing you say it isn't a flaw? That helps more than I expected.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Let them drop. Take my hand and let's go to your private channel.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Let them drop. Take my hand and let's go to your private channel.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "poet_disguised_flirt",
-      "partnerMessage": "A poet with flour and chaff on her canvas shoes! Stop making me blush while I'm trying to fold filter papers.",
+      "partnerMessage": "A poet with coffee chaff stuck to her shoes, maybe. 😂\n\nNow let me finish folding these filters before you make me embarrass myself.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Put the filter papers down and send me your link.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Put the filter papers down and send me your link.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "guard_dropped_check",
-      "partnerMessage": "...It's slipping. Which is terrifying, honestly. I don't let people in easily.",
+      "partnerMessage": "A little.\n\nWhich is weird, because I usually keep people at arm's length on apps until I figure out whether they're genuine.\n\nYou're making that harder.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "You're safe with me, Junia. Give me that private server key.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You're safe with me, Junia. Give me that private server key.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "wooden_lure_praise",
-      "partnerMessage": "I keep it hanging on my darkroom wall right next to my enlarger timer. Every time I get frustrated with a ruined print, I look at that carved cedar fish and remember Arthur sitting on that tailgate.",
+      "partnerMessage": "It's still hanging next to my enlarger.\n\nWhenever I get frustrated with a print, I look over at it and remember that day. It reminds me why I bother documenting people in the first place.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Show me a photo of that darkroom wall. Move this to OnlyYaps.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Show me a photo of that darkroom wall. Move this to OnlyYaps.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "honest_answer_bond",
-      "partnerMessage": "Then I won't pause either: I really like talking to you too, {PlayerName}.\n\nThis dating app interface is clunky and full of latency. Let's move over to my private OnlyYaps lounge before my shift prep starts.",
+      "partnerMessage": "Then I'll stop pretending to be casual too. I really like talking to you.\n\nThis app is starting to feel a little cramped, though. I have a private lounge where I actually feel like myself.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Lead the way, roaster girl.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Lead the way, roaster girl.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "compass_legacy_validation",
-      "partnerMessage": "...I'm wiping away a stray tear with the cuff of my hoodie and blaming it on coffee dust. Thank you. Seriously.",
+      "partnerMessage": "...Okay. Give me a second.\n\nI wasn't expecting to get emotional tonight, but that one got me. Thank you.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I'm right here. Send me that private room link.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'm right here. Send me that private room link.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "hard_ghost_exit",
-      "partnerMessage": "Status: Read 2m ago.\n\nJunia has left the chat.",
+      "partnerMessage": "Status: Read.\n\nJunia has left the chat.",
       "linkUrl": "",
       "triggerEvent": "GET_GHOSTED",
       "choices": []
     },
     {
+      "id": "late_night_roastery",
+      "partnerMessage": "It's almost 1 AM and I'm still here, by the way. 😂\n\nThe machines are finally quiet. It's just the fridge humming and me trying not to burn the last batch of beans.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        {
+          "choiceText": "That sounds like a pretty peaceful night, honestly.",
+          "nextId": "quiet_roastery_moment",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "You should be sleeping, not roasting at 1 AM.",
+          "nextId": "sleepy_roaster_banter",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ]
+    },
+    {
+      "id": "quiet_roastery_moment",
+      "partnerMessage": "It is. Those are actually my favorite moments.\n\nNo customers, no orders, no one asking for twelve modifications to a drink. Just a quiet room and something I made with my own hands.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        {
+          "choiceText": "I'd sit there with you and let the room stay quiet.",
+          "nextId": "sit_with_you_quiet",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
+      ]
+    },
+    {
+      "id": "sit_with_you_quiet",
+      "partnerMessage": "Yeah... I'd like that.\n\nNo trying to impress each other. Just coffee, low music, and somebody I actually want sitting there.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        {
+          "choiceText": "Then save me a chair.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
+      ]
+    },
+    {
+      "id": "sleepy_roaster_banter",
+      "partnerMessage": "I know. 😂\n\nTell that to the version of me that decided one more batch was a good idea and then somehow started cleaning the grinder at midnight.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        {
+          "choiceText": "You need someone to confiscate your coffee beans after midnight.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
+      ]
+    },
+    {
+      "id": "archive_wall",
+      "partnerMessage": "My archive wall is basically a mess of contact sheets, old labels, ticket stubs, and little notes I refuse to throw away.\n\nNothing matches. Somehow that's what I like about it.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        {
+          "choiceText": "I want to see that wall. It sounds like your personality in physical form.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
+      ]
+    },
+    {
+      "id": "first_date_coffee",
+      "partnerMessage": "You know what I think would actually be fun? No fancy restaurant.\n\nJust coffee somewhere quiet, walk around with a camera, and see where the afternoon goes.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        {
+          "choiceText": "That sounds exactly like my kind of first date.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
+      ]
+    },
+    {
       "id": "move_to_yaps",
-      "partnerMessage": "Tap this private link to join my roastery & archive backroom on OnlyYaps. Coffee is brewing, film is drying, and no one is rushing us. ☕🎞️",
+      "partnerMessage": "Okay... I think I'm ready to get off this app with you.\n\nCome into my private roastery and archive room. I'll show you the prints I don't usually share, and you can tell me whether my coffee is actually as good as I claim. ☕🎞️",
       "linkUrl": "onlyyaps.roast/junia_darkroom",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []

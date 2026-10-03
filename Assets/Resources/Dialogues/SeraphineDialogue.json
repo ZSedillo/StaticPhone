@@ -7,469 +7,829 @@
   "nodes": [
     {
       "id": "start",
-      "partnerMessage": "Good evening, {PlayerName}.\n\nI just stepped out of practice room 4B. The piano lid is closed, the metronome is finally silenced, and my fingertips are completely numb from running Chopin's *Winter Wind* etude for the third consecutive hour.\n\nTell me plainly before we start: are you here because you genuinely appreciate acoustic devotion, or are you hoping for an aloof concert pianist to perform parlor tricks on command?",
+      "partnerMessage": "Good evening, {PlayerName}.\n\nI just got out of practice room 4B. The piano's covered, the metronome is finally off, and my hands are kind of useless right now. I ran the Winter Wind etude for way too long.\n\nSo before we get too far into this... are you actually interested in classical music, or did my profile just make you curious about what a slightly intimidating pianist is like?\n\nI promise I'm less scary when I'm not practicing.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I'm here because eight hours alone with a Steinway takes a level of discipline most people can't comprehend.", "nextId": "discipline_insight_path", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Winter Wind etude? That chromatic triplet cascade in the right hand is practically athletic.", "nextId": "repertoire_technical_respect", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Do you ever play anything with a modern pulse, or is your world strictly 19th-century sheet music?", "nextId": "modern_contrast_debate", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "You sound like someone who takes herself way too seriously.", "nextId": "arrogance_callout_fumble", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
+        {
+          "choiceText": "I'm here because eight hours alone with a Steinway takes a level of discipline most people can't comprehend.",
+          "nextId": "discipline_insight_path",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Winter Wind etude? That chromatic triplet cascade in the right hand is practically athletic.",
+          "nextId": "repertoire_technical_respect",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Do you ever play anything with a modern pulse, or is your world strictly 19th-century sheet music?",
+          "nextId": "modern_contrast_debate",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "You sound like someone who takes herself way too seriously.",
+          "nextId": "arrogance_callout_fumble",
+          "linkUrl": "",
+          "triggerEvent": "JUNIA_SKEPTIC"
+        }
       ]
     },
     {
       "id": "discipline_insight_path",
-      "partnerMessage": "...That word. 'Discipline.' Most people call it talent because it lets them dismiss the thousands of solitary hours behind a closed door as some divine accident.\n\nThey don't see the torn cuticle skin, the ice water baths for forearms, or the sickening silence when you miss a single leap in a Brahms rhapsody. It is grueling work. What made you understand that distinction?",
+      "partnerMessage": "...Discipline.\n\nThank you for saying that. Seriously. People hear \"concert pianist\" and assume you just sit down and magically play.\n\nI've spent most of today in that room. My fingers hurt, my shoulders are tight, and I still keep thinking I should have stayed another hour because there was one passage I didn't like.\n\nIt's a little ridiculous sometimes. What made you notice the work behind it instead of just the result?",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Because true mastery always leaves a quiet scar. You can hear the sacrifice in the tone.", "nextId": "mastery_sacrifice_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "I've had to put solitary hours into things I care about too. Solitude changes how you think.", "nextId": "solitude_shared_experience", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
-        { "choiceText": "It's obvious from how you hold your composure. You carry yourself like an athlete.", "nextId": "athlete_analogy_praise", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Because true mastery always leaves a quiet scar. You can hear the sacrifice in the tone.",
+          "nextId": "mastery_sacrifice_bond",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "I've had to put solitary hours into things I care about too. Solitude changes how you think.",
+          "nextId": "solitude_shared_experience",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        },
+        {
+          "choiceText": "It's obvious from how you hold your composure. You carry yourself like an athlete.",
+          "nextId": "athlete_analogy_praise",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "repertoire_technical_respect",
-      "partnerMessage": "You actually know the score... you know about the right-hand sextuplets over the descending bass theme. \n\nForgive my disbelief, but on dating applications, men usually ask me if I know how to play pop soundtrack covers in hotel lobbies. Recognizing the mechanical violence of Opus 25 Number 11 is... unexpectedly refreshing.",
+      "partnerMessage": "Wait. You actually know that part?\n\nOkay, I was not expecting that.\n\nMost people on here see \"pianist\" and ask whether I can play movie songs. Which... yes, obviously, but that's not really what I spend my life doing.\n\nAnd yeah, calling Op. 25 No. 11 \"ferocious\" is pretty accurate. My right hand hates me by the end of it.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Chopin isn't polite salon music. It's raw romantic defiance disguised in counterpoint.", "nextId": "chopin_defiance_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Do your wrists hold up under that kind of velocity? That piece destroys flexor tendons.", "nextId": "tendon_health_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "I just know what sounds ferocious. And that etude is terrifying.", "nextId": "ferocious_praise", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Chopin isn't polite salon music. It's raw romantic defiance disguised in counterpoint.",
+          "nextId": "chopin_defiance_bond",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Do your wrists hold up under that kind of velocity? That piece destroys flexor tendons.",
+          "nextId": "tendon_health_check",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "I just know what sounds ferocious. And that etude is terrifying.",
+          "nextId": "ferocious_praise",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "modern_contrast_debate",
-      "partnerMessage": "A pulse? Modern music didn't invent rhythm, {PlayerName}; it merely flattened it into rigid four-four loops to make it digestible for earbuds.\n\nRubato—the subtle elastic stretching of tempo that breathes like human lungs—has more visceral power than any synthesized beat drop. But people have lost the patience to listen between the notes.",
+      "partnerMessage": "I mean, I do listen to things that have an actual beat.\n\nI'm not completely hopeless.\n\nI just think people rush through music sometimes. With classical stuff, there's all this tiny movement in the timing that you only notice when you stop trying to get to the next part.\n\nRubato is basically letting the tempo breathe a little. It can make the same piece feel completely different.\n\nBut I promise I'm not going to judge you if you have a playlist full of pop songs.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Stretching tempo like human lungs... that's a fascinating way to describe rubato.", "nextId": "rubato_lungs_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "You don't listen to anything outside the classical canon? Not even late at night?", "nextId": "late_night_listening_habits", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
-        { "choiceText": "Sounds a little elitist. Good groove doesn't need to be overcomplicated.", "nextId": "elitism_counter_fumble", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
+        {
+          "choiceText": "Stretching tempo like human lungs... that's a fascinating way to describe rubato.",
+          "nextId": "rubato_lungs_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "You don't listen to anything outside the classical canon? Not even late at night?",
+          "nextId": "late_night_listening_habits",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        },
+        {
+          "choiceText": "Sounds a little elitist. Good groove doesn't need to be overcomplicated.",
+          "nextId": "elitism_counter_fumble",
+          "linkUrl": "",
+          "triggerEvent": "JUNIA_SKEPTIC"
+        }
       ]
     },
     {
       "id": "arrogance_callout_fumble",
-      "partnerMessage": "When you have devoted sixteen years of your youth to an instrument that magnifies every millimeter of human error, you earn the right to take your craft seriously.\n\nIf you interpret dedication as arrogance, you are welcome to return to the casual swiping queue.",
+      "partnerMessage": "Okay.\n\nYou do realize I've been doing this since I was a kid, right? I'm probably taking it seriously because I've spent half my life being told that one wrong note matters.\n\nI'm not offended by someone joking around. I just... don't love feeling like the thing I care about is being reduced to a personality gimmick.\n\nYou can tease me. Just don't make me feel stupid for caring.",
       "linkUrl": "",
       "triggerEvent": "JUNIA_SKEPTIC",
       "choices": [
-        { "choiceText": "I spoke carelessly. I'm not mocking your dedication, Seraphine. Forgive me.", "nextId": "apology_recovery_craft", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Lighten up. It's just wooden keys and copper wire.", "nextId": "keys_and_wire_insult", "linkUrl": "", "triggerEvent": "FAILURE_BLOCKED" }
+        {
+          "choiceText": "I spoke carelessly. I'm not mocking your dedication, Seraphine. Forgive me.",
+          "nextId": "apology_recovery_craft",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Lighten up. It's just wooden keys and copper wire.",
+          "nextId": "keys_and_wire_insult",
+          "linkUrl": "",
+          "triggerEvent": "FAILURE_BLOCKED"
+        }
       ]
     },
     {
       "id": "mastery_sacrifice_bond",
-      "partnerMessage": "...'True mastery always leaves a quiet scar.'\n\nThat sentence struck somewhere deep between my ribs. Most people think classical music is gentle and relaxing. They don't know the terror of sitting under a spotlight on a nine-foot concert grand, knowing one miscalculated millimeter of thumb under-tuck can derail an entire concerto.",
+      "partnerMessage": "...\"\"\nTrue mastery always leaves a quiet scar.\"\n\nThat's actually a really good way of putting it.\n\nPeople hear a clean performance and think, \"Wow, she's talented.\" They don't see the hours where you play the same four bars until you hate the sound of your own name.\n\nAnd the worst part is that one tiny mistake can still ruin your whole night.\n\nHave you ever cared about something enough that the work started to hurt a little?",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "What concerto has your hands in a vise right now?", "nextId": "concerto_reveal_hub", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
-        { "choiceText": "Does that terror ever go away, or do you just learn to breathe through it?", "nextId": "terror_breathing_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "What concerto has your hands in a vise right now?",
+          "nextId": "concerto_reveal_hub",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        },
+        {
+          "choiceText": "Does that terror ever go away, or do you just learn to breathe through it?",
+          "nextId": "terror_breathing_talk",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "solitude_shared_experience",
-      "partnerMessage": "It alters your internal rhythm. When you spend that many hours in an acoustic isolation box, regular social small talk feels unbearable. People complain about minor daily inconveniences while your mind is obsessing over the tonal balance of a minor ninth chord.\n\nIt makes you feel like an alien on your own campus.",
+      "partnerMessage": "Yeah. That makes sense.\n\nAfter enough hours in a practice room, normal conversation starts to feel weird. You spend the entire day listening for tiny things, then somebody asks you how your day was and you don't even know how to answer.\n\nSometimes I leave the conservatory and don't want to see anyone. Then I get back to my room and realize I didn't actually want to be alone either.\n\nIt's a strange combination.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "You're not an alien to me, Seraphine. You're someone who feels things at maximum resolution.", "nextId": "maximum_resolution_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Do you have anyone in the conservatory who understands that isolation?", "nextId": "conservatory_rivalry_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "You're not an alien to me, Seraphine. You're someone who feels things at maximum resolution.",
+          "nextId": "maximum_resolution_comfort",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Do you have anyone in the conservatory who understands that isolation?",
+          "nextId": "conservatory_rivalry_talk",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "athlete_analogy_praise",
-      "partnerMessage": "Pianists *are* athletes. Neurological athletes. A concert pianist executes up to thirty complex muscular micro-adjustments per second while simultaneously analyzing harmonic architecture and acoustic decay.\n\nMy heart rate during a live cadenza peaks at 160 beats per minute.",
+      "partnerMessage": "People laugh when I call piano athletic, but it really is.\n\nYour whole body is involved, even when it doesn't look like it. Breathing, posture, wrists, fingers, shoulders... everything has to work together.\n\nAnd during a live cadenza my heart is absolutely pounding. Sometimes I look calm because I've trained myself not to let it show.\n\nInside, though? It's chaos.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "A live cadenza at 160 BPM... that sounds intoxicating and terrifying all at once.", "nextId": "intoxicating_cadenza", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "How does your body recover after an eight-hour session like that?", "nextId": "tendon_health_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "A live cadenza at 160 BPM... that sounds intoxicating and terrifying all at once.",
+          "nextId": "intoxicating_cadenza",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "How does your body recover after an eight-hour session like that?",
+          "nextId": "tendon_health_check",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "chopin_defiance_bond",
-      "partnerMessage": "Yes! Exactly that! Chopin was dying of tuberculosis in Paris, bleeding into handkerchiefs while Russia crushed his homeland, and he poured all that rage into piano sonatas that people now play in polite drawing rooms!\n\nIt's defiance. Pure, distilled rebellion under counterpoint rules. You understand the blood beneath the sheet music.",
+      "partnerMessage": "Yes. Exactly.\n\nThat's what I love about Chopin. People hear something beautiful and forget how much tension is underneath it.\n\nHe wasn't writing pretty little pieces so people could have pleasant dinner music. There was anger, homesickness, frustration, all of it.\n\nI think that's why I still connect with him. You can make something beautiful out of a pretty ugly feeling.\n\nMaybe that's why I keep coming back to the same pieces when I'm having a bad week.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I understand because I can hear that same rebellion in your voice, Seraphine.", "nextId": "rebellion_in_voice_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "What piece are you preparing for your upcoming competition?", "nextId": "concerto_reveal_hub", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "I understand because I can hear that same rebellion in your voice, Seraphine.",
+          "nextId": "rebellion_in_voice_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "What piece are you preparing for your upcoming competition?",
+          "nextId": "concerto_reveal_hub",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "tendon_health_check",
-      "partnerMessage": "...It takes a toll. My right extensor carpi radialis is wrapped in tight elastic tape under my blazer right now. My professor tells me to 'play through the tension,' but tension is the enemy of acoustic resonance.\n\nI have to submerge my hands in paraffin wax baths every evening just so my fingers don't lock up during morning scales.",
+      "partnerMessage": "...Yeah.\n\nI do have tape under my sleeve. My professor tells me it's normal and that I just need to manage it better, which is one of those sentences that sounds reassuring until you think about it for five seconds.\n\nSome evenings my hands feel fine. Other nights they ache enough that I have to sit there and wait before I can even hold a mug properly.\n\nI don't really talk about it much because once people know you're hurting, they start wondering whether you're reliable.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Your professor is wrong. Playing through tendon strain leads to irreversible nerve damage.", "nextId": "nerve_damage_warning", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Paraffin wax baths and taped forearms... Seraphine, how much pain are you hiding?", "nextId": "hiding_pain_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Your professor is wrong. Playing through tendon strain leads to irreversible nerve damage.",
+          "nextId": "nerve_damage_warning",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Paraffin wax baths and taped forearms... Seraphine, how much pain are you hiding?",
+          "nextId": "hiding_pain_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "ferocious_praise",
-      "partnerMessage": "It is ferocious. But ferocity requires absolute stillness beforehand. If your shoulder girdle isn't completely relaxed, the chord accents sound shrill rather than weighty.",
+      "partnerMessage": "Exactly.\n\nThat's the weird part. The louder and more aggressive a passage sounds, the more controlled your body actually has to be.\n\nIf I'm tense before the chord, it just sounds harsh. If I'm relaxed, the same note can feel huge.\n\nI spend way too much time thinking about things like that.\n\nAre you actually interested in learning how to hear the difference, or are you just trying to impress me now?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Can you teach me how to listen to that weight?", "nextId": "teach_listening_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Can you teach me how to listen to that weight?",
+          "nextId": "teach_listening_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "rubato_lungs_flirt",
-      "partnerMessage": "...Now you're being poetic, {PlayerName}. Stop that. I'm accustomed to analytical jury adjudicators with scorecards, not someone who makes my posture soften over a screen.",
+      "partnerMessage": "Okay, don't say things like that.\n\nYou're going to make me sit here smiling at my phone like an idiot.\n\nI'm used to people asking me very technical questions. \"Was that triplet even?\" \"Why did you take that tempo?\" That kind of thing.\n\nThen you describe it like breathing and suddenly I don't know what to say.\n\nThat's mildly inconvenient.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Softening your posture won't ruin your touch. You're allowed to relax with me.", "nextId": "allowed_to_relax_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "What does a concert pianist listen to when the score is put away?", "nextId": "late_night_listening_habits", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Softening your posture won't ruin your touch. You're allowed to relax with me.",
+          "nextId": "allowed_to_relax_comfort",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "What does a concert pianist listen to when the score is put away?",
+          "nextId": "late_night_listening_habits",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "late_night_listening_habits",
-      "partnerMessage": "Quiet things. Cold, acoustic jazz played on muted trumpets. 1970s ambient synthesis. Or sometimes just the rain hitting the glass skylight above the hall.\n\nWhen you spend eight hours analyzing polyphony, your ears crave simple, unadorned space.",
+      "partnerMessage": "Actually, I listen to a lot of things that have nothing to do with what I study.\n\nLate at night I usually want something quieter. Old jazz, ambient stuff, sometimes just rain if I'm too tired to choose anything.\n\nAfter eight hours of listening critically, I don't want another piece I need to analyze.\n\nSometimes I just want sound in the background and no one asking me what I think of it.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Rain on a skylight and a muted trumpet... that sounds like a sanctuary.", "nextId": "skylight_sanctuary_talk", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "I'd love to sit in that unadorned space with you sometime.", "nextId": "sit_in_space_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Rain on a skylight and a muted trumpet... that sounds like a sanctuary.",
+          "nextId": "skylight_sanctuary_talk",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "I'd love to sit in that unadorned space with you sometime.",
+          "nextId": "sit_in_space_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "elitism_counter_fumble",
-      "partnerMessage": "It isn't elitism to demand nuance from an art form that has developed over four centuries. If you consider standards to be an insult, we clearly value different things.",
+      "partnerMessage": "Maybe.\n\nI know I can sound like that when I get defensive.\n\nI just spend so much time around people who treat music like a competition that I automatically start arguing before I even realize I'm doing it.\n\nYou don't have to like classical music the way I do. I probably came at you harder than I needed to.\n\nSo... fair. We can disagree without trying to win.",
       "linkUrl": "",
       "triggerEvent": "JUNIA_SKEPTIC",
       "choices": [
-        { "choiceText": "I apologize, Seraphine. I pushed too hard. Teach me how you hear it.", "nextId": "apology_recovery_craft", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Enjoy your four centuries of loneliness then.", "nextId": "loneliness_dismiss_exit", "linkUrl": "", "triggerEvent": "FAILURE_DISMISSED" }
+        {
+          "choiceText": "I apologize, Seraphine. I pushed too hard. Teach me how you hear it.",
+          "nextId": "apology_recovery_craft",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Enjoy your four centuries of loneliness then.",
+          "nextId": "loneliness_dismiss_exit",
+          "linkUrl": "",
+          "triggerEvent": "FAILURE_DISMISSED"
+        }
       ]
     },
     {
       "id": "apology_recovery_craft",
-      "partnerMessage": "...I appreciate you walking that back. Most people on here double down when challenged. Classical musicians are prickly because we spend our lives being told we're obsolete by people who have never heard an unamplified piano in a resonant hall.\n\nLet's reset. What were you asking earlier?",
+      "partnerMessage": "No, you're okay.\n\nHonestly, I appreciate the apology. Most people get embarrassed and double down instead.\n\nI'm probably prickly about it because I've had the same argument a hundred times. \"Why does classical matter?\" \"Why do you practice that much?\" \"Can't you just relax?\"\n\nI don't expect everyone to understand it.\n\nI just like it when someone is willing to ask instead of deciding for me.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Tell me about the repertoire that's keeping you in the practice room until midnight.", "nextId": "concerto_reveal_hub", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Tell me about the repertoire that's keeping you in the practice room until midnight.",
+          "nextId": "concerto_reveal_hub",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "keys_and_wire_insult",
-      "partnerMessage": "To you, it is keys and wire. To me, it is my entire existence.\n\nGoodbye.",
+      "partnerMessage": "Okay.\n\nI think we're done here.\n\nTake care.",
       "linkUrl": "",
       "triggerEvent": "FAILURE_BLOCKED",
       "choices": []
     },
     {
       "id": "loneliness_dismiss_exit",
-      "partnerMessage": "I would rather be lonely with integrity than surrounded by shallow noise. Have a good evening.",
+      "partnerMessage": "Maybe that's true for me.\n\nI still don't think being alone has to mean being bitter about everyone else.\n\nAnyway. I don't think we're a match. I hope you find what you're looking for.",
       "linkUrl": "",
       "triggerEvent": "FAILURE_DISMISSED",
       "choices": []
     },
     {
       "id": "concerto_reveal_hub",
-      "partnerMessage": "Rachmaninoff's Piano Concerto No. 2 in C minor.\n\nThe international auditions are in twenty days. If I place in the top three, I secure my European residency and masterclasses in Vienna. If I don't, my conservatory scholarship terminates at the end of the academic term.\n\nThose opening eight bell-like chords... they weigh like lead on my wrists.",
+      "partnerMessage": "Rachmaninoff's Piano Concerto No. 2.\n\nMy auditions are in twenty days.\n\nIf I place in the top three, I get the residency and the masterclasses in Vienna. If I don't, my scholarship is basically gone after this term.\n\nSo, yeah... no pressure.\n\nI've been practicing the opening chords so much that sometimes I hear them in my head after I leave the room.\n\nAnd every time I sit down to play them, I think, \"Okay. This has to be good enough.\"\n\nThat's probably not the healthiest way to look at it, but there it is.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Rachmaninoff wrote that concerto coming out of a crippling three-year depression. That piece is about rebirth, not perfection.", "nextId": "rachmaninoff_rebirth_insight", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Those opening chords require immense arm weight. Are your shoulders locked up?", "nextId": "arm_weight_physical_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Twenty days until Vienna? That's an enormous burden for one person to carry.", "nextId": "vienna_burden_comfort", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "Rachmaninoff wrote that concerto coming out of a crippling three-year depression. That piece is about rebirth, not perfection.",
+          "nextId": "rachmaninoff_rebirth_insight",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Those opening chords require immense arm weight. Are your shoulders locked up?",
+          "nextId": "arm_weight_physical_check",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Twenty days until Vienna? That's an enormous burden for one person to carry.",
+          "nextId": "vienna_burden_comfort",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "terror_breathing_talk",
-      "partnerMessage": "You don't eliminate the terror; you tame it. You learn that your adrenaline is either a wild horse that throws you off into the orchestra pit, or the exact fire that turns a sterile rehearsal into an unforgettable performance.\n\nTonight, though... the horse feels like it's winning.",
+      "partnerMessage": "It doesn't really disappear.\n\nYou just get better at knowing what to do with it.\n\nSometimes the adrenaline is useful. It makes you sharper. Other times it just makes your hands feel like they're moving half a second faster than your brain.\n\nTonight, though... I don't know.\n\nI'm tired enough that I don't feel in control of it.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Then let me help you hold the reins tonight. You don't have to fight it alone.", "nextId": "hold_reins_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Why tonight? Did something happen in the rehearsal hall?", "nextId": "rehearsal_hall_incident", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "Then let me help you hold the reins tonight. You don't have to fight it alone.",
+          "nextId": "hold_reins_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Why tonight? Did something happen in the rehearsal hall?",
+          "nextId": "rehearsal_hall_incident",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "maximum_resolution_comfort",
-      "partnerMessage": "...'Feeling things at maximum resolution.'\n\nThat is so heartbreakingly accurate. When you train your ears to detect a quarter-tone fluctuation or a millisecond of pedal lag, the world outside feels overwhelmingly loud, crude, and careless.\n\nYou speaking quietly to me... it feels like someone just turned down the harsh glare in the room.",
+      "partnerMessage": "...\"\"\nMaximum resolution.\"\n\nI like that.\n\nThat probably explains me better than I want to admit.\n\nI notice tiny things. Someone's tone changing. A room getting too loud. A note being just slightly out of tune.\n\nIt can be exhausting because once you notice something, you can't really un-notice it.\n\nTalking to you is weirdly easy, though. I don't feel like I have to keep defending every little thing I say.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I'll always speak softly to you, Seraphine. What piece is weighing on your mind?", "nextId": "concerto_reveal_hub", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'll always speak softly to you, Seraphine. What piece is weighing on your mind?",
+          "nextId": "concerto_reveal_hub",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "conservatory_rivalry_talk",
-      "partnerMessage": "In a conservatory? There are no friends in the advanced studio. There are competitors who smile at you in the hallway while secretly hoping your fourth finger cramps during octaves.\n\nIf you show fatigue, professors reassign the choice concert slots. That's why I lock the door to 4B.",
+      "partnerMessage": "I have people I talk to. I just don't know if I'd call them close friends.\n\nEverybody wants the same opportunities. Sometimes someone will be nice to you in the hallway and then you hear later that they were hoping you would mess up your jury.\n\nMaybe that's normal in competitive programs. I don't know.\n\nThat's partly why I stay in 4B so much. I know what I'm dealing with in there. Out here, I'm never really sure.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "That environment sounds poisonous. Art shouldn't be a gladiator arena.", "nextId": "gladiator_arena_validation", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Then 4B is your fortress. But who do you let inside?", "nextId": "fortress_door_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "That environment sounds poisonous. Art shouldn't be a gladiator arena.",
+          "nextId": "gladiator_arena_validation",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Then 4B is your fortress. But who do you let inside?",
+          "nextId": "fortress_door_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "intoxicating_cadenza",
-      "partnerMessage": "It is intoxicating. When your fingers take flight over the ivory and the entire concert hall stops breathing with you—it's like suspended gravity. But the crash afterward, when you walk back to your empty dorm room... that's where the cold sets in.",
+      "partnerMessage": "It really is.\n\nThere's this moment during a good performance when you can feel the whole room listening. Nobody's moving. Nobody's checking a phone. You can almost feel everyone's attention sitting in the same place.\n\nAnd then it ends.\n\nYou walk outside, and suddenly it's just fluorescent hallway lights and your phone and tomorrow's schedule.\n\nThat drop afterward is rough.\n\nI think that's why I hate going straight back to my room.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "I won't let you walk back to an empty room in the cold. I'll be there.", "nextId": "be_there_warmth_vow", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I won't let you walk back to an empty room in the cold. I'll be there.",
+          "nextId": "be_there_warmth_vow",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "rebellion_in_voice_tender",
-      "partnerMessage": "...I didn't think anyone could hear that under my stiff concert posture. Everyone sees the polished recital gown and assumes I'm a compliant prodigy. \n\nI'm not. I'm furious that beauty is treated like a commodity.",
+      "partnerMessage": "...You noticed that?\n\nI try pretty hard not to show it.\n\nEveryone sees the neat dress, the straight posture, the competition photos, and assumes I'm very composed. Sometimes I am.\n\nSometimes I'm just really good at looking composed.\n\nI don't actually like the pressure to turn every performance into proof that I'm worth something. I want to make music because I love it, not because somebody needs to justify the scholarship money they gave me.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Let that fury fuel your Rachmaninoff. Tell me about the concerto.", "nextId": "concerto_reveal_hub", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Let that fury fuel your Rachmaninoff. Tell me about the concerto.",
+          "nextId": "concerto_reveal_hub",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "nerve_damage_warning",
-      "partnerMessage": "I know. Clara Schumann almost ruined her concert career from forced practicing, and Leon Fleisher lost the use of his right hand for thirty years to focal dystonia.\n\nEvery morning I wake up and flex my fingers in the dark before opening my eyes, terrified that one of them won't respond.",
+      "partnerMessage": "I know.\n\nThat's honestly what scares me the most.\n\nI wake up sometimes and move each finger before I even open my eyes. Just checking.\n\nIt's such a stupid little routine, but I can't stop doing it. I think about all the time I've put into this and then wonder what happens if my hands decide they're done before I am.\n\nPeople think the worst thing that can happen is a bad performance.\n\nFor me, it's not being able to play at all.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Seraphine... that is a terrifying way to live every morning.", "nextId": "morning_terror_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Promise me you'll stop practice when the pain hits sharp. Promise me.", "nextId": "promise_stop_practice", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Seraphine... that is a terrifying way to live every morning.",
+          "nextId": "morning_terror_comfort",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Promise me you'll stop practice when the pain hits sharp. Promise me.",
+          "nextId": "promise_stop_practice",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "hiding_pain_tender",
-      "partnerMessage": "Enough that sometimes I press my forehead against the fallboard between movements just to catch my breath. But if I show vulnerability, my department head will replace me with an exchange student from Juilliard in two seconds flat.",
+      "partnerMessage": "More than I like admitting.\n\nSometimes I stop between movements and just sit there for a minute with my forehead against the piano.\n\nThen somebody walks past the room and I straighten up because I don't want anyone seeing it.\n\nIt's not even that I'm ashamed of being tired. I'm just scared that once people see you're struggling, they stop trusting you with important things.\n\nSo I keep saying I'm fine.\n\nI'm getting pretty tired of saying that.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "You don't have to hide the pain here. You're safe with me, Seraphine.", "nextId": "safe_with_me_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You don't have to hide the pain here. You're safe with me, Seraphine.",
+          "nextId": "safe_with_me_bond",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "teach_listening_flirt",
-      "partnerMessage": "Listening takes more discipline than speaking. If you come into my studio, you have to sit still and let the acoustic decay wash over you without reaching for your phone. Can you handle that?",
+      "partnerMessage": "Listening is harder than people think.\n\nYou'd have to sit there for a while without doing anything. No phone, no talking over it, no trying to decide whether you like it in the first thirty seconds.\n\nJust listen and let the sound disappear on its own.\n\n...Actually, you'd probably be okay at it.\n\nYou seem like someone who can sit with a thought instead of immediately trying to fill the silence.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I'd sit in total silence for hours just to watch your hands move.", "nextId": "sit_in_silence_devotion", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'd sit in total silence for hours just to watch your hands move.",
+          "nextId": "sit_in_silence_devotion",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "allowed_to_relax_comfort",
-      "partnerMessage": "Relaxing feels unnatural. Like stepping onto thin ice. But... talking to you right now, my shoulders actually dropped an inch away from my ears.\n\nThat hasn't happened since before midterms.",
+      "partnerMessage": "I don't really know how to relax on command.\n\nWhen I'm stressed, I practice. When I'm worried, I practice. When I don't know what to do, I practice.\n\nSo when someone tells me to put my shoulders down and breathe, part of me wants to laugh.\n\nBut... I just realized my shoulders actually dropped.\n\nThat's embarrassing.\n\nDon't make a big deal out of it.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Keep them dropped. Breathe with me. Tell me about your concerto.", "nextId": "concerto_reveal_hub", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Keep them dropped. Breathe with me. Tell me about your concerto.",
+          "nextId": "concerto_reveal_hub",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "skylight_sanctuary_talk",
-      "partnerMessage": "It is a sanctuary. At night the practice hall lights turn off automatically, leaving only the blue emergency exit illumination. The polished black lacquer of the grand pianos reflects the skylight like still, dark ponds.",
+      "partnerMessage": "It gets really quiet in there at night.\n\nThe main lights go off, so you're mostly seeing the little emergency lights and whatever comes through the skylight.\n\nThe pianos are just sitting there in the dark, and you can hear every tiny sound because there's nobody else around.\n\nI know it sounds creepy.\n\nI like it.\n\nIt's probably the only place on campus where my brain shuts up for a little while.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Like still, dark ponds in an acoustic cathedral. I want to see that.", "nextId": "invite_to_sanctuary_prep", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Like still, dark ponds in an acoustic cathedral. I want to see that.",
+          "nextId": "invite_to_sanctuary_prep",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "sit_in_space_flirt",
-      "partnerMessage": "The bench is long enough for two. But only if your presence doesn't disrupt the resonant acoustic balance.\n\n...Judging by how steady your words are, I don't think you'd disrupt anything.",
+      "partnerMessage": "There is room for two.\n\nAnd if you don't start tapping your foot or checking your phone every thirty seconds, I might even let you stay.\n\n...Actually, I think I'd like having someone there.\n\nJust don't expect me to perform on command. I hate that.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I'd keep the room steady. Show me your private feed, Seraphine.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'd keep the room steady. Show me your private feed, Seraphine.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "rachmaninoff_rebirth_insight",
-      "partnerMessage": "YOU KNOW ABOUT DR. DAHL! You know about the hypnotherapy sessions that pulled Rachmaninoff out of his silence after the disastrous Symphony No. 1 premiere!\n\nI... I have goosebumps along my forearms. Nobody in my circle talks about the psychological rebirth—they only obsess over hand span and octave endurance!",
+      "partnerMessage": "Wait. You actually know about that part of his life?\n\nOkay, that's... surprisingly rare.\n\nMost people talk about Rachmaninoff like he was just this giant pair of hands who could play ridiculous chords. They skip over the fact that he basically had to rebuild his confidence before he could really write again.\n\nThat part matters to me.\n\nWhen you're stuck in your own head, sometimes getting better isn't about pushing harder. Sometimes you have to believe you can start again.\n\nI don't think I've been very good at that lately.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Because technique without emotional rebirth is just acrobatics. Rachmaninoff knew that, and so do you.", "nextId": "acrobatics_vs_soul_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "You don't need giant hands to play Rachmaninoff, Seraphine. You have the heart for it.", "nextId": "heart_for_rach_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Because technique without emotional rebirth is just acrobatics. Rachmaninoff knew that, and so do you.",
+          "nextId": "acrobatics_vs_soul_bond",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "You don't need giant hands to play Rachmaninoff, Seraphine. You have the heart for it.",
+          "nextId": "heart_for_rach_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "arm_weight_physical_check",
-      "partnerMessage": "They are. When you strike those heavy C minor chords without using whole-body weight from your thoracic spine, the impact shatters your wrist tendons. My teacher tells me to drop my shoulders, but my nerves keep pulling them up.",
+      "partnerMessage": "Yeah. My shoulders are definitely too tight.\n\nI can feel it right now just talking about it.\n\nMy teacher keeps telling me to use more of my arm and less of my wrist, but when you're nervous you start gripping everything. The keys, the bench, your own shoulders... all of it.\n\nI know I can't muscle my way through this forever.\n\nApparently that's a lesson I haven't learned yet.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Let the piano take the weight. Stop holding the world up by your wrists.", "nextId": "stop_holding_world_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Let the piano take the weight. Stop holding the world up by your wrists.",
+          "nextId": "stop_holding_world_comfort",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "vienna_burden_comfort",
-      "partnerMessage": "It feels like standing on a cliff edge with a metronome ticking down behind me. If I slip, I fall back into the quiet suburban town where nobody understood why I stayed up practicing scales until 2 AM.",
+      "partnerMessage": "It does feel like that.\n\nTwenty days sounds like a lot until you look at the calendar and realize how little room there is for something to go wrong.\n\nI've built my whole schedule around this audition. Classes, meals, sleep, practice, everything.\n\nAnd I know people say, \"Just do your best,\" but when your scholarship is tied to the result, \"your best\" suddenly feels like a pretty scary thing to gamble on.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "You're not slipping. You're flying toward Vienna, and I'll be in the hall applauding.", "nextId": "flying_toward_vienna_vow", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You're not slipping. You're flying toward Vienna, and I'll be in the hall applauding.",
+          "nextId": "flying_toward_vienna_vow",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "hold_reins_tender",
-      "partnerMessage": "...Having someone offer to hold the reins while my hands are exhausted... that feels dangerously comforting, {PlayerName}. I'm not accustomed to relying on anyone.",
+      "partnerMessage": "...\"\"\nThat's more comforting than I expected.\n\nI'm usually the person who says, \"I've got it.\"\n\nEven when I very obviously don't.\n\nI don't know if I want someone to take everything away from me. I just think I'd like having someone I can stop pretending around sometimes.\n\nThat's probably a bigger admission than it sounds like.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "You don't have to carry it all solo. Let me take you somewhere quiet to talk.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You don't have to carry it all solo. Let me take you somewhere quiet to talk.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "rehearsal_hall_incident",
-      "partnerMessage": "My studio professor stopped me mid-phrase in the second movement today. In front of the entire graduate studio, he tapped his pen against the music stand and said: 'Seraphine, your technique is flawless, but I hear a machine playing. Where is your humanity?'\n\nI packed my sheet music and walked out before I could cry.",
+      "partnerMessage": "Yeah. Something happened.\n\nMy professor stopped me in the middle of the second movement today. Everyone was listening.\n\nHe looked at me and said my technique was technically strong but that he couldn't hear a person in the performance.\n\nI know criticism is part of this. I know I'm supposed to take it.\n\nBut hearing that after years of being told to get every detail exactly right...\n\nI don't know. I packed my music and left before I started crying in front of everyone.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "He demanded humanity while treating you like a machine for five years. That's his hypocrisy, not your flaw.", "nextId": "hypocrisy_validation_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Your humanity isn't missing, Seraphine. It's just bruised from being audited constantly.", "nextId": "bruised_humanity_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "He demanded humanity while treating you like a machine for five years. That's his hypocrisy, not your flaw.",
+          "nextId": "hypocrisy_validation_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Your humanity isn't missing, Seraphine. It's just bruised from being audited constantly.",
+          "nextId": "bruised_humanity_comfort",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "gladiator_arena_validation",
-      "partnerMessage": "It really is. In an arena, you either slay the passage or you bleed out on stage. Hearing someone acknowledge how brutal that feels takes a weight off my chest.",
+      "partnerMessage": "That's honestly what it feels like.\n\nEverybody talks about the beauty of music, but the training can be brutal.\n\nYou get one opportunity, somebody compares you to ten other people, and suddenly a tiny mistake feels enormous.\n\nI'm glad you get why that part exists.\n\nMost people only see the pretty side.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Step out of the arena for tonight. Let's talk in your private studio space.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Step out of the arena for tonight. Let's talk in your private studio space.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "fortress_door_flirt",
-      "partnerMessage": "Nobody. Until tonight, 4B has been an acoustic tomb where I lock myself away.\n\n...I think I might want to unlock it for you.",
+      "partnerMessage": "Nobody, usually.\n\nI lock that door and disappear for hours.\n\nPartly because I need the quiet. Partly because I don't really want people watching me while I'm still figuring something out.\n\nBut...\n\nI could probably make an exception.\n\nDon't get too excited. I'm still deciding.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Unlock it, Seraphine. I'm right outside.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Unlock it, Seraphine. I'm right outside.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "be_there_warmth_vow",
-      "partnerMessage": "You have a way with words that disarms every defense I've spent years building. Don't make promises you can't keep, {PlayerName}.",
+      "partnerMessage": "You shouldn't say things like that unless you mean them.\n\nI know that's a little intense for a dating app conversation, but I'm being serious.\n\nPeople make nice promises when everything is easy. It's when you're exhausted, scared, or having a terrible night that you find out whether they meant any of it.\n\nSo... don't promise me forever.\n\nJust promise me you're not saying it because it sounds good.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I keep every promise I make. Move over to OnlyYaps so I can hear your real voice.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I keep every promise I make. Move over to OnlyYaps so I can hear your real voice.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "morning_terror_comfort",
-      "partnerMessage": "It is. It's waking up every day wondering if your identity has an expiration date. That's why having someone speak to me as a person—not just as hands on a keyboard—feels like waking up from a fever.",
+      "partnerMessage": "Yeah.\n\nThat's exactly what it feels like.\n\nIt's strange when the thing you're best at is also the thing you're most afraid of losing.\n\nSometimes people compliment me and all I can think is, \"What if I can't do this five years from now?\"\n\nI'd rather people know me as a person before they know what I can do with my hands.\n\nThat's probably the part I care about most.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Your identity isn't just your hands. You are so much more than that.", "nextId": "more_than_hands_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Your identity isn't just your hands. You are so much more than that.",
+          "nextId": "more_than_hands_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "promise_stop_practice",
-      "partnerMessage": "I promise. Tonight I am done. I closed the piano lid and I'm sitting on the edge of the rehearsal bench with my coat pulled tight around my neck.",
+      "partnerMessage": "Okay.\n\nI promise.\n\nI'm done for tonight.\n\nThe piano lid is closed and I'm sitting on the bench with my coat around me because the room is freezing when the heating cuts down.\n\nHonestly, I needed someone to tell me to stop.\n\nI probably wouldn't have listened to myself.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Good girl. Now come talk to me in private audio.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Good girl. Now come talk to me in private audio.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "safe_with_me_bond",
-      "partnerMessage": "...'Safe.' That word sounds like an acoustic luxury I haven't experienced in five years.\n\nI want to step out of this swipe app. The compressed audio and bright screens feel jarring.",
+      "partnerMessage": "...Safe.\n\nThat's a word I don't use very much.\n\nNot because I don't want to feel safe. I just feel like everything here has to be earned, and relaxing too much is how you fall behind.\n\nI think I'd rather talk somewhere quieter anyway.\n\nThe bright screen, the notifications, all of this... it's starting to feel like too much.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Take my hand. Let's move to your private studio channel.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Take my hand. Let's move to your private studio channel.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "sit_in_silence_devotion",
-      "partnerMessage": "Sitting in silence with someone without needing to fill the air... that might be the most intimate date proposal I've ever heard.\n\nCome into my private room. Let me show you what real acoustics sound like.",
+      "partnerMessage": "You know what?\n\nThat might actually be my ideal date.\n\nJust sitting somewhere without having to entertain each other every second.\n\nI could play something. You could listen. Then we could talk afterward, or not.\n\nThat sounds a lot better to me than shouting over music in some crowded bar and pretending we're having fun.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Lead the way, maestro.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Lead the way, maestro.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "invite_to_sanctuary_prep",
-      "partnerMessage": "I recorded an uncompressed 24-bit acoustic rehearsal clip from inside 4B earlier tonight—the opening movement of the Rachmaninoff before my professor interrupted me.\n\nI have it pinned inside my private studio room on OnlyYaps.",
+      "partnerMessage": "I actually recorded some rehearsal audio earlier.\n\nNothing fancy. Just the piano in the room without all the editing and cleanup people usually hear afterward.\n\nI was working on the opening of the Rachmaninoff before my professor interrupted me.\n\nI could send it to you.\n\nIt's probably the most honest version of what I sound like right now.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Give me the key. I want to listen to your rehearsal.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Give me the key. I want to listen to your rehearsal.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "acrobatics_vs_soul_bond",
-      "partnerMessage": "Yes. Exactly that. Circus acrobatics can be executed by software; real music requires someone who has known profound grief and still chooses to create order out of it.\n\nYou understand me better in ten minutes than my studio jury has in three years.",
+      "partnerMessage": "That's the part I wish more people understood.\n\nTechnique matters. A lot.\n\nBut if all you're doing is proving you can hit the notes, eventually it starts sounding empty.\n\nI've spent so long trying to be technically perfect that sometimes I forget I'm supposed to actually feel something while I'm playing.\n\nIt's strange hearing someone understand that without me having to explain it.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Then let's leave the jury outside. Join me in your private studio room.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Then let's leave the jury outside. Join me in your private studio room.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "heart_for_rach_tender",
-      "partnerMessage": "...My eyes are stinging. Concert pianists aren't supposed to get emotional in rehearsal corridors.\n\nStep into my private room, {PlayerName}. I want to share my unreleased rehearsal files with you.",
+      "partnerMessage": "...Okay.\n\nNow I'm actually getting emotional, which is not what I planned for tonight.\n\nI think I've spent so long worrying about whether I'm technically good enough that I forgot there are other things people can hear in a performance.\n\nAnd yeah...\n\nI'd like to show you some of the recordings I don't usually let people hear.\n\nThe messy ones, before everything gets cleaned up.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I'm right behind you, Seraphine.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'm right behind you, Seraphine.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "stop_holding_world_comfort",
-      "partnerMessage": "'Stop holding the world up by your wrists...'\n\n*heavy, shuddering breath*\n\nI just let my hands rest in my lap. You have no idea how badly I needed someone to give me permission to put the weight down.",
+      "partnerMessage": "...\"\"\nStop holding the world up by your wrists.\"\n\nI needed that.\n\nI just looked down at my hands and realized I've been keeping them tense this whole conversation.\n\nI'm putting them in my lap.\n\nFor once, I'm not fixing anything.\n\nThat's a really uncomfortable feeling.\n\nI think I like it.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "The weight is down. Now come over to OnlyYaps so we can talk properly.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "The weight is down. Now come over to OnlyYaps so we can talk properly.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "flying_toward_vienna_vow",
-      "partnerMessage": "If you are in that concert hall on audition night, I don't think my hands will shake at all.\n\nCome into my private studio. Let me send you the uncompressed recordings.",
+      "partnerMessage": "If you're really there on audition night, I'll probably know where you are before I even look up.\n\nThat's probably enough to make me less nervous.\n\nI can't promise I won't still be terrified, though.\n\nBut I would like having one person in the room who I'm not trying to impress.\n\nThat sounds nice.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Sending you my full attention. Lead the way.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Sending you my full attention. Lead the way.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "hypocrisy_validation_tender",
-      "partnerMessage": "Thank you for saying that plainly. They drill the metronome into your spine for fifteen years and then act surprised when you don't weep on command over the keys.\n\nTalking to you tonight is the first time all week I've actually felt human.",
+      "partnerMessage": "Thank you.\n\nThat actually made me laugh a little because... yeah.\n\nThey spend years teaching you to be precise, controlled, polished, and then suddenly tell you they want more emotion from you.\n\nSometimes I think they're looking for a machine and then getting annoyed when they remember there's a person attached to it.\n\nTalking to you tonight is the first time in a while I've felt like I don't have to be impressive every second.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "You are human, Seraphine. A brilliant, vulnerable one. Let's move to your private room.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You are human, Seraphine. A brilliant, vulnerable one. Let's move to your private room.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "bruised_humanity_comfort",
-      "partnerMessage": "Bruised humanity... yes. That is exactly what it feels like. Like walking through an ice storm with bare hands.\n\nCome into my private studio feed. I want to talk to you without this public dating app interface in the way.",
+      "partnerMessage": "Yeah.\n\nBruised is probably the word.\n\nNot broken. Just tired.\n\nIt's hard when somebody keeps evaluating every part of you. Eventually you start doing it to yourself even when nobody else is around.\n\nI think I want to get away from that feeling for a little while.\n\nSomewhere quiet would be good.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I'm right here with you. Send the link.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'm right here with you. Send the link.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "more_than_hands_tender",
-      "partnerMessage": "Hearing that from you makes my heart beat at a tempo that has nothing to do with metronomes.\n\nTap my studio link below, {PlayerName}. Let's talk where it's quiet.",
+      "partnerMessage": "...\"\"\nMore than my hands.\"\n\nI really needed to hear that.\n\nBecause sometimes it feels like everyone has already decided who I am based on what I can do at a piano.\n\nI'd like someone to know what I'm like when I'm not practicing. What I eat when I'm too tired to cook, what music I put on when I'm annoyed, the stupid things that make me laugh.\n\nThe normal stuff.\n\nThat's probably what I want more than anything.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Entering your studio now.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Entering your studio now.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "move_to_yaps",
-      "partnerMessage": "I have unlocked the door to my private studio feed. High-fidelity uncompressed rehearsal audio, candid rehearsal logs, and zero outside interference.\n\nStep inside, {PlayerName}. Leave the noisy world at the door.",
+      "partnerMessage": "Okay.\n\nI've opened the private studio feed.\n\nThere's rehearsal audio in there, some notes I've never shown anyone, and a couple of recordings that definitely need more work.\n\nNo judging me for the bad takes.\n\nCome in, {PlayerName}. We can talk without all the noise from this app around us.",
       "linkUrl": "onlyyaps.studio/seraphine_solo",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []

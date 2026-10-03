@@ -8,274 +8,506 @@
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I wanted to see the artisan behind the loupe. Someone who moves at the speed of intention, not algorithms.", "nextId": "oy_speed_of_intention_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "I came to check on your hands. Six hours hunched over an escapement takes a heavy physical toll.", "nextId": "oy_physical_toll_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "I promised I'd inspect the macro restoration feed of that astronomical movement.", "nextId": "oy_inspect_macro_feed_intro", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Just seeing if an antique watchmaker is as eccentric and dusty as the clocks on her wall.", "nextId": "oy_eccentric_dusty_fumble", "linkUrl": "", "triggerEvent": "ZEPHYRINE_SKEPTIC" }
+        {
+          "choiceText": "I wanted to see the artisan behind the loupe. Someone who moves at the speed of intention, not algorithms.",
+          "nextId": "oy_speed_of_intention_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "I came to check on your hands. Six hours hunched over an escapement takes a heavy physical toll.",
+          "nextId": "oy_physical_toll_check",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "I promised I'd inspect the macro restoration feed of that astronomical movement.",
+          "nextId": "oy_inspect_macro_feed_intro",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Just seeing if an antique watchmaker is as eccentric and dusty as the clocks on her wall.",
+          "nextId": "oy_eccentric_dusty_fumble",
+          "linkUrl": "",
+          "triggerEvent": "ZEPHYRINE_SKEPTIC"
+        },
+        {
+          "choiceText": "What are you like when you're not working down here?",
+          "nextId": "oy_free_time_atelier",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "oy_speed_of_intention_tender",
-      "partnerMessage": "...'The speed of intention.'\n\n*heavy, quiet exhale in text*\n\nYou have an unnerving way of disarming me with a few sentences, {PlayerName}. Outside these walls, everyone is running at the speed of notifications—rushing to answer emails, scrolling through strangers' lives, treating minutes like cheap confetti.\n\nDown here, a minute is sixty individual gear teeth engaging sixty pallet stones with absolute precision. Having someone understand that rhythm without calling it archaic... it makes my spine relax.",
+      "partnerMessage": "...The speed of intention.\n\nOkay. That's actually getting to me a little.\n\nMost of the time, when I tell people what I do, they either want to know how much an old watch is worth or they joke about me living in a different century. You noticed the part I care about instead: taking the time to do something properly.\n\nOut there everything feels like it's built around being faster. Down here I can spend an hour getting one tiny surface right, and nobody is asking me why it isn't finished yet.\n\nThat feels good to have someone understand.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Because your minutes have weight, Zephyrine. You don't throw them away.", "nextId": "oy_minutes_have_weight_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Who taught you to respect that friction? Your grandfather?", "nextId": "oy_grandfather_teachings_deep", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
-        { "choiceText": "How do your shoulders feel right now? You looked exhausted earlier.", "nextId": "oy_physical_toll_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Because your minutes have weight, Zephyrine. You don't throw them away.",
+          "nextId": "oy_minutes_have_weight_bond",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Who taught you to respect that friction? Your grandfather?",
+          "nextId": "oy_grandfather_teachings_deep",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        },
+        {
+          "choiceText": "How do your shoulders feel right now? You looked exhausted earlier.",
+          "nextId": "oy_physical_toll_check",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_physical_toll_check",
-      "partnerMessage": "My trapezius muscles feel like cured leather. When you look through a stereomicroscope for hours, your neck is locked at a twenty-degree downward angle while your forearms stay pinned to the bench edge for stability.\n\nI just unscrewed my eye loupe and set it on its felt coaster. My brow bone has that familiar circular red dent from the vulcanite rim, and my right index finger is cramping slightly from holding Dumont No. 5 tweezers.",
+      "partnerMessage": "Honestly? Pretty rough. My shoulders are tight, my neck is complaining, and my right index finger keeps trying to cramp around the tweezers.\n\nI spend so long looking through the microscope that I stop noticing what I'm doing to the rest of my body. It's easy to think, 'Just finish this one thing,' and then realise you've been sitting in the same position for another hour.\n\nI just put the loupe down. There is a little red mark around my eye from it, which is not exactly glamorous.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Set the tweezers down on the tray. Flex your fingers wide and shake the tension out.", "nextId": "oy_flex_fingers_care", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Holding that level of microscopic tension every day is punishing. Why put yourself through it?", "nextId": "oy_why_punish_body_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "Set the tweezers down on the tray. Flex your fingers wide and shake the tension out.",
+          "nextId": "oy_flex_fingers_care",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Holding that level of microscopic tension every day is punishing. Why put yourself through it?",
+          "nextId": "oy_why_punish_body_talk",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "oy_inspect_macro_feed_intro",
-      "partnerMessage": "The high-resolution feed is calibrated on my bench monitor. 4K optical magnification through the stereo oculars.\n\nTake a look at this microscopic plate of the balance assembly before I begin the jewel alignment:",
+      "partnerMessage": "The macro feed is already calibrated on the bench monitor.\n\nI can zoom in far enough that the balance assembly stops looking like a watch and starts looking like a little machine all by itself.\n\nCome here. Look at this part before I touch anything else:",
       "linkUrl": "onlyyaps.horology/zephyrine/cal_1884_macro_01",
       "triggerEvent": "UNLOCK_LOOKBOOK",
       "choices": [
-        { "choiceText": "Examine the 1884 Genevan astronomical movement balance assembly.", "nextId": "oy_examine_balance_plate", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Examine the 1884 Genevan astronomical movement balance assembly.",
+          "nextId": "oy_examine_balance_plate",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "oy_eccentric_dusty_fumble",
-      "partnerMessage": "'Eccentric and dusty'?\n\nI spend ten hours a day machining tolerances that aerospace engineers would respect, working on micro-mechanical systems designed by eighteenth-century masters. If you think that is a quirky museum exhibit for your entertainment, you have severely misjudged who I am.",
+      "partnerMessage": "Eccentric and dusty?\n\nI know you meant that as a joke, but... not really. I spend most of my day doing work that takes ridiculous concentration, and this room is pretty much the center of my life.\n\nSo when somebody treats it like a cute little museum for their amusement, I get defensive. Probably more defensive than I need to be, but I'm serious about this place.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
-        { "choiceText": "I phrased that thoughtlessly, Zephyrine. I was trying to banter and it was clumsy. I apologize.", "nextId": "oy_apology_recovery_dignified", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "You don't need to lecture me over a casual joke.", "nextId": "oy_seenzone_1", "linkUrl": "", "triggerEvent": "GHOST_SEQUENCE_START" }
+        {
+          "choiceText": "I phrased that thoughtlessly, Zephyrine. I was trying to banter and it was clumsy. I apologize.",
+          "nextId": "oy_apology_recovery_dignified",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "You don't need to lecture me over a casual joke.",
+          "nextId": "oy_seenzone_1",
+          "linkUrl": "",
+          "triggerEvent": "GHOST_SEQUENCE_START"
+        }
       ]
     },
     {
       "id": "oy_minutes_have_weight_bond",
-      "partnerMessage": "They do have weight. In 1884, an artisan filed this balance bridge by candlelight with a triangular needle file. He spent three months adjusting the poise of the balance wheel by adding microscopic gold timing screws along the rim.\n\nWhen I hold that bridge in my tweezers, his three months exist right in my palm. That is not just time; that is human life crystallized into brass.",
+      "partnerMessage": "They do.\n\nThere is a balance bridge on my bench that took an artisan months to finish. You can still see the tiny filing marks if you know where to look. Someone spent all that time getting one small piece right, and now I'm the person holding it.\n\nI think that's what I like about old movements. The time somebody put into them doesn't disappear just because the person is gone. You can still feel it in the work.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "And tonight, your life is continuing his work. You're part of that chain of hands.", "nextId": "oy_chain_of_hands_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Show me the bridge under the microscope. I want to see his filing marks.", "nextId": "oy_inspect_macro_feed_intro", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "And tonight, your life is continuing his work. You're part of that chain of hands.",
+          "nextId": "oy_chain_of_hands_bond",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Show me the bridge under the microscope. I want to see his filing marks.",
+          "nextId": "oy_inspect_macro_feed_intro",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "oy_grandfather_teachings_deep",
-      "partnerMessage": "My grandfather believed that modern society became spiritually sick the moment we stopped being able to see how things worked.\n\nHe would tap his finger against a quartz wristwatch and say: 'Zephyrine, when that stops, you throw it in the rubbish because it has no gears to teach you patience. But when a mechanical escapement stops, you must sit in silence, find the worn pivot, and heal it with your own hands.'",
+      "partnerMessage": "My grandfather, mostly.\n\nHe had a habit of making everything sound like a lesson without announcing that it was a lesson. He'd hand me a broken movement and make me sit there until I understood why it stopped.\n\nHe used to say that when something mechanical fails, you don't just throw it away. You figure out what happened, you fix the damaged part, and you learn something from it.\n\nI think I carried that further into my life than he expected.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "He taught you how to heal things instead of discarding them. That's a rare virtue in people today.", "nextId": "oy_healing_virtue_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Do you feel that same instinct when it comes to people? Trying to heal them?", "nextId": "oy_healing_people_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "He taught you how to heal things instead of discarding them. That's a rare virtue in people today.",
+          "nextId": "oy_healing_virtue_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Do you feel that same instinct when it comes to people? Trying to heal them?",
+          "nextId": "oy_healing_people_talk",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "oy_flex_fingers_care",
-      "partnerMessage": "*soft rustle of leather bench pad*\n\nTweezers resting in their brass stand. Fingers extended wide, knuckles gently stretching against the desk edge.\n\n*quiet sigh in text*\n\nYou have an uncanny way of knowing exactly when my physical posture is collapsing, {PlayerName}. Nobody has ordered me to rest my hands since my apprentice guildmaster six years ago.",
+      "partnerMessage": "Okay. Putting them down.\n\nYou're right. I've got that awful habit where I keep working because I'm 'almost done,' and somehow 'almost done' lasts another two hours.\n\nMy fingers are actually shaking a little now that I'm paying attention. Give me a second.\n\n...There. Better. It's weirdly nice having somebody notice when I'm pushing too far instead of only noticing when the job is finished.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Because your hands create miracles, Zephyrine. Someone has to protect them.", "nextId": "oy_hands_create_miracles_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "How does the air in the cellar feel now that you aren't holding your breath?", "nextId": "oy_cellar_air_breathing", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "Because your hands create miracles, Zephyrine. Someone has to protect them.",
+          "nextId": "oy_hands_create_miracles_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "How does the air in the cellar feel now that you aren't holding your breath?",
+          "nextId": "oy_cellar_air_breathing",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "oy_why_punish_body_talk",
-      "partnerMessage": "Because if I don't do it, who will?\n\nThe luxury conglomerate houses in Geneva don't restore century-old pieces; they replace original components with stamped modern replicas that wipe out the patina. If people like me give up because our necks ache or our eyes water, three hundred years of hand-crafted mechanical memory simply rots in safety deposit boxes.",
+      "partnerMessage": "Because I know what happens when nobody does the work.\n\nA lot of old pieces get 'restored' by replacing original parts with newer ones that technically function but erase what made the watch itself special. Once enough of that happens, you don't really have the same object anymore.\n\nSo yes, sometimes I push too hard. I tell myself I'm protecting the history. The less noble truth is that I get stubborn and don't know when to stop.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "You carry that preservation on your back with so much courage. I admire that deeply.", "nextId": "oy_preservation_courage_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "You don't have to carry the entire history of horology alone tonight, though. Rest a moment.", "nextId": "oy_flex_fingers_care", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You carry that preservation on your back with so much courage. I admire that deeply.",
+          "nextId": "oy_preservation_courage_praise",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "You don't have to carry the entire history of horology alone tonight, though. Rest a moment.",
+          "nextId": "oy_flex_fingers_care",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_examine_balance_plate",
-      "partnerMessage": "Look at the balance staff pivot in the center of the image. The lower pivot is sheared clean off—less than a millimeter of steel broke away when it hit the floor in 1968.\n\nBeside it is the replacement staff I turned on my Lorch lathe this afternoon from high-carbon drill rod steel. I had to polish the conical pivot with diamond paste and gentian wood to achieve a mirror burnish.",
+      "partnerMessage": "See that little broken section in the middle? That's the balance staff pivot. It was damaged decades ago, and because the original part is gone, I had to make a replacement myself.\n\nThe new one is beside it. I turned it on the lathe this afternoon and spent ages polishing it down. The finished piece is so small that I lose track of it every time I set my tweezers down.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "The mirror burnish on that 0.08mm pivot is immaculate. It reflects the microscope light like mercury.", "nextId": "oy_pivot_burnish_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Is that the original blue Breguet hairspring resting on the pegwood?", "nextId": "oy_breguet_hairspring_technical", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "The mirror burnish on that 0.08mm pivot is immaculate. It reflects the microscope light like mercury.",
+          "nextId": "oy_pivot_burnish_praise",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Is that the original blue Breguet hairspring resting on the pegwood?",
+          "nextId": "oy_breguet_hairspring_technical",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "oy_apology_recovery_dignified",
-      "partnerMessage": "...I accept your apology. I am aware that my defenses are high. When you spend your life immersed in an exacting craft that requires five-micron tolerances, you have very little patience for casual condescension.\n\nLet us restart cleanly. Tell me: what drew your eyes to this workshop?",
+      "partnerMessage": "...Thank you.\n\nI did come in a little hot there. I'm protective of the work, and sometimes I hear a joke about it and assume the worst before I give the person a chance to explain.\n\nLet's start again. What actually caught your attention when you walked into the workshop?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "I saw someone who cares about things that outlast human vanity. That's unforgettable.", "nextId": "oy_speed_of_intention_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I saw someone who cares about things that outlast human vanity. That's unforgettable.",
+          "nextId": "oy_speed_of_intention_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_chain_of_hands_bond",
-      "partnerMessage": "...'A chain of hands.'\n\nThat sentence struck somewhere so deep beneath my ribs that my eyes actually stung. \n\nWhen you work in solitary basements, you often wonder if you're just an anachronism talking to ghosts. Having someone say that I am a living link in that chain... it gives my daily silence a profound sense of purpose.",
+      "partnerMessage": "A chain of hands.\n\nYeah... I like that. I think that's the thing I forget when I'm down here alone. I'm not making these objects from scratch. I'm meeting somebody else's work halfway and trying not to mess it up.\n\nFor a long time I thought of that as pressure. Lately I'm starting to see it as a kind of connection.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "You are that link, Zephyrine. And you are magnificent at it.", "nextId": "oy_magnificent_link_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "What does the movement need before it can tick again tonight?", "nextId": "oy_what_movement_needs_next", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "You are that link, Zephyrine. And you are magnificent at it.",
+          "nextId": "oy_magnificent_link_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "What does the movement need before it can tick again tonight?",
+          "nextId": "oy_what_movement_needs_next",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "oy_healing_virtue_tender",
-      "partnerMessage": "It makes you patient. But it also makes modern social interactions exhausting. When people have a slight conflict or miscommunication on dating apps, they unmatch and discard each other in seconds.\n\nNobody wants to sit down, examine the gear teeth, and polish away the burr.",
+      "partnerMessage": "Maybe. Though I should admit the same lesson has made dating... complicated.\n\nI'm not great at letting small misunderstandings stay small. I either try to solve them immediately or decide I'd rather not deal with them. Both can make me difficult to be around.\n\nWorking on watches has spoiled me a little. A mechanical problem can usually be traced to one thing. People aren't like that.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "I won't discard you, Zephyrine. I believe in polishing away the burrs.", "nextId": "oy_wont_discard_vow", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Is that why you keep your circle so small?", "nextId": "oy_circle_small_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "I won't discard you, Zephyrine. I believe in polishing away the burrs.",
+          "nextId": "oy_wont_discard_vow",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Is that why you keep your circle so small?",
+          "nextId": "oy_circle_small_talk",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "oy_healing_people_talk",
-      "partnerMessage": "I used to. When I was younger, I thought I could repair troubled people the same way I repaired broken mainsprings—with patience, lubrication, and gentle adjustment.\n\nI learned the hard way that humans aren't predictable brass alloys. When a person is warped, trying to true them often just snaps your own tweezers.",
+      "partnerMessage": "I did, when I was younger.\n\nI thought patience could fix almost anything. If somebody was hurting, I'd stay, listen, explain, try again. Eventually I learned that caring about somebody and being responsible for repairing them are two different things.\n\nPeople have to choose their own changes. I can't do that work for them.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Then you don't have to fix me, Zephyrine. Just let me sit at your bench as an equal.", "nextId": "oy_sit_as_equal_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Then you don't have to fix me, Zephyrine. Just let me sit at your bench as an equal.",
+          "nextId": "oy_sit_as_equal_bond",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_hands_create_miracles_tender",
-      "partnerMessage": "...*soft, breathless gasp in text*\n\n'Someone has to protect them.'\n\nNobody has ever offered to protect my hands. People ask them to service luxury timepieces, appraisal houses demand my certifications, clients demand quick turnarounds... but nobody ever asks if my fingers hurt.\n\nYou completely disarm me, {PlayerName}.",
+      "partnerMessage": "You say things like that very casually, you know.\n\nI've spent years being useful. Clients care that I can repair something expensive. Collectors care that I can sign off on the work. People ask whether I can make the deadline.\n\nThey don't usually ask whether my hands hurt.\n\nSo... thank you. That landed harder than I expected.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Because you deserve someone who cares about the artisan, not just the timepiece.", "nextId": "oy_care_about_artisan_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Because you deserve someone who cares about the artisan, not just the timepiece.",
+          "nextId": "oy_care_about_artisan_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_cellar_air_breathing",
-      "partnerMessage": "It smells like smoky lapsang souchong tea, old spruce timber, and the cold flint scent of the stone walls. Thirty pendulums swinging at different cadences create this rhythmic acoustic blanket.\n\nIt feels vast. And for the first time all week... not solitary.",
+      "partnerMessage": "It smells like tea, old wood, oil, and cold stone. Basically the least glamorous room imaginable, but I love it.\n\nUsually I don't notice the noise because I've heard these clocks for so long. Right now I can actually hear how many different rhythms are going on at once.\n\nAnd... it doesn't feel as lonely with you here. I didn't realise I was noticing that until I said it out loud.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Because I'm sitting in that silence with you. What's the next step on the bench?", "nextId": "oy_what_movement_needs_next", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Because I'm sitting in that silence with you. What's the next step on the bench?",
+          "nextId": "oy_what_movement_needs_next",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "What are you like outside the workshop?",
+          "nextId": "oy_free_time_atelier",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "oy_preservation_courage_praise",
-      "partnerMessage": "Thank you... Hearing that makes the cramp in my shoulder feel a little lighter. Let me show you what has to happen before this pocket watch can breathe again tonight.",
+      "partnerMessage": "Thank you.\n\nThat's probably what I needed to hear more than the usual 'you work too much.' I know I work too much. I just don't always know what to do about it when I'm this close to finishing something.\n\nI'll take the minute. Then I'll show you the next step.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Show me the next step, Zephyrine.", "nextId": "oy_what_movement_needs_next", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Show me the next step, Zephyrine.",
+          "nextId": "oy_what_movement_needs_next",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "oy_pivot_burnish_praise",
-      "partnerMessage": "You recognized the mirror finish! Diamond paste on gentian pith wood creates that microscopic optical shine by compressing the steel surface molecules so friction drops to near zero.\n\nNow look at the hairspring collet in the center of the plate:",
+      "partnerMessage": "You noticed that? Most people wouldn't even be able to tell what they're looking at.\n\nThe finish matters because even a tiny rough spot changes how the part behaves once the watch is running. That's the kind of detail that sounds ridiculous until you've had a movement come back with one tiny bit of friction ruining the whole thing.\n\nNow look at the hairspring in the middle of the plate.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Is that the original blued steel spring?", "nextId": "oy_breguet_hairspring_technical", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Is that the original blued steel spring?",
+          "nextId": "oy_breguet_hairspring_technical",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "oy_breguet_hairspring_technical",
-      "partnerMessage": "Original blued carbon steel with a hand-bent Breguet overcoil. When it was dropped in 1968, the outer terminal curve pinched against the regulator curb pins.\n\nTo free it, I have to seat the new balance staff into the jewel setting and slide a microscopic brass wedge pin into the hairspring collet hole to lock the inner coil.",
+      "partnerMessage": "Yeah. Original blued carbon steel, with the Breguet overcoil still intact. It got knocked out of alignment when the watch was dropped.\n\nThe annoying part is that the spring is fine enough to keep and delicate enough that I don't get a second chance if I damage it. I have to fit the new balance staff first, then secure the inner end of the spring without disturbing the curve.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "That brass wedge pin is thinner than a human hair. How do you hold it without pinging it across the room?", "nextId": "oy_wedge_pin_tension_talk", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "That brass wedge pin is thinner than a human hair. How do you hold it without pinging it across the room?",
+          "nextId": "oy_wedge_pin_tension_talk",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_magnificent_link_tender",
-      "partnerMessage": "Magnificent... my face feels warmer than the halogen lamp over my tray. \n\nLet me focus. The final assembly stage is on the bench right now.",
+      "partnerMessage": "Magnificent is doing a lot for my ego right now.\n\nGive me a second to pretend I'm not blushing under a desk lamp.\n\nOkay. Focus. The final assembly is ready. I'm going to fit the pin and then, hopefully, we get our little heartbeat back.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I'm watching your feed. Walk me through it.", "nextId": "oy_what_movement_needs_next", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "I'm watching your feed. Walk me through it.",
+          "nextId": "oy_what_movement_needs_next",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "oy_wont_discard_vow",
-      "partnerMessage": "...*long silence in text*\n\n'I won't discard you.'\n\nI am holding my grandfather's vulcanite loupe in my palm, and my hand is actually shaking. In an era where dating apps treat human connections like swipeable playing cards, having someone say that plainly... it shakes my entire foundation.",
+      "partnerMessage": "I don't think you realise how much that sentence means to me.\n\nPeople are very good at liking the polished version of someone. The competent version. The interesting version. The version that never needs anything.\n\nBeing told I don't have to be perfect to stay in the room with you... that's different.\n\nI'm holding my grandfather's old loupe right now and trying not to get embarrassingly emotional about this.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Because you're an heirloom, Zephyrine. Built to last a lifetime.", "nextId": "oy_heirloom_lifetime_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Because you're an heirloom, Zephyrine. Built to last a lifetime.",
+          "nextId": "oy_heirloom_lifetime_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_circle_small_talk",
-      "partnerMessage": "Very small. Three master horologists in Switzerland, the antique dealer who supplies my brass stock, and the stray tuxedo cat that sits on the cellar window sill above my lathe.\n\nI don't have room for people who live at 180 beats per minute. I need someone who can sit with quiet precision.",
+      "partnerMessage": "Very small. A few people from the trade, one antique dealer I trust, and a stray tuxedo cat that has somehow decided my basement window belongs to him.\n\nI'm not very social when I'm tired. I don't need a room full of people. I need one or two people I can actually relax around.\n\nThat probably sounds a little severe for a dating conversation, but it's true.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "I'm sitting right here with you. What does the watch need next?", "nextId": "oy_what_movement_needs_next", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'm sitting right here with you. What does the watch need next?",
+          "nextId": "oy_what_movement_needs_next",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_sit_as_equal_bond",
-      "partnerMessage": "An equal across the bench... without needing to be fixed, and without trying to fix me.\n\nThat sounds like the rarest complication in the world. Priceless, and almost impossible to engineer.",
+      "partnerMessage": "An equal across the bench.\n\nI like that more than I should. Usually when someone gets interested in my work, they either want me to explain everything or they want me to impress them.\n\nYou've managed to make it feel like we're just sharing the same little patch of quiet. That's much harder to find than people think.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "We just engineered it tonight. Now show me the final assembly.", "nextId": "oy_what_movement_needs_next", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "We just engineered it tonight. Now show me the final assembly.",
+          "nextId": "oy_what_movement_needs_next",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_care_about_artisan_tender",
-      "partnerMessage": "I don't even know how to receive that kind of tenderness properly. I've spent seven years being treated like a precision instrument myself.\n\nLook at the bench feed with me. I need to seat this balance staff before my nerve gives out.",
+      "partnerMessage": "I don't really know what to do with that yet.\n\nI've gotten very good at being the person who knows what she's doing. It leaves very little room for somebody to look after me without me feeling awkward about it.\n\nSo I'll try something new. I'll breathe, put my shoulders down, and finish this carefully instead of proving anything.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Take a deep breath. I'm right beside you.", "nextId": "oy_what_movement_needs_next", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Take a deep breath. I'm right beside you.",
+          "nextId": "oy_what_movement_needs_next",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "oy_heirloom_lifetime_tender",
-      "partnerMessage": "...'An heirloom built to last a lifetime.'\n\nI just pressed my fingers against my mouth. My tears are threatening to drip onto the pegwood block. You have completely uncoiled my defenses, {PlayerName}.",
+      "partnerMessage": "That was unfairly sweet.\n\nGive me a second. I'm actually wiping my eyes because the last thing I need is a tear landing on a watch part.\n\nOkay. I'm here. I'm calmer. Let's finish it.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Let them uncoil. You're safe in this room. Now let's finish the watch.", "nextId": "oy_what_movement_needs_next", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Let them uncoil. You're safe in this room. Now let's finish the watch.",
+          "nextId": "oy_what_movement_needs_next",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_wedge_pin_tension_talk",
-      "partnerMessage": "You use custom brass-tipped tweezers so the metal doesn't scratch the hardened carbon steel. You hold your breath, watch the live stereomicroscope screen, and slide the taper pin into the 0.1mm collet bore with a single continuous stroke.\n\nIf the tweezers slip, the spring acts like a miniature catapult.",
+      "partnerMessage": "Very carefully. I use brass-tipped tweezers so I don't mark the steel, keep the pin almost flat, and watch the live feed instead of looking directly at my hands.\n\nThe trick is not to chase the tiny movement. If I start correcting every wobble, that's when I make things worse.\n\nSo I breathe, line it up once, and make the motion in one go.\n\nWhich is easy to say when I'm sitting here talking about it and not actually holding the thing.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Take your time. Steady your breathing before you make the stroke.", "nextId": "oy_what_movement_needs_next", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Take your time. Steady your breathing before you make the stroke.",
+          "nextId": "oy_what_movement_needs_next",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_what_movement_needs_next",
-      "partnerMessage": "The balance wheel is positioned over the lower cap jewel. The hairspring is leveled. \n\nI have the microscopic brass collet pin between the tips of my Dumont No. 5 tweezers right now under the stereomicroscope.\n\nI am aligning the pin with the collet bore... my heart is thumping against my ribs...",
+      "partnerMessage": "The balance wheel is in place. Hairspring is level.\n\nI've got the little brass collet pin between the tweezers now. This is the part where I stop talking and get very, very boring.\n\nJust kidding. I'm nervous.\n\nI'm lining it up with the bore... there... almost...",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Wait for the space between heartbeats, Zephyrine. Slide it home gently.", "nextId": "oy_pre_ping_suspense", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Hold steady. You've turned this pin by hand—it will fit perfectly.", "nextId": "oy_pre_ping_suspense", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Wait for the space between heartbeats, Zephyrine. Slide it home gently.",
+          "nextId": "oy_pre_ping_suspense",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Hold steady. You've turned this pin by hand—it will fit perfectly.",
+          "nextId": "oy_pre_ping_suspense",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "oy_pre_ping_suspense",
-      "partnerMessage": "Inhaling... exhaling... waiting for the diastole...\n\n*microscopic click echoes through live microphone*\n\nWAIT—MY TWEEZER TIP GLANCED OFF THE COLLET RIM—\n\n*sharp high-pitched metallic PING sound reverberates across the room*\n\nOH GOD NO! NO NO NO!",
+      "partnerMessage": "Okay. Inhale.\n\nExhale.\n\nI'm waiting for my hand to stop shaking enough to make the move cleanly.\n\n...right... now...\n\nWait—\n\nThe tweezers slipped off the rim.\n\n*PING*\n\nOh no. No, no, no.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Zephyrine?! Did the collet pin launch?!", "nextId": "oy_call_1_trigger_node", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Zephyrine?! Did the collet pin launch?!",
+          "nextId": "oy_call_1_trigger_node",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "oy_call_1_trigger_node",
-      "partnerMessage": "THE COLLET PIN PINGED OUT OF THE TWEEZERS! It flew off the bench into the room, the hairspring terminal curve caught on the balance arm, and my entire eighty hours of restoration is hanging by a twisted thread!\n\nMy vision is tunneling, my pulse is hammering in my temples, and I'm hyperventilating on the floor with a flashlight looking for a brass speck the size of a flea!\n\nHIT THE VOICE CALL BUTTON RIGHT NOW, {PlayerName}! I CAN'T BREATHE IN THIS BASEMENT ALONE!",
+      "partnerMessage": "The pin pinged off the bench. I heard it hit somewhere and now I can't find it. The hairspring terminal caught on the balance arm and I am suddenly very aware that I have spent eighty hours on this and may have just made everything worse.\n\nI'm trying to breathe, but I'm panicking. I'm on the floor with the flashlight and I can't make myself slow down.\n\nPlease call me, {PlayerName}. Seriously. I need to hear another person right now.",
       "linkUrl": "",
       "triggerEvent": "TRIGGER_CALL_1",
       "choices": [
-        { "choiceText": "Connecting to Zephyrine's atelier line (Call 1 - Atelier Crisis)...", "nextId": "oy_call_1_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+        {
+          "choiceText": "Connecting to Zephyrine's atelier line (Call 1 - Atelier Crisis)...",
+          "nextId": "oy_call_1_ringing",
+          "linkUrl": "",
+          "triggerEvent": "START_CALL_RINGTONE"
+        }
       ]
     },
     {
@@ -287,134 +519,234 @@
     },
     {
       "id": "oy_post_call_1_hub",
-      "partnerMessage": "*long, trembling, shuddering breath in text*\n\nThe pin is found. \n\nTucked in the seam between the bench skirt and the second floorboard, gleaming like a tiny gold needle in the flashlight beam. \n\n{PlayerName}... when you counted down my breathing over the phone, made me close my eyes until my optical shock cleared, and told me how to rake the flashlight angle across the wood... you literally pulled me back from a full nervous collapse.\n\nI'm sitting on the lower rung of my wooden stool with my forehead pressed against the edge of the leather bench pad.",
+      "partnerMessage": "*long, shaky breath in text*\n\nI found it.\n\nIt was caught in the seam between the bench skirt and the second floorboard. I honestly walked past that spot four times before the flashlight caught the edge of it.\n\n{PlayerName}... when you got me to slow my breathing down and actually look instead of tearing the room apart, it made a huge difference.\n\nI'm sitting on the bottom rung of the stool now. My forehead is against the bench and my hands are staying put for a minute.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "You found it because you kept your head, Zephyrine. You're safe now. Keep those hands still.", "nextId": "oy_safe_now_post_recovery", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "How is your breathing? Did your pulse finally settle back down?", "nextId": "oy_pulse_settle_check", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Sitting on the floor with a flashlight... you sounded so fragile when that pin pinged.", "nextId": "oy_fragile_pin_tender", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
-        { "choiceText": "Did the hairspring suffer any bend when the tweezers slipped?", "nextId": "oy_hairspring_damage_check", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "You found it because you kept your head, Zephyrine. You're safe now. Keep those hands still.",
+          "nextId": "oy_safe_now_post_recovery",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "How is your breathing? Did your pulse finally settle back down?",
+          "nextId": "oy_pulse_settle_check",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Sitting on the floor with a flashlight... you sounded so fragile when that pin pinged.",
+          "nextId": "oy_fragile_pin_tender",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        },
+        {
+          "choiceText": "Did the hairspring suffer any bend when the tweezers slipped?",
+          "nextId": "oy_hairspring_damage_check",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "oy_safe_now_post_recovery",
-      "partnerMessage": "I am keeping them completely still. Resting in my lap under a clean linen cloth.\n\nIf you hadn't been in my ear, I would have crawled blindly across the boards and ground that pin into dust with my knees. You were the only calm voice in this room when the clocks felt like they were screaming at me.",
+      "partnerMessage": "They're staying still. I actually put the tweezers back in their stand and covered my hands with a clean cloth.\n\nHonestly, if you hadn't been on the phone, I probably would have kept crawling around the floor getting more and more frantic.\n\nThe clocks are back to sounding normal. I think I needed the reminder that not everything has to be solved in the next thirty seconds.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I'll always be that calm voice when the gears fly apart, Zephyrine.", "nextId": "oy_calm_voice_vow", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Your grandfather's workshop is safe. Rest your neck.", "nextId": "oy_fragile_pin_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'll always be that calm voice when the gears fly apart, Zephyrine.",
+          "nextId": "oy_calm_voice_vow",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Your grandfather's workshop is safe. Rest your neck.",
+          "nextId": "oy_fragile_pin_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_pulse_settle_check",
-      "partnerMessage": "Down from 140 BPM to a steady 70. My hands are warm again. The ringing in my ears has settled back into the gentle ticking of the wall regulators.\n\nI have a porcelain mug of hot lapsang souchong tea between my palms right now. The smoky pine steam is clearing my head.",
+      "partnerMessage": "A lot better.\n\nMy heart rate has finally come down and my hands are warm again. The ringing in my ears is gone, and now I can just hear the clocks.\n\nI made another cup of tea because apparently that's my emergency response to everything. I'm holding it with both hands and trying not to rush that either.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Sip that tea slowly. You did incredible work under immense pressure.", "nextId": "oy_safe_now_post_recovery", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Sip that tea slowly. You did incredible work under immense pressure.",
+          "nextId": "oy_safe_now_post_recovery",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_fragile_pin_tender",
-      "partnerMessage": "I was fragile. When you spend months building an identity around being an unflinching master of microscopic steel, having one millimeter of brass slip out of your control makes you feel like an imposter.\n\nDown on that floor in the dark... I was just a terrified granddaughter trying not to ruin an old man's dream.",
+      "partnerMessage": "Yeah. I was fragile.\n\nI hate admitting that because I'm usually the person in this room who is supposed to know exactly what to do. When something this small suddenly gets out of my control, it brings up all the fear underneath that confidence.\n\nAnd on that floor, in the dark, I wasn't thinking about being a master watchmaker. I was thinking about my grandfather and how badly I wanted to finish something he'd started teaching me to care about.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "You didn't ruin anything, Zephyrine. You saved it. He would be in awe of your poise.", "nextId": "oy_saved_it_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "You aren't an imposter. You're the realest artisan I've ever known.", "nextId": "oy_realest_artisan_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You didn't ruin anything, Zephyrine. You saved it. He would be in awe of your poise.",
+          "nextId": "oy_saved_it_comfort",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "You aren't an imposter. You're the realest artisan I've ever known.",
+          "nextId": "oy_realest_artisan_bond",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_hairspring_damage_check",
-      "partnerMessage": "Checked under 20x magnification. The overcoil curve held! Zero plastic deformation along the terminal curve. \n\nThe pin is back in the jewel dish, bathed in alcohol. All it needs is one gentle press to seat it permanently.",
+      "partnerMessage": "I checked it under 20x. The overcoil still looks good. No obvious deformation, which is such a relief I can't even explain it.\n\nThe pin is back in the jewel dish, cleaned, and waiting. It just needs to be seated properly.\n\nI'm not touching it again until my hands are completely steady.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "And you're going to seat it like a champion. But only when your hands are rested.", "nextId": "oy_safe_now_post_recovery", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "And you're going to seat it like a champion. But only when your hands are rested.",
+          "nextId": "oy_safe_now_post_recovery",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_calm_voice_vow",
-      "partnerMessage": "...'When the gears fly apart.'\n\nNobody has ever offered to stand by me during the failure, {PlayerName}. Clients only want to see the polished case; collectors only care about the timing certificate.\n\nHaving you stay on the line while I was weeping on the floorboards... that broke through every defense I had left.",
+      "partnerMessage": "When the gears fly apart.\n\nI think that's the sentence I'll remember from tonight.\n\nMost people only want to be around you when the thing is working. They want the finished watch, the clean timing report, the part where you can say everything went right.\n\nYou stayed when I was sitting on the floor trying not to panic. That felt very different.\n\nThank you.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Because I'm here for Zephyrine. Not the timing certificate.", "nextId": "oy_here_for_zephyrine_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Because I'm here for Zephyrine. Not the timing certificate.",
+          "nextId": "oy_here_for_zephyrine_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_saved_it_comfort",
-      "partnerMessage": "Thank you... I pressed my forehead against his old oak desk leg earlier, and for the first time since his funeral, I didn't feel guilty. I just felt... peaceful.",
+      "partnerMessage": "Thank you.\n\nI sat there for a minute with my forehead against his old desk and realised I wasn't thinking about what I should have done differently. I was just relieved.\n\nI don't think I've let myself feel that since he died. Usually I turn everything into another thing I need to get right. Tonight I finally just felt grateful that the watch is still here.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "You earned that peace tonight. Now come sit back at the bench.", "nextId": "oy_seat_pin_resolution", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You earned that peace tonight. Now come sit back at the bench.",
+          "nextId": "oy_seat_pin_resolution",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_realest_artisan_bond",
-      "partnerMessage": "An artisan who found her voice again because of you. My hands feel completely steady now.",
+      "partnerMessage": "An artisan who got scared, dropped a tiny part, swore at the floor, and then kept going. That's a little more honest than the image people usually have of me.\n\nBut my hands are steady now. That's what matters.\n\nLet's finish this thing.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Then let's finish this movement together.", "nextId": "oy_seat_pin_resolution", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Then let's finish this movement together.",
+          "nextId": "oy_seat_pin_resolution",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_here_for_zephyrine_tender",
-      "partnerMessage": "...*soft, radiant breath in text*\n\nI sat back up on the stool. I picked up the tweezers with a warm, steady grip.\n\nWatch the macro feed right now.",
+      "partnerMessage": "...Okay.\n\nThat got me.\n\nI'm sitting back up. Tweezers are in my hand again, but I'm not forcing anything. I'm just taking the next step carefully.\n\nWatch the macro feed with me.",
       "linkUrl": "onlyyaps.horology/zephyrine/cal_1884_macro_01",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Watching the screen.", "nextId": "oy_seat_pin_resolution", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Watching the screen.",
+          "nextId": "oy_seat_pin_resolution",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "oy_seat_pin_resolution",
-      "partnerMessage": "Tweezers gripping the taper pin.\n\nSliding through the collet hole...\n\n*microscopic, crisp, velvety slide*\n\nSEATED. Pin trimmed flush with the ruby cutter. The Breguet hairspring is centered perfectly between the regulator pins!\n\nI am giving the balance rim one gentle puff of air from the rubber blower bulb...",
+      "partnerMessage": "Okay. Pin between the tweezers.\n\nLining it up...\n\nA little pressure...\n\nThere. It's seated.\n\nFlush and secure. The hairspring is centered properly now.\n\nI'm going to give the balance a gentle puff and see what happens.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Puff the air, Zephyrine. Wake it up.", "nextId": "oy_balance_wakes_up_hub", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Puff the air, Zephyrine. Wake it up.",
+          "nextId": "oy_balance_wakes_up_hub",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_balance_wakes_up_hub",
-      "partnerMessage": "IT'S OSCILLATING!\n\nTwo hundred and seventy degrees of clean, symmetrical amplitude! Five beats every second!\n\n*tick-tick-tick-tick-tick*\n\nThe anchor escapement is dropping into the escape wheel teeth with the sweetest, crispest acoustic chime I have ever heard in my life! After fifty-eight years of cold silence in a safe... it's ALIVE!",
+      "partnerMessage": "It's moving.\n\nWait—it's actually moving.\n\nThe amplitude looks clean. The escapement is locking and releasing properly.\n\n*tick-tick-tick-tick-tick*\n\nOh my god.\n\nThat watch has been sitting silent for decades and it's ticking again.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Listen to that heartbeat! You resurrected an 1884 masterpiece, Zephyrine!", "nextId": "oy_masterpiece_resurrected_hype", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "It's breathing again. Exactly like you promised it would.", "nextId": "oy_breathing_again_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Listen to that heartbeat! You resurrected an 1884 masterpiece, Zephyrine!",
+          "nextId": "oy_masterpiece_resurrected_hype",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "It's breathing again. Exactly like you promised it would.",
+          "nextId": "oy_breathing_again_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_masterpiece_resurrected_hype",
-      "partnerMessage": "I have tears running down into my smile! I am literally laughing out loud in an empty basement at 1:45 in the morning! \n\nThe ticking is so clear... it sounds like a silver bird singing inside a brass cage.",
+      "partnerMessage": "I'm actually laughing. And crying a little, which is very inconvenient because I'm still standing over a watch bench.\n\nListen to it. It's so much clearer than I expected.\n\nI know it's just a watch, but after all the hours and all the times I thought I'd have to start over... hearing it go is kind of unreal.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Let me hear that silver bird over voice call. I want to listen to it with you.", "nextId": "oy_climax_setup_hub", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Let me hear that silver bird over voice call. I want to listen to it with you.",
+          "nextId": "oy_climax_setup_hub",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_breathing_again_tender",
-      "partnerMessage": "It is breathing. And for the first time in years, so am I.\n\nAll the tension in my chest, all the fear of being inadequate... it just dissolved into that steady five-beat rhythm.",
+      "partnerMessage": "Yeah. It's breathing.\n\nAnd I think I needed to hear that more than I realised. I've spent so much time worrying about being good enough that sometimes I forget what it feels like when something just... works.\n\nRight now I just want to sit here and listen to it for a minute.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Call my line, Zephyrine. Let's listen to that heartbeat together in the dark.", "nextId": "oy_climax_setup_hub", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Call my line, Zephyrine. Let's listen to that heartbeat together in the dark.",
+          "nextId": "oy_climax_setup_hub",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "oy_climax_setup_hub",
-      "partnerMessage": "I turned off the stereomicroscope halogen light. There is only the amber glow of the brass desk lamp and the soft blue night filtering through the high street grate.\n\nThe thirty wall regulators are ticking softly in the shadows, and right here on my leather bench pad, this 1884 pocket watch is singing its five-beat song directly into my microphone.\n\nCall my phone line one last time tonight, {PlayerName}. No panic, no runaway pins. Just you, me, and the sound of time coming back to life.",
+      "partnerMessage": "I've turned the microscope light off. The bench lamp is still on, and I can hear the watch clearly now that the room is darker.\n\nThe regulators are ticking in the background, the new movement is running on my bench, and for once I'm not thinking about the next repair.\n\nCall me one last time tonight, {PlayerName}. No crisis this time. Just listen with me for a while.",
       "linkUrl": "",
       "triggerEvent": "TRIGGER_CALL_2",
       "choices": [
-        { "choiceText": "Connecting to Zephyrine's workbench line (Call 2 - Mechanical Heartbeat)...", "nextId": "oy_call_2_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+        {
+          "choiceText": "Connecting to Zephyrine's workbench line (Call 2 - Mechanical Heartbeat)...",
+          "nextId": "oy_call_2_ringing",
+          "linkUrl": "",
+          "triggerEvent": "START_CALL_RINGTONE"
+        }
       ]
     },
     {
@@ -426,17 +758,33 @@
     },
     {
       "id": "oy_post_call_2_hub",
-      "partnerMessage": "*voice note transcribed in text from the workshop vestibule*\n\nMy bench is cleared, the dust covers are draped over my lathe, and I am standing by the heavy oak cellar door with my coat pulled snug.\n\n{PlayerName}... listening to that 1884 heartbeat with you over the phone while the city was asleep... that was the most profoundly intimate moment of my life.\n\nSunday afternoon at two o'clock. The iron street gate by the docks will be unlocked. I'm brewing a fresh pot of smoky lapsang souchong tea, and that astronomical pocket watch will be sitting on the bench for you to wind with your own hands.",
+      "partnerMessage": "*voice note transcribed in text from the workshop vestibule*\n\nThe bench is finally cleared. I put the covers back over the lathe, made one last cup of tea, and I'm standing by the cellar door with my coat on.\n\n{PlayerName}... listening to that watch with you while the city was asleep was probably the most intimate my life has felt in a long time.\n\nSunday at two? The iron gate by the docks will be open. I'll make fresh tea, and if you're brave enough, I'll let you wind the movement yourself.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Sunday afternoon at two. I'll be there to wind that watch with you, Zephyrine. Sleep peacefully.", "nextId": "oy_climax_romance_final", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" },
-        { "choiceText": "I'll bring fresh bakery pastries to go with that smoky tea. It's a date.", "nextId": "oy_climax_romance_final", "linkUrl": "", "triggerEvent": "CLIMAX_ROMANCE_PERFECT" }
+        {
+          "choiceText": "Sunday afternoon at two. I'll be there to wind that watch with you, Zephyrine. Sleep peacefully.",
+          "nextId": "oy_climax_romance_final",
+          "linkUrl": "",
+          "triggerEvent": "CLIMAX_ROMANCE_PERFECT"
+        },
+        {
+          "choiceText": "I'll bring fresh bakery pastries to go with that smoky tea. It's a date.",
+          "nextId": "oy_climax_romance_final",
+          "linkUrl": "",
+          "triggerEvent": "CLIMAX_ROMANCE_PERFECT"
+        },
+        {
+          "choiceText": "Before you go, tell me something ordinary about your life.",
+          "nextId": "oy_free_time_atelier",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "oy_climax_romance_final",
-      "partnerMessage": "Sunday afternoon at two.\n\nNo calipers, no pressure, no rushing clocks. Just two people in an old brick workshop sharing tea, watching time tick forward together with purpose.\n\nGoodnight, {PlayerName}. Thank you for holding the line when the gears gave way. Sleep in peace, my heart.",
+      "partnerMessage": "Sunday at two.\n\nNo deadlines, no repair queue, no trying to impress each other. Just tea, an old workshop, and a watch that finally gets to keep running.\n\nGoodnight, {PlayerName}. And thank you for staying when things went wrong.\n\nSleep well, my heart.",
       "linkUrl": "",
       "triggerEvent": "CLIMAX_ROMANCE_PERFECT",
       "choices": []
@@ -447,9 +795,24 @@
       "linkUrl": "",
       "triggerEvent": "GHOST_SEQUENCE_START",
       "choices": [
-        { "choiceText": "Zephyrine? Did your microscope feed cut out?", "nextId": "oy_seenzone_2", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "I'm sorry, Zephyrine. That was thoughtless and disrespectful of your dedication. Please let me start over.", "nextId": "oy_apology_recovery_dignified", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Giving people the silent treatment over a tiny joke is pretty arrogant.", "nextId": "oy_ending_failure_cold", "linkUrl": "", "triggerEvent": "FAILURE_BLOCKED" }
+        {
+          "choiceText": "Zephyrine? Did your microscope feed cut out?",
+          "nextId": "oy_seenzone_2",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "I'm sorry, Zephyrine. That was thoughtless and disrespectful of your dedication. Please let me start over.",
+          "nextId": "oy_apology_recovery_dignified",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Giving people the silent treatment over a tiny joke is pretty arrogant.",
+          "nextId": "oy_ending_failure_cold",
+          "linkUrl": "",
+          "triggerEvent": "FAILURE_BLOCKED"
+        }
       ]
     },
     {
@@ -461,26 +824,221 @@
     },
     {
       "id": "oy_call_missed_reset",
-      "partnerMessage": "The audio line disconnected right as the balance wheel was oscillating! 📶\n\nI am still seated at the bench with the movement under the microscope. Tap the call icon whenever your connection stabilizes.",
+      "partnerMessage": "The audio line disconnected right as the balance wheel was oscillating.\n\nI'm still at the bench with the movement under the microscope. Tap the call icon when your connection is stable and I'll pick up from here.",
       "linkUrl": "",
       "triggerEvent": "ENABLE_VOICE_CALL",
       "choices": [
-        { "choiceText": "Signal reconnected! Calling back right now!", "nextId": "oy_call_1_ringing", "linkUrl": "", "triggerEvent": "START_CALL_RINGTONE" }
+        {
+          "choiceText": "Signal reconnected! Calling back right now!",
+          "nextId": "oy_call_1_ringing",
+          "linkUrl": "",
+          "triggerEvent": "START_CALL_RINGTONE"
+        }
       ]
     },
     {
       "id": "oy_ending_failure_dismissed",
-      "partnerMessage": "I think I will lock the atelier door and leave our conversation here. We operate on incompatible temporal scales, and I have neither the patience nor the emotional bandwidth for cynicism in a space devoted to craft. Take care.",
+      "partnerMessage": "I think I'm going to lock the atelier and leave things here. We're not approaching this conversation from the same place, and I don't want to spend my private time arguing with someone who doesn't respect the work I care about.\n\nTake care.",
       "linkUrl": "",
       "triggerEvent": "FAILURE_DISMISSED",
       "choices": []
     },
     {
       "id": "oy_ending_failure_cold",
-      "partnerMessage": "I endure enough entitled collectors who treat horological heritage like speculative casino chips; I will not tolerate dismissive arrogance in my private sanctuary.\n\nYou are permanently unlinked from this bench feed. Good luck on other apps.",
+      "partnerMessage": "I deal with enough people who treat horology like a status symbol. I don't need that kind of attitude in my own workshop too.\n\nI'm ending the conversation here. Please don't contact me through the bench feed again.",
       "linkUrl": "",
       "triggerEvent": "FAILURE_BLOCKED",
       "choices": []
+    },
+    {
+      "id": "oy_free_time_atelier",
+      "partnerMessage": "You know, for someone whose entire personality apparently lives under a microscope, I do actually leave this room sometimes.\n\nI go to little second-hand bookshops, drink coffee that's too strong, and walk around antique markets without buying anything because I enjoy looking.\n\nWhat I like most, honestly, is having a day where nobody needs anything from me.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        {
+          "choiceText": "That sounds surprisingly normal for someone with thirty clocks in a basement.",
+          "nextId": "oy_ordinary_little_life",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "What's the best thing you've found at an antique market?",
+          "nextId": "oy_antique_market_story",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ]
+    },
+    {
+      "id": "oy_ordinary_little_life",
+      "partnerMessage": "I am capable of being normal. Occasionally.\n\nI own exactly one pair of sneakers I refuse to throw away, I forget to answer texts when I'm deep in a repair, and I make very bad decisions about buying pastries on my way home.\n\nI think I like talking to you because you make the boring parts feel worth mentioning too.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        {
+          "choiceText": "The boring parts are usually the real parts.",
+          "nextId": "oy_real_parts_bond",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Now I need to know what pastry is responsible for your bad decisions.",
+          "nextId": "oy_antique_market_story",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ]
+    },
+    {
+      "id": "oy_antique_market_story",
+      "partnerMessage": "An old box of watchmaker's tools with half the labels rubbed off. I bought it because the handles were worn smooth from somebody using them for years.\n\nThe tools themselves weren't worth much. I just liked the idea that somebody had reached for them over and over without thinking about it.\n\nThat's probably the least normal answer I could have given, but there you go.",
+      "linkUrl": "",
+      "triggerEvent": "",
+      "choices": [
+        {
+          "choiceText": "Honestly, that's exactly the kind of thing I would expect you to fall in love with.",
+          "nextId": "oy_small_things_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Do you ever buy things just because they're pretty?",
+          "nextId": "oy_no_practical_reason",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ]
+    },
+    {
+      "id": "oy_real_parts_bond",
+      "partnerMessage": "Exactly.\n\nPeople always want the interesting story, but half of a real relationship is knowing how someone takes their coffee, what they do when they're tired, whether they leave the lights on in empty rooms.\n\nThat's the stuff I remember about people. Not the impressive stories.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        {
+          "choiceText": "Then I'll tell you the small stuff too. No performance.",
+          "nextId": "oy_truth_over_performance",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
+      ]
+    },
+    {
+      "id": "oy_small_things_tender",
+      "partnerMessage": "Pretty and useless? Yes. Absolutely.\n\nI found an old brass desk clock last month that barely worked and bought it anyway because the case had this tiny scratch across the back. Somebody had clearly kept it with them for years.\n\nI fixed it later. Of course I did. But I bought it before I knew I could.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        {
+          "choiceText": "So underneath all the precision, you're sentimental.",
+          "nextId": "oy_sentimental_confession",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "What do you keep because you can't bring yourself to throw it away?",
+          "nextId": "oy_sentimental_confession",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ]
+    },
+    {
+      "id": "oy_no_practical_reason",
+      "partnerMessage": "Sometimes. I think I pretend everything needs a reason because it's easier for me that way.\n\nBut there are a few things in this workshop that I kept because they remind me of someone, not because they're useful.\n\nI'm trying to get better at admitting that.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        {
+          "choiceText": "You don't have to justify every thing you care about to me.",
+          "nextId": "oy_sentimental_confession",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
+      ]
+    },
+    {
+      "id": "oy_truth_over_performance",
+      "partnerMessage": "Good.\n\nI think I want that too. Something where neither person is auditioning all the time.\n\nNo pretending you're cooler than you are, no pretending I'm less difficult than I am. Just... two people being honest and seeing what happens.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        {
+          "choiceText": "That sounds exactly like what I'm trying to build with you.",
+          "nextId": "oy_what_building_means",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "And for the record, you're allowed to be difficult sometimes.",
+          "nextId": "oy_sentimental_confession",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ]
+    },
+    {
+      "id": "oy_sentimental_confession",
+      "partnerMessage": "Probably my grandfather's things. His old loupe, a battered screwdriver, a notebook with numbers in the margins that only make sense to me now.\n\nThey take up almost no space. I just can't imagine a version of my life where I don't keep them.\n\nI guess that's why I understand people who get attached to objects. Sometimes you're not keeping the object. You're keeping the person around it.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        {
+          "choiceText": "You talk about him like he's still part of your everyday life.",
+          "nextId": "oy_grandfather_everyday",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
+      ]
+    },
+    {
+      "id": "oy_grandfather_everyday",
+      "partnerMessage": "In a strange way, he is.\n\nI still hear his voice when I make a mistake. I still use some of his habits without thinking. And when I get stuck, I sometimes catch myself asking what he would have noticed first.\n\nIt's not really grief anymore. It's more like carrying somebody's influence around with you.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        {
+          "choiceText": "I'd like to meet the version of you he helped create.",
+          "nextId": "oy_closer_than_expected",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "I think he'd be proud of the way you kept his craft alive.",
+          "nextId": "oy_closer_than_expected",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
+      ]
+    },
+    {
+      "id": "oy_what_building_means",
+      "partnerMessage": "That sentence scares me a little.\n\nNot because I don't like it. Because I do.\n\nI'm used to short projects. Fix the watch, send the report, finish the job, go home. Relationships don't work like that. You can't hide behind being good at something. You have to keep showing up.",
+      "linkUrl": "",
+      "triggerEvent": "DEEP_TALK",
+      "choices": [
+        {
+          "choiceText": "Then we don't rush it. We just keep showing up.",
+          "nextId": "oy_closer_than_expected",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
+      ]
+    },
+    {
+      "id": "oy_closer_than_expected",
+      "partnerMessage": "I think you might be getting closer to me than I expected when I opened this app.\n\nThat's a little terrifying.\n\nBut... I'm not trying to back away from it.",
+      "linkUrl": "",
+      "triggerEvent": "TOUCHED_HEART",
+      "choices": [
+        {
+          "choiceText": "Good. I wasn't planning to run away either.",
+          "nextId": "oy_what_movement_needs_next",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ]
     }
   ]
 }

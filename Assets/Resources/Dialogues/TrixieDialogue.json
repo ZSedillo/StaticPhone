@@ -7,368 +7,911 @@
   "nodes": [
     {
       "id": "start",
-      "partnerMessage": "YO {PlayerName}!! 🎧⚡\n\nI just packed down my live rig after a four-hour warehouse set. My ears are ringing in B-flat, my hoodie smells like theatrical fog juice and cold club air, and I've got two cans of iced matcha rattling in my gear bag!\n\nQuick audio audit before we talk: what track is currently glued to your headphones on repeat today?",
+      "partnerMessage": "YO {PlayerName}!! 🎧⚡\n\nI just packed down my live rig after a four-hour warehouse set. My ears are ringing, my hoodie smells like fog juice and cold air, and there are two cans of iced matcha somewhere in my gear bag.\n\nI'm still way too awake for this hour.\n\nOkay, important question before I start rambling: what's actually been stuck in your headphones lately?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Heavy sub-bass and underground dark synthwave. Need that 140 BPM drive.", "nextId": "heavy_bass_path", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Acoustic fingerstyle guitar. Open tunings and wooden percussion.", "nextId": "acoustic_contrast_path", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Lo-fi ambient loops. I like music that lets my brain actually slow down.", "nextId": "ambient_slow_path", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Whatever's trending on the radio charts. I don't overthink it.", "nextId": "radio_charts_fumble", "linkUrl": "", "triggerEvent": "JUNIA_SKEPTIC" }
+        {
+          "choiceText": "Heavy sub-bass and underground dark synthwave. Need that 140 BPM drive.",
+          "nextId": "heavy_bass_path",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Acoustic fingerstyle guitar. Open tunings and wooden percussion.",
+          "nextId": "acoustic_contrast_path",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Lo-fi ambient loops. I like music that lets my brain actually slow down.",
+          "nextId": "ambient_slow_path",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Whatever's trending on the radio charts. I don't overthink it.",
+          "nextId": "radio_charts_fumble",
+          "linkUrl": "",
+          "triggerEvent": "JUNIA_SKEPTIC"
+        },
+        {
+          "choiceText": "Okay, enough about music for a second. What are you like when the gig is over and nobody is watching?",
+          "nextId": "what_trixie_like_after_gig",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "heavy_bass_path",
-      "partnerMessage": "YES!! An actual creature of culture! 🔊\n\nMost guys say 'I like EDM' and then send me a link to some generic festival commercial jingle that sounds like it was mixed on a microwave speaker! \n\nGive me raw saw-waves, detuned analog oscillators, and low-end so heavy it rattles your sternum from fifty paces. What's your setup when you listen?",
+      "partnerMessage": "Okay, that's way more specific than I expected. Respect.\n\nI get suspicious whenever someone tells me they love EDM and then sends me the safest festival playlist imaginable.\n\nGive me a filthy bassline, a synth that's a little out of tune, and a kick that actually leaves some room for the rest of the track.\n\nWhat do you listen on when you're really paying attention?",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Over-ear planar magnetic monitors with a clean DAC. I want to hear every transient.", "nextId": "audiophile_respect_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "A dedicated subwoofer in my car that turns my rear-view mirror into a blur.", "nextId": "subwoofer_car_banter", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Just standard earbuds, but turned up loud enough to drown out the city.", "nextId": "city_drown_out_talk", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Over-ear planar magnetic monitors with a clean DAC. I want to hear every transient.",
+          "nextId": "audiophile_respect_bond",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "A dedicated subwoofer in my car that turns my rear-view mirror into a blur.",
+          "nextId": "subwoofer_car_banter",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Just standard earbuds, but turned up loud enough to drown out the city.",
+          "nextId": "city_drown_out_talk",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "acoustic_contrast_path",
-      "partnerMessage": "Wait... acoustic fingerstyle guitar?! Like percussive slap harmonics and DADGAD open tunings?!\n\n*brain short-circuits in stereo*\n\nOkay, I wasn't expecting that at all! People assume because I DJ underground warehouse raves that I only listen to synthetic square waves. But real acoustic fingerstyle is pure dynamic magic. The wood literally acts as an unamplified resonant chamber.",
+      "partnerMessage": "Wait, fingerstyle guitar?\n\nThat's actually really nice to hear. I spend so much time around synths and drum machines that I forget how satisfying it is when an instrument is doing everything with nothing but wood, strings, and somebody's hands.\n\nAnd yeah, the percussive stuff gets me. When the player turns the body of the guitar into part of the rhythm, it feels almost like beatmaking without the software.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Exactly. Slap harmonics and body taps give it an acoustic drum beat. It's rhythm and melody in one.", "nextId": "fingerstyle_appreciation_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "A good acoustic track has more dynamic breathing room than a 150 BPM rave set.", "nextId": "dynamic_breathing_debate", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
-        { "choiceText": "I figured you'd roast me for listening to unplugged wood.", "nextId": "unplugged_wood_banter", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Exactly. Slap harmonics and body taps give it an acoustic drum beat. It's rhythm and melody in one.",
+          "nextId": "fingerstyle_appreciation_bond",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "A good acoustic track has more dynamic breathing room than a 150 BPM rave set.",
+          "nextId": "dynamic_breathing_debate",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        },
+        {
+          "choiceText": "I figured you'd roast me for listening to unplugged wood.",
+          "nextId": "unplugged_wood_banter",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "ambient_slow_path",
-      "partnerMessage": "Ambient loops are medicine, honestly. When you spend six hours on stage with monitor wedges blasting kick drums directly into your skull, walking home with Brian Eno or tape-loop drones in your ears is the only thing that keeps you sane.",
+      "partnerMessage": "Honestly? That's one of my favorite answers.\n\nAfter a long set, I don't want another song trying to kick the door down. I usually walk home with something soft on, or sometimes nothing at all.\n\nA little tape hiss and a slow loop can do more for me after a gig than another five thousand watts ever could.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Does the noise ever get to you? The constant volume and sensory overload?", "nextId": "sensory_overload_confession", "linkUrl": "", "triggerEvent": "DEEP_TALK" },
-        { "choiceText": "Tape loops have that warm, imperfect flutter that digital software can't copy.", "nextId": "tape_flutter_nerd", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Does the noise ever get to you? The constant volume and sensory overload?",
+          "nextId": "sensory_overload_confession",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        },
+        {
+          "choiceText": "Tape loops have that warm, imperfect flutter that digital software can't copy.",
+          "nextId": "tape_flutter_nerd",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "radio_charts_fumble",
-      "partnerMessage": "Radio charts?! Oof. Compressed to negative four LUFS with all the dynamic range crushed into a flat acoustic pancake so it plays loud in grocery stores? \n\n{PlayerName}, please tell me your ears have higher standards than corporate elevator pop.",
+      "partnerMessage": "Okay, I'm trying very hard not to start a three-paragraph rant right now.\n\nPeople can like whatever they like. I just hear a lot of modern pop and immediately want to reach for the mute button because everything sounds pushed right up against the ceiling.\n\nBut fine. I'm curious now. What do you actually like about those songs?",
       "linkUrl": "",
       "triggerEvent": "JUNIA_SKEPTIC",
       "choices": [
-        { "choiceText": "I was half-joking! Teach me what real mixing sounds like, sensei.", "nextId": "teach_me_audio_reset", "linkUrl": "", "triggerEvent": "" },
-        { "choiceText": "Music is just background noise to pass the time. It's not that deep.", "nextId": "not_that_deep_exit", "linkUrl": "", "triggerEvent": "FAILURE_DISMISSED" }
+        {
+          "choiceText": "I was half-joking! Teach me what real mixing sounds like, sensei.",
+          "nextId": "teach_me_audio_reset",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Music is just background noise to pass the time. It's not that deep.",
+          "nextId": "not_that_deep_exit",
+          "linkUrl": "",
+          "triggerEvent": "FAILURE_DISMISSED"
+        }
       ]
     },
     {
       "id": "audiophile_respect_bond",
-      "partnerMessage": "PLANAR MAGNETIC DRIVERS?! Okay, hold on, my jaw just dropped onto my midi controller! 🤯\n\nYou actually care about transient response and stereo staging?! Ninety percent of people I talk to can't tell the difference between a 128kbps MP3 and a lossless WAV file! Where have you been hiding?!",
+      "partnerMessage": "Oh, you actually listen for that stuff.\n\nThat's attractive, I'm not even going to pretend otherwise.\n\nMost people just tell me something sounds \"good\" or \"bad\" and leave it there. You're talking about why it feels different. That's the kind of conversation that keeps me awake in a good way.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "In my studio, waiting for a producer who actually cares about sonic texture.", "nextId": "sonic_texture_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Good audio gear is an investment in respecting the artist's mix.", "nextId": "respecting_mix_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "In my studio, waiting for a producer who actually cares about sonic texture.",
+          "nextId": "sonic_texture_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Good audio gear is an investment in respecting the artist's mix.",
+          "nextId": "respecting_mix_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "subwoofer_car_banter",
-      "partnerMessage": "Hahaha! The classic trunk-rattler! As long as you aren't waking up suburban neighborhoods at 3 AM with license plate buzz, I respect the low-end devotion!",
+      "partnerMessage": "Okay, the car subwoofer thing is objectively funny.\n\nAs long as the whole car isn't rattling apart, I respect it. There's a difference between loud and actually sounding good.\n\nWhat do you listen to in there when you're driving alone?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "No rattles, just clean sub-bass. What monitors do you use in your home studio?", "nextId": "home_studio_breakdown", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "No rattles, just clean sub-bass. What monitors do you use in your home studio?",
+          "nextId": "home_studio_breakdown",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "city_drown_out_talk",
-      "partnerMessage": "I get that. The city has this constant, ugly drone—sirens, exhaust pipes, subway brake squeals. Drowning it in heavy synth leads is basic acoustic self-defense.",
+      "partnerMessage": "Yeah, I get that.\n\nSome nights the city feels like one giant badly mixed track—sirens, buses, people yelling, construction, everything fighting for your attention.\n\nSometimes putting on something heavy is the only way I can make all of it disappear for a while.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Is that why you play so loud on stage? To drown out the rest of the world?", "nextId": "why_play_loud_deep", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "Is that why you play so loud on stage? To drown out the rest of the world?",
+          "nextId": "why_play_loud_deep",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        }
       ]
     },
     {
       "id": "fingerstyle_appreciation_bond",
-      "partnerMessage": "YES!! When a player uses their thumb for the driving bass root note and their knuckles against the soundboard for the snare pop, while their fingers pick the melody on top? That's not just playing—that's an entire one-man rhythm section on six strings.\n\nIt takes crazy finger independence. I have endless respect for that.",
+      "partnerMessage": "Exactly. That's the part I love.\n\nThe player's doing bass, rhythm, melody, percussion... all at once, but it still sounds relaxed when they're good enough at it.\n\nI spend all night building layers in software, so seeing one person do that with an instrument always reminds me why I got into music in the first place.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "You understand the mechanics of acoustic instruments way better than most producers.", "nextId": "mechanics_acoustic_respect", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Would you ever sample acoustic guitar into one of your underground tracks?", "nextId": "sample_acoustic_pitch", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "You understand the mechanics of acoustic instruments way better than most producers.",
+          "nextId": "mechanics_acoustic_respect",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Would you ever sample acoustic guitar into one of your underground tracks?",
+          "nextId": "sample_acoustic_pitch",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "dynamic_breathing_debate",
-      "partnerMessage": "You're 100% right. Modern club production suffers from the 'loudness wars.' Everything pushed to the brickwall limiter so it hits hard immediately, but it leaves zero room for subtlety. \n\nMy favorite moments in a set aren't the drops—they're the three seconds of dead silence right before the kick returns.",
+      "partnerMessage": "Yes. Exactly.\n\nI don't hate loud music. I hate when everything is loud all the time, because then nothing has any room to hit harder when it matters.\n\nMy favorite part of a set is sometimes the second where I pull almost everything back and you can hear the room waiting for the next kick.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "The silence right before the drop. That suspended moment when everyone holds their breath.", "nextId": "suspended_silence_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "You talk about sound with so much intention, Trixie. It's really captivating.", "nextId": "sound_intention_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "The silence right before the drop. That suspended moment when everyone holds their breath.",
+          "nextId": "suspended_silence_bond",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "You talk about sound with so much intention, Trixie. It's really captivating.",
+          "nextId": "sound_intention_praise",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "unplugged_wood_banter",
-      "partnerMessage": "Roast you?! Never! Synthesizers are just simulated acoustics anyway! If you don't understand how natural wood and metal strings vibrate, your digital synth patches will always sound sterile and hollow.",
+      "partnerMessage": "I would never roast you for that.\n\nOkay, maybe a little.\n\nBut honestly, a good acoustic recording can teach you a lot about space. You can hear the room, the fingers, the tiny mistakes. That's the stuff I end up chasing with synth patches when I'm trying to make them feel less sterile.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Show me what your non-sterile patches sound like. Where do you post your drafts?", "nextId": "pre_yaps_invite", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Show me what your non-sterile patches sound like. Where do you post your drafts?",
+          "nextId": "pre_yaps_invite",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "sensory_overload_confession",
-      "partnerMessage": "Honestly? Yeah. More than I ever admit on social media.\n\nBy 5:00 AM when the club lights come up and you're coiling sticky XLR cables off a beer-stained floor, your brain feels fried. You've been the conductor of three hundred people's dopamine for four hours, and then you walk outside into freezing rain completely alone.",
+      "partnerMessage": "Yeah. More than I usually say.\n\nWhen the club finally empties, I can be weirdly sensitive to everything. The lights feel too bright, somebody moving a flight case sounds like an explosion, and I just want five minutes where nobody needs anything from me.\n\nThen I go outside and it can take another half hour before my brain realizes the set is actually over.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "The crash after the high. That must be a lonely walk home.", "nextId": "lonely_walk_home_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Do you have anyone to decompress with after those gigs?", "nextId": "decompress_crew_talk", "linkUrl": "", "triggerEvent": "DEEP_TALK" }
+        {
+          "choiceText": "The crash after the high. That must be a lonely walk home.",
+          "nextId": "lonely_walk_home_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Do you have anyone to decompress with after those gigs?",
+          "nextId": "decompress_crew_talk",
+          "linkUrl": "",
+          "triggerEvent": "DEEP_TALK"
+        },
+        {
+          "choiceText": "What does a normal night look like for you once you finally get home?",
+          "nextId": "after_gig_routine",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "tape_flutter_nerd",
-      "partnerMessage": "Tape warble is soul! That subtle analog pitch drift when the reel wobbles across the magnetic head... you can't fake that with digital plugins. It feels human because it's physically decaying.",
+      "partnerMessage": "Exactly. The tiny imperfections are the whole point.\n\nA reel drifts a little, the pitch moves by a fraction, the noise floor changes... and somehow your brain reads all of that as a person having been there.\n\nI can spend hours trying to put that feeling into a plugin and still prefer the real thing.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Physical decay making something feel human. You have a poetic side under all that bass.", "nextId": "poetic_side_under_bass", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Physical decay making something feel human. You have a poetic side under all that bass.",
+          "nextId": "poetic_side_under_bass",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "teach_me_audio_reset",
-      "partnerMessage": "Okay, deal! Your audio redemption arc starts tonight! Rule number one: we listen to uncompressed master files, not bluetooth compression artifacts. Deal?",
+      "partnerMessage": "Fine. Your audio education starts now.\n\nRule one: don't call everything \"bass\" just because you can feel it in your chest.\n\nRule two: if you're curious about why something sounds the way it does, ask me. I actually like explaining this stuff when someone isn't pretending to know more than they do.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Deal. Show me what's on your workbench.", "nextId": "pre_yaps_invite", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Deal. Show me what's on your workbench.",
+          "nextId": "pre_yaps_invite",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "not_that_deep_exit",
-      "partnerMessage": "To you it's background noise; to me it's what I pour my entire nervous system into. We definitely aren't on the same frequency. Take care.",
+      "partnerMessage": "Then we're probably not going to understand each other.\n\nMusic doesn't have to be important to everyone, but it is important to me, and I don't want to spend my time defending that.\n\nTake care.",
       "linkUrl": "",
       "triggerEvent": "FAILURE_DISMISSED",
       "choices": []
     },
     {
       "id": "sonic_texture_flirt",
-      "partnerMessage": "...Okay, my face just got weirdly warm and my room is 65 degrees! Stop being smooth! \n\nI'm so used to club promoters texting me about ticket quotas that having someone talk about sonic textures feels... dangerously attractive.",
+      "partnerMessage": "Okay, that's unfairly smooth.\n\nMost of the messages I get are promoters asking whether I can bring ten more people or somebody asking for a guest list favor.\n\nYou talking about the sound itself is... different. I noticed.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Good. I want your attention, Trixie. Not just your guest list.", "nextId": "attention_not_guestlist_tender", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "What synth hardware are you patching right now?", "nextId": "home_studio_breakdown", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Good. I want your attention, Trixie. Not just your guest list.",
+          "nextId": "attention_not_guestlist_tender",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "What synth hardware are you patching right now?",
+          "nextId": "home_studio_breakdown",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "respecting_mix_tender",
-      "partnerMessage": "Thank you for saying that. Producers spend forty hours automating one reverb tail so it blends into the next measure seamlessly. When someone actually listens on gear that lets those details shine... it makes the late nights worth it.",
+      "partnerMessage": "Thank you. Seriously.\n\nPeople hear a finished track and think it just happened. They don't see all the tiny decisions underneath it—the reverb, automation, little edits, the hour you spend changing something and then changing it back.\n\nWhen someone notices those details, it makes the work feel worth it.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I want to hear those forty hours. Show me your private project files.", "nextId": "pre_yaps_invite", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "I want to hear those forty hours. Show me your private project files.",
+          "nextId": "pre_yaps_invite",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "home_studio_breakdown",
-      "partnerMessage": "Eight-inch focal studio monitors, a custom semi-modular analog synth rack, a vintage Roland drum machine with chipped plastic knobs, and acoustic foam panels glued all over my bedroom walls!\n\nMy landlord thinks I run an illegal server farm because of the power draw!",
+      "partnerMessage": "My bedroom is basically half bedroom, half badly organized studio.\n\nI have eight-inch monitors, a semi-modular synth rack, an old Roland drum machine with chipped knobs, cables everywhere, and way too many things blinking at night.\n\nMy landlord once asked if I was running servers in there.\n\nI wasn't. Technically.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "A vintage Roland with chipped knobs?! That's holy grail hardware.", "nextId": "roland_holy_grail", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "How do you sleep with all that gear blinking in your room?", "nextId": "sleep_with_gear_talk", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "A vintage Roland with chipped knobs?! That's holy grail hardware.",
+          "nextId": "roland_holy_grail",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "How do you sleep with all that gear blinking in your room?",
+          "nextId": "sleep_with_gear_talk",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "why_play_loud_deep",
-      "partnerMessage": "Partly, yeah. When the low-end is that loud, your brain physically can't focus on anxiety. The sound wave hits your chest cavity and forces your body into sync with the pulse.\n\nIt's the only time my hyperactive brain completely shuts off and feels at peace.",
+      "partnerMessage": "Partly, yeah.\n\nWhen I'm behind the decks and the low end is really moving, my brain finally has one thing to focus on. I don't have to think about texts, bills, whatever happened that day. I can just be there with the beat.\n\nIt's one of the few times my head gets quiet.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "I want to help you find that peace when the speakers are turned off, too.", "nextId": "peace_off_speakers_bond", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "You use sound as therapy. That's a beautiful thing to share with a crowd.", "nextId": "sound_as_therapy_praise", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I want to help you find that peace when the speakers are turned off, too.",
+          "nextId": "peace_off_speakers_bond",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "You use sound as therapy. That's a beautiful thing to share with a crowd.",
+          "nextId": "sound_as_therapy_praise",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "mechanics_acoustic_respect",
-      "partnerMessage": "My dad used to repair cellos in our garage when I was a kid. I spent my childhood watching him shave spruce soundposts down to the millimeter to get the acoustic resonance right. \n\nI learned early that every sound is just physics and devotion colliding.",
+      "partnerMessage": "My dad used to repair cellos out of our garage when I was little.\n\nI spent a lot of afternoons watching him work, and I think that's where I got this slightly obsessive thing about how instruments actually make sound.\n\nHe always said the technical side only matters if you use it to make somebody feel something.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Physics and devotion... that's why your electronic tracks hit so deep. You have that foundation.", "nextId": "physics_devotion_comfort", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Physics and devotion... that's why your electronic tracks hit so deep. You have that foundation.",
+          "nextId": "physics_devotion_comfort",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "sample_acoustic_pitch",
-      "partnerMessage": "I actually have an unfinished draft in Ableton where I chopped up an acoustic guitar arpeggio, pitched it down an octave through tape saturation, and layered an 808 sub-bass under it!\n\nI haven't let anyone hear it yet because it's too vulnerable for club sets.",
+      "partnerMessage": "Actually, yes. I have a half-finished track like that.\n\nI chopped an acoustic guitar loop, pitched it down, ran it through some tape saturation, then built an 808 underneath it.\n\nIt's not really club-ready yet. It's one of those tracks that feels too personal to throw into a room full of strangers.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Play it for me. I want to hear the vulnerable side of your sound.", "nextId": "hear_vulnerable_draft", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Play it for me. I want to hear the vulnerable side of your sound.",
+          "nextId": "hear_vulnerable_draft",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "suspended_silence_bond",
-      "partnerMessage": "...You get it. You actually get it.\n\nThat suspension—that one beat where the entire room is suspended in air, waiting for the weight to drop—that's where the magic is. It's tension and release.\n\nJust like when you're talking to someone and you know you're about to fall for them.",
+      "partnerMessage": "Yeah. That's the feeling.\n\nEveryone in the room knows something is coming, but for one second nobody knows exactly when.\n\nI love that moment because it isn't really about volume. It's about trust. You pull everything back and ask the crowd to stay with you.\n\nKind of like talking to someone you actually like and realizing you're getting a little too honest.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Are you falling, Trixie?", "nextId": "falling_flirt_drop", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "That tension is right here between us right now.", "nextId": "tension_here_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Are you falling, Trixie?",
+          "nextId": "falling_flirt_drop",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "That tension is right here between us right now.",
+          "nextId": "tension_here_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "sound_intention_praise",
-      "partnerMessage": "Because sound is invisible, but it can make someone cry, sweat, or hug a stranger in a dark room. You have to handle it with respect, or it just becomes weaponized noise.",
+      "partnerMessage": "Maybe because sound is one of those things people can't really defend against.\n\nYou can make someone dance, calm down, remember somebody, cry, whatever. I think that's a lot of responsibility for something that's invisible.\n\nThat's why I care about the details. If I'm going to take up someone's attention for four hours, I want to give them something back.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "You have an incredible mind, Trixie. Let's move somewhere we can actually listen.", "nextId": "pre_yaps_invite", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You have an incredible mind, Trixie. Let's move somewhere we can actually listen.",
+          "nextId": "pre_yaps_invite",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "lonely_walk_home_tender",
-      "partnerMessage": "...It is. It really is. Everyone at the venue wants to talk to 'Trixie the headliner,' but nobody cares about Trixie carrying a forty-pound flight case down the alleyway in wet sneakers.\n\nHaving someone ask about the walk home... that hits me right in the chest.",
+      "partnerMessage": "Yeah. That's the weird part.\n\nFor four hours I'm surrounded by people. Everybody wants to talk to me. Then the doors close, I'm carrying a flight case down some side street, and suddenly it's just me and the sound of my own shoes.\n\nSometimes I wish one person would just ask whether I got home okay.\n\nSo... thanks for asking.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I'll carry that flight case with you anytime. You don't have to walk home alone.", "nextId": "carry_case_vow", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
-        { "choiceText": "Let me keep you company on this walk right now.", "nextId": "pre_yaps_invite", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I'll carry that flight case with you anytime. You don't have to walk home alone.",
+          "nextId": "carry_case_vow",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "Let me keep you company on this walk right now.",
+          "nextId": "pre_yaps_invite",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "decompress_crew_talk",
-      "partnerMessage": "Most of the club crowd just wants to keep afterpartying until noon. I don't want more noise; I want a quiet kitchen, scrambled eggs, and someone who doesn't yell over a speaker.\n\nMy circle gets smaller every year.",
+      "partnerMessage": "Not really. Most of my friends want to keep the night going after the gig. I usually don't.\n\nWhen I get home, I want the lights low, something to eat, a shower, and somebody I can sit beside without having to be \"Trixie from the booth\" anymore.\n\nMy circle is smaller than people probably think.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
-        { "choiceText": "Is there room in that small circle for someone who makes great scrambled eggs?", "nextId": "scrambled_eggs_flirt", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Is there room in that small circle for someone who makes great scrambled eggs?",
+          "nextId": "scrambled_eggs_flirt",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        },
+        {
+          "choiceText": "What would your ideal morning after a gig actually look like?",
+          "nextId": "morning_after_gig",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "poetic_side_under_bass",
-      "partnerMessage": "Don't tell my resident promoter! I'm supposed to be the untamed bass queen who breaks subwoofers, not a softie who gets emotional over analog tape flutter!",
+      "partnerMessage": "Please don't tell anybody. I have a reputation to maintain.\n\nI'm supposed to be the loud one who talks too fast and breaks things, not the girl getting emotional over an old tape machine.\n\nBut... yeah. I think I am softer than I let people see.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Your secret is completely safe with me. Show me your private tracks.", "nextId": "pre_yaps_invite", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Your secret is completely safe with me. Show me your private tracks.",
+          "nextId": "pre_yaps_invite",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "attention_not_guestlist_tender",
-      "partnerMessage": "You have no idea how rare that is to hear. Usually my DMs are filled with: 'Can you put my three friends on the VIP list tonight?'\n\nYou actually see *me*.\n\nLet's get off this app. The audio compression on here makes my soul itch.",
+      "partnerMessage": "You have no idea how much I appreciate hearing that.\n\nMy messages are usually people asking for free entry, a better slot, a favor, something. It's rare that somebody is actually curious about me when there isn't something they want from the DJ.\n\nI'd like to keep talking to you without all the noise around us.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Take me to your private studio channel.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Take me to your private studio channel.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "roland_holy_grail",
-      "partnerMessage": "Found it at a swap meet in Brooklyn! Cleaned the potentiometers with contact cleaner myself! When you overdrive that analog bass drum through a preamp, it sounds like thunder rolling through a valley.",
+      "partnerMessage": "I found it at a swap meet and spent an entire afternoon cleaning it instead of doing the work I was supposed to do.\n\nThe knobs are chipped, one button is temperamental, and I absolutely love it.\n\nSome old gear just has a sound you can't fully explain until you hear it in a room.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I need to hear that thunder. Send me the link.", "nextId": "pre_yaps_invite", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "I need to hear that thunder. Send me the link.",
+          "nextId": "pre_yaps_invite",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "sleep_with_gear_talk",
-      "partnerMessage": "I put black electrical tape over the brightest LEDs, but my room still looks like the cockpit of a spaceship! I usually sleep with a satin eye mask and earplugs.",
+      "partnerMessage": "I tape over the brightest LEDs. That's about as far as my interior design skills go.\n\nAnd yes, I sleep with an eye mask. Sometimes earplugs too.\n\nMy room basically looks like a tiny spaceship that somebody forgot to turn off.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Spaceship cockpit bedroom. I love everything about this. Send me the room link.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Spaceship cockpit bedroom. I love everything about this. Send me the room link.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "peace_off_speakers_bond",
-      "partnerMessage": "...Hearing you say that makes my throat feel tight in a way I'm not used to. Nobody ever offers to bring me peace; they just ask me to turn up the volume.\n\nI want to talk to you somewhere quiet.",
+      "partnerMessage": "...That's actually really sweet.\n\nPeople are always asking me to make things louder. Nobody really asks what I need when the speakers are off.\n\nI think I'd like a quiet place with you. Somewhere I don't have to be \"on\" all the time.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Lead the way to your private lounge, Trixie.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Lead the way to your private lounge, Trixie.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "sound_as_therapy_praise",
-      "partnerMessage": "It really is therapy. When I see people closing their eyes in the crowd, letting go of their week... that's why I do this. Not for the clout, but for that shared catharsis.",
+      "partnerMessage": "That's pretty much why I keep doing it.\n\nSeeing someone close their eyes during a set, or two strangers start dancing together who didn't come in together... I love that.\n\nI don't really care about the \"cool DJ\" thing as much as people think. I like giving people a few hours where they can forget whatever sucked about their week.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "You have a big heart, Trixie. Let's move to your private studio.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "You have a big heart, Trixie. Let's move to your private studio.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "physics_devotion_comfort",
-      "partnerMessage": "Thank you... My dad would have loved that sentence. He always told me: 'Trix, whether it's gut strings or voltage oscillators, make sure there's breath in it.'\n\nI try to keep that breath in every bar I produce.",
+      "partnerMessage": "He'd probably make fun of how many synths I own, but he'd understand the point.\n\nHe always told me not to obsess over the machine itself. The machine is just how you get the feeling out.\n\nI think about that whenever I'm stuck on a track.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I can hear it. Let's go listen to that unfinished acoustic draft.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I can hear it. Let's go listen to that unfinished acoustic draft.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "hear_vulnerable_draft",
-      "partnerMessage": "I have the uncompressed WAV file uploaded to my private room on OnlyYaps. No crowds, no club feedback—just the raw stem tracks.\n\nCome listen with me.",
+      "partnerMessage": "I've got the WAV in my private room. No crowd noise, no mastering, no pretending it's finished.\n\nIt's just the track the way it actually sounds right now.\n\nI'm a little nervous about you hearing it, which is probably a good sign.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Unlocking your private room right now.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Unlocking your private room right now.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "falling_flirt_drop",
-      "partnerMessage": "...Maybe. Just a little. My BPM is definitely not at resting rate right now.\n\nClick my private link below before I lose my nerve and get flustered!",
+      "partnerMessage": "Maybe a little.\n\nWhich is annoying because I'm usually pretty good at talking myself out of feelings until they're no longer a problem.\n\nAnd now you're sitting there being nice to me and ruining my strategy.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Right behind you, Trixie.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Right behind you, Trixie.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "tension_here_flirt",
-      "partnerMessage": "It is. And it's making my palms sweat against my phone case! \n\nLet's drop the beat on OnlyYaps. Link below, handsome.",
+      "partnerMessage": "Yeah. I know.\n\nAnd I'm trying not to smile at my phone right now because that would be embarrassing.\n\nYou have this annoying way of making me slow down enough to notice what I'm actually feeling.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Connecting to your private feed.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Connecting to your private feed.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "carry_case_vow",
-      "partnerMessage": "...If someone carried my flight case down the alleyway after a gig, I think I would literally melt into a puddle of neon goo. \n\nDon't make promises you can't keep, {PlayerName}!",
+      "partnerMessage": "...Okay, that would absolutely get to me.\n\nAfter a night where everyone is asking something from me, having someone just take one side of the case and walk with me? That's the kind of thing I'd remember.\n\nJust don't make promises you don't mean, okay?",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "I keep every promise. Send the link so we can talk properly.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "I keep every promise. Send the link so we can talk properly.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "scrambled_eggs_flirt",
-      "partnerMessage": "Scrambled eggs with chives and hot black coffee at 6:00 AM while the sun comes up over the fire escapes? \n\nYou just designed my absolute dream date. Hands down.",
+      "partnerMessage": "Wait.\n\nScrambled eggs, chives, black coffee, and sitting somewhere while the city wakes up?\n\nThat's honestly more appealing than most actual dates I've been on. I like that you didn't make it complicated.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
-        { "choiceText": "Then let's make it happen. Step into your private room.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" }
+        {
+          "choiceText": "Then let's make it happen. Step into your private room.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": "TOUCHED_HEART"
+        }
       ]
     },
     {
       "id": "pre_yaps_invite",
-      "partnerMessage": "This dating app's chat window is clipping all my audio links and lagging my interface. \n\nI have my private studio backchannel on OnlyYaps where I stream my raw studio desk audio in uncompressed 24-bit. Link below!",
+      "partnerMessage": "The app chat is fine, but I have a private studio space where I keep the stuff I don't really post publicly.\n\nUnfinished tracks, weird little experiments, recordings from after gigs... the messy stuff.\n\nIf you're actually curious, I'll show you that side of me.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
-        { "choiceText": "Taking the link. Meet me in the studio.", "nextId": "move_to_yaps", "linkUrl": "", "triggerEvent": "" }
+        {
+          "choiceText": "Taking the link. Meet me in the studio.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "Before I go in, tell me one thing your crowd never gets to see.",
+          "nextId": "one_thing_not_online",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
       ]
     },
     {
       "id": "move_to_yaps",
-      "partnerMessage": "Private studio door unlocked!! High-res stems, late-night audio drafts, and zero club chatter.\n\nCome hang out, {PlayerName}. Let's turn the volume down and talk for real.",
+      "partnerMessage": "Private studio's open.\n\nThere are unfinished tracks, late-night recordings, synth nonsense, and probably a pile of cables I still haven't put away.\n\nCome hang out, {PlayerName}. Let's turn the volume down for once and actually talk.",
       "linkUrl": "onlyyaps.fm/trixie_drop",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
+    },
+    {
+      "id": "what_trixie_like_after_gig",
+      "partnerMessage": "Okay, random question.\n\nYou have heard a lot about the DJ version of me tonight.\n\nWhat I am actually wondering is what you think I am like when the gig is over and nobody is watching.\n\nBecause honestly? I am not nearly as exciting as people probably think.\n\nI get home, kick my shoes off, complain about my back, and eat whatever I can find in the fridge.",
+      "choices": [
+        {
+          "choiceText": "That sounds pretty normal. What do you do when you finally get a quiet night?",
+          "nextId": "quiet_night_trixie",
+          "linkUrl": "",
+          "triggerEvent": ""
+        },
+        {
+          "choiceText": "I kind of like that version better already.",
+          "nextId": "ordinary_trixie_branch",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ],
+      "linkUrl": "",
+      "triggerEvent": ""
+    },
+    {
+      "id": "quiet_night_trixie",
+      "partnerMessage": "Usually I make tea and put something quiet on.\n\nSometimes I watch a stupid movie I have already seen three times because I do not have enough brain left for anything serious.\n\nAnd sometimes I sit on the floor with my laptop open and do absolutely nothing.\n\nThat last one is harder than it sounds. I always feel like I should be doing something.",
+      "choices": [
+        {
+          "choiceText": "You do not always have to be productive to deserve a quiet night.",
+          "nextId": "rest_without_guilt",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ],
+      "linkUrl": "",
+      "triggerEvent": ""
+    },
+    {
+      "id": "ordinary_trixie_branch",
+      "partnerMessage": "Good, because there is definitely no glamorous DJ hiding in my apartment at two in the morning.\n\nIt is usually sweatpants, messy hair, cold leftovers, and a cable mess I keep promising to organize.\n\nI think I like that you are interested in the boring details.\n\nThe boring details are usually where you find out whether you actually like someone.",
+      "choices": [
+        {
+          "choiceText": "Then give me the boring details. What makes you laugh when nobody else is around?",
+          "nextId": "small_happy_things",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ],
+      "linkUrl": "",
+      "triggerEvent": ""
+    },
+    {
+      "id": "rest_without_guilt",
+      "partnerMessage": "Yeah. I know that. I just do not always believe it.\n\nThere is always another track to finish, another set to prep, another thing that could sound better if I stayed up another hour.\n\nSometimes I need someone to tell me the night is over.\n\nNot because I cannot handle my life. I just forget I am allowed to stop.",
+      "choices": [
+        {
+          "choiceText": "Then tonight can just be a night. No track, no set, no proving anything.",
+          "nextId": "simple_night_together",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ],
+      "linkUrl": "",
+      "triggerEvent": ""
+    },
+    {
+      "id": "small_happy_things",
+      "partnerMessage": "Okay, this is going to make me sound ridiculous.\n\nI laugh way too hard at bad reality TV. I love greasy diner fries. I get weirdly happy when it rains and I have nowhere to be.\n\nAnd I have one hoodie that is completely falling apart and I refuse to throw it away.\n\nEverybody has little things like that. The things that are not impressive but still make you feel like yourself.",
+      "choices": [
+        {
+          "choiceText": "That hoodie is staying. I am already emotionally invested in it.",
+          "nextId": "hoodie_banter",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ],
+      "linkUrl": "",
+      "triggerEvent": ""
+    },
+    {
+      "id": "hoodie_banter",
+      "partnerMessage": "Thank you. Finally, somebody understands.\n\nThat hoodie has survived three winters, two apartments, and one truly terrible festival job.\n\nAt this point it is basically family.\n\nAnd yes, I know this is probably the least cool thing I have said tonight.",
+      "choices": [
+        {
+          "choiceText": "It is better than pretending you are cool all the time.",
+          "nextId": "no_need_to_be_cool",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ],
+      "linkUrl": "",
+      "triggerEvent": ""
+    },
+    {
+      "id": "no_need_to_be_cool",
+      "partnerMessage": "Yeah.\n\nI think that is what I want more than I realized. Someone I do not have to perform around.\n\nI can be loud, quiet, annoyed, excited, whatever. I do not want to pick one version of myself and keep it there because that was the version somebody liked first.\n\nYou make it feel a little easier to just be all of it.",
+      "choices": [
+        {
+          "choiceText": "Good. You can be all of it with me.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ],
+      "linkUrl": "",
+      "triggerEvent": ""
+    },
+    {
+      "id": "after_gig_routine",
+      "partnerMessage": "Depends how wrecked I am.\n\nIf the set went well, I usually walk for a bit before I get a cab. I need the air.\n\nThen I shower, drink way too much water, stare into the fridge like something new might magically appear, and eventually make toast.\n\nVery glamorous life.",
+      "choices": [
+        {
+          "choiceText": "Honestly, that sounds kind of peaceful.",
+          "nextId": "late_night_kitchen",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ],
+      "linkUrl": "",
+      "triggerEvent": ""
+    },
+    {
+      "id": "late_night_kitchen",
+      "partnerMessage": "It can be. Especially when it rains.\n\nThere is something nice about finally being home while the city is still making noise outside. You are exhausted, but nobody needs anything from you anymore.\n\nThat is usually when I notice I miss having someone around the most.\n\nNot somebody entertaining me. Just somebody else sitting in the kitchen.",
+      "choices": [
+        {
+          "choiceText": "I could sit in the kitchen with you. We would not even have to talk.",
+          "nextId": "quiet_company_real",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ],
+      "linkUrl": "",
+      "triggerEvent": ""
+    },
+    {
+      "id": "quiet_company_real",
+      "partnerMessage": "You keep making simple things sound important.\n\nI like that.\n\nI am not looking for somebody who can keep me entertained every second. I spend enough time doing that for other people.\n\nI think I would rather have someone I can be quiet with and still feel close to.",
+      "choices": [
+        {
+          "choiceText": "Then quiet is enough. I do not need you to perform for me.",
+          "nextId": "simple_night_together",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ],
+      "linkUrl": "",
+      "triggerEvent": ""
+    },
+    {
+      "id": "simple_night_together",
+      "partnerMessage": "Okay.\n\nThen maybe that is what I actually want from this.\n\nNot some huge story about the DJ and the person who swept her off her feet.\n\nJust a really good night with somebody I trust. Food, music low in the background, talking until neither of us knows what time it is.\n\nThat sounds a lot more real to me.",
+      "choices": [
+        {
+          "choiceText": "That sounds real to me too.",
+          "nextId": "pre_yaps_invite",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ],
+      "linkUrl": "",
+      "triggerEvent": ""
+    },
+    {
+      "id": "morning_after_gig",
+      "partnerMessage": "My ideal morning after a gig? No alarm.\n\nCoffee that is probably too strong. Something salty to eat. A shower. Curtains open. Phone on silent.\n\nAnd honestly, I do not want to talk about music for at least an hour.\n\nI spend all night thinking about sound. I like waking up to normal life for a little while.",
+      "choices": [
+        {
+          "choiceText": "I would make the coffee. You can handle breakfast.",
+          "nextId": "coffee_and_breakfast",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ],
+      "linkUrl": "",
+      "triggerEvent": ""
+    },
+    {
+      "id": "coffee_and_breakfast",
+      "partnerMessage": "Deal.\n\nBut I take coffee way too seriously. If you make it weak, I will judge you.\n\nThat is probably the smallest relationship red flag I can give you right now.\n\nI have worse ones.",
+      "choices": [
+        {
+          "choiceText": "Now I am curious about the actual red flags.",
+          "nextId": "real_red_flags_talk",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ],
+      "linkUrl": "",
+      "triggerEvent": ""
+    },
+    {
+      "id": "real_red_flags_talk",
+      "partnerMessage": "People who are rude to servers. People who think being emotionally unavailable is attractive. People who disappear for days and then act like nothing happened.\n\nAnd people who make everything a competition.\n\nI already live in a competitive world. I really do not want my relationship to feel like another scoreboard.",
+      "choices": [
+        {
+          "choiceText": "I do not need to win against the person I am with.",
+          "nextId": "relationship_not_competition",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ],
+      "linkUrl": "",
+      "triggerEvent": ""
+    },
+    {
+      "id": "relationship_not_competition",
+      "partnerMessage": "That actually means a lot to me.\n\nI think I got used to having to prove myself everywhere. I do not want to do that with someone I love.\n\nI want us to be on the same side.\n\nIt sounds obvious, but apparently obvious things still need to be said out loud.",
+      "choices": [
+        {
+          "choiceText": "Then we are on the same side.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ],
+      "linkUrl": "",
+      "triggerEvent": ""
+    },
+    {
+      "id": "one_thing_not_online",
+      "partnerMessage": "One thing my crowd never really sees?\n\nI get nervous before every important set.\n\nNot cute little butterflies. I walk around pretending I am completely fine while checking the same cable three times because I need something practical to focus on.\n\nPeople see the confidence after the music starts. They do not really see the few minutes before it.",
+      "choices": [
+        {
+          "choiceText": "I like knowing that. It makes the confident version feel more human.",
+          "nextId": "confidence_is_human",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ],
+      "linkUrl": "",
+      "triggerEvent": ""
+    },
+    {
+      "id": "confidence_is_human",
+      "partnerMessage": "Yeah.\n\nI do not think I want somebody who only likes the confident version anyway.\n\nAnyone can like you when you are doing what you are good at. The real question is whether they still want to sit next to you when you are tired or unsure of yourself.\n\nThat is the part I care about now.",
+      "choices": [
+        {
+          "choiceText": "I would. Especially then.",
+          "nextId": "move_to_yaps",
+          "linkUrl": "",
+          "triggerEvent": ""
+        }
+      ],
+      "linkUrl": "",
+      "triggerEvent": ""
     }
   ]
 }
