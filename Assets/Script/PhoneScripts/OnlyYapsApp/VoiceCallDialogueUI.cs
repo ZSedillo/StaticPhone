@@ -10,6 +10,10 @@ public class VoiceCallDialogueUI : MonoBehaviour
 
     [Header("Root Canvas/Panel")]
     [SerializeField] private GameObject screenRoot;
+    
+    // NEW: We will drag your normal chat app here so we can hide it during the call!
+    [Header("UI To Hide During Call")]
+    [SerializeField] private GameObject normalChatAppUI; 
 
     [Header("Left Side - Header & Scroll Feed")]
     [SerializeField] private Image imgPartnerAvatar;
@@ -36,7 +40,7 @@ public class VoiceCallDialogueUI : MonoBehaviour
     
     [Header("Typewriter Audio Tweaks")]
     [SerializeField, Range(1, 10)] private int playSoundEveryXLetters = 3; 
-    [SerializeField, Range(0.1f, 1f)] private float typingVolume = 0.4f; // Softer volume so it doesn't hurt ears
+    [SerializeField, Range(0.1f, 1f)] private float typingVolume = 0.4f;
 
     private VoiceCallConversation activeConvo;
     private VoiceCallNode currentNode;
@@ -63,6 +67,9 @@ public class VoiceCallDialogueUI : MonoBehaviour
         activeConvo = LoadConversation(callerName);
         timeoutCounter = 0;
 
+        // NEW: Hide the normal chat app inside the phone!
+        if (normalChatAppUI != null) normalChatAppUI.SetActive(false);
+
         if (screenRoot != null) screenRoot.SetActive(true);
         if (txtPartnerSpeakerName != null) txtPartnerSpeakerName.text = activeConvo.callerName;
         if (imgPartnerAvatar != null && avatar != null) imgPartnerAvatar.sprite = avatar;
@@ -81,7 +88,7 @@ public class VoiceCallDialogueUI : MonoBehaviour
     {
         if (callDialogueAudioSource != null && choiceClickSound != null)
         {
-            callDialogueAudioSource.pitch = 1f; // Ensure pitch is normal for UI clicks
+            callDialogueAudioSource.pitch = 1f; 
             callDialogueAudioSource.PlayOneShot(choiceClickSound);
         }
 
@@ -138,25 +145,20 @@ public class VoiceCallDialogueUI : MonoBehaviour
 
         float delayPerChar = 1f / Mathf.Max(1f, charactersPerSecond);
         string currentText = "";
-        int letterCount = 0; // Tracks letters to space out the sound
+        int letterCount = 0; 
 
         for (int i = 0; i < fullText.Length; i++)
         {
             currentText += fullText[i];
             if (textComp != null) textComp.text = currentText;
 
-            // Only count and play sounds for actual letters, not empty spaces
             if (fullText[i] != ' ')
             {
                 letterCount++;
                 if (letterCount % playSoundEveryXLetters == 0 && callDialogueAudioSource != null && typewriterSounds.Length > 0)
                 {
                     AudioClip randomClip = typewriterSounds[Random.Range(0, typewriterSounds.Length)];
-                    
-                    // Randomize pitch slightly to prevent it from sounding robotic/grating
                     callDialogueAudioSource.pitch = Random.Range(0.92f, 1.08f);
-                    
-                    // Play the clip at the lowered typing volume
                     callDialogueAudioSource.PlayOneShot(randomClip, typingVolume);
                 }
             }
@@ -177,7 +179,6 @@ public class VoiceCallDialogueUI : MonoBehaviour
             yield return new WaitForSeconds(delayPerChar);
         }
 
-        // Reset pitch to normal when typing is completely done
         if (callDialogueAudioSource != null) callDialogueAudioSource.pitch = 1f;
 
         yield return new WaitForSeconds(0.25f);
@@ -336,6 +337,9 @@ public class VoiceCallDialogueUI : MonoBehaviour
         if (typewriterCoroutine != null) StopCoroutine(typewriterCoroutine);
         if (screenRoot != null) screenRoot.SetActive(false);
 
+        // NEW: Turn the normal chat app back on when the call hangs up!
+        if (normalChatAppUI != null) normalChatAppUI.SetActive(true);
+
         if (VoiceCallOverlayController.Instance != null)
         {
             VoiceCallOverlayController.Instance.EndOrRejectCall();
@@ -393,20 +397,6 @@ public class VoiceCallDialogueUI : MonoBehaviour
         }
 
         Debug.LogError($"[VoiceCallDialogueUI] FAILED to load CallDialogues/{cleanName}Call.json!");
-        
-        VoiceCallConversation fallback = new VoiceCallConversation();
-        fallback.callerName = cleanName;
-        fallback.startNodeId = "start";
-        fallback.nodes.Add(new VoiceCallNode
-        {
-            nodeId = "start",
-            partnerDialogue = $"{cleanName}: Hey! You actually picked up. How are you holding up right now?",
-            choices = new List<VoiceCallChoice>
-            {
-                new VoiceCallChoice { choiceText = "Doing good. Glad to hear your voice.", nextNodeId = "chat_good" },
-                new VoiceCallChoice { choiceText = "A bit stressed with everything going on.", nextNodeId = "chat_busy" }
-            }
-        });
-        return fallback;
+        return new VoiceCallConversation();
     }
 }

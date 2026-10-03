@@ -63,14 +63,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.07631423, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: -8842844316680655686, guid: 7855daeabfef46a46829ec2b2d9d5a24, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -184,10 +184,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChoiceOptionButtonUI
   backgroundImage: {fileID: 0}
   buttonText: {fileID: 0}
-  datingBgSprite: {fileID: 0}
+  datingBgSprite: {fileID: -8842844316680655686, guid: 7855daeabfef46a46829ec2b2d9d5a24, type: 3}
   datingBgColor: {r: 1, g: 0.82763755, b: 0, a: 1}
   datingTextColor: {r: 1, g: 1, b: 1, a: 1}
-  onlyYapsBgSprite: {fileID: 0}
+  onlyYapsBgSprite: {fileID: -8842844316680655686, guid: 7855daeabfef46a46829ec2b2d9d5a24, type: 3}
   onlyYapsBgColor: {r: 0.27087635, g: 0.7660377, b: 0.108401455, a: 1}
   onlyYapsTextColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &6003316147387247164

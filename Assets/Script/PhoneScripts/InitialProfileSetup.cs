@@ -17,8 +17,8 @@ public class ProfileDataWrapper
 public class InitialProfileSetup : MonoBehaviour
 {
     [Header("Step-by-Step UI Panels")]
-    [SerializeField] private GameObject[] stepPanels; // Holds the 5 screens
-    [SerializeField] private TextMeshProUGUI summaryTextDisplay; // Shows the final info
+    [SerializeField] private GameObject[] stepPanels;
+    [SerializeField] private TextMeshProUGUI summaryTextDisplay;
 
     [Header("Input References")]
     [SerializeField] private TMP_InputField inputName;
@@ -27,9 +27,10 @@ public class InitialProfileSetup : MonoBehaviour
     [SerializeField] private TMP_InputField inputBio;
     
     [Header("Buttons")]
-    [SerializeField] private Button[] btnNextSteps; // The 'Next' buttons on steps 1-4
-    [SerializeField] private Button btnSignUp;      // Final 'Sign Up' button
-    [SerializeField] private Button btnPass;        // 'Pass' button to restart/cancel
+    [SerializeField] private Button[] btnNextSteps; 
+    [SerializeField] private Button[] btnPrevSteps; 
+    [SerializeField] private Button btnSignUp;      
+    [SerializeField] private Button btnPass;        
 
     [Header("Avatar Settings")]
     [SerializeField] private Image avatarDisplay;
@@ -46,62 +47,110 @@ public class InitialProfileSetup : MonoBehaviour
     private WebCamTexture webcamTexture;
     private bool isUsingWebcamPhoto = false;
     private List<string> allPersonalities = new List<string>();
+    private bool isTransitioning = false;
 
     void Start()
     {
         LoadPersonalitiesFromJson();
 
-        // Hook up all 'Next' buttons
+        // Hook up Next buttons
         foreach (Button btn in btnNextSteps)
         {
             if (btn != null) btn.onClick.AddListener(GoToNextStep);
         }
 
-        // Hook up final buttons
+        // Hook up Return buttons
+        foreach (Button btn in btnPrevSteps)
+        {
+            if (btn != null) btn.onClick.AddListener(GoToPreviousStep);
+        }
+
+        // Hook up Final buttons
         if (btnSignUp != null) btnSignUp.onClick.AddListener(CompleteSetup);
         if (btnPass != null) btnPass.onClick.AddListener(RestartSetup);
-
+        
         // Hook up Avatar buttons
         if (btnPrevAvatar != null) btnPrevAvatar.onClick.AddListener(PreviousAvatar);
         if (btnNextAvatar != null) btnNextAvatar.onClick.AddListener(NextAvatar);
         if (btnTakeSelfie != null) btnTakeSelfie.onClick.AddListener(CaptureWebcamSelfie);
 
         UpdateAvatarDisplay();
-        ShowStep(0); // Always start on the first screen
+        InitializeSteps();
     }
 
     private void GoToNextStep()
     {
-        if (currentStepIndex < stepPanels.Length - 1)
-        {
-            currentStepIndex++;
-            
-            // If we just reached the final step, generate the text summary
-            if (currentStepIndex == stepPanels.Length - 1)
-            {
-                UpdateSummaryScreen();
-            }
+        if (isTransitioning || currentStepIndex >= stepPanels.Length - 1) return;
+        
+        int nextIndex = currentStepIndex + 1;
+        if (nextIndex == stepPanels.Length - 1) UpdateSummaryScreen();
+        
+        StartCoroutine(FadeTransition(currentStepIndex, nextIndex));
+    }
 
-            ShowStep(currentStepIndex);
-        }
+    private void GoToPreviousStep()
+    {
+        if (isTransitioning || currentStepIndex <= 0) return;
+        
+        int prevIndex = currentStepIndex - 1;
+        StartCoroutine(FadeTransition(currentStepIndex, prevIndex));
     }
 
     private void RestartSetup()
     {
-        // "Pass" button sends them back to the start to redo it
-        currentStepIndex = 0;
-        ShowStep(currentStepIndex);
+        if (isTransitioning) return;
+        StartCoroutine(FadeTransition(currentStepIndex, 0));
     }
 
-    private void ShowStep(int stepIndex)
+    // --- SMOOTH FADE ANIMATION ---
+    private IEnumerator FadeTransition(int fromIndex, int toIndex)
     {
-        // Loop through all panels and only turn on the one matching our current step
+        isTransitioning = true;
+        CanvasGroup fromCG = GetOrAddCanvasGroup(stepPanels[fromIndex]);
+        CanvasGroup toCG = GetOrAddCanvasGroup(stepPanels[toIndex]);
+
+        // Fade out current screen quickly
+        float elapsed = 0f;
+        while(elapsed < 0.15f)
+        {
+            elapsed += Time.deltaTime;
+            fromCG.alpha = Mathf.Lerp(1f, 0f, elapsed / 0.15f);
+            yield return null;
+        }
+        stepPanels[fromIndex].SetActive(false);
+
+        // Update index
+        currentStepIndex = toIndex;
+
+        // Fade in new screen
+        stepPanels[toIndex].SetActive(true);
+        elapsed = 0f;
+        while(elapsed < 0.15f)
+        {
+            elapsed += Time.deltaTime;
+            toCG.alpha = Mathf.Lerp(0f, 1f, elapsed / 0.15f);
+            yield return null;
+        }
+        
+        isTransitioning = false;
+    }
+
+    private CanvasGroup GetOrAddCanvasGroup(GameObject obj)
+    {
+        CanvasGroup cg = obj.GetComponent<CanvasGroup>();
+        if (cg == null) cg = obj.AddComponent<CanvasGroup>();
+        return cg;
+    }
+
+    private void InitializeSteps()
+    {
         for (int i = 0; i < stepPanels.Length; i++)
         {
-            if (stepPanels[i] != null)
-            {
-                stepPanels[i].SetActive(i == stepIndex);
-            }
+            if (stepPanels[i] == null) continue;
+            CanvasGroup cg = GetOrAddCanvasGroup(stepPanels[i]);
+            bool isFirst = (i == 0);
+            stepPanels[i].SetActive(isFirst);
+            cg.alpha = isFirst ? 1f : 0f;
         }
     }
 
@@ -119,6 +168,7 @@ public class InitialProfileSetup : MonoBehaviour
                 personalityTxt = allPersonalities[dropdownPersonality.value];
             }
 
+            // Using Unity Rich Text to bold the labels
             summaryTextDisplay.text = $"<b>Username:</b> {nameTxt}\n<b>Age:</b> {ageTxt}\n<b>Personality:</b> {personalityTxt}\n<b>Bio:</b> {bioTxt}";
         }
     }
@@ -135,17 +185,14 @@ public class InitialProfileSetup : MonoBehaviour
                     allPersonalities = new List<string>(data.personalityTypes);
                 }
             }
-            catch (System.Exception e)
-            {
-                Debug.LogWarning("Failed to parse JSON: " + e.Message);
-            }
+            catch (System.Exception e) { Debug.LogWarning("Failed to parse JSON: " + e.Message); }
         }
-
+        
         if (allPersonalities.Count == 0)
         {
             allPersonalities = new List<string> { "Introvert", "Workaholic", "Gamer", "Chaotic", "Overthinker", "Night Owl" };
         }
-
+        
         if (dropdownPersonality != null)
         {
             dropdownPersonality.ClearOptions();
@@ -198,12 +245,10 @@ public class InitialProfileSetup : MonoBehaviour
             Texture2D photoTex = new Texture2D(webcamTexture.width, webcamTexture.height);
             photoTex.SetPixels(webcamTexture.GetPixels());
             photoTex.Apply();
-
             Sprite webcamSprite = Sprite.Create(photoTex, new Rect(0, 0, photoTex.width, photoTex.height), new Vector2(0.5f, 0.5f));
             avatarDisplay.sprite = webcamSprite;
             PlayerProfileController.CurrentAvatarSprite = webcamSprite;
             isUsingWebcamPhoto = true;
-
             webcamTexture.Stop();
         }
     }
@@ -213,23 +258,27 @@ public class InitialProfileSetup : MonoBehaviour
         if (GameManager.Instance != null)
         {
             UserProfileData user = GameManager.Instance.currentUser;
-
+            
             if (inputName != null && !string.IsNullOrEmpty(inputName.text)) 
                 user.playerName = inputName.text.Trim();
-
+                
             if (inputAge != null && int.TryParse(inputAge.text.Trim(), out int parsedAge)) 
-                user.playerAge = parsedAge;
-
+            {
+                // Forces the age to stay between 1 and 99
+                user.playerAge = Mathf.Clamp(parsedAge, 1, 99);
+            }
+            
             if (inputBio != null) 
                 user.playerBio = inputBio.text;
-
+                
             if (dropdownPersonality != null && dropdownPersonality.value < allPersonalities.Count)
                 user.playerPersonality = allPersonalities[dropdownPersonality.value];
-
+                
             user.avatarIndex = currentAvatarIndex;
         }
-
-        gameObject.SetActive(false);
+        
+        // Hides the setup screen so the main game can begin
+        gameObject.SetActive(false); 
     }
 
     void OnDestroy()
