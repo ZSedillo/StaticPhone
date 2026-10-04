@@ -2,12 +2,12 @@
   "girlName": "Masie",
   "age": 22,
   "personality": "Greenhouse Botanist",
-  "bio": "22 • Greenhouse botanist 🌱 Researching subtropical epiphytes by day, taking care of a very old glasshouse by night. I like curious people, quiet places, and anyone who can survive a little dirt on their shoes.",
+  "bio": "22 • Greenhouse botanist  Researching subtropical epiphytes by day, taking care of a very old glasshouse by night. I like curious people, quiet places, and anyone who can survive a little dirt on their shoes.",
   "avatarIndex": 5,
   "nodes": [
     {
       "id": "start",
-      "partnerMessage": "Hey, {PlayerName} 🌱\n\nI just finished closing up one of the greenhouse wings. My nails are full of peat, my hair probably smells like wet pine bark, and honestly... that's pretty normal for me.\n\nSo before we get too far into this—do you actually keep plants at home, or are they basically furniture to you?",
+      "partnerMessage": "Hey, {PlayerName} \n\nI just finished closing up one of the greenhouse wings. My nails are full of peat, my hair probably smells like wet pine bark, and honestly... that's pretty normal for me.\n\nSo before we get too far into this—do you actually keep plants at home, or are they basically furniture to you?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -231,7 +231,7 @@
     },
     {
       "id": "dark_bookshelf_laugh",
-      "partnerMessage": "Three weeks?! 😭 That plant was probably trying to escape through the hallway.\n\nOkay, we're having an intervention for your houseplants. I don't make the rules.",
+      "partnerMessage": "Three weeks?!  That plant was probably trying to escape through the hallway.\n\nOkay, we're having an intervention for your houseplants. I don't make the rules.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -305,7 +305,7 @@
     },
     {
       "id": "sterile_floor_fumble",
-      "partnerMessage": "Then we're probably not a great match, {PlayerName}. 😅\n\nI work with living soil. There will be compost on my boots. I'm not apologizing for that.",
+      "partnerMessage": "Then we're probably not a great match, {PlayerName}. \n\nI work with living soil. There will be compost on my boots. I'm not apologizing for that.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
@@ -345,7 +345,7 @@
     },
     {
       "id": "pulse_slow_flirt",
-      "partnerMessage": "...Okay, you're making me blush. That's embarrassing. 😭\n\nI'm supposed to be the calm science person here, not the one getting flustered over a dating app message.",
+      "partnerMessage": "...Okay, you're making me blush. That's embarrassing. \n\nI'm supposed to be the calm science person here, not the one getting flustered over a dating app message.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -399,7 +399,7 @@
     },
     {
       "id": "apartment_jungle_peek",
-      "partnerMessage": "My apartment has more grow lights than actual lamps. 😭\n\nMy roommate keeps joking that anyone looking through the windows would assume we're running some illegal operation. It's literally just a pile of Philodendrons trying not to die.",
+      "partnerMessage": "My apartment has more grow lights than actual lamps. \n\nMy roommate keeps joking that anyone looking through the windows would assume we're running some illegal operation. It's literally just a pile of Philodendrons trying not to die.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -475,7 +475,7 @@
     },
     {
       "id": "rehab_plan_flirt",
-      "partnerMessage": "First, we move the survivor somewhere with decent morning light. Then we check the roots and repot it properly.\n\nAnd yes, I'm supervising you. I don't trust you near a succulent unsupervised anymore. 😌",
+      "partnerMessage": "First, we move the survivor somewhere with decent morning light. Then we check the roots and repot it properly.\n\nAnd yes, I'm supervising you. I don't trust you near a succulent unsupervised anymore. ",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -638,7 +638,7 @@
     },
     {
       "id": "heart_skip_flirt",
-      "partnerMessage": "You're trouble, {PlayerName}. 😭\n\nI usually have my composure together, and now I'm sitting here rereading your messages like an idiot. Let's talk about plants before I embarrass myself.",
+      "partnerMessage": "You're trouble, {PlayerName}. \n\nI usually have my composure together, and now I'm sitting here rereading your messages like an idiot. Let's talk about plants before I embarrass myself.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -692,7 +692,7 @@
     },
     {
       "id": "grow_op_laugh_bond",
-      "partnerMessage": "We actually had campus security knock once because the purple glow from our apartment windows looked suspicious from across the quad. 😂\n\nHe came in, saw the plants, laughed, and asked if we had a Monstera cutting for his wife.",
+      "partnerMessage": "We actually had campus security knock once because the purple glow from our apartment windows looked suspicious from across the quad. \n\nHe came in, saw the plants, laughed, and asked if we had a Monstera cutting for his wife.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -734,7 +734,7 @@
     },
     {
       "id": "doctrine_pre_yaps",
-      "partnerMessage": "This app is kind of a terrible place for actual conversations. Everything feels like you're supposed to be witty in one sentence and then swipe again.\n\nI keep a quieter little journal on OnlyYaps with my night notes, plant photos, and sketches. It's more my speed.",
+      "partnerMessage": "This app is kind of a terrible place for actual conversations. Everything feels like you're supposed to be witty in one sentence and then swipe again.\n\nI keep a quieter little journal on Line with my night notes, plant photos, and sketches. It's more my speed.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -762,7 +762,7 @@
     },
     {
       "id": "supervision_flirt",
-      "partnerMessage": "Strict supervision, then. If I catch you using a plastic moisture meter before you've even picked up the pot, you're on peat-tray duty. 😌\n\n...I might let you have some tea, though.",
+      "partnerMessage": "Strict supervision, then. If I catch you using a plastic moisture meter before you've even picked up the pot, you're on peat-tray duty. \n\n...I might let you have some tea, though.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -790,7 +790,7 @@
     },
     {
       "id": "bench_for_two_flirt",
-      "partnerMessage": "There's room. The bench gets freezing at night, though.\n\nSo... you'd probably have to sit pretty close if you wanted to stay warm. 😌",
+      "partnerMessage": "There's room. The bench gets freezing at night, though.\n\nSo... you'd probably have to sit pretty close if you wanted to stay warm.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -888,7 +888,7 @@
     },
     {
       "id": "ideal_date_tea_flirt",
-      "partnerMessage": "Tea, rain hitting the glass, warm bread... honestly, that's a pretty good date.\n\nShow up like that one evening and I might even trust you with a greenhouse key. 😌",
+      "partnerMessage": "Tea, rain hitting the glass, warm bread... honestly, that's a pretty good date.\n\nShow up like that one evening and I might even trust you with a greenhouse key. ",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -944,7 +944,7 @@
     },
     {
       "id": "teeth_banter_flirt",
-      "partnerMessage": "Careful. You might actually end up in the carnivorous bog room feeding sundews with tweezers on a Friday night. 😂\n\nLet's see if you're still this confident in my private feed.",
+      "partnerMessage": "Careful. You might actually end up in the carnivorous bog room feeding sundews with tweezers on a Friday night. \n\nLet's see if you're still this confident in my private feed.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -972,7 +972,7 @@
     },
     {
       "id": "bribe_security_laugh",
-      "partnerMessage": "It works every time. Botanists have our own weird little currency. 😂\n\nWe've also been talking on this app for way too long, so come find me in the private feed.",
+      "partnerMessage": "It works every time. Botanists have our own weird little currency. \n\nWe've also been talking on this app for way too long, so come find me in the private feed.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -1000,7 +1000,7 @@
     },
     {
       "id": "substance_over_title_bond",
-      "partnerMessage": "It's honestly nice having someone say that. I don't hear it very often.\n\nCome over to my private room on OnlyYaps. I want to show you something I've been working on.",
+      "partnerMessage": "It's honestly nice having someone say that. I don't hear it very often.\n\nCome over to my private room on Line. I want to show you something I've been working on.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -1028,7 +1028,7 @@
     },
     {
       "id": "share_peace_prompt_yaps",
-      "partnerMessage": "I'd like that. It's getting late, and I usually stop checking this app around now anyway.\n\nI keep my field notes and sketches in a quieter room on OnlyYaps. I'll show you there.",
+      "partnerMessage": "I'd like that. It's getting late, and I usually stop checking this app around now anyway.\n\nI keep my field notes and sketches in a quieter room on Line. I'll show you there.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -1070,7 +1070,7 @@
     },
     {
       "id": "trust_with_cutting_intimate",
-      "partnerMessage": "I think I would. But I'm inspecting your potting technique in person first, so don't get too excited. 😌\n\nCome over to my private feed and we'll plan it.",
+      "partnerMessage": "I think I would. But I'm inspecting your potting technique in person first, so don't get too excited. \n\nCome over to my private feed and we'll plan it.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -1085,7 +1085,7 @@
     {
       "id": "move_to_yaps",
       "partnerMessage": "I just opened my private greenhouse room. Better photos, my actual field notes, sketches, and none of the swipe-app noise.\n\nCome in, {PlayerName}. Stay a while.",
-      "linkUrl": "onlyyaps.garden/masie_green",
+      "linkUrl": "line.garden/masie_green",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
@@ -1111,7 +1111,7 @@
     },
     {
       "id": "honest_day_reply",
-      "partnerMessage": "Good. That's probably more believable anyway. 😭\n\nI'm not exactly glamorous either. Today I spent twenty minutes looking for my pruning shears while they were literally in my hand.",
+      "partnerMessage": "Good. That's probably more believable anyway. \n\nI'm not exactly glamorous either. Today I spent twenty minutes looking for my pruning shears while they were literally in my hand.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -1193,7 +1193,7 @@
     },
     {
       "id": "food_banter_to_plants",
-      "partnerMessage": "Useful information. We can work with food. 😂\n\nI make decent tea, but my actual cooking skills are questionable. I once burnt soup so badly the kitchen smelled like pennies for two days.",
+      "partnerMessage": "Useful information. We can work with food. \n\nI make decent tea, but my actual cooking skills are questionable. I once burnt soup so badly the kitchen smelled like pennies for two days.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [

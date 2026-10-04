@@ -459,7 +459,7 @@
     {
       "id": "oy_styling_triage",
       "partnerMessage": "Fine. Emergency styling session.\n\nFirst rule: stop buying random graphic tees just because they're on sale.\n\nI put together a small moodboard for you. Start there and then we can argue about the rest.",
-      "linkUrl": "onlyyaps.gallery/andiva/lookbook_01",
+      "linkUrl": "line.gallery/andiva/lookbook_01",
       "triggerEvent": "UNLOCK_LOOKBOOK",
       "choices": [
         {
@@ -841,7 +841,7 @@
         {
           "choiceText": "Your cat, Sir Reginald. Introduce us properly.",
           "nextId": "oy_reginald_photo",
-          "linkUrl": "onlyyaps.gallery/andiva/reginald_cat",
+          "linkUrl": "line.gallery/andiva/reginald_cat",
           "triggerEvent": "UNLOCK_LOOKBOOK"
         }
       ]
@@ -1106,7 +1106,7 @@
     {
       "id": "oy_reginald_photo",
       "partnerMessage": "That's Reginald.\n\nHe looks grumpy in that picture, but that's basically his default expression. He's actually pretty sweet once he decides he likes you.",
-      "linkUrl": "onlyyaps.gallery/andiva/reginald_cat",
+      "linkUrl": "line.gallery/andiva/reginald_cat",
       "triggerEvent": "UNLOCK_LOOKBOOK",
       "choices": [
         {
@@ -1120,7 +1120,7 @@
     {
       "id": "oy_velvet_showcase_intro",
       "partnerMessage": "Okay, this is the piece I was talking about.\n\nIt's for Friday's showcase. The velvet took forever to work with, and I've been doing the inside by hand because I wanted the structure to sit exactly right.\n\nThe neckline was the part that nearly killed me. Let me know what you think.",
-      "linkUrl": "onlyyaps.gallery/andiva/emerald_gown_draft",
+      "linkUrl": "line.gallery/andiva/emerald_gown_draft",
       "triggerEvent": "UNLOCK_LOOKBOOK",
       "choices": [
         {

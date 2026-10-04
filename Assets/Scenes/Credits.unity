@@ -962,18 +962,104 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A Game By\nLoneMatchi\n\nLead Developer & Director\nZandro Miguel Sedillo\n\nProgramming
-    & UI Engineering\nZandro Miguel Sedillo\n\nNarrative & Dialogue Design\nZandro
-    Miguel Sedillo\n\nPowered By\nUnity Engine\n\nAudio & Music\n[Insert Artist Name
-    or Website Here]\n\nA Personal Note from the Developer:\nThis game marks my very
-    first public release. Built entirely as a solo project, it was pieced together
-    during the quiet hours after my day job and on the days when inspiration struck
-    me to sit down and just code.\n\nWhat started as a personal challenge has become
-    a massive stepping stone in my journey as a game developer. It was brought to
-    life through late-night sessions, stubborn debugging, and a genuine drive to
-    see my own idea through to the very end.\n\nTo everyone who plays this\u2014thank
-    you for giving my work your time and experiencing something I built completely
-    from scratch.\n"
+  m_text: 'A Game By
+
+    LoneMatchi
+
+    
+
+    Created By
+
+    Zandro Miguel
+    Sedillo
+
+    
+
+    Game Design & Direction
+
+    Zandro Miguel Sedillo
+
+    
+
+    Programming
+    & UI Engineering
+
+    Zandro Miguel Sedillo
+
+    
+
+    Narrative & Dialogue
+    Design
+
+    Zandro Miguel Sedillo
+
+    
+
+    Powered By
+
+    Unity Engine
+
+    
+
+    Audio
+    & Music
+
+    Audio assets sourced from Pixabay
+
+    
+
+    Development Assistance
+
+    This
+    AI-assisted development tools were used during the creation of this game, This
+    includes the use of Google Gemini for programming assistance and ChatGPT for
+    dialogue and writing assistance. All game design decisions, implementation, integration,
+    and final creative direction were handled by me.
+
+    
+
+    
+
+    A Personal
+    Note from the Developer:
+
+    
+
+    This game marks my very first public release.
+
+    
+
+    I
+    built this as a solo project from an idea that started with me simply wanting
+    to make something of my own and see it through to completion. Most of my work
+    happens when I have spare time to invest on this game it was not consistent but
+    I wanted to give my efforts to this game.
+
+    
+
+    This project was also
+    a great opportunity for me to learned. I used AI tools as part of my development
+    process, when I needed help working through programming problems, refining dialogue,
+    or figuring out solutions I wasn''t familiar on how to solve yet. But the ideas,
+    design, direction, decisions, and final result came from me.
+
+    
+
+    There
+    were plenty of moments where things didn''t go as expected, had to be rewritten,
+    or took much longer than expected. Seeing the project finally become something
+    people can actually play makes all of that worth it.
+
+    
+
+    The game is
+    not entirely perfect, but to everyone who plays this thank you so much!
+
+    
+
+    Whether
+    you spend five minutes with the game or see it all the way through, I genuinely
+    appreciate you giving something I made your time.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d747b07771511f49810db9d0652e081, type: 2}
   m_sharedMaterial: {fileID: 963513551435472275, guid: 3d747b07771511f49810db9d0652e081, type: 2}
@@ -1220,8 +1306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CreditsController
   creditsContainer: {fileID: 1184880451}
-  scrollSpeed: 200
-  stopYPosition: 2800
+  scrollSpeed: 50
+  stopYPosition: 3750
   returnPrompt: {fileID: 1504788239}
 --- !u!4 &1830144677
 Transform:

@@ -243,7 +243,7 @@
           "nextNodeId": "c1_watch_not_you"
         },
         {
-          "choiceText": "[Hang Up and Return to OnlyYaps Chat]",
+          "choiceText": "[Hang Up and Return to Chat]",
           "nextNodeId": "END_CALL"
         }
       ]

@@ -89,7 +89,7 @@
     {
       "id": "oy_listen_uncompressed_recordings",
       "partnerMessage": "Yeah. I still have the recording.\n\nIt's straight from the room. No cleanup, no fixing the little noises, nothing like that.\n\nYou can hear the pedal, the keys, even the room itself when the sound starts fading.\n\nI actually like the raw version better sometimes.\n\nHold on... I'll play you the section I was working on before you came in.",
-      "linkUrl": "onlyyaps.studio/seraphine/cadenza_take_04",
+      "linkUrl": "line.studio/seraphine/cadenza_take_04",
       "triggerEvent": "UNLOCK_LOOKBOOK",
       "choices": [
         {
@@ -511,7 +511,7 @@
     {
       "id": "oy_pastries_audition_promise",
       "partnerMessage": "Okay. That's a date.\n\nWarm pastries, cold air, and no arguing about whether my fingering is historically accurate.\n\nI can live with that.\n\nAlthough I reserve the right to talk about music for at least ten minutes.\n\nMaybe twenty.\n\n...All right, I'm done.\n\nCome look at this page. This is the part that's been driving me insane.",
-      "linkUrl": "onlyyaps.studio/seraphine/rach_c_minor_score",
+      "linkUrl": "line.studio/seraphine/rach_c_minor_score",
       "triggerEvent": "UNLOCK_LOOKBOOK",
       "choices": [
         {
@@ -525,7 +525,7 @@
     {
       "id": "oy_piano_belongs_to_you",
       "partnerMessage": "It does.\n\nI think I'm finally starting to believe that.\n\nThis score has so many notes in it that sometimes it feels like the piece owns me instead of the other way around.\n\nLook here.\n\nThis is the section I've been fighting with all week. The left hand has to stretch while the right is moving almost constantly, and Vane marked the entire thing in red.\n\nIt looks less like music and more like homework from hell.",
-      "linkUrl": "onlyyaps.studio/seraphine/rach_c_minor_score",
+      "linkUrl": "line.studio/seraphine/rach_c_minor_score",
       "triggerEvent": "UNLOCK_LOOKBOOK",
       "choices": [
         {
@@ -545,7 +545,7 @@
     {
       "id": "oy_rach_passage_technical",
       "partnerMessage": "The recapitulation.\n\nThis is where everything starts catching up with me.\n\nLook at the pencil marks. That's Vane's handwriting.\n\n\"More weight.\"\n\n\"Again.\"\n\n\"Too careful.\"\n\nThere's something almost cruel about seeing those notes after you've already practiced the same passage for hours.\n\nI know what he wants.\n\nI'm just not sure my hands can give it to him tonight.",
-      "linkUrl": "onlyyaps.studio/seraphine/rach_c_minor_score",
+      "linkUrl": "line.studio/seraphine/rach_c_minor_score",
       "triggerEvent": "UNLOCK_LOOKBOOK",
       "choices": [
         {

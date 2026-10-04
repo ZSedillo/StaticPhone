@@ -89,7 +89,7 @@
     {
       "id": "oy_inspect_macro_feed_intro",
       "partnerMessage": "The macro feed is already calibrated on the bench monitor.\n\nI can zoom in far enough that the balance assembly stops looking like a watch and starts looking like a little machine all by itself.\n\nCome here. Look at this part before I touch anything else:",
-      "linkUrl": "onlyyaps.horology/zephyrine/cal_1884_macro_01",
+      "linkUrl": "line.horology/zephyrine/cal_1884_macro_01",
       "triggerEvent": "UNLOCK_LOOKBOOK",
       "choices": [
         {
@@ -662,7 +662,7 @@
     {
       "id": "oy_here_for_zephyrine_tender",
       "partnerMessage": "...Okay.\n\nThat got me.\n\nI'm sitting back up. Tweezers are in my hand again, but I'm not forcing anything. I'm just taking the next step carefully.\n\nWatch the macro feed with me.",
-      "linkUrl": "onlyyaps.horology/zephyrine/cal_1884_macro_01",
+      "linkUrl": "line.horology/zephyrine/cal_1884_macro_01",
       "triggerEvent": "",
       "choices": [
         {

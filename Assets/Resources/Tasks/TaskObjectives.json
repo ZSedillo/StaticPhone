@@ -15,19 +15,19 @@
     {
       "taskId": "TASK_OPEN_ONLYYAPS",
       "title": "Going Private",
-      "description": "Open OnlyYaps to read your incoming direct messages.",
+      "description": "Open Link to read your incoming direct messages.",
       "isMainStory": true
     },
     {
       "taskId": "TASK_ONLYYAPS_UNLOCK",
       "title": "Off The Grid",
-      "description": "Convince a match to share their private OnlyYaps link.",
+      "description": "Convince a match to share their private Link link.",
       "isMainStory": true
     },
     {
       "taskId": "TASK_FIRST_CALL",
       "title": "On The Line",
-      "description": "Complete your first voice call on OnlyYaps.",
+      "description": "Complete your first voice call on Link.",
       "isMainStory": true
     },
     {
@@ -137,7 +137,7 @@
   {
     "id": "TASK_DAISY_ONLYYAPS",
     "title": "Private Discord Comm",
-    "description": "Convince Daisy to share her private OnlyYaps server link.",
+    "description": "Convince Daisy to share her private Link server link.",
     "isMainStory": true,
     "isCompleted": false,
     "requiredEvent": "UNLOCK_ONLYYAPS"

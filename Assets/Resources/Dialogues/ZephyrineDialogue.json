@@ -587,7 +587,7 @@
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
         {
-          "choiceText": "You won't lose me. Give me the key to your OnlyYaps feed.",
+          "choiceText": "You won't lose me. Give me the key to your Line feed.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": "TOUCHED_HEART"
@@ -625,7 +625,7 @@
     {
       "id": "move_to_yaps",
       "partnerMessage": "I've unlocked the workshop feed.\n\nThere are microscope views, restoration notes, and a few pieces I've never posted publicly.\n\nCome inside, {PlayerName}.\n\nI'll show you the parts of my world that don't fit neatly into a profile.",
-      "linkUrl": "onlyyaps.horology/zephyrine_bench",
+      "linkUrl": "line.horology/zephyrine_bench",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },

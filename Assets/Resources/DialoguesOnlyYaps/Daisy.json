@@ -573,7 +573,7 @@
     {
       "id": "oy_scrim_schedule_intro",
       "partnerMessage": "Okay, here's the setup for tonight. We're playing Ascent, and our A-site defense has been getting picked apart.\n\nTheir entry keeps taking the same angle from catwalk into garden. If we don't close that off, we're giving them the first fight for free.",
-      "linkUrl": "onlyyaps.gg/daisy/ascent_telemetry_decider",
+      "linkUrl": "line.gg/daisy/ascent_telemetry_decider",
       "triggerEvent": "UNLOCK_LOOKBOOK",
       "choices": [
         {

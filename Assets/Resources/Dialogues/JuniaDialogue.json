@@ -103,7 +103,7 @@
     },
     {
       "id": "hipster_cliche_insult",
-      "partnerMessage": "Okay, ow. 😭\n\nLook, I know how it sounds. I just happen to like making things the slow way. You don't have to like it, but calling me a cliché after three messages is a little rough.",
+      "partnerMessage": "Okay, ow.\n\nLook, I know how it sounds. I just happen to like making things the slow way. You don't have to like it, but calling me a cliché after three messages is a little rough.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
@@ -187,7 +187,7 @@
     },
     {
       "id": "laundry_pile_laugh",
-      "partnerMessage": "Honestly, as long as the clean pile and dirty pile have agreed on a border, I respect it. 😂",
+      "partnerMessage": "Honestly, as long as the clean pile and dirty pile have agreed on a border, I respect it. ",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -207,7 +207,7 @@
     },
     {
       "id": "spreadsheet_contrast",
-      "partnerMessage": "A spreadsheet person? That's almost suspicious. 😭\n\nMeanwhile my finances are mostly notes on paper bags and receipts I swear I'll organize later.",
+      "partnerMessage": "A spreadsheet person? That's almost suspicious. \n\nMeanwhile my finances are mostly notes on paper bags and receipts I swear I'll organize later.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -331,7 +331,7 @@
     },
     {
       "id": "ruined_rolls_confession",
-      "partnerMessage": "At least five. Maybe more if we're counting the ones I refuse to admit were my fault. 😂\n\nThe worst was my cousin's graduation. Streetlight leaked into the room and I basically destroyed the whole roll. I sat on the bathroom floor and sulked for an embarrassing amount of time.",
+      "partnerMessage": "At least five. Maybe more if we're counting the ones I refuse to admit were my fault. \n\nThe worst was my cousin's graduation. Streetlight leaked into the room and I basically destroyed the whole roll. I sat on the bathroom floor and sulked for an embarrassing amount of time.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -391,7 +391,7 @@
     },
     {
       "id": "eighty_percent_habit",
-      "partnerMessage": "The 80% graveyard. 😂\n\nYeah, because an unfinished thing can still be perfect in your head. Finishing it means somebody else gets to see the flaws.",
+      "partnerMessage": "The 80% graveyard. \n\nYeah, because an unfinished thing can still be perfect in your head. Finishing it means somebody else gets to see the flaws.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
@@ -411,7 +411,7 @@
     },
     {
       "id": "send_aid_packages",
-      "partnerMessage": "Emergency delivery: laundry detergent, snacks, and one aggressively good Americano. Problem solved. 😭",
+      "partnerMessage": "Emergency delivery: laundry detergent, snacks, and one aggressively good Americano. Problem solved.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -425,7 +425,7 @@
     },
     {
       "id": "spreadsheet_art_defense",
-      "partnerMessage": "Okay, wait. Now I actually want to hear your argument. 😭\n\nI've always looked at spreadsheets and seen tiny prison cells. Convince me they're beautiful.",
+      "partnerMessage": "Okay, wait. Now I actually want to hear your argument. \n\nI've always looked at spreadsheets and seen tiny prison cells. Convince me they're beautiful.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -479,7 +479,7 @@
     },
     {
       "id": "blank_roll_grief",
-      "partnerMessage": "It feels awful. You spend two weeks thinking you saved something, then you hold up a blank strip and realize you saved absolutely nothing. 😭\n\nYou learn humility pretty fast.",
+      "partnerMessage": "It feels awful. You spend two weeks thinking you saved something, then you hold up a blank strip and realize you saved absolutely nothing. \n\nYou learn humility pretty fast.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -521,7 +521,7 @@
     },
     {
       "id": "cousin_forgiveness",
-      "partnerMessage": "She did. I bribed her with three batches of focaccia and offered to take new graduation portraits the next week. 😂\n\nApparently baked goods are more effective than apologies.",
+      "partnerMessage": "She did. I bribed her with three batches of focaccia and offered to take new graduation portraits the next week. \n\nApparently baked goods are more effective than apologies.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -577,7 +577,7 @@
     },
     {
       "id": "twenty_eight_mm_talk",
-      "partnerMessage": "28mm portraits are terrifying. 😂\n\nYou have to get close enough that both of you start thinking about whether this was a bad idea.",
+      "partnerMessage": "28mm portraits are terrifying. \n\nYou have to get close enough that both of you start thinking about whether this was a bad idea.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -625,7 +625,7 @@
     },
     {
       "id": "framing_shot_analogy",
-      "partnerMessage": "Okay, that was annoyingly good. 😂\n\nYou just made an Excel sheet sound poetic. I'm starting to think talking to you is dangerous.",
+      "partnerMessage": "Okay, that was annoyingly good. \n\nYou just made an Excel sheet sound poetic. I'm starting to think talking to you is dangerous.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -707,7 +707,7 @@
     },
     {
       "id": "craft_mastery_banter",
-      "partnerMessage": "Knitting. One scarf. One terrible scarf. 😂\n\nIt somehow became a lopsided trapezoid with holes in it. My grandmother would still call it 'character.'",
+      "partnerMessage": "Knitting. One scarf. One terrible scarf. \n\nIt somehow became a lopsided trapezoid with holes in it. My grandmother would still call it 'character.'",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -749,7 +749,7 @@
     },
     {
       "id": "irresistible_flirt",
-      "partnerMessage": "Okay, stop. 😂\n\nI'm trying to look cool over here and you're making it impossible.",
+      "partnerMessage": "Okay, stop. \n\nI'm trying to look cool over here and you're making it impossible.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -805,12 +805,12 @@
     },
     {
       "id": "inspires_me_flirt",
-      "partnerMessage": "Okay. I genuinely have no cool response to that. 😂\n\nI'm just sitting here staring at the keyboard smiling like an idiot.",
+      "partnerMessage": "Okay. I genuinely have no cool response to that. \n\nI'm just sitting here staring at the keyboard smiling like an idiot.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
         {
-          "choiceText": "Let me keep seeing you. Move this to OnlyYaps.",
+          "choiceText": "Let me keep seeing you. Move this to Line.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": ""
@@ -838,7 +838,7 @@
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
         {
-          "choiceText": "Memorized. Lavender, chamomile, raw honey. Link me to your OnlyYaps.",
+          "choiceText": "Memorized. Lavender, chamomile, raw honey. Link me to your Line.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": "TOUCHED_HEART"
@@ -866,7 +866,7 @@
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
         {
-          "choiceText": "Warmest place on earth. Come on, open the OnlyYaps door.",
+          "choiceText": "Warmest place on earth. Come on, open the Line door.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": "TOUCHED_HEART"
@@ -875,7 +875,7 @@
     },
     {
       "id": "wear_trapezoid_scarf",
-      "partnerMessage": "😂 Deal. First date rule: you have to wear the ridiculous scarf and defend it like it's high fashion.",
+      "partnerMessage": " Deal. First date rule: you have to wear the ridiculous scarf and defend it like it's high fashion.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -917,12 +917,12 @@
     },
     {
       "id": "blushing_suits_you",
-      "partnerMessage": "You're trouble. 😂\n\nI didn't expect to meet someone tonight who could actually make me blush through a screen.",
+      "partnerMessage": "You're trouble. \n\nI didn't expect to meet someone tonight who could actually make me blush through a screen.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
         {
-          "choiceText": "Let me prove it on OnlyYaps. Drop the link.",
+          "choiceText": "Let me prove it on Line. Drop the link.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": "TOUCHED_HEART"
@@ -931,7 +931,7 @@
     },
     {
       "id": "salary_espresso_deal",
-      "partnerMessage": "Hired. 😂\n\nBenefits include unlimited espresso and me pretending I don't notice when you steal the good beans.",
+      "partnerMessage": "Hired. \n\nBenefits include unlimited espresso and me pretending I don't notice when you steal the good beans.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -945,12 +945,12 @@
     },
     {
       "id": "eight_hours_tender",
-      "partnerMessage": "Eight hours? You say that now. 😂\n\nBut honestly... I like the idea of spending an entire quiet afternoon making something together.",
+      "partnerMessage": "Eight hours? You say that now. \n\nBut honestly... I like the idea of spending an entire quiet afternoon making something together.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
         {
-          "choiceText": "I never take back promises. Lead the way to OnlyYaps.",
+          "choiceText": "I never take back promises. Lead the way to Line.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": "TOUCHED_HEART"
@@ -973,12 +973,12 @@
     },
     {
       "id": "heart_beating_fast_flirt",
-      "partnerMessage": "Great. So now neither of us can be trusted around an exposure timer. 😂",
+      "partnerMessage": "Great. So now neither of us can be trusted around an exposure timer. ",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
         {
-          "choiceText": "Dramatic prints are the best kind. Send me your OnlyYaps room.",
+          "choiceText": "Dramatic prints are the best kind. Send me your Line room.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": "TOUCHED_HEART"
@@ -1033,7 +1033,7 @@
     },
     {
       "id": "permission_to_breathe",
-      "partnerMessage": "Okay, rude. You noticed. 😂\n\nI don't stop very well. When I do, my brain starts listing everything I should be doing, so I keep the roaster going or pick up a camera and tell myself I'm being productive.",
+      "partnerMessage": "Okay, rude. You noticed. \n\nI don't stop very well. When I do, my brain starts listing everything I should be doing, so I keep the roaster going or pick up a camera and tell myself I'm being productive.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -1053,7 +1053,7 @@
     },
     {
       "id": "worst_critics_bond",
-      "partnerMessage": "I roasted a batch yesterday that I actually loved. Then this morning I tasted it again and spent twenty minutes convincing myself the finish was wrong. 😭\n\nIt's exhausting being your own quality-control department.",
+      "partnerMessage": "I roasted a batch yesterday that I actually loved. Then this morning I tasted it again and spent twenty minutes convincing myself the finish was wrong. \n\nIt's exhausting being your own quality-control department.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
@@ -1101,7 +1101,7 @@
     },
     {
       "id": "business_criticism_fumble",
-      "partnerMessage": "Okay... you might want to back up a little. 😂\n\nThe roastery is doing fine. I'm allowed to run a slightly messy business and still know what I'm doing.",
+      "partnerMessage": "Okay... you might want to back up a little. \n\nThe roastery is doing fine. I'm allowed to run a slightly messy business and still know what I'm doing.",
       "linkUrl": "",
       "triggerEvent": "GHOST_SEQUENCE_START",
       "choices": [
@@ -1134,7 +1134,7 @@
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
         {
-          "choiceText": "Don't check it now either. Come talk to me in OnlyYaps.",
+          "choiceText": "Don't check it now either. Come talk to me in Line.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": "TOUCHED_HEART"
@@ -1199,7 +1199,7 @@
     },
     {
       "id": "unrehearsed_connection",
-      "partnerMessage": "Exactly. Half the app feels like job interviews with better profile pictures. 😂\n\nTalking to you doesn't feel like that. It feels like I'm actually getting to know somebody.",
+      "partnerMessage": "Exactly. Half the app feels like job interviews with better profile pictures. \n\nTalking to you doesn't feel like that. It feels like I'm actually getting to know somebody.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -1227,12 +1227,12 @@
     },
     {
       "id": "heat_attention_flirt",
-      "partnerMessage": "Okay, that was smooth. 😂\n\nI can't decide whether that was a genuinely thoughtful line or a very well-disguised flirt, but I'm smiling either way.",
+      "partnerMessage": "Okay, that was smooth. \n\nI can't decide whether that was a genuinely thoughtful line or a very well-disguised flirt, but I'm smiling either way.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
         {
-          "choiceText": "Making you smile is my primary objective tonight. Move this to OnlyYaps.",
+          "choiceText": "Making you smile is my primary objective tonight. Move this to Line.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": "TOUCHED_HEART"
@@ -1255,7 +1255,7 @@
     },
     {
       "id": "tastes_like_something_quote",
-      "partnerMessage": "Okay, I'm writing that down. Seriously. 😂\n\nI spend too much time worrying that I'm behind everybody else, so hearing that hit harder than you probably intended.",
+      "partnerMessage": "Okay, I'm writing that down. Seriously. \n\nI spend too much time worrying that I'm behind everybody else, so hearing that hit harder than you probably intended.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -1274,7 +1274,7 @@
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
         {
-          "choiceText": "The luxury is yours. Come share it with me on OnlyYaps.",
+          "choiceText": "The luxury is yours. Come share it with me on Line.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": "TOUCHED_HEART"
@@ -1283,7 +1283,7 @@
     },
     {
       "id": "brew_me_a_cup_pitch",
-      "partnerMessage": "Okay, ground rules if you ever come by: first sip black. No sugar. No milk. Give it a minute before you judge it. 😂\n\nAnd yes, I will absolutely watch your face while you taste it.",
+      "partnerMessage": "Okay, ground rules if you ever come by: first sip black. No sugar. No milk. Give it a minute before you judge it. \n\nAnd yes, I will absolutely watch your face while you taste it.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -1311,7 +1311,7 @@
     },
     {
       "id": "poet_disguised_flirt",
-      "partnerMessage": "A poet with coffee chaff stuck to her shoes, maybe. 😂\n\nNow let me finish folding these filters before you make me embarrass myself.",
+      "partnerMessage": "A poet with coffee chaff stuck to her shoes, maybe. \n\nNow let me finish folding these filters before you make me embarrass myself.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -1344,7 +1344,7 @@
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
         {
-          "choiceText": "Show me a photo of that darkroom wall. Move this to OnlyYaps.",
+          "choiceText": "Show me a photo of that darkroom wall. Move this to Line.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": "TOUCHED_HEART"
@@ -1388,7 +1388,7 @@
     },
     {
       "id": "late_night_roastery",
-      "partnerMessage": "It's almost 1 AM and I'm still here, by the way. 😂\n\nThe machines are finally quiet. It's just the fridge humming and me trying not to burn the last batch of beans.",
+      "partnerMessage": "It's almost 1 AM and I'm still here, by the way. \n\nThe machines are finally quiet. It's just the fridge humming and me trying not to burn the last batch of beans.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
@@ -1436,7 +1436,7 @@
     },
     {
       "id": "sleepy_roaster_banter",
-      "partnerMessage": "I know. 😂\n\nTell that to the version of me that decided one more batch was a good idea and then somehow started cleaning the grinder at midnight.",
+      "partnerMessage": "I know. \n\nTell that to the version of me that decided one more batch was a good idea and then somehow started cleaning the grinder at midnight.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -1479,7 +1479,7 @@
     {
       "id": "move_to_yaps",
       "partnerMessage": "Okay... I think I'm ready to get off this app with you.\n\nCome into my private roastery and archive room. I'll show you the prints I don't usually share, and you can tell me whether my coffee is actually as good as I claim. ☕🎞️",
-      "linkUrl": "onlyyaps.roast/junia_darkroom",
+      "linkUrl": "line.roast/junia_darkroom",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     }

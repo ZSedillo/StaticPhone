@@ -36,7 +36,7 @@
     },
     {
       "id": "oy_text_relief",
-      "partnerMessage": "Thank you. I actually like that.\n\nOn apps, people treat texting like a waiting room before the 'real' conversation. I don't mind typing. Sometimes I write a sentence, stare at it, delete half of it, and send the boring version anyway. 😂\n\nIt feels more honest somehow.",
+      "partnerMessage": "Thank you. I actually like that.\n\nOn apps, people treat texting like a waiting room before the 'real' conversation. I don't mind typing. Sometimes I write a sentence, stare at it, delete half of it, and send the boring version anyway. \n\nIt feels more honest somehow.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -100,7 +100,7 @@
     },
     {
       "id": "oy_fridge_hazard_banter",
-      "partnerMessage": "They're both labeled. Very clearly. 😂\n\nI'm a little chaotic, not completely reckless. Although there was one morning where I grabbed the wrong jar and nearly used darkroom rinse water on a starter. Caught myself before I committed the crime.",
+      "partnerMessage": "They're both labeled. Very clearly. \n\nI'm a little chaotic, not completely reckless. Although there was one morning where I grabbed the wrong jar and nearly used darkroom rinse water on a starter. Caught myself before I committed the crime.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -134,7 +134,7 @@
     },
     {
       "id": "oy_crisper_film_banter",
-      "partnerMessage": "Look, vegetables have an expiration date. Good film sometimes just gets character. That's my story and I'm sticking to it. 😭\n\nThe older stock can get this soft, hazy look that I really like for portraits. It's unpredictable, but sometimes that works in your favor.",
+      "partnerMessage": "Look, vegetables have an expiration date. Good film sometimes just gets character. That's my story and I'm sticking to it. \n\nThe older stock can get this soft, hazy look that I really like for portraits. It's unpredictable, but sometimes that works in your favor.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -200,7 +200,7 @@
     },
     {
       "id": "oy_self_portrait_question",
-      "partnerMessage": "Almost never. 😂\n\nI know what to do when I'm behind the camera. In front of it, suddenly my hands don't belong to me and I forget how faces work.\n\nI'd rather be the person noticing everyone else.",
+      "partnerMessage": "Almost never. \n\nI know what to do when I'm behind the camera. In front of it, suddenly my hands don't belong to me and I forget how faces work.\n\nI'd rather be the person noticing everyone else.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
@@ -302,7 +302,7 @@
     },
     {
       "id": "oy_blisters_earned_comfort",
-      "partnerMessage": "My older brother still calls the shop my 'vanity project.' 😂\n\nHe means well, I think. He just measures success very differently from me.\n\nSometimes that gets under my skin more than I want to admit.",
+      "partnerMessage": "My older brother still calls the shop my 'vanity project.' \n\nHe means well, I think. He just measures success very differently from me.\n\nSometimes that gets under my skin more than I want to admit.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
@@ -322,7 +322,7 @@
     },
     {
       "id": "oy_brother_contrast_praise",
-      "partnerMessage": "I'm absolutely putting 'spreadsheets vs. flavor' on the shop whiteboard now. 😂\n\nHe'd hate it.\n\nOkay, that actually made me feel better. Let's get this batch going.",
+      "partnerMessage": "I'm absolutely putting 'spreadsheets vs. flavor' on the shop whiteboard now. \n\nHe'd hate it.\n\nOkay, that actually made me feel better. Let's get this batch going.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -438,7 +438,7 @@
     },
     {
       "id": "oy_admire_spine_bond",
-      "partnerMessage": "People usually call me stubborn before they call me determined. 😂\n\nMaybe both are true.\n\nBut hearing you call it persistence instead of a personality flaw is... nice.",
+      "partnerMessage": "People usually call me stubborn before they call me determined. \n\nMaybe both are true.\n\nBut hearing you call it persistence instead of a personality flaw is... nice.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -538,7 +538,7 @@
     },
     {
       "id": "oy_fear_sharp_pragmatic",
-      "partnerMessage": "True. A little fear keeps me from getting lazy.\n\nOkay, enough emotional damage. 😂 Let's talk coffee before I start overthinking that too.",
+      "partnerMessage": "True. A little fear keeps me from getting lazy.\n\nOkay, enough emotional damage. Let's talk coffee before I start overthinking that too.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -700,7 +700,7 @@
     {
       "id": "oy_beans_intro",
       "partnerMessage": "Tonight's Ethiopian Yirgacheffe from Gedeb.\n\nI'm aiming for a lighter roast because I want the fruit to stay noticeable instead of turning everything into generic 'coffee flavor.' Here's the curve before I charge the drum.",
-      "linkUrl": "onlyyaps.roast/batch_402_curves",
+      "linkUrl": "line.roast/batch_402_curves",
       "triggerEvent": "UNLOCK_COFFEE_PROFILE",
       "choices": [
         {
@@ -751,7 +751,7 @@
     },
     {
       "id": "oy_drum_speed_nerd",
-      "partnerMessage": "Mostly trial and error. I kept changing the speed until the beans moved evenly without sitting in one hot spot.\n\nYou're either a coffee nerd or you're doing a really convincing impression of one. 😂",
+      "partnerMessage": "Mostly trial and error. I kept changing the speed until the beans moved evenly without sitting in one hot spot.\n\nYou're either a coffee nerd or you're doing a really convincing impression of one. ",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -771,7 +771,7 @@
     },
     {
       "id": "oy_falling_hard_flirt",
-      "partnerMessage": "Well... that's distracting. 😂\n\nI'm trying to watch a roast curve and now I'm sitting here smiling at my phone.\n\nGive me a second to pretend I still have professional composure.",
+      "partnerMessage": "Well... that's distracting. \n\nI'm trying to watch a roast curve and now I'm sitting here smiling at my phone.\n\nGive me a second to pretend I still have professional composure.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -811,7 +811,7 @@
     },
     {
       "id": "oy_trier_pull_color",
-      "partnerMessage": "*metal scraping against the sample tray*\n\nColor looks even. Chaff is clearing.\n\nAnd... drop.\n\nThere it goes. The cooling tray is loud as hell for about ten seconds. 😂",
+      "partnerMessage": "*metal scraping against the sample tray*\n\nColor looks even. Chaff is clearing.\n\nAnd... drop.\n\nThere it goes. The cooling tray is loud as hell for about ten seconds. ",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -871,7 +871,7 @@
     },
     {
       "id": "oy_drink_water_care",
-      "partnerMessage": "Drinking water. Happy? 😂\n\nHonestly, I needed that.\n\nYou're annoyingly good at noticing when I forget basic things.",
+      "partnerMessage": "Drinking water. Happy? \n\nHonestly, I needed that.\n\nYou're annoyingly good at noticing when I forget basic things.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -885,7 +885,7 @@
     },
     {
       "id": "oy_what_uncle_would_say",
-      "partnerMessage": "He'd probably taste it first and pretend not to be impressed.\n\nThen he'd find one tiny thing to complain about so I didn't get too proud of myself. 😂\n\nAfter that he'd ask why I was smiling at my phone this late.",
+      "partnerMessage": "He'd probably taste it first and pretend not to be impressed.\n\nThen he'd find one tiny thing to complain about so I didn't get too proud of myself. \n\nAfter that he'd ask why I was smiling at my phone this late.",
       "linkUrl": "",
       "triggerEvent": "DEEP_TALK",
       "choices": [
@@ -1049,7 +1049,7 @@
     },
     {
       "id": "oy_darkroom_companion_bond",
-      "partnerMessage": "Door's taped. Red light is on.\n\nThe room smells like fixer and wet cardboard. Very glamorous. 😂\n\nI put my phone next to the enlarger so I can see your messages while I work.",
+      "partnerMessage": "Door's taped. Red light is on.\n\nThe room smells like fixer and wet cardboard. Very glamorous. \n\nI put my phone next to the enlarger so I can see your messages while I work.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -1256,7 +1256,7 @@
     },
     {
       "id": "oy_photoflo_technical",
-      "partnerMessage": "Ran out of Photo-Flo. Used a bad substitute. The roll came out with streaks everywhere. 😭\n\nI knew better. I was just trying to save ten dollars and paid for it with two hours of work.\n\nPlease tell me you don't think I'm a genius after that.",
+      "partnerMessage": "Ran out of Photo-Flo. Used a bad substitute. The roll came out with streaks everywhere. \n\nI knew better. I was just trying to save ten dollars and paid for it with two hours of work.\n\nPlease tell me you don't think I'm a genius after that.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -1332,7 +1332,7 @@
     },
     {
       "id": "oy_window_seat_flirt",
-      "partnerMessage": "You can. But I'm warning you now, the stool is terrible and I refuse to buy a prettier one just for a date. 😂\n\nWe'd probably just sit there and judge people walking past.",
+      "partnerMessage": "You can. But I'm warning you now, the stool is terrible and I refuse to buy a prettier one just for a date. \n\nWe'd probably just sit there and judge people walking past.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -1346,7 +1346,7 @@
     },
     {
       "id": "oy_ten_minutes_rule",
-      "partnerMessage": "Ten minutes on a good night. I'm working on it. 😂\n\nSometimes I get five. Sometimes I get distracted cleaning something that wasn't even dirty.",
+      "partnerMessage": "Ten minutes on a good night. I'm working on it. \n\nSometimes I get five. Sometimes I get distracted cleaning something that wasn't even dirty.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -1389,7 +1389,7 @@
     {
       "id": "oy_move_to_yaps_final",
       "partnerMessage": "Come on, then.\n\nPrivate room, coffee still warm, film hanging to dry, and no pressure to perform.\n\nI think that's a pretty good place to leave the app behind. ☕🎞️",
-      "linkUrl": "onlyyaps.roast/junia_darkroom",
+      "linkUrl": "line.roast/junia_darkroom",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
@@ -1409,7 +1409,7 @@
     },
     {
       "id": "oy_archive_wall_flirt",
-      "partnerMessage": "You say that now. Give it five minutes and you'll realize there are three layers of paper covering the same shelf. 😂\n\nStill... I'd like showing it to you.",
+      "partnerMessage": "You say that now. Give it five minutes and you'll realize there are three layers of paper covering the same shelf. \n\nStill... I'd like showing it to you.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -1443,7 +1443,7 @@
     },
     {
       "id": "oy_tasting_flirt",
-      "partnerMessage": "I like that answer.\n\nOkay. One cup, no sugar first. Then you can complain to me afterward if I'm wrong. 😂",
+      "partnerMessage": "I like that answer.\n\nOkay. One cup, no sugar first. Then you can complain to me afterward if I'm wrong. ",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [

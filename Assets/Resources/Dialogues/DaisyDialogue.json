@@ -7,7 +7,7 @@
   "nodes": [
     {
       "id": "start",
-      "partnerMessage": "Okay, quick question before we get anywhere. What's your main game? And don't lie to me, I can usually tell. 😭",
+      "partnerMessage": "Okay, quick question before we get anywhere. What's your main game? And don't lie to me, I can usually tell.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -71,7 +71,7 @@
     },
     {
       "id": "cozy_root",
-      "partnerMessage": "Wait, you actually build dirt houses? 😭 That's kinda cute, but I'm definitely going to judge your survival skills.",
+      "partnerMessage": "Wait, you actually build dirt houses? That's kinda cute, but I'm definitely going to judge your survival skills.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -97,7 +97,7 @@
     },
     {
       "id": "bully_opener",
-      "partnerMessage": "Wow, coming in with that attitude already? You know you're on a dating app, right? 😭",
+      "partnerMessage": "Wow, coming in with that attitude already? You know you're on a dating app, right?",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
@@ -189,7 +189,7 @@
     },
     {
       "id": "sniper_crutch",
-      "partnerMessage": "Oh no 😭 You're the sniper guy? What happens when you miss the first shot—do you panic and pull out your pistol?",
+      "partnerMessage": "Oh no You're the sniper guy? What happens when you miss the first shot—do you panic and pull out your pistol?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -209,7 +209,7 @@
     },
     {
       "id": "spray_panic",
-      "partnerMessage": "You just run onto site and spray? 😭 Please don't do that in my lobby. I like living.",
+      "partnerMessage": "You just run onto site and spray? Please don't do that in my lobby. I like living.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
@@ -275,7 +275,7 @@
     },
     {
       "id": "smell_insult",
-      "partnerMessage": "Excuse me 😭 My room smells fine. My keyboard, on the other hand, is probably worth more than it should be.",
+      "partnerMessage": "Excuse me My room smells fine. My keyboard, on the other hand, is probably worth more than it should be.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
@@ -355,7 +355,7 @@
     },
     {
       "id": "touch_grass_roast",
-      "partnerMessage": "I promise you I'd survive outside 😭 I just happen to like ranked more than I like mowing lawns.",
+      "partnerMessage": "I promise you I'd survive outside I just happen to like ranked more than I like mowing lawns.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
@@ -421,7 +421,7 @@
     },
     {
       "id": "hitreg_mock",
-      "partnerMessage": "My headshot percentage is 38.4%, actually. So... maybe don't challenge me too hard yet. 😭",
+      "partnerMessage": "My headshot percentage is 38.4%, actually. So... maybe don't challenge me too hard yet.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
@@ -481,7 +481,7 @@
     },
     {
       "id": "crutch_flame",
-      "partnerMessage": "A crutch? Maybe. But I can still spray transfer when it matters. You'd have to see it before you judge me. 😌",
+      "partnerMessage": "A crutch? Maybe. But I can still spray transfer when it matters. You'd have to see it before you judge me.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
@@ -509,7 +509,7 @@
     },
     {
       "id": "panic_laugh",
-      "partnerMessage": "Okay, at least you're honest 😂. Nothing's funnier than someone panic-jumping because they know they're about to get deleted.",
+      "partnerMessage": "Okay, at least you're honest. Nothing's funnier than someone panic-jumping because they know they're about to get deleted.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -537,7 +537,7 @@
     },
     {
       "id": "fortress_dare",
-      "partnerMessage": "Deal. I'll build you something ridiculous and you're in charge of not touching my storage room. 😭",
+      "partnerMessage": "Deal. I'll build you something ridiculous and you're in charge of not touching my storage room.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -585,7 +585,7 @@
     },
     {
       "id": "carry_bet",
-      "partnerMessage": "You carrying me? That's ambitious. 😭 But now I kind of want to see you try.",
+      "partnerMessage": "You carrying me? That's ambitious. But now I kind of want to see you try.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -613,7 +613,7 @@
     },
     {
       "id": "keyboard_snob_bully",
-      "partnerMessage": "Okay, you're allowed to roast my keyboard, but I'm not taking a whole speech about how yours is superior. 😭",
+      "partnerMessage": "Okay, you're allowed to roast my keyboard, but I'm not taking a whole speech about how yours is superior.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
@@ -715,7 +715,7 @@
     },
     {
       "id": "dash_bait_joke",
-      "partnerMessage": "Okay, I swear I don't. 😭 There was one time on Bind where my mouse cable caught on my bottle and it ruined the whole play. I'm never living that down.",
+      "partnerMessage": "Okay, I swear I don't. There was one time on Bind where my mouse cable caught on my bottle and it ruined the whole play. I'm never living that down.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -729,7 +729,7 @@
     },
     {
       "id": "carpal_tunnel_flame",
-      "partnerMessage": "I actually stretch pretty regularly, so I'm trying to be smart about it. You can make fun of my gaming habits without wishing me an injury, though. 😭",
+      "partnerMessage": "I actually stretch pretty regularly, so I'm trying to be smart about it. You can make fun of my gaming habits without wishing me an injury, though. ",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
@@ -771,7 +771,7 @@
     },
     {
       "id": "grudge_banter",
-      "partnerMessage": "Okay, maybe I remember people I don't like a little too well. 😭 But the IP thing is a joke. I'm competitive, not insane.",
+      "partnerMessage": "Okay, maybe I remember people I don't like a little too well. But the IP thing is a joke. I'm competitive, not insane.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -811,7 +811,7 @@
     },
     {
       "id": "no_social_life_jab",
-      "partnerMessage": "I mean, I do have friends 😭. It's just that my schedule is pretty packed. School and competition take up most of my week, so I have to actually plan my free time.",
+      "partnerMessage": "I mean, I do have friends. It's just that my schedule is pretty packed. School and competition take up most of my week, so I have to actually plan my free time.",
       "linkUrl": "",
       "triggerEvent": "FUMBLE_CONVERSATION",
       "choices": [
@@ -859,12 +859,12 @@
     },
     {
       "id": "cracked_respect",
-      "partnerMessage": "See? That's better. 😭 I'll get you there eventually, but you're buying the drinks after I carry you through the first few games.",
+      "partnerMessage": "See? That's better. I'll get you there eventually, but you're buying the drinks after I carry you through the first few games.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
         {
-          "choiceText": "I'm sticking right beside you. Give me your OnlyYaps.",
+          "choiceText": "I'm sticking right beside you. Give me your Line.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": ""
@@ -901,7 +901,7 @@
     },
     {
       "id": "passion_attractive",
-      "partnerMessage": "Careful, you're making me like you. 😭 I might actually let you watch one of our matches from the private stream.",
+      "partnerMessage": "Careful, you're making me like you. I might actually let you watch one of our matches from the private stream.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -915,7 +915,7 @@
     },
     {
       "id": "obsessive_joke",
-      "partnerMessage": "Okay, when you put it that way, I sound a little insane. 😭 I just like knowing what changed before I queue.",
+      "partnerMessage": "Okay, when you put it that way, I sound a little insane. I just like knowing what changed before I queue.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -948,7 +948,7 @@
       "triggerEvent": "",
       "choices": [
         {
-          "choiceText": "I'm here to bring the fun back. Come join me on OnlyYaps.",
+          "choiceText": "I'm here to bring the fun back. Come join me on Line.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": "TOUCHED_HEART"
@@ -957,7 +957,7 @@
     },
     {
       "id": "pagoda_sunset",
-      "partnerMessage": "Okay... a sunset balcony actually sounds really nice. Especially if you promise not to mess with my storage chests. 😭",
+      "partnerMessage": "Okay... a sunset balcony actually sounds really nice. Especially if you promise not to mess with my storage chests.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -971,7 +971,7 @@
     },
     {
       "id": "steal_diamonds",
-      "partnerMessage": "Touch my diamond chest and we're going to have problems. 😭 I'm not joking about my storage room.",
+      "partnerMessage": "Touch my diamond chest and we're going to have problems. I'm not joking about my storage room.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -985,7 +985,7 @@
     },
     {
       "id": "mad_genius",
-      "partnerMessage": "Okay, maybe my friends had a point. 😭 But if you think it's genius, I'll take the compliment.",
+      "partnerMessage": "Okay, maybe my friends had a point. But if you think it's genius, I'll take the compliment.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -999,7 +999,7 @@
     },
     {
       "id": "drill_two",
-      "partnerMessage": "Second lesson is comms. Just say what you actually know. Don't yell 'one HP' when the guy still has full health. 😭",
+      "partnerMessage": "Second lesson is comms. Just say what you actually know. Don't yell 'one HP' when the guy still has full health.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -1014,13 +1014,13 @@
     {
       "id": "server_duel",
       "partnerMessage": "I'm warming up right now anyway. Come join me and let's see how brave you actually are.",
-      "linkUrl": "onlyyaps.gg/daisy_fps",
+      "linkUrl": "line.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "thock_asmr",
-      "partnerMessage": "Okay, you understand the thock. 😭 That's dangerous information. Most people don't care enough to notice the difference.",
+      "partnerMessage": "Okay, you understand the thock. That's dangerous information. Most people don't care enough to notice the difference.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -1035,13 +1035,13 @@
     {
       "id": "hear_keyboard",
       "partnerMessage": "You actually want to hear it? Sure. I'll turn on my mic when we hop over there.",
-      "linkUrl": "onlyyaps.gg/daisy_fps",
+      "linkUrl": "line.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "see_skill_romance",
-      "partnerMessage": "Stop 😭. You're going to make me emotional over a dating app. But... thank you. That actually means a lot.",
+      "partnerMessage": "Stop. You're going to make me emotional over a dating app. But... thank you. That actually means a lot.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -1074,7 +1074,7 @@
       "triggerEvent": "",
       "choices": [
         {
-          "choiceText": "Never. Let's hop over to OnlyYaps.",
+          "choiceText": "Never. Let's hop over to Line.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": "TOUCHED_HEART"
@@ -1097,71 +1097,71 @@
     },
     {
       "id": "where_hiding",
-      "partnerMessage": "Probably in my room, honestly. 😭 I'm just waiting for someone who doesn't tilt after one bad round.",
-      "linkUrl": "onlyyaps.gg/daisy_fps",
+      "partnerMessage": "Probably in my room, honestly. I'm just waiting for someone who doesn't tilt after one bad round.",
+      "linkUrl": "line.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "mouse_bungee",
-      "partnerMessage": "Okay, you got me with that one. 😭 I won't say no to a mouse bungee, though. You might actually win points for that.",
-      "linkUrl": "onlyyaps.gg/daisy_fps",
+      "partnerMessage": "Okay, you got me with that one. I won't say no to a mouse bungee, though. You might actually win points for that.",
+      "linkUrl": "line.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "demonic_praise",
-      "partnerMessage": "I know. 😭 It's probably a terrible habit, but it's fun when it works. I'll show you some clips later.",
-      "linkUrl": "onlyyaps.gg/daisy_fps",
+      "partnerMessage": "I know. It's probably a terrible habit, but it's fun when it works. I'll show you some clips later.",
+      "linkUrl": "line.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "bad_side_fear",
-      "partnerMessage": "Then stay on my good side. I give good callouts when I like someone. 😌",
-      "linkUrl": "onlyyaps.gg/daisy_fps",
+      "partnerMessage": "Then stay on my good side. I give good callouts when I like someone.",
+      "linkUrl": "line.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "hunting_beside",
-      "partnerMessage": "Okay, now you're making this sound like we're starting a crime spree. 😭 I'll take the duo partner part, though.",
-      "linkUrl": "onlyyaps.gg/daisy_fps",
+      "partnerMessage": "Okay, now you're making this sound like we're starting a crime spree. I'll take the duo partner part, though.",
+      "linkUrl": "line.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "work_ethic_praise",
       "partnerMessage": "Thank you. I put a lot into it, so it's nice when someone notices the effort instead of just seeing the wins.",
-      "linkUrl": "onlyyaps.gg/daisy_fps",
+      "linkUrl": "line.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "time_to_date",
       "partnerMessage": "I make time. I just don't do the whole disappearing-for-days thing because I got busy with a match. If I like someone, I'll make room for them.",
-      "linkUrl": "onlyyaps.gg/daisy_fps",
+      "linkUrl": "line.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "shut_up_praise",
       "partnerMessage": "Hahaha, fair. I like that you can take the L and laugh about it. Come on, let's keep talking somewhere better.",
-      "linkUrl": "onlyyaps.gg/daisy_fps",
+      "linkUrl": "line.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "see_you_shine",
-      "partnerMessage": "Okay, that was really sweet. 😭 I actually like the idea of having someone there who wants to see me do well, not just tell me to win.",
-      "linkUrl": "onlyyaps.gg/daisy_fps",
+      "partnerMessage": "Okay, that was really sweet. I actually like the idea of having someone there who wants to see me do well, not just tell me to win.",
+      "linkUrl": "line.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "front_row_stream",
-      "partnerMessage": "Deal. 😭 But if you jinx my ace, I'm blaming you. I'll send you the private stream.",
-      "linkUrl": "onlyyaps.gg/daisy_fps",
+      "partnerMessage": "Deal. But if you jinx my ace, I'm blaming you. I'll send you the private stream.",
+      "linkUrl": "line.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
@@ -1175,7 +1175,7 @@
     {
       "id": "move_to_yaps",
       "partnerMessage": "Let's move this somewhere easier. Join my private channel and we can actually talk without this app getting in the way.",
-      "linkUrl": "onlyyaps.gg/daisy_fps",
+      "linkUrl": "line.gg/daisy_fps",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     }

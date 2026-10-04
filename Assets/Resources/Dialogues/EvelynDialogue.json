@@ -941,12 +941,12 @@
     },
     {
       "id": "marriage_banter",
-      "partnerMessage": "Okay, we're moving extremely fast. 😭 But I'm not exactly complaining. An anechoic chamber is probably the most on-brand wedding venue I could think of.",
+      "partnerMessage": "Okay, we're moving extremely fast. But I'm not exactly complaining. An anechoic chamber is probably the most on-brand wedding venue I could think of.",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
         {
-          "choiceText": "As long as the cake has black velvet frosting, deal. Let's move to OnlyYaps.",
+          "choiceText": "As long as the cake has black velvet frosting, deal. Let's move to Line.",
           "nextId": "vault_pitch_forward",
           "linkUrl": "",
           "triggerEvent": ""
@@ -1011,12 +1011,12 @@
     },
     {
       "id": "competence_attraction",
-      "partnerMessage": "That's new. Usually people just ask why I have six different filters open. 😭 But... thank you. I'll take the compliment.",
+      "partnerMessage": "That's new. Usually people just ask why I have six different filters open. But... thank you. I'll take the compliment.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
         {
-          "choiceText": "Intelligence is the most attractive frequency there is. Move this to OnlyYaps.",
+          "choiceText": "Intelligence is the most attractive frequency there is. Move this to Line.",
           "nextId": "vault_pitch_forward",
           "linkUrl": "",
           "triggerEvent": "TOUCHED_HEART"
@@ -1044,7 +1044,7 @@
       "triggerEvent": "",
       "choices": [
         {
-          "choiceText": "You're a menace to tourist traps and I love it. Move this to OnlyYaps.",
+          "choiceText": "You're a menace to tourist traps and I love it. Move this to Line.",
           "nextId": "vault_pitch_forward",
           "linkUrl": "",
           "triggerEvent": ""
@@ -1109,7 +1109,7 @@
     },
     {
       "id": "tea_takeover_romance",
-      "partnerMessage": "You'd really take the headphones away? 😭 Honestly, that sounds nice. I forget what silence feels like when I've been editing all night.",
+      "partnerMessage": "You'd really take the headphones away? Honestly, that sounds nice. I forget what silence feels like when I've been editing all night.",
       "linkUrl": "",
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
@@ -1128,7 +1128,7 @@
       "triggerEvent": "DEEP_TALK",
       "choices": [
         {
-          "choiceText": "I'll be your digital detox partner. Give me your OnlyYaps handle.",
+          "choiceText": "I'll be your digital detox partner. Give me your Line handle.",
           "nextId": "vault_pitch_forward",
           "linkUrl": "",
           "triggerEvent": "TOUCHED_HEART"
@@ -1156,7 +1156,7 @@
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
         {
-          "choiceText": "Let me give you that paradise. Let's move to OnlyYaps.",
+          "choiceText": "Let me give you that paradise. Let's move to Line.",
           "nextId": "vault_pitch_forward",
           "linkUrl": "",
           "triggerEvent": "TOUCHED_HEART"
@@ -1184,7 +1184,7 @@
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
         {
-          "choiceText": "I walk in first. Always. Give me your OnlyYaps link.",
+          "choiceText": "I walk in first. Always. Give me your Line link.",
           "nextId": "vault_pitch_forward",
           "linkUrl": "",
           "triggerEvent": "TOUCHED_HEART"
@@ -1296,7 +1296,7 @@
       "triggerEvent": "",
       "choices": [
         {
-          "choiceText": "On it. Lead the way to OnlyYaps.",
+          "choiceText": "On it. Lead the way to Line.",
           "nextId": "vault_pitch_forward",
           "linkUrl": "",
           "triggerEvent": ""
@@ -1324,7 +1324,7 @@
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
         {
-          "choiceText": "Then let's not fight statistics. Let's make it real on OnlyYaps.",
+          "choiceText": "Then let's not fight statistics. Let's make it real on Line.",
           "nextId": "vault_pitch_forward",
           "linkUrl": "",
           "triggerEvent": ""
@@ -1434,7 +1434,7 @@
       "triggerEvent": "",
       "choices": [
         {
-          "choiceText": "Show me on OnlyYaps. I'd love to see your setup.",
+          "choiceText": "Show me on Line. I'd love to see your setup.",
           "nextId": "vault_pitch_forward",
           "linkUrl": "",
           "triggerEvent": ""
@@ -1490,7 +1490,7 @@
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
         {
-          "choiceText": "Let me hear that heart rate on OnlyYaps. Send the link.",
+          "choiceText": "Let me hear that heart rate on Line. Send the link.",
           "nextId": "vault_pitch_forward",
           "linkUrl": "",
           "triggerEvent": ""
@@ -1534,8 +1534,8 @@
     },
     {
       "id": "vault_pitch_forward",
-      "partnerMessage": "Okay, I'm moving this somewhere a little quieter. My private OnlyYaps vault has the recordings, notes, and case files. Come over there and I'll show you the stuff I don't put on the public profile.",
-      "linkUrl": "onlyyaps.vault/evelyn_evp",
+      "partnerMessage": "Okay, I'm moving this somewhere a little quieter. My private Line vault has the recordings, notes, and case files. Come over there and I'll show you the stuff I don't put on the public profile.",
+      "linkUrl": "line.vault/evelyn_evp",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     }

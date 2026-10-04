@@ -29,7 +29,7 @@
     {
       "id": "oy_evidence_demand",
       "partnerMessage": "Alright, straight to it. I like that.\n\nThis was recorded at the mountain observatory at 3:14 in the morning. There's a really strange spike around 18 Hz. It's below what most people can hear, but you can see it clearly in the data:",
-      "linkUrl": "onlyyaps.vault/spectrogram_094",
+      "linkUrl": "line.vault/spectrogram_094",
       "triggerEvent": "TRIGGER_GLITCH_EFFECT",
       "choices": [
         { "choiceText": "That waveform isn't random background hum. The comb filtering is deliberate.", "nextId": "oy_comb_filtering_reaction", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
@@ -229,7 +229,7 @@
     {
       "id": "oy_records",
       "partnerMessage": "Okay, look at the center of the waterfall, between 03:14:20 and 03:14:45. That's the part I couldn't explain away:",
-      "linkUrl": "onlyyaps.vault/spectrogram_094",
+      "linkUrl": "line.vault/spectrogram_094",
       "triggerEvent": "TRIGGER_GLITCH_EFFECT",
       "choices": [
         { "choiceText": "Wait... those frequency peaks repeat in an 8-bit binary pattern. How is that possible?", "nextId": "oy_binary_discovery", "linkUrl": "", "triggerEvent": "TOUCHED_HEART" },
@@ -421,7 +421,7 @@
     },
     {
       "id": "oy_fan_belt_skeptic",
-      "partnerMessage": "That would give me a pretty different frequency profile. I actually checked the nearby HVAC equipment. Nothing lined up.\n\nYou're making me defend this thing harder than I expected, though. 😭",
+      "partnerMessage": "That would give me a pretty different frequency profile. I actually checked the nearby HVAC equipment. Nothing lined up.\n\nYou're making me defend this thing harder than I expected, though.",
       "linkUrl": "",
       "triggerEvent": "EVELYN_SKEPTIC",
       "choices": [

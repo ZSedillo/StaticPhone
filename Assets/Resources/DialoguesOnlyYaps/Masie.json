@@ -341,7 +341,7 @@
     {
       "id": "oy_specimens_interest",
       "partnerMessage": "I've got my field sketchbook open on the cedar table under the little clip-on lamp. Watercolors, seed pods, root sketches... the whole messy pile.\n\nI was working on this one earlier. Take a look:",
-      "linkUrl": "onlyyaps.garden/masie/botanical_plate_14",
+      "linkUrl": "line.garden/masie/botanical_plate_14",
       "triggerEvent": "UNLOCK_LOOKBOOK",
       "choices": [
         {
@@ -493,7 +493,7 @@
     {
       "id": "oy_potting_tonight_intro",
       "partnerMessage": "I've got twelve trays of highland *Nepenthes* hybrids that need repotting before the temperature drops this weekend.\n\nThe mix is mostly long-fiber sphagnum with perlite and a little pine bark. Nothing exciting until you see the roots.\n\nLook at this chart. Week eight is where the primary root gets stupidly delicate.",
-      "linkUrl": "onlyyaps.garden/masie/seedling_telemetry_08",
+      "linkUrl": "line.garden/masie/seedling_telemetry_08",
       "triggerEvent": "UNLOCK_LOOKBOOK",
       "choices": [
         {
@@ -851,7 +851,7 @@
     },
     {
       "id": "oy_call_missed_reset",
-      "partnerMessage": "The audio line cut out right when the steam valve started hissing. 📶\n\nI'm still by the auxiliary pipe with the wrench. Call me back as soon as your signal settles, okay?",
+      "partnerMessage": "The audio line cut out right when the steam valve started hissing. \n\nI'm still by the auxiliary pipe with the wrench. Call me back as soon as your signal settles, okay?",
       "linkUrl": "",
       "triggerEvent": "ENABLE_VOICE_CALL",
       "choices": [

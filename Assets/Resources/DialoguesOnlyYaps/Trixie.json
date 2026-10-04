@@ -95,7 +95,7 @@
     {
       "id": "oy_listen_acoustic_draft",
       "partnerMessage": "Yeah, I still have it open.\n\nIt's not finished, so don't expect some perfect mastered thing. You can hear the room, the little timing slips, even my chair moving when I leaned forward.\n\nI almost deleted it because it felt too personal.\n\nGive me a second. I'll pull up the section I was talking about.",
-      "linkUrl": "onlyyaps.fm/trixie/downtempo_stem_03",
+      "linkUrl": "line.fm/trixie/downtempo_stem_03",
       "triggerEvent": "UNLOCK_LOOKBOOK",
       "choices": [
         {
@@ -469,7 +469,7 @@
     {
       "id": "oy_heart_on_tape_bond",
       "partnerMessage": "Yeah. That's the bit I really care about.\n\nDad's guitar, a little tape hiss, a slow delay, and then this stupidly deep bass underneath it.\n\nIt's not what people expect from me. Maybe that's why I like it.\n\nNobody can tell me I'm doing the job wrong when I'm making something that only has to make sense to me.",
-      "linkUrl": "onlyyaps.fm/trixie/eurorack_routing_map",
+      "linkUrl": "line.fm/trixie/eurorack_routing_map",
       "triggerEvent": "UNLOCK_LOOKBOOK",
       "choices": [
         {
@@ -503,7 +503,7 @@
     {
       "id": "oy_modular_patch_intro",
       "partnerMessage": "Okay, gear time.\n\nThree rows of modules, way too many patch cables, and a power supply I keep promising myself I'll tidy up.\n\nThis oscillator feeds the filter, the clock is controlling the delay, and I leave some of the routing slightly unpredictable on purpose.\n\nI like when the machine gives me something I didn't ask for.",
-      "linkUrl": "onlyyaps.fm/trixie/eurorack_routing_map",
+      "linkUrl": "line.fm/trixie/eurorack_routing_map",
       "triggerEvent": "UNLOCK_LOOKBOOK",
       "choices": [
         {

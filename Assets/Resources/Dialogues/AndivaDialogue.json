@@ -696,7 +696,7 @@
     {
       "id": "bully_climax",
       "partnerMessage": "Yeah, no. I'm not doing this. If insulting me is how you have fun, we're probably not a good match. Take care.",
-      "linkUrl": "onlyyaps.app/andiva_style",
+      "linkUrl": "line.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
@@ -961,7 +961,7 @@
     {
       "id": "moderation_lecture",
       "partnerMessage": "Maybe I'm not everyone's taste. That's fine. But I'm definitely not going to apologize for being myself just to make someone more comfortable.",
-      "linkUrl": "onlyyaps.app/andiva_style",
+      "linkUrl": "line.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
@@ -1210,7 +1210,7 @@
     {
       "id": "impasse_exit",
       "partnerMessage": "That's fair. Better to be honest now than force a conversation that isn't working. Take care, {PlayerName}.",
-      "linkUrl": "onlyyaps.app/andiva_style",
+      "linkUrl": "line.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
@@ -1347,7 +1347,7 @@
       "triggerEvent": "",
       "choices": [
         {
-          "choiceText": "Then let's take this private. Give me your OnlyYaps.",
+          "choiceText": "Then let's take this private. Give me your Line.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": ""
@@ -1413,7 +1413,7 @@
     {
       "id": "safe_promise_link",
       "partnerMessage": "Okay... I think I trust you enough to keep talking. But not here. This app is starting to feel way too public for this conversation.",
-      "linkUrl": "onlyyaps.app/andiva_style",
+      "linkUrl": "line.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
@@ -1634,7 +1634,7 @@
       "triggerEvent": "",
       "choices": [
         {
-          "choiceText": "Tell me everything. On OnlyYaps.",
+          "choiceText": "Tell me everything. On Line.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": ""
@@ -1718,7 +1718,7 @@
       "triggerEvent": "",
       "choices": [
         {
-          "choiceText": "Let's plan our runway route on OnlyYaps.",
+          "choiceText": "Let's plan our runway route on Line.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": ""
@@ -1760,7 +1760,7 @@
       "triggerEvent": "",
       "choices": [
         {
-          "choiceText": "Let's set up that investigation on OnlyYaps.",
+          "choiceText": "Let's set up that investigation on Line.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": ""
@@ -1840,7 +1840,7 @@
     {
       "id": "reginald_dinner",
       "partnerMessage": "Okay, that's officially a date. Just know Reginald gets a vote, unfortunately.",
-      "linkUrl": "onlyyaps.app/andiva_style",
+      "linkUrl": "line.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
@@ -1875,7 +1875,7 @@
     {
       "id": "like_both_confession",
       "partnerMessage": "That means a lot, seriously. I think I'd rather you know both sides of me than just the part that's easy to like.",
-      "linkUrl": "onlyyaps.app/andiva_style",
+      "linkUrl": "line.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
@@ -1886,7 +1886,7 @@
       "triggerEvent": "",
       "choices": [
         {
-          "choiceText": "Only for your VIP section. Let's move to OnlyYaps.",
+          "choiceText": "Only for your VIP section. Let's move to Line.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": ""
@@ -1896,7 +1896,7 @@
     {
       "id": "not_running_flirt",
       "partnerMessage": "Good. Because I'm starting to like you, and I'd rather not waste this on an app conversation that goes nowhere.",
-      "linkUrl": "onlyyaps.app/andiva_style",
+      "linkUrl": "line.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
@@ -1921,7 +1921,7 @@
       "triggerEvent": "",
       "choices": [
         {
-          "choiceText": "Count on it. Give me your OnlyYaps.",
+          "choiceText": "Count on it. Give me your Line.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": ""
@@ -1945,14 +1945,14 @@
     {
       "id": "first_official_date",
       "partnerMessage": "Okay, then it's official. Let's figure out the details somewhere a little less chaotic than this app.",
-      "linkUrl": "onlyyaps.app/andiva_style",
+      "linkUrl": "line.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "chosen_circle_invite",
       "partnerMessage": "You know what? I don't say that lightly, but I'd actually like you in my life. Let's see where this goes.",
-      "linkUrl": "onlyyaps.app/andiva_style",
+      "linkUrl": "line.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
@@ -1979,70 +1979,70 @@
     {
       "id": "crunchy_praise",
       "partnerMessage": "Okay, good answer. You might actually survive spending time with me.",
-      "linkUrl": "onlyyaps.app/andiva_style",
+      "linkUrl": "line.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "smooth_praise",
       "partnerMessage": "Fine. I'll let it slide. But I'm still judging you a little.",
-      "linkUrl": "onlyyaps.app/andiva_style",
+      "linkUrl": "line.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "couch_tv_date",
       "partnerMessage": "I've got the face masks. You bring the snacks. That's basically a solid evening already.",
-      "linkUrl": "onlyyaps.app/andiva_style",
+      "linkUrl": "line.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "salmon_treats",
       "partnerMessage": "Okay, bribing Reginald with treats is smart. I respect the strategy.",
-      "linkUrl": "onlyyaps.app/andiva_style",
+      "linkUrl": "line.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "bow_romance",
       "partnerMessage": "You better mean that. If you cheer that loudly, I might actually get brave enough to pull you up there with me.",
-      "linkUrl": "onlyyaps.app/andiva_style",
+      "linkUrl": "line.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "good_man_validation",
       "partnerMessage": "Thank you, {PlayerName}. I don't hear things like that very often. I'd rather keep talking to you somewhere private.",
-      "linkUrl": "onlyyaps.app/andiva_style",
+      "linkUrl": "line.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "melting_confession",
       "partnerMessage": "Okay, yes. It's working. Don't make me say that too many times or I'll get embarrassed.",
-      "linkUrl": "onlyyaps.app/andiva_style",
+      "linkUrl": "line.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "regal_praise",
       "partnerMessage": "Okay, now I'm going to be insufferable about that compliment. But thank you. Really.",
-      "linkUrl": "onlyyaps.app/andiva_style",
+      "linkUrl": "line.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "luggage_pact",
       "partnerMessage": "You carry the bags, I'll plan the route. Honestly, that sounds like a pretty good arrangement.",
-      "linkUrl": "onlyyaps.app/andiva_style",
+      "linkUrl": "line.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },
     {
       "id": "move_to_yaps",
       "partnerMessage": "Okay, let's take this somewhere private. I actually want to keep talking to you without fifty other conversations sitting around us.",
-      "linkUrl": "onlyyaps.app/andiva_style",
+      "linkUrl": "line.app/andiva_style",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     }

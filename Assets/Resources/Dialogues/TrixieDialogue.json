@@ -7,7 +7,7 @@
   "nodes": [
     {
       "id": "start",
-      "partnerMessage": "YO {PlayerName}!! 🎧⚡\n\nI just packed down my live rig after a four-hour warehouse set. My ears are ringing, my hoodie smells like fog juice and cold air, and there are two cans of iced matcha somewhere in my gear bag.\n\nI'm still way too awake for this hour.\n\nOkay, important question before I start rambling: what's actually been stuck in your headphones lately?",
+      "partnerMessage": "YO {PlayerName}!! \n\nI just packed down my live rig after a four-hour warehouse set. My ears are ringing, my hoodie smells like fog juice and cold air, and there are two cans of iced matcha somewhere in my gear bag.\n\nI'm still way too awake for this hour.\n\nOkay, important question before I start rambling: what's actually been stuck in your headphones lately?",
       "linkUrl": "",
       "triggerEvent": "",
       "choices": [
@@ -665,7 +665,7 @@
     {
       "id": "move_to_yaps",
       "partnerMessage": "Private studio's open.\n\nThere are unfinished tracks, late-night recordings, synth nonsense, and probably a pile of cables I still haven't put away.\n\nCome hang out, {PlayerName}. Let's turn the volume down for once and actually talk.",
-      "linkUrl": "onlyyaps.fm/trixie_drop",
+      "linkUrl": "line.fm/trixie_drop",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     },

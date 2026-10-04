@@ -652,7 +652,7 @@
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
         {
-          "choiceText": "I keep every promise I make. Move over to OnlyYaps so I can hear your real voice.",
+          "choiceText": "I keep every promise I make. Move over to Line so I can hear your real voice.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": "TOUCHED_HEART"
@@ -764,7 +764,7 @@
       "triggerEvent": "TOUCHED_HEART",
       "choices": [
         {
-          "choiceText": "The weight is down. Now come over to OnlyYaps so we can talk properly.",
+          "choiceText": "The weight is down. Now come over to Line so we can talk properly.",
           "nextId": "move_to_yaps",
           "linkUrl": "",
           "triggerEvent": "TOUCHED_HEART"
@@ -830,7 +830,7 @@
     {
       "id": "move_to_yaps",
       "partnerMessage": "Okay.\n\nI've opened the private studio feed.\n\nThere's rehearsal audio in there, some notes I've never shown anyone, and a couple of recordings that definitely need more work.\n\nNo judging me for the bad takes.\n\nCome in, {PlayerName}. We can talk without all the noise from this app around us.",
-      "linkUrl": "onlyyaps.studio/seraphine_solo",
+      "linkUrl": "line.studio/seraphine_solo",
       "triggerEvent": "UNLOCK_ONLYYAPS",
       "choices": []
     }

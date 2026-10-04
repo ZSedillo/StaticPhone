@@ -185,7 +185,7 @@ MonoBehaviour:
   backgroundImage: {fileID: 0}
   buttonText: {fileID: 0}
   datingBgSprite: {fileID: -8842844316680655686, guid: 7855daeabfef46a46829ec2b2d9d5a24, type: 3}
-  datingBgColor: {r: 1, g: 0.82763755, b: 0, a: 1}
+  datingBgColor: {r: 0.85660374, g: 0.73863775, b: 0.17293696, a: 1}
   datingTextColor: {r: 1, g: 1, b: 1, a: 1}
   onlyYapsBgSprite: {fileID: -8842844316680655686, guid: 7855daeabfef46a46829ec2b2d9d5a24, type: 3}
   onlyYapsBgColor: {r: 0.27087635, g: 0.7660377, b: 0.108401455, a: 1}

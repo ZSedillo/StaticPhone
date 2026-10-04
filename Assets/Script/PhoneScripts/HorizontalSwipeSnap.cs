@@ -6,7 +6,7 @@ public class HorizontalSwipeSnap : MonoBehaviour, IDragHandler, IBeginDragHandle
 {
     [Header("Swipe Settings")]
     [Tooltip("Total number of home screen pages.")]
-    public int totalPages = 3;
+    public int totalPages = 2;
     
     [Tooltip("How many pixels you must drag horizontally to trigger a page turn.")]
     public float swipeThreshold = 50f; 

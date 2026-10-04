@@ -208,7 +208,7 @@
     },
     {
       "nodeId": "c1_hangup_debrief",
-      "partnerDialogue": "*voice shaking with happy tears* I'm unplugging my headset right now. My teammates are screaming in Discord, but I just want to talk to you. Check OnlyYaps right now—I'm sliding down onto my carpet.",
+      "partnerDialogue": "*voice shaking with happy tears* I'm unplugging my headset right now. My teammates are screaming in Discord, but I just want to talk to you. Check chat right now—I'm sliding down onto my carpet.",
       "choices": [
         {
           "choiceText": "[Hang Up and Return to Chat]",

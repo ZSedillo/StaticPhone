@@ -9,7 +9,7 @@ public class SettingsAppController : MonoBehaviour
     [SerializeField] private Slider volumeSlider;
     
     [SerializeField] private Button btnRestartProgress;
-    [SerializeField] private Button btnExitToMenu; // Renamed to clarify its new purpose
+    [SerializeField] private Button btnExitToMenu;
 
     private void Start()
     {
@@ -41,18 +41,44 @@ public class SettingsAppController : MonoBehaviour
     private void RestartProgress()
     {
         Debug.Log("Restarting all progress...");
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();
-        //ChatSaveSystem.WipeAllData();
+        
+        // 1. Temporarily save the volume
+        float currentVolume = PlayerPrefs.GetFloat("GameVolume", 1f);
+        
+        // 2. Comprehensive wipe using your specific GameManager logic
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ResetAllProgress();
+        }
+        else
+        {
+            ChatSaveSystem.DeleteAllProgress();
+        }
+
+        if (TaskManager.Instance != null)
+        {
+            TaskManager.Instance.ResetAllTasks();
+        }
+
         DatingCardController.ResetSeenProfiles();
-        Debug.Log("Progress deleted. Please restart the game.");
+        
+        PlayerPrefs.DeleteAll();
+        
+        // 3. Put the volume back and save
+        PlayerPrefs.SetFloat("GameVolume", currentVolume);
+        PlayerPrefs.Save();
+        
+        Debug.Log("Progress deleted.");
     }
 
-    // You can also call this directly from your MainMenu App Icon!
     public void ExitToMainMenu()
     {
-        Debug.Log("Returning to Main Menu...");
-        PlayerPrefs.Save();
-        SceneManager.LoadScene("MainMenu");
+        Debug.Log("Wiping progress and returning to Main Menu...");
+        
+        // Call the massive wipe function first
+        RestartProgress();
+        
+        // Then load the Main Menu
+        SceneManager.LoadScene("Credits");
     }
 }
