@@ -966,100 +966,99 @@ MonoBehaviour:
 
     LoneMatchi
 
-    
+
 
     Created By
 
-    Zandro Miguel
-    Sedillo
+    Zandro Miguel Sedillo
 
-    
 
-    Game Design & Direction
+
+    Game
+    Design & Direction
 
     Zandro Miguel Sedillo
 
-    
 
-    Programming
-    & UI Engineering
+
+    Programming & UI Engineering
+
+    Zandro
+    Miguel Sedillo
+
+
+
+    Narrative & Dialogue Design
 
     Zandro Miguel Sedillo
 
-    
 
-    Narrative & Dialogue
-    Design
 
-    Zandro Miguel Sedillo
-
-    
-
-    Powered By
+    Powered
+    By
 
     Unity Engine
 
-    
 
-    Audio
-    & Music
+
+    Audio & Music
 
     Audio assets sourced from Pixabay
 
-    
 
-    Development Assistance
 
-    This
-    AI-assisted development tools were used during the creation of this game, This
-    includes the use of Google Gemini for programming assistance and ChatGPT for
-    dialogue and writing assistance. All game design decisions, implementation, integration,
-    and final creative direction were handled by me.
+    Development
+    Assistance
 
-    
+    These AI-assisted development tools were used during the creation
+    of this game. This includes the use of Google Gemini for programming assistance
+    and ChatGPT for dialogue and writing assistance. All game design decisions, implementation,
+    integration, and final creative direction were handled by me.
 
-    
+
+
+
 
     A Personal
     Note from the Developer:
 
-    
+
 
     This game marks my very first public release.
 
-    
+
 
     I
     built this as a solo project from an idea that started with me simply wanting
     to make something of my own and see it through to completion. Most of my work
-    happens when I have spare time to invest on this game it was not consistent but
-    I wanted to give my efforts to this game.
+    happened when I had spare time to invest in this game it was not consistent,
+    but I wanted to give my efforts to this game.
 
-    
 
-    This project was also
-    a great opportunity for me to learned. I used AI tools as part of my development
-    process, when I needed help working through programming problems, refining dialogue,
-    or figuring out solutions I wasn''t familiar on how to solve yet. But the ideas,
-    design, direction, decisions, and final result came from me.
 
-    
+    This project was also a
+    great opportunity for me to learn. I used AI tools as part of my development
+    process when I needed help working through programming problems, refining dialogue,
+    or figuring out solutions I wasn''t familiar with yet. But the ideas, design,
+    direction, decisions, and final result came from me.
 
-    There
-    were plenty of moments where things didn''t go as expected, had to be rewritten,
-    or took much longer than expected. Seeing the project finally become something
-    people can actually play makes all of that worth it.
 
-    
 
-    The game is
-    not entirely perfect, but to everyone who plays this thank you so much!
+    There were plenty
+    of moments where things didn''t go as expected, had to be rewritten, or took
+    much longer than expected. Seeing the project finally become something people
+    can actually play makes all of that worth it.
 
-    
 
-    Whether
-    you spend five minutes with the game or see it all the way through, I genuinely
-    appreciate you giving something I made your time.'
+
+    The game is not entirely
+    perfect, but to everyone who plays this, thank you so much!
+
+
+
+    Whether you
+    spend five minutes with the game or see it all the way through, I genuinely appreciate
+    you giving something I made your time.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d747b07771511f49810db9d0652e081, type: 2}
   m_sharedMaterial: {fileID: 963513551435472275, guid: 3d747b07771511f49810db9d0652e081, type: 2}
@@ -1307,7 +1306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CreditsController
   creditsContainer: {fileID: 1184880451}
   scrollSpeed: 50
-  stopYPosition: 3750
+  stopYPosition: 4370
   returnPrompt: {fileID: 1504788239}
 --- !u!4 &1830144677
 Transform:
